@@ -193,141 +193,141 @@ export default class Cricket extends Component {
 
     p120Progress() {
         if (this.state.p120 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p120 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p120 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }    
     
     p119Progress() {
         if (this.state.p119 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p119 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p119 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
 
     p118Progress() {
         if (this.state.p118 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p118 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p118 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
      
     p117Progress() {
         if (this.state.p117 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p117 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p117 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p116Progress() {
         if (this.state.p116 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p116 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p116 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p115Progress() {
         if (this.state.p115 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p115 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p115 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p125Progress() {
         if (this.state.p125 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p125 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p125 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p220Progress() {
         if (this.state.p220 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p220 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p220 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }    
     
     p219Progress() {
         if (this.state.p219 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p219 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p219 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
 
     p218Progress() {
         if (this.state.p218 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p218 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p218 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
      
     p217Progress() {
         if (this.state.p217 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p217 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p217 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p216Progress() {
         if (this.state.p216 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p216 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p216 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p215Progress() {
         if (this.state.p215 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p215 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p215 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 
     p225Progress() {
         if (this.state.p225 === 1) {
-            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p225 === 2) {
-            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="assets/images/2-mark.png" />)        
         } else if (this.state.p225 === 3) {
-            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
 

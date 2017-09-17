@@ -22640,154 +22640,154 @@ var Cricket = function (_Component) {
         key: "p120Progress",
         value: function p120Progress() {
             if (this.state.p120 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p120 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p120 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p119Progress",
         value: function p119Progress() {
             if (this.state.p119 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p119 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p119 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p118Progress",
         value: function p118Progress() {
             if (this.state.p118 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p118 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p118 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p117Progress",
         value: function p117Progress() {
             if (this.state.p117 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p117 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p117 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p116Progress",
         value: function p116Progress() {
             if (this.state.p116 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p116 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p116 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p115Progress",
         value: function p115Progress() {
             if (this.state.p115 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p115 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p115 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p125Progress",
         value: function p125Progress() {
             if (this.state.p125 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p125 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p125 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p220Progress",
         value: function p220Progress() {
             if (this.state.p220 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p220 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p220 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p219Progress",
         value: function p219Progress() {
             if (this.state.p219 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p219 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p219 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p218Progress",
         value: function p218Progress() {
             if (this.state.p218 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p218 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p218 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p217Progress",
         value: function p217Progress() {
             if (this.state.p217 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p217 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p217 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p216Progress",
         value: function p216Progress() {
             if (this.state.p216 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p216 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p216 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p215Progress",
         value: function p215Progress() {
             if (this.state.p215 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p215 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p215 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p225Progress",
         value: function p225Progress() {
             if (this.state.p225 === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p225 === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
             } else if (this.state.p225 === 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
     }, {
