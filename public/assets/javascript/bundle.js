@@ -22482,6 +22482,8 @@ var Cricket = function (_Component) {
         _this.p225Progress = _this.p225Progress.bind(_this);
         _this.gameStateChange = _this.gameStateChange.bind(_this);
         _this.gameOverCheck = _this.gameOverCheck.bind(_this);
+        _this.playersRender = _this.playersRender.bind(_this);
+        _this.miss = _this.miss.bind(_this);
         return _this;
     }
 
@@ -22588,6 +22590,12 @@ var Cricket = function (_Component) {
             this.checkThrower();
         }
     }, {
+        key: "miss",
+        value: function miss() {
+            this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+            this.checkThrower();
+        }
+    }, {
         key: "checkThrower",
         value: function checkThrower() {
             if (this.state.activeThrows === 2) {
@@ -22632,154 +22640,211 @@ var Cricket = function (_Component) {
         key: "p120Progress",
         value: function p120Progress() {
             if (this.state.p120 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p120 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p120 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p119Progress",
         value: function p119Progress() {
             if (this.state.p119 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p119 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p119 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p118Progress",
         value: function p118Progress() {
             if (this.state.p118 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p118 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p118 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p117Progress",
         value: function p117Progress() {
             if (this.state.p117 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p117 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p117 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p116Progress",
         value: function p116Progress() {
             if (this.state.p116 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p116 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p116 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p115Progress",
         value: function p115Progress() {
             if (this.state.p115 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p115 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p115 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p125Progress",
         value: function p125Progress() {
             if (this.state.p125 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p125 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p125 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p220Progress",
         value: function p220Progress() {
             if (this.state.p220 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p220 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p220 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p219Progress",
         value: function p219Progress() {
             if (this.state.p219 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p219 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p219 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p218Progress",
         value: function p218Progress() {
             if (this.state.p218 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p218 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p218 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p217Progress",
         value: function p217Progress() {
             if (this.state.p217 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p217 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p217 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p216Progress",
         value: function p216Progress() {
             if (this.state.p216 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p216 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p216 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p215Progress",
         value: function p215Progress() {
             if (this.state.p215 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p215 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p215 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
             }
         }
     }, {
         key: "p225Progress",
         value: function p225Progress() {
             if (this.state.p225 === 1) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/1-mark.png" });
             } else if (this.state.p225 === 2) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/2-mark.png" });
             } else if (this.state.p225 === 3) {
-                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+                return _react2.default.createElement("img", { className: "mark", src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "playersRender",
+        value: function playersRender() {
+            if (this.state.activeThrower === "p1") {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row top-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-3 text-right throw-number" },
+                        "Throw: ",
+                        this.state.activeThrows + 1
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center player" },
+                        "Player 1"
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center cricket" },
+                        "Cricket"
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center player" },
+                        "Player 2"
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row top-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 offset-3 text-center player" },
+                        "Player 1"
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center cricket" },
+                        "Cricket"
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center player" },
+                        "Player 2"
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-3 text-left throw-number" },
+                        "Throw: ",
+                        this.state.activeThrows + 1
+                    )
+                );
             }
         }
     }, {
@@ -22790,23 +22855,38 @@ var Cricket = function (_Component) {
             return _react2.default.createElement(
                 "div",
                 { className: "container-fluid" },
+                this.playersRender(),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-right" },
-                        "Player 1"
+                        { className: "col-3 text-right align-self-end" },
+                        "Points:"
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
-                        "Cricket"
+                        { className: "col-2 text-center align-self-center" },
+                        this.p120Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-left" },
-                        "Player 2"
+                        { className: "col-2 text-center number" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn text-center", "data-toggle": "modal", "data-target": "#twentyModal" },
+                            "20"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center align-self-center" },
+                        this.p220Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-3 text-left align-self-end" },
+                        "Points:"
                     )
                 ),
                 _react2.default.createElement(
@@ -22814,31 +22894,31 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-center" },
+                        { className: "col-3 text-right" },
                         this.renderP1Score()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-right" },
-                        this.p120Progress()
+                        { className: "col-2 text-center align-self-center" },
+                        this.p119Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
+                        { className: "col-2 text-center number" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#twentyModal" },
-                            "20"
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#nineteenModal" },
+                            "19"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-left" },
-                        this.p220Progress()
+                        { className: "col-2 text-center align-self-center" },
+                        this.p219Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-center" },
+                        { className: "col-3 text-left" },
                         this.renderP2Score()
                     )
                 ),
@@ -22847,44 +22927,21 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-right" },
-                        this.p119Progress()
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#nineteenModal" },
-                            "19"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-5 text-left" },
-                        this.p219Progress()
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-5 text-right" },
+                        { className: "col-2 offset-3 text-center align-self-center" },
                         this.p118Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
+                        { className: "col-2 text-center number" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#eightteenModal" },
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#eightteenModal" },
                             "18"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-left" },
+                        { className: "col-2 text-center align-self-center" },
                         this.p218Progress()
                     )
                 ),
@@ -22893,21 +22950,21 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-right" },
+                        { className: "col-2 offset-3 text-center align-self-center" },
                         this.p117Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
+                        { className: "col-2 text-center number" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#seventeenModal" },
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#seventeenModal" },
                             "17"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-left" },
+                        { className: "col-2 text-center align-self-center" },
                         this.p217Progress()
                     )
                 ),
@@ -22916,21 +22973,21 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-right" },
+                        { className: "col-2 offset-3 text-center align-self-center" },
                         this.p116Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
+                        { className: "col-2 text-center number" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#sixteenModal" },
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#sixteenModal" },
                             "16"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-left" },
+                        { className: "col-2 text-center align-self-center" },
                         this.p216Progress()
                     )
                 ),
@@ -22939,21 +22996,21 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-right" },
+                        { className: "col-2 offset-3 text-center align-self-center" },
                         this.p115Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
+                        { className: "col-2 text-center number" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#fifteenModal" },
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#fifteenModal" },
                             "15"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-left" },
+                        { className: "col-2 text-center align-self-center" },
                         this.p215Progress()
                     )
                 ),
@@ -22962,22 +23019,35 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-right" },
+                        { className: "col-2 offset-3 text-center align-self-center" },
                         this.p125Progress()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center" },
+                        { className: "col-2 text-center number" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#bullModal" },
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#bullModal" },
                             "Bull"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5 text-left" },
+                        { className: "col-2 text-center align-self-center" },
                         this.p225Progress()
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 offset-3 text-center miss" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#missModal" },
+                            "Miss"
+                        )
                     )
                 ),
                 _react2.default.createElement(
@@ -23011,25 +23081,41 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 20, 1);
-                                        } },
-                                    "Single"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 20, 2);
-                                        } },
-                                    "Double"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 20, 3);
-                                        } },
-                                    "Triple"
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 20, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 20, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 20, 3);
+                                                } },
+                                            "Triple"
+                                        )
+                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23075,25 +23161,41 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 19, 1);
-                                        } },
-                                    "Single"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 19, 2);
-                                        } },
-                                    "Double"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 19, 3);
-                                        } },
-                                    "Triple"
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 19, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 19, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 19, 3);
+                                                } },
+                                            "Triple"
+                                        )
+                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23139,25 +23241,41 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 18, 1);
-                                        } },
-                                    "Single"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 18, 2);
-                                        } },
-                                    "Double"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 18, 3);
-                                        } },
-                                    "Triple"
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 18, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 18, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 18, 3);
+                                                } },
+                                            "Triple"
+                                        )
+                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23203,25 +23321,41 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 17, 1);
-                                        } },
-                                    "Single"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 17, 2);
-                                        } },
-                                    "Double"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 17, 3);
-                                        } },
-                                    "Triple"
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 17, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 17, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 17, 3);
+                                                } },
+                                            "Triple"
+                                        )
+                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23267,25 +23401,41 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 16, 1);
-                                        } },
-                                    "Single"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 16, 2);
-                                        } },
-                                    "Double"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 16, 3);
-                                        } },
-                                    "Triple"
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 16, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 16, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 16, 3);
+                                                } },
+                                            "Triple"
+                                        )
+                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23331,25 +23481,41 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 15, 1);
-                                        } },
-                                    "Single"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 15, 2);
-                                        } },
-                                    "Double"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 15, 3);
-                                        } },
-                                    "Triple"
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 15, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 15, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 15, 3);
+                                                } },
+                                            "Triple"
+                                        )
+                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23395,18 +23561,80 @@ var Cricket = function (_Component) {
                                 "div",
                                 { className: "modal-body" },
                                 _react2.default.createElement(
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 25, 1);
+                                                } },
+                                            "Single"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.score(_this3.state.activeThrower, 25, 2);
+                                                } },
+                                            "Double"
+                                        )
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-footer" },
+                                _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 25, 1);
-                                        } },
-                                    "Single"
+                                    { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                    "Close"
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "modal fade", id: "missModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "missModalLabel", "aria-hidden": "true" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal-dialog", role: "document" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-content" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-header" },
+                                _react2.default.createElement(
+                                    "h5",
+                                    { className: "modal-title", id: "missModalLabel" },
+                                    "Miss"
                                 ),
                                 _react2.default.createElement(
                                     "button",
+                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
+                                    _react2.default.createElement(
+                                        "span",
+                                        { "aria-hidden": "true" },
+                                        "\xD7"
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-body" },
+                                _react2.default.createElement(
+                                    "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this3.score(_this3.state.activeThrower, 25, 2);
+                                            _this3.miss();
                                         } },
-                                    "Double"
+                                    "Miss"
                                 )
                             ),
                             _react2.default.createElement(

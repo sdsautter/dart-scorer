@@ -54,6 +54,8 @@ export default class Cricket extends Component {
         this.p225Progress = this.p225Progress.bind(this);  
         this.gameStateChange = this.gameStateChange.bind(this);
         this.gameOverCheck = this.gameOverCheck.bind(this);
+        this.playersRender = this.playersRender.bind(this);
+        this.miss = this.miss.bind(this);
     }
 
     ComponentDidMount() {
@@ -148,7 +150,11 @@ export default class Cricket extends Component {
         this.gameOverCheck();        
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
+    }
 
+    miss() {
+        this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+        this.checkThrower();
     }
 
     checkThrower() {
@@ -187,253 +193,294 @@ export default class Cricket extends Component {
 
     p120Progress() {
         if (this.state.p120 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p120 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p120 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }
     }    
     
     p119Progress() {
         if (this.state.p119 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p119 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p119 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }
     }
 
     p118Progress() {
         if (this.state.p118 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p118 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p118 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }
     }
      
     p117Progress() {
         if (this.state.p117 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p117 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p117 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p116Progress() {
         if (this.state.p116 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p116 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p116 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p115Progress() {
         if (this.state.p115 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p115 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p115 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p125Progress() {
         if (this.state.p125 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p125 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p125 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p220Progress() {
         if (this.state.p220 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p220 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p220 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }
     }    
     
     p219Progress() {
         if (this.state.p219 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p219 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p219 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }
     }
 
     p218Progress() {
         if (this.state.p218 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p218 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p218 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }
     }
      
     p217Progress() {
         if (this.state.p217 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p217 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p217 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p216Progress() {
         if (this.state.p216 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p216 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p216 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p215Progress() {
         if (this.state.p215 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p215 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p215 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
     }
 
     p225Progress() {
         if (this.state.p225 === 1) {
-            return (<img src="../public/assets/images/1-mark.png" />)
+            return (<img className="mark" src="../public/assets/images/1-mark.png" />)
         } else if (this.state.p225 === 2) {
-            return (<img src="../public/assets/images/2-mark.png" />)        
+            return (<img className="mark" src="../public/assets/images/2-mark.png" />)        
         } else if (this.state.p225 === 3) {
-            return (<img src="../public/assets/images/3-mark.png" />)    
+            return (<img className="mark" src="../public/assets/images/3-mark.png" />)    
         }        
+    }
+
+    playersRender() {
+        if (this.state.activeThrower === "p1") {
+            return (
+                <div className="row top-row">
+                    <div className="col-3 text-right throw-number">
+                        Throw: {this.state.activeThrows + 1}
+                    </div>
+                    <div className="col-2 text-center player">
+                        Player 1
+                    </div>
+                    <div className="col-2 text-center cricket">
+                        Cricket
+                    </div>
+                    <div className="col-2 text-center player">
+                        Player 2
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className="row top-row">
+                    <div className="col-2 offset-3 text-center player">
+                        Player 1
+                    </div>
+                    <div className="col-2 text-center cricket">
+                        Cricket
+                    </div>
+                    <div className="col-2 text-center player">
+                        Player 2
+                    </div>
+                    <div className="col-3 text-left throw-number">
+                        Throw: {this.state.activeThrows + 1}
+                    </div>
+                </div>
+            )
+        }
     }
 
     render() {
         return (
             <div className="container-fluid">
-                <div className="row">
-                    <div className="col-5 text-right">
-                        Player 1
-                    </div>
-                    <div className="col-2 text-center">
-                        Cricket
-                    </div>
-                    <div className="col-5 text-left">
-                        Player 2
-                    </div>
-                </div>
+                {this.playersRender()}
                 <div className = "row">
-                    <div className="col-3 text-center">
-                        {this.renderP1Score()}
+                    <div className="col-3 text-right align-self-end">
+                        Points:
                     </div>
-                    <div className="col-2 text-right">
+                    <div className="col-2 text-center align-self-center">
                         {this.p120Progress()}
                     </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#twentyModal">
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
                             20
                         </button>
                     </div>
-                    <div className="col-2 text-left">
+                    <div className="col-2 text-center align-self-center">
                         {this.p220Progress()}
                     </div>
-                    <div className="col-3 text-center">
+                    <div className="col-3 text-left align-self-end">
+                        Points:
+                    </div>
+                </div>
+                <div className = "row">
+                    <div className="col-3 text-right">
+                        {this.renderP1Score()}
+                    </div>
+                    <div className="col-2 text-center align-self-center">
+                        {this.p119Progress()}
+                    </div>
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
+                            19
+                        </button>
+                    </div>
+                    <div className="col-2 text-center align-self-center">
+                        {this.p219Progress()}
+                    </div>
+                    <div className="col-3 text-left">
                         {this.renderP2Score()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5 text-right">
-                        {this.p119Progress()}
-                    </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#nineteenModal">
-                            19
-                        </button>
-                    </div>
-                    <div className="col-5 text-left">
-                        {this.p219Progress()}
-                    </div>
-                </div>
-                <div className = "row">
-                    <div className="col-5 text-right">
+                    <div className="col-2 offset-3 text-center align-self-center">
                         {this.p118Progress()}
                     </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#eightteenModal">
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#eightteenModal">
                             18
                         </button>
                     </div>
-                    <div className="col-5 text-left">
+                    <div className="col-2 text-center align-self-center">
                         {this.p218Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5 text-right">
+                    <div className="col-2 offset-3 text-center align-self-center">
                         {this.p117Progress()}
                     </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#seventeenModal">
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#seventeenModal">
                             17
                         </button>
                     </div>
-                    <div className="col-5 text-left">
+                    <div className="col-2 text-center align-self-center">
                         {this.p217Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5 text-right">
+                    <div className="col-2 offset-3 text-center align-self-center">
                         {this.p116Progress()}
                     </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#sixteenModal">
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
                             16
                         </button>
                     </div>
-                    <div className="col-5 text-left">
+                    <div className="col-2 text-center align-self-center">
                         {this.p216Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5 text-right">
+                    <div className="col-2 offset-3 text-center align-self-center">
                         {this.p115Progress()}
                     </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#fifteenModal">
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#fifteenModal">
                             15
                         </button>
                     </div>
-                    <div className="col-5 text-left">
+                    <div className="col-2 text-center align-self-center">
                         {this.p215Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5 text-right">
+                    <div className="col-2 offset-3 text-center align-self-center">
                         {this.p125Progress()}
                     </div>
-                    <div className="col-2 text-center">
-                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#bullModal">
+                    <div className="col-2 text-center number">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#bullModal">
                             Bull
                         </button>
                     </div>
-                    <div className="col-5 text-left">
+                    <div className="col-2 text-center align-self-center">
                         {this.p225Progress()}
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-6 offset-3 text-center miss">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#missModal">
+                            Miss
+                        </button>
                     </div>
                 </div>
                 <div className="modal fade" id="twentyModal" tabIndex="-1" role="dialog" aria-labelledby="twentyModalLabel" aria-hidden="true">
@@ -446,9 +493,17 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 20, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 20, 2)}}>Double</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 20, 3)}}>Triple</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 20, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 20, 2)}}>Double</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 20, 3)}}>Triple</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -466,9 +521,17 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 19, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 19, 2)}}>Double</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 19, 3)}}>Triple</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 19, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 19, 2)}}>Double</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 19, 3)}}>Triple</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -486,9 +549,17 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 18, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 18, 2)}}>Double</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 18, 3)}}>Triple</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 18, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 18, 2)}}>Double</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 18, 3)}}>Triple</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -506,9 +577,17 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 17, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 17, 2)}}>Double</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 17, 3)}}>Triple</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 17, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 17, 2)}}>Double</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 17, 3)}}>Triple</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -526,9 +605,17 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 16, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 16, 2)}}>Double</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 16, 3)}}>Triple</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 16, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 16, 2)}}>Double</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 16, 3)}}>Triple</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -546,9 +633,17 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 15, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 15, 2)}}>Double</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 15, 3)}}>Triple</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 15, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 15, 2)}}>Double</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 15, 3)}}>Triple</button>
+                                    </div>
+                                </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -566,8 +661,32 @@ export default class Cricket extends Component {
                                 </button>
                             </div>
                             <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 25, 1)}}>Single</button>
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 25, 2)}}>Double</button>
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 25, 1)}}>Single</button>
+                                    </div>    
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.score(this.state.activeThrower, 25, 2)}}>Double</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="missModal" tabIndex="-1" role="dialog" aria-labelledby="missModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="missModalLabel">Miss</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.miss()}}>Miss</button>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
