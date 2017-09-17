@@ -6,6 +6,8 @@ export default class Cricket extends Component {
         this.state = {
             activeThrower: "p1",
             activeThrows: 0,
+            gameState: "playing",
+            gameWinner: {},
             
             p120: 0,
             p119: 0,
@@ -49,11 +51,16 @@ export default class Cricket extends Component {
         this.p217Progress = this.p217Progress.bind(this);
         this.p216Progress = this.p216Progress.bind(this);
         this.p215Progress = this.p215Progress.bind(this);
-        this.p225Progress = this.p225Progress.bind(this);    
+        this.p225Progress = this.p225Progress.bind(this);  
+        this.gameStateChange = this.gameStateChange.bind(this);
+        this.gameOverCheck = this.gameOverCheck.bind(this);
+    }
+
+    ComponentDidMount() {
+    var gameOverInterval = setInterval(this.gameOverCheck(), 500);
     }
 
     setThrowNumber(activeThrows) {
-        console.log(activeThrows);
         this.setState({ activeThrows }) 
     }
 
@@ -62,7 +69,6 @@ export default class Cricket extends Component {
     }
 
     setPlayerScore(thrower, number, multiplier) {
-        console.log("setPlayerScore");
         if (thrower === "p1") {
             this.setState ({p1Score: this.state.p1Score + (number * multiplier)});                
         } else {
@@ -71,10 +77,8 @@ export default class Cricket extends Component {
     }
 
     setThrowerNumber(thrower, number, multiplier) {
-        console.log("throwerNumber");
         let throwerNumber = `${thrower}${number}`;
         let numberState = eval("this.state." + throwerNumber);  
-        console.log(numberState);      
         this.setState ({[throwerNumber]: parseInt(numberState + multiplier)});
     }
 
@@ -139,8 +143,9 @@ export default class Cricket extends Component {
                 this.setPlayerScore(thrower, number, multiplier);                                                   
             }
         }
-
+        
         // this.setState({[playerThrows]: [throwState + 1]});
+        this.gameOverCheck();        
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
 
@@ -163,6 +168,21 @@ export default class Cricket extends Component {
 
     renderP2Score() {
         return this.state.p2Score;
+    }
+
+    gameStateChange(gameWinner) {
+        this.setState({gameState: "over"});
+        this.setState({ gameWinner })
+    }
+
+    gameOverCheck() {
+        setTimeout(() => {
+        if (this.state.p120 === 3 && this.state.p119 === 3 && this.state.p118 === 3 && this.state.p117 === 3 && this.state.p116 === 3 && this.state.p115 === 3 && this.state.p125 === 3 && this.state.p1Score >= this.state.p2Score ) {
+            this.gameStateChange("p1"); 
+        } else if (this.state.p220 === 3 && this.state.p219 === 3 && this.state.p218 === 3 && this.state.p217 === 3 && this.state.p216 === 3 && this.state.p215 === 3 && this.state.p225 === 3 && this.state.p2Score >= this.state.p1Score ) {
+            this.gameStateChange("p2");
+        }
+        }, 500);
     }
 
     p120Progress() {

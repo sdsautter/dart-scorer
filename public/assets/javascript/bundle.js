@@ -22435,6 +22435,8 @@ var Cricket = function (_Component) {
         _this.state = {
             activeThrower: "p1",
             activeThrows: 0,
+            gameState: "playing",
+            gameWinner: {},
 
             p120: 0,
             p119: 0,
@@ -22478,13 +22480,19 @@ var Cricket = function (_Component) {
         _this.p216Progress = _this.p216Progress.bind(_this);
         _this.p215Progress = _this.p215Progress.bind(_this);
         _this.p225Progress = _this.p225Progress.bind(_this);
+        _this.gameStateChange = _this.gameStateChange.bind(_this);
+        _this.gameOverCheck = _this.gameOverCheck.bind(_this);
         return _this;
     }
 
     _createClass(Cricket, [{
+        key: "ComponentDidMount",
+        value: function ComponentDidMount() {
+            var gameOverInterval = setInterval(this.gameOverCheck(), 500);
+        }
+    }, {
         key: "setThrowNumber",
         value: function setThrowNumber(activeThrows) {
-            console.log(activeThrows);
             this.setState({ activeThrows: activeThrows });
         }
     }, {
@@ -22495,7 +22503,6 @@ var Cricket = function (_Component) {
     }, {
         key: "setPlayerScore",
         value: function setPlayerScore(thrower, number, multiplier) {
-            console.log("setPlayerScore");
             if (thrower === "p1") {
                 this.setState({ p1Score: this.state.p1Score + number * multiplier });
             } else {
@@ -22505,10 +22512,8 @@ var Cricket = function (_Component) {
     }, {
         key: "setThrowerNumber",
         value: function setThrowerNumber(thrower, number, multiplier) {
-            console.log("throwerNumber");
             var throwerNumber = "" + thrower + number;
             var numberState = eval("this.state." + throwerNumber);
-            console.log(numberState);
             this.setState(_defineProperty({}, throwerNumber, parseInt(numberState + multiplier)));
         }
 
@@ -22578,6 +22583,7 @@ var Cricket = function (_Component) {
             }
 
             // this.setState({[playerThrows]: [throwState + 1]});
+            this.gameOverCheck();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.checkThrower();
         }
@@ -22602,6 +22608,25 @@ var Cricket = function (_Component) {
         key: "renderP2Score",
         value: function renderP2Score() {
             return this.state.p2Score;
+        }
+    }, {
+        key: "gameStateChange",
+        value: function gameStateChange(gameWinner) {
+            this.setState({ gameState: "over" });
+            this.setState({ gameWinner: gameWinner });
+        }
+    }, {
+        key: "gameOverCheck",
+        value: function gameOverCheck() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                if (_this2.state.p120 === 3 && _this2.state.p119 === 3 && _this2.state.p118 === 3 && _this2.state.p117 === 3 && _this2.state.p116 === 3 && _this2.state.p115 === 3 && _this2.state.p125 === 3 && _this2.state.p1Score >= _this2.state.p2Score) {
+                    _this2.gameStateChange("p1");
+                } else if (_this2.state.p220 === 3 && _this2.state.p219 === 3 && _this2.state.p218 === 3 && _this2.state.p217 === 3 && _this2.state.p216 === 3 && _this2.state.p215 === 3 && _this2.state.p225 === 3 && _this2.state.p2Score >= _this2.state.p1Score) {
+                    _this2.gameStateChange("p2");
+                }
+            }, 500);
         }
     }, {
         key: "p120Progress",
@@ -22760,7 +22785,7 @@ var Cricket = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            var _this2 = this;
+            var _this3 = this;
 
             return _react2.default.createElement(
                 "div",
@@ -22988,21 +23013,21 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 20, 1);
+                                            _this3.score(_this3.state.activeThrower, 20, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 20, 2);
+                                            _this3.score(_this3.state.activeThrower, 20, 2);
                                         } },
                                     "Double"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 20, 3);
+                                            _this3.score(_this3.state.activeThrower, 20, 3);
                                         } },
                                     "Triple"
                                 )
@@ -23052,21 +23077,21 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 19, 1);
+                                            _this3.score(_this3.state.activeThrower, 19, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 19, 2);
+                                            _this3.score(_this3.state.activeThrower, 19, 2);
                                         } },
                                     "Double"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 19, 3);
+                                            _this3.score(_this3.state.activeThrower, 19, 3);
                                         } },
                                     "Triple"
                                 )
@@ -23116,21 +23141,21 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 18, 1);
+                                            _this3.score(_this3.state.activeThrower, 18, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 18, 2);
+                                            _this3.score(_this3.state.activeThrower, 18, 2);
                                         } },
                                     "Double"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 18, 3);
+                                            _this3.score(_this3.state.activeThrower, 18, 3);
                                         } },
                                     "Triple"
                                 )
@@ -23180,21 +23205,21 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 17, 1);
+                                            _this3.score(_this3.state.activeThrower, 17, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 17, 2);
+                                            _this3.score(_this3.state.activeThrower, 17, 2);
                                         } },
                                     "Double"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 17, 3);
+                                            _this3.score(_this3.state.activeThrower, 17, 3);
                                         } },
                                     "Triple"
                                 )
@@ -23244,21 +23269,21 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 16, 1);
+                                            _this3.score(_this3.state.activeThrower, 16, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 16, 2);
+                                            _this3.score(_this3.state.activeThrower, 16, 2);
                                         } },
                                     "Double"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 16, 3);
+                                            _this3.score(_this3.state.activeThrower, 16, 3);
                                         } },
                                     "Triple"
                                 )
@@ -23308,21 +23333,21 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 15, 1);
+                                            _this3.score(_this3.state.activeThrower, 15, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 15, 2);
+                                            _this3.score(_this3.state.activeThrower, 15, 2);
                                         } },
                                     "Double"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 15, 3);
+                                            _this3.score(_this3.state.activeThrower, 15, 3);
                                         } },
                                     "Triple"
                                 )
@@ -23372,14 +23397,14 @@ var Cricket = function (_Component) {
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 25, 1);
+                                            _this3.score(_this3.state.activeThrower, 25, 1);
                                         } },
                                     "Single"
                                 ),
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.score(_this2.state.activeThrower, 25, 2);
+                                            _this3.score(_this3.state.activeThrower, 25, 2);
                                         } },
                                     "Double"
                                 )
