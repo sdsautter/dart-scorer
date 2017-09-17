@@ -36,6 +36,20 @@ export default class Cricket extends Component {
         this.setActiveThrower = this.setActiveThrower.bind(this);
         this.setThrowNumber = this.setThrowNumber.bind(this);    
         this.setPlayerScore = this.setPlayerScore.bind(this); 
+        this.p120Progress = this.p120Progress.bind(this);
+        this.p119Progress = this.p119Progress.bind(this);
+        this.p118Progress = this.p118Progress.bind(this);
+        this.p117Progress = this.p117Progress.bind(this);
+        this.p116Progress = this.p116Progress.bind(this);
+        this.p115Progress = this.p115Progress.bind(this);
+        this.p125Progress = this.p125Progress.bind(this);
+        this.p220Progress = this.p220Progress.bind(this);
+        this.p219Progress = this.p219Progress.bind(this);
+        this.p218Progress = this.p218Progress.bind(this);
+        this.p217Progress = this.p217Progress.bind(this);
+        this.p216Progress = this.p216Progress.bind(this);
+        this.p215Progress = this.p215Progress.bind(this);
+        this.p225Progress = this.p225Progress.bind(this);    
     }
 
     setThrowNumber(activeThrows) {
@@ -151,115 +165,255 @@ export default class Cricket extends Component {
         return this.state.p2Score;
     }
 
+    p120Progress() {
+        if (this.state.p120 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p120 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p120 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }
+    }    
+    
+    p119Progress() {
+        if (this.state.p119 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p119 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p119 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }
+    }
+
+    p118Progress() {
+        if (this.state.p118 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p118 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p118 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }
+    }
+     
+    p117Progress() {
+        if (this.state.p117 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p117 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p117 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p116Progress() {
+        if (this.state.p116 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p116 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p116 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p115Progress() {
+        if (this.state.p115 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p115 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p115 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p125Progress() {
+        if (this.state.p125 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p125 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p125 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p220Progress() {
+        if (this.state.p220 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p220 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p220 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }
+    }    
+    
+    p219Progress() {
+        if (this.state.p219 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p219 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p219 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }
+    }
+
+    p218Progress() {
+        if (this.state.p218 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p218 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p218 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }
+    }
+     
+    p217Progress() {
+        if (this.state.p217 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p217 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p217 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p216Progress() {
+        if (this.state.p216 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p216 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p216 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p215Progress() {
+        if (this.state.p215 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p215 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p215 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
+    p225Progress() {
+        if (this.state.p225 === 1) {
+            return (<img src="../public/assets/images/1-mark.png" />)
+        } else if (this.state.p225 === 2) {
+            return (<img src="../public/assets/images/2-mark.png" />)        
+        } else if (this.state.p225 === 3) {
+            return (<img src="../public/assets/images/3-mark.png" />)    
+        }        
+    }
+
     render() {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-5">
+                    <div className="col-5 text-right">
                         Player 1
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         Cricket
                     </div>
-                    <div className="col-5">
+                    <div className="col-5 text-left">
                         Player 2
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-3">
+                    <div className="col-3 text-center">
                         {this.renderP1Score()}
                     </div>
-                    <div className="col-2">
-                        {/*this.p120progress()*/}
+                    <div className="col-2 text-right">
+                        {this.p120Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#twentyModal">
                             20
                         </button>
                     </div>
-                    <div className="col-2">
-                        {/*this.p220progress*/}
+                    <div className="col-2 text-left">
+                        {this.p220Progress()}
                     </div>
-                    <div className="col-3">
+                    <div className="col-3 text-center">
                         {this.renderP2Score()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5">
-                        {/*this.p119Progress()*/}
+                    <div className="col-5 text-right">
+                        {this.p119Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#nineteenModal">
                             19
                         </button>
                     </div>
-                    <div className="col-5">
-                        {/*this.p219Progress()*/}
+                    <div className="col-5 text-left">
+                        {this.p219Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5">
-                        {/*this.p118Progress()*/}
+                    <div className="col-5 text-right">
+                        {this.p118Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#eightteenModal">
                             18
                         </button>
                     </div>
-                    <div className="col-5">
-                        {/*this.p218Progress()*/}
+                    <div className="col-5 text-left">
+                        {this.p218Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5">
-                        {/*this.p117Progress()*/}
+                    <div className="col-5 text-right">
+                        {this.p117Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#seventeenModal">
                             17
                         </button>
                     </div>
-                    <div className="col-5">
-                        {/*this.p217Progress()*/}
+                    <div className="col-5 text-left">
+                        {this.p217Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5">
-                        {/*this.p116Progress()*/}
+                    <div className="col-5 text-right">
+                        {this.p116Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#sixteenModal">
                             16
                         </button>
                     </div>
-                    <div className="col-5">
-                        {/*this.p216Progress()*/}
+                    <div className="col-5 text-left">
+                        {this.p216Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5">
-                        {/*this.p115Progress()*/}
+                    <div className="col-5 text-right">
+                        {this.p115Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#fifteenModal">
                             15
                         </button>
                     </div>
-                    <div className="col-5">
-                        {/*this.p215Progress()*/}
+                    <div className="col-5 text-left">
+                        {this.p215Progress()}
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-5">
-                        {/*this.p125Progress()*/}
+                    <div className="col-5 text-right">
+                        {this.p125Progress()}
                     </div>
-                    <div className="col-2">
+                    <div className="col-2 text-center">
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#bullModal">
                             Bull
                         </button>
                     </div>
-                    <div className="col-5">
-                        {/*this.p225Progress()*/}
+                    <div className="col-5 text-left">
+                        {this.p225Progress()}
                     </div>
                 </div>
                 <div className="modal fade" id="twentyModal" tabIndex="-1" role="dialog" aria-labelledby="twentyModalLabel" aria-hidden="true">

@@ -22464,6 +22464,20 @@ var Cricket = function (_Component) {
         _this.setActiveThrower = _this.setActiveThrower.bind(_this);
         _this.setThrowNumber = _this.setThrowNumber.bind(_this);
         _this.setPlayerScore = _this.setPlayerScore.bind(_this);
+        _this.p120Progress = _this.p120Progress.bind(_this);
+        _this.p119Progress = _this.p119Progress.bind(_this);
+        _this.p118Progress = _this.p118Progress.bind(_this);
+        _this.p117Progress = _this.p117Progress.bind(_this);
+        _this.p116Progress = _this.p116Progress.bind(_this);
+        _this.p115Progress = _this.p115Progress.bind(_this);
+        _this.p125Progress = _this.p125Progress.bind(_this);
+        _this.p220Progress = _this.p220Progress.bind(_this);
+        _this.p219Progress = _this.p219Progress.bind(_this);
+        _this.p218Progress = _this.p218Progress.bind(_this);
+        _this.p217Progress = _this.p217Progress.bind(_this);
+        _this.p216Progress = _this.p216Progress.bind(_this);
+        _this.p215Progress = _this.p215Progress.bind(_this);
+        _this.p225Progress = _this.p225Progress.bind(_this);
         return _this;
     }
 
@@ -22590,6 +22604,160 @@ var Cricket = function (_Component) {
             return this.state.p2Score;
         }
     }, {
+        key: "p120Progress",
+        value: function p120Progress() {
+            if (this.state.p120 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p120 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p120 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p119Progress",
+        value: function p119Progress() {
+            if (this.state.p119 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p119 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p119 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p118Progress",
+        value: function p118Progress() {
+            if (this.state.p118 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p118 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p118 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p117Progress",
+        value: function p117Progress() {
+            if (this.state.p117 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p117 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p117 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p116Progress",
+        value: function p116Progress() {
+            if (this.state.p116 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p116 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p116 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p115Progress",
+        value: function p115Progress() {
+            if (this.state.p115 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p115 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p115 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p125Progress",
+        value: function p125Progress() {
+            if (this.state.p125 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p125 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p125 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p220Progress",
+        value: function p220Progress() {
+            if (this.state.p220 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p220 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p220 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p219Progress",
+        value: function p219Progress() {
+            if (this.state.p219 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p219 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p219 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p218Progress",
+        value: function p218Progress() {
+            if (this.state.p218 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p218 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p218 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p217Progress",
+        value: function p217Progress() {
+            if (this.state.p217 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p217 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p217 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p216Progress",
+        value: function p216Progress() {
+            if (this.state.p216 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p216 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p216 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p215Progress",
+        value: function p215Progress() {
+            if (this.state.p215 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p215 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p215 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
+        key: "p225Progress",
+        value: function p225Progress() {
+            if (this.state.p225 === 1) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/1-mark.png" });
+            } else if (this.state.p225 === 2) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/2-mark.png" });
+            } else if (this.state.p225 === 3) {
+                return _react2.default.createElement("img", { src: "../public/assets/images/3-mark.png" });
+            }
+        }
+    }, {
         key: "render",
         value: function render() {
             var _this2 = this;
@@ -22602,17 +22770,17 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5" },
+                        { className: "col-5 text-right" },
                         "Player 1"
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-2 text-center" },
                         "Cricket"
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-5" },
+                        { className: "col-5 text-left" },
                         "Player 2"
                     )
                 ),
@@ -22621,115 +22789,171 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3" },
+                        { className: "col-3 text-center" },
                         this.renderP1Score()
                     ),
-                    _react2.default.createElement("div", { className: "col-2" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-2 text-right" },
+                        this.p120Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#twentyModal" },
                             "20"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-2" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3" },
+                        { className: "col-2 text-left" },
+                        this.p220Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-3 text-center" },
                         this.renderP2Score()
                     )
                 ),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
-                    _react2.default.createElement("div", { className: "col-5" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-5 text-right" },
+                        this.p119Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#nineteenModal" },
                             "19"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-5" })
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-5 text-left" },
+                        this.p219Progress()
+                    )
                 ),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
-                    _react2.default.createElement("div", { className: "col-5" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-5 text-right" },
+                        this.p118Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#eightteenModal" },
                             "18"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-5" })
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-5 text-left" },
+                        this.p218Progress()
+                    )
                 ),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
-                    _react2.default.createElement("div", { className: "col-5" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-5 text-right" },
+                        this.p117Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#seventeenModal" },
                             "17"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-5" })
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-5 text-left" },
+                        this.p217Progress()
+                    )
                 ),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
-                    _react2.default.createElement("div", { className: "col-5" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-5 text-right" },
+                        this.p116Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#sixteenModal" },
                             "16"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-5" })
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-5 text-left" },
+                        this.p216Progress()
+                    )
                 ),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
-                    _react2.default.createElement("div", { className: "col-5" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-5 text-right" },
+                        this.p115Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#fifteenModal" },
                             "15"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-5" })
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-5 text-left" },
+                        this.p215Progress()
+                    )
                 ),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
-                    _react2.default.createElement("div", { className: "col-5" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2" },
+                        { className: "col-5 text-right" },
+                        this.p125Progress()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-2 text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#bullModal" },
                             "Bull"
                         )
                     ),
-                    _react2.default.createElement("div", { className: "col-5" })
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-5 text-left" },
+                        this.p225Progress()
+                    )
                 ),
                 _react2.default.createElement(
                     "div",
