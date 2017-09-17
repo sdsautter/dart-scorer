@@ -1,0 +1,40 @@
+{
+  "name": "dart-scorer",
+  "version": "1.0.0",
+  "description": "A dart scoring webapp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdsautter/dart-scorer.git"
+  },
+  "author": "Scott Sautter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdsautter/dart-scorer/issues"
+  },
+  "homepage": "https://github.com/sdsautter/dart-scorer#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.11",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.12.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  }
+}
