@@ -128,13 +128,13 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 20, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 20, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 20, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 20, 2)}}>Double</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 20, 3)}}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 20, 3)}}>Triple</button>
                                     </div>
                                 </div>
                             </div>
@@ -153,13 +153,13 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 19, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 19, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 19, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 19, 2)}}>Double</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 19, 3)}}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 19, 3)}}>Triple</button>
                                     </div>
                                 </div>
                             </div>
@@ -178,13 +178,13 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 18, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 18, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 18, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 18, 2)}}>Double</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 18, 3)}}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 18, 3)}}>Triple</button>
                                     </div>
                                 </div>
                             </div>
@@ -203,13 +203,13 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 17, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 17, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 17, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 17, 2)}}>Double</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 17, 3)}}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 17, 3)}}>Triple</button>
                                     </div>
                                 </div>
                             </div>
@@ -228,13 +228,13 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 16, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 16, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 16, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 16, 2)}}>Double</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 16, 3)}}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 16, 3)}}>Triple</button>
                                     </div>
                                 </div>
                             </div>
@@ -253,13 +253,13 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 15, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 15, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 15, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 15, 2)}}>Double</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 15, 3)}}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 15, 3)}}>Triple</button>
                                     </div>
                                 </div>
                             </div>
@@ -278,10 +278,10 @@ export default class Scoreboard extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 25, 1)}}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 25, 1)}}>Single</button>
                                     </div>    
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.state.activeThrower, 25, 2)}}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 25, 2)}}>Double</button>
                                     </div>
                                 </div>
                             </div>

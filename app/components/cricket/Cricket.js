@@ -67,18 +67,19 @@ export default class Cricket extends Component {
             <Scoreboard 
                 score={this.score}
                 miss={this.miss}
+                activeThrower={this.state.activeThrower}
                 playersRender={this.playersRender}
                 renderP1Score={this.renderP1Score}
                 renderP2Score={this.renderP2Score}
                 p120Progress={this.p120Progress}
-                p119Progress={this.p120Progress}                
+                p119Progress={this.p119Progress}                
                 p118Progress={this.p118Progress}
                 p117Progress={this.p117Progress}
                 p116Progress={this.p116Progress}
                 p115Progress={this.p115Progress}
                 p125Progress={this.p125Progress}
                 p220Progress={this.p220Progress}
-                p219Progress={this.p120Progress}                
+                p219Progress={this.p219Progress}                
                 p218Progress={this.p218Progress}
                 p217Progress={this.p217Progress}
                 p216Progress={this.p216Progress}
@@ -88,11 +89,13 @@ export default class Cricket extends Component {
             />
             )
         } else if (this.state.gameState === "over") {
-            return (
-                <Results
-                    
-                />
-            )
+            if (this.state.gameWinner==="p1" || this.state.gameWinner==="p2") {            
+                return (
+                    <Results
+                        gameWinner={this.state.gameWinner}
+                    />
+                )
+            }
         }
     }
 
