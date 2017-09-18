@@ -22861,7 +22861,7 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-right align-self-end" },
+                        { className: "col-3 text-right align-self-end points-label" },
                         "Points:"
                     ),
                     _react2.default.createElement(
@@ -22885,7 +22885,7 @@ var Cricket = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-left align-self-end" },
+                        { className: "col-3 text-left align-self-end points-label" },
                         "Points:"
                     )
                 ),
@@ -22894,7 +22894,7 @@ var Cricket = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-right" },
+                        { className: "col-3 text-right points-score" },
                         this.renderP1Score()
                     ),
                     _react2.default.createElement(
@@ -22918,7 +22918,7 @@ var Cricket = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-left" },
+                        { className: "col-3 text-left points-score" },
                         this.renderP2Score()
                     )
                 ),
@@ -23066,15 +23066,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "twentyModalLabel" },
                                     "20"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23146,15 +23137,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "nineteenModalLabel" },
                                     "19"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23226,15 +23208,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "eightteenModalLabel" },
                                     "18"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23306,15 +23279,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "seventeenModalLabel" },
                                     "17"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23386,15 +23350,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "sixteenModalLabel" },
                                     "16"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23466,15 +23421,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "fifteenModalLabel" },
                                     "15"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23546,15 +23492,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "bullModalLabel" },
                                     "Bull"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(
@@ -23615,15 +23552,6 @@ var Cricket = function (_Component) {
                                     "h5",
                                     { className: "modal-title", id: "missModalLabel" },
                                     "Miss"
-                                ),
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
-                                    _react2.default.createElement(
-                                        "span",
-                                        { "aria-hidden": "true" },
-                                        "\xD7"
-                                    )
                                 )
                             ),
                             _react2.default.createElement(

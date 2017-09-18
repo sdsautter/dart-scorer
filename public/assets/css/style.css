@@ -1,3 +1,9 @@
+.modal-header {
+    text-align: center !important;
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
 @media (min-width: 0px) {
     body {
     background-color: rgb(73,121,89);
@@ -14,7 +20,7 @@
     background-color: rgb(73,121,89);    
 }
 
-.modal-header {
+.modal-title {
     font-size: 1.5rem;
 }
 
@@ -63,13 +69,15 @@
 .player {
     border-bottom: 4px double black;
     font-size: .75rem;
+    padding: 0;
 }
 
 .cricket {
     border-left: 4px double black;
     border-right: 4px double black;
     border-bottom: 4px double black;
-    font-size: .5rem;
+    font-size: .7rem;
+    padding: 0;
 }
 
 .mark {
@@ -81,6 +89,15 @@
 .throw-number {
    color: rgb(222,185,134);
 }
+
+.points-label {
+    font-size: 1rem;
+}
+
+.points-number {
+    font-size: 1rem;
+}
+
 }
 
 @media (min-width: 768px) {
@@ -99,8 +116,8 @@
     background-color: rgb(73,121,89);    
 }
 
-.modal-header {
-    font-size: 2.5rem;
+.modal-title {
+    font-size: 2rem;
 }
 
 .modal-body button {
@@ -164,4 +181,13 @@
 .throw-number {
    color: rgb(222,185,134);
 }
+
+.points-label {
+    font-size: 1.75rem;
+}
+
+.points-number {
+    font-size: 1.75rem;
+}
+
 }

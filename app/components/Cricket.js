@@ -374,7 +374,7 @@ export default class Cricket extends Component {
             <div className="container-fluid">
                 {this.playersRender()}
                 <div className = "row">
-                    <div className="col-3 text-right align-self-end">
+                    <div className="col-3 text-right align-self-end points-label">
                         Points:
                     </div>
                     <div className="col-2 text-center align-self-center">
@@ -388,12 +388,12 @@ export default class Cricket extends Component {
                     <div className="col-2 text-center align-self-center">
                         {this.p220Progress()}
                     </div>
-                    <div className="col-3 text-left align-self-end">
+                    <div className="col-3 text-left align-self-end points-label">
                         Points:
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-3 text-right">
+                    <div className="col-3 text-right points-score">
                         {this.renderP1Score()}
                     </div>
                     <div className="col-2 text-center align-self-center">
@@ -407,7 +407,7 @@ export default class Cricket extends Component {
                     <div className="col-2 text-center align-self-center">
                         {this.p219Progress()}
                     </div>
-                    <div className="col-3 text-left">
+                    <div className="col-3 text-left points-score">
                         {this.renderP2Score()}
                     </div>
                 </div>
@@ -488,9 +488,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="twentyModalLabel">20</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -516,9 +513,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="nineteenModalLabel">19</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -544,9 +538,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="eightteenModalLabel">18</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -572,9 +563,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="seventeenModalLabel">17</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -600,9 +588,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="sixteenModalLabel">16</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -628,9 +613,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="fifteenModalLabel">15</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -656,9 +638,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="bullModalLabel">Bull</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -681,9 +660,6 @@ export default class Cricket extends Component {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="missModalLabel">Miss</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
                             </div>
                             <div className="modal-body">
                                 <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.miss()}}>Miss</button>
