@@ -40,6 +40,7 @@ export default class Cricket extends Component {
         this.setActiveThrower = this.setActiveThrower.bind(this);
         this.setThrowNumber = this.setThrowNumber.bind(this);    
         this.setPlayerScore = this.setPlayerScore.bind(this); 
+        this.addThrow = this.addThrow.bind(this);
         this.p120Progress = this.p120Progress.bind(this);
         this.p119Progress = this.p119Progress.bind(this);
         this.p118Progress = this.p118Progress.bind(this);
@@ -183,13 +184,14 @@ export default class Cricket extends Component {
             }
         }
         
-        // this.setState({[playerThrows]: [throwState + 1]});
+        this.addThrow(this.state.activeThrower);
         this.gameOverCheck();        
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
     }
 
     miss() {
+        this.addThrow(this.state.activeThrower);
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
     }
@@ -226,6 +228,12 @@ export default class Cricket extends Component {
             this.gameStateChange("p2");
         }
         }, 500);
+    }
+
+    addThrow(thrower) {
+        let playerThrows = `${thrower}Throws`;
+        let playerThrowsState = eval("this.state." + playerThrows);  
+        this.setState ({[playerThrows]: parseInt([playerThrowsState]) + 1});
     }
 
     p120Progress() {

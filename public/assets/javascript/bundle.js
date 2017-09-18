@@ -22474,6 +22474,7 @@ var Cricket = function (_Component) {
         _this.setActiveThrower = _this.setActiveThrower.bind(_this);
         _this.setThrowNumber = _this.setThrowNumber.bind(_this);
         _this.setPlayerScore = _this.setPlayerScore.bind(_this);
+        _this.addThrow = _this.addThrow.bind(_this);
         _this.p120Progress = _this.p120Progress.bind(_this);
         _this.p119Progress = _this.p119Progress.bind(_this);
         _this.p118Progress = _this.p118Progress.bind(_this);
@@ -22623,7 +22624,7 @@ var Cricket = function (_Component) {
                 }
             }
 
-            // this.setState({[playerThrows]: [throwState + 1]});
+            this.addThrow(this.state.activeThrower);
             this.gameOverCheck();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.checkThrower();
@@ -22631,6 +22632,7 @@ var Cricket = function (_Component) {
     }, {
         key: "miss",
         value: function miss() {
+            this.addThrow(this.state.activeThrower);
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.checkThrower();
         }
@@ -22674,6 +22676,13 @@ var Cricket = function (_Component) {
                     _this2.gameStateChange("p2");
                 }
             }, 500);
+        }
+    }, {
+        key: "addThrow",
+        value: function addThrow(thrower) {
+            var playerThrows = thrower + "Throws";
+            var playerThrowsState = eval("this.state." + playerThrows);
+            this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
         }
     }, {
         key: "p120Progress",
