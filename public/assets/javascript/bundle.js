@@ -22844,7 +22844,7 @@ var Cricket = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center player" },
+                        { className: "col-2 text-center player active-thrower" },
                         "Player 1"
                     ),
                     _react2.default.createElement(
@@ -22854,7 +22854,7 @@ var Cricket = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center player" },
+                        { className: "col-2 text-center player inactive-thrower" },
                         "Player 2"
                     )
                 );
@@ -22864,7 +22864,7 @@ var Cricket = function (_Component) {
                     { className: "row top-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 offset-3 text-center player" },
+                        { className: "col-2 offset-3 text-center player inactive-thrower" },
                         "Player 1"
                     ),
                     _react2.default.createElement(
@@ -22874,7 +22874,7 @@ var Cricket = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center player" },
+                        { className: "col-2 text-center player active-thrower" },
                         "Player 2"
                     ),
                     _react2.default.createElement(

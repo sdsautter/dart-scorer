@@ -375,13 +375,13 @@ export default class Cricket extends Component {
                     <div className="col-3 text-right throw-number">
                         Throw: {this.state.activeThrows + 1}
                     </div>
-                    <div className="col-2 text-center player">
+                    <div className="col-2 text-center player active-thrower">
                         Player 1
                     </div>
                     <div className="col-2 text-center cricket">
                         Cricket
                     </div>
-                    <div className="col-2 text-center player">
+                    <div className="col-2 text-center player inactive-thrower">
                         Player 2
                     </div>
                 </div>
@@ -389,13 +389,13 @@ export default class Cricket extends Component {
         } else {
             return (
                 <div className="row top-row">
-                    <div className="col-2 offset-3 text-center player">
+                    <div className="col-2 offset-3 text-center player inactive-thrower">
                         Player 1
                     </div>
                     <div className="col-2 text-center cricket">
                         Cricket
                     </div>
-                    <div className="col-2 text-center player">
+                    <div className="col-2 text-center player active-thrower">
                         Player 2
                     </div>
                     <div className="col-3 text-left throw-number">
