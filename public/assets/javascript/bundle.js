@@ -22446,6 +22446,7 @@ var Cricket = function (_Component) {
             activeMarks: 0,
             gameState: "playing",
             gameWinner: {},
+            throwLog: [],
 
             p120: 0,
             p119: 0,
@@ -22509,6 +22510,8 @@ var Cricket = function (_Component) {
         _this.resetMarks = _this.resetMarks.bind(_this);
         _this.allStarPoints = _this.allStarPoints.bind(_this);
         _this.gameReset = _this.gameReset.bind(_this);
+        _this.addToLog = _this.addToLog.bind(_this);
+        _this.undo = _this.undo.bind(_this);
         return _this;
     }
 
@@ -22575,7 +22578,8 @@ var Cricket = function (_Component) {
                     p217Progress: this.p217Progress,
                     p216Progress: this.p216Progress,
                     p215Progress: this.p215Progress,
-                    p225Progress: this.p225Progress
+                    p225Progress: this.p225Progress,
+                    undo: this.undo
 
                 });
             } else if (this.state.gameState === "over") {
@@ -22615,6 +22619,32 @@ var Cricket = function (_Component) {
             var numberState = eval("this.state." + throwerNumber);
             this.setState(_defineProperty({}, throwerNumber, parseInt(numberState + multiplier)));
         }
+    }, {
+        key: "addToLog",
+        value: function addToLog(number, multiplier) {
+            var loggedThrow = "" + number + multiplier;
+            var loggedArray = this.state.throwLog;
+            loggedArray.push(loggedThrow);
+            this.setState({ throwLog: loggedArray });
+        }
+    }, {
+        key: "undo",
+        value: function undo() {
+            if (this.state.activeThrows === 0) {
+                this.setThrowNumber(2);
+                if (this.state.activeThrower === "p1") {
+                    this.setActiveThrower("p2");
+                } else {
+                    this.setActiveThrower("p1");
+                }
+            } else {
+                this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
+            }
+
+            var loggedArray = this.state.throwLog;
+            loggedArray.pop();
+            this.setState({ throwLog: loggedArray });
+        }
 
         //Shuffles whatever array I put into it
 
@@ -22647,10 +22677,10 @@ var Cricket = function (_Component) {
                     this.setThrowerNumber(thrower, number, multiplier);
                 } else if (multiplier === 3) {
                     if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, 2);
+                        this.setThrowerNumber(thrower, number, multiplier);
                         this.setPlayerScore(thrower, number, 1);
                     } else {
-                        this.setThrowerNumber(thrower, number, 2);
+                        this.setThrowerNumber(thrower, number, multiplier);
                     }
                 }
             } else if (numberState === 2) {
@@ -22658,31 +22688,35 @@ var Cricket = function (_Component) {
                     this.setThrowerNumber(thrower, number, multiplier);
                 } else if (multiplier === 2) {
                     if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, 1);
+                        this.setThrowerNumber(thrower, number, multiplier);
                         this.setPlayerScore(thrower, number, 1);
                     } else {
-                        this.setThrowerNumber(thrower, number, 1);
+                        this.setThrowerNumber(thrower, number, multiplier);
                     }
                 } else if (multiplier === 3) {
                     if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, 1);
+                        this.setThrowerNumber(thrower, number, multiplier);
                         this.setPlayerScore(thrower, number, 2);
                     } else {
-                        this.setThrowerNumber(thrower, number, 1);
+                        this.setThrowerNumber(thrower, number, multiplier);
                     }
                 }
-            } else if (numberState === 3) {
+            } else if (numberState >= 3) {
                 if (multiplier === 1 && otherThrowerState < 3) {
+                    this.setThrowerNumber(thrower, number, multiplier);
                     this.setPlayerScore(thrower, number, multiplier);
                 } else if (multiplier === 2 && otherThrowerState < 3) {
+                    this.setThrowerNumber(thrower, number, multiplier);
                     this.setPlayerScore(thrower, number, multiplier);
                 } else if (multiplier === 3 && otherThrowerState < 3) {
+                    this.setThrowerNumber(thrower, number, multiplier);
                     this.setPlayerScore(thrower, number, multiplier);
                 }
             }
 
             this.addThrow(this.state.activeThrower);
             this.addMarks(multiplier);
+            this.addToLog(number, multiplier);
             this.gameOverCheck();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.checkThrower();
@@ -22692,6 +22726,7 @@ var Cricket = function (_Component) {
         value: function miss() {
             this.addThrow(this.state.activeThrower);
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+            this.addToLog("mi", "ss");
             this.checkThrower();
         }
     }, {
@@ -22730,9 +22765,9 @@ var Cricket = function (_Component) {
             var _this2 = this;
 
             setTimeout(function () {
-                if (_this2.state.p120 === 3 && _this2.state.p119 === 3 && _this2.state.p118 === 3 && _this2.state.p117 === 3 && _this2.state.p116 === 3 && _this2.state.p115 === 3 && _this2.state.p125 === 3 && _this2.state.p1Score >= _this2.state.p2Score) {
+                if (_this2.state.p120 >= 3 && _this2.state.p119 >= 3 && _this2.state.p118 >= 3 && _this2.state.p117 >= 3 && _this2.state.p116 >= 3 && _this2.state.p115 >= 3 && _this2.state.p125 >= 3 && _this2.state.p1Score >= _this2.state.p2Score) {
                     _this2.gameStateChange("p1");
-                } else if (_this2.state.p220 === 3 && _this2.state.p219 === 3 && _this2.state.p218 === 3 && _this2.state.p217 === 3 && _this2.state.p216 === 3 && _this2.state.p215 === 3 && _this2.state.p225 === 3 && _this2.state.p2Score >= _this2.state.p1Score) {
+                } else if (_this2.state.p220 >= 3 && _this2.state.p219 >= 3 && _this2.state.p218 >= 3 && _this2.state.p217 >= 3 && _this2.state.p216 >= 3 && _this2.state.p215 >= 3 && _this2.state.p225 >= 3 && _this2.state.p2Score >= _this2.state.p1Score) {
                     _this2.gameStateChange("p2");
                 }
             }, 500);
@@ -22797,7 +22832,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p120 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p120 === 3) {
+            } else if (this.state.p120 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22808,7 +22843,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p119 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p119 === 3) {
+            } else if (this.state.p119 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22819,7 +22854,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p118 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p118 === 3) {
+            } else if (this.state.p118 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22830,7 +22865,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p117 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p117 === 3) {
+            } else if (this.state.p117 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22841,7 +22876,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p116 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p116 === 3) {
+            } else if (this.state.p116 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22852,7 +22887,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p115 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p115 === 3) {
+            } else if (this.state.p115 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22863,7 +22898,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p125 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p125 === 3) {
+            } else if (this.state.p125 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22874,7 +22909,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p220 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p220 === 3) {
+            } else if (this.state.p220 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22885,7 +22920,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p219 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p219 === 3) {
+            } else if (this.state.p219 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22896,7 +22931,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p218 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p218 === 3) {
+            } else if (this.state.p218 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22907,7 +22942,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p217 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p217 === 3) {
+            } else if (this.state.p217 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22918,7 +22953,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p216 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p216 === 3) {
+            } else if (this.state.p216 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22929,7 +22964,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p215 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p215 === 3) {
+            } else if (this.state.p215 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -22940,7 +22975,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/1-mark.png" });
             } else if (this.state.p225 === 2) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/2-mark.png" });
-            } else if (this.state.p225 === 3) {
+            } else if (this.state.p225 >= 3) {
                 return _react2.default.createElement("img", { className: "mark", src: "assets/images/3-mark.png" });
             }
         }
@@ -23246,11 +23281,24 @@ var Scoreboard = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 text-center miss" },
+                        { className: "col-6 text-center miss" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#missModal" },
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.miss();
+                                } },
                             "Miss"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 text-center miss" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.undo();
+                                } },
+                            "Undo"
                         )
                     )
                 ),
@@ -23726,47 +23774,6 @@ var Scoreboard = function (_Component) {
                                             "Double"
                                         )
                                     )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "modal-footer" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
-                                    "Close"
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "modal fade", id: "missModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "missModalLabel", "aria-hidden": "true" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "modal-dialog", role: "document" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "modal-content" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "modal-header" },
-                                _react2.default.createElement(
-                                    "h5",
-                                    { className: "modal-title", id: "missModalLabel" },
-                                    "Miss"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "modal-body" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                            _this2.props.miss();
-                                        } },
-                                    "Miss"
                                 )
                             ),
                             _react2.default.createElement(

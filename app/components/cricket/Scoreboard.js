@@ -113,9 +113,14 @@ export default class Scoreboard extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-6 offset-3 text-center miss">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#missModal">
+                    <div className="col-6 text-center miss">
+                        <button type="button" className="btn" onClick={() => {this.props.miss()}}>
                             Miss
+                        </button>
+                    </div>
+                    <div className="col-6 text-center miss">
+                        <button type="button" className="btn" onClick={() => {this.props.undo()}}>
+                            Undo
                         </button>
                     </div>
                 </div>
@@ -284,21 +289,6 @@ export default class Scoreboard extends Component {
                                         <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 25, 2)}}>Double</button>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="missModal" tabIndex="-1" role="dialog" aria-labelledby="missModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="missModalLabel">Miss</h5>
-                            </div>
-                            <div className="modal-body">
-                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.miss()}}>Miss</button>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>

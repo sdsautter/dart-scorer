@@ -11,6 +11,7 @@ export default class Cricket extends Component {
             activeMarks:0,
             gameState: "playing",
             gameWinner: {},
+            throwLog: [],
             
             p120: 0,
             p119: 0,
@@ -75,6 +76,8 @@ export default class Cricket extends Component {
         this.resetMarks = this.resetMarks.bind(this);
         this.allStarPoints = this.allStarPoints.bind(this);
         this.gameReset = this.gameReset.bind(this);
+        this.addToLog = this.addToLog.bind(this);
+        this.undo = this.undo.bind(this);
     }
 
     gameReset() {
@@ -139,6 +142,7 @@ export default class Cricket extends Component {
                 p216Progress={this.p216Progress}
                 p215Progress={this.p215Progress}
                 p225Progress={this.p225Progress}
+                undo={this.undo}
                 
             />
             )
@@ -178,6 +182,30 @@ export default class Cricket extends Component {
         this.setState ({[throwerNumber]: parseInt(numberState + multiplier)});
     }
 
+    addToLog(number, multiplier) {
+        let loggedThrow = `${number}${multiplier}`;
+        let loggedArray = this.state.throwLog;
+        loggedArray.push(loggedThrow);
+        this.setState ({throwLog: loggedArray});
+    }
+
+    undo() {
+        if (this.state.activeThrows === 0 ) {
+            this.setThrowNumber(2);
+            if (this.state.activeThrower === "p1") {
+                this.setActiveThrower("p2");
+            } else {
+                this.setActiveThrower("p1");
+            }
+        } else {
+            this.setThrowNumber(parseInt(this.state.activeThrows) - 1 );
+        } 
+
+        let loggedArray = this.state.throwLog;
+        loggedArray.pop();
+        this.setState ({throwLog: loggedArray});        
+    }
+
     //Shuffles whatever array I put into it
     score(thrower, number, multiplier) {
         
@@ -206,10 +234,10 @@ export default class Cricket extends Component {
             this.setThrowerNumber(thrower, number, multiplier);
             } else if (multiplier === 3) {
                 if (otherThrowerState < 3 ) {
-                    this.setThrowerNumber(thrower, number, 2);
+                    this.setThrowerNumber(thrower, number, multiplier);
                     this.setPlayerScore(thrower, number, 1);                
                 } else {
-                    this.setThrowerNumber(thrower, number, 2);                    
+                    this.setThrowerNumber(thrower, number, multiplier);                    
                 }
             }
         } else if (numberState === 2 ) {
@@ -217,31 +245,35 @@ export default class Cricket extends Component {
                 this.setThrowerNumber(thrower, number, multiplier);            
             } else if (multiplier === 2) {
                 if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, 1);
+                    this.setThrowerNumber(thrower, number, multiplier);
                     this.setPlayerScore(thrower, number, 1);                                                   
                 } else {
-                    this.setThrowerNumber(thrower, number, 1);                    
+                    this.setThrowerNumber(thrower, number, multiplier);                    
                 }
             } else if (multiplier === 3 ) {
                 if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, 1);
+                    this.setThrowerNumber(thrower, number, multiplier);
                     this.setPlayerScore(thrower, number, 2);                                                   
                 } else {
-                    this.setThrowerNumber(thrower, number, 1);                    
+                    this.setThrowerNumber(thrower, number, multiplier);                    
                 }
             }
-        } else if (numberState === 3) {
+        } else if (numberState >= 3) {
             if (multiplier === 1 && otherThrowerState < 3) {
+                this.setThrowerNumber(thrower, number, multiplier);                                    
                 this.setPlayerScore(thrower, number, multiplier);            
             } else if (multiplier === 2 && otherThrowerState < 3) {
+                this.setThrowerNumber(thrower, number, multiplier);                    
                 this.setPlayerScore(thrower, number, multiplier);                                                   
             } else if (multiplier === 3 && otherThrowerState < 3) {
+                this.setThrowerNumber(thrower, number, multiplier);                    
                 this.setPlayerScore(thrower, number, multiplier);                                                   
             }
         }
         
         this.addThrow(this.state.activeThrower);
         this.addMarks(multiplier);
+        this.addToLog(number, multiplier);
         this.gameOverCheck();        
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
@@ -250,6 +282,7 @@ export default class Cricket extends Component {
     miss() {
         this.addThrow(this.state.activeThrower);
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+        this.addToLog("mi", "ss");        
         this.checkThrower();
     }
 
@@ -281,9 +314,9 @@ export default class Cricket extends Component {
 
     gameOverCheck() {
         setTimeout(() => {
-        if (this.state.p120 === 3 && this.state.p119 === 3 && this.state.p118 === 3 && this.state.p117 === 3 && this.state.p116 === 3 && this.state.p115 === 3 && this.state.p125 === 3 && this.state.p1Score >= this.state.p2Score ) {
+        if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score ) {
             this.gameStateChange("p1"); 
-        } else if (this.state.p220 === 3 && this.state.p219 === 3 && this.state.p218 === 3 && this.state.p217 === 3 && this.state.p216 === 3 && this.state.p215 === 3 && this.state.p225 === 3 && this.state.p2Score >= this.state.p1Score ) {
+        } else if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p1Score ) {
             this.gameStateChange("p2");
         }
         }, 500);
@@ -340,7 +373,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p120 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p120 === 3) {
+        } else if (this.state.p120 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }    
@@ -350,7 +383,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p119 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p119 === 3) {
+        } else if (this.state.p119 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
@@ -360,7 +393,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p118 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p118 === 3) {
+        } else if (this.state.p118 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
@@ -370,7 +403,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p117 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p117 === 3) {
+        } else if (this.state.p117 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -380,7 +413,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p116 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p116 === 3) {
+        } else if (this.state.p116 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -390,7 +423,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p115 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p115 === 3) {
+        } else if (this.state.p115 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -400,7 +433,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p125 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p125 === 3) {
+        } else if (this.state.p125 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -410,7 +443,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p220 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p220 === 3) {
+        } else if (this.state.p220 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }    
@@ -420,7 +453,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p219 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p219 === 3) {
+        } else if (this.state.p219 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
@@ -430,7 +463,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p218 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p218 === 3) {
+        } else if (this.state.p218 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }
     }
@@ -440,7 +473,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p217 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p217 === 3) {
+        } else if (this.state.p217 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -450,7 +483,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p216 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p216 === 3) {
+        } else if (this.state.p216 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -460,7 +493,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p215 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p215 === 3) {
+        } else if (this.state.p215 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
@@ -470,7 +503,7 @@ export default class Cricket extends Component {
             return (<img className="mark" src="assets/images/1-mark.png" />)
         } else if (this.state.p225 === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)        
-        } else if (this.state.p225 === 3) {
+        } else if (this.state.p225 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
     }
