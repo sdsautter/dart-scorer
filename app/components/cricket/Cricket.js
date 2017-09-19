@@ -517,8 +517,9 @@ export default class Cricket extends Component {
                     }
                 break;
         }
-
-        this.setState({p1Throws: parseInt(this.state.p1Throws) - 1})
+        if (this.state.p1Throws >= 0) {
+            this.setState({p1Throws: parseInt(this.state.p1Throws) - 1})
+        }
     }
 
     p2UndoSwitch() {
@@ -823,7 +824,9 @@ export default class Cricket extends Component {
                     }
                 break;
         }
-        this.setState({p2Throws: parseInt(this.state.p2Throws) - 1})        
+        if (this.state.p2Throws >= 0) {
+            this.setState({p2Throws: parseInt(this.state.p2Throws) - 1})    
+        }    
     }
 
     score(thrower, number, multiplier) {

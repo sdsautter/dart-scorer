@@ -22958,8 +22958,9 @@ var Cricket = function (_Component) {
                     }
                     break;
             }
-
-            this.setState({ p1Throws: parseInt(this.state.p1Throws) - 1 });
+            if (this.state.p1Throws >= 0) {
+                this.setState({ p1Throws: parseInt(this.state.p1Throws) - 1 });
+            }
         }
     }, {
         key: "p2UndoSwitch",
@@ -23265,7 +23266,9 @@ var Cricket = function (_Component) {
                     }
                     break;
             }
-            this.setState({ p2Throws: parseInt(this.state.p2Throws) - 1 });
+            if (this.state.p2Throws >= 0) {
+                this.setState({ p2Throws: parseInt(this.state.p2Throws) - 1 });
+            }
         }
     }, {
         key: "score",
