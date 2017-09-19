@@ -190,16 +190,102 @@ export default class Cricket extends Component {
     }
 
     undo() {
+        let otherThrower = "";
+        let logLength = this.state.throwLog.length;
+        let lastThrowNumber = logLength - 1;
+        let lastThrow = this.state.throwLog[lastThrowNumber];
+
         if (this.state.activeThrows === 0 ) {
             this.setThrowNumber(2);
             if (this.state.activeThrower === "p1") {
                 this.setActiveThrower("p2");
             } else {
                 this.setActiveThrower("p1");
+                otherThrower = "p2";
+            switch(lastThrow) {
+                case "203":
+                    if (this.state.p120 >= 6) {
+                        if (this.state.p220 < 3) {
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 60})
+                        }
+                        this.setState({p120: parseInt(this.state.p120) - 3})
+                    } else if (this.state.p120 === 5) {
+                        if (this.state.p220 < 3) {                        
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 40})
+                        }
+                        this.setState({p120: 2})
+                    } else if (this.state.p120 === 4) {
+                        if (this.state.p220 < 3) {                        
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 20})
+                        }
+                        this.setState({p120: 1})
+                    } else if (this.state.p120 < 4) {
+                        this.setState({p120: parseInt(this.state.p120) - 3 })
+                    }
+                    break;
+                case "202":
+                    if (this.state.p120 >= 5) {
+                        if (this.state.p220 < 3) {
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 40})
+                        }
+                        this.setState({p120: parseInt(this.state.p120) - 2})
+                    } else if (this.state.p120 === 4) {
+                        if (this.state.p220 < 3) {                        
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 20})
+                        }
+                        this.setState({p120: 2})
+                    } else if (this.state.p120 < 4) {
+                        this.setState({p120: parseInt(this.state.p120) - 3 })
+                    }
+                    break;
+            }
             }
         } else {
             this.setThrowNumber(parseInt(this.state.activeThrows) - 1 );
+            if (this.state.activeThrower === "p1") {
+            otherThrower = "p2";
+            switch(lastThrow) {
+                case "203":
+                    if (this.state.p120 >= 6) {
+                        if (this.state.p220 < 3) {
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 60})
+                        }
+                        this.setState({p120: parseInt(this.state.p120) - 3})
+                    } else if (this.state.p120 === 5) {
+                        if (this.state.p220 < 3) {                        
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 40})
+                        }
+                        this.setState({p120: 2})
+                    } else if (this.state.p120 === 4) {
+                        if (this.state.p220 < 3) {                        
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 20})
+                        }
+                        this.setState({p120: 1})
+                    } else if (this.state.p120 < 4) {
+                        this.setState({p120: parseInt(this.state.p120) - 3 })
+                    }
+                    break;
+                case "202":
+                    if (this.state.p120 >= 5) {
+                        if (this.state.p220 < 3) {
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 40})
+                        }
+                        this.setState({p120: parseInt(this.state.p120) - 2})
+                    } else if (this.state.p120 === 4) {
+                        if (this.state.p220 < 3) {                        
+                            this.setState({p1Score: parseInt(this.state.p1Score) - 20})
+                        }
+                        this.setState({p120: 2})
+                    } else if (this.state.p120 < 4) {
+                        this.setState({p120: parseInt(this.state.p120) - 3 })
+                    }
+                    break;
+            }
+            
+        }
         } 
+
+        
 
         let loggedArray = this.state.throwLog;
         loggedArray.pop();

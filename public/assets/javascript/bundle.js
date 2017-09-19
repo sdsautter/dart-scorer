@@ -22630,15 +22630,98 @@ var Cricket = function (_Component) {
     }, {
         key: "undo",
         value: function undo() {
+            var otherThrower = "";
+            var logLength = this.state.throwLog.length;
+            var lastThrowNumber = logLength - 1;
+            var lastThrow = this.state.throwLog[lastThrowNumber];
+
             if (this.state.activeThrows === 0) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {
                     this.setActiveThrower("p2");
                 } else {
                     this.setActiveThrower("p1");
+                    otherThrower = "p2";
+                    switch (lastThrow) {
+                        case "203":
+                            if (this.state.p120 >= 6) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 60 });
+                                }
+                                this.setState({ p120: parseInt(this.state.p120) - 3 });
+                            } else if (this.state.p120 === 5) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                                }
+                                this.setState({ p120: 2 });
+                            } else if (this.state.p120 === 4) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                                }
+                                this.setState({ p120: 1 });
+                            } else if (this.state.p120 < 4) {
+                                this.setState({ p120: parseInt(this.state.p120) - 3 });
+                            }
+                            break;
+                        case "202":
+                            if (this.state.p120 >= 5) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                                }
+                                this.setState({ p120: parseInt(this.state.p120) - 2 });
+                            } else if (this.state.p120 === 4) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                                }
+                                this.setState({ p120: 2 });
+                            } else if (this.state.p120 < 4) {
+                                this.setState({ p120: parseInt(this.state.p120) - 3 });
+                            }
+                            break;
+                    }
                 }
             } else {
                 this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
+                if (this.state.activeThrower === "p1") {
+                    otherThrower = "p2";
+                    switch (lastThrow) {
+                        case "203":
+                            if (this.state.p120 >= 6) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 60 });
+                                }
+                                this.setState({ p120: parseInt(this.state.p120) - 3 });
+                            } else if (this.state.p120 === 5) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                                }
+                                this.setState({ p120: 2 });
+                            } else if (this.state.p120 === 4) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                                }
+                                this.setState({ p120: 1 });
+                            } else if (this.state.p120 < 4) {
+                                this.setState({ p120: parseInt(this.state.p120) - 3 });
+                            }
+                            break;
+                        case "202":
+                            if (this.state.p120 >= 5) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                                }
+                                this.setState({ p120: parseInt(this.state.p120) - 2 });
+                            } else if (this.state.p120 === 4) {
+                                if (this.state.p220 < 3) {
+                                    this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                                }
+                                this.setState({ p120: 2 });
+                            } else if (this.state.p120 < 4) {
+                                this.setState({ p120: parseInt(this.state.p120) - 3 });
+                            }
+                            break;
+                    }
+                }
             }
 
             var loggedArray = this.state.throwLog;
@@ -23281,24 +23364,13 @@ var Scoreboard = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center miss" },
+                        { className: "col-6 offset-3 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
                                     _this2.props.miss();
                                 } },
                             "Miss"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-6 text-center miss" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    _this2.props.undo();
-                                } },
-                            "Undo"
                         )
                     )
                 ),
