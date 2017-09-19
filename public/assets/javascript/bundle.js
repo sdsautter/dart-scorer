@@ -22443,6 +22443,7 @@ var Cricket = function (_Component) {
         _this.state = {
             activeThrower: "p1",
             activeThrows: 0,
+            activeMarks: 0,
             gameState: "playing",
             gameWinner: {},
 
@@ -22455,6 +22456,11 @@ var Cricket = function (_Component) {
             p125: 0,
             p1Score: 0,
             p1Throws: 0,
+            p15m: 0,
+            p16m: 0,
+            p17m: 0,
+            p18m: 0,
+            p19m: 0,
 
             p220: 0,
             p219: 0,
@@ -22464,7 +22470,12 @@ var Cricket = function (_Component) {
             p215: 0,
             p225: 0,
             p2Score: 0,
-            p2Throws: 0
+            p2Throws: 0,
+            p25m: 0,
+            p26m: 0,
+            p27m: 0,
+            p28m: 0,
+            p29m: 0
 
             //Binding functions to change the states
         };_this.score = _this.score.bind(_this);
@@ -22494,10 +22505,53 @@ var Cricket = function (_Component) {
         _this.playersRender = _this.playersRender.bind(_this);
         _this.miss = _this.miss.bind(_this);
         _this.conditionalRender = _this.conditionalRender.bind(_this);
+        _this.addMarks = _this.addMarks.bind(_this);
+        _this.resetMarks = _this.resetMarks.bind(_this);
+        _this.allStarPoints = _this.allStarPoints.bind(_this);
+        _this.gameReset = _this.gameReset.bind(_this);
         return _this;
     }
 
     _createClass(Cricket, [{
+        key: "gameReset",
+        value: function gameReset() {
+            this.setState({ activeThrower: "p1" });
+            this.setState({ activeThrows: 0 });
+            this.setState({ activeMarks: 0 });
+            this.setState({ gameState: "playing" });
+            this.setState({ gameWinner: {} });
+
+            this.setState({ p120: 0 });
+            this.setState({ p119: 0 });
+            this.setState({ p118: 0 });
+            this.setState({ p117: 0 });
+            this.setState({ p116: 0 });
+            this.setState({ p115: 0 });
+            this.setState({ p125: 0 });
+            this.setState({ p1Score: 0 });
+            this.setState({ p1Throws: 0 });
+            this.setState({ p15m: 0 });
+            this.setState({ p16m: 0 });
+            this.setState({ p17m: 0 });
+            this.setState({ p18m: 0 });
+            this.setState({ p19m: 0 });
+
+            this.setState({ p220: 0 });
+            this.setState({ p219: 0 });
+            this.setState({ p218: 0 });
+            this.setState({ p217: 0 });
+            this.setState({ p216: 0 });
+            this.setState({ p215: 0 });
+            this.setState({ p225: 0 });
+            this.setState({ p2Score: 0 });
+            this.setState({ p2Throws: 0 });
+            this.setState({ p25m: 0 });
+            this.setState({ p26m: 0 });
+            this.setState({ p27m: 0 });
+            this.setState({ p28m: 0 });
+            this.setState({ p29m: 0 });
+        }
+    }, {
         key: "conditionalRender",
         value: function conditionalRender() {
             if (this.state.gameState === "playing") {
@@ -22527,7 +22581,10 @@ var Cricket = function (_Component) {
             } else if (this.state.gameState === "over") {
                 if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
                     return _react2.default.createElement(_Results2.default, {
-                        gameWinner: this.state.gameWinner
+                        gameWinner: this.state.gameWinner,
+                        gameReset: this.gameReset,
+                        p1Throws: this.state.p1Throws,
+                        p2Throws: this.state.p2Throws
                     });
                 }
             }
@@ -22625,6 +22682,7 @@ var Cricket = function (_Component) {
             }
 
             this.addThrow(this.state.activeThrower);
+            this.addMarks(multiplier);
             this.gameOverCheck();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.checkThrower();
@@ -22640,12 +22698,14 @@ var Cricket = function (_Component) {
         key: "checkThrower",
         value: function checkThrower() {
             if (this.state.activeThrows === 2) {
+                this.allStarPoints();
                 if (this.state.activeThrower === "p1") {
                     this.setActiveThrower("p2");
                 } else {
                     this.setActiveThrower("p1");
                 }
                 this.setThrowNumber(0);
+                this.resetMarks();
             }
         }
     }, {
@@ -22683,6 +22743,52 @@ var Cricket = function (_Component) {
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
             this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
+        }
+    }, {
+        key: "addMarks",
+        value: function addMarks(number) {
+            var marks = parseInt(this.state.activeMarks);
+            var newMark = parseInt(number);
+            this.setState({ activeMarks: marks + newMark });
+        }
+    }, {
+        key: "resetMarks",
+        value: function resetMarks() {
+            var _this3 = this;
+
+            setTimeout(function () {
+                _this3.setState({ activeMarks: 0 });
+            }, 1000);
+        }
+    }, {
+        key: "allStarPoints",
+        value: function allStarPoints() {
+            var marks = parseInt(this.state.activeMarks);
+            if (this.state.activeThrower === "p1") {
+                if (marks === 5) {
+                    this.setState({ p15m: parseInt(this.state.p15m) + 1 });
+                } else if (marks === 6) {
+                    this.setState({ p16m: parseInt(this.state.p16m) + 1 });
+                } else if (marks === 7) {
+                    this.setState({ p17m: parseInt(this.state.p17m) + 1 });
+                } else if (marks === 8) {
+                    this.setState({ p18m: parseInt(this.state.p18m) + 1 });
+                } else if (marks === 9) {
+                    this.setState({ p19m: parseInt(this.state.p19m) + 1 });
+                }
+            } else {
+                if (marks === 5) {
+                    this.setState({ p25m: parseInt(this.state.p25m) + 1 });
+                } else if (marks === 6) {
+                    this.setState({ p26m: parseInt(this.state.p26m) + 1 });
+                } else if (marks === 7) {
+                    this.setState({ p27m: parseInt(this.state.p27m) + 1 });
+                } else if (marks === 8) {
+                    this.setState({ p28m: parseInt(this.state.p28m) + 1 });
+                } else if (marks === 9) {
+                    this.setState({ p29m: parseInt(this.state.p29m) + 1 });
+                }
+            }
         }
     }, {
         key: "p120Progress",
@@ -23718,6 +23824,8 @@ var Results = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this));
 
         _this.renderWinner = _this.renderWinner.bind(_this);
+        _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
+        _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
         return _this;
     }
 
@@ -23731,8 +23839,20 @@ var Results = function (_Component) {
             }
         }
     }, {
+        key: "player1ThrowRender",
+        value: function player1ThrowRender() {
+            return this.props.p1Throws;
+        }
+    }, {
+        key: "player2ThrowRender",
+        value: function player2ThrowRender() {
+            return this.props.p2Throws;
+        }
+    }, {
         key: "render",
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 "div",
                 { className: "container-fluid" },
@@ -23753,6 +23873,53 @@ var Results = function (_Component) {
                         { className: "col text-center" },
                         this.renderWinner(),
                         " Wins!"
+                    )
+                ),
+                _react2.default.createElement("br", null),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col player1-results text-center" },
+                        "Player 1"
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col player-2 results text-center" },
+                        "Player 2"
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col throws text-center" },
+                        "Throws: ",
+                        this.player1ThrowRender()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col throws text-center" },
+                        "Throws: ",
+                        this.player2ThrowRender()
+                    )
+                ),
+                _react2.default.createElement("br", null),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 offset-3 text-center miss" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.gameReset();
+                                } },
+                            "Play Again"
+                        )
                     )
                 )
             );

@@ -8,6 +8,7 @@ export default class Cricket extends Component {
         this.state = {
             activeThrower: "p1",
             activeThrows: 0,
+            activeMarks:0,
             gameState: "playing",
             gameWinner: {},
             
@@ -20,6 +21,11 @@ export default class Cricket extends Component {
             p125: 0,
             p1Score: 0,
             p1Throws: 0,
+            p15m: 0,
+            p16m: 0,
+            p17m: 0,
+            p18m: 0,
+            p19m: 0,
             
             p220: 0,
             p219: 0,
@@ -29,7 +35,12 @@ export default class Cricket extends Component {
             p215: 0,
             p225: 0,
             p2Score: 0,
-            p2Throws: 0
+            p2Throws: 0,
+            p25m: 0,
+            p26m: 0,
+            p27m: 0,
+            p28m: 0,
+            p29m: 0
         }
 
         //Binding functions to change the states
@@ -60,6 +71,48 @@ export default class Cricket extends Component {
         this.playersRender = this.playersRender.bind(this);
         this.miss = this.miss.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
+        this.addMarks = this.addMarks.bind(this);
+        this.resetMarks = this.resetMarks.bind(this);
+        this.allStarPoints = this.allStarPoints.bind(this);
+        this.gameReset = this.gameReset.bind(this);
+    }
+
+    gameReset() {
+        this.setState({activeThrower: "p1"});
+        this.setState({activeThrows: 0});
+        this.setState({activeMarks: 0});
+        this.setState({gameState: "playing"});
+        this.setState({gameWinner: {}}); 
+        
+        this.setState({p120: 0});
+        this.setState({p119: 0});
+        this.setState({p118: 0});
+        this.setState({p117: 0});
+        this.setState({p116: 0});
+        this.setState({p115: 0});
+        this.setState({p125: 0});
+        this.setState({p1Score: 0});
+        this.setState({p1Throws: 0});
+        this.setState({p15m: 0});
+        this.setState({p16m: 0});
+        this.setState({p17m: 0});
+        this.setState({p18m: 0});
+        this.setState({p19m: 0});
+        
+        this.setState({p220: 0});
+        this.setState({p219: 0});
+        this.setState({p218: 0});
+        this.setState({p217: 0});
+        this.setState({p216: 0});
+        this.setState({p215: 0});
+        this.setState({p225: 0});
+        this.setState({p2Score: 0});
+        this.setState({p2Throws: 0});
+        this.setState({p25m: 0});
+        this.setState({p26m: 0});
+        this.setState({p27m: 0});
+        this.setState({p28m: 0});
+        this.setState({p29m: 0}); 
     }
 
     conditionalRender() {
@@ -94,6 +147,9 @@ export default class Cricket extends Component {
                 return (
                     <Results
                         gameWinner={this.state.gameWinner}
+                        gameReset={this.gameReset}
+                        p1Throws={this.state.p1Throws}
+                        p2Throws={this.state.p2Throws}
                     />
                 )
             }
@@ -185,6 +241,7 @@ export default class Cricket extends Component {
         }
         
         this.addThrow(this.state.activeThrower);
+        this.addMarks(multiplier);
         this.gameOverCheck();        
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
@@ -198,12 +255,14 @@ export default class Cricket extends Component {
 
     checkThrower() {
         if (this.state.activeThrows === 2 ) {
-            if (this.state.activeThrower === "p1") {
+            this.allStarPoints();
+            if (this.state.activeThrower === "p1") {                
                 this.setActiveThrower("p2");
-            } else {
+            } else {        
                 this.setActiveThrower("p1");
             }
             this.setThrowNumber(0);
+            this.resetMarks();
         }
     }
 
@@ -234,6 +293,46 @@ export default class Cricket extends Component {
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);  
         this.setState ({[playerThrows]: parseInt([playerThrowsState]) + 1});
+    }
+
+    addMarks(number) {
+        let marks = parseInt(this.state.activeMarks);
+        let newMark = parseInt(number)
+        this.setState({activeMarks: marks + newMark})
+    }
+
+    resetMarks() {
+        setTimeout(() => {
+        this.setState({activeMarks: 0})}, 1000);
+    }
+
+    allStarPoints() {
+        let marks = parseInt(this.state.activeMarks);
+        if (this.state.activeThrower === "p1") {
+            if (marks === 5) {
+                this.setState({p15m: parseInt(this.state.p15m) + 1});
+            } else if (marks === 6) {
+                this.setState({p16m: parseInt(this.state.p16m) + 1});
+            } else if (marks === 7) {
+                this.setState({p17m: parseInt(this.state.p17m) + 1});
+            } else if (marks === 8) {
+                this.setState({p18m: parseInt(this.state.p18m) + 1});
+            } else if (marks === 9) {
+                this.setState({p19m: parseInt(this.state.p19m) + 1});
+            }
+        } else {
+            if (marks === 5) {
+                this.setState({p25m: parseInt(this.state.p25m) + 1});
+            } else if (marks === 6) {
+                this.setState({p26m: parseInt(this.state.p26m) + 1});
+            } else if (marks === 7) {
+                this.setState({p27m: parseInt(this.state.p27m) + 1});
+            } else if (marks === 8) {
+                this.setState({p28m: parseInt(this.state.p28m) + 1});
+            } else if (marks === 9) {
+                this.setState({p29m: parseInt(this.state.p29m) + 1});
+            }
+        }
     }
 
     p120Progress() {
