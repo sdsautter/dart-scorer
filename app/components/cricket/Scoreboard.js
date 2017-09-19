@@ -113,16 +113,16 @@ export default class Scoreboard extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-6 offset-3 text-center miss">
+                    <div className="col-6 text-center miss">
                         <button type="button" className="btn" onClick={() => {this.props.miss()}}>
                             Miss
                         </button>
                     </div>
-                    {/*<div className="col-6 text-center miss">
+                    <div className="col-6 text-center miss">
                         <button type="button" className="btn" onClick={() => {this.props.undo()}}>
                             Undo
                         </button>
-                    </div>*/}
+                    </div>
                 </div>
                 <div className="modal fade" id="twentyModal" tabIndex="-1" role="dialog" aria-labelledby="twentyModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
