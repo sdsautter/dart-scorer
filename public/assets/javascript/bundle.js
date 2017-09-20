@@ -23721,8 +23721,8 @@ var Scoreboard = function (_Component) {
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-2 text-right align-self-center points-score" },
-                            this.props.renderP1Score()
+                            { className: "col-2 text-center align-self-center points-label" },
+                            "Points:"
                         ),
                         _react2.default.createElement(
                             "div",
@@ -23745,8 +23745,8 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-2 text-left align-self-center points-score" },
-                            this.props.renderP2Score()
+                            { className: "col-2 text-center align-self-center points-label" },
+                            "Points:"
                         )
                     ),
                     _react2.default.createElement(
@@ -23754,7 +23754,12 @@ var Scoreboard = function (_Component) {
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-2 offset-2 text-center align-self-center" },
+                            { className: "col-2 text-center align-self-start points-score" },
+                            this.props.renderP1Score()
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-2 text-center align-self-center" },
                             this.props.p119Progress()
                         ),
                         _react2.default.createElement(
@@ -23770,6 +23775,11 @@ var Scoreboard = function (_Component) {
                             "div",
                             { className: "col-2 text-center align-self-center" },
                             this.props.p219Progress()
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-2 text-center align-self-start points-score" },
+                            this.props.renderP2Score()
                         )
                     ),
                     _react2.default.createElement(

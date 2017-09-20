@@ -49,11 +49,11 @@ export default class Scoreboard extends Component {
         //Renders either an input or a text area depending on the screen width
         if (intViewportWidth < 720) {
             return (
-<div className="container-fluid">
+                <div className="container-fluid">
                 {this.playersRender()}
                 <div className = "row">
-                    <div className="col-2 text-right align-self-center points-score">
-                        {this.props.renderP1Score()}
+                    <div className="col-2 text-center align-self-center points-label">
+                        Points:
                     </div>
                     <div className="col-2 text-center align-self-center">
                         {this.props.p120Progress()}
@@ -66,12 +66,15 @@ export default class Scoreboard extends Component {
                     <div className="col-2 text-center align-self-center">
                         {this.props.p220Progress()}
                     </div>
-                    <div className="col-2 text-left align-self-center points-score">
-                        {this.props.renderP2Score()}
+                    <div className="col-2 text-center align-self-center points-label">
+                        Points:
                     </div>
                 </div>
                 <div className = "row">
-                    <div className="col-2 offset-2 text-center align-self-center">
+                    <div className="col-2 text-center align-self-start points-score">
+                        {this.props.renderP1Score()}
+                    </div>
+                    <div className="col-2 text-center align-self-center">
                         {this.props.p119Progress()}
                     </div>
                     <div className="col-4 text-center number">
@@ -81,6 +84,9 @@ export default class Scoreboard extends Component {
                     </div>
                     <div className="col-2 text-center align-self-center">
                         {this.props.p219Progress()}
+                    </div>
+                    <div className="col-2 text-center align-self-start points-score">
+                        {this.props.renderP2Score()}
                     </div>
                 </div>
                 <div className = "row">
