@@ -22511,8 +22511,7 @@ var Cricket = function (_Component) {
         _this.gameReset = _this.gameReset.bind(_this);
         _this.addToLog = _this.addToLog.bind(_this);
         _this.undo = _this.undo.bind(_this);
-        _this.p1UndoSwitch = _this.p1UndoSwitch.bind(_this);
-        _this.p2UndoSwitch = _this.p2UndoSwitch.bind(_this);
+        _this.undoSwitch = _this.undoSwitch.bind(_this);
         return _this;
     }
 
@@ -22635,17 +22634,17 @@ var Cricket = function (_Component) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {
                     this.setActiveThrower("p2");
-                    this.p2UndoSwitch();
+                    this.undoSwitch("p2");
                 } else {
                     this.setActiveThrower("p1");
-                    this.p1UndoSwitch();
+                    this.undoSwitch("p1");
                 }
             } else {
                 this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
                 if (this.state.activeThrower === "p1") {
-                    this.p1UndoSwitch();
+                    this.undoSwitch("p1");
                 } else {
-                    this.p2UndoSwitch();
+                    this.undoSwitch("p2");
                 }
             }
 
@@ -22654,621 +22653,347 @@ var Cricket = function (_Component) {
             this.setState({ throwLog: loggedArray });
         }
     }, {
-        key: "p1UndoSwitch",
-        value: function p1UndoSwitch(player) {
+        key: "undoSwitch",
+        value: function undoSwitch(player) {
             var logLength = this.state.throwLog.length;
             var lastThrowNumber = logLength - 1;
             var lastThrow = this.state.throwLog[lastThrowNumber];
-            var otherThrower = "p2";
+            var otherThrower = "";
 
-            if (this.state.p1Throws > 0) {
-                switch (lastThrow) {
-                    case "203":
-                        if (this.state.p120 >= 6) {
-                            if (this.state.p220 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 60 });
-                            }
-                            this.setState({ p120: parseInt(this.state.p120) - 3 });
-                        } else if (this.state.p120 === 5) {
-                            if (this.state.p220 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
-                            }
-                            this.setState({ p120: 2 });
-                        } else if (this.state.p120 === 4) {
-                            if (this.state.p220 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
-                            }
-                            this.setState({ p120: 1 });
-                        } else if (this.state.p120 < 4) {
-                            this.setState({ p120: parseInt(this.state.p120) - 3 });
-                        }
-                        break;
-                    case "202":
-                        if (this.state.p120 >= 5) {
-                            if (this.state.p220 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
-                            }
-                            this.setState({ p120: parseInt(this.state.p120) - 2 });
-                        } else if (this.state.p120 === 4) {
-                            if (this.state.p220 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
-                            }
-                            this.setState({ p120: 2 });
-                        } else if (this.state.p120 < 4) {
-                            this.setState({ p120: parseInt(this.state.p120) - 2 });
-                        }
-                        break;
-                    case "201":
-                        if (this.state.p120 === 4) {
-                            if (this.state.p220 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
-                            }
-                            this.setState({ p120: 3 });
-                        } else if (this.state.p120 < 4) {
-                            this.setState({ p120: parseInt(this.state.p120) - 1 });
-                        }
-                        break;
-                    case "193":
-                        if (this.state.p119 >= 6) {
-                            if (this.state.p219 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 57 });
-                            }
-                            this.setState({ p119: parseInt(this.state.p119) - 3 });
-                        } else if (this.state.p119 === 5) {
-                            if (this.state.p219 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 38 });
-                            }
-                            this.setState({ p119: 2 });
-                        } else if (this.state.p119 === 4) {
-                            if (this.state.p219 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
-                            }
-                            this.setState({ p119: 1 });
-                        } else if (this.state.p119 < 4) {
-                            this.setState({ p119: parseInt(this.state.p119) - 3 });
-                        }
-                        break;
-                    case "192":
-                        if (this.state.p119 >= 5) {
-                            if (this.state.p219 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 38 });
-                            }
-                            this.setState({ p119: parseInt(this.state.p119) - 2 });
-                        } else if (this.state.p119 === 4) {
-                            if (this.state.p219 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
-                            }
-                            this.setState({ p119: 2 });
-                        } else if (this.state.p119 < 4) {
-                            this.setState({ p119: parseInt(this.state.p119) - 2 });
-                        }
-                        break;
-                    case "191":
-                        if (this.state.p119 === 4) {
-                            if (this.state.p219 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
-                            }
-                            this.setState({ p119: 3 });
-                        } else if (this.state.p119 < 4) {
-                            this.setState({ p119: parseInt(this.state.p119) - 1 });
-                        }
-                        break;
-                    case "183":
-                        if (this.state.p118 >= 6) {
-                            if (this.state.p218 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 54 });
-                            }
-                            this.setState({ p118: parseInt(this.state.p118) - 3 });
-                        } else if (this.state.p118 === 5) {
-                            if (this.state.p218 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 36 });
-                            }
-                            this.setState({ p118: 2 });
-                        } else if (this.state.p118 === 4) {
-                            if (this.state.p218 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
-                            }
-                            this.setState({ p118: 1 });
-                        } else if (this.state.p118 < 4) {
-                            this.setState({ p118: parseInt(this.state.p118) - 3 });
-                        }
-                        break;
-                    case "182":
-                        if (this.state.p118 >= 5) {
-                            if (this.state.p218 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 36 });
-                            }
-                            this.setState({ p118: parseInt(this.state.p118) - 2 });
-                        } else if (this.state.p118 === 4) {
-                            if (this.state.p218 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
-                            }
-                            this.setState({ p118: 2 });
-                        } else if (this.state.p118 < 4) {
-                            this.setState({ p118: parseInt(this.state.p118) - 2 });
-                        }
-                        break;
-                    case "181":
-                        if (this.state.p118 === 4) {
-                            if (this.state.p218 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
-                            }
-                            this.setState({ p118: 3 });
-                        } else if (this.state.p118 < 4) {
-                            this.setState({ p118: parseInt(this.state.p118) - 1 });
-                        }
-                        break;
-                    case "173":
-                        if (this.state.p117 >= 6) {
-                            if (this.state.p217 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 51 });
-                            }
-                            this.setState({ p117: parseInt(this.state.p117) - 3 });
-                        } else if (this.state.p117 === 5) {
-                            if (this.state.p217 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 34 });
-                            }
-                            this.setState({ p117: 2 });
-                        } else if (this.state.p117 === 4) {
-                            if (this.state.p217 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
-                            }
-                            this.setState({ p117: 1 });
-                        } else if (this.state.p117 < 4) {
-                            this.setState({ p117: parseInt(this.state.p117) - 3 });
-                        }
-                        break;
-                    case "172":
-                        if (this.state.p117 >= 5) {
-                            if (this.state.p217 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 34 });
-                            }
-                            this.setState({ p117: parseInt(this.state.p117) - 2 });
-                        } else if (this.state.p117 === 4) {
-                            if (this.state.p217 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
-                            }
-                            this.setState({ p117: 2 });
-                        } else if (this.state.p117 < 4) {
-                            this.setState({ p117: parseInt(this.state.p117) - 2 });
-                        }
-                        break;
-                    case "171":
-                        if (this.state.p117 === 4) {
-                            if (this.state.p217 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
-                            }
-                            this.setState({ p117: 3 });
-                        } else if (this.state.p117 < 4) {
-                            this.setState({ p117: parseInt(this.state.p117) - 1 });
-                        }
-                        break;
-                    case "163":
-                        if (this.state.p116 >= 6) {
-                            if (this.state.p216 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 48 });
-                            }
-                            this.setState({ p116: parseInt(this.state.p116) - 3 });
-                        } else if (this.state.p116 === 5) {
-                            if (this.state.p216 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 32 });
-                            }
-                            this.setState({ p116: 2 });
-                        } else if (this.state.p116 === 4) {
-                            if (this.state.p216 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
-                            }
-                            this.setState({ p116: 1 });
-                        } else if (this.state.p116 < 4) {
-                            this.setState({ p116: parseInt(this.state.p116) - 3 });
-                        }
-                        break;
-                    case "162":
-                        if (this.state.p116 >= 5) {
-                            if (this.state.p216 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 32 });
-                            }
-                            this.setState({ p116: parseInt(this.state.p116) - 2 });
-                        } else if (this.state.p116 === 4) {
-                            if (this.state.p216 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
-                            }
-                            this.setState({ p116: 2 });
-                        } else if (this.state.p116 < 4) {
-                            this.setState({ p116: parseInt(this.state.p116) - 2 });
-                        }
-                        break;
-                    case "161":
-                        if (this.state.p116 === 4) {
-                            if (this.state.p216 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
-                            }
-                            this.setState({ p116: 3 });
-                        } else if (this.state.p116 < 4) {
-                            this.setState({ p116: parseInt(this.state.p116) - 1 });
-                        }
-                        break;
-                    case "153":
-                        if (this.state.p115 >= 6) {
-                            if (this.state.p215 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 45 });
-                            }
-                            this.setState({ p115: parseInt(this.state.p115) - 3 });
-                        } else if (this.state.p115 === 5) {
-                            if (this.state.p215 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 30 });
-                            }
-                            this.setState({ p115: 2 });
-                        } else if (this.state.p115 === 4) {
-                            if (this.state.p215 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
-                            }
-                            this.setState({ p115: 1 });
-                        } else if (this.state.p115 < 4) {
-                            this.setState({ p115: parseInt(this.state.p115) - 3 });
-                        }
-                        break;
-                    case "152":
-                        if (this.state.p115 >= 5) {
-                            if (this.state.p215 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 30 });
-                            }
-                            this.setState({ p115: parseInt(this.state.p115) - 2 });
-                        } else if (this.state.p115 === 4) {
-                            if (this.state.p215 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
-                            }
-                            this.setState({ p115: 2 });
-                        } else if (this.state.p115 < 4) {
-                            this.setState({ p115: parseInt(this.state.p115) - 2 });
-                        }
-                        break;
-                    case "151":
-                        if (this.state.p115 === 4) {
-                            if (this.state.p215 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
-                            }
-                            this.setState({ p115: 3 });
-                        } else if (this.state.p115 < 4) {
-                            this.setState({ p115: parseInt(this.state.p115) - 1 });
-                        }
-                        break;
-                    case "252":
-                        if (this.state.p125 >= 5) {
-                            if (this.state.p225 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 50 });
-                            }
-                            this.setState({ p125: parseInt(this.state.p125) - 2 });
-                        } else if (this.state.p125 === 4) {
-                            if (this.state.p225 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 25 });
-                            }
-                            this.setState({ p125: 2 });
-                        } else if (this.state.p125 < 4) {
-                            this.setState({ p125: parseInt(this.state.p125) - 2 });
-                        }
-                        break;
-                    case "251":
-                        if (this.state.p125 === 4) {
-                            if (this.state.p225 < 3) {
-                                this.setState({ p1Score: parseInt(this.state.p1Score) - 25 });
-                            }
-                            this.setState({ p125: 3 });
-                        } else if (this.state.p125 < 4) {
-                            this.setState({ p125: parseInt(this.state.p125) - 1 });
-                        }
-                        break;
-                }
-                this.setState({ p1Throws: parseInt(this.state.p1Throws) - 1 });
+            if (player === "p1") {
+                otherThrower = "p2";
+            } else {
+                otherThrower = "p1";
             }
-        }
-    }, {
-        key: "p2UndoSwitch",
-        value: function p2UndoSwitch() {
-            var logLength = this.state.throwLog.length;
-            var lastThrowNumber = logLength - 1;
-            var lastThrow = this.state.throwLog[lastThrowNumber];
-            var otherThrower = "p1";
 
-            if (this.state.p2Throws > 0) {
+            var playerScore = player + "Score";
+            var playerScoreState = eval("this.state." + playerScore);
+            var playerThrows = player + "Throws";
+            var throwsState = eval("this.state." + player + "Throws");
+
+            var player20 = player + "20";
+            var player19 = player + "19";
+            var player18 = player + "18";
+            var player17 = player + "17";
+            var player16 = player + "16";
+            var player15 = player + "15";
+            var player25 = player + "25";
+
+            var player20State = eval("this.state." + player20);
+            var player19State = eval("this.state." + player19);
+            var player18State = eval("this.state." + player18);
+            var player17State = eval("this.state." + player17);
+            var player16State = eval("this.state." + player16);
+            var player15State = eval("this.state." + player15);
+            var player25State = eval("this.state." + player25);
+
+            var other20State = eval("this.state." + otherThrower + "20");
+            var other19State = eval("this.state." + otherThrower + "19");
+            var other18State = eval("this.state." + otherThrower + "18");
+            var other17State = eval("this.state." + otherThrower + "17");
+            var other16State = eval("this.state." + otherThrower + "16");
+            var other15State = eval("this.state." + otherThrower + "15");
+            var other25State = eval("this.state." + otherThrower + "25");
+
+            if (throwsState > 0) {
                 switch (lastThrow) {
                     case "203":
-                        if (this.state.p220 >= 6) {
-                            if (this.state.p120 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 60 });
+                        if (player20State >= 6) {
+                            if (other20State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 60));
                             }
-                            this.setState({ p220: parseInt(this.state.p220) - 3 });
-                        } else if (this.state.p220 === 5) {
-                            if (this.state.p120 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 40 });
+                            this.setState(_defineProperty({}, player20, parseInt(player20State) - 3));
+                        } else if (player20State === 5) {
+                            if (other20State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 40));
                             }
-                            this.setState({ p220: 2 });
-                        } else if (this.state.p220 === 4) {
-                            if (this.state.p120 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                            this.setState(_defineProperty({}, player20, 2));
+                        } else if (player20State === 4) {
+                            if (other20State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
                             }
-                            this.setState({ p220: 1 });
-                        } else if (this.state.p220 < 4) {
-                            this.setState({ p220: parseInt(this.state.p220) - 3 });
+                            this.setState(_defineProperty({}, player20, 1));
+                        } else if (player20State < 4) {
+                            this.setState(_defineProperty({}, player20, parseInt(player20State) - 3));
                         }
                         break;
                     case "202":
-                        if (this.state.p220 >= 5) {
-                            if (this.state.p120 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 40 });
+                        if (player20State >= 5) {
+                            if (other20State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 40));
                             }
-                            this.setState({ p220: parseInt(this.state.p220) - 2 });
-                        } else if (this.state.p220 === 4) {
-                            if (this.state.p120 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                            this.setState(_defineProperty({}, player20, parseInt(player20State) - 2));
+                        } else if (player20State === 4) {
+                            if (other20State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
                             }
-                            this.setState({ p220: 2 });
-                        } else if (this.state.p220 < 4) {
-                            this.setState({ p220: parseInt(this.state.p220) - 2 });
+                            this.setState(_defineProperty({}, player20, 2));
+                        } else if (player20State < 4) {
+                            this.setState(_defineProperty({}, player20, parseInt(player20State) - 2));
                         }
                         break;
                     case "201":
-                        if (this.state.p220 === 4) {
-                            if (this.state.p120 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                        if (player20State === 4) {
+                            if (other20State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
                             }
-                            this.setState({ p220: 3 });
-                        } else if (this.state.p220 < 4) {
-                            this.setState({ p220: parseInt(this.state.p220) - 1 });
+                            this.setState(_defineProperty({}, player20, 3));
+                        } else if (player20State < 4) {
+                            this.setState(_defineProperty({}, player20, parseInt(player20State) - 1));
                         }
                         break;
                     case "193":
-                        if (this.state.p219 >= 6) {
-                            if (this.state.p119 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 57 });
+                        if (player19State >= 6) {
+                            if (other19State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 57));
                             }
-                            this.setState({ p219: parseInt(this.state.p219) - 3 });
-                        } else if (this.state.p219 === 5) {
-                            if (this.state.p119 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 38 });
+                            this.setState(_defineProperty({}, player19, parseInt(player19State) - 3));
+                        } else if (player19State === 5) {
+                            if (other19State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 38));
                             }
-                            this.setState({ p219: 2 });
-                        } else if (this.state.p219 === 4) {
-                            if (this.state.p119 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                            this.setState(_defineProperty({}, player19, 2));
+                        } else if (player19State === 4) {
+                            if (other19State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
                             }
-                            this.setState({ p219: 1 });
-                        } else if (this.state.p219 < 4) {
-                            this.setState({ p219: parseInt(this.state.p219) - 3 });
+                            this.setState(_defineProperty({}, player19, 1));
+                        } else if (player19State < 4) {
+                            this.setState(_defineProperty({}, player19, parseInt(player19State) - 3));
                         }
                         break;
                     case "192":
-                        if (this.state.p219 >= 5) {
-                            if (this.state.p119 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 38 });
+                        if (player19State >= 5) {
+                            if (other19State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 38));
                             }
-                            this.setState({ p219: parseInt(this.state.p219) - 2 });
-                        } else if (this.state.p219 === 4) {
-                            if (this.state.p119 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                            this.setState(_defineProperty({}, player19, parseInt(player19State) - 2));
+                        } else if (player19State === 4) {
+                            if (other19State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
                             }
-                            this.setState({ p219: 2 });
-                        } else if (this.state.p219 < 4) {
-                            this.setState({ p219: parseInt(this.state.p219) - 2 });
+                            this.setState(_defineProperty({}, player19, 2));
+                        } else if (player19State < 4) {
+                            this.setState(_defineProperty({}, player19, parseInt(player19State) - 2));
                         }
                         break;
                     case "191":
-                        if (this.state.p219 === 4) {
-                            if (this.state.p119 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                        if (player19State === 4) {
+                            if (other19State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
                             }
-                            this.setState({ p219: 3 });
-                        } else if (this.state.p219 < 4) {
-                            this.setState({ p219: parseInt(this.state.p219) - 1 });
+                            this.setState(_defineProperty({}, player19, 3));
+                        } else if (player19State < 4) {
+                            this.setState(_defineProperty({}, player19, parseInt(player19State) - 1));
                         }
                         break;
                     case "183":
-                        if (this.state.p218 >= 6) {
-                            if (this.state.p118 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 54 });
+                        if (player18State >= 6) {
+                            if (other18State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 54));
                             }
-                            this.setState({ p218: parseInt(this.state.p218) - 3 });
-                        } else if (this.state.p218 === 5) {
-                            if (this.state.p118 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 36 });
+                            this.setState(_defineProperty({}, player18, parseInt(player18State) - 3));
+                        } else if (player18State === 5) {
+                            if (other18State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 36));
                             }
-                            this.setState({ p218: 2 });
-                        } else if (this.state.p218 === 4) {
-                            if (this.state.p118 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                            this.setState(_defineProperty({}, player18, 2));
+                        } else if (player18State === 4) {
+                            if (other18State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
                             }
-                            this.setState({ p218: 1 });
-                        } else if (this.state.p218 < 4) {
-                            this.setState({ p218: parseInt(this.state.p218) - 3 });
+                            this.setState(_defineProperty({}, player18, 1));
+                        } else if (player18State < 4) {
+                            this.setState(_defineProperty({}, player18, parseInt(player18State) - 3));
                         }
                         break;
                     case "182":
-                        if (this.state.p218 >= 5) {
-                            if (this.state.p118 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 36 });
+                        if (player18State >= 5) {
+                            if (other18State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 36));
                             }
-                            this.setState({ p218: parseInt(this.state.p218) - 2 });
-                        } else if (this.state.p218 === 4) {
-                            if (this.state.p118 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                            this.setState(_defineProperty({}, player18, parseInt(player18State) - 2));
+                        } else if (player18State === 4) {
+                            if (other18State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
                             }
-                            this.setState({ p218: 2 });
-                        } else if (this.state.p218 < 4) {
-                            this.setState({ p218: parseInt(this.state.p218) - 2 });
+                            this.setState(_defineProperty({}, player18, 2));
+                        } else if (player18State < 4) {
+                            this.setState(_defineProperty({}, player18, parseInt(player18State) - 2));
                         }
                         break;
                     case "181":
-                        if (this.state.p218 === 4) {
-                            if (this.state.p118 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                        if (player18State === 4) {
+                            if (other18State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
                             }
-                            this.setState({ p218: 3 });
-                        } else if (this.state.p218 < 4) {
-                            this.setState({ p218: parseInt(this.state.p218) - 1 });
+                            this.setState(_defineProperty({}, player18, 3));
+                        } else if (player18State < 4) {
+                            this.setState(_defineProperty({}, player18, parseInt(player18State) - 1));
                         }
                         break;
                     case "173":
-                        if (this.state.p217 >= 6) {
-                            if (this.state.p117 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 51 });
+                        if (player17State >= 6) {
+                            if (other17State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 51));
                             }
-                            this.setState({ p217: parseInt(this.state.p217) - 3 });
-                        } else if (this.state.p217 === 5) {
-                            if (this.state.p117 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 34 });
+                            this.setState(_defineProperty({}, player17, parseInt(player17State) - 3));
+                        } else if (player17State === 5) {
+                            if (other17State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 34));
                             }
-                            this.setState({ p217: 2 });
-                        } else if (this.state.p217 === 4) {
-                            if (this.state.p117 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
+                            this.setState(_defineProperty({}, player17, 2));
+                        } else if (player17State === 4) {
+                            if (other17State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
                             }
-                            this.setState({ p217: 1 });
-                        } else if (this.state.p217 < 4) {
-                            this.setState({ p217: parseInt(this.state.p217) - 3 });
+                            this.setState(_defineProperty({}, player17, 1));
+                        } else if (player17State < 4) {
+                            this.setState(_defineProperty({}, player17, parseInt(player17State) - 3));
                         }
                         break;
                     case "172":
-                        if (this.state.p217 >= 5) {
-                            if (this.state.p117 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 34 });
+                        if (player17State >= 5) {
+                            if (other17State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 34));
                             }
-                            this.setState({ p217: parseInt(this.state.p217) - 2 });
-                        } else if (this.state.p217 === 4) {
-                            if (this.state.p117 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
+                            this.setState(_defineProperty({}, player17, parseInt(player17State) - 2));
+                        } else if (player17State === 4) {
+                            if (other17State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
                             }
-                            this.setState({ p217: 2 });
-                        } else if (this.state.p217 < 4) {
-                            this.setState({ p217: parseInt(this.state.p217) - 2 });
+                            this.setState(_defineProperty({}, player17, 2));
+                        } else if (player17State < 4) {
+                            this.setState(_defineProperty({}, player17, parseInt(player17State) - 2));
                         }
                         break;
                     case "171":
-                        if (this.state.p217 === 4) {
-                            if (this.state.p117 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
+                        if (player17State === 4) {
+                            if (other17State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
                             }
-                            this.setState({ p217: 3 });
-                        } else if (this.state.p217 < 4) {
-                            this.setState({ p217: parseInt(this.state.p217) - 1 });
+                            this.setState(_defineProperty({}, player17, 3));
+                        } else if (player17State < 4) {
+                            this.setState(_defineProperty({}, player17, parseInt(player17State) - 1));
                         }
                         break;
                     case "163":
-                        if (this.state.p216 >= 6) {
-                            if (this.state.p116 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 48 });
+                        if (player16State >= 6) {
+                            if (other16State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 48));
                             }
-                            this.setState({ p216: parseInt(this.state.p216) - 3 });
-                        } else if (this.state.p216 === 5) {
-                            if (this.state.p116 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 32 });
+                            this.setState(_defineProperty({}, player16, parseInt(player16State) - 3));
+                        } else if (player16State === 5) {
+                            if (other16State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 32));
                             }
-                            this.setState({ p216: 2 });
-                        } else if (this.state.p216 === 4) {
-                            if (this.state.p116 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
+                            this.setState(_defineProperty({}, player16, 2));
+                        } else if (player16State === 4) {
+                            if (other16State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
                             }
-                            this.setState({ p216: 1 });
-                        } else if (this.state.p216 < 4) {
-                            this.setState({ p216: parseInt(this.state.p216) - 3 });
+                            this.setState(_defineProperty({}, player16, 1));
+                        } else if (player16State < 4) {
+                            this.setState(_defineProperty({}, player16, parseInt(player16State) - 3));
                         }
                         break;
                     case "162":
-                        if (this.state.p216 >= 5) {
-                            if (this.state.p116 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 32 });
+                        if (player16State >= 5) {
+                            if (other16State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 32));
                             }
-                            this.setState({ p216: parseInt(this.state.p216) - 2 });
-                        } else if (this.state.p216 === 4) {
-                            if (this.state.p116 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
+                            this.setState(_defineProperty({}, player16, parseInt(player16State) - 2));
+                        } else if (player16State === 4) {
+                            if (other16State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
                             }
-                            this.setState({ p216: 2 });
-                        } else if (this.state.p216 < 4) {
-                            this.setState({ p216: parseInt(this.state.p216) - 2 });
+                            this.setState(_defineProperty({}, player16, 2));
+                        } else if (player16State < 4) {
+                            this.setState(_defineProperty({}, player16, parseInt(player16State) - 2));
                         }
                         break;
                     case "161":
-                        if (this.state.p216 === 4) {
-                            if (this.state.p116 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
+                        if (player16State === 4) {
+                            if (other16State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
                             }
-                            this.setState({ p216: 3 });
-                        } else if (this.state.p216 < 4) {
-                            this.setState({ p216: parseInt(this.state.p216) - 1 });
+                            this.setState(_defineProperty({}, player16, 3));
+                        } else if (player16State < 4) {
+                            this.setState(_defineProperty({}, player16, parseInt(player16State) - 1));
                         }
                         break;
                     case "153":
-                        if (this.state.p215 >= 6) {
-                            if (this.state.p115 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 45 });
+                        if (player15State >= 6) {
+                            if (other15State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 45));
                             }
-                            this.setState({ p215: parseInt(this.state.p215) - 3 });
-                        } else if (this.state.p215 === 5) {
-                            if (this.state.p115 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 30 });
+                            this.setState(_defineProperty({}, player15, parseInt(player15State) - 3));
+                        } else if (player15State === 5) {
+                            if (other15State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 30));
                             }
-                            this.setState({ p215: 2 });
-                        } else if (this.state.p215 === 4) {
-                            if (this.state.p115 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
+                            this.setState(_defineProperty({}, player15, 2));
+                        } else if (player15State === 4) {
+                            if (other15State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
                             }
-                            this.setState({ p215: 1 });
-                        } else if (this.state.p215 < 4) {
-                            this.setState({ p215: parseInt(this.state.p215) - 3 });
+                            this.setState(_defineProperty({}, player15, 1));
+                        } else if (player15State < 4) {
+                            this.setState(_defineProperty({}, player15, parseInt(player15State) - 3));
                         }
                         break;
                     case "152":
-                        if (this.state.p215 >= 5) {
-                            if (this.state.p115 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 30 });
+                        if (player15State >= 5) {
+                            if (other15State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 30));
                             }
-                            this.setState({ p215: parseInt(this.state.p215) - 2 });
-                        } else if (this.state.p215 === 4) {
-                            if (this.state.p115 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
+                            this.setState(_defineProperty({}, player15, parseInt(player15State) - 2));
+                        } else if (player15State === 4) {
+                            if (other15State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
                             }
-                            this.setState({ p215: 2 });
-                        } else if (this.state.p215 < 4) {
-                            this.setState({ p215: parseInt(this.state.p215) - 2 });
+                            this.setState(_defineProperty({}, player15, 2));
+                        } else if (player15State < 4) {
+                            this.setState(_defineProperty({}, player15, parseInt(player15State) - 2));
                         }
                         break;
                     case "151":
-                        if (this.state.p215 === 4) {
-                            if (this.state.p115 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
+                        if (player15State === 4) {
+                            if (other15State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
                             }
-                            this.setState({ p215: 3 });
-                        } else if (this.state.p215 < 4) {
-                            this.setState({ p215: parseInt(this.state.p215) - 1 });
+                            this.setState(_defineProperty({}, player15, 3));
+                        } else if (player15State < 4) {
+                            this.setState(_defineProperty({}, player15, parseInt(player15State) - 1));
                         }
                         break;
                     case "252":
-                        if (this.state.p225 >= 5) {
-                            if (this.state.p125 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 50 });
+                        if (player25State >= 5) {
+                            if (other25State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 50));
                             }
-                            this.setState({ p225: parseInt(this.state.p225) - 2 });
-                        } else if (this.state.p225 === 4) {
-                            if (this.state.p125 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 25 });
+                            this.setState(_defineProperty({}, player15, parseInt(player25State) - 2));
+                        } else if (player25State === 4) {
+                            if (other25State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
                             }
-                            this.setState({ p225: 2 });
-                        } else if (this.state.p225 < 4) {
-                            this.setState({ p225: parseInt(this.state.p225) - 2 });
+                            this.setState(_defineProperty({}, player15, 2));
+                        } else if (player25State < 4) {
+                            this.setState(_defineProperty({}, player15, parseInt(player25State) - 2));
                         }
                         break;
                     case "251":
-                        if (this.state.p225 === 4) {
-                            if (this.state.p125 < 3) {
-                                this.setState({ p2Score: parseInt(this.state.p2Score) - 25 });
+                        if (player25State === 4) {
+                            if (other25State < 3) {
+                                this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
                             }
-                            this.setState({ p225: 3 });
-                        } else if (this.state.p225 < 4) {
-                            this.setState({ p225: parseInt(this.state.p225) - 1 });
+                            this.setState(_defineProperty({}, player15, 3));
+                        } else if (player25State < 4) {
+                            this.setState(_defineProperty({}, player15, parseInt(player25State) - 1));
                         }
                         break;
                 }
-                this.setState({ p2Throws: parseInt(this.state.p2Throws) - 1 });
+                this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
             }
         }
     }, {
