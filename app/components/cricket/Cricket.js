@@ -69,7 +69,6 @@ export default class Cricket extends Component {
         this.p225Progress = this.p225Progress.bind(this);  
         this.gameStateChange = this.gameStateChange.bind(this);
         this.gameOverCheck = this.gameOverCheck.bind(this);
-        this.playersRender = this.playersRender.bind(this);
         this.miss = this.miss.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
         this.addMarks = this.addMarks.bind(this);
@@ -127,6 +126,7 @@ export default class Cricket extends Component {
                 score={this.score}
                 miss={this.miss}
                 activeThrower={this.state.activeThrower}
+                activeThrows={this.state.activeThrows}
                 playersRender={this.playersRender}
                 renderP1Score={this.renderP1Score}
                 renderP2Score={this.renderP2Score}
@@ -214,12 +214,12 @@ export default class Cricket extends Component {
         this.setState ({throwLog: loggedArray});        
     }
 
-    p1UndoSwitch() {
+    p1UndoSwitch(player) {
         let logLength = this.state.throwLog.length;
         let lastThrowNumber = logLength - 1;
         let lastThrow = this.state.throwLog[lastThrowNumber];
-
         let otherThrower = "p2";
+
         switch(lastThrow) {
             case "203":
                 if (this.state.p120 >= 6) {
@@ -1128,44 +1128,6 @@ export default class Cricket extends Component {
         } else if (this.state.p225 >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)    
         }        
-    }
-
-    playersRender() {
-        if (this.state.activeThrower === "p1") {
-            return (
-                <div className="row top-row">
-                    <div className="col-3 text-right throw-number">
-                        Throw: {this.state.activeThrows + 1}
-                    </div>
-                    <div className="col-2 text-center player active-thrower">
-                        Player 1
-                    </div>
-                    <div className="col-2 text-center cricket">
-                        Cricket
-                    </div>
-                    <div className="col-2 text-center player inactive-thrower">
-                        Player 2
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-                <div className="row top-row">
-                    <div className="col-2 offset-3 text-center player inactive-thrower">
-                        Player 1
-                    </div>
-                    <div className="col-2 text-center cricket">
-                        Cricket
-                    </div>
-                    <div className="col-2 text-center player active-thrower">
-                        Player 2
-                    </div>
-                    <div className="col-3 text-left throw-number">
-                        Throw: {this.state.activeThrows + 1}
-                    </div>
-                </div>
-            )
-        }
     }
 
     render() {

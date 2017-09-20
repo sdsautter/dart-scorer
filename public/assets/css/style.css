@@ -1,28 +1,9 @@
-.modal-header {
-    text-align: center !important;
-    display: table-cell !important;
-    vertical-align: middle !important;
-}
-
-.active-thrower {
-    background-color: #C7AB8D;
-    color: black;
-}
-
-.inactive-thrower {
-    color: rgba(242, 221, 200, .5);   
-}
-
-button, button:active, button:focus, button:visited, button:hover, button:link, button:target {
-    border: 0 !important;
-}
-
 @media (min-width: 0px) {
     body {
     background-color: rgb(73,121,89);
     color: #F2DDC8;
     font-family: 'Permanent Marker', cursive;
-    font-size: .75rem;
+    font-size: .7rem;
 }
 
 .top-row {
@@ -43,11 +24,11 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
 
 .number {
     border-left: 4px double black;
-    border-right: 4px double black;
+    border-right: 4px double black; 
     padding-top: .5%;
     padding-bottom: .5%;
-    padding-left: 0%;
-    padding-right: 0%;
+    padding-left: .5%;
+    padding-right: .5%;
 }
 
 .miss {
@@ -64,7 +45,7 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
     padding: 0;
 }
 
-.miss button {
+.miss button, .undo button {
     width: 100%;
     height: 50px;
     background-color: #92B19C;
@@ -102,6 +83,7 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
 
 .throw-number {
    color: #C7AB8D;
+   border-bottom: 4px double black;
 }
 
 .points-label {
@@ -139,13 +121,13 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
 }
 
 .number {
-    border-left: 4px double black;
-    border-right: 4px double black;
+    border-left: 0;
+    border-right: 0;
     padding-top: .5%;
     padding-bottom: .5%
 }
 
-.miss {
+.miss, .undo {
     padding-top: .5%;
     padding-bottom: .5%
 }
@@ -158,7 +140,14 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
     font-size: 1.75rem !important;
 }
 
-.miss button {
+.number {
+    font-family: 'Cuprum', cursive;    
+    font-size: 2rem !important;
+    color: black;
+    font-weight: bold;
+}
+
+.miss button, .undo button {
     width: 100%;
     height: 50px;
     background-color: #92B19C;
@@ -204,4 +193,39 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
     font-size: 1.75rem;
 }
 
+}
+
+.modal-header {
+    text-align: center !important;
+    display: table-cell !important;
+    vertical-align: middle !important;
+}
+
+.active-thrower {
+    background-color: #C7AB8D;
+    color: black;
+}
+
+.inactive-thrower {
+    color: rgba(242, 221, 200, .5);   
+}
+
+button, button:active, button:focus, button:visited, button:hover, button:link, button:target {
+    border: 0 !important;
+}
+
+.border-right {
+    border-right: 4px double black;
+}
+
+.border-left {
+    border-left: 4px double black;
+}
+
+.border-bottom {
+    border-bottom: 4px double black;
+}
+
+.undo button:hover {
+    background-color: #C7AB8D;
 }
