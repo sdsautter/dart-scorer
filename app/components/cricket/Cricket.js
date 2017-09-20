@@ -220,6 +220,7 @@ export default class Cricket extends Component {
         let lastThrow = this.state.throwLog[lastThrowNumber];
         let otherThrower = "p2";
 
+        if (this.state.p1Throws > 0) {        
         switch(lastThrow) {
             case "203":
                 if (this.state.p120 >= 6) {
@@ -517,7 +518,6 @@ export default class Cricket extends Component {
                     }
                 break;
         }
-        if (this.state.p1Throws >= 0) {
             this.setState({p1Throws: parseInt(this.state.p1Throws) - 1})
         }
     }
@@ -527,6 +527,8 @@ export default class Cricket extends Component {
         let lastThrowNumber = logLength - 1;
         let lastThrow = this.state.throwLog[lastThrowNumber];
         let otherThrower = "p1";
+
+        if (this.state.p2Throws > 0) {        
         switch(lastThrow) {
             case "203":
                 if (this.state.p220 >= 6) {
@@ -824,7 +826,6 @@ export default class Cricket extends Component {
                     }
                 break;
         }
-        if (this.state.p2Throws >= 0) {
             this.setState({p2Throws: parseInt(this.state.p2Throws) - 1})    
         }    
     }

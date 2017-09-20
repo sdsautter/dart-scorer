@@ -22661,304 +22661,304 @@ var Cricket = function (_Component) {
             var lastThrow = this.state.throwLog[lastThrowNumber];
             var otherThrower = "p2";
 
-            switch (lastThrow) {
-                case "203":
-                    if (this.state.p120 >= 6) {
-                        if (this.state.p220 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 60 });
+            if (this.state.p1Throws > 0) {
+                switch (lastThrow) {
+                    case "203":
+                        if (this.state.p120 >= 6) {
+                            if (this.state.p220 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 60 });
+                            }
+                            this.setState({ p120: parseInt(this.state.p120) - 3 });
+                        } else if (this.state.p120 === 5) {
+                            if (this.state.p220 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                            }
+                            this.setState({ p120: 2 });
+                        } else if (this.state.p120 === 4) {
+                            if (this.state.p220 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                            }
+                            this.setState({ p120: 1 });
+                        } else if (this.state.p120 < 4) {
+                            this.setState({ p120: parseInt(this.state.p120) - 3 });
                         }
-                        this.setState({ p120: parseInt(this.state.p120) - 3 });
-                    } else if (this.state.p120 === 5) {
-                        if (this.state.p220 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                        break;
+                    case "202":
+                        if (this.state.p120 >= 5) {
+                            if (this.state.p220 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                            }
+                            this.setState({ p120: parseInt(this.state.p120) - 2 });
+                        } else if (this.state.p120 === 4) {
+                            if (this.state.p220 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                            }
+                            this.setState({ p120: 2 });
+                        } else if (this.state.p120 < 4) {
+                            this.setState({ p120: parseInt(this.state.p120) - 2 });
                         }
-                        this.setState({ p120: 2 });
-                    } else if (this.state.p120 === 4) {
-                        if (this.state.p220 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                        break;
+                    case "201":
+                        if (this.state.p120 === 4) {
+                            if (this.state.p220 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                            }
+                            this.setState({ p120: 3 });
+                        } else if (this.state.p120 < 4) {
+                            this.setState({ p120: parseInt(this.state.p120) - 1 });
                         }
-                        this.setState({ p120: 1 });
-                    } else if (this.state.p120 < 4) {
-                        this.setState({ p120: parseInt(this.state.p120) - 3 });
-                    }
-                    break;
-                case "202":
-                    if (this.state.p120 >= 5) {
-                        if (this.state.p220 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 40 });
+                        break;
+                    case "193":
+                        if (this.state.p119 >= 6) {
+                            if (this.state.p219 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 57 });
+                            }
+                            this.setState({ p119: parseInt(this.state.p119) - 3 });
+                        } else if (this.state.p119 === 5) {
+                            if (this.state.p219 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 38 });
+                            }
+                            this.setState({ p119: 2 });
+                        } else if (this.state.p119 === 4) {
+                            if (this.state.p219 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
+                            }
+                            this.setState({ p119: 1 });
+                        } else if (this.state.p119 < 4) {
+                            this.setState({ p119: parseInt(this.state.p119) - 3 });
                         }
-                        this.setState({ p120: parseInt(this.state.p120) - 2 });
-                    } else if (this.state.p120 === 4) {
-                        if (this.state.p220 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                        break;
+                    case "192":
+                        if (this.state.p119 >= 5) {
+                            if (this.state.p219 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 38 });
+                            }
+                            this.setState({ p119: parseInt(this.state.p119) - 2 });
+                        } else if (this.state.p119 === 4) {
+                            if (this.state.p219 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
+                            }
+                            this.setState({ p119: 2 });
+                        } else if (this.state.p119 < 4) {
+                            this.setState({ p119: parseInt(this.state.p119) - 2 });
                         }
-                        this.setState({ p120: 2 });
-                    } else if (this.state.p120 < 4) {
-                        this.setState({ p120: parseInt(this.state.p120) - 2 });
-                    }
-                    break;
-                case "201":
-                    if (this.state.p120 === 4) {
-                        if (this.state.p220 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 20 });
+                        break;
+                    case "191":
+                        if (this.state.p119 === 4) {
+                            if (this.state.p219 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
+                            }
+                            this.setState({ p119: 3 });
+                        } else if (this.state.p119 < 4) {
+                            this.setState({ p119: parseInt(this.state.p119) - 1 });
                         }
-                        this.setState({ p120: 3 });
-                    } else if (this.state.p120 < 4) {
-                        this.setState({ p120: parseInt(this.state.p120) - 1 });
-                    }
-                    break;
-                case "193":
-                    if (this.state.p119 >= 6) {
-                        if (this.state.p219 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 57 });
+                        break;
+                    case "183":
+                        if (this.state.p118 >= 6) {
+                            if (this.state.p218 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 54 });
+                            }
+                            this.setState({ p118: parseInt(this.state.p118) - 3 });
+                        } else if (this.state.p118 === 5) {
+                            if (this.state.p218 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 36 });
+                            }
+                            this.setState({ p118: 2 });
+                        } else if (this.state.p118 === 4) {
+                            if (this.state.p218 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
+                            }
+                            this.setState({ p118: 1 });
+                        } else if (this.state.p118 < 4) {
+                            this.setState({ p118: parseInt(this.state.p118) - 3 });
                         }
-                        this.setState({ p119: parseInt(this.state.p119) - 3 });
-                    } else if (this.state.p119 === 5) {
-                        if (this.state.p219 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 38 });
+                        break;
+                    case "182":
+                        if (this.state.p118 >= 5) {
+                            if (this.state.p218 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 36 });
+                            }
+                            this.setState({ p118: parseInt(this.state.p118) - 2 });
+                        } else if (this.state.p118 === 4) {
+                            if (this.state.p218 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
+                            }
+                            this.setState({ p118: 2 });
+                        } else if (this.state.p118 < 4) {
+                            this.setState({ p118: parseInt(this.state.p118) - 2 });
                         }
-                        this.setState({ p119: 2 });
-                    } else if (this.state.p119 === 4) {
-                        if (this.state.p219 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
+                        break;
+                    case "181":
+                        if (this.state.p118 === 4) {
+                            if (this.state.p218 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
+                            }
+                            this.setState({ p118: 3 });
+                        } else if (this.state.p118 < 4) {
+                            this.setState({ p118: parseInt(this.state.p118) - 1 });
                         }
-                        this.setState({ p119: 1 });
-                    } else if (this.state.p119 < 4) {
-                        this.setState({ p119: parseInt(this.state.p119) - 3 });
-                    }
-                    break;
-                case "192":
-                    if (this.state.p119 >= 5) {
-                        if (this.state.p219 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 38 });
+                        break;
+                    case "173":
+                        if (this.state.p117 >= 6) {
+                            if (this.state.p217 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 51 });
+                            }
+                            this.setState({ p117: parseInt(this.state.p117) - 3 });
+                        } else if (this.state.p117 === 5) {
+                            if (this.state.p217 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 34 });
+                            }
+                            this.setState({ p117: 2 });
+                        } else if (this.state.p117 === 4) {
+                            if (this.state.p217 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
+                            }
+                            this.setState({ p117: 1 });
+                        } else if (this.state.p117 < 4) {
+                            this.setState({ p117: parseInt(this.state.p117) - 3 });
                         }
-                        this.setState({ p119: parseInt(this.state.p119) - 2 });
-                    } else if (this.state.p119 === 4) {
-                        if (this.state.p219 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
+                        break;
+                    case "172":
+                        if (this.state.p117 >= 5) {
+                            if (this.state.p217 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 34 });
+                            }
+                            this.setState({ p117: parseInt(this.state.p117) - 2 });
+                        } else if (this.state.p117 === 4) {
+                            if (this.state.p217 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
+                            }
+                            this.setState({ p117: 2 });
+                        } else if (this.state.p117 < 4) {
+                            this.setState({ p117: parseInt(this.state.p117) - 2 });
                         }
-                        this.setState({ p119: 2 });
-                    } else if (this.state.p119 < 4) {
-                        this.setState({ p119: parseInt(this.state.p119) - 2 });
-                    }
-                    break;
-                case "191":
-                    if (this.state.p119 === 4) {
-                        if (this.state.p219 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 19 });
+                        break;
+                    case "171":
+                        if (this.state.p117 === 4) {
+                            if (this.state.p217 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
+                            }
+                            this.setState({ p117: 3 });
+                        } else if (this.state.p117 < 4) {
+                            this.setState({ p117: parseInt(this.state.p117) - 1 });
                         }
-                        this.setState({ p119: 3 });
-                    } else if (this.state.p119 < 4) {
-                        this.setState({ p119: parseInt(this.state.p119) - 1 });
-                    }
-                    break;
-                case "183":
-                    if (this.state.p118 >= 6) {
-                        if (this.state.p218 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 54 });
+                        break;
+                    case "163":
+                        if (this.state.p116 >= 6) {
+                            if (this.state.p216 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 48 });
+                            }
+                            this.setState({ p116: parseInt(this.state.p116) - 3 });
+                        } else if (this.state.p116 === 5) {
+                            if (this.state.p216 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 32 });
+                            }
+                            this.setState({ p116: 2 });
+                        } else if (this.state.p116 === 4) {
+                            if (this.state.p216 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
+                            }
+                            this.setState({ p116: 1 });
+                        } else if (this.state.p116 < 4) {
+                            this.setState({ p116: parseInt(this.state.p116) - 3 });
                         }
-                        this.setState({ p118: parseInt(this.state.p118) - 3 });
-                    } else if (this.state.p118 === 5) {
-                        if (this.state.p218 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 36 });
+                        break;
+                    case "162":
+                        if (this.state.p116 >= 5) {
+                            if (this.state.p216 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 32 });
+                            }
+                            this.setState({ p116: parseInt(this.state.p116) - 2 });
+                        } else if (this.state.p116 === 4) {
+                            if (this.state.p216 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
+                            }
+                            this.setState({ p116: 2 });
+                        } else if (this.state.p116 < 4) {
+                            this.setState({ p116: parseInt(this.state.p116) - 2 });
                         }
-                        this.setState({ p118: 2 });
-                    } else if (this.state.p118 === 4) {
-                        if (this.state.p218 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
+                        break;
+                    case "161":
+                        if (this.state.p116 === 4) {
+                            if (this.state.p216 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
+                            }
+                            this.setState({ p116: 3 });
+                        } else if (this.state.p116 < 4) {
+                            this.setState({ p116: parseInt(this.state.p116) - 1 });
                         }
-                        this.setState({ p118: 1 });
-                    } else if (this.state.p118 < 4) {
-                        this.setState({ p118: parseInt(this.state.p118) - 3 });
-                    }
-                    break;
-                case "182":
-                    if (this.state.p118 >= 5) {
-                        if (this.state.p218 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 36 });
+                        break;
+                    case "153":
+                        if (this.state.p115 >= 6) {
+                            if (this.state.p215 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 45 });
+                            }
+                            this.setState({ p115: parseInt(this.state.p115) - 3 });
+                        } else if (this.state.p115 === 5) {
+                            if (this.state.p215 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 30 });
+                            }
+                            this.setState({ p115: 2 });
+                        } else if (this.state.p115 === 4) {
+                            if (this.state.p215 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
+                            }
+                            this.setState({ p115: 1 });
+                        } else if (this.state.p115 < 4) {
+                            this.setState({ p115: parseInt(this.state.p115) - 3 });
                         }
-                        this.setState({ p118: parseInt(this.state.p118) - 2 });
-                    } else if (this.state.p118 === 4) {
-                        if (this.state.p218 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
+                        break;
+                    case "152":
+                        if (this.state.p115 >= 5) {
+                            if (this.state.p215 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 30 });
+                            }
+                            this.setState({ p115: parseInt(this.state.p115) - 2 });
+                        } else if (this.state.p115 === 4) {
+                            if (this.state.p215 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
+                            }
+                            this.setState({ p115: 2 });
+                        } else if (this.state.p115 < 4) {
+                            this.setState({ p115: parseInt(this.state.p115) - 2 });
                         }
-                        this.setState({ p118: 2 });
-                    } else if (this.state.p118 < 4) {
-                        this.setState({ p118: parseInt(this.state.p118) - 2 });
-                    }
-                    break;
-                case "181":
-                    if (this.state.p118 === 4) {
-                        if (this.state.p218 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 18 });
+                        break;
+                    case "151":
+                        if (this.state.p115 === 4) {
+                            if (this.state.p215 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
+                            }
+                            this.setState({ p115: 3 });
+                        } else if (this.state.p115 < 4) {
+                            this.setState({ p115: parseInt(this.state.p115) - 1 });
                         }
-                        this.setState({ p118: 3 });
-                    } else if (this.state.p118 < 4) {
-                        this.setState({ p118: parseInt(this.state.p118) - 1 });
-                    }
-                    break;
-                case "173":
-                    if (this.state.p117 >= 6) {
-                        if (this.state.p217 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 51 });
+                        break;
+                    case "252":
+                        if (this.state.p125 >= 5) {
+                            if (this.state.p225 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 50 });
+                            }
+                            this.setState({ p125: parseInt(this.state.p125) - 2 });
+                        } else if (this.state.p125 === 4) {
+                            if (this.state.p225 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 25 });
+                            }
+                            this.setState({ p125: 2 });
+                        } else if (this.state.p125 < 4) {
+                            this.setState({ p125: parseInt(this.state.p125) - 2 });
                         }
-                        this.setState({ p117: parseInt(this.state.p117) - 3 });
-                    } else if (this.state.p117 === 5) {
-                        if (this.state.p217 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 34 });
+                        break;
+                    case "251":
+                        if (this.state.p125 === 4) {
+                            if (this.state.p225 < 3) {
+                                this.setState({ p1Score: parseInt(this.state.p1Score) - 25 });
+                            }
+                            this.setState({ p125: 3 });
+                        } else if (this.state.p125 < 4) {
+                            this.setState({ p125: parseInt(this.state.p125) - 1 });
                         }
-                        this.setState({ p117: 2 });
-                    } else if (this.state.p117 === 4) {
-                        if (this.state.p217 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
-                        }
-                        this.setState({ p117: 1 });
-                    } else if (this.state.p117 < 4) {
-                        this.setState({ p117: parseInt(this.state.p117) - 3 });
-                    }
-                    break;
-                case "172":
-                    if (this.state.p117 >= 5) {
-                        if (this.state.p217 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 34 });
-                        }
-                        this.setState({ p117: parseInt(this.state.p117) - 2 });
-                    } else if (this.state.p117 === 4) {
-                        if (this.state.p217 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
-                        }
-                        this.setState({ p117: 2 });
-                    } else if (this.state.p117 < 4) {
-                        this.setState({ p117: parseInt(this.state.p117) - 2 });
-                    }
-                    break;
-                case "171":
-                    if (this.state.p117 === 4) {
-                        if (this.state.p217 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 17 });
-                        }
-                        this.setState({ p117: 3 });
-                    } else if (this.state.p117 < 4) {
-                        this.setState({ p117: parseInt(this.state.p117) - 1 });
-                    }
-                    break;
-                case "163":
-                    if (this.state.p116 >= 6) {
-                        if (this.state.p216 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 48 });
-                        }
-                        this.setState({ p116: parseInt(this.state.p116) - 3 });
-                    } else if (this.state.p116 === 5) {
-                        if (this.state.p216 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 32 });
-                        }
-                        this.setState({ p116: 2 });
-                    } else if (this.state.p116 === 4) {
-                        if (this.state.p216 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
-                        }
-                        this.setState({ p116: 1 });
-                    } else if (this.state.p116 < 4) {
-                        this.setState({ p116: parseInt(this.state.p116) - 3 });
-                    }
-                    break;
-                case "162":
-                    if (this.state.p116 >= 5) {
-                        if (this.state.p216 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 32 });
-                        }
-                        this.setState({ p116: parseInt(this.state.p116) - 2 });
-                    } else if (this.state.p116 === 4) {
-                        if (this.state.p216 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
-                        }
-                        this.setState({ p116: 2 });
-                    } else if (this.state.p116 < 4) {
-                        this.setState({ p116: parseInt(this.state.p116) - 2 });
-                    }
-                    break;
-                case "161":
-                    if (this.state.p116 === 4) {
-                        if (this.state.p216 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 16 });
-                        }
-                        this.setState({ p116: 3 });
-                    } else if (this.state.p116 < 4) {
-                        this.setState({ p116: parseInt(this.state.p116) - 1 });
-                    }
-                    break;
-                case "153":
-                    if (this.state.p115 >= 6) {
-                        if (this.state.p215 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 45 });
-                        }
-                        this.setState({ p115: parseInt(this.state.p115) - 3 });
-                    } else if (this.state.p115 === 5) {
-                        if (this.state.p215 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 30 });
-                        }
-                        this.setState({ p115: 2 });
-                    } else if (this.state.p115 === 4) {
-                        if (this.state.p215 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
-                        }
-                        this.setState({ p115: 1 });
-                    } else if (this.state.p115 < 4) {
-                        this.setState({ p115: parseInt(this.state.p115) - 3 });
-                    }
-                    break;
-                case "152":
-                    if (this.state.p115 >= 5) {
-                        if (this.state.p215 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 30 });
-                        }
-                        this.setState({ p115: parseInt(this.state.p115) - 2 });
-                    } else if (this.state.p115 === 4) {
-                        if (this.state.p215 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
-                        }
-                        this.setState({ p115: 2 });
-                    } else if (this.state.p115 < 4) {
-                        this.setState({ p115: parseInt(this.state.p115) - 2 });
-                    }
-                    break;
-                case "151":
-                    if (this.state.p115 === 4) {
-                        if (this.state.p215 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 15 });
-                        }
-                        this.setState({ p115: 3 });
-                    } else if (this.state.p115 < 4) {
-                        this.setState({ p115: parseInt(this.state.p115) - 1 });
-                    }
-                    break;
-                case "252":
-                    if (this.state.p125 >= 5) {
-                        if (this.state.p225 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 50 });
-                        }
-                        this.setState({ p125: parseInt(this.state.p125) - 2 });
-                    } else if (this.state.p125 === 4) {
-                        if (this.state.p225 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 25 });
-                        }
-                        this.setState({ p125: 2 });
-                    } else if (this.state.p125 < 4) {
-                        this.setState({ p125: parseInt(this.state.p125) - 2 });
-                    }
-                    break;
-                case "251":
-                    if (this.state.p125 === 4) {
-                        if (this.state.p225 < 3) {
-                            this.setState({ p1Score: parseInt(this.state.p1Score) - 25 });
-                        }
-                        this.setState({ p125: 3 });
-                    } else if (this.state.p125 < 4) {
-                        this.setState({ p125: parseInt(this.state.p125) - 1 });
-                    }
-                    break;
-            }
-            if (this.state.p1Throws >= 0) {
+                        break;
+                }
                 this.setState({ p1Throws: parseInt(this.state.p1Throws) - 1 });
             }
         }
@@ -22969,304 +22969,305 @@ var Cricket = function (_Component) {
             var lastThrowNumber = logLength - 1;
             var lastThrow = this.state.throwLog[lastThrowNumber];
             var otherThrower = "p1";
-            switch (lastThrow) {
-                case "203":
-                    if (this.state.p220 >= 6) {
-                        if (this.state.p120 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 60 });
+
+            if (this.state.p2Throws > 0) {
+                switch (lastThrow) {
+                    case "203":
+                        if (this.state.p220 >= 6) {
+                            if (this.state.p120 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 60 });
+                            }
+                            this.setState({ p220: parseInt(this.state.p220) - 3 });
+                        } else if (this.state.p220 === 5) {
+                            if (this.state.p120 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 40 });
+                            }
+                            this.setState({ p220: 2 });
+                        } else if (this.state.p220 === 4) {
+                            if (this.state.p120 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                            }
+                            this.setState({ p220: 1 });
+                        } else if (this.state.p220 < 4) {
+                            this.setState({ p220: parseInt(this.state.p220) - 3 });
                         }
-                        this.setState({ p220: parseInt(this.state.p220) - 3 });
-                    } else if (this.state.p220 === 5) {
-                        if (this.state.p120 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 40 });
+                        break;
+                    case "202":
+                        if (this.state.p220 >= 5) {
+                            if (this.state.p120 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 40 });
+                            }
+                            this.setState({ p220: parseInt(this.state.p220) - 2 });
+                        } else if (this.state.p220 === 4) {
+                            if (this.state.p120 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                            }
+                            this.setState({ p220: 2 });
+                        } else if (this.state.p220 < 4) {
+                            this.setState({ p220: parseInt(this.state.p220) - 2 });
                         }
-                        this.setState({ p220: 2 });
-                    } else if (this.state.p220 === 4) {
-                        if (this.state.p120 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                        break;
+                    case "201":
+                        if (this.state.p220 === 4) {
+                            if (this.state.p120 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                            }
+                            this.setState({ p220: 3 });
+                        } else if (this.state.p220 < 4) {
+                            this.setState({ p220: parseInt(this.state.p220) - 1 });
                         }
-                        this.setState({ p220: 1 });
-                    } else if (this.state.p220 < 4) {
-                        this.setState({ p220: parseInt(this.state.p220) - 3 });
-                    }
-                    break;
-                case "202":
-                    if (this.state.p220 >= 5) {
-                        if (this.state.p120 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 40 });
+                        break;
+                    case "193":
+                        if (this.state.p219 >= 6) {
+                            if (this.state.p119 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 57 });
+                            }
+                            this.setState({ p219: parseInt(this.state.p219) - 3 });
+                        } else if (this.state.p219 === 5) {
+                            if (this.state.p119 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 38 });
+                            }
+                            this.setState({ p219: 2 });
+                        } else if (this.state.p219 === 4) {
+                            if (this.state.p119 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                            }
+                            this.setState({ p219: 1 });
+                        } else if (this.state.p219 < 4) {
+                            this.setState({ p219: parseInt(this.state.p219) - 3 });
                         }
-                        this.setState({ p220: parseInt(this.state.p220) - 2 });
-                    } else if (this.state.p220 === 4) {
-                        if (this.state.p120 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                        break;
+                    case "192":
+                        if (this.state.p219 >= 5) {
+                            if (this.state.p119 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 38 });
+                            }
+                            this.setState({ p219: parseInt(this.state.p219) - 2 });
+                        } else if (this.state.p219 === 4) {
+                            if (this.state.p119 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                            }
+                            this.setState({ p219: 2 });
+                        } else if (this.state.p219 < 4) {
+                            this.setState({ p219: parseInt(this.state.p219) - 2 });
                         }
-                        this.setState({ p220: 2 });
-                    } else if (this.state.p220 < 4) {
-                        this.setState({ p220: parseInt(this.state.p220) - 2 });
-                    }
-                    break;
-                case "201":
-                    if (this.state.p220 === 4) {
-                        if (this.state.p120 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 20 });
+                        break;
+                    case "191":
+                        if (this.state.p219 === 4) {
+                            if (this.state.p119 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                            }
+                            this.setState({ p219: 3 });
+                        } else if (this.state.p219 < 4) {
+                            this.setState({ p219: parseInt(this.state.p219) - 1 });
                         }
-                        this.setState({ p220: 3 });
-                    } else if (this.state.p220 < 4) {
-                        this.setState({ p220: parseInt(this.state.p220) - 1 });
-                    }
-                    break;
-                case "193":
-                    if (this.state.p219 >= 6) {
-                        if (this.state.p119 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 57 });
+                        break;
+                    case "183":
+                        if (this.state.p218 >= 6) {
+                            if (this.state.p118 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 54 });
+                            }
+                            this.setState({ p218: parseInt(this.state.p218) - 3 });
+                        } else if (this.state.p218 === 5) {
+                            if (this.state.p118 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 36 });
+                            }
+                            this.setState({ p218: 2 });
+                        } else if (this.state.p218 === 4) {
+                            if (this.state.p118 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                            }
+                            this.setState({ p218: 1 });
+                        } else if (this.state.p218 < 4) {
+                            this.setState({ p218: parseInt(this.state.p218) - 3 });
                         }
-                        this.setState({ p219: parseInt(this.state.p219) - 3 });
-                    } else if (this.state.p219 === 5) {
-                        if (this.state.p119 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 38 });
+                        break;
+                    case "182":
+                        if (this.state.p218 >= 5) {
+                            if (this.state.p118 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 36 });
+                            }
+                            this.setState({ p218: parseInt(this.state.p218) - 2 });
+                        } else if (this.state.p218 === 4) {
+                            if (this.state.p118 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                            }
+                            this.setState({ p218: 2 });
+                        } else if (this.state.p218 < 4) {
+                            this.setState({ p218: parseInt(this.state.p218) - 2 });
                         }
-                        this.setState({ p219: 2 });
-                    } else if (this.state.p219 === 4) {
-                        if (this.state.p119 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                        break;
+                    case "181":
+                        if (this.state.p218 === 4) {
+                            if (this.state.p118 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                            }
+                            this.setState({ p218: 3 });
+                        } else if (this.state.p218 < 4) {
+                            this.setState({ p218: parseInt(this.state.p218) - 1 });
                         }
-                        this.setState({ p219: 1 });
-                    } else if (this.state.p219 < 4) {
-                        this.setState({ p219: parseInt(this.state.p219) - 3 });
-                    }
-                    break;
-                case "192":
-                    if (this.state.p219 >= 5) {
-                        if (this.state.p119 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 38 });
+                        break;
+                    case "173":
+                        if (this.state.p217 >= 6) {
+                            if (this.state.p117 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 51 });
+                            }
+                            this.setState({ p217: parseInt(this.state.p217) - 3 });
+                        } else if (this.state.p217 === 5) {
+                            if (this.state.p117 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 34 });
+                            }
+                            this.setState({ p217: 2 });
+                        } else if (this.state.p217 === 4) {
+                            if (this.state.p117 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
+                            }
+                            this.setState({ p217: 1 });
+                        } else if (this.state.p217 < 4) {
+                            this.setState({ p217: parseInt(this.state.p217) - 3 });
                         }
-                        this.setState({ p219: parseInt(this.state.p219) - 2 });
-                    } else if (this.state.p219 === 4) {
-                        if (this.state.p119 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                        break;
+                    case "172":
+                        if (this.state.p217 >= 5) {
+                            if (this.state.p117 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 34 });
+                            }
+                            this.setState({ p217: parseInt(this.state.p217) - 2 });
+                        } else if (this.state.p217 === 4) {
+                            if (this.state.p117 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
+                            }
+                            this.setState({ p217: 2 });
+                        } else if (this.state.p217 < 4) {
+                            this.setState({ p217: parseInt(this.state.p217) - 2 });
                         }
-                        this.setState({ p219: 2 });
-                    } else if (this.state.p219 < 4) {
-                        this.setState({ p219: parseInt(this.state.p219) - 2 });
-                    }
-                    break;
-                case "191":
-                    if (this.state.p219 === 4) {
-                        if (this.state.p119 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 19 });
+                        break;
+                    case "171":
+                        if (this.state.p217 === 4) {
+                            if (this.state.p117 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
+                            }
+                            this.setState({ p217: 3 });
+                        } else if (this.state.p217 < 4) {
+                            this.setState({ p217: parseInt(this.state.p217) - 1 });
                         }
-                        this.setState({ p219: 3 });
-                    } else if (this.state.p219 < 4) {
-                        this.setState({ p219: parseInt(this.state.p219) - 1 });
-                    }
-                    break;
-                case "183":
-                    if (this.state.p218 >= 6) {
-                        if (this.state.p118 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 54 });
+                        break;
+                    case "163":
+                        if (this.state.p216 >= 6) {
+                            if (this.state.p116 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 48 });
+                            }
+                            this.setState({ p216: parseInt(this.state.p216) - 3 });
+                        } else if (this.state.p216 === 5) {
+                            if (this.state.p116 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 32 });
+                            }
+                            this.setState({ p216: 2 });
+                        } else if (this.state.p216 === 4) {
+                            if (this.state.p116 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
+                            }
+                            this.setState({ p216: 1 });
+                        } else if (this.state.p216 < 4) {
+                            this.setState({ p216: parseInt(this.state.p216) - 3 });
                         }
-                        this.setState({ p218: parseInt(this.state.p218) - 3 });
-                    } else if (this.state.p218 === 5) {
-                        if (this.state.p118 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 36 });
+                        break;
+                    case "162":
+                        if (this.state.p216 >= 5) {
+                            if (this.state.p116 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 32 });
+                            }
+                            this.setState({ p216: parseInt(this.state.p216) - 2 });
+                        } else if (this.state.p216 === 4) {
+                            if (this.state.p116 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
+                            }
+                            this.setState({ p216: 2 });
+                        } else if (this.state.p216 < 4) {
+                            this.setState({ p216: parseInt(this.state.p216) - 2 });
                         }
-                        this.setState({ p218: 2 });
-                    } else if (this.state.p218 === 4) {
-                        if (this.state.p118 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                        break;
+                    case "161":
+                        if (this.state.p216 === 4) {
+                            if (this.state.p116 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
+                            }
+                            this.setState({ p216: 3 });
+                        } else if (this.state.p216 < 4) {
+                            this.setState({ p216: parseInt(this.state.p216) - 1 });
                         }
-                        this.setState({ p218: 1 });
-                    } else if (this.state.p218 < 4) {
-                        this.setState({ p218: parseInt(this.state.p218) - 3 });
-                    }
-                    break;
-                case "182":
-                    if (this.state.p218 >= 5) {
-                        if (this.state.p118 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 36 });
+                        break;
+                    case "153":
+                        if (this.state.p215 >= 6) {
+                            if (this.state.p115 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 45 });
+                            }
+                            this.setState({ p215: parseInt(this.state.p215) - 3 });
+                        } else if (this.state.p215 === 5) {
+                            if (this.state.p115 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 30 });
+                            }
+                            this.setState({ p215: 2 });
+                        } else if (this.state.p215 === 4) {
+                            if (this.state.p115 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
+                            }
+                            this.setState({ p215: 1 });
+                        } else if (this.state.p215 < 4) {
+                            this.setState({ p215: parseInt(this.state.p215) - 3 });
                         }
-                        this.setState({ p218: parseInt(this.state.p218) - 2 });
-                    } else if (this.state.p218 === 4) {
-                        if (this.state.p118 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                        break;
+                    case "152":
+                        if (this.state.p215 >= 5) {
+                            if (this.state.p115 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 30 });
+                            }
+                            this.setState({ p215: parseInt(this.state.p215) - 2 });
+                        } else if (this.state.p215 === 4) {
+                            if (this.state.p115 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
+                            }
+                            this.setState({ p215: 2 });
+                        } else if (this.state.p215 < 4) {
+                            this.setState({ p215: parseInt(this.state.p215) - 2 });
                         }
-                        this.setState({ p218: 2 });
-                    } else if (this.state.p218 < 4) {
-                        this.setState({ p218: parseInt(this.state.p218) - 2 });
-                    }
-                    break;
-                case "181":
-                    if (this.state.p218 === 4) {
-                        if (this.state.p118 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 18 });
+                        break;
+                    case "151":
+                        if (this.state.p215 === 4) {
+                            if (this.state.p115 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
+                            }
+                            this.setState({ p215: 3 });
+                        } else if (this.state.p215 < 4) {
+                            this.setState({ p215: parseInt(this.state.p215) - 1 });
                         }
-                        this.setState({ p218: 3 });
-                    } else if (this.state.p218 < 4) {
-                        this.setState({ p218: parseInt(this.state.p218) - 1 });
-                    }
-                    break;
-                case "173":
-                    if (this.state.p217 >= 6) {
-                        if (this.state.p117 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 51 });
+                        break;
+                    case "252":
+                        if (this.state.p225 >= 5) {
+                            if (this.state.p125 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 50 });
+                            }
+                            this.setState({ p225: parseInt(this.state.p225) - 2 });
+                        } else if (this.state.p225 === 4) {
+                            if (this.state.p125 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 25 });
+                            }
+                            this.setState({ p225: 2 });
+                        } else if (this.state.p225 < 4) {
+                            this.setState({ p225: parseInt(this.state.p225) - 2 });
                         }
-                        this.setState({ p217: parseInt(this.state.p217) - 3 });
-                    } else if (this.state.p217 === 5) {
-                        if (this.state.p117 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 34 });
+                        break;
+                    case "251":
+                        if (this.state.p225 === 4) {
+                            if (this.state.p125 < 3) {
+                                this.setState({ p2Score: parseInt(this.state.p2Score) - 25 });
+                            }
+                            this.setState({ p225: 3 });
+                        } else if (this.state.p225 < 4) {
+                            this.setState({ p225: parseInt(this.state.p225) - 1 });
                         }
-                        this.setState({ p217: 2 });
-                    } else if (this.state.p217 === 4) {
-                        if (this.state.p117 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
-                        }
-                        this.setState({ p217: 1 });
-                    } else if (this.state.p217 < 4) {
-                        this.setState({ p217: parseInt(this.state.p217) - 3 });
-                    }
-                    break;
-                case "172":
-                    if (this.state.p217 >= 5) {
-                        if (this.state.p117 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 34 });
-                        }
-                        this.setState({ p217: parseInt(this.state.p217) - 2 });
-                    } else if (this.state.p217 === 4) {
-                        if (this.state.p117 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
-                        }
-                        this.setState({ p217: 2 });
-                    } else if (this.state.p217 < 4) {
-                        this.setState({ p217: parseInt(this.state.p217) - 2 });
-                    }
-                    break;
-                case "171":
-                    if (this.state.p217 === 4) {
-                        if (this.state.p117 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 17 });
-                        }
-                        this.setState({ p217: 3 });
-                    } else if (this.state.p217 < 4) {
-                        this.setState({ p217: parseInt(this.state.p217) - 1 });
-                    }
-                    break;
-                case "163":
-                    if (this.state.p216 >= 6) {
-                        if (this.state.p116 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 48 });
-                        }
-                        this.setState({ p216: parseInt(this.state.p216) - 3 });
-                    } else if (this.state.p216 === 5) {
-                        if (this.state.p116 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 32 });
-                        }
-                        this.setState({ p216: 2 });
-                    } else if (this.state.p216 === 4) {
-                        if (this.state.p116 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
-                        }
-                        this.setState({ p216: 1 });
-                    } else if (this.state.p216 < 4) {
-                        this.setState({ p216: parseInt(this.state.p216) - 3 });
-                    }
-                    break;
-                case "162":
-                    if (this.state.p216 >= 5) {
-                        if (this.state.p116 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 32 });
-                        }
-                        this.setState({ p216: parseInt(this.state.p216) - 2 });
-                    } else if (this.state.p216 === 4) {
-                        if (this.state.p116 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
-                        }
-                        this.setState({ p216: 2 });
-                    } else if (this.state.p216 < 4) {
-                        this.setState({ p216: parseInt(this.state.p216) - 2 });
-                    }
-                    break;
-                case "161":
-                    if (this.state.p216 === 4) {
-                        if (this.state.p116 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 16 });
-                        }
-                        this.setState({ p216: 3 });
-                    } else if (this.state.p216 < 4) {
-                        this.setState({ p216: parseInt(this.state.p216) - 1 });
-                    }
-                    break;
-                case "153":
-                    if (this.state.p215 >= 6) {
-                        if (this.state.p115 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 45 });
-                        }
-                        this.setState({ p215: parseInt(this.state.p215) - 3 });
-                    } else if (this.state.p215 === 5) {
-                        if (this.state.p115 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 30 });
-                        }
-                        this.setState({ p215: 2 });
-                    } else if (this.state.p215 === 4) {
-                        if (this.state.p115 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
-                        }
-                        this.setState({ p215: 1 });
-                    } else if (this.state.p215 < 4) {
-                        this.setState({ p215: parseInt(this.state.p215) - 3 });
-                    }
-                    break;
-                case "152":
-                    if (this.state.p215 >= 5) {
-                        if (this.state.p115 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 30 });
-                        }
-                        this.setState({ p215: parseInt(this.state.p215) - 2 });
-                    } else if (this.state.p215 === 4) {
-                        if (this.state.p115 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
-                        }
-                        this.setState({ p215: 2 });
-                    } else if (this.state.p215 < 4) {
-                        this.setState({ p215: parseInt(this.state.p215) - 2 });
-                    }
-                    break;
-                case "151":
-                    if (this.state.p215 === 4) {
-                        if (this.state.p115 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 15 });
-                        }
-                        this.setState({ p215: 3 });
-                    } else if (this.state.p215 < 4) {
-                        this.setState({ p215: parseInt(this.state.p215) - 1 });
-                    }
-                    break;
-                case "252":
-                    if (this.state.p225 >= 5) {
-                        if (this.state.p125 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 50 });
-                        }
-                        this.setState({ p225: parseInt(this.state.p225) - 2 });
-                    } else if (this.state.p225 === 4) {
-                        if (this.state.p125 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 25 });
-                        }
-                        this.setState({ p225: 2 });
-                    } else if (this.state.p225 < 4) {
-                        this.setState({ p225: parseInt(this.state.p225) - 2 });
-                    }
-                    break;
-                case "251":
-                    if (this.state.p225 === 4) {
-                        if (this.state.p125 < 3) {
-                            this.setState({ p2Score: parseInt(this.state.p2Score) - 25 });
-                        }
-                        this.setState({ p225: 3 });
-                    } else if (this.state.p225 < 4) {
-                        this.setState({ p225: parseInt(this.state.p225) - 1 });
-                    }
-                    break;
-            }
-            if (this.state.p2Throws >= 0) {
+                        break;
+                }
                 this.setState({ p2Throws: parseInt(this.state.p2Throws) - 1 });
             }
         }
