@@ -38,6 +38,7 @@
 
 .number button, .modal-body button {
     width: 100%;
+    color: white;
     height: 50px;
     background-color: #1B4F2D;
     font-family: 'Cuprum', cursive;    
@@ -200,7 +201,7 @@
 }
 
 .points-score {
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 
 }
@@ -242,4 +243,8 @@ button, button:active, button:focus, button:visited, button:hover, button:link, 
 
 img {
     max-width: 100%;
+}
+
+.padding-top {
+    padding-top: 1%;
 }
