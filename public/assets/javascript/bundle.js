@@ -24164,7 +24164,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 20, 1);
                                     } },
                                 "Single"
@@ -24175,7 +24175,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 20, 2);
                                     } },
                                 "Double"
@@ -24186,7 +24186,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 20, 3);
                                     } },
                                 "Triple"
@@ -24226,7 +24226,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 19, 1);
                                     } },
                                 "Single"
@@ -24237,7 +24237,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 19, 2);
                                     } },
                                 "Double"
@@ -24248,7 +24248,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 19, 3);
                                     } },
                                 "Triple"
@@ -24283,7 +24283,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 18, 1);
                                     } },
                                 "Single"
@@ -24294,7 +24294,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 18, 2);
                                     } },
                                 "Double"
@@ -24305,7 +24305,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 18, 3);
                                     } },
                                 "Triple"
@@ -24335,7 +24335,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 17, 1);
                                     } },
                                 "Single"
@@ -24346,7 +24346,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 17, 2);
                                     } },
                                 "Double"
@@ -24357,7 +24357,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 17, 3);
                                     } },
                                 "Triple"
@@ -24387,7 +24387,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 16, 1);
                                     } },
                                 "Single"
@@ -24398,7 +24398,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 16, 2);
                                     } },
                                 "Double"
@@ -24409,7 +24409,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 16, 3);
                                     } },
                                 "Triple"
@@ -24439,7 +24439,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 15, 1);
                                     } },
                                 "Single"
@@ -24450,7 +24450,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 15, 2);
                                     } },
                                 "Double"
@@ -24461,7 +24461,7 @@ var Scoreboard = function (_Component) {
                             { className: "col-1 border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 15, 3);
                                     } },
                                 "Triple"
@@ -24491,7 +24491,7 @@ var Scoreboard = function (_Component) {
                             { className: "col text-center number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 25, 1);
                                     } },
                                 "Single"
@@ -24502,7 +24502,7 @@ var Scoreboard = function (_Component) {
                             { className: "col border-right number text-center" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(_this2.props.activeThrower, 25, 2);
                                     } },
                                 "Double"

@@ -355,13 +355,13 @@ export default class Scoreboard extends Component {
                         20
                     </div>
                     <div className="col-1 text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 20, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 20, 1)}}>Single</button>
                     </div>    
                     <div className="col-1 number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 20, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 20, 2)}}>Double</button>
                     </div>
                     <div className="col-1 border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 20, 3)}}>Triple</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 20, 3)}}>Triple</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p220Progress()}
@@ -381,13 +381,13 @@ export default class Scoreboard extends Component {
                         19
                     </div>
                     <div className="col-1 text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 19, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 19, 1)}}>Single</button>
                     </div>    
                     <div className="col-1 number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 19, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 19, 2)}}>Double</button>
                     </div>
                     <div className="col-1 border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 19, 3)}}>Triple</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 19, 3)}}>Triple</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p219Progress()}
@@ -404,13 +404,13 @@ export default class Scoreboard extends Component {
                         18
                     </div>
                     <div className="col-1 text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 18, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 18, 1)}}>Single</button>
                     </div>    
                     <div className="col-1 number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 18, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 18, 2)}}>Double</button>
                     </div>
                     <div className="col-1 border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 18, 3)}}>Triple</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 18, 3)}}>Triple</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p218Progress()}
@@ -424,13 +424,13 @@ export default class Scoreboard extends Component {
                         17
                     </div>
                     <div className="col-1 text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 17, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 17, 1)}}>Single</button>
                     </div>    
                     <div className="col-1 number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 17, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 17, 2)}}>Double</button>
                     </div>
                     <div className="col-1 border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 17, 3)}}>Triple</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 17, 3)}}>Triple</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p217Progress()}
@@ -444,13 +444,13 @@ export default class Scoreboard extends Component {
                         16
                     </div>
                     <div className="col-1 text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 16, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 16, 1)}}>Single</button>
                     </div>    
                     <div className="col-1 number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 16, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 16, 2)}}>Double</button>
                     </div>
                     <div className="col-1 border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 16, 3)}}>Triple</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 16, 3)}}>Triple</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p216Progress()}
@@ -464,13 +464,13 @@ export default class Scoreboard extends Component {
                         15
                     </div>
                     <div className="col-1 text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 15, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 15, 1)}}>Single</button>
                     </div>    
                     <div className="col-1 number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 15, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 15, 2)}}>Double</button>
                     </div>
                     <div className="col-1 border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 15, 3)}}>Triple</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 15, 3)}}>Triple</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p215Progress()}
@@ -484,10 +484,10 @@ export default class Scoreboard extends Component {
                         Bull
                     </div>
                     <div className="col text-center number">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 25, 1)}}>Single</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 25, 1)}}>Single</button>
                     </div>    
                     <div className="col border-right number text-center">
-                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => {this.props.score(this.props.activeThrower, 25, 2)}}>Double</button>
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 25, 2)}}>Double</button>
                     </div>
                     <div className="col-1 text-center align-self-center">
                         {this.props.p225Progress()}
