@@ -316,64 +316,190 @@ export default class X01 extends Component {
         if (throwsState > 0) {        
         switch(lastThrow) {
             case "d203":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 60})
                 break;
             case "d202":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 40});
                 break;
             case "d201":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 20});
                 break;
             case "d193":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 57});        
                 break;
             case "d192":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 38});
                 break;
             case "d191":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 19});
                 break;
             case "d183":
-               
+               this.setState({[playerScore]: parseInt(playerScoreState) + 54});
                 break;
             case "d182":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 36});
                 break;
             case "d181":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 18});
                 break;
             case "d173":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 51});   
                 break;
             case "d172":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 34});
                 break;
             case "d171":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 17});
                 break;
             case "d163":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 48});
                 break;
             case "d162":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 32});
                 break;
             case "d161":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 16});
                 break;
             case "d153":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 45});
                 break;
             case "d152":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 30});
                 break;
             case "d151":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 15});
                 break;
+            case "d143":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 42});
+                break;
+            case "d142":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 28});  
+                break;
+            case "d141":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 14});
+                break;
+            case "d133":
+                 this.setState({[playerScore]: parseInt(playerScoreState) + 39});
+                break;
+            case "d132":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 26});
+                break;
+            case "d131":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 13});
+                break;
+            case "d123":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 36});
+                break;
+            case "d122":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 24});
+                break;
+            case "d121":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 12});
+                break;
+            case "d113":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 33});
+                break;
+            case "d112":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 22});
+                break;
+            case "d111":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 11});
+                break;
+            case "d103":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 30});
+                break;
+            case "d102":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 20});
+                break;
+            case "d101":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 10});
+                break;
+            case "d93":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 27});
+                break;
+            case "d92":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 18});
+                break;
+            case "d91":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 9});
+                break;
+            case "d83":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 24});
+                break;
+            case "d82":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 16});
+                break;
+            case "d81":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 8});
+                break;
+            case "d73":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 21});
+                break;
+            case "d72":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 14});
+                break;
+            case "d71":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 7});
+                break;
+            case "d63":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 18});
+                break;
+            case "d62":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 12});
+                break;
+            case "d61":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 6});
+                break;
+            case "d53":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 15});
+                break;
+            case "d52":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 10});
+                break;
+            case "d51":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 5});
+                break;
+            case "d43":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 12});
+                break;
+            case "d42":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 8});
+                break;
+            case "d41":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 4});
+                break;
+            case "d33":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 9});
+                break;
+            case "d32":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 6});
+                break;
+            case "d31":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 3});
+                break;
+            case "d23":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 6});
+                break;
+            case "d22":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 4});
+                break;
+            case "d21":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 2});
+                break;
+            case "d13":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 3});
+                break;
+            case "d12":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 2});
+                break;
+            case "d11":
+                this.setState({[playerScore]: parseInt(playerScoreState) + 1});
+                break;          
             case "d252":
-                
+                this.setState({[playerScore]: parseInt(playerScoreState) + 50});
                 break;
             case "d251":
-               
+                this.setState({[playerScore]: parseInt(playerScoreState) + 25});
                 break;
         }
             this.setState({[playerThrows]: parseInt(throwsState) - 1})

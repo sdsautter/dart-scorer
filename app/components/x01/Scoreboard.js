@@ -35,7 +35,7 @@ export default class Scoreboard extends Component {
                         </button>
                     </div>
                     <div className="col border-bottom text-center undo">
-                        <button type="button" className="btn" onClick={() => {this.props.Undo()}}>
+                        <button type="button" className="btn" onClick={() => {this.props.undo()}}>
                             Undo
                         </button>
                     </div>
@@ -50,7 +50,7 @@ export default class Scoreboard extends Component {
                         </button>
                     </div>
                     <div className="col border-bottom text-center undo" id="undo-x01">
-                        <button type="button" className="btn" onClick={() => {this.props.Undo()}}>
+                        <button type="button" className="btn" onClick={() => {this.props.undo()}}>
                             Undo
                         </button>
                     </div>
