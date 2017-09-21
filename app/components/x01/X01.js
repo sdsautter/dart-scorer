@@ -49,7 +49,6 @@ export default class X01 extends Component {
         this.setGameOptions = this.setGameOptions.bind(this);
         this.setOriginalScore = this.setOriginalScore.bind(this);
         this.resetThrowLog = this.resetThrowLog.bind(this);
-   
     }
 
     setX01Game(x01Game) {
@@ -124,7 +123,8 @@ export default class X01 extends Component {
                     undo={this.undo}  
                     doubleInOptionsCheck={this.doubleInOptionsCheck}  
                     setOriginalScore={this.setOriginalScore}   
-                    resetThrowLog={this.resetThrowLog}     
+                    resetThrowLog={this.resetThrowLog}
+                    addToRoundStartScore={this.addToRoundStartScore} 
                 />
             )
         } else if (this.state.gameState === "over") {
@@ -207,17 +207,20 @@ export default class X01 extends Component {
                 this.gameStateChange(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({[playerScore]: newScore});
-            } else {
+            } else if ((newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0 )){
                 if (thrower === "p1") {
+                    
                     this.setState({activeThrower: "p2"});
-                    this.setThrowNumber(0);
-                } else {
-                    this.setState({activeThrower: "p2"});
-                    this.setThrowNumber(0);
+                } else {     
+                    this.setState({activeThrower: "p1"});
                 }
+                this.addThrow(this.state.activeThrower);
+                this.addToLog(number, multiplier);
+                this.setThrowNumber(0);
                 this.setState({[playerScore]: startScore});
                 scoresArray.push(startScore);
                 this.setState({[playerStartScore]: scoresArray});
+                return;
             }   
         }
 
@@ -235,7 +238,8 @@ export default class X01 extends Component {
     }
 
     checkThrower() {
-        if (this.state.activeThrows === 2 ) {
+        setTimeout(() => {
+        if (this.state.activeThrows === 3 ) {
             if (this.state.activeThrower === "p1") {
                 this.addToRoundStartScore("p1", this.state.p1Score);            
                 this.setActiveThrower("p2");
@@ -246,7 +250,7 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
             }
             this.setThrowNumber(0);
-        }
+        }}, 5);
     }
 
     renderP1Score() {
@@ -281,7 +285,7 @@ export default class X01 extends Component {
         } else {
             this.setThrowNumber(parseInt(this.state.activeThrows) - 1 );
             if (this.state.activeThrower === "p1") {
-            this.undoSwitch("p1");            
+                this.undoSwitch("p1");            
             } else {
                 this.undoSwitch("p2");
             }

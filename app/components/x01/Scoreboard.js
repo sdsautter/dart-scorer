@@ -12,6 +12,8 @@ export default class Scoreboard extends Component {
         this.props.setOriginalScore(parseInt(this.props.x01Game));
         this.props.doubleInOptionsCheck();
         this.props.resetThrowLog();
+        this.props.addToRoundStartScore("p1", parseInt(this.props.x01Game));
+        this.props.addToRoundStartScore("p2", parseInt(this.props.x01Game));        
     }
       
     playersRender() {
