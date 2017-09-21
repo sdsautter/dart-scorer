@@ -15,13 +15,13 @@ export default class GameOptions extends Component {
                 </div>
                 <br />
                 <div className = "row">
-                    <div className = "col-4 number text-center">
+                    <div className = "col-md-4 col-sm-12 number text-center">
                         <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("dido")}}>Double In/Double Out</button>
                     </div>
-                    <div className = "col-4 number text-center">
+                    <div className = "col-md-4 col-sm-12 number text-center">
                         <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("sido")}}>Any In/Double Out</button>
                     </div>                    
-                    <div className = "col-4 number text-center">
+                    <div className = "col-md-4 col-sm-12 number text-center">
                         <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("siso")}}>Any In/Any Out</button>
                     </div>
                 </div>

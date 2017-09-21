@@ -239,7 +239,7 @@ export default class X01 extends Component {
 
     checkThrower() {
         setTimeout(() => {
-        if (this.state.activeThrows === 3 ) {
+        if (this.state.activeThrows > 2 ) {
             if (this.state.activeThrower === "p1") {
                 this.addToRoundStartScore("p1", this.state.p1Score);            
                 this.setActiveThrower("p2");
@@ -273,6 +273,7 @@ export default class X01 extends Component {
     }
 
     undo() {
+
         if (this.state.activeThrows === 0 ) {
             this.setThrowNumber(2);
             if (this.state.activeThrower === "p1") {
