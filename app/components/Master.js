@@ -31,7 +31,7 @@ export default class Master extends Component {
             return(
                 <div className="container-fluid">
                     <div className="row top-row">
-                        <div className="col text-center">
+                        <div className="col title text-center">
                             Choose Your Game
                         </div>
                     </div>

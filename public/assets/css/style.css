@@ -6,6 +6,10 @@
     font-size: .7rem;
 }
 
+.title {
+    font-size: 1.5rem;
+}
+
 .top-row {
     margin-top: 5%;
 }
@@ -34,6 +38,10 @@
 .miss {
     padding-top: .5%;
     padding-bottom: .5%
+}
+
+.x01-option {
+    padding-top: 3%;
 }
 
 .number button, .modal-body button {
@@ -112,6 +120,10 @@
     font-family: 'Permanent Marker', cursive;
     font-size: 1.75rem;
 }
+
+ .title {
+     font-size: 2.5rem;
+ }
 
 .top-row {
     margin-top: 2%;

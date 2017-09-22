@@ -9,7 +9,7 @@ export default class GamePick extends Component {
         return (
             <div className="container-fluid">
                 <div className = "row top-row">
-                    <div className="col text-center">
+                    <div className="col title text-center">
                         Which x01 Game To Play?
                     </div>
                 </div>

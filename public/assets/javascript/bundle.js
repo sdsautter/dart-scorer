@@ -25336,7 +25336,7 @@ var GamePick = function (_Component) {
                     { className: "row top-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col text-center" },
+                        { className: "col title text-center" },
                         "Which x01 Game To Play?"
                     )
                 ),
@@ -25526,7 +25526,7 @@ var GameOptions = function (_Component) {
                     { className: "row top-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col text-center" },
+                        { className: "col title text-center" },
                         "Game Options"
                     )
                 ),
@@ -25536,7 +25536,7 @@ var GameOptions = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 number text-center" },
+                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -25547,7 +25547,7 @@ var GameOptions = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 number text-center" },
+                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -25558,7 +25558,7 @@ var GameOptions = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 number text-center" },
+                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -28586,7 +28586,7 @@ var Master = function (_Component) {
                         { className: "row top-row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col text-center" },
+                            { className: "col title text-center" },
                             "Choose Your Game"
                         )
                     ),
