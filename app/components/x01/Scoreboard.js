@@ -142,6 +142,7 @@ export default class Scoreboard extends Component {
                     numpadScore={this.props.numpadScore} 
                     numpadMiss={this.props.numpadMiss}
                     numpadUndo={this.props.numpadUndo}
+                    gameState={this.props.gameState}
                 />
             )
         } else {

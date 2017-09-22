@@ -132,6 +132,7 @@ export default class X01 extends Component {
                     gameOptions={this.state.gameOptions}
                     numpadMiss={this.numpadMiss}
                     numpadUndo={this.numpadUndo}
+                    gameState={this.state.gameState}
                 />
             )
         } else if (this.state.gameState === "over") {
@@ -185,34 +186,35 @@ export default class X01 extends Component {
     }
 
     numpadScore(thrower, score) {
-        let otherThrower = "";
-        
-        if (thrower === "p1") {
-            otherThrower = "p2";
-        } else {
-            otherThrower = "p1";
-        }
+        if (this.state.gameState === "playing") {
+            let otherThrower = "";
+            if (thrower === "p1") {
+                otherThrower = "p2";
+            } else {
+                otherThrower = "p1";
+            }
 
-        let playerScore = `${thrower}Score`;
-        let playerStartScore = `${thrower}RoundStartScore`; 
-        let playerThrows = `${thrower}Throws`;
-        let playerThrowsState = eval(`this.state.${playerThrows}`);
-        let playerScoreState = eval(`this.state.${playerScore}`);
-        let roundStartScoreState = eval(`this.state.${playerStartScore}`);
-        let scoresArray = roundStartScoreState;
-        let newScore = parseInt(playerScoreState) - parseInt(score);
-        scoresArray.push(newScore);
-        if (newScore === 0 ) {
-            this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});           
-            this.gameStateChange(thrower);
-        } else if (newScore === 1 ) {
-            this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});
-            this.setState({activeThrower: otherThrower});
-        } else {
-            this.setState({[playerScore]: newScore});
-            this.setState({[playerStartScore]: scoresArray});
-            this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});           
-            this.setState({activeThrower: otherThrower});
+            let playerScore = `${thrower}Score`;
+            let playerStartScore = `${thrower}RoundStartScore`; 
+            let playerThrows = `${thrower}Throws`;
+            let playerThrowsState = eval(`this.state.${playerThrows}`);
+            let playerScoreState = eval(`this.state.${playerScore}`);
+            let roundStartScoreState = eval(`this.state.${playerStartScore}`);
+            let scoresArray = roundStartScoreState;
+            let newScore = parseInt(playerScoreState) - parseInt(score);
+            scoresArray.push(newScore);
+            if (newScore === 0 ) {
+                this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});           
+                this.gameStateChange(thrower);
+            } else if (newScore === 1 ) {
+                this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});
+                this.setState({activeThrower: otherThrower});
+            } else {
+                this.setState({[playerScore]: newScore});
+                this.setState({[playerStartScore]: scoresArray});
+                this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});           
+                this.setState({activeThrower: otherThrower});
+            }
         }
     }
 

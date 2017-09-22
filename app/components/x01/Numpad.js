@@ -16,10 +16,10 @@ export default class Numpad extends Component {
     }
 
     numberInput(number) {
-        let originalNumber = this.state.numberEntry;
-        let addOnNumber = number;
-        let newNumber = `${originalNumber}${addOnNumber}`;
-        this.setState({numberEntry: newNumber});
+            let originalNumber = this.state.numberEntry;
+            let addOnNumber = number;
+            let newNumber = `${originalNumber}${addOnNumber}`;
+            this.setState({numberEntry: newNumber});
     }
 
     numberRemove() {

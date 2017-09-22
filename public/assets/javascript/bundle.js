@@ -10869,7 +10869,8 @@ var X01 = function (_Component) {
                     numpadScore: this.numpadScore,
                     gameOptions: this.state.gameOptions,
                     numpadMiss: this.numpadMiss,
-                    numpadUndo: this.numpadUndo
+                    numpadUndo: this.numpadUndo,
+                    gameState: this.state.gameState
                 });
             } else if (this.state.gameState === "over") {
                 if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
@@ -10922,34 +10923,35 @@ var X01 = function (_Component) {
     }, {
         key: "numpadScore",
         value: function numpadScore(thrower, score) {
-            var otherThrower = "";
+            if (this.state.gameState === "playing") {
+                var otherThrower = "";
+                if (thrower === "p1") {
+                    otherThrower = "p2";
+                } else {
+                    otherThrower = "p1";
+                }
 
-            if (thrower === "p1") {
-                otherThrower = "p2";
-            } else {
-                otherThrower = "p1";
-            }
-
-            var playerScore = thrower + "Score";
-            var playerStartScore = thrower + "RoundStartScore";
-            var playerThrows = thrower + "Throws";
-            var playerThrowsState = eval("this.state." + playerThrows);
-            var playerScoreState = eval("this.state." + playerScore);
-            var roundStartScoreState = eval("this.state." + playerStartScore);
-            var scoresArray = roundStartScoreState;
-            var newScore = parseInt(playerScoreState) - parseInt(score);
-            scoresArray.push(newScore);
-            if (newScore === 0) {
-                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
-                this.gameStateChange(thrower);
-            } else if (newScore === 1) {
-                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
-                this.setState({ activeThrower: otherThrower });
-            } else {
-                this.setState(_defineProperty({}, playerScore, newScore));
-                this.setState(_defineProperty({}, playerStartScore, scoresArray));
-                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
-                this.setState({ activeThrower: otherThrower });
+                var playerScore = thrower + "Score";
+                var playerStartScore = thrower + "RoundStartScore";
+                var playerThrows = thrower + "Throws";
+                var playerThrowsState = eval("this.state." + playerThrows);
+                var playerScoreState = eval("this.state." + playerScore);
+                var roundStartScoreState = eval("this.state." + playerStartScore);
+                var scoresArray = roundStartScoreState;
+                var newScore = parseInt(playerScoreState) - parseInt(score);
+                scoresArray.push(newScore);
+                if (newScore === 0) {
+                    this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                    this.gameStateChange(thrower);
+                } else if (newScore === 1) {
+                    this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                    this.setState({ activeThrower: otherThrower });
+                } else {
+                    this.setState(_defineProperty({}, playerScore, newScore));
+                    this.setState(_defineProperty({}, playerStartScore, scoresArray));
+                    this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                    this.setState({ activeThrower: otherThrower });
+                }
             }
         }
     }, {
@@ -25910,7 +25912,8 @@ var Scoreboard = function (_Component) {
                     activeThrower: this.props.activeThrower,
                     numpadScore: this.props.numpadScore,
                     numpadMiss: this.props.numpadMiss,
-                    numpadUndo: this.props.numpadUndo
+                    numpadUndo: this.props.numpadUndo,
+                    gameState: this.props.gameState
                 });
             } else {
                 return _react2.default.createElement(_ScoreInput2.default, {
