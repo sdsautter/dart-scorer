@@ -1159,6 +1159,16 @@ module.exports = ReactComponentTreeHook;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(17);
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -1183,16 +1193,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = { debugTool: debugTool };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(17);
-
 
 /***/ }),
 /* 10 */
@@ -2681,7 +2681,7 @@ module.exports = reactProdInvariant;
 
 
 var ReactRef = __webpack_require__(110);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 
 var warning = __webpack_require__(2);
 
@@ -5238,7 +5238,7 @@ module.exports = getEventModifierState;
 var DOMLazyTree = __webpack_require__(20);
 var Danger = __webpack_require__(121);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(41);
 var setInnerHTML = __webpack_require__(30);
@@ -5911,7 +5911,7 @@ var _prodInvariant = __webpack_require__(3);
 
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 var ReactUpdates = __webpack_require__(12);
 
 var invariant = __webpack_require__(1);
@@ -7987,7 +7987,7 @@ module.exports = CSSProperty;
 
 var DOMProperty = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 
 var quoteAttributeValueForBrowser = __webpack_require__(135);
 var warning = __webpack_require__(2);
@@ -9193,7 +9193,7 @@ var ReactDOMContainerInfo = __webpack_require__(177);
 var ReactDOMFeatureFlags = __webpack_require__(178);
 var ReactFeatureFlags = __webpack_require__(62);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 var ReactMarkupChecksum = __webpack_require__(179);
 var ReactReconciler = __webpack_require__(19);
 var ReactUpdateQueue = __webpack_require__(47);
@@ -9756,7 +9756,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -10702,7 +10702,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -10718,7 +10718,7 @@ var _Scoreboard = __webpack_require__(191);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(193);
+var _Results = __webpack_require__(194);
 
 var _Results2 = _interopRequireDefault(_Results);
 
@@ -10781,6 +10781,9 @@ var X01 = function (_Component) {
         _this.setGameOptions = _this.setGameOptions.bind(_this);
         _this.setOriginalScore = _this.setOriginalScore.bind(_this);
         _this.resetThrowLog = _this.resetThrowLog.bind(_this);
+        _this.numpadScore = _this.numpadScore.bind(_this);
+        _this.numpadMiss = _this.numpadMiss.bind(_this);
+        _this.numpadUndo = _this.numpadUndo.bind(_this);
         return _this;
     }
 
@@ -10862,7 +10865,11 @@ var X01 = function (_Component) {
                     doubleInOptionsCheck: this.doubleInOptionsCheck,
                     setOriginalScore: this.setOriginalScore,
                     resetThrowLog: this.resetThrowLog,
-                    addToRoundStartScore: this.addToRoundStartScore
+                    addToRoundStartScore: this.addToRoundStartScore,
+                    numpadScore: this.numpadScore,
+                    gameOptions: this.state.gameOptions,
+                    numpadMiss: this.numpadMiss,
+                    numpadUndo: this.numpadUndo
                 });
             } else if (this.state.gameState === "over") {
                 if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
@@ -10911,6 +10918,81 @@ var X01 = function (_Component) {
             var loggedArray = this.state.throwLog;
             loggedArray.push(loggedThrow);
             this.setState({ throwLog: loggedArray });
+        }
+    }, {
+        key: "numpadScore",
+        value: function numpadScore(thrower, score) {
+            var otherThrower = "";
+
+            if (thrower === "p1") {
+                otherThrower = "p2";
+            } else {
+                otherThrower = "p1";
+            }
+
+            var playerScore = thrower + "Score";
+            var playerStartScore = thrower + "RoundStartScore";
+            var playerThrows = thrower + "Throws";
+            var playerThrowsState = eval("this.state." + playerThrows);
+            var playerScoreState = eval("this.state." + playerScore);
+            var roundStartScoreState = eval("this.state." + playerStartScore);
+            var scoresArray = roundStartScoreState;
+            var newScore = parseInt(playerScoreState) - parseInt(score);
+            scoresArray.push(newScore);
+            if (newScore === 0) {
+                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                this.gameStateChange(thrower);
+            } else if (newScore === 1) {
+                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                this.setState({ activeThrower: otherThrower });
+            } else {
+                this.setState(_defineProperty({}, playerScore, newScore));
+                this.setState(_defineProperty({}, playerStartScore, scoresArray));
+                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                this.setState({ activeThrower: otherThrower });
+            }
+        }
+    }, {
+        key: "numpadUndo",
+        value: function numpadUndo() {
+            var otherThrower = "";
+            var thrower = this.state.activeThrower;
+            if (thrower === "p1") {
+                otherThrower = "p2";
+            } else {
+                otherThrower = "p1";
+            }
+            var playerScore = otherThrower + "Score";
+            var playerStartScore = otherThrower + "RoundStartScore";
+            var playerThrows = otherThrower + "Throws";
+            var playerThrowsState = eval("this.state." + playerThrows);
+            var playerScoreState = eval("this.state." + playerScore);
+            var roundStartScoreState = eval("this.state." + playerStartScore);
+            var scoresArray = roundStartScoreState;
+            if (scoresArray.length > 1) {
+                scoresArray.pop();
+            }
+            var startScore = scoresArray[scoresArray.length - 1];
+            if (parseInt(playerScoreState > 0)) {
+                this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) - 3));
+            }
+            this.setState(_defineProperty({}, playerScore, startScore));
+            this.setState({ activeThrower: otherThrower });
+        }
+    }, {
+        key: "numpadMiss",
+        value: function numpadMiss() {
+            var otherThrower = "";
+            var thrower = this.state.activeThrower;
+            if (thrower === "p1") {
+                otherThrower = "p2";
+            } else {
+                otherThrower = "p1";
+            }
+            var playerThrows = thrower + "Throws";
+            var playerThrowsState = eval("this.state." + playerThrows);
+            this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+            this.setState({ activeThrower: otherThrower });
         }
     }, {
         key: "score",
@@ -11283,7 +11365,7 @@ module.exports = __webpack_require__(85);
 "use strict";
 
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -11297,7 +11379,7 @@ var _X = __webpack_require__(83);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Master = __webpack_require__(194);
+var _Master = __webpack_require__(195);
 
 var _Master2 = _interopRequireDefault(_Master);
 
@@ -13884,7 +13966,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactInstrumentation = __webpack_require__(8);
+  var ReactInstrumentation = __webpack_require__(9);
   var ReactDOMUnknownPropertyHook = __webpack_require__(184);
   var ReactDOMNullInputValuePropHook = __webpack_require__(185);
   var ReactDOMInvalidARIAHook = __webpack_require__(186);
@@ -16524,7 +16606,7 @@ var ReactDOMInput = __webpack_require__(138);
 var ReactDOMOption = __webpack_require__(139);
 var ReactDOMSelect = __webpack_require__(71);
 var ReactDOMTextarea = __webpack_require__(140);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 var ReactMultiChild = __webpack_require__(141);
 var ReactServerRenderingTransaction = __webpack_require__(150);
 
@@ -17551,7 +17633,7 @@ module.exports = AutoFocusUtils;
 
 var CSSProperty = __webpack_require__(68);
 var ExecutionEnvironment = __webpack_require__(6);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 
 var camelizeStyleName = __webpack_require__(129);
 var dangerousStyleValue = __webpack_require__(131);
@@ -18819,7 +18901,7 @@ var _prodInvariant = __webpack_require__(3);
 
 var ReactComponentEnvironment = __webpack_require__(43);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactReconciler = __webpack_require__(19);
@@ -19434,7 +19516,7 @@ var ReactComponentEnvironment = __webpack_require__(43);
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactErrorUtils = __webpack_require__(35);
 var ReactInstanceMap = __webpack_require__(24);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 var ReactNodeTypes = __webpack_require__(73);
 var ReactReconciler = __webpack_require__(19);
 
@@ -20639,7 +20721,7 @@ var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(16);
 var Transaction = __webpack_require__(28);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 var ReactServerUpdateQueue = __webpack_require__(151);
 
 /**
@@ -21573,7 +21655,7 @@ var CallbackQueue = __webpack_require__(61);
 var PooledClass = __webpack_require__(16);
 var ReactBrowserEventEmitter = __webpack_require__(32);
 var ReactInputSelection = __webpack_require__(78);
-var ReactInstrumentation = __webpack_require__(8);
+var ReactInstrumentation = __webpack_require__(9);
 var Transaction = __webpack_require__(28);
 var ReactUpdateQueue = __webpack_require__(47);
 
@@ -23944,7 +24026,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -25161,7 +25243,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -25302,7 +25384,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -25492,7 +25574,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -25536,7 +25618,7 @@ var GameOptions = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        { className: "col-md-3 col-sm-12 x01-option number text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -25547,7 +25629,7 @@ var GameOptions = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        { className: "col-md-3 col-sm-12 x01-option number text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -25558,13 +25640,24 @@ var GameOptions = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        { className: "col-md-3 col-sm-12 x01-option number text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn btn-success", onClick: function onClick() {
                                     _this2.props.setGameOptions("siso");
                                 } },
                             "Any In/Any Out"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-md-3 col-sm-12 x01-option number text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    _this2.props.setGameOptions("numpad");
+                                } },
+                            "Manual Numpad"
                         )
                     )
                 )
@@ -25590,13 +25683,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _ScoreInput = __webpack_require__(192);
 
 var _ScoreInput2 = _interopRequireDefault(_ScoreInput);
+
+var _Numpad = __webpack_require__(193);
+
+var _Numpad2 = _interopRequireDefault(_Numpad);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25615,7 +25712,7 @@ var Scoreboard = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Scoreboard.__proto__ || Object.getPrototypeOf(Scoreboard)).call(this));
 
         _this.playersRender = _this.playersRender.bind(_this);
-        // this.viewportRender = this.viewportRender.bind(this);
+        _this.inputRender = _this.inputRender.bind(_this);
         return _this;
     }
 
@@ -25635,96 +25732,156 @@ var Scoreboard = function (_Component) {
 
             var intViewportWidth = window.innerWidth;
             //Renders either an input or a text area depending on the screen width
-            if (intViewportWidth < 720) {
-
-                if (this.props.activeThrower === "p1") {
-                    return _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
+            if (this.props.gameOptions !== "numpad") {
+                if (intViewportWidth < 720) {
+                    if (this.props.activeThrower === "p1") {
+                        return _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top throw-number" },
-                            "Throw: ",
-                            this.props.activeThrows + 1
-                        ),
-                        _react2.default.createElement(
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top throw-number" },
+                                "Throw: ",
+                                this.props.activeThrows + 1
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-right active-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-left inactive-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement("div", { className: "col-3 border-bottom" })
+                        );
+                    } else {
+                        return _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top player border-right active-thrower" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-left inactive-thrower" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement("div", { className: "col-3 border-bottom" })
-                    );
+                            { className: "row" },
+                            _react2.default.createElement("div", { className: "col-3 border-bottom" }),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-right inactive-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-left active-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top throw-number" },
+                                "Throw: ",
+                                this.props.activeThrows + 1
+                            )
+                        );
+                    }
                 } else {
-                    return _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement("div", { className: "col-3 border-bottom" }),
-                        _react2.default.createElement(
+                    if (this.props.activeThrower === "p1") {
+                        return _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top player border-right inactive-thrower" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top throw-number" },
+                                "Throw: ",
+                                this.props.activeThrows + 1
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-right active-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-left inactive-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col border-bottom miss text-center" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.miss();
+                                        } },
+                                    "Miss"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col border-bottom text-center undo" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.undo();
+                                        } },
+                                    "Undo"
+                                )
+                            )
+                        );
+                    } else {
+                        return _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top player border-left active-thrower" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top throw-number" },
-                            "Throw: ",
-                            this.props.activeThrows + 1
-                        )
-                    );
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col border-bottom miss text-center", id: "miss-x01" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.miss();
+                                        } },
+                                    "Miss"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col border-bottom text-center undo", id: "undo-x01" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.undo();
+                                        } },
+                                    "Undo"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-right inactive-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top player border-left active-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-3 text-center padding-top throw-number" },
+                                "Throw: ",
+                                this.props.activeThrows + 1
+                            )
+                        );
+                    }
                 }
             } else {
-
                 if (this.props.activeThrower === "p1") {
                     return _react2.default.createElement(
                         "div",
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top throw-number" },
-                            "Throw: ",
-                            this.props.activeThrows + 1
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-right active-thrower" },
+                            { className: "col-6 text-center padding-top player border-right active-thrower" },
                             "Player 1"
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top player border-left inactive-thrower" },
+                            { className: "col-6 text-center padding-top player border-left inactive-thrower" },
                             "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col border-bottom miss text-center" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
-                                        _this2.props.miss();
-                                    } },
-                                "Miss"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col border-bottom text-center undo" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
-                                        _this2.props.undo();
-                                    } },
-                                "Undo"
-                            )
                         )
                     );
                 } else {
@@ -25733,44 +25890,35 @@ var Scoreboard = function (_Component) {
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col border-bottom miss text-center", id: "miss-x01" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
-                                        _this2.props.miss();
-                                    } },
-                                "Miss"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col border-bottom text-center undo", id: "undo-x01" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
-                                        _this2.props.undo();
-                                    } },
-                                "Undo"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-right inactive-thrower" },
+                            { className: "col-6 text-center padding-top player border-right inactive-thrower" },
                             "Player 1"
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center padding-top player border-left active-thrower" },
+                            { className: "col-6 text-center padding-top player border-left active-thrower" },
                             "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top throw-number" },
-                            "Throw: ",
-                            this.props.activeThrows + 1
                         )
                     );
                 }
+            }
+        }
+    }, {
+        key: "inputRender",
+        value: function inputRender() {
+            if (this.props.gameOptions === "numpad") {
+                return _react2.default.createElement(_Numpad2.default, {
+                    activeThrower: this.props.activeThrower,
+                    numpadScore: this.props.numpadScore,
+                    numpadMiss: this.props.numpadMiss,
+                    numpadUndo: this.props.numpadUndo
+                });
+            } else {
+                return _react2.default.createElement(_ScoreInput2.default, {
+                    activeThrower: this.props.activeThrower,
+                    score: this.props.score,
+                    miss: this.props.miss,
+                    undo: this.props.undo
+                });
             }
         }
     }, {
@@ -25794,12 +25942,7 @@ var Scoreboard = function (_Component) {
                         this.props.renderP2Score()
                     )
                 ),
-                _react2.default.createElement(_ScoreInput2.default, {
-                    activeThrower: this.props.activeThrower,
-                    score: this.props.score,
-                    miss: this.props.miss,
-                    undo: this.props.undo
-                })
+                this.inputRender()
             );
         }
     }]);
@@ -25822,7 +25965,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28385,7 +28528,289 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Numpad = function (_Component) {
+    _inherits(Numpad, _Component);
+
+    function Numpad() {
+        _classCallCheck(this, Numpad);
+
+        var _this = _possibleConstructorReturn(this, (Numpad.__proto__ || Object.getPrototypeOf(Numpad)).call(this));
+
+        _this.state = {
+            numberEntry: ""
+        };
+
+        _this.numpadRender = _this.numpadRender.bind(_this);
+        _this.renderNumberEntry = _this.renderNumberEntry.bind(_this);
+        _this.numberInput = _this.numberInput.bind(_this);
+        _this.numberRemove = _this.numberRemove.bind(_this);
+        _this.scoreEntry = _this.scoreEntry.bind(_this);
+        return _this;
+    }
+
+    _createClass(Numpad, [{
+        key: "numberInput",
+        value: function numberInput(number) {
+            var originalNumber = this.state.numberEntry;
+            var addOnNumber = number;
+            var newNumber = "" + originalNumber + addOnNumber;
+            this.setState({ numberEntry: newNumber });
+        }
+    }, {
+        key: "numberRemove",
+        value: function numberRemove() {
+            var originalNumber = this.state.numberEntry;
+            var newNumber = originalNumber.slice(0, originalNumber.length - 1);
+            this.setState({ numberEntry: newNumber });
+        }
+    }, {
+        key: "renderNumberEntry",
+        value: function renderNumberEntry() {
+            if (this.state.numberEntry === "") {
+                return "0";
+            } else {
+                return this.state.numberEntry;
+            }
+        }
+    }, {
+        key: "scoreEntry",
+        value: function scoreEntry() {
+            var _this2 = this;
+
+            if (parseInt(this.state.numberEntry) <= 180) {
+                this.props.numpadScore(this.props.activeThrower, parseInt(this.state.numberEntry));
+                this.setState({ numberEntry: "" });
+            } else {
+                this.setState({ numberEntry: "Too High. Try Again." });
+                setTimeout(function () {
+                    _this2.setState({ numberEntry: "" });
+                }, 1500);
+            }
+        }
+    }, {
+        key: "numpadRender",
+        value: function numpadRender() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: "row" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-12 text-center points-score" },
+                            this.renderNumberEntry()
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(9);
+                                    } },
+                                "9"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(8);
+                                    } },
+                                "8"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(7);
+                                    } },
+                                "7"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(6);
+                                    } },
+                                "6"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(5);
+                                    } },
+                                "5"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(4);
+                                    } },
+                                "4"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(3);
+                                    } },
+                                "3"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(2);
+                                    } },
+                                "2"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(1);
+                                    } },
+                                "1"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberRemove();
+                                    } },
+                                _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.numberInput(0);
+                                    } },
+                                "0"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 number" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.scoreEntry();
+                                    } },
+                                "Enter"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col miss" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.props.numpadMiss();
+                                    } },
+                                "Miss"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col undo" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this3.props.numpadUndo();
+                                    } },
+                                "Undo"
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                null,
+                this.numpadRender()
+            );
+        }
+    }]);
+
+    return Numpad;
+}(_react.Component);
+
+exports.default = Numpad;
+
+/***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28514,7 +28939,7 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28526,7 +28951,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(9);
+var _react = __webpack_require__(8);
 
 var _react2 = _interopRequireDefault(_react);
 

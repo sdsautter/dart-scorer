@@ -257,6 +257,12 @@ img {
     max-width: 100%;
 }
 
+.number img {
+    padding: 0;
+    max-height: 70%;
+    color: white;
+}
+
 .padding-top {
     padding-top: 1%;
 }
