@@ -11061,7 +11061,7 @@ var X01 = function (_Component) {
             var playerThrows = player + "Throws";
             var throwsState = eval("this.state." + player + "Throws");
 
-            if (throwsState > 0) {
+            if (throwsState > 0 && parseInt(this.state.x01Game) != parseInt(playerScoreState)) {
                 switch (lastThrow) {
                     case "d203":
                         this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 60));

@@ -314,7 +314,7 @@ export default class X01 extends Component {
         let playerThrows = `${player}Throws`;
         let throwsState = eval(`this.state.${player}Throws`);
         
-        if (throwsState > 0) {        
+        if (throwsState > 0  && parseInt(this.state.x01Game) != parseInt(playerScoreState)) {        
         switch(lastThrow) {
             case "d203":
                 this.setState({[playerScore]: parseInt(playerScoreState) + 60})
