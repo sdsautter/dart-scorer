@@ -40,6 +40,8 @@ export default class Numpad extends Component {
         if (parseInt(this.state.numberEntry) <= 180) {
         this.props.numpadScore(this.props.activeThrower, parseInt(this.state.numberEntry));
         this.setState({numberEntry: ""});
+        } else if (this.state.numberEntry === "") {
+            this.props.numpadScore(this.props.activeThrower, 0);    
         } else {
             this.setState({numberEntry: "Too High. Try Again."});
             setTimeout(() => {
@@ -108,8 +110,49 @@ export default class Numpad extends Component {
 
     }
 
-
     render() {
+        {
+            document.onkeyup = (event) => {
+                var UserInput = event.key;
+                switch(UserInput) {
+                    case "9":
+                        this.numberInput(9);
+                        break;
+                    case "8":
+                        this.numberInput(8);
+                        break;
+                    case "7":
+                        this.numberInput(7);
+                        break;
+                    case "6":
+                        this.numberInput(6);
+                        break;
+                    case "5":
+                        this.numberInput(5);
+                        break;
+                    case "4":
+                        this.numberInput(4);
+                        break;
+                    case "3":
+                        this.numberInput(3);
+                        break;
+                    case "2":
+                        this.numberInput(2);
+                        break;
+                    case "1":
+                        this.numberInput(1);
+                        break;
+                    case "0":
+                        this.numberInput(0);
+                        break;
+                    case "Enter":
+                        this.scoreEntry();
+                        break;
+                    case "Backspace": 
+                        this.numberRemove();
+                }
+            }
+        }
         return (
             <div>
                 {this.numpadRender()}

@@ -28592,6 +28592,8 @@ var Numpad = function (_Component) {
             if (parseInt(this.state.numberEntry) <= 180) {
                 this.props.numpadScore(this.props.activeThrower, parseInt(this.state.numberEntry));
                 this.setState({ numberEntry: "" });
+            } else if (this.state.numberEntry === "") {
+                this.props.numpadScore(this.props.activeThrower, 0);
             } else {
                 this.setState({ numberEntry: "Too High. Try Again." });
                 setTimeout(function () {
@@ -28784,6 +28786,50 @@ var Numpad = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var _this4 = this;
+
+            {
+                document.onkeyup = function (event) {
+                    var UserInput = event.key;
+                    switch (UserInput) {
+                        case "9":
+                            _this4.numberInput(9);
+                            break;
+                        case "8":
+                            _this4.numberInput(8);
+                            break;
+                        case "7":
+                            _this4.numberInput(7);
+                            break;
+                        case "6":
+                            _this4.numberInput(6);
+                            break;
+                        case "5":
+                            _this4.numberInput(5);
+                            break;
+                        case "4":
+                            _this4.numberInput(4);
+                            break;
+                        case "3":
+                            _this4.numberInput(3);
+                            break;
+                        case "2":
+                            _this4.numberInput(2);
+                            break;
+                        case "1":
+                            _this4.numberInput(1);
+                            break;
+                        case "0":
+                            _this4.numberInput(0);
+                            break;
+                        case "Enter":
+                            _this4.scoreEntry();
+                            break;
+                        case "Backspace":
+                            _this4.numberRemove();
+                    }
+                };
+            }
             return _react2.default.createElement(
                 "div",
                 null,
