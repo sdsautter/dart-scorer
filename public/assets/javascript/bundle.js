@@ -9934,7 +9934,8 @@ var Cricket = function (_Component) {
                         gameWinner: this.state.gameWinner,
                         gameReset: this.gameReset,
                         p1Throws: this.state.p1Throws,
-                        p2Throws: this.state.p2Throws
+                        p2Throws: this.state.p2Throws,
+                        setGame: this.props.setGame
                     });
                 }
             }
@@ -10876,7 +10877,8 @@ var X01 = function (_Component) {
                         gameWinner: this.state.gameWinner,
                         gameReset: this.gameReset,
                         p1Throws: this.state.p1Throws,
-                        p2Throws: this.state.p2Throws
+                        p2Throws: this.state.p2Throws,
+                        setGame: this.props.setGame
                     });
                 }
             } else if (this.state.gameState === "options") {
@@ -25350,6 +25352,22 @@ var Results = function (_Component) {
                             "Play Again"
                         )
                     )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 offset-3 text-center undo" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.setGame("");
+                                } },
+                            "Pick New Game"
+                        )
+                    )
                 )
             );
         }
@@ -28952,6 +28970,22 @@ var Results = function (_Component) {
                             "Play Again"
                         )
                     )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 offset-3 text-center undo" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.setGame("");
+                                } },
+                            "Pick New Game"
+                        )
+                    )
                 )
             );
         }
@@ -29023,9 +29057,13 @@ var Master = function (_Component) {
             var _this2 = this;
 
             if (this.state.game === "x01") {
-                return _react2.default.createElement(_X2.default, null);
+                return _react2.default.createElement(_X2.default, {
+                    setGame: this.setGame
+                });
             } else if (this.state.game === "cricket") {
-                return _react2.default.createElement(_Cricket2.default, null);
+                return _react2.default.createElement(_Cricket2.default, {
+                    setGame: this.setGame
+                });
             } else {
                 return _react2.default.createElement(
                     "div",

@@ -24,6 +24,7 @@ export default class Results extends Component {
     player2ThrowRender() {
         return this.props.p2Throws;
     }
+
       
     render() {
         return (
@@ -60,6 +61,14 @@ export default class Results extends Component {
                     <div className="col-6 offset-3 text-center miss">
                         <button type="button" className="btn" onClick={() => {this.props.gameReset()}}>
                             Play Again
+                        </button>
+                    </div>
+                </div>
+                 <div className="row">
+                    <br />
+                    <div className="col-6 offset-3 text-center undo">
+                        <button type="button" className="btn" onClick={() => {this.props.setGame("")}}>
+                            Pick New Game
                         </button>
                     </div>
                 </div>

@@ -141,6 +141,7 @@ export default class X01 extends Component {
                         gameReset={this.gameReset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
+                        setGame={this.props.setGame}
                     />
                 )
             }

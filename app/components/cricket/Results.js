@@ -63,6 +63,14 @@ export default class Results extends Component {
                         </button>
                     </div>
                 </div>
+                <div className="row">
+                <br />
+                    <div className="col-6 offset-3 text-center undo">
+                        <button type="button" className="btn" onClick={() => {this.props.setGame("")}}>
+                            Pick New Game
+                        </button>
+                    </div>
+                </div>
             </div>
         )
     }

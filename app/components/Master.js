@@ -21,11 +21,15 @@ export default class Master extends Component {
     conditionalRender() {
         if (this.state.game === "x01") {
             return (
-                <X01 />
+                <X01 
+                    setGame={this.setGame}
+                />
             )    
         } else if (this.state.game === "cricket") {
             return (
-                <Cricket />
+                <Cricket 
+                    setGame={this.setGame}
+                />
             )
         } else {
             return(
