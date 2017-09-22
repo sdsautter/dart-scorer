@@ -24045,7 +24045,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn text-center", "data-toggle": "modal", "data-target": "#twentyModal" },
@@ -24078,7 +24078,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#nineteenModal" },
@@ -24106,7 +24106,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#eightteenModal" },
@@ -24129,7 +24129,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#seventeenModal" },
@@ -24152,7 +24152,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#sixteenModal" },
@@ -24175,7 +24175,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#fifteenModal" },
@@ -24198,7 +24198,7 @@ var Scoreboard = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 text-center number" },
+                            { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#bullModal" },

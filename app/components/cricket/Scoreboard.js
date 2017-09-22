@@ -58,7 +58,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 text-center align-self-center">
                         {this.props.p120Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
                             20
                         </button>
@@ -77,7 +77,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 text-center align-self-center">
                         {this.props.p119Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
                             19
                         </button>
@@ -93,7 +93,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 offset-2 text-center align-self-center">
                         {this.props.p118Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn" data-toggle="modal" data-target="#eightteenModal">
                             18
                         </button>
@@ -106,7 +106,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 offset-2 text-center align-self-center">
                         {this.props.p117Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn" data-toggle="modal" data-target="#seventeenModal">
                             17
                         </button>
@@ -119,7 +119,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 offset-2 text-center align-self-center">
                         {this.props.p116Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
                             16
                         </button>
@@ -132,7 +132,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 offset-2 text-center align-self-center">
                         {this.props.p115Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn" data-toggle="modal" data-target="#fifteenModal">
                             15
                         </button>
@@ -145,7 +145,7 @@ export default class Scoreboard extends Component {
                     <div className="col-2 offset-2 text-center align-self-center">
                         {this.props.p125Progress()}
                     </div>
-                    <div className="col-4 text-center number">
+                    <div className="col-4 text-center border-left border-right number">
                         <button type="button" className="btn" data-toggle="modal" data-target="#bullModal">
                             Bull
                         </button>

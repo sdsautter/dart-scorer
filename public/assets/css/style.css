@@ -23,8 +23,8 @@
 }
 
 .number {
-    border-left: 4px double black;
-    border-right: 4px double black; 
+    /* border-left: 4px double black;
+    border-right: 4px double black;  */
     padding-top: .5%;
     padding-bottom: .5%;
     padding-left: .5%;
