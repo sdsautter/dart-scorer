@@ -10782,7 +10782,6 @@ var X01 = function (_Component) {
         _this.setOriginalScore = _this.setOriginalScore.bind(_this);
         _this.resetThrowLog = _this.resetThrowLog.bind(_this);
         _this.numpadScore = _this.numpadScore.bind(_this);
-        _this.numpadMiss = _this.numpadMiss.bind(_this);
         _this.numpadUndo = _this.numpadUndo.bind(_this);
         return _this;
     }
@@ -10868,7 +10867,6 @@ var X01 = function (_Component) {
                     addToRoundStartScore: this.addToRoundStartScore,
                     numpadScore: this.numpadScore,
                     gameOptions: this.state.gameOptions,
-                    numpadMiss: this.numpadMiss,
                     numpadUndo: this.numpadUndo,
                     gameState: this.state.gameState
                 });
@@ -10946,6 +10944,10 @@ var X01 = function (_Component) {
                 } else if (newScore === 1) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState({ activeThrower: otherThrower });
+                } else if (newScore < 0) {
+                    this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                    this.setState(_defineProperty({}, playerScore, parseInt(roundStartScoreState)));
+                    this.setState({ activeThrower: otherThrower });
                 } else {
                     this.setState(_defineProperty({}, playerScore, newScore));
                     this.setState(_defineProperty({}, playerStartScore, scoresArray));
@@ -10979,21 +10981,6 @@ var X01 = function (_Component) {
                 this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) - 3));
             }
             this.setState(_defineProperty({}, playerScore, startScore));
-            this.setState({ activeThrower: otherThrower });
-        }
-    }, {
-        key: "numpadMiss",
-        value: function numpadMiss() {
-            var otherThrower = "";
-            var thrower = this.state.activeThrower;
-            if (thrower === "p1") {
-                otherThrower = "p2";
-            } else {
-                otherThrower = "p1";
-            }
-            var playerThrows = thrower + "Throws";
-            var playerThrowsState = eval("this.state." + playerThrows);
-            this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
             this.setState({ activeThrower: otherThrower });
         }
     }, {
@@ -25911,7 +25898,6 @@ var Scoreboard = function (_Component) {
                 return _react2.default.createElement(_Numpad2.default, {
                     activeThrower: this.props.activeThrower,
                     numpadScore: this.props.numpadScore,
-                    numpadMiss: this.props.numpadMiss,
                     numpadUndo: this.props.numpadUndo,
                     gameState: this.props.gameState
                 });
@@ -28758,17 +28744,6 @@ var Numpad = function (_Component) {
                                         _this3.scoreEntry();
                                     } },
                                 "Enter"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col miss" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.props.numpadMiss();
-                                    } },
-                                "Miss"
                             )
                         ),
                         _react2.default.createElement(

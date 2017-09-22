@@ -50,7 +50,6 @@ export default class X01 extends Component {
         this.setOriginalScore = this.setOriginalScore.bind(this);
         this.resetThrowLog = this.resetThrowLog.bind(this);
         this.numpadScore = this.numpadScore.bind(this);
-        this.numpadMiss = this.numpadMiss.bind(this);
         this.numpadUndo = this.numpadUndo.bind(this);
     }
 
@@ -130,7 +129,6 @@ export default class X01 extends Component {
                     addToRoundStartScore={this.addToRoundStartScore} 
                     numpadScore={this.numpadScore}
                     gameOptions={this.state.gameOptions}
-                    numpadMiss={this.numpadMiss}
                     numpadUndo={this.numpadUndo}
                     gameState={this.state.gameState}
                 />
@@ -209,6 +207,10 @@ export default class X01 extends Component {
             } else if (newScore === 1 ) {
                 this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});
                 this.setState({activeThrower: otherThrower});
+            } else if (newScore < 0 ) {
+                this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});
+                this.setState({[playerScore]: parseInt(roundStartScoreState)});
+                this.setState({activeThrower: otherThrower});                
             } else {
                 this.setState({[playerScore]: newScore});
                 this.setState({[playerStartScore]: scoresArray});
@@ -244,20 +246,6 @@ export default class X01 extends Component {
         this.setState({activeThrower: otherThrower});        
     }
     
-    numpadMiss() {
-        let otherThrower = "";
-        let thrower = this.state.activeThrower;
-        if (thrower === "p1") {
-            otherThrower = "p2";
-        } else {
-            otherThrower = "p1";
-        }
-        let playerThrows = `${thrower}Throws`;
-        let playerThrowsState = eval(`this.state.${playerThrows}`);
-        this.setState({[playerThrows]: parseInt(playerThrowsState) + 3});        
-        this.setState({activeThrower: otherThrower});        
-    }
-
     score(thrower, number, multiplier) {
         if (multiplier === 2) {
             this.doubleInTrue(thrower);

@@ -97,9 +97,6 @@ export default class Numpad extends Component {
                         <div className="col-4 number">
                             <button type="button" className="btn btn-success" onClick={() => {this.scoreEntry()}}>Enter</button>
                         </div>
-                        <div className="col miss">
-                            <button type="button" className="btn btn-success" onClick={() => {this.props.numpadMiss()}}>Miss</button>
-                        </div>
                         <div className="col undo">
                             <button type="button" className="btn btn-success" onClick={() => {this.props.numpadUndo()}}>Undo</button>                        
                         </div>
