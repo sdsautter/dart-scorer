@@ -10319,14 +10319,14 @@ var Cricket = function (_Component) {
                             if (other25State < 3) {
                                 this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 50));
                             }
-                            this.setState(_defineProperty({}, player15, parseInt(player25State) - 2));
+                            this.setState(_defineProperty({}, player25, parseInt(player25State) - 2));
                         } else if (player25State === 4) {
                             if (other25State < 3) {
                                 this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
                             }
-                            this.setState(_defineProperty({}, player15, 2));
+                            this.setState(_defineProperty({}, player25, 2));
                         } else if (player25State < 4) {
-                            this.setState(_defineProperty({}, player15, parseInt(player25State) - 2));
+                            this.setState(_defineProperty({}, player25, parseInt(player25State) - 2));
                         }
                         break;
                     case "251":
@@ -10334,9 +10334,9 @@ var Cricket = function (_Component) {
                             if (other25State < 3) {
                                 this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
                             }
-                            this.setState(_defineProperty({}, player15, 3));
+                            this.setState(_defineProperty({}, player25, 3));
                         } else if (player25State < 4) {
-                            this.setState(_defineProperty({}, player15, parseInt(player25State) - 1));
+                            this.setState(_defineProperty({}, player25, parseInt(player25State) - 1));
                         }
                         break;
                 }
@@ -25343,7 +25343,7 @@ var Results = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 text-center miss" },
+                        { className: "col-md-6 offset-md-3 col-sm-12 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -25359,7 +25359,7 @@ var Results = function (_Component) {
                     _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 text-center undo" },
+                        { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -28961,7 +28961,7 @@ var Results = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 text-center miss" },
+                        { className: "col-sm-12 col-md-6 offset-md-3 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -28977,7 +28977,7 @@ var Results = function (_Component) {
                     _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 text-center undo" },
+                        { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {

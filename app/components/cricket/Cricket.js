@@ -532,14 +532,14 @@ export default class Cricket extends Component {
                     if (other25State < 3) {
                         this.setState({[playerScore]: parseInt(playerScoreState) - 50})
                     }
-                    this.setState({[player15]: parseInt(player25State) - 2})
+                    this.setState({[player25]: parseInt(player25State) - 2})
                 } else if (player25State === 4) {
                     if (other25State < 3) {                        
                         this.setState({[playerScore]: parseInt(playerScoreState) - 25})
                     }
-                    this.setState({[player15]: 2})
+                    this.setState({[player25]: 2})
                 } else if (player25State < 4) {
-                    this.setState({[player15]: parseInt(player25State) - 2 })
+                    this.setState({[player25]: parseInt(player25State) - 2 })
                 }
                 break;
             case "251":
@@ -547,9 +547,9 @@ export default class Cricket extends Component {
                         if (other25State < 3) {                        
                             this.setState({[playerScore]: parseInt(playerScoreState) - 25})
                         }
-                        this.setState({[player15]: 3})
+                        this.setState({[player25]: 3})
                     } else if (player25State < 4) {
-                        this.setState({[player15]: parseInt(player25State) - 1 })
+                        this.setState({[player25]: parseInt(player25State) - 1 })
                     }
                 break;
         }
