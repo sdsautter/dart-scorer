@@ -10843,7 +10843,7 @@ var X01 = function (_Component) {
             this.setState({ p2Throws: 0 });
             this.setState({ p2RoundStartScore: [] });
 
-            if (this.gameOptions === "dido") {
+            if (this.state.gameOptions === "dido") {
                 this.setState({ p1DoubleIn: false });
                 this.setState({ p2DoubleIn: false });
             }
