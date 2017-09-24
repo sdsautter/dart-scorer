@@ -10832,7 +10832,6 @@ var X01 = function (_Component) {
         value: function gameReset() {
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
-            this.setState({ activeMarks: 0 });
             this.setState({ gameState: "playing" });
             this.setState({ gameWinner: {} });
 
@@ -10843,6 +10842,11 @@ var X01 = function (_Component) {
             this.setState({ p2Score: 0 });
             this.setState({ p2Throws: 0 });
             this.setState({ p2RoundStartScore: [] });
+
+            if (this.gameOptions === "dido") {
+                this.setState({ p1DoubleIn: false });
+                this.setState({ p2DoubleIn: false });
+            }
         }
     }, {
         key: "conditionalRender",

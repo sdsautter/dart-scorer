@@ -90,7 +90,6 @@ export default class X01 extends Component {
     gameReset() {
         this.setState({activeThrower: "p1"});
         this.setState({activeThrows: 0});
-        this.setState({activeMarks: 0});
         this.setState({gameState: "playing"});
         this.setState({gameWinner: {}}); 
         
@@ -101,6 +100,11 @@ export default class X01 extends Component {
         this.setState({p2Score: 0});
         this.setState({p2Throws: 0});
         this.setState({p2RoundStartScore: []})
+
+        if (this.gameOptions === "dido") {
+            this.setState({p1DoubleIn: false});
+            this.setState({p2DoubleIn: false});            
+        }
         
     }
 
