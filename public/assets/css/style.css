@@ -26,6 +26,11 @@
     width: 100%;
 }
 
+.modal-name {
+    font-size: 1.5rem;
+    padding-right: 20%;
+}
+
 .number {
     /* border-left: 4px double black;
     border-right: 4px double black;  */

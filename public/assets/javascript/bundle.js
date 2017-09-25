@@ -24043,10 +24043,20 @@ var Scoreboard = function (_Component) {
 
         _this.playersRender = _this.playersRender.bind(_this);
         _this.viewportRender = _this.viewportRender.bind(_this);
+        _this.nameRender = _this.nameRender.bind(_this);
         return _this;
     }
 
     _createClass(Scoreboard, [{
+        key: "nameRender",
+        value: function nameRender() {
+            if (this.props.activeThrower === "p1") {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        }
+    }, {
         key: "playersRender",
         value: function playersRender() {
             if (this.props.activeThrower === "p1") {
@@ -24377,8 +24387,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -24448,8 +24463,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -24519,8 +24539,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -24590,8 +24615,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -24661,8 +24691,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -24732,8 +24767,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -24792,8 +24832,13 @@ var Scoreboard = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -25997,10 +26042,20 @@ var ScoreInput = function (_Component) {
         var _this = _possibleConstructorReturn(this, (ScoreInput.__proto__ || Object.getPrototypeOf(ScoreInput)).call(this));
 
         _this.viewportRender = _this.viewportRender.bind(_this);
+        _this.nameRender = _this.nameRender.bind(_this);
         return _this;
     }
 
     _createClass(ScoreInput, [{
+        key: "nameRender",
+        value: function nameRender() {
+            if (this.props.activeThrower === "p1") {
+                return "Player 1";
+            } else {
+                return "Player 2";
+            }
+        }
+    }, {
         key: "viewportRender",
         value: function viewportRender() {
             var _this2 = this;
@@ -26294,8 +26349,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26365,8 +26425,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26436,8 +26501,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26507,8 +26577,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26578,8 +26653,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26649,8 +26729,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26720,8 +26805,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26791,8 +26881,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26862,8 +26957,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -26933,8 +27033,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27004,8 +27109,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27075,8 +27185,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27146,8 +27261,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27217,8 +27337,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27288,8 +27413,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27359,8 +27489,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27430,8 +27565,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27501,8 +27641,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27572,8 +27717,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27643,8 +27793,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )
@@ -27703,8 +27858,13 @@ var ScoreInput = function (_Component) {
                                     "div",
                                     { className: "modal-footer" },
                                     _react2.default.createElement(
+                                        "span",
+                                        { className: "modal-name" },
+                                        this.nameRender()
+                                    ),
+                                    _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-secondary", "data-dismiss": "modal" },
+                                        { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
                                         "Close"
                                     )
                                 )

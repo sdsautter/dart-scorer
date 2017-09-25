@@ -6,6 +6,15 @@ export default class Scoreboard extends Component {
 
         this.playersRender = this.playersRender.bind(this);
         this.viewportRender = this.viewportRender.bind(this);
+        this.nameRender = this.nameRender.bind(this);
+    }
+
+    nameRender() {
+        if (this.props.activeThrower === "p1") {
+            return "Player 1";
+        } else {
+            return "Player 2";
+        }
     }
       
     playersRender() {
@@ -186,7 +195,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -211,7 +221,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>                            
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -236,7 +247,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -261,7 +273,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -286,7 +299,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -311,7 +325,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -333,7 +348,8 @@ export default class Scoreboard extends Component {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <span className="modal-name">{this.nameRender()}</span>
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
