@@ -704,6 +704,262 @@ export default class ScoreInput extends Component {
                 </div>
             </div>
             )
+        } else if (intViewportWidth < 900) {
+            return(
+            <div>
+                <div className="row">
+                    <div className="col-1 text-right number border-bottom">
+                        20
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 20, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 20, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 20, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        19
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 19, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 19, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 19, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        18
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 18, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 18, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 18, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        17
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 17, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 17, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 17, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        16
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 16, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 16, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 16, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        15
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 15, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 15, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 15, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        14
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 14, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 14, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 14, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        13
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 13, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 13, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 13, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        12
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 12, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 12, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 12, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        11
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 11, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 11, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 11, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        10
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 10, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 10, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 10, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        9
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 9, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 9, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 9, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        8
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 8, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 8, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 8, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        7
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 7, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 7, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 7, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        6
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 6, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 6, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 6, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        5
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 5, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 5, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 5, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        4
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 4, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 4, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 4, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number border-bottom">
+                        3
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 3, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 3, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number border-bottom">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 3, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number">
+                        2
+                    </div>
+                    <div className="col-1 text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 2, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 2, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 2, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number">
+                        1
+                    </div>
+                    <div className="col-1 text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 1, 1)}}>S</button>
+                    </div>
+                    <div className="col-1 text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 1, 2)}}>D</button>                    
+                    </div>
+                    <div className="col-1 text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 1, 3)}}>T</button>                            
+                    </div>
+                    <div className="col-1 text-right number">
+                        Bull
+                    </div>
+                    <div className="col text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 25, 1)}}>S</button>
+                    </div>
+                    <div className="col text-center number">
+                        <button type="button" className="btn btn-success" onClick={() => {this.props.score(this.props.activeThrower, 25, 2)}}>D</button>                    
+                    </div>
+                </div>
+            </div>
+        )
         } else {
             return(
             <div>
