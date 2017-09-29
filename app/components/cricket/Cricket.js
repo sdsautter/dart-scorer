@@ -609,15 +609,11 @@ export default class Cricket extends Component {
                 }
             }
         } else if (numberState >= 3) {
-            if (multiplier === 1 && otherThrowerState < 3) {
+            if (otherThrowerState < 3) {
                 this.setThrowerNumber(thrower, number, multiplier);                                    
                 this.setPlayerScore(thrower, number, multiplier);            
-            } else if (multiplier === 2 && otherThrowerState < 3) {
-                this.setThrowerNumber(thrower, number, multiplier);                    
-                this.setPlayerScore(thrower, number, multiplier);                                                   
-            } else if (multiplier === 3 && otherThrowerState < 3) {
-                this.setThrowerNumber(thrower, number, multiplier);                    
-                this.setPlayerScore(thrower, number, multiplier);                                                   
+            } else {
+                this.setThrowerNumber(thrower, number, multiplier);                
             }
         }
         
