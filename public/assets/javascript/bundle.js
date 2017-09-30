@@ -11016,7 +11016,7 @@ var X01 = function (_Component) {
                     this.gameStateChange(thrower);
                 } else if (newScore === 1 && this.state.gameOptions === "siso") {
                     this.setState(_defineProperty({}, playerScore, newScore));
-                } else if (newScore === 1 && this.state.gameOptions !== "siso" || newScore < 0) {
+                } else if (newScore === 1 && this.state.gameOptions !== "siso" || newScore <= 0) {
                     if (thrower === "p1") {
 
                         this.setState({ activeThrower: "p2" });

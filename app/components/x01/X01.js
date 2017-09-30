@@ -280,7 +280,7 @@ export default class X01 extends Component {
                 this.gameStateChange(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({[playerScore]: newScore});
-            } else if ((newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0 )){
+            } else if ((newScore === 1 && this.state.gameOptions !== "siso") || (newScore <= 0 )){
                 if (thrower === "p1") {
                     
                     this.setState({activeThrower: "p2"});
