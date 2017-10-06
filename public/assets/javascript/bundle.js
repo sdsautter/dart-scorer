@@ -29932,10 +29932,12 @@ var Numpad = function (_Component) {
     _createClass(Numpad, [{
         key: "numberInput",
         value: function numberInput(number) {
-            var originalNumber = this.state.numberEntry;
-            var addOnNumber = number;
-            var newNumber = "" + originalNumber + addOnNumber;
-            this.setState({ numberEntry: newNumber });
+            if (this.state.numberEntry !== "Too High. Try Again.") {
+                var originalNumber = this.state.numberEntry;
+                var addOnNumber = number;
+                var newNumber = "" + originalNumber + addOnNumber;
+                this.setState({ numberEntry: newNumber });
+            }
         }
     }, {
         key: "numberRemove",

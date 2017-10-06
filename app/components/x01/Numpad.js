@@ -16,10 +16,12 @@ export default class Numpad extends Component {
     }
 
     numberInput(number) {
+        if (this.state.numberEntry !== "Too High. Try Again.") {
             let originalNumber = this.state.numberEntry;
             let addOnNumber = number;
             let newNumber = `${originalNumber}${addOnNumber}`;
             this.setState({numberEntry: newNumber});
+        }
     }
 
     numberRemove() {
