@@ -3,7 +3,7 @@ import GamePick from "./GamePick.js";
 import GameOptions from "./GameOptions.js";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export default class X01 extends Component {
     constructor() {
         super();
@@ -106,55 +106,6 @@ export default class X01 extends Component {
             this.setState({ p2DoubleIn: false });
         }
 
-    }
-
-    conditionalRender() {
-        if (this.state.gameState === "pick") {
-            return (
-                <GamePick
-                    setX01Game={this.setX01Game}
-                />
-            )
-        } else if (this.state.gameState === "playing") {
-            return (
-                <Scoreboard
-                    score={this.score}
-                    miss={this.miss}
-                    activeThrower={this.state.activeThrower}
-                    activeThrows={this.state.activeThrows}
-                    x01Game={this.state.x01Game}
-                    playersRender={this.playersRender}
-                    renderP1Score={this.renderP1Score}
-                    renderP2Score={this.renderP2Score}
-                    undo={this.undo}
-                    doubleInOptionsCheck={this.doubleInOptionsCheck}
-                    setOriginalScore={this.setOriginalScore}
-                    resetThrowLog={this.resetThrowLog}
-                    addToRoundStartScore={this.addToRoundStartScore}
-                    numpadScore={this.numpadScore}
-                    gameOptions={this.state.gameOptions}
-                    numpadUndo={this.numpadUndo}
-                    gameState={this.state.gameState}
-                />
-            )
-        } else if (this.state.gameState === "over") {
-            if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
-                return (
-                    <Results
-                        gameWinner={this.state.gameWinner}
-                        gameReset={this.gameReset}
-                        p1Throws={this.state.p1Throws}
-                        p2Throws={this.state.p2Throws}
-                    />
-                )
-            }
-        } else if (this.state.gameState === "options") {
-            return (
-                <GameOptions
-                    setGameOptions={this.setGameOptions}
-                />
-            )
-        }
     }
 
     setThrowNumber(activeThrows) {
@@ -587,6 +538,88 @@ export default class X01 extends Component {
                     break;
             }
             this.setState({ [playerThrows]: parseInt(throwsState) - 1 })
+        }
+    }
+
+
+    conditionalRender() {
+        if (this.state.gameState === "pick") {
+            return (
+                <ReactCSSTransitionGroup
+                    transitionName="game"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnter={true}
+                    transitionLeave={true}
+                >
+                    <GamePick
+                        setX01Game={this.setX01Game}
+                    />
+                </ReactCSSTransitionGroup>
+            )
+        } else if (this.state.gameState === "playing") {
+            return (
+                <ReactCSSTransitionGroup
+                    transitionName="game"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnter={true}
+                    transitionLeave={true}
+                >
+                    <Scoreboard
+                        score={this.score}
+                        miss={this.miss}
+                        activeThrower={this.state.activeThrower}
+                        activeThrows={this.state.activeThrows}
+                        x01Game={this.state.x01Game}
+                        playersRender={this.playersRender}
+                        renderP1Score={this.renderP1Score}
+                        renderP2Score={this.renderP2Score}
+                        undo={this.undo}
+                        doubleInOptionsCheck={this.doubleInOptionsCheck}
+                        setOriginalScore={this.setOriginalScore}
+                        resetThrowLog={this.resetThrowLog}
+                        addToRoundStartScore={this.addToRoundStartScore}
+                        numpadScore={this.numpadScore}
+                        gameOptions={this.state.gameOptions}
+                        numpadUndo={this.numpadUndo}
+                        gameState={this.state.gameState}
+                    />
+                </ReactCSSTransitionGroup>
+            )
+        } else if (this.state.gameState === "over") {
+            if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
+                return (
+                    <ReactCSSTransitionGroup
+                        transitionName="game"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={true}
+                        transitionLeave={true}
+                    >
+                        <Results
+                            gameWinner={this.state.gameWinner}
+                            gameReset={this.gameReset}
+                            p1Throws={this.state.p1Throws}
+                            p2Throws={this.state.p2Throws}
+                        />
+                    </ReactCSSTransitionGroup>
+                )
+            }
+        } else if (this.state.gameState === "options") {
+            return (
+                <ReactCSSTransitionGroup
+                    transitionName="game"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnter={true}
+                    transitionLeave={true}
+                >
+                    <GameOptions
+                        setGameOptions={this.setGameOptions}
+                    />
+                </ReactCSSTransitionGroup>
+            )
         }
     }
 
