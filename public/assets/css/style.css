@@ -10,6 +10,15 @@
     font-size: 1.5rem;
 }
 
+.game-appear {
+    opacity: 0.01;
+  }
+  
+  .game-appear.game-appear-active {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+  }
+
 .top-row {
     margin-top: 5%;
 }
