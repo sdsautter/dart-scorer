@@ -65,7 +65,7 @@ export default class Scoreboard extends Component {
                             Points:
                     </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p120Progress()}
+                            {this.props.markProgress(1, 20)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
@@ -73,7 +73,7 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p220Progress()}
+                            {this.props.markProgress(2, 20)}
                         </div>
                         <div className="col-2 text-center align-self-center points-label">
                             Points:
@@ -84,7 +84,7 @@ export default class Scoreboard extends Component {
                             {this.props.renderP1Score()}
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p119Progress()}
+                            {this.props.markProgress(1, 19)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
@@ -92,7 +92,7 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p219Progress()}
+                            {this.props.markProgress(2, 19)}
                         </div>
                         <div className="col-2 text-center align-self-start points-score">
                             {this.props.renderP2Score()}
@@ -100,7 +100,7 @@ export default class Scoreboard extends Component {
                     </div>
                     <div className="row">
                         <div className="col-2 offset-2 text-center align-self-center">
-                            {this.props.p118Progress()}
+                            {this.props.markProgress(1, 18)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn" data-toggle="modal" data-target="#eightteenModal">
@@ -108,12 +108,12 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p218Progress()}
+                            {this.props.markProgress(2, 18)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2 offset-2 text-center align-self-center">
-                            {this.props.p117Progress()}
+                            {this.props.markProgress(1, 17)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn" data-toggle="modal" data-target="#seventeenModal">
@@ -121,12 +121,12 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p217Progress()}
+                            {this.props.markProgress(2, 17)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2 offset-2 text-center align-self-center">
-                            {this.props.p116Progress()}
+                            {this.props.markProgress(1, 16)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
@@ -134,12 +134,12 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p216Progress()}
+                            {this.props.markProgress(2, 16)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2 offset-2 text-center align-self-center">
-                            {this.props.p115Progress()}
+                            {this.props.markProgress(1, 15)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn" data-toggle="modal" data-target="#fifteenModal">
@@ -147,12 +147,12 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p215Progress()}
+                            {this.props.markProgress(2, 15)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2 offset-2 text-center align-self-center">
-                            {this.props.p125Progress()}
+                            {this.props.markProgress(1, 25)}
                         </div>
                         <div className="col-4 text-center border-left border-right number">
                             <button type="button" className="btn" data-toggle="modal" data-target="#bullModal">
@@ -160,7 +160,7 @@ export default class Scoreboard extends Component {
                         </button>
                         </div>
                         <div className="col-2 text-center align-self-center">
-                            {this.props.p225Progress()}
+                            {this.props.markProgress(2, 25)}
                         </div>
                     </div>
                     <div className="row">
@@ -365,7 +365,7 @@ export default class Scoreboard extends Component {
                             Points:
                     </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p120Progress()}
+                            {this.props.markProgress(1, 20)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             20
@@ -380,7 +380,7 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>T</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p220Progress()}
+                            {this.props.markProgress(2, 20)}
                         </div>
                         <div className="col-3 text-center align-self-center points-label">
                             Points:
@@ -391,7 +391,7 @@ export default class Scoreboard extends Component {
                             {this.props.renderP1Score()}
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p119Progress()}
+                            {this.props.markProgress(1, 19)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             19
@@ -406,7 +406,7 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>T</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p219Progress()}
+                            {this.props.markProgress(2, 19)}
                         </div>
                         <div className="col-3 text-center align-self-center points-score">
                             {this.props.renderP2Score()}
@@ -414,7 +414,7 @@ export default class Scoreboard extends Component {
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p118Progress()}
+                            {this.props.markProgress(1, 18)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             18
@@ -429,12 +429,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>T</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p218Progress()}
+                            {this.props.markProgress(2, 18)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p117Progress()}
+                            {this.props.markProgress(1, 17)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             17
@@ -449,12 +449,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>T</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p217Progress()}
+                            {this.props.markProgress(2, 17)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p116Progress()}
+                            {this.props.markProgress(1, 16)}
                         </div>
                         <div className="col-1 border-left border-left text-center number">
                             16
@@ -469,12 +469,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>T</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p216Progress()}
+                            {this.props.markProgress(2, 16)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p115Progress()}
+                            {this.props.markProgress(1, 15)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             15
@@ -489,12 +489,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>T</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p215Progress()}
+                            {this.props.markProgress(2, 15)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p125Progress()}
+                            {this.props.markProgress(1, 25)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             Bull
@@ -506,7 +506,7 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>D</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p225Progress()}
+                            {this.props.markProgress(2, 25)}
                         </div>
                         <div className="col-3">
                         </div>
@@ -535,7 +535,7 @@ export default class Scoreboard extends Component {
                             Points:
                     </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p120Progress()}
+                            {this.props.markProgress(1, 20)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             20
@@ -550,7 +550,7 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>Triple</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p220Progress()}
+                            {this.props.markProgress(2, 20)}
                         </div>
                         <div className="col-3 text-center align-self-center points-label">
                             Points:
@@ -561,7 +561,7 @@ export default class Scoreboard extends Component {
                             {this.props.renderP1Score()}
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p119Progress()}
+                            {this.props.markProgress(1, 19)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             19
@@ -576,7 +576,7 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>Triple</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p219Progress()}
+                            {this.props.markProgress(2, 19)}
                         </div>
                         <div className="col-3 text-center align-self-center points-score">
                             {this.props.renderP2Score()}
@@ -584,7 +584,7 @@ export default class Scoreboard extends Component {
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p118Progress()}
+                            {this.props.markProgress(1, 18)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             18
@@ -599,12 +599,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>Triple</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p218Progress()}
+                            {this.props.markProgress(2, 18)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p117Progress()}
+                            {this.props.markProgress(1, 17)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             17
@@ -619,12 +619,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>Triple</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p217Progress()}
+                            {this.props.markProgress(2, 17)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p116Progress()}
+                            {this.props.markProgress(1, 16)}
                         </div>
                         <div className="col-1 border-left border-left text-center number">
                             16
@@ -639,12 +639,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>Triple</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p216Progress()}
+                            {this.props.markProgress(2, 16)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p115Progress()}
+                            {this.props.markProgress(1, 15)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             15
@@ -659,12 +659,12 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>Triple</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p215Progress()}
+                            {this.props.markProgress(2, 15)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-1 offset-3 text-center align-self-center">
-                            {this.props.p125Progress()}
+                            {this.props.markProgress(1, 25)}
                         </div>
                         <div className="col-1 border-left text-center number">
                             Bull
@@ -676,7 +676,7 @@ export default class Scoreboard extends Component {
                             <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>Double</button>
                         </div>
                         <div className="col-1 text-center align-self-center">
-                            {this.props.p225Progress()}
+                            {this.props.markProgress(2, 25)}
                         </div>
                         <div className="col-3">
                         </div>

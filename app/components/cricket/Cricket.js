@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
     constructor() {
@@ -53,20 +54,7 @@ export default class Cricket extends Component {
         this.setThrowNumber = this.setThrowNumber.bind(this);
         this.setPlayerScore = this.setPlayerScore.bind(this);
         this.addThrow = this.addThrow.bind(this);
-        this.p120Progress = this.p120Progress.bind(this);
-        this.p119Progress = this.p119Progress.bind(this);
-        this.p118Progress = this.p118Progress.bind(this);
-        this.p117Progress = this.p117Progress.bind(this);
-        this.p116Progress = this.p116Progress.bind(this);
-        this.p115Progress = this.p115Progress.bind(this);
-        this.p125Progress = this.p125Progress.bind(this);
-        this.p220Progress = this.p220Progress.bind(this);
-        this.p219Progress = this.p219Progress.bind(this);
-        this.p218Progress = this.p218Progress.bind(this);
-        this.p217Progress = this.p217Progress.bind(this);
-        this.p216Progress = this.p216Progress.bind(this);
-        this.p215Progress = this.p215Progress.bind(this);
-        this.p225Progress = this.p225Progress.bind(this);
+        this.markProgress = this.markProgress.bind(this);
         this.gameStateChange = this.gameStateChange.bind(this);
         this.gameOverCheck = this.gameOverCheck.bind(this);
         this.miss = this.miss.bind(this);
@@ -116,48 +104,6 @@ export default class Cricket extends Component {
         this.setState({ p27m: 0 });
         this.setState({ p28m: 0 });
         this.setState({ p29m: 0 });
-    }
-
-    conditionalRender() {
-        if (this.state.gameState === "playing") {
-            return (
-                <Scoreboard
-                    score={this.score}
-                    miss={this.miss}
-                    activeThrower={this.state.activeThrower}
-                    activeThrows={this.state.activeThrows}
-                    playersRender={this.playersRender}
-                    renderP1Score={this.renderP1Score}
-                    renderP2Score={this.renderP2Score}
-                    p120Progress={this.p120Progress}
-                    p119Progress={this.p119Progress}
-                    p118Progress={this.p118Progress}
-                    p117Progress={this.p117Progress}
-                    p116Progress={this.p116Progress}
-                    p115Progress={this.p115Progress}
-                    p125Progress={this.p125Progress}
-                    p220Progress={this.p220Progress}
-                    p219Progress={this.p219Progress}
-                    p218Progress={this.p218Progress}
-                    p217Progress={this.p217Progress}
-                    p216Progress={this.p216Progress}
-                    p215Progress={this.p215Progress}
-                    p225Progress={this.p225Progress}
-                    undo={this.undo}
-                />
-            )
-        } else if (this.state.gameState === "over") {
-            if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
-                return (
-                    <Results
-                        gameWinner={this.state.gameWinner}
-                        gameReset={this.gameReset}
-                        p1Throws={this.state.p1Throws}
-                        p2Throws={this.state.p2Throws}
-                    />
-                )
-            }
-        }
     }
 
     setThrowNumber(activeThrows) {
@@ -716,143 +662,59 @@ export default class Cricket extends Component {
         }
     }
 
-    p120Progress() {
-        if (this.state.p120 === 1) {
+    markProgress(playerNumber, cricketNumber) {
+        const playerNumberState = eval(`this.state.p${playerNumber}${cricketNumber}`);
+        if (playerNumberState === 1) {
             return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p120 === 2) {
+        } else if (playerNumberState === 2) {
             return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p120 >= 3) {
+        } else if (playerNumberState >= 3) {
             return (<img className="mark" src="assets/images/3-mark.png" />)
         }
     }
 
-    p119Progress() {
-        if (this.state.p119 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p119 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p119 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p118Progress() {
-        if (this.state.p118 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p118 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p118 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p117Progress() {
-        if (this.state.p117 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p117 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p117 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p116Progress() {
-        if (this.state.p116 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p116 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p116 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p115Progress() {
-        if (this.state.p115 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p115 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p115 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p125Progress() {
-        if (this.state.p125 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p125 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p125 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p220Progress() {
-        if (this.state.p220 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p220 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p220 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p219Progress() {
-        if (this.state.p219 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p219 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p219 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p218Progress() {
-        if (this.state.p218 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p218 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p218 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p217Progress() {
-        if (this.state.p217 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p217 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p217 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p216Progress() {
-        if (this.state.p216 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p216 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p216 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p215Progress() {
-        if (this.state.p215 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p215 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p215 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
-        }
-    }
-
-    p225Progress() {
-        if (this.state.p225 === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
-        } else if (this.state.p225 === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
-        } else if (this.state.p225 >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
+    conditionalRender() {
+        if (this.state.gameState === "playing") {
+            return (
+                <ReactCSSTransitionGroup
+                    transitionName="game"
+                    transitionAppear={true}
+                    transitionAppearTimeout={500}
+                    transitionEnter={true}
+                    transitionLeave={true}
+                >
+                    <Scoreboard
+                        score={this.score}
+                        miss={this.miss}
+                        activeThrower={this.state.activeThrower}
+                        activeThrows={this.state.activeThrows}
+                        playersRender={this.playersRender}
+                        renderP1Score={this.renderP1Score}
+                        renderP2Score={this.renderP2Score}
+                        markProgress={this.markProgress}
+                        undo={this.undo}
+                    />
+                </ReactCSSTransitionGroup>
+            )
+        } else if (this.state.gameState === "over") {
+            if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
+                return (
+                    <ReactCSSTransitionGroup
+                        transitionName="game"
+                        transitionAppear={true}
+                        transitionAppearTimeout={500}
+                        transitionEnter={true}
+                        transitionLeave={true}
+                    >
+                        <Results
+                            gameWinner={this.state.gameWinner}
+                            gameReset={this.gameReset}
+                            p1Throws={this.state.p1Throws}
+                            p2Throws={this.state.p2Throws}
+                        />
+                    </ReactCSSTransitionGroup>
+                )
+            }
         }
     }
 
