@@ -16,6 +16,16 @@
         transition: opacity .5s ease-in;
     }
     
+    img {
+        width: 75%;
+        height: 75%;
+    }
+    
+    /* .start-over {
+        margin: 0;
+        padding: 0;
+    } */
+
     .top-row {
         margin-top: 5%;
     }
@@ -64,7 +74,7 @@
         font-weight: normal;
     }
     .miss button,
-    .undo button {
+    .undo button, .start-over button {
         width: 100%;
         height: 50px;
         background-color: #92B19C;
@@ -161,7 +171,7 @@
         font-weight: bold;
     }
     .miss button,
-    .undo button {
+    .undo button, .start-over button {
         width: 100%;
         height: 50px;
         background-color: #92B19C;
@@ -239,7 +249,7 @@ button:target {
     border-bottom: 4px double black;
 }
 
-.undo button:hover {
+.undo button:hover, .start-over button:hover {
     background-color: #C7AB8D;
 }
 
