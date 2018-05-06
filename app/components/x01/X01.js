@@ -3,6 +3,8 @@ import GamePick from "./GamePick.js";
 import GameOptions from "./GameOptions.js";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 export default class X01 extends Component {
     constructor() {
         super();
@@ -594,9 +596,16 @@ export default class X01 extends Component {
 
     render() {
         return (
-            <div>
-                {this.conditionalRender()}
-            </div>
+            <ReactCSSTransitionGroup
+                transitionName="game"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={false}>
+                <div>
+                    {this.conditionalRender()}
+                </div>
+            </ReactCSSTransitionGroup>
         )
     }
 }
