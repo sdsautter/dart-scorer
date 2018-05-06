@@ -66,8 +66,8 @@ export default class Results extends Component {
                 <div className="row">
                     <br />
                     <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                        <button type="button" className="btn" onClick={() => { location.assign('/'); }}>
-                            Pick New Game
+                        <button type="button" className="btn" onClick={() => { location.assign('/x01'); }}>
+                            Play x01
                         </button>
                     </div>
                 </div>

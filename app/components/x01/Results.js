@@ -58,17 +58,25 @@ export default class Results extends Component {
                 </div>
                 <br />
                 <div className="row">
-                    <div className="col-sm-12 col-md-6 offset-md-3 text-center miss">
+                    <div className="col-sm-12 col-md-3 offset-md-3 text-center miss">
                         <button type="button" className="btn" onClick={() => { this.props.gameReset() }}>
                             Play Again
+                        </button>
+                    </div>
+                    <div className="col-sm-12 col-md-3 text-center miss">
+                        <button type="button" className="btn" onClick={() => {
+                            //this.props.gameReset();
+                            location.assign('/x01');
+                        }}>
+                            Pick New x01
                         </button>
                     </div>
                 </div>
                 <div className="row">
                     <br />
                     <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                        <button type="button" className="btn" onClick={() => { location.assign('/') }}>
-                            Pick New Game
+                        <button type="button" className="btn" onClick={() => { location.assign('/cricket') }}>
+                            Play Cricket
                         </button>
                     </div>
                 </div>

@@ -27247,9 +27247,9 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/');
+                                    location.assign('/x01');
                                 } },
-                            "Pick New Game"
+                            "Play x01"
                         )
                     )
                 )
@@ -31758,13 +31758,25 @@ var Results = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-sm-12 col-md-6 offset-md-3 text-center miss" },
+                        { className: "col-sm-12 col-md-3 offset-md-3 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
                                     _this2.props.gameReset();
                                 } },
                             "Play Again"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-12 col-md-3 text-center miss" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    //this.props.gameReset();
+                                    location.assign('/x01');
+                                } },
+                            "Pick New x01"
                         )
                     )
                 ),
@@ -31778,9 +31790,9 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/');
+                                    location.assign('/cricket');
                                 } },
-                            "Pick New Game"
+                            "Play Cricket"
                         )
                     )
                 )
