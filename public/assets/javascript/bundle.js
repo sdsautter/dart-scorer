@@ -25431,277 +25431,311 @@ var Scoreboard = function (_Component) {
         }
     }, {
         key: "playersRender",
-        value: function playersRender() {
-            if (this.props.activeThrower === "p1") {
-                return _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement(
+        value: function playersRender(intViewportWidth) {
+            if (intViewportWidth < 720) {
+                if (this.props.activeThrower === "p1") {
+                    return _react2.default.createElement(
                         "div",
                         { className: "row top-row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-1 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-5 text-center player border-right active-thrower" },
+                            { className: "col-6 text-center player border-right active-thrower" },
                             "Player 1"
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-5 text-center player border-left inactive-thrower" },
+                            { className: "col-6 text-center player border-left inactive-thrower" },
                             "Player 2"
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        "div",
+                        { className: "row top-row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-right inactive-thrower" },
+                            "Player 1"
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-1 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
-                            )
+                            { className: "col-6 text-center player border-left active-thrower" },
+                            "Player 2"
                         )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "modal-dialog", role: "document" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "modal-content" },
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "reloadModalLabel" },
-                                        "Start Game Over"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
-                                    _react2.default.createElement(
-                                        "div",
-                                        { className: "row" },
-                                        _react2.default.createElement(
-                                            "div",
-                                            { className: "col text-center" },
-                                            _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            "div",
-                                            { className: "col text-center" },
-                                            _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        location.assign('/cricket');
-                                                    } },
-                                                "Yes"
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "modal-dialog", role: "document" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "modal-content" },
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "exitModalLabel" },
-                                        "Exit Game"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
-                                    _react2.default.createElement(
-                                        "div",
-                                        { className: "row" },
-                                        _react2.default.createElement(
-                                            "div",
-                                            { className: "col text-center" },
-                                            _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            "div",
-                                            { className: "col text-center" },
-                                            _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        location.assign('/');
-                                                    } },
-                                                "Yes"
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                );
+                    );
+                }
             } else {
-                return _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement(
+                if (this.props.activeThrower === "p1") {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "row top-row" },
+                        null,
                         _react2.default.createElement(
                             "div",
-                            { className: "col-1 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-5 text-center player border-right inactive-thrower" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-5 text-center player border-left active-thrower" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-1 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "modal-dialog", role: "document" },
+                            { className: "row top-row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "modal-content" },
+                                { className: "col-1 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-5 text-center player border-right active-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-5 text-center player border-left inactive-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-1 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
                                 _react2.default.createElement(
                                     "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "reloadModalLabel" },
-                                        "Start Game Over"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
+                                    { className: "modal-content" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "row" },
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "reloadModalLabel" },
+                                            "Start Game Over"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/cricket');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
-                                        ),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-content" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "exitModalLabel" },
+                                            "Exit Game"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        location.assign('/cricket');
-                                                    } },
-                                                "Yes"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
                         )
-                    ),
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                        null,
                         _react2.default.createElement(
                             "div",
-                            { className: "modal-dialog", role: "document" },
+                            { className: "row top-row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "modal-content" },
+                                { className: "col-1 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-5 text-center player border-right inactive-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-5 text-center player border-left active-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-1 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
                                 _react2.default.createElement(
                                     "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "exitModalLabel" },
-                                        "Exit Game"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
+                                    { className: "modal-content" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "row" },
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "reloadModalLabel" },
+                                            "Start Game Over"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/cricket');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
-                                        ),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-content" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "exitModalLabel" },
+                                            "Exit Game"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        location.assign('/');
-                                                    } },
-                                                "Yes"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
                         )
-                    )
-                );
+                    );
+                }
             }
         }
     }, {
@@ -26327,7 +26361,7 @@ var Scoreboard = function (_Component) {
                 return _react2.default.createElement(
                     "div",
                     { className: "container-fluid" },
-                    this.playersRender(),
+                    this.playersRender(intViewportWidth),
                     _react2.default.createElement(
                         "div",
                         { className: "row" },
@@ -26487,6 +26521,29 @@ var Scoreboard = function (_Component) {
                                         _this3.props.undo();
                                     } },
                                 "Undo"
+                            )
+                        )
+                    ),
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center start-over" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center start-over" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
                             )
                         )
                     ),
@@ -27010,13 +27067,111 @@ var Scoreboard = function (_Component) {
                                 )
                             )
                         )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-dialog", role: "document" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-content" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-header" },
+                                    _react2.default.createElement(
+                                        "h5",
+                                        { className: "modal-title", id: "reloadModalLabel" },
+                                        "Start Game Over"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-body" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "row" },
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "col text-center" },
+                                            _react2.default.createElement(
+                                                "button",
+                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                "No"
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "col text-center" },
+                                            _react2.default.createElement(
+                                                "button",
+                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                        location.assign('/cricket');
+                                                    } },
+                                                "Yes"
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-dialog", role: "document" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-content" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-header" },
+                                    _react2.default.createElement(
+                                        "h5",
+                                        { className: "modal-title", id: "exitModalLabel" },
+                                        "Exit Game"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-body" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "row" },
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "col text-center" },
+                                            _react2.default.createElement(
+                                                "button",
+                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                "No"
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "col text-center" },
+                                            _react2.default.createElement(
+                                                "button",
+                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                        location.assign('/');
+                                                    } },
+                                                "Yes"
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     )
                 );
             } else if (intViewportWidth < 900) {
                 return _react2.default.createElement(
                     "div",
                     { className: "container-fluid" },
-                    this.playersRender(),
+                    this.playersRender(intViewportWidth),
                     _react2.default.createElement(
                         "div",
                         { className: "row" },
@@ -27319,7 +27474,7 @@ var Scoreboard = function (_Component) {
                 return _react2.default.createElement(
                     "div",
                     { className: "container-fluid" },
-                    this.playersRender(),
+                    this.playersRender(intViewportWidth),
                     _react2.default.createElement(
                         "div",
                         { className: "row" },
