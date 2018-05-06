@@ -154,7 +154,6 @@ export default class Cricket extends Component {
                         gameReset={this.gameReset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
-                        setGame={this.props.setGame}
                     />
                 )
             }
