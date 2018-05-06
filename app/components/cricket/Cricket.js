@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
     constructor() {
@@ -676,43 +675,27 @@ export default class Cricket extends Component {
     conditionalRender() {
         if (this.state.gameState === "playing") {
             return (
-                <ReactCSSTransitionGroup
-                    transitionName="game"
-                    transitionAppear={true}
-                    transitionAppearTimeout={500}
-                    transitionEnter={true}
-                    transitionLeave={true}
-                >
-                    <Scoreboard
-                        score={this.score}
-                        miss={this.miss}
-                        activeThrower={this.state.activeThrower}
-                        activeThrows={this.state.activeThrows}
-                        playersRender={this.playersRender}
-                        renderP1Score={this.renderP1Score}
-                        renderP2Score={this.renderP2Score}
-                        markProgress={this.markProgress}
-                        undo={this.undo}
-                    />
-                </ReactCSSTransitionGroup>
+                <Scoreboard
+                    score={this.score}
+                    miss={this.miss}
+                    activeThrower={this.state.activeThrower}
+                    activeThrows={this.state.activeThrows}
+                    playersRender={this.playersRender}
+                    renderP1Score={this.renderP1Score}
+                    renderP2Score={this.renderP2Score}
+                    markProgress={this.markProgress}
+                    undo={this.undo}
+                />
             )
         } else if (this.state.gameState === "over") {
             if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
                 return (
-                    <ReactCSSTransitionGroup
-                        transitionName="game"
-                        transitionAppear={true}
-                        transitionAppearTimeout={500}
-                        transitionEnter={true}
-                        transitionLeave={true}
-                    >
-                        <Results
-                            gameWinner={this.state.gameWinner}
-                            gameReset={this.gameReset}
-                            p1Throws={this.state.p1Throws}
-                            p2Throws={this.state.p2Throws}
-                        />
-                    </ReactCSSTransitionGroup>
+                    <Results
+                        gameWinner={this.state.gameWinner}
+                        gameReset={this.gameReset}
+                        p1Throws={this.state.p1Throws}
+                        p2Throws={this.state.p2Throws}
+                    />
                 )
             }
         }
