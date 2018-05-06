@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 export default class Results extends Component {
     constructor() {
@@ -25,17 +25,17 @@ export default class Results extends Component {
         return this.props.p2Throws;
     }
 
-      
+
     render() {
         return (
             <div className="container-fluid">
-                <div className = "row">
+                <div className="row">
                     <div className="col text-center">
                         Game Over
                     </div>
                 </div>
-                <div className = "row">
-                    <div className = "col text-center">
+                <div className="row">
+                    <div className="col text-center">
                         {this.renderWinner()} Wins!
                     </div>
                 </div>
@@ -59,15 +59,15 @@ export default class Results extends Component {
                 <br />
                 <div className="row">
                     <div className="col-sm-12 col-md-6 offset-md-3 text-center miss">
-                        <button type="button" className="btn" onClick={() => {this.props.gameReset()}}>
+                        <button type="button" className="btn" onClick={() => { this.props.gameReset() }}>
                             Play Again
                         </button>
                     </div>
                 </div>
-                 <div className="row">
+                <div className="row">
                     <br />
                     <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                        <button type="button" className="btn" onClick={() => {this.props.setGame("")}}>
+                        <button type="button" className="btn" onClick={() => { location.assign('/') }}>
                             Pick New Game
                         </button>
                     </div>
