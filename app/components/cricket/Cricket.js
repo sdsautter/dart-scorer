@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
     constructor() {
@@ -703,9 +704,16 @@ export default class Cricket extends Component {
 
     render() {
         return (
-            <div>
-                {this.conditionalRender()}
-            </div>
+            <ReactCSSTransitionGroup
+                transitionName="game"
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={false}>
+                <div>
+                    {this.conditionalRender()}
+                </div>
+            </ReactCSSTransitionGroup>
         )
     }
 }
