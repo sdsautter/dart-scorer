@@ -10345,7 +10345,8 @@ var Cricket = function (_Component) {
         }
     }, {
         key: "score",
-        value: function score(thrower, number, multiplier) {
+        value: function score(number, multiplier) {
+            var thrower = this.state.activeThrower;
 
             var otherThrower = "";
 
@@ -10405,7 +10406,7 @@ var Cricket = function (_Component) {
                 }
             }
 
-            this.addThrow(this.state.activeThrower);
+            this.addThrow();
             this.addMarks(multiplier);
             this.addToLog(number, multiplier);
             this.gameOverCheck();
@@ -10415,7 +10416,7 @@ var Cricket = function (_Component) {
     }, {
         key: "miss",
         value: function miss() {
-            this.addThrow(this.state.activeThrower);
+            this.addThrow();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.addToLog("mi", "ss");
             this.checkThrower();
@@ -10465,7 +10466,8 @@ var Cricket = function (_Component) {
         }
     }, {
         key: "addThrow",
-        value: function addThrow(thrower) {
+        value: function addThrow() {
+            var thrower = this.state.activeThrower;
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
             this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
@@ -10922,7 +10924,9 @@ var X01 = function (_Component) {
         }
     }, {
         key: "numpadScore",
-        value: function numpadScore(thrower, score) {
+        value: function numpadScore(score) {
+            var thrower = this.state.activeThrower;
+
             if (this.state.gameState === "playing") {
                 var otherThrower = "";
                 if (thrower === "p1") {
@@ -10987,7 +10991,8 @@ var X01 = function (_Component) {
         }
     }, {
         key: "score",
-        value: function score(thrower, number, multiplier) {
+        value: function score(number, multiplier) {
+            var thrower = this.state.activeThrower;
             if (multiplier === 2) {
                 this.doubleInTrue(thrower);
             }
@@ -11023,7 +11028,7 @@ var X01 = function (_Component) {
                     } else {
                         this.setState({ activeThrower: "p1" });
                     }
-                    this.addThrow(this.state.activeThrower);
+                    this.addThrow();
                     this.addToLog(number, multiplier);
                     if (this.state.activeThrows === 0) {
                         this.addToLog("mi", "ss");
@@ -11039,7 +11044,7 @@ var X01 = function (_Component) {
                 }
             }
 
-            this.addThrow(this.state.activeThrower);
+            this.addThrow();
             this.addToLog(number, multiplier);
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.checkThrower();
@@ -11047,7 +11052,7 @@ var X01 = function (_Component) {
     }, {
         key: "miss",
         value: function miss() {
-            this.addThrow(this.state.activeThrower);
+            this.addThrow();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.addToLog("mi", "ss");
             this.checkThrower();
@@ -11090,7 +11095,8 @@ var X01 = function (_Component) {
         }
     }, {
         key: "addThrow",
-        value: function addThrow(thrower) {
+        value: function addThrow() {
+            var thrower = this.state.activeThrower;
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
             this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
@@ -24356,7 +24362,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 20, 1);
+                                                        _this2.props.score(20, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24367,7 +24373,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 20, 2);
+                                                        _this2.props.score(20, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24378,7 +24384,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 20, 3);
+                                                        _this2.props.score(20, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -24432,7 +24438,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 19, 1);
+                                                        _this2.props.score(19, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24443,7 +24449,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 19, 2);
+                                                        _this2.props.score(19, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24454,7 +24460,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 19, 3);
+                                                        _this2.props.score(19, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -24508,7 +24514,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 18, 1);
+                                                        _this2.props.score(18, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24519,7 +24525,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 18, 2);
+                                                        _this2.props.score(18, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24530,7 +24536,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 18, 3);
+                                                        _this2.props.score(18, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -24584,7 +24590,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 17, 1);
+                                                        _this2.props.score(17, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24595,7 +24601,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 17, 2);
+                                                        _this2.props.score(17, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24606,7 +24612,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 17, 3);
+                                                        _this2.props.score(17, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -24660,7 +24666,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 16, 1);
+                                                        _this2.props.score(16, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24671,7 +24677,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 16, 2);
+                                                        _this2.props.score(16, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24682,7 +24688,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 16, 3);
+                                                        _this2.props.score(16, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -24736,7 +24742,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 15, 1);
+                                                        _this2.props.score(15, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24747,7 +24753,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 15, 2);
+                                                        _this2.props.score(15, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24758,7 +24764,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 15, 3);
+                                                        _this2.props.score(15, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -24812,7 +24818,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 25, 1);
+                                                        _this2.props.score(25, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -24823,7 +24829,7 @@ var Scoreboard = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 25, 2);
+                                                        _this2.props.score(25, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -24877,7 +24883,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 1);
+                                        _this2.props.score(20, 1);
                                     } },
                                 "S"
                             )
@@ -24888,7 +24894,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 2);
+                                        _this2.props.score(20, 2);
                                     } },
                                 "D"
                             )
@@ -24899,7 +24905,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 3);
+                                        _this2.props.score(20, 3);
                                     } },
                                 "T"
                             )
@@ -24939,7 +24945,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 1);
+                                        _this2.props.score(19, 1);
                                     } },
                                 "S"
                             )
@@ -24950,7 +24956,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 2);
+                                        _this2.props.score(19, 2);
                                     } },
                                 "D"
                             )
@@ -24961,7 +24967,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 3);
+                                        _this2.props.score(19, 3);
                                     } },
                                 "T"
                             )
@@ -24996,7 +25002,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 1);
+                                        _this2.props.score(18, 1);
                                     } },
                                 "S"
                             )
@@ -25007,7 +25013,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 2);
+                                        _this2.props.score(18, 2);
                                     } },
                                 "D"
                             )
@@ -25018,7 +25024,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 3);
+                                        _this2.props.score(18, 3);
                                     } },
                                 "T"
                             )
@@ -25048,7 +25054,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 1);
+                                        _this2.props.score(17, 1);
                                     } },
                                 "S"
                             )
@@ -25059,7 +25065,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 2);
+                                        _this2.props.score(17, 2);
                                     } },
                                 "D"
                             )
@@ -25070,7 +25076,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 3);
+                                        _this2.props.score(17, 3);
                                     } },
                                 "T"
                             )
@@ -25100,7 +25106,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 1);
+                                        _this2.props.score(16, 1);
                                     } },
                                 "S"
                             )
@@ -25111,7 +25117,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 2);
+                                        _this2.props.score(16, 2);
                                     } },
                                 "D"
                             )
@@ -25122,7 +25128,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 3);
+                                        _this2.props.score(16, 3);
                                     } },
                                 "T"
                             )
@@ -25152,7 +25158,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 1);
+                                        _this2.props.score(15, 1);
                                     } },
                                 "S"
                             )
@@ -25163,7 +25169,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 2);
+                                        _this2.props.score(15, 2);
                                     } },
                                 "D"
                             )
@@ -25174,7 +25180,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 3);
+                                        _this2.props.score(15, 3);
                                     } },
                                 "T"
                             )
@@ -25204,7 +25210,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 1);
+                                        _this2.props.score(25, 1);
                                     } },
                                 "S"
                             )
@@ -25215,7 +25221,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 2);
+                                        _this2.props.score(25, 2);
                                     } },
                                 "D"
                             )
@@ -25283,7 +25289,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 1);
+                                        _this2.props.score(20, 1);
                                     } },
                                 "Single"
                             )
@@ -25294,7 +25300,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 2);
+                                        _this2.props.score(20, 2);
                                     } },
                                 "Double"
                             )
@@ -25305,7 +25311,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 3);
+                                        _this2.props.score(20, 3);
                                     } },
                                 "Triple"
                             )
@@ -25345,7 +25351,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 1);
+                                        _this2.props.score(19, 1);
                                     } },
                                 "Single"
                             )
@@ -25356,7 +25362,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 2);
+                                        _this2.props.score(19, 2);
                                     } },
                                 "Double"
                             )
@@ -25367,7 +25373,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 3);
+                                        _this2.props.score(19, 3);
                                     } },
                                 "Triple"
                             )
@@ -25402,7 +25408,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 1);
+                                        _this2.props.score(18, 1);
                                     } },
                                 "Single"
                             )
@@ -25413,7 +25419,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 2);
+                                        _this2.props.score(18, 2);
                                     } },
                                 "Double"
                             )
@@ -25424,7 +25430,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 3);
+                                        _this2.props.score(18, 3);
                                     } },
                                 "Triple"
                             )
@@ -25454,7 +25460,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 1);
+                                        _this2.props.score(17, 1);
                                     } },
                                 "Single"
                             )
@@ -25465,7 +25471,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 2);
+                                        _this2.props.score(17, 2);
                                     } },
                                 "Double"
                             )
@@ -25476,7 +25482,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 3);
+                                        _this2.props.score(17, 3);
                                     } },
                                 "Triple"
                             )
@@ -25506,7 +25512,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 1);
+                                        _this2.props.score(16, 1);
                                     } },
                                 "Single"
                             )
@@ -25517,7 +25523,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 2);
+                                        _this2.props.score(16, 2);
                                     } },
                                 "Double"
                             )
@@ -25528,7 +25534,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 3);
+                                        _this2.props.score(16, 3);
                                     } },
                                 "Triple"
                             )
@@ -25558,7 +25564,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 1);
+                                        _this2.props.score(15, 1);
                                     } },
                                 "Single"
                             )
@@ -25569,7 +25575,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 2);
+                                        _this2.props.score(15, 2);
                                     } },
                                 "Double"
                             )
@@ -25580,7 +25586,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 3);
+                                        _this2.props.score(15, 3);
                                     } },
                                 "Triple"
                             )
@@ -25610,7 +25616,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 1);
+                                        _this2.props.score(25, 1);
                                     } },
                                 "Single"
                             )
@@ -25621,7 +25627,7 @@ var Scoreboard = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 2);
+                                        _this2.props.score(25, 2);
                                     } },
                                 "Double"
                             )
@@ -26724,7 +26730,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 20, 1);
+                                                        _this2.props.score(20, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -26735,7 +26741,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 20, 2);
+                                                        _this2.props.score(20, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -26746,7 +26752,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 20, 3);
+                                                        _this2.props.score(20, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -26800,7 +26806,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 19, 1);
+                                                        _this2.props.score(19, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -26811,7 +26817,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 19, 2);
+                                                        _this2.props.score(19, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -26822,7 +26828,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 19, 3);
+                                                        _this2.props.score(19, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -26876,7 +26882,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 18, 1);
+                                                        _this2.props.score(18, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -26887,7 +26893,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 18, 2);
+                                                        _this2.props.score(18, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -26898,7 +26904,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 18, 3);
+                                                        _this2.props.score(18, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -26952,7 +26958,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 17, 1);
+                                                        _this2.props.score(17, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -26963,7 +26969,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 17, 2);
+                                                        _this2.props.score(17, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -26974,7 +26980,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 17, 3);
+                                                        _this2.props.score(17, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27028,7 +27034,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 16, 1);
+                                                        _this2.props.score(16, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27039,7 +27045,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 16, 2);
+                                                        _this2.props.score(16, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27050,7 +27056,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 16, 3);
+                                                        _this2.props.score(16, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27104,7 +27110,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 15, 1);
+                                                        _this2.props.score(15, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27115,7 +27121,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 15, 2);
+                                                        _this2.props.score(15, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27126,7 +27132,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 15, 3);
+                                                        _this2.props.score(15, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27180,7 +27186,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 14, 1);
+                                                        _this2.props.score(14, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27191,7 +27197,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 14, 2);
+                                                        _this2.props.score(14, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27202,7 +27208,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 14, 3);
+                                                        _this2.props.score(14, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27256,7 +27262,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 13, 1);
+                                                        _this2.props.score(13, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27267,7 +27273,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 13, 2);
+                                                        _this2.props.score(13, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27278,7 +27284,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 13, 3);
+                                                        _this2.props.score(13, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27332,7 +27338,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 12, 1);
+                                                        _this2.props.score(12, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27343,7 +27349,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 12, 2);
+                                                        _this2.props.score(12, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27354,7 +27360,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 12, 3);
+                                                        _this2.props.score(12, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27408,7 +27414,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 11, 1);
+                                                        _this2.props.score(11, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27419,7 +27425,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 11, 2);
+                                                        _this2.props.score(11, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27430,7 +27436,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 11, 3);
+                                                        _this2.props.score(11, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27484,7 +27490,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 10, 1);
+                                                        _this2.props.score(10, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27495,7 +27501,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 10, 2);
+                                                        _this2.props.score(10, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27506,7 +27512,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 10, 3);
+                                                        _this2.props.score(10, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27560,7 +27566,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 9, 1);
+                                                        _this2.props.score(9, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27571,7 +27577,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 9, 2);
+                                                        _this2.props.score(9, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27582,7 +27588,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 9, 3);
+                                                        _this2.props.score(9, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27636,7 +27642,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 8, 1);
+                                                        _this2.props.score(8, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27647,7 +27653,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 8, 2);
+                                                        _this2.props.score(8, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27658,7 +27664,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 8, 3);
+                                                        _this2.props.score(8, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27712,7 +27718,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 7, 1);
+                                                        _this2.props.score(7, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27723,7 +27729,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 7, 2);
+                                                        _this2.props.score(7, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27734,7 +27740,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 7, 3);
+                                                        _this2.props.score(7, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27788,7 +27794,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 6, 1);
+                                                        _this2.props.score(6, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27799,7 +27805,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 6, 2);
+                                                        _this2.props.score(6, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27810,7 +27816,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 6, 3);
+                                                        _this2.props.score(6, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27864,7 +27870,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 5, 1);
+                                                        _this2.props.score(5, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27875,7 +27881,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 5, 2);
+                                                        _this2.props.score(5, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27886,7 +27892,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 5, 3);
+                                                        _this2.props.score(5, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -27940,7 +27946,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 4, 1);
+                                                        _this2.props.score(4, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -27951,7 +27957,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 4, 2);
+                                                        _this2.props.score(4, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -27962,7 +27968,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 4, 3);
+                                                        _this2.props.score(4, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -28016,7 +28022,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 3, 1);
+                                                        _this2.props.score(3, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -28027,7 +28033,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 3, 2);
+                                                        _this2.props.score(3, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -28038,7 +28044,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 3, 3);
+                                                        _this2.props.score(3, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -28092,7 +28098,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 2, 1);
+                                                        _this2.props.score(2, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -28103,7 +28109,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 2, 2);
+                                                        _this2.props.score(2, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -28114,7 +28120,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 2, 3);
+                                                        _this2.props.score(2, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -28168,7 +28174,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 1, 1);
+                                                        _this2.props.score(1, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -28179,7 +28185,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 1, 2);
+                                                        _this2.props.score(1, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -28190,7 +28196,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 1, 3);
+                                                        _this2.props.score(1, 3);
                                                     } },
                                                 "Triple"
                                             )
@@ -28244,7 +28250,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 25, 1);
+                                                        _this2.props.score(25, 1);
                                                     } },
                                                 "Single"
                                             )
@@ -28255,7 +28261,7 @@ var ScoreInput = function (_Component) {
                                             _react2.default.createElement(
                                                 "button",
                                                 { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.props.score(_this2.props.activeThrower, 25, 2);
+                                                        _this2.props.score(25, 2);
                                                     } },
                                                 "Double"
                                             )
@@ -28298,7 +28304,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 1);
+                                        _this2.props.score(20, 1);
                                     } },
                                 "S"
                             )
@@ -28309,7 +28315,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 2);
+                                        _this2.props.score(20, 2);
                                     } },
                                 "D"
                             )
@@ -28320,7 +28326,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 3);
+                                        _this2.props.score(20, 3);
                                     } },
                                 "T"
                             )
@@ -28336,7 +28342,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 1);
+                                        _this2.props.score(19, 1);
                                     } },
                                 "S"
                             )
@@ -28347,7 +28353,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 2);
+                                        _this2.props.score(19, 2);
                                     } },
                                 "D"
                             )
@@ -28358,7 +28364,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 3);
+                                        _this2.props.score(19, 3);
                                     } },
                                 "T"
                             )
@@ -28374,7 +28380,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 1);
+                                        _this2.props.score(18, 1);
                                     } },
                                 "S"
                             )
@@ -28385,7 +28391,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 2);
+                                        _this2.props.score(18, 2);
                                     } },
                                 "D"
                             )
@@ -28396,7 +28402,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 3);
+                                        _this2.props.score(18, 3);
                                     } },
                                 "T"
                             )
@@ -28412,7 +28418,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 1);
+                                        _this2.props.score(17, 1);
                                     } },
                                 "S"
                             )
@@ -28423,7 +28429,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 2);
+                                        _this2.props.score(17, 2);
                                     } },
                                 "D"
                             )
@@ -28434,7 +28440,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 3);
+                                        _this2.props.score(17, 3);
                                     } },
                                 "T"
                             )
@@ -28450,7 +28456,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 1);
+                                        _this2.props.score(16, 1);
                                     } },
                                 "S"
                             )
@@ -28461,7 +28467,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 2);
+                                        _this2.props.score(16, 2);
                                     } },
                                 "D"
                             )
@@ -28472,7 +28478,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 3);
+                                        _this2.props.score(16, 3);
                                     } },
                                 "T"
                             )
@@ -28488,7 +28494,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 1);
+                                        _this2.props.score(15, 1);
                                     } },
                                 "S"
                             )
@@ -28499,7 +28505,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 2);
+                                        _this2.props.score(15, 2);
                                     } },
                                 "D"
                             )
@@ -28510,7 +28516,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 3);
+                                        _this2.props.score(15, 3);
                                     } },
                                 "T"
                             )
@@ -28526,7 +28532,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 14, 1);
+                                        _this2.props.score(14, 1);
                                     } },
                                 "S"
                             )
@@ -28537,7 +28543,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 14, 2);
+                                        _this2.props.score(14, 2);
                                     } },
                                 "D"
                             )
@@ -28548,7 +28554,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 14, 3);
+                                        _this2.props.score(14, 3);
                                     } },
                                 "T"
                             )
@@ -28564,7 +28570,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 13, 1);
+                                        _this2.props.score(13, 1);
                                     } },
                                 "S"
                             )
@@ -28575,7 +28581,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 13, 2);
+                                        _this2.props.score(13, 2);
                                     } },
                                 "D"
                             )
@@ -28586,7 +28592,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 13, 3);
+                                        _this2.props.score(13, 3);
                                     } },
                                 "T"
                             )
@@ -28602,7 +28608,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 12, 1);
+                                        _this2.props.score(12, 1);
                                     } },
                                 "S"
                             )
@@ -28613,7 +28619,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 12, 2);
+                                        _this2.props.score(12, 2);
                                     } },
                                 "D"
                             )
@@ -28624,7 +28630,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 12, 3);
+                                        _this2.props.score(12, 3);
                                     } },
                                 "T"
                             )
@@ -28640,7 +28646,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 11, 1);
+                                        _this2.props.score(11, 1);
                                     } },
                                 "S"
                             )
@@ -28651,7 +28657,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 11, 2);
+                                        _this2.props.score(11, 2);
                                     } },
                                 "D"
                             )
@@ -28662,7 +28668,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 11, 3);
+                                        _this2.props.score(11, 3);
                                     } },
                                 "T"
                             )
@@ -28678,7 +28684,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 10, 1);
+                                        _this2.props.score(10, 1);
                                     } },
                                 "S"
                             )
@@ -28689,7 +28695,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 10, 2);
+                                        _this2.props.score(10, 2);
                                     } },
                                 "D"
                             )
@@ -28700,7 +28706,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 10, 3);
+                                        _this2.props.score(10, 3);
                                     } },
                                 "T"
                             )
@@ -28716,7 +28722,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 9, 1);
+                                        _this2.props.score(9, 1);
                                     } },
                                 "S"
                             )
@@ -28727,7 +28733,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 9, 2);
+                                        _this2.props.score(9, 2);
                                     } },
                                 "D"
                             )
@@ -28738,7 +28744,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 9, 3);
+                                        _this2.props.score(9, 3);
                                     } },
                                 "T"
                             )
@@ -28754,7 +28760,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 8, 1);
+                                        _this2.props.score(8, 1);
                                     } },
                                 "S"
                             )
@@ -28765,7 +28771,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 8, 2);
+                                        _this2.props.score(8, 2);
                                     } },
                                 "D"
                             )
@@ -28776,7 +28782,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 8, 3);
+                                        _this2.props.score(8, 3);
                                     } },
                                 "T"
                             )
@@ -28792,7 +28798,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 7, 1);
+                                        _this2.props.score(7, 1);
                                     } },
                                 "S"
                             )
@@ -28803,7 +28809,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 7, 2);
+                                        _this2.props.score(7, 2);
                                     } },
                                 "D"
                             )
@@ -28814,7 +28820,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 7, 3);
+                                        _this2.props.score(7, 3);
                                     } },
                                 "T"
                             )
@@ -28830,7 +28836,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 6, 1);
+                                        _this2.props.score(6, 1);
                                     } },
                                 "S"
                             )
@@ -28841,7 +28847,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 6, 2);
+                                        _this2.props.score(6, 2);
                                     } },
                                 "D"
                             )
@@ -28852,7 +28858,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 6, 3);
+                                        _this2.props.score(6, 3);
                                     } },
                                 "T"
                             )
@@ -28868,7 +28874,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 5, 1);
+                                        _this2.props.score(5, 1);
                                     } },
                                 "S"
                             )
@@ -28879,7 +28885,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 5, 2);
+                                        _this2.props.score(5, 2);
                                     } },
                                 "D"
                             )
@@ -28890,7 +28896,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 5, 3);
+                                        _this2.props.score(5, 3);
                                     } },
                                 "T"
                             )
@@ -28906,7 +28912,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 4, 1);
+                                        _this2.props.score(4, 1);
                                     } },
                                 "S"
                             )
@@ -28917,7 +28923,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 4, 2);
+                                        _this2.props.score(4, 2);
                                     } },
                                 "D"
                             )
@@ -28928,7 +28934,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 4, 3);
+                                        _this2.props.score(4, 3);
                                     } },
                                 "T"
                             )
@@ -28944,7 +28950,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 3, 1);
+                                        _this2.props.score(3, 1);
                                     } },
                                 "S"
                             )
@@ -28955,7 +28961,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 3, 2);
+                                        _this2.props.score(3, 2);
                                     } },
                                 "D"
                             )
@@ -28966,7 +28972,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 3, 3);
+                                        _this2.props.score(3, 3);
                                     } },
                                 "T"
                             )
@@ -28982,7 +28988,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 2, 1);
+                                        _this2.props.score(2, 1);
                                     } },
                                 "S"
                             )
@@ -28993,7 +28999,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 2, 2);
+                                        _this2.props.score(2, 2);
                                     } },
                                 "D"
                             )
@@ -29004,7 +29010,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 2, 3);
+                                        _this2.props.score(2, 3);
                                     } },
                                 "T"
                             )
@@ -29020,7 +29026,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 1, 1);
+                                        _this2.props.score(1, 1);
                                     } },
                                 "S"
                             )
@@ -29031,7 +29037,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 1, 2);
+                                        _this2.props.score(1, 2);
                                     } },
                                 "D"
                             )
@@ -29042,7 +29048,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 1, 3);
+                                        _this2.props.score(1, 3);
                                     } },
                                 "T"
                             )
@@ -29058,7 +29064,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 1);
+                                        _this2.props.score(25, 1);
                                     } },
                                 "S"
                             )
@@ -29069,7 +29075,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 2);
+                                        _this2.props.score(25, 2);
                                     } },
                                 "D"
                             )
@@ -29094,7 +29100,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 1);
+                                        _this2.props.score(20, 1);
                                     } },
                                 "Single"
                             )
@@ -29105,7 +29111,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 2);
+                                        _this2.props.score(20, 2);
                                     } },
                                 "Double"
                             )
@@ -29116,7 +29122,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 20, 3);
+                                        _this2.props.score(20, 3);
                                     } },
                                 "Triple"
                             )
@@ -29132,7 +29138,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 1);
+                                        _this2.props.score(19, 1);
                                     } },
                                 "Single"
                             )
@@ -29143,7 +29149,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 2);
+                                        _this2.props.score(19, 2);
                                     } },
                                 "Double"
                             )
@@ -29154,7 +29160,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 19, 3);
+                                        _this2.props.score(19, 3);
                                     } },
                                 "Triple"
                             )
@@ -29170,7 +29176,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 1);
+                                        _this2.props.score(18, 1);
                                     } },
                                 "Single"
                             )
@@ -29181,7 +29187,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 2);
+                                        _this2.props.score(18, 2);
                                     } },
                                 "Double"
                             )
@@ -29192,7 +29198,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 18, 3);
+                                        _this2.props.score(18, 3);
                                     } },
                                 "Triple"
                             )
@@ -29208,7 +29214,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 1);
+                                        _this2.props.score(17, 1);
                                     } },
                                 "Single"
                             )
@@ -29219,7 +29225,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 2);
+                                        _this2.props.score(17, 2);
                                     } },
                                 "Double"
                             )
@@ -29230,7 +29236,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 17, 3);
+                                        _this2.props.score(17, 3);
                                     } },
                                 "Triple"
                             )
@@ -29246,7 +29252,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 1);
+                                        _this2.props.score(16, 1);
                                     } },
                                 "Single"
                             )
@@ -29257,7 +29263,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 2);
+                                        _this2.props.score(16, 2);
                                     } },
                                 "Double"
                             )
@@ -29268,7 +29274,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 16, 3);
+                                        _this2.props.score(16, 3);
                                     } },
                                 "Triple"
                             )
@@ -29284,7 +29290,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 1);
+                                        _this2.props.score(15, 1);
                                     } },
                                 "Single"
                             )
@@ -29295,7 +29301,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 2);
+                                        _this2.props.score(15, 2);
                                     } },
                                 "Double"
                             )
@@ -29306,7 +29312,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 15, 3);
+                                        _this2.props.score(15, 3);
                                     } },
                                 "Triple"
                             )
@@ -29322,7 +29328,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 14, 1);
+                                        _this2.props.score(14, 1);
                                     } },
                                 "Single"
                             )
@@ -29333,7 +29339,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 14, 2);
+                                        _this2.props.score(14, 2);
                                     } },
                                 "Double"
                             )
@@ -29344,7 +29350,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 14, 3);
+                                        _this2.props.score(14, 3);
                                     } },
                                 "Triple"
                             )
@@ -29360,7 +29366,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 13, 1);
+                                        _this2.props.score(13, 1);
                                     } },
                                 "Single"
                             )
@@ -29371,7 +29377,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 13, 2);
+                                        _this2.props.score(13, 2);
                                     } },
                                 "Double"
                             )
@@ -29382,7 +29388,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 13, 3);
+                                        _this2.props.score(13, 3);
                                     } },
                                 "Triple"
                             )
@@ -29398,7 +29404,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 12, 1);
+                                        _this2.props.score(12, 1);
                                     } },
                                 "Single"
                             )
@@ -29409,7 +29415,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 12, 2);
+                                        _this2.props.score(12, 2);
                                     } },
                                 "Double"
                             )
@@ -29420,7 +29426,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 12, 3);
+                                        _this2.props.score(12, 3);
                                     } },
                                 "Triple"
                             )
@@ -29436,7 +29442,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 11, 1);
+                                        _this2.props.score(11, 1);
                                     } },
                                 "Single"
                             )
@@ -29447,7 +29453,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 11, 2);
+                                        _this2.props.score(11, 2);
                                     } },
                                 "Double"
                             )
@@ -29458,7 +29464,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 11, 3);
+                                        _this2.props.score(11, 3);
                                     } },
                                 "Triple"
                             )
@@ -29474,7 +29480,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 10, 1);
+                                        _this2.props.score(10, 1);
                                     } },
                                 "Single"
                             )
@@ -29485,7 +29491,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 10, 2);
+                                        _this2.props.score(10, 2);
                                     } },
                                 "Double"
                             )
@@ -29496,7 +29502,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 10, 3);
+                                        _this2.props.score(10, 3);
                                     } },
                                 "Triple"
                             )
@@ -29512,7 +29518,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 9, 1);
+                                        _this2.props.score(9, 1);
                                     } },
                                 "Single"
                             )
@@ -29523,7 +29529,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 9, 2);
+                                        _this2.props.score(9, 2);
                                     } },
                                 "Double"
                             )
@@ -29534,7 +29540,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 9, 3);
+                                        _this2.props.score(9, 3);
                                     } },
                                 "Triple"
                             )
@@ -29550,7 +29556,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 8, 1);
+                                        _this2.props.score(8, 1);
                                     } },
                                 "Single"
                             )
@@ -29561,7 +29567,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 8, 2);
+                                        _this2.props.score(8, 2);
                                     } },
                                 "Double"
                             )
@@ -29572,7 +29578,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 8, 3);
+                                        _this2.props.score(8, 3);
                                     } },
                                 "Triple"
                             )
@@ -29588,7 +29594,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 7, 1);
+                                        _this2.props.score(7, 1);
                                     } },
                                 "Single"
                             )
@@ -29599,7 +29605,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 7, 2);
+                                        _this2.props.score(7, 2);
                                     } },
                                 "Double"
                             )
@@ -29610,7 +29616,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 7, 3);
+                                        _this2.props.score(7, 3);
                                     } },
                                 "Triple"
                             )
@@ -29626,7 +29632,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 6, 1);
+                                        _this2.props.score(6, 1);
                                     } },
                                 "Single"
                             )
@@ -29637,7 +29643,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 6, 2);
+                                        _this2.props.score(6, 2);
                                     } },
                                 "Double"
                             )
@@ -29648,7 +29654,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 6, 3);
+                                        _this2.props.score(6, 3);
                                     } },
                                 "Triple"
                             )
@@ -29664,7 +29670,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 5, 1);
+                                        _this2.props.score(5, 1);
                                     } },
                                 "Single"
                             )
@@ -29675,7 +29681,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 5, 2);
+                                        _this2.props.score(5, 2);
                                     } },
                                 "Double"
                             )
@@ -29686,7 +29692,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 5, 3);
+                                        _this2.props.score(5, 3);
                                     } },
                                 "Triple"
                             )
@@ -29702,7 +29708,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 4, 1);
+                                        _this2.props.score(4, 1);
                                     } },
                                 "Single"
                             )
@@ -29713,7 +29719,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 4, 2);
+                                        _this2.props.score(4, 2);
                                     } },
                                 "Double"
                             )
@@ -29724,7 +29730,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 4, 3);
+                                        _this2.props.score(4, 3);
                                     } },
                                 "Triple"
                             )
@@ -29740,7 +29746,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 3, 1);
+                                        _this2.props.score(3, 1);
                                     } },
                                 "Single"
                             )
@@ -29751,7 +29757,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 3, 2);
+                                        _this2.props.score(3, 2);
                                     } },
                                 "Double"
                             )
@@ -29762,7 +29768,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 3, 3);
+                                        _this2.props.score(3, 3);
                                     } },
                                 "Triple"
                             )
@@ -29778,7 +29784,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 2, 1);
+                                        _this2.props.score(2, 1);
                                     } },
                                 "Single"
                             )
@@ -29789,7 +29795,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 2, 2);
+                                        _this2.props.score(2, 2);
                                     } },
                                 "Double"
                             )
@@ -29800,7 +29806,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 2, 3);
+                                        _this2.props.score(2, 3);
                                     } },
                                 "Triple"
                             )
@@ -29816,7 +29822,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 1, 1);
+                                        _this2.props.score(1, 1);
                                     } },
                                 "Single"
                             )
@@ -29827,7 +29833,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 1, 2);
+                                        _this2.props.score(1, 2);
                                     } },
                                 "Double"
                             )
@@ -29838,7 +29844,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 1, 3);
+                                        _this2.props.score(1, 3);
                                     } },
                                 "Triple"
                             )
@@ -29854,7 +29860,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 1);
+                                        _this2.props.score(25, 1);
                                     } },
                                 "Single"
                             )
@@ -29865,7 +29871,7 @@ var ScoreInput = function (_Component) {
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this2.props.score(_this2.props.activeThrower, 25, 2);
+                                        _this2.props.score(25, 2);
                                     } },
                                 "Double"
                             )
@@ -29967,10 +29973,10 @@ var Numpad = function (_Component) {
             var _this2 = this;
 
             if (parseInt(this.state.numberEntry) <= 180) {
-                this.props.numpadScore(this.props.activeThrower, parseInt(this.state.numberEntry));
+                this.props.numpadScore(parseInt(this.state.numberEntry));
                 this.setState({ numberEntry: "" });
             } else if (this.state.numberEntry === "") {
-                this.props.numpadScore(this.props.activeThrower, 0);
+                this.props.numpadScore(0);
             } else {
                 this.setState({ numberEntry: "Too High. Try Again." });
                 setTimeout(function () {
