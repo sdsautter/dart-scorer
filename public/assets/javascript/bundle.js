@@ -7982,8 +7982,6 @@ var X01 = function (_Component) {
                 var playerScoreState = eval("this.state." + playerScore);
                 var roundStartScoreState = eval("this.state." + playerStartScore);
                 var scoresArray = roundStartScoreState;
-                console.log(playerScoreState);
-                console.log(scoresArray);
                 var newScore = parseInt(playerScoreState) - parseInt(score);
                 scoresArray.push(newScore);
                 if (newScore === 0) {
