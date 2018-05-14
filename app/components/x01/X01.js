@@ -167,7 +167,7 @@ export default class X01 extends Component {
                 this.setState({ activeThrower: otherThrower });
             } else if (newScore < 0) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
-                this.setState({ [playerScore]: parseInt(roundStartScoreState) });
+                this.setState({ [playerScore]: parseInt(playerScoreState) });
                 this.setState({ activeThrower: otherThrower });
             } else {
                 this.setState({ [playerScore]: newScore });

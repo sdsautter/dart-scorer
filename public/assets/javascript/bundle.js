@@ -7992,7 +7992,7 @@ var X01 = function (_Component) {
                     this.setState({ activeThrower: otherThrower });
                 } else if (newScore < 0) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
-                    this.setState(_defineProperty({}, playerScore, parseInt(roundStartScoreState)));
+                    this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState)));
                     this.setState({ activeThrower: otherThrower });
                 } else {
                     this.setState(_defineProperty({}, playerScore, newScore));
