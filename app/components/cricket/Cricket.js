@@ -681,7 +681,6 @@ export default class Cricket extends Component {
                     miss={this.miss}
                     activeThrower={this.state.activeThrower}
                     activeThrows={this.state.activeThrows}
-                    playersRender={this.playersRender}
                     renderP1Score={this.renderP1Score}
                     renderP2Score={this.renderP2Score}
                     markProgress={this.markProgress}
