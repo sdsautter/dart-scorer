@@ -30721,7 +30721,7 @@ var ScoreInput = function (_Component) {
                                     { className: "row" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "col-10 offset-1 throw-borders" },
+                                        { className: "col-10 offset-1 throw-borders", id: "desktop01border" },
                                         _react2.default.createElement(
                                             "div",
                                             { className: "col-12 text-center" },
@@ -34191,14 +34191,6 @@ var Master = function (_Component) {
         return _possibleConstructorReturn(this, (Master.__proto__ || Object.getPrototypeOf(Master)).call(this));
     }
 
-    /**
-     * This is what I removed.
-     *  <div>
-                {this.conditionalRender()}
-            </div> 
-     */
-
-
     _createClass(Master, [{
         key: "render",
         value: function render() {
@@ -34268,14 +34260,6 @@ var Menu = function (_Component) {
         return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this));
     }
 
-    /**
-     * This is what I removed.
-     *  <div>
-                {this.conditionalRender()}
-            </div> 
-     */
-
-
     _createClass(Menu, [{
         key: "render",
         value: function render() {
@@ -34297,24 +34281,121 @@ var Menu = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-4 offset-1 number" },
+                        { className: "col-5 col-md-4 offset-md-1" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/cricket');
-                                } },
-                            "Cricket"
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 number" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/cricket');
+                                        } },
+                                    "Cricket"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 rules-borders" },
+                                _react2.default.createElement(
+                                    "p",
+                                    { className: "text-center rules-header" },
+                                    "Rules:"
+                                ),
+                                _react2.default.createElement(
+                                    "ul",
+                                    { className: "rules" },
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "Each turn is comprised of 3 throws"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "The winner of the game is the first person to close out every number while having the same or more points as opponent"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "To close a number a player must get 3 marks on it (single is one mark, double is 2, and triple is 3)"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "To score points a player must hit a number they have closed which the other player still has open"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "The points scored equals the number hit multiplied by each mark (a triple 20 is worth 60 points. A single 16 is worth 16 points)"
+                                    )
+                                )
+                            )
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-4 offset-2 number" },
+                        { className: "col-5 offset-2 col-md-4 offset-md-2" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/x01');
-                                } },
-                            "x01"
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 number" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/x01');
+                                        } },
+                                    "x01"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 rules-borders" },
+                                _react2.default.createElement(
+                                    "p",
+                                    { className: "text-center rules-header" },
+                                    "Rules:"
+                                ),
+                                _react2.default.createElement(
+                                    "ul",
+                                    { className: "rules" },
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "Each turn is comprised of 3 throws"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "Each person starts with the amount of points selected"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "The first person to reach 0 points without going over win"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "If the person goes over 0, then it's a \"bust\" and the player goes back to their score at the start of the round"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "If the option for double in is selected, then scoring doesn't start until a player first hits a double"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "If the option for double out is selected, then a player must reach 0 by hitting a double, or else it's a bust"
+                                    )
+                                )
+                            )
                         )
                     )
                 )

@@ -11,12 +11,6 @@ export default class Master extends Component {
         super();
     }
 
-    /**
-     * This is what I removed.
-     *  <div>
-                {this.conditionalRender()}
-            </div> 
-     */
     render() {
         return (
             <BrowserRouter>
@@ -27,7 +21,6 @@ export default class Master extends Component {
                     <Route path='/cricket' component={Cricket} />
                 </div>
             </BrowserRouter>
-
         )
     }
 }
