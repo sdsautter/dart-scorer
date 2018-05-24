@@ -108,6 +108,7 @@ export default class Scoreboard extends Component {
                     miss={this.props.miss}
                     undo={this.props.undo}
                     activeThrows={this.props.activeThrows}
+                    gameX01Reset={this.props.gameX01Reset}
                 />
             )
         }

@@ -722,7 +722,7 @@ export default class ScoreInput extends Component {
                                         <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/cricket') }}>Yes</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.x01GameReset() }}>Yes</button>
                                     </div>
                                 </div>
                             </div>
