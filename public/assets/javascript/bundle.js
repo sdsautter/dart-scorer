@@ -29747,7 +29747,8 @@ var Scoreboard = function (_Component) {
                     score: this.props.score,
                     miss: this.props.miss,
                     undo: this.props.undo,
-                    activeThrows: this.props.activeThrows
+                    activeThrows: this.props.activeThrows,
+                    gameX01Reset: this.props.gameX01Reset
                 });
             }
         }
@@ -29838,7 +29839,8 @@ var ScoreInput = function (_Component) {
                     activeThrower: this.props.activeThrower,
                     score: this.props.score,
                     miss: this.props.miss,
-                    undo: this.props.undo
+                    undo: this.props.undo,
+                    gameX01Reset: this.props.gameX01Reset
                 });
             } else if (intViewportWidth < 900) {
                 return _react2.default.createElement(_TabletInput2.default, {
@@ -32691,7 +32693,7 @@ var ScoreInput = function (_Component) {
                                         _react2.default.createElement(
                                             "button",
                                             { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                    location.assign('/cricket');
+                                                    _this2.props.x01GameReset();
                                                 } },
                                             "Yes"
                                         )
