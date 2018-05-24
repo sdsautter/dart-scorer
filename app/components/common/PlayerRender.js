@@ -7,9 +7,9 @@ export default class PlayerRender extends Component {
     }
 
     gameReset() {
-        if (this.props.gameX01Reset !== undefined) {
+        if (this.props.gameX01Reset) {
             this.props.gameX01Reset();
-        } else if (this.props.gameCricketReset !== undefined) {
+        } else if (this.props.gameCricketReset) {
             this.props.gameCricketReset();
         }
     }

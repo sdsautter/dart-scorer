@@ -7790,9 +7790,9 @@ var PlayerRender = function (_Component) {
     _createClass(PlayerRender, [{
         key: "gameReset",
         value: function gameReset() {
-            if (this.props.gameX01Reset !== undefined) {
+            if (this.props.gameX01Reset) {
                 this.props.gameX01Reset();
-            } else if (this.props.gameCricketReset !== undefined) {
+            } else if (this.props.gameCricketReset) {
                 this.props.gameCricketReset();
             }
         }
