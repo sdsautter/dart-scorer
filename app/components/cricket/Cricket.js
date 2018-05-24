@@ -62,13 +62,13 @@ export default class Cricket extends Component {
         this.addMarks = this.addMarks.bind(this);
         this.resetMarks = this.resetMarks.bind(this);
         this.allStarPoints = this.allStarPoints.bind(this);
-        this.gameReset = this.gameReset.bind(this);
+        this.gameCricketReset = this.gameCricketReset.bind(this);
         this.addToLog = this.addToLog.bind(this);
         this.undo = this.undo.bind(this);
         this.undoSwitch = this.undoSwitch.bind(this);
     }
 
-    gameReset() {
+    gameCricketReset() {
         this.setState({ activeThrower: "p1" });
         this.setState({ activeThrows: 0 });
         this.setState({ activeMarks: 0 });
@@ -685,6 +685,7 @@ export default class Cricket extends Component {
                     renderP2Score={this.renderP2Score}
                     markProgress={this.markProgress}
                     undo={this.undo}
+                    gameCricketReset={this.gameCricketReset}
                 />
             )
         } else if (this.state.gameState === "over") {
@@ -692,7 +693,7 @@ export default class Cricket extends Component {
                 return (
                     <Results
                         gameWinner={this.state.gameWinner}
-                        gameReset={this.gameReset}
+                        gameCricketReset={this.gameCricketReset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
                     />

@@ -31,7 +31,7 @@ export default class X01 extends Component {
         //Binding functions to change the states       
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
         this.doubleInTrue = this.doubleInTrue.bind(this);
-        this.gameReset = this.gameReset.bind(this);
+        this.gameX01Reset = this.gameX01Reset.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
         this.setThrowNumber = this.setThrowNumber.bind(this);
         this.setActiveThrower = this.setActiveThrower.bind(this);
@@ -88,17 +88,17 @@ export default class X01 extends Component {
         }
     }
 
-    gameReset() {
+    gameX01Reset() {
         this.setState({ activeThrower: "p1" });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
 
-        this.setState({ p1Score: 0 });
+        this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
         this.setState({ p1RoundStartScore: [] });
 
-        this.setState({ p2Score: 0 });
+        this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
         this.setState({ p2RoundStartScore: [] })
 
@@ -106,7 +106,6 @@ export default class X01 extends Component {
             this.setState({ p1DoubleIn: false });
             this.setState({ p2DoubleIn: false });
         }
-
     }
 
     setThrowNumber(activeThrows) {
@@ -571,6 +570,7 @@ export default class X01 extends Component {
                     gameOptions={this.state.gameOptions}
                     numpadUndo={this.numpadUndo}
                     gameState={this.state.gameState}
+                    gameX01Reset={this.gameX01Reset}
                 />
 
             )
@@ -579,7 +579,7 @@ export default class X01 extends Component {
                 return (
                     <Results
                         gameWinner={this.state.gameWinner}
-                        gameReset={this.gameReset}
+                        gameX01Reset={this.gameX01Reset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
                     />

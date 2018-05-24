@@ -143,14 +143,27 @@ export default class ScoreInput extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col text-center miss">
+                    <div className="col-6 text-center miss">
                         <button type="button" className="btn" onClick={() => { this.props.miss() }}>
                             Miss
                         </button>
                     </div>
-                    <div className="col text-center undo">
+                    <div className="col-6 text-center undo">
                         <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                             Undo
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <div className="row">
+                    <div className="col-6 text-center start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
+                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
+                        </button>
+                    </div>
+                    <div className="col-6 text-center start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
+                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
                         </button>
                     </div>
                 </div>
@@ -693,6 +706,44 @@ export default class ScoreInput extends Component {
                             <div className="modal-footer">
                                 <span className="modal-name">{this.nameRender()}</span>
                                 <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="reloadModalLabel">Start Game Over</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/cricket') }}>Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="exitModal" tabIndex="-1" role="dialog" aria-labelledby="exitModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="exitModalLabel">Exit Game</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/') }}>Yes</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

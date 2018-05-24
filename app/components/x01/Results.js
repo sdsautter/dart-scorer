@@ -59,13 +59,12 @@ export default class Results extends Component {
                 <br />
                 <div className="row">
                     <div className="col-sm-12 col-md-3 offset-md-3 text-center miss">
-                        <button type="button" className="btn" onClick={() => { this.props.gameReset() }}>
+                        <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
                             Play Again
                         </button>
                     </div>
                     <div className="col-sm-12 col-md-3 text-center miss">
                         <button type="button" className="btn" onClick={() => {
-                            //this.props.gameReset();
                             location.assign('/x01');
                         }}>
                             Pick New x01

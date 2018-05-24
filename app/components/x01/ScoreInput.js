@@ -28,6 +28,7 @@ export default class ScoreInput extends Component {
                     score={this.props.score}
                     miss={this.props.miss}
                     undo={this.props.undo}
+                    activeThrows={this.props.activeThrows}
                 />
             )
         } else {
@@ -37,6 +38,7 @@ export default class ScoreInput extends Component {
                     score={this.props.score}
                     miss={this.props.miss}
                     undo={this.props.undo}
+                    activeThrows={this.props.activeThrows}
                 />
             )
         }

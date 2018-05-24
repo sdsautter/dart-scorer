@@ -5,6 +5,11 @@
         font-family: 'Permanent Marker', cursive;
         font-size: .7rem;
     }
+    .throw-borders {
+        border-width: 3%;
+        border-style: groove;
+        border-color: black;
+    }
     .title {
         font-size: 1.5rem;
     }
@@ -15,17 +20,14 @@
         opacity: 1;
         transition: opacity .5s ease-in;
     }
-    
     .start-over img {
         width: 75%;
         height: 75%;
     }
-    
     /* .start-over {
         margin: 0;
         padding: 0;
     } */
-
     .top-row {
         margin-top: 5%;
     }
@@ -74,7 +76,8 @@
         font-weight: normal;
     }
     .miss button,
-    .undo button, .start-over button {
+    .undo button,
+    .start-over button {
         width: 100%;
         height: 50px;
         background-color: #92B19C;
@@ -171,7 +174,101 @@
         font-weight: bold;
     }
     .miss button,
-    .undo button, .start-over button {
+    .undo button,
+    .start-over button {
+        width: 100%;
+        height: 50px;
+        background-color: #92B19C;
+        font-family: 'Cuprum', cursive;
+        font-size: 1.75rem;
+        font-weight: normal;
+    }
+    .miss button:hover {
+        background-color: #CDA9B9;
+    }
+    .number button:hover,
+    .modal-body button:hover {
+        background-color: #689276;
+    }
+    .player {
+        border-bottom: 4px double black;
+        font-size: 1.75rem;
+    }
+    .cricket {
+        border-left: 4px double black;
+        border-right: 4px double black;
+        border-bottom: 4px double black;
+        font-size: 1.5rem;
+    }
+    .mark {
+        max-height: 50px;
+        padding: 0;
+        max-width: 100%;
+    }
+    .throw-number {
+        color: #C7AB8D;
+    }
+    .points-label {
+        font-size: 1.75rem;
+    }
+    .points-score {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 720px) {
+    body {
+        background-color: rgb(73, 121, 89);
+        color: #F2DDC8;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 1.75rem;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
+    .top-row {
+        margin-top: 2%;
+    }
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        background-color: rgb(73, 121, 89);
+    }
+    .modal-title {
+        font-size: 2rem;
+    }
+    .modal-body button {
+        width: 100%;
+    }
+    .number {
+        border-left: 0;
+        border-right: 0;
+        padding-top: .5%;
+        padding-bottom: .5%
+    }
+    .miss,
+    .undo {
+        padding-top: .5%;
+        padding-bottom: .5%
+    }
+    .number button,
+    .modal-body button {
+        width: 100%;
+        height: 50px;
+        background-color: #1B4F2D;
+        font-family: 'Cuprum', cursive;
+        font-size: 1.75rem !important;
+        font-weight: normal;
+    }
+    .number {
+        font-family: 'Cuprum', cursive;
+        font-size: 2rem !important;
+        color: black;
+        font-weight: bold;
+    }
+    .miss button,
+    .undo button,
+    .start-over button {
         width: 100%;
         height: 50px;
         background-color: #92B19C;
@@ -249,7 +346,8 @@ button:target {
     border-bottom: 4px double black;
 }
 
-.undo button:hover, .start-over button:hover {
+.undo button:hover,
+.start-over button:hover {
     background-color: #C7AB8D;
 }
 
