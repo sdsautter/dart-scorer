@@ -58,7 +58,7 @@ export default class Results extends Component {
                 <br />
                 <div className="row">
                     <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
-                        <button type="button" className="btn" onClick={() => { this.props.gameReset() }}>
+                        <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>
                             Play Again
                         </button>
                     </div>
