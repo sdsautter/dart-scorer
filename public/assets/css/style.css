@@ -5,10 +5,28 @@
         font-family: 'Permanent Marker', cursive;
         font-size: .7rem;
     }
-    .throw-borders {
+    ul {
+        padding-left: 5%;
+    }
+    .rules-header {
+        font-size: 1.25rem;
+        margin-bottom: 0;
+    }
+    .rules {
+        font-family: 'Cuprum', cursive;
+        font-size: .75rem;
+    }
+    .throw-borders,
+    .rules-borders {
         border-width: 3%;
         border-style: groove;
         border-color: black;
+    }
+    #desktop01border {
+        margin-top: 3.5%;
+    }
+    .rules-borders {
+        margin-top: 10%;
     }
     .title {
         font-size: 1.5rem;
@@ -129,6 +147,14 @@
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
+    }
+    .rules-header {
+        font-size: 1.75rem;
+        margin-bottom: 0;
+    }
+    .rules {
+        font-family: 'Cuprum', cursive;
+        font-size: 1rem;
     }
     .title {
         font-size: 2.5rem;

@@ -266,7 +266,7 @@ export default class ScoreInput extends Component {
                         <div className="row">
                             <div className="col-12 text-center">
                                 <div className="row">
-                                    <div className="col-10 offset-1 throw-borders">
+                                    <div className="col-10 offset-1 throw-borders" id='desktop01border'>
                                         <div className="col-12 text-center">
                                             Throw:
                             </div>
