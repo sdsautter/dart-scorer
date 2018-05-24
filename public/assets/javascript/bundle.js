@@ -34315,22 +34315,27 @@ var Menu = function (_Component) {
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "The winner of the game is the first person to close out every number while having the same or more points as opponent"
+                                        "The winner of the game is the first person to close out every number while having the same, or more, points as the opponent"
                                     ),
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "To close a number a player must get 3 marks on it (single is one mark, double is 2, and triple is 3)"
+                                        "To close a number a player must get 3 marks on it (single is 1 mark, double is 2, and triple is 3)"
                                     ),
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "To score points a player must hit a number they have closed which the other player still has open"
+                                        "To score points a player must hit a number they already have closed which the other player still has open"
                                     ),
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "The points scored equals the number hit multiplied by each mark (a triple 20 is worth 60 points. A single 16 is worth 16 points)"
+                                        "If a player closes a number with a multiple mark dart, the extra marks may convert to points"
+                                    ),
+                                    _react2.default.createElement(
+                                        "li",
+                                        null,
+                                        "The points scored equals the number hit multiplied by each mark (e.g., a triple 20 is worth 60 points, a double 18 is worth 36 points, a single 16 is worth worth 16 points)"
                                     )
                                 )
                             )
@@ -34372,12 +34377,12 @@ var Menu = function (_Component) {
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "Each person starts with the amount of points selected"
+                                        "Each person starts with the amount of points selected (i.e., 501)"
                                     ),
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "The first person to reach 0 points without going over win"
+                                        "The first person to reach 0 points without going over wins"
                                     ),
                                     _react2.default.createElement(
                                         "li",
@@ -34392,7 +34397,7 @@ var Menu = function (_Component) {
                                     _react2.default.createElement(
                                         "li",
                                         null,
-                                        "If the option for double out is selected, then a player must reach 0 by hitting a double, or else it's a bust"
+                                        "If the option for double out is selected, then a player must reach 0 by hitting a double, or else it's a bust. Because of this, getting to 1 is also a bust"
                                     )
                                 )
                             )
