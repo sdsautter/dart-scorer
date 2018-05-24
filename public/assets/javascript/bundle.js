@@ -32693,7 +32693,7 @@ var ScoreInput = function (_Component) {
                                         _react2.default.createElement(
                                             "button",
                                             { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                    _this2.props.x01GameReset();
+                                                    _this2.props.gameX01Reset();
                                                 } },
                                             "Yes"
                                         )
