@@ -57,7 +57,7 @@ export default class MobileView extends Component {
                                 {this.props.markProgress(1, 17)}
                             </div>
                             <div className="col-4 text-center border-left border-right number">
-                                <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
+                                <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
                                     17
                         </button>
                             </div>
@@ -73,7 +73,7 @@ export default class MobileView extends Component {
                                 {this.props.markProgress(1, 16)}
                             </div>
                             <div className="col-4 text-center border-left border-right number">
-                                <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
+                                <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
                                     16
                         </button>
                             </div>
@@ -91,7 +91,7 @@ export default class MobileView extends Component {
                                 {this.props.markProgress(1, 17)}
                             </div>
                             <div className="col-4 text-center border-left border-right number">
-                                <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
+                                <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
                                     17
                         </button>
                             </div>
@@ -107,7 +107,7 @@ export default class MobileView extends Component {
                                 {this.props.markProgress(1, 16)}
                             </div>
                             <div className="col-4 text-center border-left border-right number">
-                                <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
+                                <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
                                     16
                         </button>
                             </div>
