@@ -27170,7 +27170,7 @@ var MobileView = function (_Component) {
                             { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn text-center", "data-toggle": "modal", "data-target": "#twentyModal" },
+                                { type: "button", className: "btn text-center", "data-toggle": "modal", "data-target": "#seventeenModal" },
                                 "17"
                             )
                         ),
@@ -27198,7 +27198,7 @@ var MobileView = function (_Component) {
                             { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#nineteenModal" },
+                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#sixteenModal" },
                                 "16"
                             )
                         ),
@@ -27226,7 +27226,7 @@ var MobileView = function (_Component) {
                             { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn text-center", "data-toggle": "modal", "data-target": "#twentyModal" },
+                                { type: "button", className: "btn text-center", "data-toggle": "modal", "data-target": "#seventeenModal" },
                                 "17"
                             )
                         ),
@@ -27254,7 +27254,7 @@ var MobileView = function (_Component) {
                             { className: "col-4 text-center border-left border-right number" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#nineteenModal" },
+                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#sixteenModal" },
                                 "16"
                             )
                         ),
