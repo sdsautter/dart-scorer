@@ -21,41 +21,7 @@ export default class Scoreboard extends Component {
     playersRender() {
         var intViewportWidth = window.innerWidth;
         //Renders either an input or a text area depending on the screen width
-        if (intViewportWidth < 720 && this.props.gameOptions !== "numpad") {
-            if (this.props.activeThrower === "p1") {
-                return (
-                    <div className="row">
-                        <div className="col-3 text-center padding-top throw-number">
-                            Throw: {this.props.activeThrows + 1}
-                        </div>
-                        <div className="col-3 text-center padding-top player border-right active-thrower">
-                            Player 1
-                            </div>
-                        <div className="col-3 text-center padding-top player border-left inactive-thrower">
-                            Player 2
-                            </div>
-                        <div className="col-3 border-bottom">
-                        </div>
-                    </div>
-                )
-            } else {
-                return (
-                    <div className="row">
-                        <div className="col-3 border-bottom">
-                        </div>
-                        <div className="col-3 text-center padding-top player border-right inactive-thrower">
-                            Player 1
-                            </div>
-                        <div className="col-3 text-center padding-top player border-left active-thrower">
-                            Player 2
-                            </div>
-                        <div className="col-3 text-center padding-top throw-number">
-                            Throw: {this.props.activeThrows + 1}
-                        </div>
-                    </div>
-                )
-            }
-        } else if (intViewportWidth < 720 && this.props.gameOptions === "numpad") {
+        if (intViewportWidth < 720) {
             if (this.props.activeThrower === "p1") {
                 return (
                     <div className="row">

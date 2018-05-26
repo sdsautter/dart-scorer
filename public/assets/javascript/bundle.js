@@ -27710,7 +27710,16 @@ var MobileModalView = function (_Component) {
                     { className: "row miss-undo-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center miss" },
+                        { className: "col-2 text-center start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-4 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -27721,7 +27730,7 @@ var MobileModalView = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center undo" },
+                        { className: "col-4 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -27729,23 +27738,10 @@ var MobileModalView = function (_Component) {
                                 } },
                             "Undo"
                         )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-6 text-center start-over" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                        )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center start-over" },
+                        { className: "col-2 text-center start-over" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
@@ -28228,7 +28224,16 @@ var MobileModalView = function (_Component) {
                     { className: "row miss-undo-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center miss" },
+                        { className: "col-2 text-center start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-4 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -28239,7 +28244,7 @@ var MobileModalView = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center undo" },
+                        { className: "col-4 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -28247,23 +28252,10 @@ var MobileModalView = function (_Component) {
                                 } },
                             "Undo"
                         )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-6 text-center start-over" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                        )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center start-over" },
+                        { className: "col-2 text-center start-over" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
@@ -30450,53 +30442,7 @@ var Scoreboard = function (_Component) {
         value: function playersRender() {
             var intViewportWidth = window.innerWidth;
             //Renders either an input or a text area depending on the screen width
-            if (intViewportWidth < 720 && this.props.gameOptions !== "numpad") {
-                if (this.props.activeThrower === "p1") {
-                    return _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top throw-number" },
-                            "Throw: ",
-                            this.props.activeThrows + 1
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-right active-thrower" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-left inactive-thrower" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement("div", { className: "col-3 border-bottom" })
-                    );
-                } else {
-                    return _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement("div", { className: "col-3 border-bottom" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-right inactive-thrower" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top player border-left active-thrower" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center padding-top throw-number" },
-                            "Throw: ",
-                            this.props.activeThrows + 1
-                        )
-                    );
-                }
-            } else if (intViewportWidth < 720 && this.props.gameOptions === "numpad") {
+            if (intViewportWidth < 720) {
                 if (this.props.activeThrower === "p1") {
                     return _react2.default.createElement(
                         "div",
@@ -30644,7 +30590,8 @@ var ScoreInput = function (_Component) {
                     score: this.props.score,
                     miss: this.props.miss,
                     undo: this.props.undo,
-                    gameX01Reset: this.props.gameX01Reset
+                    gameX01Reset: this.props.gameX01Reset,
+                    activeThrows: this.props.activeThrows
                 });
             } else if (intViewportWidth < 900) {
                 return _react2.default.createElement(_TabletInput2.default, {
@@ -31633,6 +31580,20 @@ var ScoreInput = function (_Component) {
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 offset-3 throw-borders text-center", id: "mobileThrow" },
+                        "Throw: ",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            this.props.activeThrows + 1
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
                     _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "div",
@@ -31826,10 +31787,19 @@ var ScoreInput = function (_Component) {
                 ),
                 _react2.default.createElement(
                     "div",
-                    { className: "row" },
+                    { className: "row miss-undo-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center miss" },
+                        { className: "col-2 text-center start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-4 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -31840,7 +31810,7 @@ var ScoreInput = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center undo" },
+                        { className: "col-4 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -31848,24 +31818,10 @@ var ScoreInput = function (_Component) {
                                 } },
                             "Undo"
                         )
-                    )
-                ),
-                _react2.default.createElement("br", null),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-6 text-center start-over" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                        )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center start-over" },
+                        { className: "col-2 text-center start-over" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
