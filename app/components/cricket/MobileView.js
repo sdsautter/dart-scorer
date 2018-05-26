@@ -246,18 +246,28 @@ export default class MobileModalView extends Component {
                     </div>
                 </div>
                 <div className="row miss-undo-row">
-                    <div className="col-6 text-center miss">
+                    <div className="col-2 text-center start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
+                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
+                        </button>
+                    </div>
+                    <div className="col-4 text-center miss">
                         <button type="button" className="btn" onClick={() => { this.props.miss() }}>
                             Miss
                         </button>
                     </div>
-                    <div className="col-6 text-center undo">
+                    <div className="col-4 text-center undo">
                         <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                             Undo
                         </button>
                     </div>
+                    <div className="col-2 text-center start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
+                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
+                        </button>
+                    </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-6 text-center start-over">
                         <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
                             <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
@@ -268,7 +278,7 @@ export default class MobileModalView extends Component {
                             <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
                         </button>
                     </div>
-                </div>
+                </div> */}
                 <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

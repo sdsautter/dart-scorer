@@ -18,7 +18,8 @@ export default class ScoreInput extends Component {
                     score={this.props.score}
                     miss={this.props.miss}
                     undo={this.props.undo}
-                    gameX01Reset={this.props.gameX01Reset}                    
+                    gameX01Reset={this.props.gameX01Reset} 
+                    activeThrows={this.props.activeThrows}                   
                 />
             )
         } else if (intViewportWidth < 900) {
