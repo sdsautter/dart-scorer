@@ -11,6 +11,7 @@ export default class Cricket extends Component {
             activeThrows: 0,
             activeMarks: 0,
             gameState: "playing",
+            modal: true,
             gameWinner: {},
             throwLog: [],
 
@@ -66,6 +67,7 @@ export default class Cricket extends Component {
         this.addToLog = this.addToLog.bind(this);
         this.undo = this.undo.bind(this);
         this.undoSwitch = this.undoSwitch.bind(this);
+        this.modalSwitch = this.modalSwitch.bind(this);
     }
 
     gameCricketReset() {
@@ -108,6 +110,11 @@ export default class Cricket extends Component {
 
     setThrowNumber(activeThrows) {
         this.setState({ activeThrows })
+    }
+
+    modalSwitch() {
+        const modal = this.state.modal ? false : true;
+        this.setState({ modal })
     }
 
     setActiveThrower(activeThrower) {
@@ -686,6 +693,8 @@ export default class Cricket extends Component {
                     markProgress={this.markProgress}
                     undo={this.undo}
                     gameCricketReset={this.gameCricketReset}
+                    modal={this.state.modal}
+                    modalSwitch={this.modalSwitch}
                 />
             )
         } else if (this.state.gameState === "over") {
