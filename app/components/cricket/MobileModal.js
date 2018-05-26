@@ -120,7 +120,7 @@ export default class MobileModalView extends Component {
                             {this.props.markProgress(2, 16)}
                         </div>
                         <div className="col-2 text-center align-self-start points-score">
-                            {this.props.activeThrows}
+                            {this.props.activeThrows + 1}
                         </div>
                     </div>
                 </div>

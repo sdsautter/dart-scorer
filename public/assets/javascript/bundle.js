@@ -27440,7 +27440,7 @@ var MobileModalView = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "col-1 right-label text-center align-self-start points-score" },
-                            this.props.activeThrows
+                            this.props.activeThrows + 1
                         )
                     )
                 );
@@ -28067,7 +28067,7 @@ var MobileModalView = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "col-2 text-center align-self-start points-score" },
-                            this.props.activeThrows
+                            this.props.activeThrows + 1
                         )
                     )
                 );
