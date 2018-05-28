@@ -36609,7 +36609,173 @@ var Numpad = function (_Component) {
         value: function numpadRender() {
             var _this3 = this;
 
-            return _react2.default.createElement(
+            if (this.props.activeThrower === 'p1') {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
+                        _react2.default.createElement("br", null),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 text-center points-score" },
+                                this.renderNumberEntry()
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(9);
+                                        } },
+                                    "9"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(8);
+                                        } },
+                                    "8"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(7);
+                                        } },
+                                    "7"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(6);
+                                        } },
+                                    "6"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(5);
+                                        } },
+                                    "5"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(4);
+                                        } },
+                                    "4"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(3);
+                                        } },
+                                    "3"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(2);
+                                        } },
+                                    "2"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(1);
+                                        } },
+                                    "1"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-multiple" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberRemove();
+                                        } },
+                                    _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-single" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.numberInput(0);
+                                        } },
+                                    "0"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4 number p1-multiple" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.scoreEntry();
+                                        } },
+                                    "Enter"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col undo" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                            _this3.props.numpadUndo();
+                                        } },
+                                    "Undo"
+                                )
+                            )
+                        )
+                    )
+                );
+            } else if (this.props.activeThrower === 'p2') return _react2.default.createElement(
                 "div",
                 { className: "row" },
                 _react2.default.createElement(
@@ -36630,7 +36796,7 @@ var Numpad = function (_Component) {
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36641,7 +36807,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36652,7 +36818,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36663,7 +36829,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36674,7 +36840,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36685,7 +36851,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36696,7 +36862,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36707,7 +36873,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36718,7 +36884,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36729,7 +36895,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-multiple" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36740,7 +36906,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-single" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
@@ -36751,7 +36917,7 @@ var Numpad = function (_Component) {
                         ),
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number" },
+                            { className: "col-4 number p2-multiple" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {

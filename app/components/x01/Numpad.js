@@ -53,60 +53,114 @@ export default class Numpad extends Component {
     }
 
     numpadRender() {
-        return (
-            <div className="row">
-                <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-                    <br />
-                    <div className="row">
-                        <div className="col-12 text-center points-score">
-                            {this.renderNumberEntry()}
+        if (this.props.activeThrower === 'p1') {
+            return (
+                <div className="row">
+                    <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
+                        <br />
+                        <div className="row">
+                            <div className="col-12 text-center points-score">
+                                {this.renderNumberEntry()}
+                            </div>
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(9) }}>9</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(8) }}>8</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(7) }}>7</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(6) }}>6</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(5) }}>5</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(4) }}>4</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(3) }}>3</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(2) }}>2</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(1) }}>1</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="./assets/images/left-arrow.png" /></button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.numberInput(0) }}>0</button>
-                        </div>
-                        <div className="col-4 number">
-                            <button type="button" className="btn btn-success" onClick={() => { this.scoreEntry() }}>Enter</button>
-                        </div>
-                        <div className="col undo">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.numpadUndo() }}>Undo</button>
+                        <div className="row">
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(9) }}>9</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(8) }}>8</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(7) }}>7</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(6) }}>6</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(5) }}>5</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(4) }}>4</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(3) }}>3</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(2) }}>2</button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(1) }}>1</button>
+                            </div>
+                            <div className="col-4 number p1-multiple">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="./assets/images/left-arrow.png" /></button>
+                            </div>
+                            <div className="col-4 number p1-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(0) }}>0</button>
+                            </div>
+                            <div className="col-4 number p1-multiple">
+                                <button type="button" className="btn btn-success" onClick={() => { this.scoreEntry() }}>Enter</button>
+                            </div>
+                            <div className="col undo">
+                                <button type="button" className="btn btn-success" onClick={() => { this.props.numpadUndo() }}>Undo</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        )
-
+            )
+        } else if (this.props.activeThrower === 'p2')
+            return (
+                <div className="row">
+                    <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
+                        <br />
+                        <div className="row">
+                            <div className="col-12 text-center points-score">
+                                {this.renderNumberEntry()}
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(9) }}>9</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(8) }}>8</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(7) }}>7</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(6) }}>6</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(5) }}>5</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(4) }}>4</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(3) }}>3</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(2) }}>2</button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(1) }}>1</button>
+                            </div>
+                            <div className="col-4 number p2-multiple">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="./assets/images/left-arrow.png" /></button>
+                            </div>
+                            <div className="col-4 number p2-single">
+                                <button type="button" className="btn btn-success" onClick={() => { this.numberInput(0) }}>0</button>
+                            </div>
+                            <div className="col-4 number p2-multiple">
+                                <button type="button" className="btn btn-success" onClick={() => { this.scoreEntry() }}>Enter</button>
+                            </div>
+                            <div className="col undo">
+                                <button type="button" className="btn btn-success" onClick={() => { this.props.numpadUndo() }}>Undo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
     }
 
     render() {
