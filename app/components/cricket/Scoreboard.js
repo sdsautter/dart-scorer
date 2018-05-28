@@ -29,8 +29,8 @@ export default class Scoreboard extends Component {
                         <div className='row align-items-center modal-toggle'>
                             <div className='col align-self-center text-center'>
                                 <label>
-                                    <span className='one-click-scoring'>One Click Scoring</span>
-                                    <input className="toggle" type="checkbox" onClick={this.props.modalSwitch} />
+                                    <span className='one-click-scoring'>Consolidate Buttons</span>
+                                    <input className="toggle" type="checkbox" onClick={this.props.modalSwitch} checked />
                                 </label>
                             </div>
                         </div>
@@ -53,7 +53,7 @@ export default class Scoreboard extends Component {
                         <div className='row align-items-center modal-toggle'>
                             <div className='col text-center align-self-center'>
                                 <label className='align-self-center'>
-                                    <span className='one-click-scoring'>One Click Scoring</span>
+                                    <span className='one-click-scoring'>Consolidate Buttons</span>
                                     <input className="toggle" type="checkbox" onClick={this.props.modalSwitch} />
                                 </label>
                             </div>

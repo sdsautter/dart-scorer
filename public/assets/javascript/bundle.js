@@ -7013,7 +7013,7 @@ var Cricket = function (_Component) {
             activeThrows: 0,
             activeMarks: 0,
             gameState: "playing",
-            modal: true,
+            modal: false,
             gameWinner: {},
             throwLog: [],
 
@@ -25806,9 +25806,9 @@ var Scoreboard = function (_Component) {
                                     _react2.default.createElement(
                                         'span',
                                         { className: 'one-click-scoring' },
-                                        'One Click Scoring'
+                                        'Consolidate Buttons'
                                     ),
-                                    _react2.default.createElement('input', { className: 'toggle', type: 'checkbox', onClick: this.props.modalSwitch })
+                                    _react2.default.createElement('input', { className: 'toggle', type: 'checkbox', onClick: this.props.modalSwitch, checked: true })
                                 )
                             )
                         )
@@ -25840,7 +25840,7 @@ var Scoreboard = function (_Component) {
                                     _react2.default.createElement(
                                         'span',
                                         { className: 'one-click-scoring' },
-                                        'One Click Scoring'
+                                        'Consolidate Buttons'
                                     ),
                                     _react2.default.createElement('input', { className: 'toggle', type: 'checkbox', onClick: this.props.modalSwitch })
                                 )

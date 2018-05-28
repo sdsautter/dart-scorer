@@ -11,7 +11,7 @@ export default class Cricket extends Component {
             activeThrows: 0,
             activeMarks: 0,
             gameState: "playing",
-            modal: true,
+            modal: false,
             gameWinner: {},
             throwLog: [],
 
