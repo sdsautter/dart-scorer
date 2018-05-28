@@ -25,7 +25,7 @@ export default class Scoreboard extends Component {
             if (this.props.activeThrower === "p1") {
                 return (
                     <div className="row">
-                        <div className="col-6 text-center padding-top player border-right active-thrower">
+                        <div className="col-6 text-center padding-top player border-right p1-active">
                             Player 1
                             </div>
                         <div className="col-6 text-center padding-top player border-left inactive-thrower">
@@ -39,7 +39,7 @@ export default class Scoreboard extends Component {
                         <div className="col-6 text-center padding-top player border-right inactive-thrower">
                             Player 1
                             </div>
-                        <div className="col-6 text-center padding-top player border-left active-thrower">
+                        <div className="col-6 text-center padding-top player border-left p2-active">
                             Player 2
                             </div>
                     </div>

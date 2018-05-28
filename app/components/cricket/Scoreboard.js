@@ -61,20 +61,6 @@ export default class Scoreboard extends Component {
                     </div>
                 )
             }
-        } else if (viewWidth < 900) {
-            return (
-                <TabletView
-                    score={this.props.score}
-                    miss={this.props.miss}
-                    activeThrower={this.props.activeThrower}
-                    activeThrows={this.props.activeThrows}
-                    renderP1Score={this.props.renderP1Score}
-                    renderP2Score={this.props.renderP2Score}
-                    markProgress={this.props.markProgress}
-                    undo={this.props.undo}
-                    gameCricketReset={this.props.gameCricketReset}
-                />
-            )
         } else {
             return (
                 <DesktopView

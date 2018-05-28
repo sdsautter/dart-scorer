@@ -235,6 +235,22 @@
     /* .right-label {
         padding-left: -20px;
     } */
+    .p1-single button {
+        background-color: #F2DDC8;
+        color: black;
+    }
+    .p1-multiple button {
+        background-color: #1B4F2D;
+        /* color: black; */
+    }
+    .p2-single button {
+        background-color: black;
+        /* color: #c7ab8d; */
+    }
+    .p2-multiple button {
+        background-color: #881918;
+        /* color: #c7ab8d; */
+    }
 }
 
 @media (min-width: 720px) {
@@ -295,6 +311,33 @@
         color: black;
         font-weight: bold;
     }
+    .p1-single button,
+    .p1-multiple button,
+    .p2-single button,
+    .p2-multiple button {
+        width: 100%;
+        height: 50px;
+        font-family: 'Cuprum', cursive;
+        font-size: 1.75rem !important;
+        font-weight: normal;
+        color: #F2DDC8;
+    }
+    .p1-single button {
+        background-color: #F2DDC8;
+        color: black;
+    }
+    .p1-multiple button {
+        background-color: #1B4F2D;
+        /* color: black; */
+    }
+    .p2-single button {
+        background-color: black;
+        /* color: #c7ab8d; */
+    }
+    .p2-multiple button {
+        background-color: #881918;
+        /* color: #c7ab8d; */
+    }
     .miss button,
     .undo button,
     .start-over button {
@@ -338,7 +381,7 @@
     }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 900px) {
     body {
         background-color: rgb(73, 121, 89);
         color: #F2DDC8;
@@ -456,6 +499,11 @@
     .points-score {
         font-size: 2rem;
     }
+    #miss-x01,
+    #undo-x01 button {
+        margin-bottom: 10%;
+        margin-left: 3%;
+    }
 }
 
 .modal-header {
@@ -499,6 +547,11 @@ button:target {
 
 .border-left {
     border-left: 4px double black;
+}
+
+.border-top {
+    margin-top: 1%;
+    border-top: 4px double black;
 }
 
 .border-bottom {
