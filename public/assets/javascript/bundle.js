@@ -7154,27 +7154,29 @@ var Cricket = function (_Component) {
     }, {
         key: "undo",
         value: function undo() {
-            if (this.state.activeThrows === 0) {
-                this.setThrowNumber(2);
-                if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
-                    this.undoSwitch("p2");
+            if (this.state.p1Throws > 0) {
+                if (this.state.activeThrows === 0) {
+                    this.setThrowNumber(2);
+                    if (this.state.activeThrower === "p1") {
+                        this.setActiveThrower("p2");
+                        this.undoSwitch("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                        this.undoSwitch("p1");
+                    }
                 } else {
-                    this.setActiveThrower("p1");
-                    this.undoSwitch("p1");
+                    this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
+                    if (this.state.activeThrower === "p1") {
+                        this.undoSwitch("p1");
+                    } else {
+                        this.undoSwitch("p2");
+                    }
                 }
-            } else {
-                this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
-                if (this.state.activeThrower === "p1") {
-                    this.undoSwitch("p1");
-                } else {
-                    this.undoSwitch("p2");
-                }
-            }
 
-            var loggedArray = this.state.throwLog;
-            loggedArray.pop();
-            this.setState({ throwLog: loggedArray });
+                var loggedArray = this.state.throwLog;
+                loggedArray.pop();
+                this.setState({ throwLog: loggedArray });
+            }
         }
     }, {
         key: "undoSwitch",
@@ -8484,28 +8486,29 @@ var X01 = function (_Component) {
     }, {
         key: "undo",
         value: function undo() {
+            if (this.state.p1Throws > 0) {
+                if (this.state.activeThrows === 0) {
+                    this.setThrowNumber(2);
+                    if (this.state.activeThrower === "p1") {
+                        this.setActiveThrower("p2");
+                        this.undoSwitch("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                        this.undoSwitch("p1");
+                    }
+                } else {
+                    this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
+                    if (this.state.activeThrower === "p1") {
+                        this.undoSwitch("p1");
+                    } else {
+                        this.undoSwitch("p2");
+                    }
+                }
 
-            if (this.state.activeThrows === 0) {
-                this.setThrowNumber(2);
-                if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
-                    this.undoSwitch("p2");
-                } else {
-                    this.setActiveThrower("p1");
-                    this.undoSwitch("p1");
-                }
-            } else {
-                this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
-                if (this.state.activeThrower === "p1") {
-                    this.undoSwitch("p1");
-                } else {
-                    this.undoSwitch("p2");
-                }
+                var loggedArray = this.state.throwLog;
+                loggedArray.pop();
+                this.setState({ throwLog: loggedArray });
             }
-
-            var loggedArray = this.state.throwLog;
-            loggedArray.pop();
-            this.setState({ throwLog: loggedArray });
         }
     }, {
         key: "undoSwitch",

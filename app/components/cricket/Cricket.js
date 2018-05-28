@@ -143,27 +143,29 @@ export default class Cricket extends Component {
     }
 
     undo() {
-        if (this.state.activeThrows === 0) {
-            this.setThrowNumber(2);
-            if (this.state.activeThrower === "p1") {
-                this.setActiveThrower("p2");
-                this.undoSwitch("p2");
+        if (this.state.p1Throws > 0) {
+            if (this.state.activeThrows === 0) {
+                this.setThrowNumber(2);
+                if (this.state.activeThrower === "p1") {
+                    this.setActiveThrower("p2");
+                    this.undoSwitch("p2");
+                } else {
+                    this.setActiveThrower("p1");
+                    this.undoSwitch("p1");
+                }
             } else {
-                this.setActiveThrower("p1");
-                this.undoSwitch("p1");
+                this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
+                if (this.state.activeThrower === "p1") {
+                    this.undoSwitch("p1");
+                } else {
+                    this.undoSwitch("p2");
+                }
             }
-        } else {
-            this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
-            if (this.state.activeThrower === "p1") {
-                this.undoSwitch("p1");
-            } else {
-                this.undoSwitch("p2");
-            }
-        }
 
-        let loggedArray = this.state.throwLog;
-        loggedArray.pop();
-        this.setState({ throwLog: loggedArray });
+            let loggedArray = this.state.throwLog;
+            loggedArray.pop();
+            this.setState({ throwLog: loggedArray });
+        }
     }
 
     undoSwitch(player) {
