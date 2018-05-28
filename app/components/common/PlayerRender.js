@@ -24,7 +24,7 @@ export default class PlayerRender extends Component {
                                 <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
                             </button>
                         </div>
-                        <div className="col-md-4 col-lg-5 text-center player border-right active-thrower">
+                        <div className="col-md-4 col-lg-5 text-center player border-right active-thrower p1-active">
                             Player 1
                     </div>
                         <div className="col-md-4 col-lg-5 text-center player border-left inactive-thrower">
@@ -88,7 +88,7 @@ export default class PlayerRender extends Component {
                         <div className="col-lg-5 col-md-4 text-center player border-right inactive-thrower">
                             Player 1
                     </div>
-                        <div className="col-lg-5 col-md-4 text-center player border-left active-thrower">
+                        <div className="col-lg-5 col-md-4 text-center player border-left active-thrower p2-active">
                             Player 2
                     </div>
                         <div className="col-lg-1 col-md-2 start-over">
