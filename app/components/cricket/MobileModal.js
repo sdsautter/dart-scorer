@@ -8,6 +8,7 @@ export default class MobileModalView extends Component {
         this.nameRender = this.nameRender.bind(this);
         this.throwRowRender = this.throwRowRender.bind(this);
         this.modalToggle = this.modalToggle.bind(this);
+        this.playerButtonsRender = this.playerButtonsRender.bind(this);
     }
 
     modalToggle() {
@@ -26,7 +27,7 @@ export default class MobileModalView extends Component {
         if (this.props.activeThrower === "p1") {
             return (
                 <div className="row top-row">
-                    <div className="col-6 text-center player border-right active-thrower">
+                    <div className="col-6 text-center player border-right p1-active">
                         Player 1
                         </div>
                     <div className="col-6 text-center player border-left inactive-thrower">
@@ -40,7 +41,7 @@ export default class MobileModalView extends Component {
                     <div className="col-6 text-center player border-right inactive-thrower">
                         Player 1
                     </div>
-                    <div className="col-6 text-center player border-left active-thrower">
+                    <div className="col-6 text-center player border-left p2-active">
                         Player 2
                     </div>
                 </div>
@@ -61,7 +62,7 @@ export default class MobileModalView extends Component {
                         <div className="col-2 text-center align-self-center">
                             {this.props.markProgress(1, 17)}
                         </div>
-                        <div className="col-4 text-center border-left border-right number">
+                        <div className="col-4 text-center border-left border-right number p1-single">
                             <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
                                 17
                         </button>
@@ -77,7 +78,7 @@ export default class MobileModalView extends Component {
                         <div className="col-2 text-center align-self-center">
                             {this.props.markProgress(1, 16)}
                         </div>
-                        <div className="col-4 text-center border-left border-right number">
+                        <div className="col-4 text-center border-left border-right number p1-single">
                             <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
                                 16
                         </button>
@@ -95,7 +96,7 @@ export default class MobileModalView extends Component {
                         <div className="col-2 offset-2 text-center align-self-center">
                             {this.props.markProgress(1, 17)}
                         </div>
-                        <div className="col-4 text-center border-left border-right number">
+                        <div className="col-4 text-center border-left border-right number p2-single">
                             <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
                                 17
                         </button>
@@ -111,7 +112,7 @@ export default class MobileModalView extends Component {
                         <div className="col-2 offset-2 text-center align-self-center">
                             {this.props.markProgress(1, 16)}
                         </div>
-                        <div className="col-4 text-center border-left border-right number">
+                        <div className="col-4 text-center border-left border-right number p2-single">
                             <button type="button" className="btn" data-toggle="modal" data-target="#sixteenModal">
                                 16
                         </button>
@@ -126,7 +127,176 @@ export default class MobileModalView extends Component {
                 </div>
             )
         }
+    }
 
+    playerButtonsRender() {
+        if (this.props.activeThrower === 'p1') {
+            return (
+                <div>
+                    <div className="row">
+                        <div className="col-2 text-center align-self-center points-label">
+                            Points:
+                    </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(1, 20)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p1-single">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
+                                20
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 20)}
+                        </div>
+                        <div className="col-2 text-center align-self-center points-label">
+                            Points:
+                    </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2 text-center align-self-start points-score">
+                            {this.props.renderP1Score()}
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(1, 19)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p1-single">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
+                                19
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 19)}
+                        </div>
+                        <div className="col-2 text-center align-self-start points-score">
+                            {this.props.renderP2Score()}
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2 offset-2 text-center align-self-center">
+                            {this.props.markProgress(1, 18)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p1-single">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#eightteenModal">
+                                18
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 18)}
+                        </div>
+                    </div>
+                    {this.throwRowRender()}
+                    <div className="row">
+                        <div className="col-2 offset-2 text-center align-self-center">
+                            {this.props.markProgress(1, 15)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p1-single">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#fifteenModal">
+                                15
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 15)}
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2 offset-2 text-center align-self-center">
+                            {this.props.markProgress(1, 25)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p1-multiple">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#bullModal">
+                                Bull
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 25)}
+                        </div>
+                    </div>
+                </div>
+            )
+        } else if (this.props.activeThrower === 'p2') {
+            return (
+                <div>
+                    <div className="row">
+                        <div className="col-2 text-center align-self-center points-label">
+                            Points:
+                    </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(1, 20)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p2-single">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
+                                20
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 20)}
+                        </div>
+                        <div className="col-2 text-center align-self-center points-label">
+                            Points:
+                    </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2 text-center align-self-start points-score">
+                            {this.props.renderP1Score()}
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(1, 19)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p2-single">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
+                                19
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 19)}
+                        </div>
+                        <div className="col-2 text-center align-self-start points-score">
+                            {this.props.renderP2Score()}
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2 offset-2 text-center align-self-center">
+                            {this.props.markProgress(1, 18)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p2-single">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#eightteenModal">
+                                18
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 18)}
+                        </div>
+                    </div>
+                    {this.throwRowRender()}
+                    <div className="row">
+                        <div className="col-2 offset-2 text-center align-self-center">
+                            {this.props.markProgress(1, 15)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p2-single">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#fifteenModal">
+                                15
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 15)}
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-2 offset-2 text-center align-self-center">
+                            {this.props.markProgress(1, 25)}
+                        </div>
+                        <div className="col-4 text-center border-left border-right number p2-multiple">
+                            <button type="button" className="btn" data-toggle="modal" data-target="#bullModal">
+                                Bull
+                        </button>
+                        </div>
+                        <div className="col-2 text-center align-self-center">
+                            {this.props.markProgress(2, 25)}
+                        </div>
+                    </div>
+                </div>
+            )
+        }
     }
 
     render() {
@@ -134,84 +304,7 @@ export default class MobileModalView extends Component {
         return (
             <div>
                 {this.playersRender()}
-                <div className="row">
-                    <div className="col-2 text-center align-self-center points-label">
-                        Points:
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(1, 20)}
-                    </div>
-                    <div className="col-4 text-center border-left border-right number">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
-                            20
-                        </button>
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(2, 20)}
-                    </div>
-                    <div className="col-2 text-center align-self-center points-label">
-                        Points:
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-2 text-center align-self-start points-score">
-                        {this.props.renderP1Score()}
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(1, 19)}
-                    </div>
-                    <div className="col-4 text-center border-left border-right number">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#nineteenModal">
-                            19
-                        </button>
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(2, 19)}
-                    </div>
-                    <div className="col-2 text-center align-self-start points-score">
-                        {this.props.renderP2Score()}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-2 offset-2 text-center align-self-center">
-                        {this.props.markProgress(1, 18)}
-                    </div>
-                    <div className="col-4 text-center border-left border-right number">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#eightteenModal">
-                            18
-                        </button>
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(2, 18)}
-                    </div>
-                </div>
-                {this.throwRowRender()}
-                <div className="row">
-                    <div className="col-2 offset-2 text-center align-self-center">
-                        {this.props.markProgress(1, 15)}
-                    </div>
-                    <div className="col-4 text-center border-left border-right number">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#fifteenModal">
-                            15
-                        </button>
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(2, 15)}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-2 offset-2 text-center align-self-center">
-                        {this.props.markProgress(1, 25)}
-                    </div>
-                    <div className="col-4 text-center border-left border-right number">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#bullModal">
-                            Bull
-                        </button>
-                    </div>
-                    <div className="col-2 text-center align-self-center">
-                        {this.props.markProgress(2, 25)}
-                    </div>
-                </div>
+                {this.playerButtonsRender()}
                 <div className="row miss-undo-row">
                     <div className="col-2 text-center start-over">
                         <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
@@ -243,13 +336,13 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(20, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(20, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(20, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(20, 2) }}>x2</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(20, 3) }}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(20, 3) }}>x3</button>
                                     </div>
                                 </div>
                             </div>
@@ -269,13 +362,13 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(19, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(19, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(19, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(19, 2) }}>x2</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(19, 3) }}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(19, 3) }}>x3</button>
                                     </div>
                                 </div>
                             </div>
@@ -295,13 +388,13 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(18, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(18, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(18, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(18, 2) }}>x2</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(18, 3) }}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(18, 3) }}>x3</button>
                                     </div>
                                 </div>
                             </div>
@@ -321,13 +414,13 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(17, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(17, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(17, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(17, 2) }}>x2</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(17, 3) }}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(17, 3) }}>x3</button>
                                     </div>
                                 </div>
                             </div>
@@ -347,13 +440,13 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(16, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(16, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(16, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(16, 2) }}>x2</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(16, 3) }}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(16, 3) }}>x3</button>
                                     </div>
                                 </div>
                             </div>
@@ -373,13 +466,13 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(15, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(15, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(15, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(15, 2) }}>x2</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(15, 3) }}>Triple</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(15, 3) }}>x3</button>
                                     </div>
                                 </div>
                             </div>
@@ -399,10 +492,10 @@ export default class MobileModalView extends Component {
                             <div className="modal-body">
                                 <div className="row">
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(25, 1) }}>Single</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(25, 1) }}>x1</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(25, 2) }}>Double</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.score(25, 2) }}>x2</button>
                                     </div>
                                 </div>
                             </div>
