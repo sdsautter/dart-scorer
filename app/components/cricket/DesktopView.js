@@ -9,6 +9,7 @@ export default class DesktopView extends Component {
         this.nameRender = this.nameRender.bind(this);
         this.p1PointThrowRender = this.p1PointThrowRender.bind(this);
         this.p2PointThrowRender = this.p2PointThrowRender.bind(this);
+        this.scoreButtonsRender = this.scoreButtonsRender.bind(this);
     }
 
     nameRender() {
@@ -124,6 +125,254 @@ export default class DesktopView extends Component {
         }
     }
 
+    scoreButtonsRender() {
+        //Renders either an input or a text area depending on the screen width
+        if (this.props.activeThrower === 'p1') {
+            return (
+                <div className='col-8'>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 20)}
+                        </div>
+
+                        <div className="col-2 text-center p1-single border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20x1</button>
+                        </div>
+                        <div className="col-2 p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>20x2</button>
+                        </div>
+                        <div className="col-2 border-right p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>20x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 20)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 19)}
+                        </div>
+                        <div className="col-2 text-center p1-single border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>19x1</button>
+                        </div>
+                        <div className="col-2 p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>19x2</button>
+                        </div>
+                        <div className="col-2 border-right p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>19x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 19)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 18)}
+                        </div>
+                        <div className="col-2 text-center p1-single border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>18x1</button>
+                        </div>
+                        <div className="col-2 p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>18x2</button>
+                        </div>
+                        <div className="col-2 border-right p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>18x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 18)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 17)}
+                        </div>
+                        <div className="col-2 text-center p1-single border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>17x1</button>
+                        </div>
+                        <div className="col-2 p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>17x2</button>
+                        </div>
+                        <div className="col-2 border-right p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>17x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 17)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 16)}
+                        </div>
+                        <div className="col-2 text-center p1-single border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>16x1</button>
+                        </div>
+                        <div className="col-2 p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>16x2</button>
+                        </div>
+                        <div className="col-2 border-right p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>16x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 16)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 15)}
+                        </div>
+                        <div className="col-2 text-center p1-single border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>15x1</button>
+                        </div>
+                        <div className="col-2 p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>15x2</button>
+                        </div>
+                        <div className="col-2 border-right p1-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>15x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 15)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 25)}
+                        </div>
+                        <div className="col-3 text-center p1-multiple border-left">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                        </div>
+                        <div className="col-3 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>Bullx2</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 25)}
+                        </div>
+                    </div>
+                </div>
+            )
+        } else if (this.props.activeThrower === 'p2') {
+            return (
+                <div className='col-8'>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 20)}
+                        </div>
+                        <div className="col-2 text-center border-left border-left p2-single">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20x1</button>
+                        </div>
+                        <div className="col-2 p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>20x2</button>
+                        </div>
+                        <div className="col-2 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>20x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 20)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 19)}
+                        </div>
+                        <div className="col-2 text-center border-left p2-single">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>19x1</button>
+                        </div>
+                        <div className="col-2 p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>19x2</button>
+                        </div>
+                        <div className="col-2 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>19x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 19)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 18)}
+                        </div>
+                        <div className="col-2 text-center border-left p2-single">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>18x1</button>
+                        </div>
+                        <div className="col-2 p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>18x2</button>
+                        </div>
+                        <div className="col-2 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>18x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 18)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 17)}
+                        </div>
+                        <div className="col-2 text-center border-left p2-single">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>17x1</button>
+                        </div>
+                        <div className="col-2 p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>17x2</button>
+                        </div>
+                        <div className="col-2 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>17x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 17)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 16)}
+                        </div>
+                        <div className="col-2 text-center border-left p2-single">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>16x1</button>
+                        </div>
+                        <div className="col-2 p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>16x2</button>
+                        </div>
+                        <div className="col-2 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>16x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 16)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 15)}
+                        </div>
+                        <div className="col-2 text-center border-left p2-single">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>15x1</button>
+                        </div>
+                        <div className="col-2 p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>15x2</button>
+                        </div>
+                        <div className="col-2 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>15x3</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 15)}
+                        </div>
+                    </div>
+                    <div className='row'>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(1, 25)}
+                        </div>
+                        <div className="col-3 text-center border-left p1-multiple">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                        </div>
+                        <div className="col-3 border-right p2-multiple text-center">
+                            <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>Bullx2</button>
+                        </div>
+                        <div className="col-3 text-center align-self-center">
+                            {this.props.markProgress(2, 25)}
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+    }
+
     render() {
         //Renders either an input or a text area depending on the screen width
         return (
@@ -133,145 +382,7 @@ export default class DesktopView extends Component {
                     <div className='col-2'>
                         {this.p1PointThrowRender()}
                     </div>
-                    <div className='col-8'>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 20)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                20
-                    </div>
-                            <div className="col-2 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>Single</button>
-                            </div>
-                            <div className="col-2 number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>Triple</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 20)}
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 19)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                19
-                    </div>
-                            <div className="col-2 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>Single</button>
-                            </div>
-                            <div className="col-2 number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>Triple</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 19)}
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 18)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                18
-                    </div>
-                            <div className="col-2 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>Single</button>
-                            </div>
-                            <div className="col-2 number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>Triple</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 18)}
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 17)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                17
-                    </div>
-                            <div className="col-2 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>Single</button>
-                            </div>
-                            <div className="col-2 number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>Triple</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 17)}
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 16)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                16
-                    </div>
-                            <div className="col-2 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>Single</button>
-                            </div>
-                            <div className="col-2 number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>Triple</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 16)}
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 15)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                15
-                    </div>
-                            <div className="col-2 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>Single</button>
-                            </div>
-                            <div className="col-2 number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>Triple</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 15)}
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(1, 25)}
-                            </div>
-                            <div className="col-1 border-left text-center number">
-                                Bull
-                    </div>
-                            <div className="col-3 text-center number">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Single</button>
-                            </div>
-                            <div className="col-3 border-right number text-center">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>Double</button>
-                            </div>
-                            <div className="col-2 text-center align-self-center">
-                                {this.props.markProgress(2, 25)}
-                            </div>
-                        </div>
-                    </div>
+                    {this.scoreButtonsRender()}
                     <div className='col-2'>
                         {this.p2PointThrowRender()}
                     </div>
