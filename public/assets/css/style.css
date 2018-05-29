@@ -67,6 +67,9 @@
     .top-row {
         margin-top: 5%;
     }
+    #x01MobileThrow {
+        margin-bottom: 2%;
+    }
     .modal-header,
     .modal-body,
     .modal-footer {

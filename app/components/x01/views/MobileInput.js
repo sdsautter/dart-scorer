@@ -278,31 +278,36 @@ export default class ScoreInput extends Component {
     render() {
         return (
             <div>
-                <div className='row'>
-                    <div className='col-6 offset-3 throw-borders text-center' id='mobileThrow'>
-                        Throw: <span>{this.props.activeThrows + 1}</span>
-                    </div>
-                </div>
-                {this.playerButtonsRender()}
-                <div className="row miss-undo-row">
-                    <div className="col-2 text-center start-over">
+                <div className='row' id='x01MobileThrow'>
+                    <div className="col-3 text-center start-over">
                         <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
                             <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
                         </button>
                     </div>
-                    <div className="col-4 text-center miss">
+                    <div className='col-6 throw-borders text-center align-self-center' id='mobileThrow'>
+                        Throw: <span>{this.props.activeThrows + 1}</span>
+                    </div>
+                    <div className="col-3 text-center start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
+                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
+                        </button>
+                    </div>
+                </div>
+                {this.playerButtonsRender()}
+                <div className="row miss-undo-row">
+                    <div className="col-3 text-center end-turn">
+                        <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
+                            End Turn
+                        </button>
+                    </div>
+                    <div className="col-6 text-center miss">
                         <button type="button" className="btn" onClick={() => { this.props.miss() }}>
                             Miss
                         </button>
                     </div>
-                    <div className="col-4 text-center undo">
+                    <div className="col-3 text-center undo">
                         <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                             Undo
-                        </button>
-                    </div>
-                    <div className="col-2 text-center start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
-                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
                         </button>
                     </div>
                 </div>
