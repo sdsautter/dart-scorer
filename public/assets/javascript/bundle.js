@@ -33176,7 +33176,7 @@ var ScoreInput = function (_Component) {
                     { className: "row", id: "x01MobileThrow" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-center start-over" },
+                        { className: "col-3 text-center start-over mobile-start-over" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
@@ -33195,7 +33195,7 @@ var ScoreInput = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-center start-over" },
+                        { className: "col-3 text-center start-over mobile-start-over" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
