@@ -70,6 +70,7 @@ export default class Scoreboard extends Component {
             return (
                 <ScoreInput
                     activeThrower={this.props.activeThrower}
+                    endTurn={this.props.endTurn}
                     score={this.props.score}
                     miss={this.props.miss}
                     undo={this.props.undo}

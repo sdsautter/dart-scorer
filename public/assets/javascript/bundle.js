@@ -7013,7 +7013,6 @@ var Cricket = function (_Component) {
             activeThrows: 0,
             activeMarks: 0,
             gameState: "playing",
-            modal: false,
             gameWinner: {},
             throwLog: [],
 
@@ -7060,6 +7059,7 @@ var Cricket = function (_Component) {
         _this.gameStateChange = _this.gameStateChange.bind(_this);
         _this.gameOverCheck = _this.gameOverCheck.bind(_this);
         _this.miss = _this.miss.bind(_this);
+        _this.endTurn = _this.endTurn.bind(_this);
         _this.conditionalRender = _this.conditionalRender.bind(_this);
         _this.addMarks = _this.addMarks.bind(_this);
         _this.resetMarks = _this.resetMarks.bind(_this);
@@ -7068,7 +7068,7 @@ var Cricket = function (_Component) {
         _this.addToLog = _this.addToLog.bind(_this);
         _this.undo = _this.undo.bind(_this);
         _this.undoSwitch = _this.undoSwitch.bind(_this);
-        _this.modalSwitch = _this.modalSwitch.bind(_this);
+        _this.scoringLogic = _this.scoringLogic.bind(_this);
         return _this;
     }
 
@@ -7115,12 +7115,6 @@ var Cricket = function (_Component) {
         key: "setThrowNumber",
         value: function setThrowNumber(activeThrows) {
             this.setState({ activeThrows: activeThrows });
-        }
-    }, {
-        key: "modalSwitch",
-        value: function modalSwitch() {
-            var modal = this.state.modal ? false : true;
-            this.setState({ modal: modal });
         }
     }, {
         key: "setActiveThrower",
@@ -7525,9 +7519,19 @@ var Cricket = function (_Component) {
     }, {
         key: "score",
         value: function score(number, multiplier) {
+            this.scoringLogic(number, multiplier);
+            this.addThrow();
+            this.addMarks(multiplier);
+            this.addToLog(number, multiplier);
+            this.gameOverCheck();
+            this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+            this.checkThrower();
+        }
+    }, {
+        key: "scoringLogic",
+        value: function scoringLogic(number, multiplier) {
             var thrower = this.state.activeThrower;
-
-            var otherThrower = "";
+            var otherThrower = void 0;
 
             if (thrower === "p1") {
                 otherThrower = "p2";
@@ -7535,15 +7539,14 @@ var Cricket = function (_Component) {
                 otherThrower = "p1";
             }
 
-            var throwerNumber = "" + thrower + number;
             var otherThrowerNumber = "" + otherThrower + number;
             var playerScore = thrower + "Score";
             var playerThrows = thrower + "Throws";
-
             var playerScoreState = eval("this.state." + playerScore);
-            var numberState = eval("this.state." + throwerNumber);
             var throwState = eval("this.state." + playerThrows);
             var otherThrowerState = eval("this.state." + otherThrowerNumber);
+            var throwerNumber = "" + thrower + number;
+            var numberState = eval("this.state." + throwerNumber);
 
             if (numberState === 0) {
                 this.setThrowerNumber(thrower, number, multiplier);
@@ -7584,13 +7587,6 @@ var Cricket = function (_Component) {
                     this.setThrowerNumber(thrower, number, multiplier);
                 }
             }
-
-            this.addThrow();
-            this.addMarks(multiplier);
-            this.addToLog(number, multiplier);
-            this.gameOverCheck();
-            this.setThrowNumber(parseInt(this.state.activeThrows + 1));
-            this.checkThrower();
         }
     }, {
         key: "miss",
@@ -7599,6 +7595,48 @@ var Cricket = function (_Component) {
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.addToLog("mi", "ss");
             this.checkThrower();
+        }
+    }, {
+        key: "endTurn",
+        value: function endTurn() {
+            var thrower = this.state.activeThrower;
+            var playerThrows = thrower + "Throws";
+            var playerThrowsState = eval("this.state." + playerThrows);
+            switch (this.state.activeThrows) {
+                case 0:
+                    this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 3));
+                    for (var i = 0; i < 3; i++) {
+                        this.addToLog("mi", "ss");
+                    }
+                    if (thrower === "p1") {
+                        this.setActiveThrower("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                    }
+                    this.setThrowNumber(0);
+                    break;
+                case 1:
+                    this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 2));
+                    this.addToLog("mi", "ss");
+                    this.addToLog("mi", "ss");
+                    if (this.state.activeThrower === "p1") {
+                        this.setActiveThrower("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                    }
+                    this.setThrowNumber(0);
+                    break;
+                case 2:
+                    this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
+                    this.addToLog("mi", "ss");
+                    if (this.state.activeThrower === "p1") {
+                        this.setActiveThrower("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                    }
+                    this.setThrowNumber(0);
+                    break;
+            }
         }
     }, {
         key: "checkThrower",
@@ -7716,6 +7754,7 @@ var Cricket = function (_Component) {
                 return _react2.default.createElement(_Scoreboard2.default, {
                     score: this.score,
                     miss: this.miss,
+                    endTurn: this.endTurn,
                     activeThrower: this.state.activeThrower,
                     activeThrows: this.state.activeThrows,
                     renderP1Score: this.renderP1Score,
@@ -7723,7 +7762,6 @@ var Cricket = function (_Component) {
                     markProgress: this.markProgress,
                     undo: this.undo,
                     gameCricketReset: this.gameCricketReset,
-                    modal: this.state.modal,
                     modalSwitch: this.modalSwitch
                 });
             } else if (this.state.gameState === "over") {
@@ -8207,6 +8245,7 @@ var X01 = function (_Component) {
         _this.resetThrowLog = _this.resetThrowLog.bind(_this);
         _this.numpadScore = _this.numpadScore.bind(_this);
         _this.numpadUndo = _this.numpadUndo.bind(_this);
+        _this.endTurn = _this.endTurn.bind(_this);
         return _this;
     }
 
@@ -8511,11 +8550,54 @@ var X01 = function (_Component) {
             }
         }
     }, {
+        key: "endTurn",
+        value: function endTurn() {
+            var thrower = this.state.activeThrower;
+            var playerThrows = thrower + "Throws";
+            var playerThrowsState = eval("this.state." + playerThrows);
+            switch (this.state.activeThrows) {
+                case 0:
+                    this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 3));
+                    for (var i = 0; i < 3; i++) {
+                        this.addToLog("mi", "ss");
+                    }
+                    if (thrower === "p1") {
+                        this.setActiveThrower("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                    }
+                    this.setThrowNumber(0);
+                    break;
+                case 1:
+                    this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 2));
+                    this.addToLog("mi", "ss");
+                    this.addToLog("mi", "ss");
+                    if (this.state.activeThrower === "p1") {
+                        this.setActiveThrower("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                    }
+                    this.setThrowNumber(0);
+                    break;
+                case 2:
+                    this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
+                    this.addToLog("mi", "ss");
+                    if (this.state.activeThrower === "p1") {
+                        this.setActiveThrower("p2");
+                    } else {
+                        this.setActiveThrower("p1");
+                    }
+                    this.setThrowNumber(0);
+                    break;
+            }
+        }
+    }, {
         key: "undoSwitch",
         value: function undoSwitch(player) {
             var logLength = this.state.throwLog.length;
             var lastThrowNumber = logLength - 1;
             var lastThrow = this.state.throwLog[lastThrowNumber];
+            var lastThrowArray = ("" + lastThrow).split("");
             var otherThrower = "";
 
             if (player === "p1") {
@@ -8530,194 +8612,18 @@ var X01 = function (_Component) {
             var throwsState = eval("this.state." + player + "Throws");
 
             if (throwsState > 0 && parseInt(this.state.x01Game) != parseInt(playerScoreState)) {
-                switch (lastThrow) {
-                    case "203":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 60));
-                        break;
-                    case "202":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 40));
-                        break;
-                    case "201":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 20));
-                        break;
-                    case "193":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 57));
-                        break;
-                    case "192":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 38));
-                        break;
-                    case "191":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 19));
-                        break;
-                    case "183":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 54));
-                        break;
-                    case "182":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 36));
-                        break;
-                    case "181":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 18));
-                        break;
-                    case "173":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 51));
-                        break;
-                    case "172":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 34));
-                        break;
-                    case "171":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 17));
-                        break;
-                    case "163":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 48));
-                        break;
-                    case "162":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 32));
-                        break;
-                    case "161":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 16));
-                        break;
-                    case "153":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 45));
-                        break;
-                    case "152":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 30));
-                        break;
-                    case "151":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 15));
-                        break;
-                    case "143":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 42));
-                        break;
-                    case "142":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 28));
-                        break;
-                    case "141":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 14));
-                        break;
-                    case "133":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 39));
-                        break;
-                    case "132":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 26));
-                        break;
-                    case "131":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 13));
-                        break;
-                    case "123":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 36));
-                        break;
-                    case "122":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 24));
-                        break;
-                    case "121":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 12));
-                        break;
-                    case "113":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 33));
-                        break;
-                    case "112":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 22));
-                        break;
-                    case "111":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 11));
-                        break;
-                    case "103":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 30));
-                        break;
-                    case "102":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 20));
-                        break;
-                    case "101":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 10));
-                        break;
-                    case "93":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 27));
-                        break;
-                    case "92":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 18));
-                        break;
-                    case "91":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 9));
-                        break;
-                    case "83":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 24));
-                        break;
-                    case "82":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 16));
-                        break;
-                    case "81":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 8));
-                        break;
-                    case "73":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 21));
-                        break;
-                    case "72":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 14));
-                        break;
-                    case "71":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 7));
-                        break;
-                    case "63":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 18));
-                        break;
-                    case "62":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 12));
-                        break;
-                    case "61":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 6));
-                        break;
-                    case "53":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 15));
-                        break;
-                    case "52":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 10));
-                        break;
-                    case "51":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 5));
-                        break;
-                    case "43":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 12));
-                        break;
-                    case "42":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 8));
-                        break;
-                    case "41":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 4));
-                        break;
-                    case "33":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 9));
-                        break;
-                    case "32":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 6));
-                        break;
-                    case "31":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 3));
-                        break;
-                    case "23":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 6));
-                        break;
-                    case "22":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 4));
-                        break;
-                    case "21":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 2));
-                        break;
-                    case "13":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 3));
-                        break;
-                    case "12":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 2));
-                        break;
-                    case "11":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 1));
-                        break;
-                    case "252":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 50));
-                        break;
-                    case "251":
-                        this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + 25));
-                        break;
+                if (lastThrowArray.length === 3) {
+                    var number = parseInt("" + lastThrowArray[0] + lastThrowArray[1]);
+                    var multiplier = parseInt(lastThrowArray[2]);
+                    var score = number * multiplier;
+                    this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + score));
+                } else if (lastThrowArray.length === 2) {
+                    var _number = parseInt("" + lastThrowArray[0]);
+                    var _multiplier = parseInt(lastThrowArray[1]);
+                    var _score = _number * _multiplier;
                 }
+                this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
+            } else if (throwsState > 0 && parseInt(this.state.x01Game) === parseInt(playerScoreState)) {
                 this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
             }
         }
@@ -8739,6 +8645,7 @@ var X01 = function (_Component) {
                     renderP1Score: this.renderP1Score,
                     renderP2Score: this.renderP2Score,
                     undo: this.undo,
+                    endTurn: this.endTurn,
                     doubleInOptionsCheck: this.doubleInOptionsCheck,
                     setOriginalScore: this.setOriginalScore,
                     resetThrowLog: this.resetThrowLog,
@@ -25779,79 +25686,22 @@ var Scoreboard = function (_Component) {
         value: function render() {
             var viewWidth = window.innerWidth;
             if (viewWidth < 720) {
-                if (this.props.modal) {
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'container-fluid' },
-                        _react2.default.createElement(_MobileModal2.default, {
-                            score: this.props.score,
-                            miss: this.props.miss,
-                            activeThrower: this.props.activeThrower,
-                            activeThrows: this.props.activeThrows,
-                            renderP1Score: this.props.renderP1Score,
-                            renderP2Score: this.props.renderP2Score,
-                            markProgress: this.props.markProgress,
-                            undo: this.props.undo,
-                            modalSwitch: this.props.modalSwitch
-                        }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row align-items-center modal-toggle' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col align-self-center text-center' },
-                                _react2.default.createElement(
-                                    'label',
-                                    null,
-                                    _react2.default.createElement(
-                                        'span',
-                                        { className: 'one-click-scoring' },
-                                        'Consolidate Buttons'
-                                    ),
-                                    _react2.default.createElement('input', { className: 'toggle', type: 'checkbox', onClick: this.props.modalSwitch, checked: true })
-                                )
-                            )
-                        )
-                    );
-                } else {
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'container-fluid' },
-                        _react2.default.createElement(_MobileView2.default, {
-                            score: this.props.score,
-                            miss: this.props.miss,
-                            activeThrower: this.props.activeThrower,
-                            activeThrows: this.props.activeThrows,
-                            renderP1Score: this.props.renderP1Score,
-                            renderP2Score: this.props.renderP2Score,
-                            markProgress: this.props.markProgress,
-                            undo: this.props.undo,
-                            modalSwitch: this.props.modalSwitch
-                        }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row align-items-center modal-toggle' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col text-center align-self-center' },
-                                _react2.default.createElement(
-                                    'label',
-                                    { className: 'align-self-center' },
-                                    _react2.default.createElement(
-                                        'span',
-                                        { className: 'one-click-scoring' },
-                                        'Consolidate Buttons'
-                                    ),
-                                    _react2.default.createElement('input', { className: 'toggle', type: 'checkbox', onClick: this.props.modalSwitch })
-                                )
-                            )
-                        )
-                    );
-                }
+                return _react2.default.createElement(_MobileView2.default, {
+                    score: this.props.score,
+                    miss: this.props.miss,
+                    endTurn: this.props.endTurn,
+                    activeThrower: this.props.activeThrower,
+                    activeThrows: this.props.activeThrows,
+                    renderP1Score: this.props.renderP1Score,
+                    renderP2Score: this.props.renderP2Score,
+                    markProgress: this.props.markProgress,
+                    undo: this.props.undo
+                });
             } else {
                 return _react2.default.createElement(_DesktopView2.default, {
                     score: this.props.score,
                     miss: this.props.miss,
+                    endTurn: this.props.endTurn,
                     activeThrower: this.props.activeThrower,
                     activeThrows: this.props.activeThrows,
                     renderP1Score: this.props.renderP1Score,
@@ -26769,6 +26619,17 @@ var DesktopView = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
+                        { className: "col-3 text-center end-turn" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this3.props.endTurn();
+                                } },
+                            "End Turn"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
                         { className: "col-6 text-center miss" },
                         _react2.default.createElement(
                             "button",
@@ -26780,7 +26641,7 @@ var DesktopView = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center undo" },
+                        { className: "col-3 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -28260,7 +28121,7 @@ var MobileModalView = function (_Component) {
             //Renders either an input or a text area depending on the screen width
             return _react2.default.createElement(
                 "div",
-                null,
+                { className: "container-fluid" },
                 this.playersRender(),
                 this.playerButtonsRender(),
                 _react2.default.createElement(
@@ -28268,11 +28129,13 @@ var MobileModalView = function (_Component) {
                     { className: "row miss-undo-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center start-over" },
+                        { className: "col-4 text-center end-turn" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this4.props.endTurn();
+                                } },
+                            "End Turn"
                         )
                     ),
                     _react2.default.createElement(
@@ -28296,10 +28159,23 @@ var MobileModalView = function (_Component) {
                                 } },
                             "Undo"
                         )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 text-center start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center start-over" },
+                        { className: "col-6 text-center start-over" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
@@ -31205,6 +31081,7 @@ var Scoreboard = function (_Component) {
             } else {
                 return _react2.default.createElement(_ScoreInput2.default, {
                     activeThrower: this.props.activeThrower,
+                    endTurn: this.props.endTurn,
                     score: this.props.score,
                     miss: this.props.miss,
                     undo: this.props.undo,
@@ -31299,6 +31176,7 @@ var ScoreInput = function (_Component) {
                 return _react2.default.createElement(_MobileInput2.default, {
                     activeThrower: this.props.activeThrower,
                     score: this.props.score,
+                    endTurn: this.props.endTurn,
                     miss: this.props.miss,
                     undo: this.props.undo,
                     gameX01Reset: this.props.gameX01Reset,
@@ -31309,6 +31187,7 @@ var ScoreInput = function (_Component) {
                     activeThrower: this.props.activeThrower,
                     score: this.props.score,
                     miss: this.props.miss,
+                    endTurn: this.props.endTurn,
                     undo: this.props.undo,
                     activeThrows: this.props.activeThrows
                 });
@@ -31318,7 +31197,8 @@ var ScoreInput = function (_Component) {
                     score: this.props.score,
                     miss: this.props.miss,
                     undo: this.props.undo,
-                    activeThrows: this.props.activeThrows
+                    activeThrows: this.props.activeThrows,
+                    endTurn: this.props.endTurn
                 });
             }
         }
@@ -32805,6 +32685,17 @@ var ScoreInput = function (_Component) {
                                             _this3.props.miss();
                                         } },
                                     "Miss"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 end-turn text-center", id: "end-turn-x01" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this3.props.endTurn();
+                                        } },
+                                    "End Turn"
                                 )
                             ),
                             _react2.default.createElement(
@@ -35076,1374 +34967,1412 @@ var ScoreInput = function (_Component) {
             if (this.props.activeThrower === 'p1') {
                 return _react2.default.createElement(
                     "div",
-                    { className: "row" },
+                    null,
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left border-top" },
+                        { className: "row" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(20, 1);
-                                } },
-                            "20x1"
+                            "div",
+                            { className: "col-6 offset-3 text-center throw-borders" },
+                            "Throw: ",
+                            _react2.default.createElement(
+                                "span",
+                                null,
+                                this.props.activeThrows + 1,
+                                " "
+                            )
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-top" },
+                        { className: "row" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(20, 2);
-                                } },
-                            "20x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-top" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(20, 1);
+                                    } },
+                                "20x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(20, 3);
-                                } },
-                            "20x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left border-top" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(20, 2);
+                                    } },
+                                "20x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(19, 1);
-                                } },
-                            "19x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-top" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(20, 3);
+                                    } },
+                                "20x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(19, 2);
-                                } },
-                            "19x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-top border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(19, 1);
+                                    } },
+                                "19x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(19, 3);
-                                } },
-                            "19x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(19, 2);
+                                    } },
+                                "19x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(18, 1);
-                                } },
-                            "18x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-top border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(19, 3);
+                                    } },
+                                "19x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(18, 2);
-                                } },
-                            "18x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(18, 1);
+                                    } },
+                                "18x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(18, 3);
-                                } },
-                            "18x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(18, 2);
+                                    } },
+                                "18x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(17, 1);
-                                } },
-                            "17x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(18, 3);
+                                    } },
+                                "18x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(17, 2);
-                                } },
-                            "17x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(17, 1);
+                                    } },
+                                "17x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(17, 3);
-                                } },
-                            "17x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(17, 2);
+                                    } },
+                                "17x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(16, 1);
-                                } },
-                            "16x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(17, 3);
+                                    } },
+                                "17x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(16, 2);
-                                } },
-                            "16x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(16, 1);
+                                    } },
+                                "16x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(16, 3);
-                                } },
-                            "16x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(16, 2);
+                                    } },
+                                "16x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(15, 1);
-                                } },
-                            "15x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(16, 3);
+                                    } },
+                                "16x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(15, 2);
-                                } },
-                            "15x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(15, 1);
+                                    } },
+                                "15x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(15, 3);
-                                } },
-                            "15x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(15, 2);
+                                    } },
+                                "15x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(14, 1);
-                                } },
-                            "14x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(15, 3);
+                                    } },
+                                "15x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(14, 2);
-                                } },
-                            "14x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(14, 1);
+                                    } },
+                                "14x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(14, 3);
-                                } },
-                            "14x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(14, 2);
+                                    } },
+                                "14x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(13, 1);
-                                } },
-                            "13x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(14, 3);
+                                    } },
+                                "14x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(13, 2);
-                                } },
-                            "13x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(13, 1);
+                                    } },
+                                "13x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(13, 3);
-                                } },
-                            "13x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(13, 2);
+                                    } },
+                                "13x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(12, 1);
-                                } },
-                            "12x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(13, 3);
+                                    } },
+                                "13x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(12, 2);
-                                } },
-                            "12x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(12, 1);
+                                    } },
+                                "12x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(12, 3);
-                                } },
-                            "12x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(12, 2);
+                                    } },
+                                "12x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(11, 1);
-                                } },
-                            "11x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(12, 3);
+                                    } },
+                                "12x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(11, 2);
-                                } },
-                            "11x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(11, 1);
+                                    } },
+                                "11x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(11, 3);
-                                } },
-                            "11x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(11, 2);
+                                    } },
+                                "11x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(10, 1);
-                                } },
-                            "10x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(11, 3);
+                                    } },
+                                "11x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(10, 2);
-                                } },
-                            "10x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(10, 1);
+                                    } },
+                                "10x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(10, 3);
-                                } },
-                            "10x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(10, 2);
+                                    } },
+                                "10x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(9, 1);
-                                } },
-                            "9x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(10, 3);
+                                    } },
+                                "10x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(9, 2);
-                                } },
-                            "9x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(9, 1);
+                                    } },
+                                "9x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(9, 3);
-                                } },
-                            "9x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(9, 2);
+                                    } },
+                                "9x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(8, 1);
-                                } },
-                            "8x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(9, 3);
+                                    } },
+                                "9x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(8, 2);
-                                } },
-                            "8x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(8, 1);
+                                    } },
+                                "8x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(8, 3);
-                                } },
-                            "8x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(8, 2);
+                                    } },
+                                "8x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(7, 1);
-                                } },
-                            "7x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(8, 3);
+                                    } },
+                                "8x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(7, 2);
-                                } },
-                            "7x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(7, 1);
+                                    } },
+                                "7x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(7, 3);
-                                } },
-                            "7x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(7, 2);
+                                    } },
+                                "7x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(6, 1);
-                                } },
-                            "6x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(7, 3);
+                                    } },
+                                "7x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(6, 2);
-                                } },
-                            "6x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(6, 1);
+                                    } },
+                                "6x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(6, 3);
-                                } },
-                            "6x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(6, 2);
+                                    } },
+                                "6x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(5, 1);
-                                } },
-                            "5x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(6, 3);
+                                    } },
+                                "6x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(5, 2);
-                                } },
-                            "5x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(5, 1);
+                                    } },
+                                "5x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(5, 3);
-                                } },
-                            "5x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(5, 2);
+                                    } },
+                                "5x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(4, 1);
-                                } },
-                            "4x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(5, 3);
+                                    } },
+                                "5x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(4, 2);
-                                } },
-                            "4x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(4, 1);
+                                    } },
+                                "4x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(4, 3);
-                                } },
-                            "4x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(4, 2);
+                                    } },
+                                "4x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(3, 1);
-                                } },
-                            "3x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(4, 3);
+                                    } },
+                                "4x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(3, 2);
-                                } },
-                            "3x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(3, 1);
+                                    } },
+                                "3x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(3, 3);
-                                } },
-                            "3x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(3, 2);
+                                    } },
+                                "3x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(2, 1);
-                                } },
-                            "2x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(3, 3);
+                                    } },
+                                "3x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(2, 2);
-                                } },
-                            "2x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(2, 1);
+                                    } },
+                                "2x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(2, 3);
-                                } },
-                            "2x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(2, 2);
+                                    } },
+                                "2x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(1, 1);
-                                } },
-                            "1x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(2, 3);
+                                    } },
+                                "2x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(1, 2);
-                                } },
-                            "1x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(1, 1);
+                                    } },
+                                "1x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(1, 3);
-                                } },
-                            "1x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col text-center number p1-multiple border-left border-bottom" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(1, 2);
+                                    } },
+                                "1x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(25, 1);
-                                } },
-                            "Bull"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col text-center number p2-multiple border-bottom border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p1-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(1, 3);
+                                    } },
+                                "1x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(25, 2);
-                                } },
-                            "Bullx2"
+                            "div",
+                            { className: "col text-center number p1-multiple border-left border-bottom" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(25, 1);
+                                    } },
+                                "Bull"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col text-center number p2-multiple border-bottom border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(25, 2);
+                                    } },
+                                "Bullx2"
+                            )
                         )
                     )
                 );
             } else if (this.props.activeThrower === 'p2') {
                 return _react2.default.createElement(
                     "div",
-                    { className: "row" },
+                    null,
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left border-top" },
+                        { className: "row" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(20, 1);
-                                } },
-                            "20x1"
+                            "div",
+                            { className: "col-6 offset-3 text-center throw-borders" },
+                            "Throw: ",
+                            _react2.default.createElement(
+                                "span",
+                                null,
+                                this.props.activeThrows + 1,
+                                " "
+                            )
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-top" },
+                        { className: "row" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(20, 2);
-                                } },
-                            "20x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-top" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(20, 1);
+                                    } },
+                                "20x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(20, 3);
-                                } },
-                            "20x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left border-top" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(20, 2);
+                                    } },
+                                "20x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(19, 1);
-                                } },
-                            "19x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-top" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(20, 3);
+                                    } },
+                                "20x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(19, 2);
-                                } },
-                            "19x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-top border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(19, 1);
+                                    } },
+                                "19x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(19, 3);
-                                } },
-                            "19x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-top" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(19, 2);
+                                    } },
+                                "19x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(18, 1);
-                                } },
-                            "18x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-top border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(19, 3);
+                                    } },
+                                "19x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(18, 2);
-                                } },
-                            "18x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(18, 1);
+                                    } },
+                                "18x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(18, 3);
-                                } },
-                            "18x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(18, 2);
+                                    } },
+                                "18x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(17, 1);
-                                } },
-                            "17x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(18, 3);
+                                    } },
+                                "18x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(17, 2);
-                                } },
-                            "17x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(17, 1);
+                                    } },
+                                "17x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(17, 3);
-                                } },
-                            "17x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(17, 2);
+                                    } },
+                                "17x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(16, 1);
-                                } },
-                            "16x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(17, 3);
+                                    } },
+                                "17x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(16, 2);
-                                } },
-                            "16x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(16, 1);
+                                    } },
+                                "16x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(16, 3);
-                                } },
-                            "16x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(16, 2);
+                                    } },
+                                "16x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(15, 1);
-                                } },
-                            "15x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(16, 3);
+                                    } },
+                                "16x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(15, 2);
-                                } },
-                            "15x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(15, 1);
+                                    } },
+                                "15x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(15, 3);
-                                } },
-                            "15x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(15, 2);
+                                    } },
+                                "15x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(14, 1);
-                                } },
-                            "14x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(15, 3);
+                                    } },
+                                "15x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(14, 2);
-                                } },
-                            "14x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(14, 1);
+                                    } },
+                                "14x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(14, 3);
-                                } },
-                            "14x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(14, 2);
+                                    } },
+                                "14x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(13, 1);
-                                } },
-                            "13x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(14, 3);
+                                    } },
+                                "14x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(13, 2);
-                                } },
-                            "13x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(13, 1);
+                                    } },
+                                "13x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(13, 3);
-                                } },
-                            "13x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(13, 2);
+                                    } },
+                                "13x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(12, 1);
-                                } },
-                            "12x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(13, 3);
+                                    } },
+                                "13x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(12, 2);
-                                } },
-                            "12x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(12, 1);
+                                    } },
+                                "12x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(12, 3);
-                                } },
-                            "12x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(12, 2);
+                                    } },
+                                "12x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(11, 1);
-                                } },
-                            "11x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(12, 3);
+                                    } },
+                                "12x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(11, 2);
-                                } },
-                            "11x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(11, 1);
+                                    } },
+                                "11x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(11, 3);
-                                } },
-                            "11x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(11, 2);
+                                    } },
+                                "11x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(10, 1);
-                                } },
-                            "10x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(11, 3);
+                                    } },
+                                "11x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(10, 2);
-                                } },
-                            "10x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(10, 1);
+                                    } },
+                                "10x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(10, 3);
-                                } },
-                            "10x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(10, 2);
+                                    } },
+                                "10x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(9, 1);
-                                } },
-                            "9x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(10, 3);
+                                    } },
+                                "10x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(9, 2);
-                                } },
-                            "9x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(9, 1);
+                                    } },
+                                "9x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(9, 3);
-                                } },
-                            "9x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(9, 2);
+                                    } },
+                                "9x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(8, 1);
-                                } },
-                            "8x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(9, 3);
+                                    } },
+                                "9x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(8, 2);
-                                } },
-                            "8x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(8, 1);
+                                    } },
+                                "8x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(8, 3);
-                                } },
-                            "8x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(8, 2);
+                                    } },
+                                "8x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(7, 1);
-                                } },
-                            "7x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(8, 3);
+                                    } },
+                                "8x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(7, 2);
-                                } },
-                            "7x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(7, 1);
+                                    } },
+                                "7x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(7, 3);
-                                } },
-                            "7x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(7, 2);
+                                    } },
+                                "7x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(6, 1);
-                                } },
-                            "6x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(7, 3);
+                                    } },
+                                "7x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(6, 2);
-                                } },
-                            "6x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(6, 1);
+                                    } },
+                                "6x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(6, 3);
-                                } },
-                            "6x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(6, 2);
+                                    } },
+                                "6x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(5, 1);
-                                } },
-                            "5x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(6, 3);
+                                    } },
+                                "6x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(5, 2);
-                                } },
-                            "5x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(5, 1);
+                                    } },
+                                "5x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(5, 3);
-                                } },
-                            "5x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(5, 2);
+                                    } },
+                                "5x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(4, 1);
-                                } },
-                            "4x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(5, 3);
+                                    } },
+                                "5x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(4, 2);
-                                } },
-                            "4x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(4, 1);
+                                    } },
+                                "4x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(4, 3);
-                                } },
-                            "4x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(4, 2);
+                                    } },
+                                "4x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(3, 1);
-                                } },
-                            "3x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(4, 3);
+                                    } },
+                                "4x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(3, 2);
-                                } },
-                            "3x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(3, 1);
+                                    } },
+                                "3x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(3, 3);
-                                } },
-                            "3x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(3, 2);
+                                    } },
+                                "3x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(2, 1);
-                                } },
-                            "2x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(3, 3);
+                                    } },
+                                "3x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(2, 2);
-                                } },
-                            "2x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(2, 1);
+                                    } },
+                                "2x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(2, 3);
-                                } },
-                            "2x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(2, 2);
+                                    } },
+                                "2x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(1, 1);
-                                } },
-                            "1x1"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(2, 3);
+                                    } },
+                                "2x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(1, 2);
-                                } },
-                            "1x2"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-single border-left" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(1, 1);
+                                    } },
+                                "1x1"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(1, 3);
-                                } },
-                            "1x3"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col text-center number p1-multiple border-left border-bottom" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(1, 2);
+                                    } },
+                                "1x2"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(25, 1);
-                                } },
-                            "Bull"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col text-center number p2-multiple border-bottom border-right" },
+                            "div",
+                            { className: "col-2 text-center number border-bottom p2-multiple border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(1, 3);
+                                    } },
+                                "1x3"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.score(25, 2);
-                                } },
-                            "Bullx2"
+                            "div",
+                            { className: "col text-center number p1-multiple border-left border-bottom" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(25, 1);
+                                    } },
+                                "Bull"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col text-center number p2-multiple border-bottom border-right" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.score(25, 2);
+                                    } },
+                                "Bullx2"
+                            )
                         )
                     )
                 );
@@ -36464,7 +36393,18 @@ var ScoreInput = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col miss text-center" },
+                        { className: "col-3 end-turn text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this3.props.endTurn();
+                                } },
+                            "End Turn"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 miss text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -36475,29 +36415,7 @@ var ScoreInput = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col text-center" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-10 offset-1 throw-borders" },
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "col-12 text-center" },
-                                    "Throw:"
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "col-12 text-center" },
-                                    this.props.activeThrows + 1
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col undo text-center" },
+                        { className: "col-3 undo text-center" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {

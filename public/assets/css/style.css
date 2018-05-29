@@ -157,7 +157,8 @@
         padding-left: .5%;
         padding-right: .5%;
     }
-    .miss {
+    .miss,
+    .end-turn {
         padding-top: .5%;
         padding-bottom: .5%;
         padding-left: 0;
@@ -166,7 +167,7 @@
     .undo {
         padding-top: .5%;
         padding-bottom: .5%;
-        padding-left: 1%;
+        padding-left: 0;
         padding-right: 0;
     }
     .x01-option {
@@ -187,6 +188,7 @@
         font-weight: normal;
     }
     .miss button,
+    .end-turn button,
     .undo button,
     .start-over button {
         width: 100%;
@@ -195,9 +197,6 @@
         font-family: 'Cuprum', cursive;
         font-size: 1.3rem;
         font-weight: bold;
-    }
-    .miss button:hover {
-        background-color: #CDA9B9;
     }
     .number button:hover,
     .modal-body button:hover {
@@ -292,6 +291,7 @@
         padding-bottom: .5%
     }
     .miss,
+    .end-turn,
     .undo {
         padding-top: .5%;
         padding-bottom: .5%
@@ -340,6 +340,7 @@
     }
     .miss button,
     .undo button,
+    .end-turn button,
     .start-over button {
         width: 100%;
         height: 50px;
@@ -347,9 +348,6 @@
         font-family: 'Cuprum', cursive;
         font-size: 1.75rem;
         font-weight: normal;
-    }
-    .miss button:hover {
-        background-color: #CDA9B9;
     }
     .number button:hover,
     .modal-body button:hover {
@@ -412,6 +410,7 @@
         padding-bottom: .5%
     }
     .miss,
+    .end-turn,
     .undo {
         padding-top: .5%;
         padding-bottom: .5%
@@ -460,6 +459,7 @@
     }
     .miss button,
     .undo button,
+    .end-turn button,
     .start-over button {
         width: 100%;
         height: 50px;
@@ -467,9 +467,6 @@
         font-family: 'Cuprum', cursive;
         font-size: 1.75rem;
         font-weight: normal;
-    }
-    .miss button:hover {
-        background-color: #CDA9B9;
     }
     .number button:hover,
     .modal-body button:hover {
@@ -499,8 +496,9 @@
     .points-score {
         font-size: 2rem;
     }
-    #miss-x01,
-    #undo-x01 button {
+    #miss-x01 button,
+    #undo-x01 button,
+    #end-turn-x01 {
         margin-bottom: 10%;
         margin-left: 3%;
     }
@@ -558,6 +556,15 @@ button:target {
     border-bottom: 4px double black;
 }
 
+.number button:hover,
+.modal-body button:hover {
+    background-color: #689276;
+}
+
+.miss button:hover {
+    background-color: #CDA9B9;
+}
+
 .undo button:hover,
 .start-over button:hover,
 .p1-single button:hover {
@@ -572,7 +579,8 @@ button:target {
     background-color: rgb(50, 50, 50);
 }
 
-.p2-multiple button:hover {
+.p2-multiple button:hover,
+.end-turn button:hover {
     background-color: rgb(197, 98, 98);
 }
 

@@ -11,7 +11,6 @@ export default class Cricket extends Component {
             activeThrows: 0,
             activeMarks: 0,
             gameState: "playing",
-            modal: false,
             gameWinner: {},
             throwLog: [],
 
@@ -59,6 +58,7 @@ export default class Cricket extends Component {
         this.gameStateChange = this.gameStateChange.bind(this);
         this.gameOverCheck = this.gameOverCheck.bind(this);
         this.miss = this.miss.bind(this);
+        this.endTurn = this.endTurn.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
         this.addMarks = this.addMarks.bind(this);
         this.resetMarks = this.resetMarks.bind(this);
@@ -67,7 +67,7 @@ export default class Cricket extends Component {
         this.addToLog = this.addToLog.bind(this);
         this.undo = this.undo.bind(this);
         this.undoSwitch = this.undoSwitch.bind(this);
-        this.modalSwitch = this.modalSwitch.bind(this);
+        this.scoringLogic = this.scoringLogic.bind(this);
     }
 
     gameCricketReset() {
@@ -110,11 +110,6 @@ export default class Cricket extends Component {
 
     setThrowNumber(activeThrows) {
         this.setState({ activeThrows })
-    }
-
-    modalSwitch() {
-        const modal = this.state.modal ? false : true;
-        this.setState({ modal })
     }
 
     setActiveThrower(activeThrower) {
@@ -512,66 +507,7 @@ export default class Cricket extends Component {
     }
 
     score(number, multiplier) {
-        let thrower = this.state.activeThrower;
-
-        let otherThrower = "";
-
-        if (thrower === "p1") {
-            otherThrower = "p2";
-        } else {
-            otherThrower = "p1";
-        }
-
-        let throwerNumber = `${thrower}${number}`;
-        let otherThrowerNumber = `${otherThrower}${number}`;
-        let playerScore = `${thrower}Score`;
-        let playerThrows = `${thrower}Throws`;
-
-        let playerScoreState = eval("this.state." + playerScore);
-        let numberState = eval("this.state." + throwerNumber);
-        let throwState = eval("this.state." + playerThrows);
-        let otherThrowerState = eval("this.state." + otherThrowerNumber);
-
-        if (numberState === 0) {
-            this.setThrowerNumber(thrower, number, multiplier);
-        } else if (numberState === 1) {
-            if (multiplier === 1 || multiplier === 2) {
-                this.setThrowerNumber(thrower, number, multiplier);
-            } else if (multiplier === 3) {
-                if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                    this.setPlayerScore(thrower, number, 1);
-                } else {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
-            }
-        } else if (numberState === 2) {
-            if (multiplier === 1) {
-                this.setThrowerNumber(thrower, number, multiplier);
-            } else if (multiplier === 2) {
-                if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                    this.setPlayerScore(thrower, number, 1);
-                } else {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
-            } else if (multiplier === 3) {
-                if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                    this.setPlayerScore(thrower, number, 2);
-                } else {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
-            }
-        } else if (numberState >= 3) {
-            if (otherThrowerState < 3) {
-                this.setThrowerNumber(thrower, number, multiplier);
-                this.setPlayerScore(thrower, number, multiplier);
-            } else {
-                this.setThrowerNumber(thrower, number, multiplier);
-            }
-        }
-
+        this.scoringLogic(number, multiplier);
         this.addThrow();
         this.addMarks(multiplier);
         this.addToLog(number, multiplier);
@@ -580,11 +516,122 @@ export default class Cricket extends Component {
         this.checkThrower();
     }
 
+    scoringLogic(number, multiplier) {
+        const thrower = this.state.activeThrower;
+        let otherThrower;
+
+        if (thrower === "p1") {
+            otherThrower = "p2";
+        } else {
+            otherThrower = "p1";
+        }
+
+        const otherThrowerNumber = `${otherThrower}${number}`;
+        const playerScore = `${thrower}Score`;
+        const playerThrows = `${thrower}Throws`;
+        const playerScoreState = eval("this.state." + playerScore);
+        const throwState = eval("this.state." + playerThrows);
+        const otherThrowerState = eval("this.state." + otherThrowerNumber);
+        const throwerNumber = `${thrower}${number}`;
+        const numberState = eval("this.state." + throwerNumber);
+
+        if (numberState === 0) {
+            this.setThrowerNumber(thrower, number, multiplier);
+        }
+        else if (numberState === 1) {
+            if (multiplier === 1 || multiplier === 2) {
+                this.setThrowerNumber(thrower, number, multiplier);
+            }
+            else if (multiplier === 3) {
+                if (otherThrowerState < 3) {
+                    this.setThrowerNumber(thrower, number, multiplier);
+                    this.setPlayerScore(thrower, number, 1);
+                }
+                else {
+                    this.setThrowerNumber(thrower, number, multiplier);
+                }
+            }
+        }
+        else if (numberState === 2) {
+            if (multiplier === 1) {
+                this.setThrowerNumber(thrower, number, multiplier);
+            }
+            else if (multiplier === 2) {
+                if (otherThrowerState < 3) {
+                    this.setThrowerNumber(thrower, number, multiplier);
+                    this.setPlayerScore(thrower, number, 1);
+                }
+                else {
+                    this.setThrowerNumber(thrower, number, multiplier);
+                }
+            }
+            else if (multiplier === 3) {
+                if (otherThrowerState < 3) {
+                    this.setThrowerNumber(thrower, number, multiplier);
+                    this.setPlayerScore(thrower, number, 2);
+                }
+                else {
+                    this.setThrowerNumber(thrower, number, multiplier);
+                }
+            }
+        }
+        else if (numberState >= 3) {
+            if (otherThrowerState < 3) {
+                this.setThrowerNumber(thrower, number, multiplier);
+                this.setPlayerScore(thrower, number, multiplier);
+            }
+            else {
+                this.setThrowerNumber(thrower, number, multiplier);
+            }
+        }
+    }
+
     miss() {
         this.addThrow();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.addToLog("mi", "ss");
         this.checkThrower();
+    }
+
+    endTurn() {
+        let thrower = this.state.activeThrower;
+        let playerThrows = `${thrower}Throws`;
+        let playerThrowsState = eval("this.state." + playerThrows);
+        switch (this.state.activeThrows) {
+            case 0:
+                this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 3 });
+                for (var i = 0; i < 3; i++) {
+                    this.addToLog("mi", "ss");
+                }
+                if (thrower === "p1") {
+                    this.setActiveThrower("p2");
+                } else {
+                    this.setActiveThrower("p1");
+                }
+                this.setThrowNumber(0);
+                break;
+            case 1:
+                this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 2 });
+                this.addToLog("mi", "ss");
+                this.addToLog("mi", "ss");
+                if (this.state.activeThrower === "p1") {
+                    this.setActiveThrower("p2");
+                } else {
+                    this.setActiveThrower("p1");
+                }
+                this.setThrowNumber(0);
+                break;
+            case 2:
+                this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
+                this.addToLog("mi", "ss");
+                if (this.state.activeThrower === "p1") {
+                    this.setActiveThrower("p2");
+                } else {
+                    this.setActiveThrower("p1");
+                }
+                this.setThrowNumber(0);
+                break;
+        }
     }
 
     checkThrower() {
@@ -688,6 +735,7 @@ export default class Cricket extends Component {
                 <Scoreboard
                     score={this.score}
                     miss={this.miss}
+                    endTurn={this.endTurn}
                     activeThrower={this.state.activeThrower}
                     activeThrows={this.state.activeThrows}
                     renderP1Score={this.renderP1Score}
@@ -695,7 +743,6 @@ export default class Cricket extends Component {
                     markProgress={this.markProgress}
                     undo={this.undo}
                     gameCricketReset={this.gameCricketReset}
-                    modal={this.state.modal}
                     modalSwitch={this.modalSwitch}
                 />
             )

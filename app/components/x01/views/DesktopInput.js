@@ -421,6 +421,11 @@ export default class ScoreInput extends Component {
                                     Miss
                                 </button>
                             </div>
+                            <div className="col-12 end-turn text-center" id="end-turn-x01">
+                                <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
+                                    End Turn
+                                </button>
+                            </div>
                             <div className="col-12 text-center undo" id="undo-x01">
                                 <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                                     Undo
