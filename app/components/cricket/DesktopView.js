@@ -388,12 +388,17 @@ export default class DesktopView extends Component {
                     </div>
                 </div>
                 <div className="row">
+                    <div className="col-3 text-center end-turn">
+                        <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
+                            End Turn
+                        </button>
+                    </div>
                     <div className="col-6 text-center miss">
                         <button type="button" className="btn" onClick={() => { this.props.miss() }}>
                             Miss
                         </button>
                     </div>
-                    <div className="col-6 text-center undo">
+                    <div className="col-3 text-center undo">
                         <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                             Undo
                         </button>

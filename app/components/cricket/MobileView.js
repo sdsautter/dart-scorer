@@ -352,13 +352,13 @@ export default class MobileModalView extends Component {
     render() {
         //Renders either an input or a text area depending on the screen width
         return (
-            <div>
+            <div className='container-fluid'>
                 {this.playersRender()}
                 {this.playerButtonsRender()}
                 <div className="row miss-undo-row">
-                    <div className="col-2 text-center start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
+                    <div className="col-4 text-center end-turn">
+                        <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
+                            End Turn
                         </button>
                     </div>
                     <div className="col-4 text-center miss">
@@ -371,13 +371,8 @@ export default class MobileModalView extends Component {
                             Undo
                         </button>
                     </div>
-                    <div className="col-2 text-center start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
-                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
-                        </button>
-                    </div>
                 </div>
-                {/* <div className="row">
+                <div className="row">
                     <div className="col-6 text-center start-over">
                         <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
                             <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
@@ -388,7 +383,7 @@ export default class MobileModalView extends Component {
                             <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
                         </button>
                     </div>
-                </div> */}
+                </div>
                 <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

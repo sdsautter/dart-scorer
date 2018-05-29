@@ -16,10 +16,11 @@ export default class ScoreInput extends Component {
                 <MobileInput
                     activeThrower={this.props.activeThrower}
                     score={this.props.score}
+                    endTurn={this.props.endTurn}
                     miss={this.props.miss}
                     undo={this.props.undo}
-                    gameX01Reset={this.props.gameX01Reset} 
-                    activeThrows={this.props.activeThrows}                   
+                    gameX01Reset={this.props.gameX01Reset}
+                    activeThrows={this.props.activeThrows}
                 />
             )
         } else if (intViewportWidth < 900) {
@@ -29,6 +30,7 @@ export default class ScoreInput extends Component {
                     activeThrower={this.props.activeThrower}
                     score={this.props.score}
                     miss={this.props.miss}
+                    endTurn={this.props.endTurn}
                     undo={this.props.undo}
                     activeThrows={this.props.activeThrows}
                 />
@@ -41,6 +43,7 @@ export default class ScoreInput extends Component {
                     miss={this.props.miss}
                     undo={this.props.undo}
                     activeThrows={this.props.activeThrows}
+                    endTurn={this.props.endTurn}
                 />
             )
         }
