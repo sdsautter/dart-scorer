@@ -201,6 +201,10 @@
         font-size: 1.3rem;
         font-weight: bold;
     }
+    .mobile-start-over button {
+        height: 30px;
+        padding: 0;
+    }
     .number button:hover,
     .modal-body button:hover {
         background-color: #689276;
