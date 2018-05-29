@@ -33173,15 +33173,33 @@ var ScoreInput = function (_Component) {
                 null,
                 _react2.default.createElement(
                     "div",
-                    { className: "row" },
+                    { className: "row", id: "x01MobileThrow" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 throw-borders text-center", id: "mobileThrow" },
+                        { className: "col-3 text-center start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 throw-borders text-center align-self-center", id: "mobileThrow" },
                         "Throw: ",
                         _react2.default.createElement(
                             "span",
                             null,
                             this.props.activeThrows + 1
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-3 text-center start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
                         )
                     )
                 ),
@@ -33191,16 +33209,18 @@ var ScoreInput = function (_Component) {
                     { className: "row miss-undo-row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-2 text-center start-over" },
+                        { className: "col-3 text-center end-turn" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.endTurn();
+                                } },
+                            "End Turn"
                         )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-4 text-center miss" },
+                        { className: "col-6 text-center miss" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
@@ -33211,22 +33231,13 @@ var ScoreInput = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-4 text-center undo" },
+                        { className: "col-3 text-center undo" },
                         _react2.default.createElement(
                             "button",
                             { type: "button", className: "btn", onClick: function onClick() {
                                     _this2.props.undo();
                                 } },
                             "Undo"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-2 text-center start-over" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
                         )
                     )
                 ),
