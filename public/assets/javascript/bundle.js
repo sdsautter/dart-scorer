@@ -7054,7 +7054,6 @@ var Cricket = function (_Component) {
         _this.botLogic = _this.botLogic.bind(_this);
         _this.bot3MarkLogicSwitch = _this.bot3MarkLogicSwitch.bind(_this);
         _this.botAddThrows = _this.botAddThrows.bind(_this);
-        _this.botSwitchPlayer = _this.botSwitchPlayer.bind(_this);
         _this.checkThrower = _this.checkThrower.bind(_this);
         _this.renderP1Score = _this.renderP1Score.bind(_this);
         _this.renderP2Score = _this.renderP2Score.bind(_this);
@@ -7588,10 +7587,6 @@ var Cricket = function (_Component) {
                 case 0:
                     this.setState(_defineProperty({}, botNumberMarks, 3), function () {
                         _this2.botAddThrows(botThrows);
-                        if (number === 25) {
-                            _this2.gameOverCheck();
-                        }
-                        _this2.botSwitchPlayer();
                     });
                     break;
                 case 1:
@@ -7599,10 +7594,6 @@ var Cricket = function (_Component) {
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
                             _this2.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1), function () {
                                 _this2.botAddThrows(botThrows);
-                                if (number === 25) {
-                                    _this2.gameOverCheck();
-                                }
-                                _this2.botSwitchPlayer();
                             });
                         });
                     } else if (humanNumber < 3) {
@@ -7610,17 +7601,9 @@ var Cricket = function (_Component) {
                             if (scoreDiff <= 50) {
                                 _this2.setState({ p2Score: botScore + number });
                                 _this2.botAddThrows(botThrows);
-                                if (number === 25) {
-                                    _this2.gameOverCheck();
-                                }
-                                _this2.botSwitchPlayer();
                             } else {
                                 _this2.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
                                 _this2.botAddThrows(botThrows);
-                                if (number === 25) {
-                                    _this2.gameOverCheck();
-                                }
-                                _this2.botSwitchPlayer();
                             }
                         });
                     }
@@ -7630,10 +7613,6 @@ var Cricket = function (_Component) {
                         this.setState(_defineProperty({}, botNumberMarks, 3)), function () {
                             _this2.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2), function () {
                                 _this2.botAddThrows(botThrows);
-                                if (number === 25) {
-                                    _this2.gameOverCheck();
-                                }
-                                _this2.botSwitchPlayer();
                             });
                         };
                     } else if (humanNumber < 3) {
@@ -7641,37 +7620,25 @@ var Cricket = function (_Component) {
                             if (scoreDiff <= awayFrom50) {
                                 _this2.setState({ p2Score: botScore + double });
                                 _this2.botAddThrows(botThrows);
-                                _this2.botSwitchPlayer();
                             } else if (scoreDiff <= 50) {
                                 _this2.setState({ p2Score: botScore + number });
                                 _this2.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
                                 _this2.botAddThrows(botThrows);
-                                if (number === 25) {
-                                    _this2.gameOverCheck();
-                                }
-                                _this2.botSwitchPlayer();
                             } else {
                                 _this2.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2));
                                 _this2.botAddThrows(botThrows);
-                                if (number === 25) {
-                                    _this2.gameOverCheck();
-                                }
-                                _this2.botSwitchPlayer();
                             }
                         });
                     }
                     break;
                 default:
-
                     if (humanNumber >= 3) {
-
                         this.bot3MarkLogicSwitch(nextNumber);
                     } else if (humanNumber < 3) {
                         if (scoreDiff <= doubleAwayFrom50) {
                             console.log("Yep");
                             this.setState({ p2Score: botScore + triple });
                             this.botAddThrows(botThrows);
-                            this.botSwitchPlayer();
                         } else if (scoreDiff <= awayFrom50) {
                             this.setState({ p2Score: botScore + double });
                             this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
@@ -7695,14 +7662,6 @@ var Cricket = function (_Component) {
             this.gameOverCheck();
             this.setActiveThrower("p1");
         }
-    }, {
-        key: "botSwitchPlayer",
-        value: function botSwitchPlayer() {
-            this.setActiveThrower("p1");
-        }
-    }, {
-        key: "botMarkCheck",
-        value: function botMarkCheck() {}
     }, {
         key: "scoringLogic",
         value: function scoringLogic(number, multiplier) {

@@ -53,7 +53,6 @@ export default class Cricket extends Component {
         this.botLogic = this.botLogic.bind(this);
         this.bot3MarkLogicSwitch = this.bot3MarkLogicSwitch.bind(this);
         this.botAddThrows = this.botAddThrows.bind(this);
-        this.botSwitchPlayer = this.botSwitchPlayer.bind(this);
         this.checkThrower = this.checkThrower.bind(this);
         this.renderP1Score = this.renderP1Score.bind(this);
         this.renderP2Score = this.renderP2Score.bind(this);
@@ -547,7 +546,7 @@ export default class Cricket extends Component {
         const human25 = this.state.p125;
 
         // if (scoreDiff <= 50) {
-            this.bot3MarkLogicSwitch(20);
+        this.bot3MarkLogicSwitch(20);
         // }
     }
 
@@ -572,10 +571,6 @@ export default class Cricket extends Component {
             case 0:
                 this.setState({ [botNumberMarks]: 3 }, () => {
                     this.botAddThrows(botThrows);
-                    if (number === 25) {
-                        this.gameOverCheck();
-                    }
-                    this.botSwitchPlayer();
                 })
                 break;
             case 1:
@@ -583,10 +578,7 @@ export default class Cricket extends Component {
                     this.setState({ [botNumberMarks]: 3 }, () => {
                         this.setState({ [botNextNumberMarks]: botNextNumber + 1 }, () => {
                             this.botAddThrows(botThrows);
-                            if (number === 25) {
-                                this.gameOverCheck();
-                            }
-                            this.botSwitchPlayer();
+
                         })
                     })
                 }
@@ -595,17 +587,11 @@ export default class Cricket extends Component {
                         if (scoreDiff <= 50) {
                             this.setState({ p2Score: botScore + number });
                             this.botAddThrows(botThrows);
-                            if (number === 25) {
-                                this.gameOverCheck();
-                            }
-                            this.botSwitchPlayer();
+
                         } else {
                             this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
                             this.botAddThrows(botThrows);
-                            if (number === 25) {
-                                this.gameOverCheck();
-                            }
-                            this.botSwitchPlayer();
+
                         }
                     })
                 }
@@ -615,10 +601,7 @@ export default class Cricket extends Component {
                     this.setState({ [botNumberMarks]: 3 }), () => {
                         this.setState({ [botNextNumberMarks]: botNextNumber + 2 }, () => {
                             this.botAddThrows(botThrows);
-                            if (number === 25) {
-                                this.gameOverCheck();
-                            }
-                            this.botSwitchPlayer();
+
                         })
                     }
                 }
@@ -627,33 +610,20 @@ export default class Cricket extends Component {
                         if (scoreDiff <= awayFrom50) {
                             this.setState({ p2Score: botScore + double });
                             this.botAddThrows(botThrows);
-                            this.botSwitchPlayer();
                         } else if (scoreDiff <= 50) {
                             this.setState({ p2Score: botScore + number });
                             this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
                             this.botAddThrows(botThrows);
-                            if (number === 25) {
-                                this.gameOverCheck();
-                            }
-                            this.botSwitchPlayer();
-
                         } else {
                             this.setState({ [botNextNumberMarks]: botNextNumber + 2 });
                             this.botAddThrows(botThrows);
-                            if (number === 25) {
-                                this.gameOverCheck();
-                            }
-                            this.botSwitchPlayer();
                         }
                     })
                 }
                 break;
             default:
-
                 if (humanNumber >= 3) {
-
                     this.bot3MarkLogicSwitch(nextNumber)
-
                 }
 
                 else if (humanNumber < 3) {
@@ -661,12 +631,11 @@ export default class Cricket extends Component {
                         console.log("Yep");
                         this.setState({ p2Score: botScore + triple });
                         this.botAddThrows(botThrows);
-                        this.botSwitchPlayer();
                     } else if (scoreDiff <= awayFrom50) {
                         this.setState({ p2Score: botScore + double });
                         this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
                         this.botAddThrows(botThrows);
-                        
+
                     } else if (scoreDiff <= 50) {
                         this.setState({ p2Score: botScore + number });
                         this.setState({ [botNextNumberMarks]: botNextNumber + 2 })
@@ -674,7 +643,7 @@ export default class Cricket extends Component {
                     } else {
                         this.setState({ [botNextNumberMarks]: botNextNumber + 3 })
                         this.botAddThrows(botThrows);
-                        
+
                     }
                 }
                 break;
@@ -685,14 +654,6 @@ export default class Cricket extends Component {
         this.setState({ p2Throws: botThrows + 3 });
         this.gameOverCheck();
         this.setActiveThrower("p1");
-    }
-
-    botSwitchPlayer() {
-        this.setActiveThrower("p1");
-    }
-
-    botMarkCheck() {
-
     }
 
     scoringLogic(number, multiplier) {
