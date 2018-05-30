@@ -7016,6 +7016,9 @@ var Cricket = function (_Component) {
             gameWinner: {},
             throwLog: [],
 
+            botGame: false,
+            botDifficulty: "",
+
             p120: 0,
             p119: 0,
             p118: 0,
@@ -7048,6 +7051,8 @@ var Cricket = function (_Component) {
 
             //Binding functions to change the states
         };_this.score = _this.score.bind(_this);
+        _this.botLogic = _this.botLogic.bind(_this);
+        _this.botThrowAndSwitch = _this.botThrowAndSwitch.bind(_this);
         _this.checkThrower = _this.checkThrower.bind(_this);
         _this.renderP1Score = _this.renderP1Score.bind(_this);
         _this.renderP2Score = _this.renderP2Score.bind(_this);
@@ -7528,6 +7533,154 @@ var Cricket = function (_Component) {
             this.checkThrower();
         }
     }, {
+        key: "botLogic",
+        value: function botLogic() {
+            var _this2 = this;
+
+            console.log("hello");
+            var difficulty = this.state.botDifficulty;
+
+            var botScore = parseInt(this.state.p2Score);
+            var botThrows = parseInt(this.state.p2Throws);
+            var humanScore = parseInt(this.state.p1Score);
+            var scoreDiff = botScore - humanScore;
+            var bot20 = this.state.p220;
+            var bot19 = this.state.p219;
+            var bot18 = this.state.p218;
+            var bot17 = this.state.p217;
+            var bot16 = this.state.p216;
+            var bot15 = this.state.p215;
+            var bot25 = this.state.p225;
+
+            var human20 = this.state.p120;
+            var human19 = this.state.p119;
+            var human18 = this.state.p118;
+            var human17 = this.state.p117;
+            var human16 = this.state.p116;
+            var human15 = this.state.p115;
+            var human25 = this.state.p125;
+
+            if (scoreDiff <= 50) {
+
+                if (bot20 === 0) {
+                    this.setState({ p220: 3 }, function () {
+                        _this2.botThrowAndSwitch(botThrows);
+                    });
+                } else if (bot20 === 1) {
+                    if (human20 >= 3) {
+                        this.setState({ p20: 3 }, function () {
+                            _this2.setState({ p19: bot19 + 1 }, function () {
+                                _this2.botThrowAndSwitch(botThrows);
+                            });
+                        });
+                    } else if (human20 < 3) {
+                        this.setState({ p20: 4 }, function () {
+                            if (scoreDiff <= 50) {
+                                _this2.setState({ p2Score: botScore + 20 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            } else {
+                                _this2.setState({ p219: bot19 + 1 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            }
+                        });
+                    }
+                } else if (bot20 === 2) {
+                    if (human20 >= 3) {
+                        this.setState({ p20: 3 }), function () {
+                            _this2.setState({ p19: 2 }, function () {
+                                _this2.botThrowAndSwitch(botThrows);
+                            });
+                        };
+                    } else if (human20 < 3) {
+                        this.setState({ p20: 6 }, function () {
+                            if (_this2.scoreDiff < 10) {
+                                _this2.setState({ p2Score: botScore + 40 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            } else if (scoreDiff <= 50) {
+                                _this2.setState({ p2Score: botScore + 20 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            } else {
+                                _this2.setState({ p219: bot19 + 1 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            }
+                        });
+                    }
+                } else if (bot20 >= 3) {
+                    if (human20 >= 3) {
+
+                        if (p19 < 3) {
+                            switch (p19) {
+                                case 0:
+                                    this.setState({ p19: 3 }, function () {
+                                        _this2.botThrowAndSwitch(botThrows);
+                                    });
+                                    break;
+                                case 1:
+                                    this.setState({ p19: 3 }, function () {
+                                        if (human19 < 3) {
+                                            _this2.setState({ p2Score: botScore + 19 });
+                                            _this2.botThrowAndSwitch(botThrows);
+                                        } else {
+                                            _this2.setState({ p218: bot18 + 1 });
+                                            _this2.botThrowAndSwitch(botThrows);
+                                        }
+                                    });
+                                    break;
+
+                                case 2:
+                                    this.setState({ p19: 3 }, function () {
+                                        if (human19 < 3) {
+                                            if (scoreDiff < 12) {
+                                                _this2.setState({ p2Score: botScore + 38 });
+                                                _this2.botThrowAndSwitch(botThrows);
+                                            } else {
+                                                _this2.setState({ p2Score: botScore + 19 });
+                                                _this2.setState({ p218: bot18 + 1 });
+                                                _this2.botThrowAndSwitch(botThrows);
+                                            }
+                                        } else {
+                                            _this2.setState({ p218: bot18 + 2 });
+                                            _this2.botThrowAndSwitch(botThrows);
+                                        }
+                                    });
+                                    break;
+                            }
+                        }
+
+                        this.setState({ p19: 3 }, function () {
+                            _this2.botThrowAndSwitch(botThrows);
+                        });
+                    } else if (human20 < 3) {
+                        this.setState({ p20: bot20 + 3 }, function () {
+                            if (scoreDiff <= 0) {
+                                _this2.setState({ p2Score: botScore + 60 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            } else if (scoreDiff < 10) {
+                                _this2.setState({ p2Score: botScore + 40 });
+                                _this2.setState({ p219: bot19 + 1 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            } else if (scoreDiff <= 50) {
+                                _this2.setState({ p2Score: botScore + 20 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            } else {
+                                _this2.setState({ p219: bot19 + 2 });
+                                _this2.botThrowAndSwitch(botThrows);
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }, {
+        key: "botThrowAndSwitch",
+        value: function botThrowAndSwitch(botThrows) {
+            this.setState({ p2Throws: botThrows + 3 });
+            this.setActiveThrower("p1");
+        }
+    }, {
+        key: "botMarkCheck",
+        value: function botMarkCheck() {}
+    }, {
         key: "scoringLogic",
         value: function scoringLogic(number, multiplier) {
             var thrower = this.state.activeThrower;
@@ -7644,7 +7797,12 @@ var Cricket = function (_Component) {
             if (this.state.activeThrows === 2) {
                 this.allStarPoints();
                 if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
+
+                    if (this.state.botGame) {
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
@@ -7671,13 +7829,13 @@ var Cricket = function (_Component) {
     }, {
         key: "gameOverCheck",
         value: function gameOverCheck() {
-            var _this2 = this;
+            var _this3 = this;
 
             setTimeout(function () {
-                if (_this2.state.p120 >= 3 && _this2.state.p119 >= 3 && _this2.state.p118 >= 3 && _this2.state.p117 >= 3 && _this2.state.p116 >= 3 && _this2.state.p115 >= 3 && _this2.state.p125 >= 3 && _this2.state.p1Score >= _this2.state.p2Score) {
-                    _this2.gameStateChange("p1");
-                } else if (_this2.state.p220 >= 3 && _this2.state.p219 >= 3 && _this2.state.p218 >= 3 && _this2.state.p217 >= 3 && _this2.state.p216 >= 3 && _this2.state.p215 >= 3 && _this2.state.p225 >= 3 && _this2.state.p2Score >= _this2.state.p1Score) {
-                    _this2.gameStateChange("p2");
+                if (_this3.state.p120 >= 3 && _this3.state.p119 >= 3 && _this3.state.p118 >= 3 && _this3.state.p117 >= 3 && _this3.state.p116 >= 3 && _this3.state.p115 >= 3 && _this3.state.p125 >= 3 && _this3.state.p1Score >= _this3.state.p2Score) {
+                    _this3.gameStateChange("p1");
+                } else if (_this3.state.p220 >= 3 && _this3.state.p219 >= 3 && _this3.state.p218 >= 3 && _this3.state.p217 >= 3 && _this3.state.p216 >= 3 && _this3.state.p215 >= 3 && _this3.state.p225 >= 3 && _this3.state.p2Score >= _this3.state.p1Score) {
+                    _this3.gameStateChange("p2");
                 }
             }, 500);
         }
@@ -7699,10 +7857,10 @@ var Cricket = function (_Component) {
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this3 = this;
+            var _this4 = this;
 
             setTimeout(function () {
-                _this3.setState({ activeMarks: 0 });
+                _this4.setState({ activeMarks: 0 });
             }, 1000);
         }
     }, {
@@ -25961,7 +26119,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -25972,7 +26130,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -25983,7 +26141,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26008,7 +26166,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -26019,7 +26177,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26030,7 +26188,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26055,7 +26213,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -26066,7 +26224,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26077,7 +26235,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26102,7 +26260,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -26113,7 +26271,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26124,7 +26282,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26149,7 +26307,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -26160,7 +26318,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26171,7 +26329,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26196,7 +26354,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -26207,7 +26365,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26218,7 +26376,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26254,7 +26412,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26284,7 +26442,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -26295,7 +26453,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26306,7 +26464,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26331,7 +26489,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -26342,7 +26500,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26353,7 +26511,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26378,7 +26536,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -26389,7 +26547,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26400,7 +26558,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26425,7 +26583,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -26436,7 +26594,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26447,7 +26605,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26472,7 +26630,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -26483,7 +26641,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26494,7 +26652,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26519,7 +26677,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -26530,7 +26688,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -26541,7 +26699,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -26577,7 +26735,7 @@ var DesktopView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27403,7 +27561,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -27414,7 +27572,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27425,7 +27583,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27455,7 +27613,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -27466,7 +27624,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27477,7 +27635,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27507,7 +27665,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -27518,7 +27676,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27529,7 +27687,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27559,7 +27717,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -27570,7 +27728,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27581,7 +27739,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27628,7 +27786,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -27639,7 +27797,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27650,7 +27808,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27689,7 +27847,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -27700,7 +27858,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27711,7 +27869,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27741,7 +27899,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -27752,7 +27910,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27763,7 +27921,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27789,7 +27947,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -27800,7 +27958,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27811,7 +27969,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27847,7 +28005,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27882,7 +28040,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -27893,7 +28051,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27904,7 +28062,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27943,7 +28101,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -27954,7 +28112,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -27965,7 +28123,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -27995,7 +28153,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -28006,7 +28164,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -28017,7 +28175,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -28043,7 +28201,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -28054,7 +28212,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -28065,7 +28223,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -28101,7 +28259,7 @@ var MobileModalView = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this3.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31266,7 +31424,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -31277,7 +31435,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31288,7 +31446,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31299,7 +31457,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -31310,7 +31468,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31321,7 +31479,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31332,7 +31490,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -31343,7 +31501,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31354,7 +31512,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31365,7 +31523,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -31376,7 +31534,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31387,7 +31545,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31398,7 +31556,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -31409,7 +31567,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31420,7 +31578,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31431,7 +31589,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -31442,7 +31600,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31453,7 +31611,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31464,7 +31622,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 1);
                                     } },
-                                "14x1"
+                                "14"
                             )
                         ),
                         _react2.default.createElement(
@@ -31475,7 +31633,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 2);
                                     } },
-                                "14x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31486,7 +31644,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 3);
                                     } },
-                                "14x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31497,7 +31655,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 1);
                                     } },
-                                "13x1"
+                                "13"
                             )
                         ),
                         _react2.default.createElement(
@@ -31508,7 +31666,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 2);
                                     } },
-                                "13x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31519,7 +31677,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 3);
                                     } },
-                                "13x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31530,7 +31688,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 1);
                                     } },
-                                "12x1"
+                                "12"
                             )
                         ),
                         _react2.default.createElement(
@@ -31541,7 +31699,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 2);
                                     } },
-                                "12x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31552,7 +31710,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 3);
                                     } },
-                                "12x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31563,7 +31721,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 1);
                                     } },
-                                "11x1"
+                                "11"
                             )
                         ),
                         _react2.default.createElement(
@@ -31574,7 +31732,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 2);
                                     } },
-                                "11x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31585,7 +31743,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 3);
                                     } },
-                                "11x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31596,7 +31754,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 1);
                                     } },
-                                "10x1"
+                                "10"
                             )
                         ),
                         _react2.default.createElement(
@@ -31607,7 +31765,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 2);
                                     } },
-                                "10x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31618,7 +31776,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 3);
                                     } },
-                                "10x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31629,7 +31787,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 1);
                                     } },
-                                "9x1"
+                                "9"
                             )
                         ),
                         _react2.default.createElement(
@@ -31640,7 +31798,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 2);
                                     } },
-                                "9x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31651,7 +31809,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 3);
                                     } },
-                                "9x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31662,7 +31820,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 1);
                                     } },
-                                "8x1"
+                                "8"
                             )
                         ),
                         _react2.default.createElement(
@@ -31673,7 +31831,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 2);
                                     } },
-                                "8x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31684,7 +31842,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 3);
                                     } },
-                                "8x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31695,7 +31853,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 1);
                                     } },
-                                "7x1"
+                                "7"
                             )
                         ),
                         _react2.default.createElement(
@@ -31706,7 +31864,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 2);
                                     } },
-                                "7x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31717,7 +31875,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 3);
                                     } },
-                                "7x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31728,7 +31886,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 1);
                                     } },
-                                "6x1"
+                                "6"
                             )
                         ),
                         _react2.default.createElement(
@@ -31739,7 +31897,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 2);
                                     } },
-                                "6x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31750,7 +31908,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 3);
                                     } },
-                                "6x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31761,7 +31919,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 1);
                                     } },
-                                "5x1"
+                                "5"
                             )
                         ),
                         _react2.default.createElement(
@@ -31772,7 +31930,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 2);
                                     } },
-                                "5x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31783,7 +31941,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 3);
                                     } },
-                                "5x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31794,7 +31952,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 1);
                                     } },
-                                "4x1"
+                                "4"
                             )
                         ),
                         _react2.default.createElement(
@@ -31805,7 +31963,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 2);
                                     } },
-                                "4x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31816,7 +31974,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 3);
                                     } },
-                                "4x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31827,7 +31985,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 1);
                                     } },
-                                "3x1"
+                                "3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31838,7 +31996,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 2);
                                     } },
-                                "3x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31849,7 +32007,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 3);
                                     } },
-                                "3x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31860,7 +32018,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 1);
                                     } },
-                                "2x1"
+                                "2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31871,7 +32029,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 2);
                                     } },
-                                "2x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31882,7 +32040,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 3);
                                     } },
-                                "2x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31893,7 +32051,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 1);
                                     } },
-                                "1x1"
+                                "1"
                             )
                         ),
                         _react2.default.createElement(
@@ -31904,7 +32062,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 2);
                                     } },
-                                "1x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31915,7 +32073,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 3);
                                     } },
-                                "1x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31937,7 +32095,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "Double-Bull"
                             )
                         )
                     )
@@ -31957,7 +32115,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -31968,7 +32126,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -31979,7 +32137,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -31990,7 +32148,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -32001,7 +32159,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32012,7 +32170,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32023,7 +32181,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -32034,7 +32192,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32045,7 +32203,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32056,7 +32214,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -32067,7 +32225,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32078,7 +32236,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32089,7 +32247,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -32100,7 +32258,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32111,7 +32269,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32122,7 +32280,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -32133,7 +32291,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32144,7 +32302,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32155,7 +32313,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 1);
                                     } },
-                                "14x1"
+                                "14"
                             )
                         ),
                         _react2.default.createElement(
@@ -32166,7 +32324,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 2);
                                     } },
-                                "14x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32177,7 +32335,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 3);
                                     } },
-                                "14x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32188,7 +32346,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 1);
                                     } },
-                                "13x1"
+                                "13"
                             )
                         ),
                         _react2.default.createElement(
@@ -32199,7 +32357,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 2);
                                     } },
-                                "13x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32210,7 +32368,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 3);
                                     } },
-                                "13x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32221,7 +32379,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 1);
                                     } },
-                                "12x1"
+                                "12"
                             )
                         ),
                         _react2.default.createElement(
@@ -32232,7 +32390,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 2);
                                     } },
-                                "12x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32243,7 +32401,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 3);
                                     } },
-                                "12x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32254,7 +32412,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 1);
                                     } },
-                                "11x1"
+                                "11"
                             )
                         ),
                         _react2.default.createElement(
@@ -32265,7 +32423,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 2);
                                     } },
-                                "11x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32276,7 +32434,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 3);
                                     } },
-                                "11x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32287,7 +32445,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 1);
                                     } },
-                                "10x1"
+                                "10"
                             )
                         ),
                         _react2.default.createElement(
@@ -32298,7 +32456,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 2);
                                     } },
-                                "10x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32309,7 +32467,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 3);
                                     } },
-                                "10x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32320,7 +32478,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 1);
                                     } },
-                                "9x1"
+                                "9"
                             )
                         ),
                         _react2.default.createElement(
@@ -32331,7 +32489,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 2);
                                     } },
-                                "9x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32342,7 +32500,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 3);
                                     } },
-                                "9x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32353,7 +32511,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 1);
                                     } },
-                                "8x1"
+                                "8"
                             )
                         ),
                         _react2.default.createElement(
@@ -32364,7 +32522,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 2);
                                     } },
-                                "8x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32375,7 +32533,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 3);
                                     } },
-                                "8x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32386,7 +32544,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 1);
                                     } },
-                                "7x1"
+                                "7"
                             )
                         ),
                         _react2.default.createElement(
@@ -32397,7 +32555,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 2);
                                     } },
-                                "7x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32408,7 +32566,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 3);
                                     } },
-                                "7x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32419,7 +32577,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 1);
                                     } },
-                                "6x1"
+                                "6"
                             )
                         ),
                         _react2.default.createElement(
@@ -32430,7 +32588,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 2);
                                     } },
-                                "6x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32441,7 +32599,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 3);
                                     } },
-                                "6x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32452,7 +32610,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 1);
                                     } },
-                                "5x1"
+                                "5"
                             )
                         ),
                         _react2.default.createElement(
@@ -32463,7 +32621,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 2);
                                     } },
-                                "5x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32474,7 +32632,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 3);
                                     } },
-                                "5x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32485,7 +32643,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 1);
                                     } },
-                                "4x1"
+                                "4"
                             )
                         ),
                         _react2.default.createElement(
@@ -32496,7 +32654,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 2);
                                     } },
-                                "4x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32507,7 +32665,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 3);
                                     } },
-                                "4x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32518,7 +32676,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 1);
                                     } },
-                                "3x1"
+                                "3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32529,7 +32687,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 2);
                                     } },
-                                "3x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32540,7 +32698,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 3);
                                     } },
-                                "3x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32551,7 +32709,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 1);
                                     } },
-                                "2x1"
+                                "2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32562,7 +32720,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 2);
                                     } },
-                                "2x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32573,7 +32731,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 3);
                                     } },
-                                "2x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32584,7 +32742,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 1);
                                     } },
-                                "1x1"
+                                "1"
                             )
                         ),
                         _react2.default.createElement(
@@ -32595,7 +32753,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 2);
                                     } },
-                                "1x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -32606,7 +32764,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 3);
                                     } },
-                                "1x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -32628,7 +32786,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "Double-Bull"
                             )
                         )
                     )
@@ -35005,7 +35163,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -35016,7 +35174,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35027,7 +35185,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35038,7 +35196,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -35049,7 +35207,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35060,7 +35218,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35071,7 +35229,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -35082,7 +35240,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35093,7 +35251,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35104,7 +35262,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -35115,7 +35273,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35126,7 +35284,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35137,7 +35295,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -35148,7 +35306,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35159,7 +35317,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35170,7 +35328,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -35181,7 +35339,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35192,7 +35350,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35203,7 +35361,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 1);
                                     } },
-                                "14x1"
+                                "14"
                             )
                         ),
                         _react2.default.createElement(
@@ -35214,7 +35372,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 2);
                                     } },
-                                "14x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35225,7 +35383,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 3);
                                     } },
-                                "14x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35236,7 +35394,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 1);
                                     } },
-                                "13x1"
+                                "13"
                             )
                         ),
                         _react2.default.createElement(
@@ -35247,7 +35405,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 2);
                                     } },
-                                "13x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35258,7 +35416,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 3);
                                     } },
-                                "13x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35269,7 +35427,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 1);
                                     } },
-                                "12x1"
+                                "12"
                             )
                         ),
                         _react2.default.createElement(
@@ -35280,7 +35438,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 2);
                                     } },
-                                "12x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35291,7 +35449,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 3);
                                     } },
-                                "12x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35302,7 +35460,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 1);
                                     } },
-                                "11x1"
+                                "11"
                             )
                         ),
                         _react2.default.createElement(
@@ -35313,7 +35471,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 2);
                                     } },
-                                "11x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35324,7 +35482,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 3);
                                     } },
-                                "11x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35335,7 +35493,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 1);
                                     } },
-                                "10x1"
+                                "10"
                             )
                         ),
                         _react2.default.createElement(
@@ -35346,7 +35504,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 2);
                                     } },
-                                "10x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35357,7 +35515,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 3);
                                     } },
-                                "10x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35368,7 +35526,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 1);
                                     } },
-                                "9x1"
+                                "9"
                             )
                         ),
                         _react2.default.createElement(
@@ -35379,7 +35537,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 2);
                                     } },
-                                "9x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35390,7 +35548,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 3);
                                     } },
-                                "9x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35401,7 +35559,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 1);
                                     } },
-                                "8x1"
+                                "8"
                             )
                         ),
                         _react2.default.createElement(
@@ -35412,7 +35570,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 2);
                                     } },
-                                "8x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35423,7 +35581,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 3);
                                     } },
-                                "8x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35434,7 +35592,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 1);
                                     } },
-                                "7x1"
+                                "7"
                             )
                         ),
                         _react2.default.createElement(
@@ -35445,7 +35603,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 2);
                                     } },
-                                "7x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35456,7 +35614,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 3);
                                     } },
-                                "7x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35467,7 +35625,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 1);
                                     } },
-                                "6x1"
+                                "6"
                             )
                         ),
                         _react2.default.createElement(
@@ -35478,7 +35636,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 2);
                                     } },
-                                "6x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35489,7 +35647,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 3);
                                     } },
-                                "6x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35500,7 +35658,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 1);
                                     } },
-                                "5x1"
+                                "5"
                             )
                         ),
                         _react2.default.createElement(
@@ -35511,7 +35669,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 2);
                                     } },
-                                "5x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35522,7 +35680,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 3);
                                     } },
-                                "5x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35533,7 +35691,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 1);
                                     } },
-                                "4x1"
+                                "4"
                             )
                         ),
                         _react2.default.createElement(
@@ -35544,7 +35702,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 2);
                                     } },
-                                "4x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35555,7 +35713,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 3);
                                     } },
-                                "4x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35566,7 +35724,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 1);
                                     } },
-                                "3x1"
+                                "3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35577,7 +35735,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 2);
                                     } },
-                                "3x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35588,7 +35746,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 3);
                                     } },
-                                "3x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35599,7 +35757,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 1);
                                     } },
-                                "2x1"
+                                "2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35610,7 +35768,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 2);
                                     } },
-                                "2x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35621,7 +35779,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 3);
                                     } },
-                                "2x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35632,7 +35790,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 1);
                                     } },
-                                "1x1"
+                                "1"
                             )
                         ),
                         _react2.default.createElement(
@@ -35643,7 +35801,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 2);
                                     } },
-                                "1x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35654,7 +35812,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 3);
                                     } },
-                                "1x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35676,7 +35834,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "Double-Bull"
                             )
                         )
                     )
@@ -35711,7 +35869,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 1);
                                     } },
-                                "20x1"
+                                "20"
                             )
                         ),
                         _react2.default.createElement(
@@ -35722,7 +35880,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 2);
                                     } },
-                                "20x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35733,7 +35891,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(20, 3);
                                     } },
-                                "20x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35744,7 +35902,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 1);
                                     } },
-                                "19x1"
+                                "19"
                             )
                         ),
                         _react2.default.createElement(
@@ -35755,7 +35913,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 2);
                                     } },
-                                "19x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35766,7 +35924,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(19, 3);
                                     } },
-                                "19x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35777,7 +35935,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 1);
                                     } },
-                                "18x1"
+                                "18"
                             )
                         ),
                         _react2.default.createElement(
@@ -35788,7 +35946,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 2);
                                     } },
-                                "18x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35799,7 +35957,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(18, 3);
                                     } },
-                                "18x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35810,7 +35968,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 1);
                                     } },
-                                "17x1"
+                                "17"
                             )
                         ),
                         _react2.default.createElement(
@@ -35821,7 +35979,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 2);
                                     } },
-                                "17x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35832,7 +35990,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(17, 3);
                                     } },
-                                "17x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35843,7 +36001,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 1);
                                     } },
-                                "16x1"
+                                "16"
                             )
                         ),
                         _react2.default.createElement(
@@ -35854,7 +36012,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 2);
                                     } },
-                                "16x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35865,7 +36023,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(16, 3);
                                     } },
-                                "16x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35876,7 +36034,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 1);
                                     } },
-                                "15x1"
+                                "15"
                             )
                         ),
                         _react2.default.createElement(
@@ -35887,7 +36045,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 2);
                                     } },
-                                "15x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35898,7 +36056,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(15, 3);
                                     } },
-                                "15x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35909,7 +36067,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 1);
                                     } },
-                                "14x1"
+                                "14"
                             )
                         ),
                         _react2.default.createElement(
@@ -35920,7 +36078,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 2);
                                     } },
-                                "14x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35931,7 +36089,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(14, 3);
                                     } },
-                                "14x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35942,7 +36100,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 1);
                                     } },
-                                "13x1"
+                                "13"
                             )
                         ),
                         _react2.default.createElement(
@@ -35953,7 +36111,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 2);
                                     } },
-                                "13x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35964,7 +36122,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(13, 3);
                                     } },
-                                "13x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -35975,7 +36133,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 1);
                                     } },
-                                "12x1"
+                                "12"
                             )
                         ),
                         _react2.default.createElement(
@@ -35986,7 +36144,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 2);
                                     } },
-                                "12x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -35997,7 +36155,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(12, 3);
                                     } },
-                                "12x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36008,7 +36166,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 1);
                                     } },
-                                "11x1"
+                                "11"
                             )
                         ),
                         _react2.default.createElement(
@@ -36019,7 +36177,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 2);
                                     } },
-                                "11x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36030,7 +36188,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(11, 3);
                                     } },
-                                "11x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36041,7 +36199,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 1);
                                     } },
-                                "10x1"
+                                "10"
                             )
                         ),
                         _react2.default.createElement(
@@ -36052,7 +36210,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 2);
                                     } },
-                                "10x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36063,7 +36221,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(10, 3);
                                     } },
-                                "10x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36074,7 +36232,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 1);
                                     } },
-                                "9x1"
+                                "9"
                             )
                         ),
                         _react2.default.createElement(
@@ -36085,7 +36243,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 2);
                                     } },
-                                "9x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36096,7 +36254,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(9, 3);
                                     } },
-                                "9x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36107,7 +36265,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 1);
                                     } },
-                                "8x1"
+                                "8"
                             )
                         ),
                         _react2.default.createElement(
@@ -36118,7 +36276,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 2);
                                     } },
-                                "8x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36129,7 +36287,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(8, 3);
                                     } },
-                                "8x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36140,7 +36298,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 1);
                                     } },
-                                "7x1"
+                                "7"
                             )
                         ),
                         _react2.default.createElement(
@@ -36151,7 +36309,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 2);
                                     } },
-                                "7x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36162,7 +36320,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(7, 3);
                                     } },
-                                "7x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36173,7 +36331,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 1);
                                     } },
-                                "6x1"
+                                "6"
                             )
                         ),
                         _react2.default.createElement(
@@ -36184,7 +36342,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 2);
                                     } },
-                                "6x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36195,7 +36353,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(6, 3);
                                     } },
-                                "6x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36206,7 +36364,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 1);
                                     } },
-                                "5x1"
+                                "5"
                             )
                         ),
                         _react2.default.createElement(
@@ -36217,7 +36375,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 2);
                                     } },
-                                "5x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36228,7 +36386,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(5, 3);
                                     } },
-                                "5x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36239,7 +36397,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 1);
                                     } },
-                                "4x1"
+                                "4"
                             )
                         ),
                         _react2.default.createElement(
@@ -36250,7 +36408,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 2);
                                     } },
-                                "4x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36261,7 +36419,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(4, 3);
                                     } },
-                                "4x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36272,7 +36430,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 1);
                                     } },
-                                "3x1"
+                                "3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36283,7 +36441,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 2);
                                     } },
-                                "3x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36294,7 +36452,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(3, 3);
                                     } },
-                                "3x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36305,7 +36463,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 1);
                                     } },
-                                "2x1"
+                                "2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36316,7 +36474,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 2);
                                     } },
-                                "2x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36327,7 +36485,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(2, 3);
                                     } },
-                                "2x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36338,7 +36496,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 1);
                                     } },
-                                "1x1"
+                                "1"
                             )
                         ),
                         _react2.default.createElement(
@@ -36349,7 +36507,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 2);
                                     } },
-                                "1x2"
+                                "x2"
                             )
                         ),
                         _react2.default.createElement(
@@ -36360,7 +36518,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(1, 3);
                                     } },
-                                "1x3"
+                                "x3"
                             )
                         ),
                         _react2.default.createElement(
@@ -36382,7 +36540,7 @@ var ScoreInput = function (_Component) {
                                 { type: "button", className: "btn btn-success", onClick: function onClick() {
                                         _this2.props.score(25, 2);
                                     } },
-                                "Bullx2"
+                                "Double-Bull"
                             )
                         )
                     )
