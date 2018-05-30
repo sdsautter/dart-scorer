@@ -14,6 +14,9 @@ export default class Cricket extends Component {
             gameWinner: {},
             throwLog: [],
 
+            botGame: false,
+            botDifficulty: "",
+
             p120: 0,
             p119: 0,
             p118: 0,
@@ -47,6 +50,8 @@ export default class Cricket extends Component {
 
         //Binding functions to change the states
         this.score = this.score.bind(this);
+        this.botLogic = this.botLogic.bind(this);
+        this.botThrowAndSwitch = this.botThrowAndSwitch.bind(this);
         this.checkThrower = this.checkThrower.bind(this);
         this.renderP1Score = this.renderP1Score.bind(this);
         this.renderP2Score = this.renderP2Score.bind(this);
@@ -516,6 +521,164 @@ export default class Cricket extends Component {
         this.checkThrower();
     }
 
+    botLogic() {
+        console.log("hello");
+        const difficulty = this.state.botDifficulty;
+
+        const botScore = parseInt(this.state.p2Score);
+        const botThrows = parseInt(this.state.p2Throws);
+        const humanScore = parseInt(this.state.p1Score);
+        const scoreDiff = botScore - humanScore;
+        const bot20 = this.state.p220;
+        const bot19 = this.state.p219;
+        const bot18 = this.state.p218;
+        const bot17 = this.state.p217;
+        const bot16 = this.state.p216;
+        const bot15 = this.state.p215;
+        const bot25 = this.state.p225;
+
+        const human20 = this.state.p120;
+        const human19 = this.state.p119;
+        const human18 = this.state.p118;
+        const human17 = this.state.p117;
+        const human16 = this.state.p116;
+        const human15 = this.state.p115;
+        const human25 = this.state.p125;
+
+        if (scoreDiff <= 50) {
+
+
+            if (bot20 === 0) {
+                this.setState({ p220: 3 }, () => {
+                    this.botThrowAndSwitch(botThrows);
+                })
+            } else if (bot20 === 1) {
+                if (human20 >= 3) {
+                    this.setState({ p20: 3 }, () => {
+                        this.setState({ p19: bot19 + 1 }, () => {
+                            this.botThrowAndSwitch(botThrows);
+                        })
+                    })
+                }
+                else if (human20 < 3) {
+                    this.setState({ p20: 4 }, () => {
+                        if (scoreDiff <= 50) {
+                            this.setState({ p2Score: botScore + 20 });
+                            this.botThrowAndSwitch(botThrows);
+                        } else {
+                            this.setState({ p219: bot19 + 1 });
+                            this.botThrowAndSwitch(botThrows);
+                        }
+                    })
+                }
+            }
+
+            else if (bot20 === 2) {
+                if (human20 >= 3) {
+                    this.setState({ p20: 3 }), () => {
+                        this.setState({ p19: 2 }, () => {
+                            this.botThrowAndSwitch(botThrows);
+                        })
+                    }
+                }
+                else if (human20 < 3) {
+                    this.setState({ p20: 6 }, () => {
+                        if (this.scoreDiff < 10) {
+                            this.setState({ p2Score: botScore + 40 });
+                            this.botThrowAndSwitch(botThrows);
+                        } else if (scoreDiff <= 50) {
+                            this.setState({ p2Score: botScore + 20 });
+                            this.botThrowAndSwitch(botThrows);
+
+                        } else {
+                            this.setState({ p219: bot19 + 1 });
+                            this.botThrowAndSwitch(botThrows);
+                        }
+                    })
+                }
+            }
+
+            else if (bot20 >= 3) {
+                if (human20 >= 3) {
+
+                    if (p19 < 3) {
+                        switch (p19) {
+                            case 0:
+                                this.setState({ p19: 3 }, () => {
+                                    this.botThrowAndSwitch(botThrows);
+                                })
+                                break;
+                            case 1:
+                                this.setState({ p19: 3 }, () => {
+                                    if (human19 < 3) {
+                                        this.setState({ p2Score: botScore + 19 });
+                                        this.botThrowAndSwitch(botThrows);
+
+                                    } else {
+                                        this.setState({ p218: bot18 + 1 });
+                                        this.botThrowAndSwitch(botThrows);
+                                    }
+                                });
+                                break;
+
+                            case 2:
+                                this.setState({ p19: 3 }, () => {
+                                    if (human19 < 3) {
+                                        if (scoreDiff < 12) {
+                                            this.setState({ p2Score: botScore + 38 });
+                                            this.botThrowAndSwitch(botThrows);
+                                        } else {
+                                            this.setState({ p2Score: botScore + 19 });
+                                            this.setState({ p218: bot18 + 1 });
+                                            this.botThrowAndSwitch(botThrows);
+                                        }
+                                    } else {
+                                        this.setState({ p218: bot18 + 2 });
+                                        this.botThrowAndSwitch(botThrows);
+                                    }
+                                });
+                                break;
+                        }
+                    }
+
+                    this.setState({ p19: 3 }, () => {
+                        this.botThrowAndSwitch(botThrows);
+                    })
+
+
+                } else if (human20 < 3) {
+                    this.setState({ p20: bot20 + 3 }, () => {
+                        if (scoreDiff <= 0) {
+                            this.setState({ p2Score: botScore + 60 });
+                            this.botThrowAndSwitch(botThrows);
+                        } else if (scoreDiff < 10) {
+                            this.setState({ p2Score: botScore + 40 });
+                            this.setState({ p219: bot19 + 1 });
+                            this.botThrowAndSwitch(botThrows);
+                        } else if (scoreDiff <= 50) {
+                            this.setState({ p2Score: botScore + 20 });
+                            this.botThrowAndSwitch(botThrows);
+                        } else {
+                            this.setState({ p219: bot19 + 2 })
+                            this.botThrowAndSwitch(botThrows);
+                        }
+                    })
+                }
+            }
+
+
+        }
+    }
+
+    botThrowAndSwitch(botThrows) {
+        this.setState({ p2Throws: botThrows + 3 });
+        this.setActiveThrower("p1");
+    }
+
+    botMarkCheck() {
+
+    }
+
     scoringLogic(number, multiplier) {
         const thrower = this.state.activeThrower;
         let otherThrower;
@@ -638,7 +801,12 @@ export default class Cricket extends Component {
         if (this.state.activeThrows === 2) {
             this.allStarPoints();
             if (this.state.activeThrower === "p1") {
-                this.setActiveThrower("p2");
+
+                if (this.state.botGame) {
+                    this.botLogic();
+                } else {
+                    this.setActiveThrower("p2");
+                }
             } else {
                 this.setActiveThrower("p1");
             }
