@@ -7052,7 +7052,10 @@ var Cricket = function (_Component) {
             //Binding functions to change the states
         };_this.score = _this.score.bind(_this);
         _this.botLogic = _this.botLogic.bind(_this);
-        _this.botThrowAndSwitch = _this.botThrowAndSwitch.bind(_this);
+        _this.botLogicSwitch = _this.botLogicSwitch.bind(_this);
+        _this.botAddThrows = _this.botAddThrows.bind(_this);
+        _this.botSwitchPlayer = _this.botSwitchPlayer.bind(_this);
+        _this.botHardDifficulty = _this.botHardDifficulty.bind(_this);
         _this.checkThrower = _this.checkThrower.bind(_this);
         _this.renderP1Score = _this.renderP1Score.bind(_this);
         _this.renderP2Score = _this.renderP2Score.bind(_this);
@@ -7535,10 +7538,36 @@ var Cricket = function (_Component) {
     }, {
         key: "botLogic",
         value: function botLogic() {
-            var _this2 = this;
-
-            console.log("hello");
             var difficulty = this.state.botDifficulty;
+
+            var botScore = parseInt(this.state.p2Score);
+            var botThrows = parseInt(this.state.p2Throws);
+            var humanScore = parseInt(this.state.p1Score);
+            var scoreDiff = botScore - humanScore;
+            var bot20 = this.state.p220;
+            var bot19 = this.state.p219;
+            var bot18 = this.state.p218;
+            var bot17 = this.state.p217;
+            var bot16 = this.state.p216;
+            var bot15 = this.state.p215;
+            var bot25 = this.state.p225;
+
+            var human20 = this.state.p120;
+            var human19 = this.state.p119;
+            var human18 = this.state.p118;
+            var human17 = this.state.p117;
+            var human16 = this.state.p116;
+            var human15 = this.state.p115;
+            var human25 = this.state.p125;
+
+            // if (scoreDiff <= 50) {
+            this.botLogicSwitch(20);
+            // }
+        }
+    }, {
+        key: "botHardDifficulty",
+        value: function botHardDifficulty() {
+            var _this2 = this;
 
             var botScore = parseInt(this.state.p2Score);
             var botThrows = parseInt(this.state.p2Throws);
@@ -7562,119 +7591,674 @@ var Cricket = function (_Component) {
 
             if (scoreDiff <= 50) {
 
-                if (bot20 === 0) {
-                    this.setState({ p220: 3 }, function () {
-                        _this2.botThrowAndSwitch(botThrows);
-                    });
-                } else if (bot20 === 1) {
-                    if (human20 >= 3) {
-                        this.setState({ p20: 3 }, function () {
-                            _this2.setState({ p19: bot19 + 1 }, function () {
-                                _this2.botThrowAndSwitch(botThrows);
+                switch (bot20) {
+                    case 0:
+                        this.setState({ p220: 3 }, function () {
+                            _this2.botAddThrows(botThrows);
+                            _this2.botSwitchPlayer();
+                        });
+                        break;
+                    case 1:
+                        if (human20 >= 3) {
+                            this.setState({ p220: 3 }, function () {
+                                _this2.setState({ p219: bot19 + 1 }, function () {
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                });
                             });
-                        });
-                    } else if (human20 < 3) {
-                        this.setState({ p20: 4 }, function () {
-                            if (scoreDiff <= 50) {
-                                _this2.setState({ p2Score: botScore + 20 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            } else {
-                                _this2.setState({ p219: bot19 + 1 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            }
-                        });
-                    }
-                } else if (bot20 === 2) {
-                    if (human20 >= 3) {
-                        this.setState({ p20: 3 }), function () {
-                            _this2.setState({ p19: 2 }, function () {
-                                _this2.botThrowAndSwitch(botThrows);
+                        } else if (human20 < 3) {
+                            this.setState({ p220: 4 }, function () {
+                                if (scoreDiff <= 50) {
+                                    _this2.setState({ p2Score: botScore + 20 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                } else {
+                                    _this2.setState({ p219: bot19 + 1 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                }
                             });
-                        };
-                    } else if (human20 < 3) {
-                        this.setState({ p20: 6 }, function () {
-                            if (_this2.scoreDiff < 10) {
-                                _this2.setState({ p2Score: botScore + 40 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            } else if (scoreDiff <= 50) {
-                                _this2.setState({ p2Score: botScore + 20 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            } else {
-                                _this2.setState({ p219: bot19 + 1 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            }
-                        });
-                    }
-                } else if (bot20 >= 3) {
-                    if (human20 >= 3) {
+                        }
+                        break;
+                    case 2:
+                        if (human20 >= 3) {
+                            this.setState({ p220: 3 }), function () {
+                                _this2.setState({ p219: 2 }, function () {
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                });
+                            };
+                        } else if (human20 < 3) {
+                            this.setState({ p220: 6 }, function () {
+                                if (_this2.scoreDiff < 10) {
+                                    _this2.setState({ p2Score: botScore + 40 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                } else if (scoreDiff <= 50) {
+                                    _this2.setState({ p2Score: botScore + 20 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                } else {
+                                    _this2.setState({ p219: bot19 + 1 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                }
+                            });
+                        }
+                        break;
+                    default:
+                        if (human20 >= 3) {
 
-                        if (p19 < 3) {
-                            switch (p19) {
+                            switch (bot19) {
                                 case 0:
-                                    this.setState({ p19: 3 }, function () {
-                                        _this2.botThrowAndSwitch(botThrows);
+                                    this.setState({ p219: 3 }, function () {
+                                        _this2.botAddThrows(botThrows);
+                                        _this2.botSwitchPlayer();
                                     });
                                     break;
                                 case 1:
-                                    this.setState({ p19: 3 }, function () {
+                                    this.setState({ p219: 3 }, function () {
                                         if (human19 < 3) {
                                             _this2.setState({ p2Score: botScore + 19 });
-                                            _this2.botThrowAndSwitch(botThrows);
+                                            _this2.botAddThrows(botThrows);
+                                            _this2.botSwitchPlayer();
                                         } else {
                                             _this2.setState({ p218: bot18 + 1 });
-                                            _this2.botThrowAndSwitch(botThrows);
+                                            _this2.botAddThrows(botThrows);
+                                            _this2.botSwitchPlayer();
                                         }
                                     });
                                     break;
 
                                 case 2:
-                                    this.setState({ p19: 3 }, function () {
+                                    this.setState({ p219: 3 }, function () {
                                         if (human19 < 3) {
                                             if (scoreDiff < 12) {
                                                 _this2.setState({ p2Score: botScore + 38 });
-                                                _this2.botThrowAndSwitch(botThrows);
+                                                _this2.botAddThrows(botThrows);
+                                                _this2.botSwitchPlayer();
                                             } else {
                                                 _this2.setState({ p2Score: botScore + 19 });
                                                 _this2.setState({ p218: bot18 + 1 });
-                                                _this2.botThrowAndSwitch(botThrows);
+                                                _this2.botAddThrows(botThrows);
+                                                _this2.botSwitchPlayer();
                                             }
                                         } else {
                                             _this2.setState({ p218: bot18 + 2 });
-                                            _this2.botThrowAndSwitch(botThrows);
+                                            _this2.botAddThrows(botThrows);
+                                            _this2.botSwitchPlayer();
                                         }
                                     });
                                     break;
-                            }
-                        }
+                                default:
+                                    if (human19 < 3) {
+                                        if (scoreDiff < -7) {
+                                            this.setState({ p2Score: botScore + 57 });
+                                            this.botAddThrows(botThrows);
+                                            this.botSwitchPlayer();
+                                        } else if (scoreDiff < 12) {
+                                            this.setState({ p2Score: botScore + 38 });
+                                            this.setState({ p218: bot18 + 1 });
+                                            this.botAddThrows(botThrows);
+                                            this.botSwitchPlayer();
+                                        } else {
+                                            this.setState({ p2Score: botScore + 19 });
+                                            this.setState({ p218: bot18 + 2 });
+                                            this.botAddThrows(botThrows);
+                                            this.botSwitchPlayer();
+                                        }
+                                    } else {
 
-                        this.setState({ p19: 3 }, function () {
-                            _this2.botThrowAndSwitch(botThrows);
-                        });
-                    } else if (human20 < 3) {
-                        this.setState({ p20: bot20 + 3 }, function () {
-                            if (scoreDiff <= 0) {
-                                _this2.setState({ p2Score: botScore + 60 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            } else if (scoreDiff < 10) {
-                                _this2.setState({ p2Score: botScore + 40 });
-                                _this2.setState({ p219: bot19 + 1 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            } else if (scoreDiff <= 50) {
-                                _this2.setState({ p2Score: botScore + 20 });
-                                _this2.botThrowAndSwitch(botThrows);
-                            } else {
-                                _this2.setState({ p219: bot19 + 2 });
-                                _this2.botThrowAndSwitch(botThrows);
+                                        switch (bot18) {
+                                            case 0:
+                                                this.setState({ p218: 3 }, function () {
+                                                    _this2.botAddThrows(botThrows);
+                                                    _this2.botSwitchPlayer();
+                                                });
+                                                break;
+                                            case 1:
+                                                this.setState({ p218: 3 }, function () {
+                                                    if (human18 < 3) {
+                                                        _this2.setState({ p2Score: botScore + 18 });
+                                                        _this2.botAddThrows(botThrows);
+                                                        _this2.botSwitchPlayer();
+                                                    } else {
+                                                        _this2.setState({ p217: bot17 + 1 });
+                                                        _this2.botAddThrows(botThrows);
+                                                        _this2.botSwitchPlayer();
+                                                    }
+                                                });
+                                                break;
+
+                                            case 2:
+                                                this.setState({ p218: 3 }, function () {
+                                                    if (human18 < 3) {
+                                                        if (scoreDiff < 14) {
+                                                            _this2.setState({ p2Score: botScore + 36 });
+                                                            _this2.botAddThrows(botThrows);
+                                                            _this2.botSwitchPlayer();
+                                                        } else {
+                                                            _this2.setState({ p2Score: botScore + 18 });
+                                                            _this2.setState({ p217: bot17 + 1 });
+                                                            _this2.botAddThrows(botThrows);
+                                                            _this2.botSwitchPlayer();
+                                                        }
+                                                    } else {
+                                                        _this2.setState({ p217: bot17 + 2 });
+                                                        _this2.botAddThrows(botThrows);
+                                                        _this2.botSwitchPlayer();
+                                                    }
+                                                });
+                                                break;
+                                            default:
+                                                if (human18 < 3) {
+                                                    if (scoreDiff < 4) {
+                                                        this.setState({ p2Score: botScore + 54 });
+                                                        this.botAddThrows(botThrows);
+                                                        this.botSwitchPlayer();
+                                                    } else if (scoreDiff < 14) {
+                                                        this.setState({ p2Score: botScore + 36 });
+                                                        this.setState({ p217: bot17 + 1 });
+                                                        this.botAddThrows(botThrows);
+                                                        this.botSwitchPlayer();
+                                                    } else {
+                                                        this.setState({ p2Score: botScore + 18 });
+                                                        this.setState({ p217: bot17 + 2 });
+                                                        this.botAddThrows(botThrows);
+                                                        this.botSwitchPlayer();
+                                                    }
+                                                } else {
+
+                                                    switch (bot17) {
+                                                        case 0:
+                                                            this.setState({ p217: 3 }, function () {
+                                                                _this2.botAddThrows(botThrows);
+                                                                _this2.botSwitchPlayer();
+                                                            });
+                                                            break;
+                                                        case 1:
+                                                            this.setState({ p217: 3 }, function () {
+                                                                if (human17 < 3) {
+                                                                    _this2.setState({ p2Score: botScore + 17 });
+                                                                    _this2.botAddThrows(botThrows);
+                                                                    _this2.botSwitchPlayer();
+                                                                } else {
+                                                                    _this2.setState({ p216: bot16 + 1 });
+                                                                    _this2.botAddThrows(botThrows);
+                                                                    _this2.botSwitchPlayer();
+                                                                }
+                                                            });
+                                                            break;
+
+                                                        case 2:
+                                                            this.setState({ p217: 3 }, function () {
+                                                                if (human17 < 3) {
+                                                                    if (scoreDiff < 16) {
+                                                                        _this2.setState({ p2Score: botScore + 34 });
+                                                                        _this2.botAddThrows(botThrows);
+                                                                        _this2.botSwitchPlayer();
+                                                                    } else {
+                                                                        _this2.setState({ p2Score: botScore + 17 });
+                                                                        _this2.setState({ p216: bot16 + 1 });
+                                                                        _this2.botAddThrows(botThrows);
+                                                                        _this2.botSwitchPlayer();
+                                                                    }
+                                                                } else {
+                                                                    _this2.setState({ p216: bot16 + 2 });
+                                                                    _this2.botAddThrows(botThrows);
+                                                                    _this2.botSwitchPlayer();
+                                                                }
+                                                            });
+                                                            break;
+                                                        default:
+                                                            if (human17 < 3) {
+                                                                if (scoreDiff < -1) {
+                                                                    this.setState({ p2Score: botScore + 51 });
+                                                                    this.botAddThrows(botThrows);
+                                                                    this.botSwitchPlayer();
+                                                                } else if (scoreDiff < 16) {
+                                                                    this.setState({ p2Score: botScore + 34 });
+                                                                    this.setState({ p216: bot16 + 1 });
+                                                                    this.botAddThrows(botThrows);
+                                                                    this.botSwitchPlayer();
+                                                                } else {
+                                                                    this.setState({ p2Score: botScore + 17 });
+                                                                    this.setState({ p216: bot16 + 2 });
+                                                                    this.botAddThrows(botThrows);
+                                                                    this.botSwitchPlayer();
+                                                                }
+                                                            } else {
+
+                                                                switch (bot16) {
+                                                                    case 0:
+                                                                        this.setState({ p216: 3 }, function () {
+                                                                            _this2.botAddThrows(botThrows);
+                                                                            _this2.botSwitchPlayer();
+                                                                        });
+                                                                        break;
+                                                                    case 1:
+                                                                        this.setState({ p216: 3 }, function () {
+                                                                            if (human16 < 3) {
+                                                                                _this2.setState({ p2Score: botScore + 16 });
+                                                                                _this2.botAddThrows(botThrows);
+                                                                                _this2.botSwitchPlayer();
+                                                                            } else {
+                                                                                _this2.setState({ p215: bot15 + 1 });
+                                                                                _this2.botAddThrows(botThrows);
+                                                                                _this2.botSwitchPlayer();
+                                                                            }
+                                                                        });
+                                                                        break;
+
+                                                                    case 2:
+                                                                        this.setState({ p216: 3 }, function () {
+                                                                            if (human16 < 3) {
+                                                                                if (scoreDiff < 18) {
+                                                                                    _this2.setState({ p2Score: botScore + 32 });
+                                                                                    _this2.botAddThrows(botThrows);
+                                                                                    _this2.botSwitchPlayer();
+                                                                                } else {
+                                                                                    _this2.setState({ p2Score: botScore + 16 });
+                                                                                    _this2.setState({ p215: bot15 + 1 });
+                                                                                    _this2.botAddThrows(botThrows);
+                                                                                    _this2.botSwitchPlayer();
+                                                                                }
+                                                                            } else {
+                                                                                _this2.setState({ p215: bot15 + 2 });
+                                                                                _this2.botAddThrows(botThrows);
+                                                                                _this2.botSwitchPlayer();
+                                                                            }
+                                                                        });
+                                                                        break;
+                                                                    default:
+                                                                        if (human16 < 3) {
+                                                                            if (scoreDiff < 2) {
+                                                                                this.setState({ p2Score: botScore + 48 });
+                                                                                this.botAddThrows(botThrows);
+                                                                                this.botSwitchPlayer();
+                                                                            } else if (scoreDiff < 18) {
+                                                                                this.setState({ p2Score: botScore + 32 });
+                                                                                this.setState({ p216: bot16 + 1 });
+                                                                                this.botAddThrows(botThrows);
+                                                                                this.botSwitchPlayer();
+                                                                            } else {
+                                                                                this.setState({ p2Score: botScore + 16 });
+                                                                                this.setState({ p216: bot16 + 2 });
+                                                                                this.botAddThrows(botThrows);
+                                                                                this.botSwitchPlayer();
+                                                                            }
+                                                                        } else {
+
+                                                                            switch (bot15) {
+                                                                                case 0:
+                                                                                    this.setState({ p215: 3 }, function () {
+                                                                                        _this2.botAddThrows(botThrows);
+                                                                                        _this2.botSwitchPlayer();
+                                                                                    });
+                                                                                    break;
+                                                                                case 1:
+                                                                                    this.setState({ p215: 3 }, function () {
+                                                                                        if (human15 < 3) {
+                                                                                            _this2.setState({ p2Score: botScore + 15 });
+                                                                                            _this2.botAddThrows(botThrows);
+                                                                                            _this2.botSwitchPlayer();
+                                                                                        } else {
+                                                                                            _this2.setState({ p215: bot15 + 1 });
+                                                                                            _this2.botAddThrows(botThrows);
+                                                                                            _this2.botSwitchPlayer();
+                                                                                        }
+                                                                                    });
+                                                                                    break;
+
+                                                                                case 2:
+                                                                                    this.setState({ p215: 3 }, function () {
+                                                                                        if (human15 < 3) {
+                                                                                            if (scoreDiff < 20) {
+                                                                                                _this2.setState({ p2Score: botScore + 30 });
+                                                                                                _this2.botAddThrows(botThrows);
+                                                                                                _this2.botSwitchPlayer();
+                                                                                            } else {
+                                                                                                _this2.setState({ p2Score: botScore + 15 });
+                                                                                                _this2.setState({ p225: bot25 + 1 });
+                                                                                                _this2.botAddThrows(botThrows);
+                                                                                                _this2.botSwitchPlayer();
+                                                                                            }
+                                                                                        } else {
+                                                                                            _this2.setState({ p225: bot25 + 2 });
+                                                                                            _this2.botAddThrows(botThrows);
+                                                                                            _this2.botSwitchPlayer();
+                                                                                        }
+                                                                                    });
+                                                                                    break;
+                                                                                default:
+                                                                                    if (human15 < 3) {
+                                                                                        if (scoreDiff < 5) {
+                                                                                            this.setState({ p2Score: botScore + 45 });
+                                                                                            this.botAddThrows(botThrows);
+                                                                                            this.botSwitchPlayer();
+                                                                                        } else if (scoreDiff < 20) {
+                                                                                            this.setState({ p2Score: botScore + 30 });
+                                                                                            this.setState({ p225: bot25 + 1 });
+                                                                                            this.botAddThrows(botThrows);
+                                                                                            this.botSwitchPlayer();
+                                                                                        } else {
+                                                                                            this.setState({ p2Score: botScore + 15 });
+                                                                                            this.setState({ p225: bot25 + 2 });
+                                                                                            this.botAddThrows(botThrows);
+                                                                                            this.botSwitchPlayer();
+                                                                                        }
+                                                                                    } else {
+
+                                                                                        switch (bot17) {
+                                                                                            case 0:
+                                                                                                this.setState({ p217: 3 }, function () {
+                                                                                                    _this2.botAddThrows(botThrows);
+                                                                                                    _this2.botSwitchPlayer();
+                                                                                                });
+                                                                                                break;
+                                                                                            case 1:
+                                                                                                this.setState({ p217: 3 }, function () {
+                                                                                                    if (human17 < 3) {
+                                                                                                        _this2.setState({ p2Score: botScore + 17 });
+                                                                                                        _this2.botAddThrows(botThrows);
+                                                                                                        _this2.botSwitchPlayer();
+                                                                                                    } else {
+                                                                                                        _this2.setState({ p216: bot16 + 1 });
+                                                                                                        _this2.botAddThrows(botThrows);
+                                                                                                        _this2.botSwitchPlayer();
+                                                                                                    }
+                                                                                                });
+                                                                                                break;
+
+                                                                                            case 2:
+                                                                                                this.setState({ p217: 3 }, function () {
+                                                                                                    if (human17 < 3) {
+                                                                                                        if (scoreDiff < 16) {
+                                                                                                            _this2.setState({ p2Score: botScore + 34 });
+                                                                                                            _this2.botAddThrows(botThrows);
+                                                                                                            _this2.botSwitchPlayer();
+                                                                                                        } else {
+                                                                                                            _this2.setState({ p2Score: botScore + 17 });
+                                                                                                            _this2.setState({ p216: bot16 + 1 });
+                                                                                                            _this2.botAddThrows(botThrows);
+                                                                                                            _this2.botSwitchPlayer();
+                                                                                                        }
+                                                                                                    } else {
+                                                                                                        _this2.setState({ p216: bot16 + 2 });
+                                                                                                        _this2.botAddThrows(botThrows);
+                                                                                                        _this2.botSwitchPlayer();
+                                                                                                    }
+                                                                                                });
+                                                                                                break;
+                                                                                            default:
+                                                                                                if (human17 < 3) {
+                                                                                                    if (scoreDiff < -1) {
+                                                                                                        this.setState({ p2Score: botScore + 51 });
+                                                                                                        this.botAddThrows(botThrows);
+                                                                                                        this.botSwitchPlayer();
+                                                                                                    } else if (scoreDiff < 16) {
+                                                                                                        this.setState({ p2Score: botScore + 34 });
+                                                                                                        this.setState({ p216: bot16 + 1 });
+                                                                                                        this.botAddThrows(botThrows);
+                                                                                                        this.botSwitchPlayer();
+                                                                                                    } else {
+                                                                                                        this.setState({ p2Score: botScore + 17 });
+                                                                                                        this.setState({ p216: bot16 + 2 });
+                                                                                                        this.botAddThrows(botThrows);
+                                                                                                        this.botSwitchPlayer();
+                                                                                                    }
+                                                                                                } else {
+
+                                                                                                    switch (bot25) {
+                                                                                                        case 0:
+                                                                                                            this.setState({ p225: 3 }, function () {
+                                                                                                                _this2.botAddThrows(botThrows);
+                                                                                                                _this2.gameOverCheck();
+                                                                                                                _this2.botSwitchPlayer();
+                                                                                                            });
+                                                                                                            break;
+                                                                                                        case 1:
+                                                                                                            this.setState({ p225: 3 }, function () {
+                                                                                                                if (human25 < 3) {
+                                                                                                                    _this2.setState({ p2Score: botScore + 25 });
+                                                                                                                    _this2.botAddThrows(botThrows);
+                                                                                                                    _this2.gameOverCheck();
+                                                                                                                    _this2.botSwitchPlayer();
+                                                                                                                } else {
+                                                                                                                    _this2.botAddThrows(botThrows);
+                                                                                                                    _this2.gameOverCheck();
+                                                                                                                    _this2.botSwitchPlayer();
+                                                                                                                }
+                                                                                                            });
+                                                                                                            break;
+
+                                                                                                        case 2:
+                                                                                                            this.setState({ p225: 3 }, function () {
+                                                                                                                if (human25 < 3) {
+                                                                                                                    if (scoreDiff < 16) {
+                                                                                                                        _this2.setState({ p2Score: botScore + 50 });
+                                                                                                                        _this2.botAddThrows(botThrows);
+                                                                                                                        _this2.gameOverCheck();
+                                                                                                                        _this2.botSwitchPlayer();
+                                                                                                                    } else {
+                                                                                                                        _this2.setState({ p2Score: botScore + 25 });
+                                                                                                                        _this2.botAddThrows(botThrows);
+                                                                                                                        _this2.gameOverCheck();
+                                                                                                                        _this2.botSwitchPlayer();
+                                                                                                                    }
+                                                                                                                } else {
+                                                                                                                    _this2.botAddThrows(botThrows);
+                                                                                                                    _this2.gameOverCheck();
+                                                                                                                    _this2.botSwitchPlayer();
+                                                                                                                }
+                                                                                                            });
+                                                                                                            break;
+                                                                                                        default:
+                                                                                                            if (human25 < 3) {
+                                                                                                                if (scoreDiff < -25) {
+                                                                                                                    this.setState({ p2Score: botScore + 75 });
+                                                                                                                    this.botAddThrows(botThrows);
+                                                                                                                    this.gameOverCheck();
+                                                                                                                    this.botSwitchPlayer();
+                                                                                                                } else if (scoreDiff < 0) {
+                                                                                                                    this.setState({ p2Score: botScore + 50 });
+                                                                                                                    this.setState({ p216: bot16 + 1 });
+                                                                                                                    this.botAddThrows(botThrows);
+                                                                                                                    this.gameOverCheck();
+                                                                                                                    this.botSwitchPlayer();
+                                                                                                                } else {
+                                                                                                                    this.setState({ p2Score: botScore + 25 });
+                                                                                                                    this.setState({ p216: bot16 + 2 });
+                                                                                                                    this.botAddThrows(botThrows);
+                                                                                                                    this.gameOverCheck();
+                                                                                                                    this.botSwitchPlayer();
+                                                                                                                }
+                                                                                                            } else {
+                                                                                                                this.botAddThrows(botThrows);
+                                                                                                                this.gameOverCheck();
+                                                                                                                this.botSwitchPlayer();
+                                                                                                            }
+                                                                                                            break;
+                                                                                                    }
+                                                                                                }
+                                                                                                break;
+                                                                                        }
+                                                                                    }
+                                                                                    break;
+                                                                            }
+                                                                        }
+                                                                        break;
+                                                                }
+                                                            }
+                                                            break;
+                                                    }
+                                                }
+                                                break;
+                                        }
+                                    }
+                                    break;
                             }
-                        });
-                    }
+                        } else if (human20 < 3) {
+                            this.setState({ p220: bot20 + 3 }, function () {
+                                if (scoreDiff <= 0) {
+                                    _this2.setState({ p2Score: botScore + 60 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                } else if (scoreDiff < 10) {
+                                    _this2.setState({ p2Score: botScore + 40 });
+                                    _this2.setState({ p219: bot19 + 1 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                } else if (scoreDiff <= 50) {
+                                    _this2.setState({ p2Score: botScore + 20 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                } else {
+                                    _this2.setState({ p219: bot19 + 2 });
+                                    _this2.botAddThrows(botThrows);
+                                    _this2.botSwitchPlayer();
+                                }
+                            });
+                        }
+                        break;
                 }
             }
         }
     }, {
-        key: "botThrowAndSwitch",
-        value: function botThrowAndSwitch(botThrows) {
+        key: "botLogicSwitch",
+        value: function botLogicSwitch(number) {
+            var _this3 = this;
+
+            var nextNumber = number !== 15 ? number - 1 : 25;
+            var double = number * 2;
+            var triple = number * 3;
+            var awayFrom50 = 50 - number;
+            var doubleAwayFrom50 = 50 - double;
+
+            var botNumber = eval("this.state.p2" + number);
+            var botNextNumber = eval("this.state.p2" + nextNumber);
+            var humanNumber = eval("this.state.p1" + number);
+            var botNumberMarks = "p2" + number;
+            var botNextNumberMarks = "p2" + nextNumber;
+            var botScore = parseInt(this.state.p2Score);
+            var botThrows = parseInt(this.state.p2Throws);
+            var humanScore = parseInt(this.state.p1Score);
+            var scoreDiff = botScore - humanScore;
+
+            switch (botNumber) {
+                case 0:
+                    this.setState(_defineProperty({}, botNumberMarks, 3), function () {
+                        _this3.botAddThrows(botThrows);
+                        if (number === 25) {
+                            _this3.gameOverCheck();
+                        }
+                        _this3.botSwitchPlayer();
+                    });
+                    break;
+                case 1:
+                    if (humanNumber >= 3) {
+                        this.setState(_defineProperty({}, botNumberMarks, 3), function () {
+                            _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1), function () {
+                                _this3.botAddThrows(botThrows);
+                                if (number === 25) {
+                                    _this3.gameOverCheck();
+                                }
+                                _this3.botSwitchPlayer();
+                            });
+                        });
+                    } else if (humanNumber < 3) {
+                        this.setState(_defineProperty({}, botNumberMarks, 3), function () {
+                            if (scoreDiff <= 50) {
+                                _this3.setState({ p2Score: botScore + number });
+                                _this3.botAddThrows(botThrows);
+                                if (number === 25) {
+                                    _this3.gameOverCheck();
+                                }
+                                _this3.botSwitchPlayer();
+                            } else {
+                                _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
+                                _this3.botAddThrows(botThrows);
+                                if (number === 25) {
+                                    _this3.gameOverCheck();
+                                }
+                                _this3.botSwitchPlayer();
+                            }
+                        });
+                    }
+                    break;
+                case 2:
+                    if (humanNumber >= 3) {
+                        this.setState(_defineProperty({}, botNumberMarks, 3)), function () {
+                            _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2), function () {
+                                _this3.botAddThrows(botThrows);
+                                if (number === 25) {
+                                    _this3.gameOverCheck();
+                                }
+                                _this3.botSwitchPlayer();
+                            });
+                        };
+                    } else if (humanNumber < 3) {
+                        this.setState(_defineProperty({}, botNumberMarks, 3), function () {
+                            if (scoreDiff <= awayFrom50) {
+                                _this3.setState({ p2Score: botScore + double });
+                                _this3.botAddThrows(botThrows);
+                                _this3.botSwitchPlayer();
+                            } else if (scoreDiff <= 50) {
+                                _this3.setState({ p2Score: botScore + number });
+                                _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
+                                _this3.botAddThrows(botThrows);
+                                if (number === 25) {
+                                    _this3.gameOverCheck();
+                                }
+                                _this3.botSwitchPlayer();
+                            } else {
+                                _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2));
+                                _this3.botAddThrows(botThrows);
+                                if (number === 25) {
+                                    _this3.gameOverCheck();
+                                }
+                                _this3.botSwitchPlayer();
+                            }
+                        });
+                    }
+                    break;
+                default:
+
+                    if (humanNumber >= 3) {
+
+                        this.botLogicSwitch(nextNumber);
+                    } else if (humanNumber < 3) {
+                        if (scoreDiff <= doubleAwayFrom50) {
+                            console.log("Yep");
+                            this.setState({ p2Score: botScore + triple });
+                            this.botAddThrows(botThrows);
+                            this.botSwitchPlayer();
+                        } else if (scoreDiff <= awayFrom50) {
+                            this.setState({ p2Score: botScore + double });
+                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
+                            this.botAddThrows(botThrows);
+                        } else if (scoreDiff <= 50) {
+                            this.setState({ p2Score: botScore + number });
+                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2));
+                            this.botAddThrows(botThrows);
+                        } else {
+                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 3));
+                            this.botAddThrows(botThrows);
+                        }
+                    }
+                    break;
+            }
+        }
+    }, {
+        key: "botAddThrows",
+        value: function botAddThrows(botThrows) {
             this.setState({ p2Throws: botThrows + 3 });
+            this.gameOverCheck();
+            this.setActiveThrower("p1");
+        }
+    }, {
+        key: "botSwitchPlayer",
+        value: function botSwitchPlayer() {
             this.setActiveThrower("p1");
         }
     }, {
@@ -7829,13 +8413,13 @@ var Cricket = function (_Component) {
     }, {
         key: "gameOverCheck",
         value: function gameOverCheck() {
-            var _this3 = this;
+            var _this4 = this;
 
             setTimeout(function () {
-                if (_this3.state.p120 >= 3 && _this3.state.p119 >= 3 && _this3.state.p118 >= 3 && _this3.state.p117 >= 3 && _this3.state.p116 >= 3 && _this3.state.p115 >= 3 && _this3.state.p125 >= 3 && _this3.state.p1Score >= _this3.state.p2Score) {
-                    _this3.gameStateChange("p1");
-                } else if (_this3.state.p220 >= 3 && _this3.state.p219 >= 3 && _this3.state.p218 >= 3 && _this3.state.p217 >= 3 && _this3.state.p216 >= 3 && _this3.state.p215 >= 3 && _this3.state.p225 >= 3 && _this3.state.p2Score >= _this3.state.p1Score) {
-                    _this3.gameStateChange("p2");
+                if (_this4.state.p120 >= 3 && _this4.state.p119 >= 3 && _this4.state.p118 >= 3 && _this4.state.p117 >= 3 && _this4.state.p116 >= 3 && _this4.state.p115 >= 3 && _this4.state.p125 >= 3 && _this4.state.p1Score >= _this4.state.p2Score) {
+                    _this4.gameStateChange("p1");
+                } else if (_this4.state.p220 >= 3 && _this4.state.p219 >= 3 && _this4.state.p218 >= 3 && _this4.state.p217 >= 3 && _this4.state.p216 >= 3 && _this4.state.p215 >= 3 && _this4.state.p225 >= 3 && _this4.state.p2Score >= _this4.state.p1Score) {
+                    _this4.gameStateChange("p2");
                 }
             }, 500);
         }
@@ -7857,10 +8441,10 @@ var Cricket = function (_Component) {
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this4 = this;
+            var _this5 = this;
 
             setTimeout(function () {
-                _this4.setState({ activeMarks: 0 });
+                _this5.setState({ activeMarks: 0 });
             }, 1000);
         }
     }, {
