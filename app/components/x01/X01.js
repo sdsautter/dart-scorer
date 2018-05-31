@@ -55,6 +55,44 @@ export default class X01 extends Component {
         this.endTurn = this.endTurn.bind(this);
     }
 
+    botLogic() {
+        const difficulty = this.state.botDifficulty;
+        const botScore = parseInt(this.state.p2Score);
+        const humanScore = parseInt(this.state.p1Score);
+        const scoreDiff = botScore - humanScore;
+        setTimeout(() => {
+            switch (this.state.botDifficulty) {
+                case 'easy':
+                    this.easyBoy(20);
+
+                    break;
+                case 'medium':
+                    this.mediumBot(20);
+
+                    break;
+                case 'hard':
+                    this.hardBot(20);
+                    break;
+
+                default:
+                    this.mediumBot(20);
+                    break;
+            }
+        }, 500)
+    }
+
+    easyBot() {
+
+    }
+
+    mediumBot() {
+
+    }
+
+    hardBot() {
+
+    }
+        
     setX01Game(x01Game) {
         this.setState({ x01Game });
         this.setState({ gameState: "options" });
