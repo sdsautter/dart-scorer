@@ -52,7 +52,11 @@ export default class Cricket extends Component {
         this.score = this.score.bind(this);
         this.botLogic = this.botLogic.bind(this);
         this.bot3MarkLogicSwitch = this.bot3MarkLogicSwitch.bind(this);
+        this.bot2MarkLogicSwitch = this.bot2MarkLogicSwitch.bind(this);
+        this.bot1MarkLogicSwitch = this.bot1MarkLogicSwitch.bind(this);
+        this.humanFindOpenNumber = this.humanFindOpenNumber.bind(this);
         this.botAddThrows = this.botAddThrows.bind(this);
+        this.botFindOpenNumber = this.botFindOpenNumber.bind(this);
         this.checkThrower = this.checkThrower.bind(this);
         this.renderP1Score = this.renderP1Score.bind(this);
         this.renderP2Score = this.renderP2Score.bind(this);
@@ -524,48 +528,54 @@ export default class Cricket extends Component {
 
     botLogic() {
         const difficulty = this.state.botDifficulty;
+        const botScore = parseInt(this.state.p2Score);
+        const humanScore = parseInt(this.state.p1Score);
+        const scoreDiff = botScore - humanScore;
+        setTimeout(() => {
+            switch (this.state.botDifficulty) {
+                case 'easy':
+                    this.bot1MarkLogicSwitch(20);
+
+                    break;
+                case 'medium':
+                    this.bot2MarkLogicSwitch(20);
+
+                    break;
+                case 'hard':
+                    this.bot3MarkLogicSwitch(20);
+                    break;
+
+                default:
+                    this.bot2MarkLogicSwitch(20);
+                    break;
+            }
+        }, 500)
+    }
+
+    bot3MarkLogicSwitch(number) {
+        let nextNumber = number !== 15 ? number - 1 : 25;
+        nextNumber = this.botFindOpenNumber(nextNumber);
 
         const botScore = parseInt(this.state.p2Score);
         const botThrows = parseInt(this.state.p2Throws);
         const humanScore = parseInt(this.state.p1Score);
         const scoreDiff = botScore - humanScore;
-        const bot20 = this.state.p220;
-        const bot19 = this.state.p219;
-        const bot18 = this.state.p218;
-        const bot17 = this.state.p217;
-        const bot16 = this.state.p216;
-        const bot15 = this.state.p215;
-        const bot25 = this.state.p225;
 
-        const human20 = this.state.p120;
-        const human19 = this.state.p119;
-        const human18 = this.state.p118;
-        const human17 = this.state.p117;
-        const human16 = this.state.p116;
-        const human15 = this.state.p115;
-        const human25 = this.state.p125;
+        if (scoreDiff > 50) {
+            number = this.botFindOpenNumber();
+        } else {
+            number = this.humanFindOpenNumber();
+        }
 
-        // if (scoreDiff <= 50) {
-        this.bot3MarkLogicSwitch(20);
-        // }
-    }
-
-    bot3MarkLogicSwitch(number) {
-        const nextNumber = number !== 15 ? number - 1 : 25;
+        const botNextNumber = eval(`this.state.p2${nextNumber}`);
+        const botNextNumberMarks = `p2${nextNumber}`;
         const double = number * 2;
         const triple = number * 3;
         const awayFrom50 = 50 - number;
         const doubleAwayFrom50 = 50 - double;
-
         const botNumber = eval(`this.state.p2${number}`);
-        const botNextNumber = eval(`this.state.p2${nextNumber}`);
         const humanNumber = eval(`this.state.p1${number}`);
         const botNumberMarks = `p2${number}`;
-        const botNextNumberMarks = `p2${nextNumber}`
-        const botScore = parseInt(this.state.p2Score);
-        const botThrows = parseInt(this.state.p2Throws);
-        const humanScore = parseInt(this.state.p1Score);
-        const scoreDiff = botScore - humanScore;
 
         switch (botNumber) {
             case 0:
@@ -576,21 +586,34 @@ export default class Cricket extends Component {
             case 1:
                 if (humanNumber >= 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 }, () => {
-                            this.botAddThrows(botThrows);
+                        if (scoreDiff > 50) {
+                            const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                            const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                            const botNextNumberMarks = `p2${nextOpenNumber}`;
 
-                        })
+                            this.setState({ [botNextNumberMarks]: botNextNumber + 1 }, () => {
+                                return this.botAddThrows(botThrows);
+
+                            })
+                        } else {
+                            const humanOpenNumber = this.humanFindOpenNumber();
+                            this.bot2MarkLogicSwitch(humanOpenNumber);
+                        }
                     })
                 }
                 else if (humanNumber < 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
+                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                        const botNextNumberMarks = `p2${nextOpenNumber}`;
+
                         if (scoreDiff <= 50) {
                             this.setState({ p2Score: botScore + number });
-                            this.botAddThrows(botThrows);
+                            return this.botAddThrows(botThrows);
 
                         } else {
                             this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
-                            this.botAddThrows(botThrows);
+                            return this.botAddThrows(botThrows);
 
                         }
                     })
@@ -598,25 +621,33 @@ export default class Cricket extends Component {
                 break;
             case 2:
                 if (humanNumber >= 3) {
-                    this.setState({ [botNumberMarks]: 3 }), () => {
+                    this.setState({ [botNumberMarks]: 3 }, () => {
+                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                        const botNextNumberMarks = `p2${nextOpenNumber}`;
+
                         this.setState({ [botNextNumberMarks]: botNextNumber + 2 }, () => {
-                            this.botAddThrows(botThrows);
+                            return this.botAddThrows(botThrows);
 
                         })
-                    }
+                    });
                 }
                 else if (humanNumber < 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
+                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                        const botNextNumberMarks = `p2${nextOpenNumber}`;
+
                         if (scoreDiff <= awayFrom50) {
                             this.setState({ p2Score: botScore + double });
-                            this.botAddThrows(botThrows);
+                            return this.botAddThrows(botThrows);
                         } else if (scoreDiff <= 50) {
                             this.setState({ p2Score: botScore + number });
                             this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
-                            this.botAddThrows(botThrows);
+                            return this.botAddThrows(botThrows);
                         } else {
                             this.setState({ [botNextNumberMarks]: botNextNumber + 2 });
-                            this.botAddThrows(botThrows);
+                            return this.botAddThrows(botThrows);
                         }
                     })
                 }
@@ -624,11 +655,8 @@ export default class Cricket extends Component {
             default:
                 if (humanNumber >= 3) {
                     this.bot3MarkLogicSwitch(nextNumber)
-                }
-
-                else if (humanNumber < 3) {
+                } else if (humanNumber < 3) {
                     if (scoreDiff <= doubleAwayFrom50) {
-                        console.log("Yep");
                         this.setState({ p2Score: botScore + triple });
                         this.botAddThrows(botThrows);
                     } else if (scoreDiff <= awayFrom50) {
@@ -650,10 +678,192 @@ export default class Cricket extends Component {
         }
     }
 
+    bot2MarkLogicSwitch(number) {
+        let nextNumber = number !== 15 ? number - 1 : 25;
+        nextNumber = this.botFindOpenNumber(nextNumber);
+
+        const botScore = parseInt(this.state.p2Score);
+        const botThrows = parseInt(this.state.p2Throws);
+        const humanScore = parseInt(this.state.p1Score);
+        const scoreDiff = botScore - humanScore;
+
+        if (scoreDiff > 50) {
+            number = this.botFindOpenNumber();
+        } else {
+            number = this.humanFindOpenNumber();
+        }
+
+        const botNextNumber = eval(`this.state.p2${nextNumber}`);
+        const botNextNumberMarks = `p2${nextNumber}`;
+        const double = number * 2;
+        const triple = number * 3;
+        const awayFrom50 = 50 - number;
+        const doubleAwayFrom50 = 50 - double;
+        const botNumber = eval(`this.state.p2${number}`);
+        const humanNumber = eval(`this.state.p1${number}`);
+        const botNumberMarks = `p2${number}`;
+
+        switch (botNumber) {
+            case 0:
+                this.setState({ [botNumberMarks]: 2 }, () => {
+                    this.botAddThrows(botThrows);
+                })
+                break;
+            case 1:
+                this.setState({ [botNumberMarks]: 3 }, () => {
+                    this.botAddThrows(botThrows);
+                })
+                break;
+            case 2:
+                if (humanNumber >= 3) {
+                    this.setState({ [botNumberMarks]: 3 }, () => {
+                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                        const botNextNumberMarks = `p2${nextOpenNumber}`;
+
+                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 }, () => {
+                            return this.botAddThrows(botThrows);
+
+                        })
+                    })
+                }
+                else {
+
+                    this.setState({ [botNumberMarks]: 3 }, () => {
+                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                        const botNextNumberMarks = `p2${nextOpenNumber}`;
+
+                        if (scoreDiff <= 50) {
+                            this.setState({ p2Score: botScore + number });
+                            return this.botAddThrows(botThrows);
+                        } else {
+                            this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
+                            return this.botAddThrows(botThrows);
+                        }
+                    })
+                }
+                break;
+            default:
+                if (humanNumber >= 3) {
+                    return this.bot2MarkLogicSwitch(nextNumber)
+                } else if (humanNumber < 3) {
+                    if (scoreDiff <= awayFrom50) {
+                        this.setState({ p2Score: botScore + double });
+                        this.botAddThrows(botThrows);
+
+                    } else if (scoreDiff <= 50) {
+                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                        const botNextNumberMarks = `p2${nextOpenNumber}`;
+
+                        this.setState({ p2Score: botScore + number });
+                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 })
+                        this.botAddThrows(botThrows);
+                    } else {
+                        this.setState({ [botNextNumberMarks]: botNextNumber + 2 })
+                        this.botAddThrows(botThrows);
+
+                    }
+                }
+                break;
+        }
+    }
+
+    bot1MarkLogicSwitch(number) {
+        let nextNumber = number !== 15 ? number - 1 : 25;
+        nextNumber = this.botFindOpenNumber(nextNumber);
+
+        const botScore = parseInt(this.state.p2Score);
+        const botThrows = parseInt(this.state.p2Throws);
+        const humanScore = parseInt(this.state.p1Score);
+        const scoreDiff = botScore - humanScore;
+
+        if (scoreDiff > 25) {
+            number = this.botFindOpenNumber();
+        } else {
+            number = this.humanFindOpenNumber();
+        }
+
+        const botNextNumber = eval(`this.state.p2${nextNumber}`);
+        const botNextNumberMarks = `p2${nextNumber}`;
+        const double = number * 2;
+        const triple = number * 3;
+        const awayFrom50 = 50 - number;
+        const doubleAwayFrom50 = 50 - double;
+        const botNumber = eval(`this.state.p2${number}`);
+        const humanNumber = eval(`this.state.p1${number}`);
+        const botNumberMarks = `p2${number}`;
+
+        switch (botNumber) {
+            case 0:
+                this.setState({ [botNumberMarks]: 1 }, () => {
+                    this.botAddThrows(botThrows);
+                })
+                break;
+            case 1:
+                this.setState({ [botNumberMarks]: 2 }, () => {
+                    this.botAddThrows(botThrows);
+                })
+                break;
+            case 2:
+                this.setState({ [botNumberMarks]: 3 }, () => {
+
+                    return this.botAddThrows(botThrows);
+
+                })
+                break;
+            default:
+                const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
+                const botNextNumberMarks = `p2${nextOpenNumber}`;
+
+                if (humanNumber >= 3) {
+                    return this.bot2MarkLogicSwitch(nextNumber)
+                } else if (humanNumber < 3) {
+                    if (scoreDiff <= 50) {
+
+                        this.setState({ p2Score: botScore + number });
+                        this.botAddThrows(botThrows);
+                    } else {
+                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 })
+                        this.botAddThrows(botThrows);
+
+                    }
+                }
+                break;
+        }
+    }
+
     botAddThrows(botThrows) {
         this.setState({ p2Throws: botThrows + 3 });
         this.gameOverCheck();
         this.setActiveThrower("p1");
+    }
+
+    botFindOpenNumber() {
+        for (var i = 20; i > 0; i--) {
+            if (i === 14) {
+                i = 25;
+            }
+            if (eval(`this.state.p2${i}`) < 3) {
+                return i;
+            }
+            if (i === 24) return;
+
+        }
+    }
+
+    humanFindOpenNumber() {
+        for (var i = 20; i > 0; i--) {
+            if (i === 14) {
+                i = 25;
+            }
+            if (eval(`this.state.p1${i}`) < 3) {
+                return i;
+            }
+            if (i === 24) return;
+        }
     }
 
     scoringLogic(number, multiplier) {
@@ -744,7 +954,12 @@ export default class Cricket extends Component {
                     this.addToLog("mi", "ss");
                 }
                 if (thrower === "p1") {
-                    this.setActiveThrower("p2");
+                    if (this.state.botGame) {
+                        this.setActiveThrower('p2');
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
@@ -755,7 +970,12 @@ export default class Cricket extends Component {
                 this.addToLog("mi", "ss");
                 this.addToLog("mi", "ss");
                 if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
+                    if (this.state.botGame) {
+                        this.setActiveThrower('p2');
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
@@ -765,7 +985,12 @@ export default class Cricket extends Component {
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
                 this.addToLog("mi", "ss");
                 if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
+                    if (this.state.botGame) {
+                        this.setActiveThrower('p2');
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
@@ -780,6 +1005,7 @@ export default class Cricket extends Component {
             if (this.state.activeThrower === "p1") {
 
                 if (this.state.botGame) {
+                    this.setActiveThrower('p2');
                     this.botLogic();
                 } else {
                     this.setActiveThrower("p2");
@@ -881,6 +1107,7 @@ export default class Cricket extends Component {
                     score={this.score}
                     miss={this.miss}
                     endTurn={this.endTurn}
+                    botGame={this.state.botGame}
                     activeThrower={this.state.activeThrower}
                     activeThrows={this.state.activeThrows}
                     renderP1Score={this.renderP1Score}

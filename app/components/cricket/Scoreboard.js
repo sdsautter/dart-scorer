@@ -16,6 +16,7 @@ export default class Scoreboard extends Component {
                 <MobileView
                     score={this.props.score}
                     miss={this.props.miss}
+                    botGame={this.props.botGame}
                     endTurn={this.props.endTurn}
                     activeThrower={this.props.activeThrower}
                     activeThrows={this.props.activeThrows}
@@ -31,6 +32,7 @@ export default class Scoreboard extends Component {
                     score={this.props.score}
                     miss={this.props.miss}
                     endTurn={this.props.endTurn}
+                    botGame={this.props.botGame}
                     activeThrower={this.props.activeThrower}
                     activeThrows={this.props.activeThrows}
                     renderP1Score={this.props.renderP1Score}
