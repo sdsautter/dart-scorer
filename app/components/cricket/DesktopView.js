@@ -6,24 +6,16 @@ export default class DesktopView extends Component {
         super();
 
         this.playersRender = this.playersRender.bind(this);
-        this.nameRender = this.nameRender.bind(this);
         this.bottomButtonsRow = this.bottomButtonsRow.bind(this);
         this.p1PointThrowRender = this.p1PointThrowRender.bind(this);
         this.p2PointThrowRender = this.p2PointThrowRender.bind(this);
         this.scoreButtonsRender = this.scoreButtonsRender.bind(this);
     }
 
-    nameRender() {
-        if (this.props.activeThrower === "p1") {
-            return "Player 1";
-        } else {
-            return "Player 2";
-        }
-    }
-
     playersRender() {
         return (
             <PlayerRender
+                botGame={this.props.botGame}
                 activeThrower={this.props.activeThrower}
                 gameCricketReset={this.props.gameCricketReset}
             />

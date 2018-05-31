@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
+import BotDifficulty from './BotDifficulty';
+import VsOptions from './VsOptions';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
@@ -10,7 +12,7 @@ export default class Cricket extends Component {
             activeThrower: "p1",
             activeThrows: 0,
             activeMarks: 0,
-            gameState: "playing",
+            gameState: "opponent",
             gameWinner: {},
             throwLog: [],
 
@@ -51,6 +53,8 @@ export default class Cricket extends Component {
         //Binding functions to change the states
         this.score = this.score.bind(this);
         this.botLogic = this.botLogic.bind(this);
+        this.setBotDifficulty = this.setBotDifficulty.bind(this);
+        this.setBotGame = this.setBotGame.bind(this);
         this.bot3MarkLogicSwitch = this.bot3MarkLogicSwitch.bind(this);
         this.bot2MarkLogicSwitch = this.bot2MarkLogicSwitch.bind(this);
         this.bot1MarkLogicSwitch = this.bot1MarkLogicSwitch.bind(this);
@@ -116,6 +120,21 @@ export default class Cricket extends Component {
         this.setState({ p27m: 0 });
         this.setState({ p28m: 0 });
         this.setState({ p29m: 0 });
+    }
+
+    setBotGame(botGame) {
+        this.setState({ botGame });
+
+        if (botGame) {
+            this.setState({ gameState: 'difficulty' });
+        } else {
+            this.setState({ gameState: 'playing' });
+        }
+    }
+
+    setBotDifficulty(botDifficulty) {
+        this.setState({ botDifficulty });
+        this.setState({ gameState: 'playing' });
     }
 
     setThrowNumber(activeThrows) {
@@ -1129,6 +1148,18 @@ export default class Cricket extends Component {
                     />
                 )
             }
+        } else if (this.state.gameState === "opponent") {
+            return (
+                <VsOptions
+                    setBotGame={this.setBotGame}
+                />
+            )
+        } else if (this.state.gameState === "difficulty") {
+            return (
+                <BotDifficulty
+                    setBotDifficulty={this.setBotDifficulty}
+                />
+            )
         }
     }
 

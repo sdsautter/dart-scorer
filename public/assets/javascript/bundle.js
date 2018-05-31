@@ -320,6 +320,16 @@ module.exports = invariant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(20);
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2014-2015, Facebook, Inc.
  * All rights reserved.
@@ -385,16 +395,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(20);
-
 
 /***/ }),
 /* 4 */
@@ -879,7 +879,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(218)();
+  module.exports = __webpack_require__(220)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -907,7 +907,7 @@ var _prodInvariant = __webpack_require__(21);
 var ReactCurrentOwner = __webpack_require__(14);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 function isNative(fn) {
   // Based on isNative() from Lodash
@@ -1715,7 +1715,7 @@ var _assign = __webpack_require__(5);
 var PooledClass = __webpack_require__(19);
 
 var emptyFunction = __webpack_require__(11);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var didWarnForAddedNewProperty = false;
 var isProxySupported = typeof Proxy === 'function';
@@ -2201,7 +2201,7 @@ var _assign = __webpack_require__(5);
 
 var ReactCurrentOwner = __webpack_require__(14);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 var canDefineProperty = __webpack_require__(30);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -2847,7 +2847,7 @@ module.exports = reactProdInvariant;
 var ReactRef = __webpack_require__(134);
 var ReactInstrumentation = __webpack_require__(12);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 /**
  * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -3144,7 +3144,7 @@ var EventPluginUtils = __webpack_require__(41);
 
 var accumulateInto = __webpack_require__(76);
 var forEachAccumulated = __webpack_require__(77);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var getListener = EventPluginHub.getListener;
 
@@ -5172,7 +5172,7 @@ var _prodInvariant = __webpack_require__(4);
 var ReactErrorUtils = __webpack_require__(42);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 /**
  * Injected dependencies:
@@ -5937,7 +5937,7 @@ var React = __webpack_require__(20);
 var PropTypes = propTypesFactory(React.isValidElement);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var hasReadOnlyValue = {
   button: true,
@@ -6314,7 +6314,7 @@ var ReactInstrumentation = __webpack_require__(12);
 var ReactUpdates = __webpack_require__(15);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 function enqueueUpdate(internalInstance) {
   ReactUpdates.enqueueUpdate(internalInstance);
@@ -6549,7 +6549,7 @@ module.exports = ReactUpdateQueue;
 var _assign = __webpack_require__(5);
 
 var emptyFunction = __webpack_require__(11);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var validateDOMNesting = emptyFunction;
 
@@ -6974,7 +6974,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -6985,6 +6985,14 @@ var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 var _Results = __webpack_require__(216);
 
 var _Results2 = _interopRequireDefault(_Results);
+
+var _BotDifficulty = __webpack_require__(217);
+
+var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
+
+var _VsOptions = __webpack_require__(218);
+
+var _VsOptions2 = _interopRequireDefault(_VsOptions);
 
 var _reactAddonsCssTransitionGroup = __webpack_require__(59);
 
@@ -7012,7 +7020,7 @@ var Cricket = function (_Component) {
             activeThrower: "p1",
             activeThrows: 0,
             activeMarks: 0,
-            gameState: "playing",
+            gameState: "opponent",
             gameWinner: {},
             throwLog: [],
 
@@ -7052,6 +7060,8 @@ var Cricket = function (_Component) {
             //Binding functions to change the states
         };_this.score = _this.score.bind(_this);
         _this.botLogic = _this.botLogic.bind(_this);
+        _this.setBotDifficulty = _this.setBotDifficulty.bind(_this);
+        _this.setBotGame = _this.setBotGame.bind(_this);
         _this.bot3MarkLogicSwitch = _this.bot3MarkLogicSwitch.bind(_this);
         _this.bot2MarkLogicSwitch = _this.bot2MarkLogicSwitch.bind(_this);
         _this.bot1MarkLogicSwitch = _this.bot1MarkLogicSwitch.bind(_this);
@@ -7120,6 +7130,23 @@ var Cricket = function (_Component) {
             this.setState({ p27m: 0 });
             this.setState({ p28m: 0 });
             this.setState({ p29m: 0 });
+        }
+    }, {
+        key: "setBotGame",
+        value: function setBotGame(botGame) {
+            this.setState({ botGame: botGame });
+
+            if (botGame) {
+                this.setState({ gameState: 'difficulty' });
+            } else {
+                this.setState({ gameState: 'playing' });
+            }
+        }
+    }, {
+        key: "setBotDifficulty",
+        value: function setBotDifficulty(botDifficulty) {
+            this.setState({ botDifficulty: botDifficulty });
+            this.setState({ gameState: 'playing' });
         }
     }, {
         key: "setThrowNumber",
@@ -8145,6 +8172,14 @@ var Cricket = function (_Component) {
                         p2Throws: this.state.p2Throws
                     });
                 }
+            } else if (this.state.gameState === "opponent") {
+                return _react2.default.createElement(_VsOptions2.default, {
+                    setBotGame: this.setBotGame
+                });
+            } else if (this.state.gameState === "difficulty") {
+                return _react2.default.createElement(_BotDifficulty2.default, {
+                    setBotDifficulty: this.setBotDifficulty
+                });
             }
         }
     }, {
@@ -8185,7 +8220,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -8223,276 +8258,550 @@ var PlayerRender = function (_Component) {
         value: function render() {
             var _this2 = this;
 
-            if (this.props.activeThrower === "p1") {
-                return _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement(
+            if (!this.props.botGame) {
+                if (this.props.activeThrower === "p1") {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "row top-row" },
+                        null,
                         _react2.default.createElement(
                             "div",
-                            { className: "col-md-2 col-lg-1 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-md-4 col-lg-5 text-center player border-right active-thrower p1-active" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-md-4 col-lg-5 text-center player border-left inactive-thrower" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-lg-1 col-md-2 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "modal-dialog", role: "document" },
+                            { className: "row top-row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "modal-content" },
+                                { className: "col-md-2 col-lg-1 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-4 col-lg-5 text-center player border-right active-thrower p1-active" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-4 col-lg-5 text-center player border-left inactive-thrower" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-1 col-md-2 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
                                 _react2.default.createElement(
                                     "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "reloadModalLabel" },
-                                        "Start Game Over"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
+                                    { className: "modal-content" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "row" },
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "reloadModalLabel" },
+                                            "Start Game Over"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            _this2.gameReset();
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
-                                        ),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-content" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "exitModalLabel" },
+                                            "Exit Game"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.gameReset();
-                                                    } },
-                                                "Yes"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
                         )
-                    ),
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                        null,
                         _react2.default.createElement(
                             "div",
-                            { className: "modal-dialog", role: "document" },
+                            { className: "row top-row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "modal-content" },
+                                { className: "col-lg-1 col-md-2 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-5 col-md-4 text-center player border-right inactive-thrower" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-5 col-md-4 text-center player border-left active-thrower p2-active" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-1 col-md-2 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
                                 _react2.default.createElement(
                                     "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "exitModalLabel" },
-                                        "Exit Game"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
+                                    { className: "modal-content" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "row" },
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "reloadModalLabel" },
+                                            "Start Game Over"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            _this2.gameReset();
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
-                                        ),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-content" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "exitModalLabel" },
+                                            "Exit Game"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        location.assign('/');
-                                                    } },
-                                                "Yes"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
                         )
-                    )
-                );
+                    );
+                }
             } else {
-                return _react2.default.createElement(
-                    "div",
-                    null,
-                    _react2.default.createElement(
+                if (this.props.activeThrower === "p1") {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "row top-row" },
+                        null,
                         _react2.default.createElement(
                             "div",
-                            { className: "col-lg-1 col-md-2 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-lg-5 col-md-4 text-center player border-right inactive-thrower" },
-                            "Player 1"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-lg-5 col-md-4 text-center player border-left active-thrower p2-active" },
-                            "Player 2"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-lg-1 col-md-2 start-over" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                                _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "modal-dialog", role: "document" },
+                            { className: "row top-row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "modal-content" },
+                                { className: "col-md-2 col-lg-1 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-4 col-lg-5 text-center player border-right active-thrower p1-active" },
+                                "Human"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-4 col-lg-5 text-center player border-left inactive-thrower" },
+                                "Bot"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-1 col-md-2 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
                                 _react2.default.createElement(
                                     "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "reloadModalLabel" },
-                                        "Start Game Over"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
+                                    { className: "modal-content" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "row" },
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "reloadModalLabel" },
+                                            "Start Game Over"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            _this2.gameReset();
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
-                                        ),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-content" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "exitModalLabel" },
+                                            "Exit Game"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        _this2.gameReset();
-                                                    } },
-                                                "Yes"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
                         )
-                    ),
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                        null,
                         _react2.default.createElement(
                             "div",
-                            { className: "modal-dialog", role: "document" },
+                            { className: "row top-row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "modal-content" },
+                                { className: "col-lg-1 col-md-2 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-5 col-md-4 text-center player border-right inactive-thrower" },
+                                "Human"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-5 col-md-4 text-center player border-left active-thrower p2-active" },
+                                "Bot"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-lg-1 col-md-2 start-over" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                                    _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "restart game" })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
                                 _react2.default.createElement(
                                     "div",
-                                    { className: "modal-header" },
-                                    _react2.default.createElement(
-                                        "h5",
-                                        { className: "modal-title", id: "exitModalLabel" },
-                                        "Exit Game"
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    "div",
-                                    { className: "modal-body" },
+                                    { className: "modal-content" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "row" },
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "reloadModalLabel" },
+                                            "Start Game Over"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
-                                                "No"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            _this2.gameReset();
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
-                                        ),
+                                        )
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-dialog", role: "document" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "modal-content" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-header" },
+                                        _react2.default.createElement(
+                                            "h5",
+                                            { className: "modal-title", id: "exitModalLabel" },
+                                            "Exit Game"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "modal-body" },
                                         _react2.default.createElement(
                                             "div",
-                                            { className: "col text-center" },
+                                            { className: "row" },
                                             _react2.default.createElement(
-                                                "button",
-                                                { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
-                                                        location.assign('/');
-                                                    } },
-                                                "Yes"
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                                    "No"
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "col text-center" },
+                                                _react2.default.createElement(
+                                                    "button",
+                                                    { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                            location.assign('/');
+                                                        } },
+                                                    "Yes"
+                                                )
                                             )
                                         )
                                     )
                                 )
                             )
                         )
-                    )
-                );
+                    );
+                }
             }
         }
     }]);
@@ -8516,7 +8825,7 @@ exports.default = PlayerRender;
 
 
 
-module.exports = __webpack_require__(217);
+module.exports = __webpack_require__(219);
 
 
 /***/ }),
@@ -8532,23 +8841,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _GamePick = __webpack_require__(228);
+var _GamePick = __webpack_require__(230);
 
 var _GamePick2 = _interopRequireDefault(_GamePick);
 
-var _GameOptions = __webpack_require__(229);
+var _GameOptions = __webpack_require__(231);
 
 var _GameOptions2 = _interopRequireDefault(_GameOptions);
 
-var _Scoreboard = __webpack_require__(230);
+var _Scoreboard = __webpack_require__(232);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(236);
+var _Results = __webpack_require__(238);
 
 var _Results2 = _interopRequireDefault(_Results);
 
@@ -9263,7 +9572,7 @@ exports.default = createTransitionManager;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -9378,7 +9687,7 @@ Router.childContextTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(249);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_path_to_regexp__);
 
 
@@ -9701,7 +10010,7 @@ module.exports = {
 
 
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 function warnNoop(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -9888,7 +10197,7 @@ var checkReactTypeSpec = __webpack_require__(117);
 
 var canDefineProperty = __webpack_require__(30);
 var getIteratorFn = __webpack_require__(70);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 var lowPriorityWarning = __webpack_require__(39);
 
 function getDeclarationErrorAddendum() {
@@ -10163,7 +10472,7 @@ module.exports = function(isValidElement) {
 
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var ReactPropTypesSecret = __webpack_require__(40);
 var checkPropTypes = __webpack_require__(121);
@@ -11472,7 +11781,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
 var quoteAttributeValueForBrowser = __webpack_require__(159);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
 var illegalAttributeNameCache = {};
@@ -11736,7 +12045,7 @@ var LinkedValueUtils = __webpack_require__(49);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(15);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var didWarnValueLink = false;
 var didWarnValueDefaultValue = false;
@@ -11945,7 +12254,7 @@ var ReactHostComponent = __webpack_require__(93);
 
 var getNextDebugID = __webpack_require__(170);
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 // To avoid a cyclic dependency, we create the final class in this module
 var ReactCompositeComponentWrapper = function (element) {
@@ -12234,7 +12543,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(171);
 var getIteratorFn = __webpack_require__(172);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(53);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
 var SUBSEPARATOR = ':';
@@ -12686,7 +12995,7 @@ var instantiateReactComponent = __webpack_require__(90);
 var invariant = __webpack_require__(1);
 var setInnerHTML = __webpack_require__(35);
 var shouldUpdateReactComponent = __webpack_require__(52);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 var ROOT_ATTR_NAME = DOMProperty.ROOT_ATTRIBUTE_NAME;
@@ -13249,7 +13558,7 @@ exports.__esModule = true;
 exports.nameShape = undefined;
 exports.transitionTimeout = transitionTimeout;
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13299,31 +13608,31 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([_propTypes2.d
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(241);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(243);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(106);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(245);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(248);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(251);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(253);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(107);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(63);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(259);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(261);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(263);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(264);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
 
 
@@ -13540,7 +13849,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -13665,7 +13974,7 @@ Link.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -13885,7 +14194,7 @@ module.exports = __webpack_require__(111);
 "use strict";
 
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13899,7 +14208,7 @@ var _X = __webpack_require__(60);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Master = __webpack_require__(237);
+var _Master = __webpack_require__(239);
 
 var _Master2 = _interopRequireDefault(_Master);
 
@@ -14246,7 +14555,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(69);
 var getIteratorFn = __webpack_require__(70);
 var invariant = __webpack_require__(1);
 var KeyEscapeUtils = __webpack_require__(115);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
 var SUBSEPARATOR = ':';
@@ -14665,7 +14974,7 @@ var ReactPropTypeLocationNames = __webpack_require__(118);
 var ReactPropTypesSecret = __webpack_require__(119);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
 
@@ -14830,7 +15139,7 @@ module.exports = factory(isValidElement);
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(1);
-  var warning = __webpack_require__(2);
+  var warning = __webpack_require__(3);
   var ReactPropTypesSecret = __webpack_require__(40);
   var loggedTypeFailures = {};
 }
@@ -14951,7 +15260,7 @@ var emptyObject = __webpack_require__(31);
 var _invariant = __webpack_require__(1);
 
 if (process.env.NODE_ENV !== 'production') {
-  var warning = __webpack_require__(2);
+  var warning = __webpack_require__(3);
 }
 
 var MIXINS_KEY = 'mixins';
@@ -15881,7 +16190,7 @@ var ReactVersion = __webpack_require__(205);
 var findDOMNode = __webpack_require__(206);
 var getHostComponentFromComposite = __webpack_require__(99);
 var renderSubtreeIntoContainer = __webpack_require__(207);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 ReactDefaultInjection.inject();
 
@@ -17245,7 +17554,7 @@ var ReactComponentTreeHook = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(7);
 
 var performanceNow = __webpack_require__(139);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var hooks = [];
 var didHookThrowForEvent = {};
@@ -17606,7 +17915,7 @@ module.exports = ReactDebugTool;
 
 
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 if (process.env.NODE_ENV !== 'production') {
   var processingChildContext = false;
@@ -18607,7 +18916,7 @@ var isEventSupported = __webpack_require__(44);
 var shallowEqual = __webpack_require__(51);
 var inputValueTracking = __webpack_require__(81);
 var validateDOMNesting = __webpack_require__(55);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var Flags = ReactDOMComponentFlags;
 var deleteListener = EventPluginHub.deleteListener;
@@ -19629,7 +19938,7 @@ var camelizeStyleName = __webpack_require__(153);
 var dangerousStyleValue = __webpack_require__(155);
 var hyphenateStyleName = __webpack_require__(156);
 var memoizeStringOnly = __webpack_require__(158);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
   return hyphenateStyleName(styleName);
@@ -19925,7 +20234,7 @@ module.exports = camelize;
 
 
 var CSSProperty = __webpack_require__(86);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 var styleWarnings = {};
@@ -20309,7 +20618,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(15);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var didWarnValueLink = false;
 var didWarnCheckedLink = false;
@@ -20599,7 +20908,7 @@ var React = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactDOMSelect = __webpack_require__(89);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 var didWarnInvalidOptionChildren = false;
 
 function flattenChildren(children) {
@@ -20729,7 +21038,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(15);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var didWarnValueLink = false;
 var didWarnValDefaultVal = false;
@@ -21345,7 +21654,7 @@ var instantiateReactComponent = __webpack_require__(90);
 var KeyEscapeUtils = __webpack_require__(53);
 var shouldUpdateReactComponent = __webpack_require__(52);
 var traverseAllChildren = __webpack_require__(94);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
 
@@ -21518,7 +21827,7 @@ var emptyObject = __webpack_require__(31);
 var invariant = __webpack_require__(1);
 var shallowEqual = __webpack_require__(51);
 var shouldUpdateReactComponent = __webpack_require__(52);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var CompositeTypes = {
   ImpureClass: 0,
@@ -22410,7 +22719,7 @@ var ReactPropTypeLocationNames = __webpack_require__(169);
 var ReactPropTypesSecret = __webpack_require__(88);
 
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
 
@@ -22628,7 +22937,7 @@ module.exports = getIteratorFn;
 
 var KeyEscapeUtils = __webpack_require__(53);
 var traverseAllChildren = __webpack_require__(94);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
 
@@ -22808,7 +23117,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var ReactUpdateQueue = __webpack_require__(54);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 function warnNoop(publicInstance, callerName) {
   if (process.env.NODE_ENV !== 'production') {
@@ -25675,7 +25984,7 @@ var ReactInstanceMap = __webpack_require__(27);
 
 var getHostComponentFromComposite = __webpack_require__(99);
 var invariant = __webpack_require__(1);
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 /**
  * Returns the DOM node rendered by this element.
@@ -25758,7 +26067,7 @@ var DOMProperty = __webpack_require__(17);
 var EventPluginRegistry = __webpack_require__(32);
 var ReactComponentTreeHook = __webpack_require__(10);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 if (process.env.NODE_ENV !== 'production') {
   var reactProps = {
@@ -25874,7 +26183,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 var ReactComponentTreeHook = __webpack_require__(10);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var didWarnValueNull = false;
 
@@ -25924,7 +26233,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 var DOMProperty = __webpack_require__(17);
 var ReactComponentTreeHook = __webpack_require__(10);
 
-var warning = __webpack_require__(2);
+var warning = __webpack_require__(3);
 
 var warnedProperties = {};
 var rARIA = new RegExp('^(aria)-[' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -26016,7 +26325,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -26106,7 +26415,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -26131,7 +26440,6 @@ var DesktopView = function (_Component) {
         var _this = _possibleConstructorReturn(this, (DesktopView.__proto__ || Object.getPrototypeOf(DesktopView)).call(this));
 
         _this.playersRender = _this.playersRender.bind(_this);
-        _this.nameRender = _this.nameRender.bind(_this);
         _this.bottomButtonsRow = _this.bottomButtonsRow.bind(_this);
         _this.p1PointThrowRender = _this.p1PointThrowRender.bind(_this);
         _this.p2PointThrowRender = _this.p2PointThrowRender.bind(_this);
@@ -26140,18 +26448,10 @@ var DesktopView = function (_Component) {
     }
 
     _createClass(DesktopView, [{
-        key: "nameRender",
-        value: function nameRender() {
-            if (this.props.activeThrower === "p1") {
-                return "Player 1";
-            } else {
-                return "Player 2";
-            }
-        }
-    }, {
         key: "playersRender",
         value: function playersRender() {
             return _react2.default.createElement(_PlayerRender2.default, {
+                botGame: this.props.botGame,
                 activeThrower: this.props.activeThrower,
                 gameCricketReset: this.props.gameCricketReset
             });
@@ -27458,7 +27758,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28080,7 +28380,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -29501,7 +29801,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -30689,7 +30989,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -30838,13 +31138,198 @@ exports.default = Results;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BotDifficulty = function (_Component) {
+    _inherits(BotDifficulty, _Component);
+
+    function BotDifficulty() {
+        _classCallCheck(this, BotDifficulty);
+
+        return _possibleConstructorReturn(this, (BotDifficulty.__proto__ || Object.getPrototypeOf(BotDifficulty)).call(this));
+    }
+
+    _createClass(BotDifficulty, [{
+        key: "render",
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: "container-fluid" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "row top-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col title text-center" },
+                        "Bot Difficulty"
+                    )
+                ),
+                _react2.default.createElement("br", null),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    _this2.props.setBotDifficulty("easy");
+                                } },
+                            "Easy"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    _this2.props.setBotDifficulty("medium");
+                                } },
+                            "Medium"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    _this2.props.setBotDifficulty("hard");
+                                } },
+                            "Hard"
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return BotDifficulty;
+}(_react.Component);
+
+exports.default = BotDifficulty;
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var VsOptions = function (_Component) {
+    _inherits(VsOptions, _Component);
+
+    function VsOptions() {
+        _classCallCheck(this, VsOptions);
+
+        return _possibleConstructorReturn(this, (VsOptions.__proto__ || Object.getPrototypeOf(VsOptions)).call(this));
+    }
+
+    _createClass(VsOptions, [{
+        key: "render",
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: "container-fluid" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "row top-row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col title text-center" },
+                        "Opponent"
+                    )
+                ),
+                _react2.default.createElement("br", null),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-md-6 col-sm-12 x01-option number text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    _this2.props.setBotGame(false);
+                                } },
+                            "Human"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-md-6 col-sm-12 x01-option number text-center" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    _this2.props.setBotGame(true);
+                                } },
+                            "Computer"
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return VsOptions;
+}(_react.Component);
+
+exports.default = VsOptions;
+
+/***/ }),
+/* 219 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -30852,11 +31337,11 @@ var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TransitionGroup = __webpack_require__(219);
+var _TransitionGroup = __webpack_require__(221);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _CSSTransitionGroupChild = __webpack_require__(222);
+var _CSSTransitionGroupChild = __webpack_require__(224);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
@@ -30935,7 +31420,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31001,7 +31486,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 219 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31011,11 +31496,11 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _chainFunction = __webpack_require__(220);
+var _chainFunction = __webpack_require__(222);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -31027,7 +31512,7 @@ var _warning = __webpack_require__(8);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ChildMapping = __webpack_require__(221);
+var _ChildMapping = __webpack_require__(223);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31277,7 +31762,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 220 */
+/* 222 */
 /***/ (function(module, exports) {
 
 
@@ -31303,7 +31788,7 @@ module.exports = function chain(){
 
 
 /***/ }),
-/* 221 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31313,7 +31798,7 @@ exports.__esModule = true;
 exports.getChildMapping = getChildMapping;
 exports.mergeChildMappings = mergeChildMappings;
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 /**
  * Given `this.props.children`, return an object mapping key to child.
@@ -31400,7 +31885,7 @@ function mergeChildMappings(prev, next) {
 }
 
 /***/ }),
-/* 222 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31410,21 +31895,21 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _addClass = __webpack_require__(223);
+var _addClass = __webpack_require__(225);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(225);
+var _removeClass = __webpack_require__(227);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(226);
+var _requestAnimationFrame = __webpack_require__(228);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(227);
+var _properties = __webpack_require__(229);
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -31636,7 +32121,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 223 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31647,7 +32132,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(224);
+var _hasClass = __webpack_require__(226);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -31659,7 +32144,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 224 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31675,7 +32160,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 225 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31690,7 +32175,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 226 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31749,7 +32234,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 227 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31865,7 +32350,7 @@ function getTransitionProperties() {
 }
 
 /***/ }),
-/* 228 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31877,7 +32362,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -32055,7 +32540,7 @@ var GamePick = function (_Component) {
 exports.default = GamePick;
 
 /***/ }),
-/* 229 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32067,7 +32552,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -32164,7 +32649,7 @@ var GameOptions = function (_Component) {
 exports.default = GameOptions;
 
 /***/ }),
-/* 230 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32176,15 +32661,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ScoreInput = __webpack_require__(231);
+var _ScoreInput = __webpack_require__(233);
 
 var _ScoreInput2 = _interopRequireDefault(_ScoreInput);
 
-var _Numpad = __webpack_require__(235);
+var _Numpad = __webpack_require__(237);
 
 var _Numpad2 = _interopRequireDefault(_Numpad);
 
@@ -32320,7 +32805,7 @@ var Scoreboard = function (_Component) {
 exports.default = Scoreboard;
 
 /***/ }),
-/* 231 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32332,19 +32817,19 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopInput = __webpack_require__(232);
+var _DesktopInput = __webpack_require__(234);
 
 var _DesktopInput2 = _interopRequireDefault(_DesktopInput);
 
-var _MobileInput = __webpack_require__(233);
+var _MobileInput = __webpack_require__(235);
 
 var _MobileInput2 = _interopRequireDefault(_MobileInput);
 
-var _TabletInput = __webpack_require__(234);
+var _TabletInput = __webpack_require__(236);
 
 var _TabletInput2 = _interopRequireDefault(_TabletInput);
 
@@ -32408,7 +32893,7 @@ var ScoreInput = function (_Component) {
 exports.default = ScoreInput;
 
 /***/ }),
-/* 232 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32420,7 +32905,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -33920,7 +34405,7 @@ var ScoreInput = function (_Component) {
 exports.default = ScoreInput;
 
 /***/ }),
-/* 233 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33932,7 +34417,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -36132,7 +36617,7 @@ var ScoreInput = function (_Component) {
 exports.default = ScoreInput;
 
 /***/ }),
-/* 234 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36144,7 +36629,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -37644,7 +38129,7 @@ var ScoreInput = function (_Component) {
 exports.default = ScoreInput;
 
 /***/ }),
-/* 235 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37656,7 +38141,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -38138,7 +38623,7 @@ var Numpad = function (_Component) {
 exports.default = Numpad;
 
 /***/ }),
-/* 236 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38150,7 +38635,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -38306,7 +38791,7 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 237 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38318,7 +38803,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -38330,7 +38815,7 @@ var _X = __webpack_require__(60);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Menu = __webpack_require__(238);
+var _Menu = __webpack_require__(240);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
@@ -38381,7 +38866,7 @@ var Master = function (_Component) {
 exports.default = Master;
 
 /***/ }),
-/* 238 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38393,7 +38878,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(3);
+var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -38580,17 +39065,17 @@ var Menu = function (_Component) {
 exports.default = Menu;
 
 /***/ }),
-/* 239 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(242);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(63);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38647,7 +39132,7 @@ BrowserRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (BrowserRouter);
 
 /***/ }),
-/* 240 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38960,17 +39445,17 @@ var createBrowserHistory = function createBrowserHistory() {
 exports.default = createBrowserHistory;
 
 /***/ }),
-/* 241 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(244);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(63);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39026,7 +39511,7 @@ HashRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (HashRouter);
 
 /***/ }),
-/* 242 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39356,28 +39841,28 @@ var createHashHistory = function createHashHistory() {
 exports.default = createHashHistory;
 
 /***/ }),
-/* 243 */
+/* 245 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(246);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__["a" /* default */]);
 
 /***/ }),
-/* 244 */
+/* 246 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(247);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(64);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39434,7 +39919,7 @@ MemoryRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (MemoryRouter);
 
 /***/ }),
-/* 245 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39610,11 +40095,11 @@ var createMemoryHistory = function createMemoryHistory() {
 exports.default = createMemoryHistory;
 
 /***/ }),
-/* 246 */
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -39691,10 +40176,10 @@ NavLink.defaultProps = {
 /* harmony default export */ __webpack_exports__["a"] = (NavLink);
 
 /***/ }),
-/* 247 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(248)
+var isarray = __webpack_require__(250)
 
 /**
  * Expose `pathToRegexp`.
@@ -40123,7 +40608,7 @@ function pathToRegexp (path, keys, options) {
 
 
 /***/ }),
-/* 248 */
+/* 250 */
 /***/ (function(module, exports) {
 
 module.exports = Array.isArray || function (arr) {
@@ -40132,22 +40617,22 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 249 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(252);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__["a" /* default */]);
 
 /***/ }),
-/* 250 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -40234,22 +40719,22 @@ Prompt.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Prompt);
 
 /***/ }),
-/* 251 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(254);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__["a" /* default */]);
 
 /***/ }),
-/* 252 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -40257,7 +40742,7 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(255);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -40353,15 +40838,15 @@ Redirect.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Redirect);
 
 /***/ }),
-/* 253 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(256);
 /* unused harmony reexport createBrowserHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(257);
 /* unused harmony reexport createHashHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(258);
 /* unused harmony reexport createMemoryHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(38);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
@@ -40380,7 +40865,7 @@ Redirect.contextTypes = {
 
 
 /***/ }),
-/* 254 */
+/* 256 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40684,7 +41169,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createBrowserHistory);
 
 /***/ }),
-/* 255 */
+/* 257 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41005,7 +41490,7 @@ var createHashHistory = function createHashHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createHashHistory);
 
 /***/ }),
-/* 256 */
+/* 258 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41173,18 +41658,18 @@ var createMemoryHistory = function createMemoryHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createMemoryHistory);
 
 /***/ }),
-/* 257 */
+/* 259 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(260);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__["a" /* default */]);
 
 /***/ }),
-/* 258 */
+/* 260 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41192,7 +41677,7 @@ var createMemoryHistory = function createMemoryHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
@@ -41367,22 +41852,22 @@ StaticRouter.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (StaticRouter);
 
 /***/ }),
-/* 259 */
+/* 261 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(262);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__["a" /* default */]);
 
 /***/ }),
-/* 260 */
+/* 262 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
@@ -41472,7 +41957,7 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Switch);
 
 /***/ }),
-/* 261 */
+/* 263 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -41483,26 +41968,26 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__["a" /* default */]);
 
 /***/ }),
-/* 262 */
+/* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(265);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__["a" /* default */]);
 
 /***/ }),
-/* 263 */
+/* 265 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(108);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -41539,7 +42024,7 @@ var withRouter = function withRouter(Component) {
 /* harmony default export */ __webpack_exports__["a"] = (withRouter);
 
 /***/ }),
-/* 264 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
