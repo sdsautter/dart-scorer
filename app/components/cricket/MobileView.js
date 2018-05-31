@@ -25,30 +25,55 @@ export default class MobileModalView extends Component {
     }
 
     playersRender() {
-        if (this.props.activeThrower === "p1") {
-            return (
-                <div className="row top-row">
-                    <div className="col-6 text-center player border-right p1-active">
-                        Player 1
+        if (!this.props.botGame) {
+            if (this.props.activeThrower === "p1") {
+                return (
+                    <div className="row top-row">
+                        <div className="col-6 text-center player border-right p1-active">
+                            Player 1
                         </div>
-                    <div className="col-6 text-center player border-left inactive-thrower">
-                        Player 2
+                        <div className="col-6 text-center player border-left inactive-thrower">
+                            Player 2
                         </div>
-                </div>
-            )
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="row top-row">
+                        <div className="col-6 text-center player border-right inactive-thrower">
+                            Player 1
+                    </div>
+                        <div className="col-6 text-center player border-left p2-active">
+                            Player 2
+                    </div>
+                    </div>
+                )
+            }
         } else {
-            return (
-                <div className="row top-row">
-                    <div className="col-6 text-center player border-right inactive-thrower">
-                        Player 1
+            if (this.props.activeThrower === "p1") {
+                return (
+                    <div className="row top-row">
+                        <div className="col-6 text-center player border-right p1-active">
+                            Human
+                        </div>
+                        <div className="col-6 text-center player border-left inactive-thrower">
+                            Bot
+                        </div>
                     </div>
-                    <div className="col-6 text-center player border-left p2-active">
-                        Player 2
+                )
+            } else {
+                return (
+                    <div className="row top-row">
+                        <div className="col-6 text-center player border-right inactive-thrower">
+                            Human
                     </div>
-                </div>
-            )
+                        <div className="col-6 text-center player border-left p2-active">
+                            Bot
+                    </div>
+                    </div>
+                )
+            }
         }
-
     }
 
     throwRowRender() {

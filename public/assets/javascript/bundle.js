@@ -28426,36 +28426,70 @@ var MobileModalView = function (_Component) {
     }, {
         key: "playersRender",
         value: function playersRender() {
-            if (this.props.activeThrower === "p1") {
-                return _react2.default.createElement(
-                    "div",
-                    { className: "row top-row" },
-                    _react2.default.createElement(
+            if (!this.props.botGame) {
+                if (this.props.activeThrower === "p1") {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center player border-right p1-active" },
-                        "Player 1"
-                    ),
-                    _react2.default.createElement(
+                        { className: "row top-row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-right p1-active" },
+                            "Player 1"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-left inactive-thrower" },
+                            "Player 2"
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center player border-left inactive-thrower" },
-                        "Player 2"
-                    )
-                );
+                        { className: "row top-row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-right inactive-thrower" },
+                            "Player 1"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-left p2-active" },
+                            "Player 2"
+                        )
+                    );
+                }
             } else {
-                return _react2.default.createElement(
-                    "div",
-                    { className: "row top-row" },
-                    _react2.default.createElement(
+                if (this.props.activeThrower === "p1") {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center player border-right inactive-thrower" },
-                        "Player 1"
-                    ),
-                    _react2.default.createElement(
+                        { className: "row top-row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-right p1-active" },
+                            "Human"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-left inactive-thrower" },
+                            "Bot"
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center player border-left p2-active" },
-                        "Player 2"
-                    )
-                );
+                        { className: "row top-row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-right inactive-thrower" },
+                            "Human"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center player border-left p2-active" },
+                            "Bot"
+                        )
+                    );
+                }
             }
         }
     }, {
