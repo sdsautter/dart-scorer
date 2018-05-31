@@ -7062,9 +7062,9 @@ var Cricket = function (_Component) {
         _this.botLogic = _this.botLogic.bind(_this);
         _this.setBotDifficulty = _this.setBotDifficulty.bind(_this);
         _this.setBotGame = _this.setBotGame.bind(_this);
-        _this.bot3MarkLogicSwitch = _this.bot3MarkLogicSwitch.bind(_this);
-        _this.bot2MarkLogicSwitch = _this.bot2MarkLogicSwitch.bind(_this);
-        _this.bot1MarkLogicSwitch = _this.bot1MarkLogicSwitch.bind(_this);
+        _this.botHitTriple = _this.botHitTriple.bind(_this);
+        _this.botHitDouble = _this.botHitDouble.bind(_this);
+        _this.botHitSingle = _this.botHitSingle.bind(_this);
         _this.humanFindOpenNumber = _this.humanFindOpenNumber.bind(_this);
         _this.botAddThrows = _this.botAddThrows.bind(_this);
         _this.botFindOpenNumber = _this.botFindOpenNumber.bind(_this);
@@ -7573,29 +7573,150 @@ var Cricket = function (_Component) {
             var botScore = parseInt(this.state.p2Score);
             var humanScore = parseInt(this.state.p1Score);
             var scoreDiff = botScore - humanScore;
-            setTimeout(function () {
-                switch (_this2.state.botDifficulty) {
-                    case 'easy':
-                        _this2.bot1MarkLogicSwitch(20);
+            var randomMarks = void 0;
 
-                        break;
-                    case 'medium':
-                        _this2.bot2MarkLogicSwitch(20);
+            switch (this.state.botDifficulty) {
+                case 'easy':
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                    }, 300);
+                    setTimeout(function () {
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                    }, 600);
+                    setTimeout(function () {
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                        _this2.botAddThrows();
+                    }, 900);
+                    break;
+                case 'medium':
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                    }, 300);
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                    }, 600);
+                    setTimeout(function () {
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                        _this2.botAddThrows();
+                    }, 1000);
+                    break;
+                case 'hard':
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                    }, 300);
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                    }, 600);
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                        _this2.botAddThrows();
+                    }, 900);
+                    break;
+                case 'pro':
+                    randomMarks = Math.floor(Math.random() * Math.floor(10 - 5)) + 5;
+                    switch (randomMarks) {
+                        case 5:
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 300);
+                            setTimeout(function () {
+                                _this2.botHitSingle(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 600);
+                            setTimeout(function () {
+                                _this2.botHitSingle(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                                _this2.botAddThrows();
+                            }, 900);
+                            break;
+                        case 6:
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 300);
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 600);
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                                _this2.botAddThrows();
+                            }, 900);
+                            break;
+                        case 7:
+                            setTimeout(function () {
+                                _this2.botHitTriple(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 300);
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 600);
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                                _this2.botAddThrows();
+                            }, 900);
+                            break;
+                        case 8:
+                            setTimeout(function () {
+                                _this2.botHitTriple(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 300);
+                            setTimeout(function () {
+                                _this2.botHitTriple(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 600);
+                            setTimeout(function () {
+                                _this2.botHitDouble(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                                _this2.botAddThrows();
+                            }, 900);
+                            break;
 
-                        break;
-                    case 'hard':
-                        _this2.bot3MarkLogicSwitch(20);
-                        break;
+                        case 9:
+                            setTimeout(function () {
+                                _this2.botHitTriple(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 300);
+                            setTimeout(function () {
+                                _this2.botHitTriple(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                            }, 600);
+                            setTimeout(function () {
+                                _this2.botHitTriple(20);
+                                _this2.setState({ activeThrows: _this2.state.activeThrows + 1 });
+                                _this2.botAddThrows();
+                            }, 900);
+                            break;
+                        default:
+                            break;
+                    }
 
-                    default:
-                        _this2.bot2MarkLogicSwitch(20);
-                        break;
-                }
-            }, 500);
+                    break;
+
+                default:
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                    }, 300);
+                    setTimeout(function () {
+                        _this2.botHitSingle(20);
+                        _this2.botAddThrows();
+                    }, 600);
+                    break;break;
+            }
         }
     }, {
-        key: "bot3MarkLogicSwitch",
-        value: function bot3MarkLogicSwitch(number) {
+        key: "botHitTriple",
+        value: function botHitTriple(number) {
             var _this3 = this;
 
             var nextNumber = number !== 15 ? number - 1 : 25;
@@ -7615,7 +7736,7 @@ var Cricket = function (_Component) {
             var botNextNumber = eval("this.state.p2" + nextNumber);
             var botNextNumberMarks = "p2" + nextNumber;
             var double = number * 2;
-            var triple = number * 3;
+            var botHitSingle = number * 3;
             var awayFrom50 = 50 - number;
             var doubleAwayFrom50 = 50 - double;
             var botNumber = eval("this.state.p2" + number);
@@ -7624,38 +7745,17 @@ var Cricket = function (_Component) {
 
             switch (botNumber) {
                 case 0:
-                    this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                        _this3.botAddThrows(botThrows);
-                    });
+                    this.setState(_defineProperty({}, botNumberMarks, 3), function () {});
                     break;
                 case 1:
                     if (humanNumber >= 3) {
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                            if (scoreDiff > 50) {
-                                var nextOpenNumber = _this3.botFindOpenNumber(nextNumber);
-                                var _botNextNumber = eval("this.state.p2" + nextOpenNumber);
-                                var _botNextNumberMarks = "p2" + nextOpenNumber;
-
-                                _this3.setState(_defineProperty({}, _botNextNumberMarks, _botNextNumber + 1), function () {
-                                    return _this3.botAddThrows(botThrows);
-                                });
-                            } else {
-                                var humanOpenNumber = _this3.humanFindOpenNumber();
-                                _this3.bot2MarkLogicSwitch(humanOpenNumber);
-                            }
+                            return;
                         });
                     } else if (humanNumber < 3) {
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                            var nextOpenNumber = _this3.botFindOpenNumber(nextNumber);
-                            var botNextNumber = eval("this.state.p2" + nextOpenNumber);
-                            var botNextNumberMarks = "p2" + nextOpenNumber;
-
                             if (scoreDiff <= 50) {
                                 _this3.setState({ p2Score: botScore + number });
-                                return _this3.botAddThrows(botThrows);
-                            } else {
-                                _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
-                                return _this3.botAddThrows(botThrows);
                             }
                         });
                     }
@@ -7663,60 +7763,29 @@ var Cricket = function (_Component) {
                 case 2:
                     if (humanNumber >= 3) {
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                            var nextOpenNumber = _this3.botFindOpenNumber(nextNumber);
-                            var botNextNumber = eval("this.state.p2" + nextOpenNumber);
-                            var botNextNumberMarks = "p2" + nextOpenNumber;
-
-                            _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2), function () {
-                                return _this3.botAddThrows(botThrows);
-                            });
+                            return;
                         });
                     } else if (humanNumber < 3) {
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
                             var nextOpenNumber = _this3.botFindOpenNumber(nextNumber);
                             var botNextNumber = eval("this.state.p2" + nextOpenNumber);
                             var botNextNumberMarks = "p2" + nextOpenNumber;
-
-                            if (scoreDiff <= awayFrom50) {
-                                _this3.setState({ p2Score: botScore + double });
-                                return _this3.botAddThrows(botThrows);
-                            } else if (scoreDiff <= 50) {
-                                _this3.setState({ p2Score: botScore + number });
-                                _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
-                                return _this3.botAddThrows(botThrows);
-                            } else {
-                                _this3.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2));
-                                return _this3.botAddThrows(botThrows);
-                            }
+                            _this3.setState({ p2Score: botScore + double });
                         });
                     }
                     break;
                 default:
                     if (humanNumber >= 3) {
-                        this.bot3MarkLogicSwitch(nextNumber);
+                        this.botHitTriple(nextNumber);
                     } else if (humanNumber < 3) {
-                        if (scoreDiff <= doubleAwayFrom50) {
-                            this.setState({ p2Score: botScore + triple });
-                            this.botAddThrows(botThrows);
-                        } else if (scoreDiff <= awayFrom50) {
-                            this.setState({ p2Score: botScore + double });
-                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
-                            this.botAddThrows(botThrows);
-                        } else if (scoreDiff <= 50) {
-                            this.setState({ p2Score: botScore + number });
-                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2));
-                            this.botAddThrows(botThrows);
-                        } else {
-                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 3));
-                            this.botAddThrows(botThrows);
-                        }
+                        this.setState({ p2Score: botScore + triple });
                     }
                     break;
             }
         }
     }, {
-        key: "bot2MarkLogicSwitch",
-        value: function bot2MarkLogicSwitch(number) {
+        key: "botHitDouble",
+        value: function botHitDouble(number) {
             var _this4 = this;
 
             var nextNumber = number !== 15 ? number - 1 : 25;
@@ -7746,70 +7815,39 @@ var Cricket = function (_Component) {
             switch (botNumber) {
                 case 0:
                     this.setState(_defineProperty({}, botNumberMarks, 2), function () {
-                        _this4.botAddThrows(botThrows);
+                        return;
                     });
                     break;
                 case 1:
                     this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                        _this4.botAddThrows(botThrows);
+                        return;
                     });
                     break;
                 case 2:
                     if (humanNumber >= 3) {
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                            var nextOpenNumber = _this4.botFindOpenNumber(nextNumber);
-                            var botNextNumber = eval("this.state.p2" + nextOpenNumber);
-                            var botNextNumberMarks = "p2" + nextOpenNumber;
-
-                            _this4.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1), function () {
-                                return _this4.botAddThrows(botThrows);
-                            });
+                            return;
                         });
                     } else {
 
                         this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-                            var nextOpenNumber = _this4.botFindOpenNumber(nextNumber);
-                            var botNextNumber = eval("this.state.p2" + nextOpenNumber);
-                            var botNextNumberMarks = "p2" + nextOpenNumber;
-
-                            if (scoreDiff <= 50) {
-                                _this4.setState({ p2Score: botScore + number });
-                                return _this4.botAddThrows(botThrows);
-                            } else {
-                                _this4.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 1));
-                                return _this4.botAddThrows(botThrows);
-                            }
+                            _this4.setState({ p2Score: botScore + number });
                         });
                     }
                     break;
                 default:
                     if (humanNumber >= 3) {
-                        return this.bot2MarkLogicSwitch(nextNumber);
+                        return this.botHitDouble(nextNumber);
                     } else if (humanNumber < 3) {
-                        if (scoreDiff <= awayFrom50) {
-                            this.setState({ p2Score: botScore + double });
-                            this.botAddThrows(botThrows);
-                        } else if (scoreDiff <= 50) {
-                            var nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                            var _botNextNumber2 = eval("this.state.p2" + nextOpenNumber);
-                            var _botNextNumberMarks2 = "p2" + nextOpenNumber;
-
-                            this.setState({ p2Score: botScore + number });
-                            this.setState(_defineProperty({}, _botNextNumberMarks2, _botNextNumber2 + 1));
-                            this.botAddThrows(botThrows);
-                        } else {
-                            this.setState(_defineProperty({}, botNextNumberMarks, botNextNumber + 2));
-                            this.botAddThrows(botThrows);
-                        }
+                        this.setState({ p2Score: botScore + double });
+                        return;
                     }
                     break;
             }
         }
     }, {
-        key: "bot1MarkLogicSwitch",
-        value: function bot1MarkLogicSwitch(number) {
-            var _this5 = this;
-
+        key: "botHitSingle",
+        value: function botHitSingle(number) {
             var nextNumber = number !== 15 ? number - 1 : 25;
             nextNumber = this.botFindOpenNumber(nextNumber);
 
@@ -7818,7 +7856,7 @@ var Cricket = function (_Component) {
             var humanScore = parseInt(this.state.p1Score);
             var scoreDiff = botScore - humanScore;
 
-            if (scoreDiff >= 0) {
+            if (scoreDiff >= 50) {
                 number = this.botFindOpenNumber();
             } else {
                 number = this.humanFindOpenNumber();
@@ -7837,35 +7875,36 @@ var Cricket = function (_Component) {
             switch (botNumber) {
                 case 0:
                     this.setState(_defineProperty({}, botNumberMarks, 1), function () {
-                        _this5.botAddThrows(botThrows);
+                        // this.botAddThrows(botThrows);
                     });
                     break;
                 case 1:
                     this.setState(_defineProperty({}, botNumberMarks, 2), function () {
-                        _this5.botAddThrows(botThrows);
+                        // this.botAddThrows(botThrows);
                     });
                     break;
                 case 2:
                     this.setState(_defineProperty({}, botNumberMarks, 3), function () {
 
-                        return _this5.botAddThrows(botThrows);
+                        // return this.botAddThrows(botThrows);
+
                     });
                     break;
                 default:
                     var nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                    var _botNextNumber3 = eval("this.state.p2" + nextOpenNumber);
-                    var _botNextNumberMarks3 = "p2" + nextOpenNumber;
+                    var _botNextNumber = eval("this.state.p2" + nextOpenNumber);
+                    var _botNextNumberMarks = "p2" + nextOpenNumber;
 
                     if (humanNumber >= 3) {
-                        return this.bot2MarkLogicSwitch(nextNumber);
+                        return this.botHitDouble(nextNumber);
                     } else if (humanNumber < 3) {
                         if (scoreDiff <= 50) {
 
                             this.setState({ p2Score: botScore + number });
-                            this.botAddThrows(botThrows);
+                            // this.botAddThrows(botThrows);
                         } else {
-                            this.setState(_defineProperty({}, _botNextNumberMarks3, _botNextNumber3 + 1));
-                            this.botAddThrows(botThrows);
+                            this.setState(_defineProperty({}, _botNextNumberMarks, _botNextNumber + 1));
+                            // this.botAddThrows(botThrows);
                         }
                     }
                     break;
@@ -7873,8 +7912,10 @@ var Cricket = function (_Component) {
         }
     }, {
         key: "botAddThrows",
-        value: function botAddThrows(botThrows) {
+        value: function botAddThrows() {
+            var botThrows = parseInt(this.state.p2Throws);
             this.setState({ p2Throws: botThrows + 3 });
+            this.setState({ activeThrows: 0 });
             this.gameOverCheck();
             this.setActiveThrower("p1");
         }
@@ -8069,13 +8110,13 @@ var Cricket = function (_Component) {
     }, {
         key: "gameOverCheck",
         value: function gameOverCheck() {
-            var _this6 = this;
+            var _this5 = this;
 
             setTimeout(function () {
-                if (_this6.state.p120 >= 3 && _this6.state.p119 >= 3 && _this6.state.p118 >= 3 && _this6.state.p117 >= 3 && _this6.state.p116 >= 3 && _this6.state.p115 >= 3 && _this6.state.p125 >= 3 && _this6.state.p1Score >= _this6.state.p2Score) {
-                    _this6.gameStateChange("p1");
-                } else if (_this6.state.p220 >= 3 && _this6.state.p219 >= 3 && _this6.state.p218 >= 3 && _this6.state.p217 >= 3 && _this6.state.p216 >= 3 && _this6.state.p215 >= 3 && _this6.state.p225 >= 3 && _this6.state.p2Score >= _this6.state.p1Score) {
-                    _this6.gameStateChange("p2");
+                if (_this5.state.p120 >= 3 && _this5.state.p119 >= 3 && _this5.state.p118 >= 3 && _this5.state.p117 >= 3 && _this5.state.p116 >= 3 && _this5.state.p115 >= 3 && _this5.state.p125 >= 3 && _this5.state.p1Score >= _this5.state.p2Score) {
+                    _this5.gameStateChange("p1");
+                } else if (_this5.state.p220 >= 3 && _this5.state.p219 >= 3 && _this5.state.p218 >= 3 && _this5.state.p217 >= 3 && _this5.state.p216 >= 3 && _this5.state.p215 >= 3 && _this5.state.p225 >= 3 && _this5.state.p2Score >= _this5.state.p1Score) {
+                    _this5.gameStateChange("p2");
                 }
             }, 500);
         }
@@ -8097,10 +8138,10 @@ var Cricket = function (_Component) {
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this7 = this;
+            var _this6 = this;
 
             setTimeout(function () {
-                _this7.setState({ activeMarks: 0 });
+                _this6.setState({ activeMarks: 0 });
             }, 1000);
         }
     }, {
@@ -8178,6 +8219,7 @@ var Cricket = function (_Component) {
                 });
             } else if (this.state.gameState === "difficulty") {
                 return _react2.default.createElement(_BotDifficulty2.default, {
+                    game: 'cricket',
                     setBotDifficulty: this.setBotDifficulty
                 });
             }
@@ -8931,6 +8973,44 @@ var X01 = function (_Component) {
     }
 
     _createClass(X01, [{
+        key: "botLogic",
+        value: function botLogic() {
+            var _this2 = this;
+
+            var difficulty = this.state.botDifficulty;
+            var botScore = parseInt(this.state.p2Score);
+            var humanScore = parseInt(this.state.p1Score);
+            var scoreDiff = botScore - humanScore;
+            setTimeout(function () {
+                switch (_this2.state.botDifficulty) {
+                    case 'easy':
+                        _this2.easyBoy(20);
+
+                        break;
+                    case 'medium':
+                        _this2.mediumBot(20);
+
+                        break;
+                    case 'hard':
+                        _this2.hardBot(20);
+                        break;
+
+                    default:
+                        _this2.mediumBot(20);
+                        break;
+                }
+            }, 500);
+        }
+    }, {
+        key: "easyBot",
+        value: function easyBot() {}
+    }, {
+        key: "mediumBot",
+        value: function mediumBot() {}
+    }, {
+        key: "hardBot",
+        value: function hardBot() {}
+    }, {
         key: "setX01Game",
         value: function setX01Game(x01Game) {
             this.setState({ x01Game: x01Game });
@@ -9162,20 +9242,20 @@ var X01 = function (_Component) {
     }, {
         key: "checkThrower",
         value: function checkThrower() {
-            var _this2 = this;
+            var _this3 = this;
 
             setTimeout(function () {
-                if (_this2.state.activeThrows > 2) {
-                    if (_this2.state.activeThrower === "p1") {
-                        _this2.addToRoundStartScore("p1", _this2.state.p1Score);
-                        _this2.setActiveThrower("p2");
-                        _this2.setThrowNumber(0);
+                if (_this3.state.activeThrows > 2) {
+                    if (_this3.state.activeThrower === "p1") {
+                        _this3.addToRoundStartScore("p1", _this3.state.p1Score);
+                        _this3.setActiveThrower("p2");
+                        _this3.setThrowNumber(0);
                     } else {
-                        _this2.addToRoundStartScore("p2", _this2.state.p2Score);
-                        _this2.setActiveThrower("p1");
-                        _this2.setThrowNumber(0);
+                        _this3.addToRoundStartScore("p2", _this3.state.p2Score);
+                        _this3.setActiveThrower("p1");
+                        _this3.setThrowNumber(0);
                     }
-                    _this2.setThrowNumber(0);
+                    _this3.setThrowNumber(0);
                 }
             }, 5);
         }
@@ -31206,57 +31286,59 @@ var BotDifficulty = function (_Component) {
         value: function render() {
             var _this2 = this;
 
-            return _react2.default.createElement(
-                "div",
-                { className: "container-fluid" },
-                _react2.default.createElement(
+            if (this.props.game === 'cricket') {
+                return _react2.default.createElement(
                     "div",
-                    { className: "row top-row" },
+                    { className: "container-fluid" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col title text-center" },
-                        "Bot Difficulty"
-                    )
-                ),
-                _react2.default.createElement("br", null),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        { className: "row top-row" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.setBotDifficulty("easy");
-                                } },
-                            "Easy"
+                            "div",
+                            { className: "col title text-center" },
+                            "Bot Difficulty"
                         )
                     ),
+                    _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                        { className: "row" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.setBotDifficulty("medium");
-                                } },
-                            "Medium"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            "div",
+                            { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.setBotDifficulty("easy");
+                                    } },
+                                "Easy"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                    _this2.props.setBotDifficulty("hard");
-                                } },
-                            "Hard"
+                            "div",
+                            { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.setBotDifficulty("medium");
+                                    } },
+                                "Medium"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        _this2.props.setBotDifficulty("hard");
+                                    } },
+                                "Hard"
+                            )
                         )
                     )
-                )
-            );
+                );
+            }
         }
     }]);
 

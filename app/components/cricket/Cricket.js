@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
-import BotDifficulty from './BotDifficulty';
-import VsOptions from './VsOptions';
+import BotDifficulty from './../common/BotDifficulty';
+import VsOptions from './../common/VsOptions';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
@@ -55,9 +55,9 @@ export default class Cricket extends Component {
         this.botLogic = this.botLogic.bind(this);
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
         this.setBotGame = this.setBotGame.bind(this);
-        this.bot3MarkLogicSwitch = this.bot3MarkLogicSwitch.bind(this);
-        this.bot2MarkLogicSwitch = this.bot2MarkLogicSwitch.bind(this);
-        this.bot1MarkLogicSwitch = this.bot1MarkLogicSwitch.bind(this);
+        this.botHitTriple = this.botHitTriple.bind(this);
+        this.botHitDouble = this.botHitDouble.bind(this);
+        this.botHitSingle = this.botHitSingle.bind(this);
         this.humanFindOpenNumber = this.humanFindOpenNumber.bind(this);
         this.botAddThrows = this.botAddThrows.bind(this);
         this.botFindOpenNumber = this.botFindOpenNumber.bind(this);
@@ -550,28 +550,155 @@ export default class Cricket extends Component {
         const botScore = parseInt(this.state.p2Score);
         const humanScore = parseInt(this.state.p1Score);
         const scoreDiff = botScore - humanScore;
-        setTimeout(() => {
-            switch (this.state.botDifficulty) {
-                case 'easy':
-                    this.bot1MarkLogicSwitch(20);
+        let randomMarks;
 
-                    break;
-                case 'medium':
-                    this.bot2MarkLogicSwitch(20);
+        switch (this.state.botDifficulty) {
+            case 'easy':
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                }, 300);
+                setTimeout(() => {
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                }, 600);
+                setTimeout(() => {
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                    this.botAddThrows();
+                }, 900);
+                break;
+            case 'medium':
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                }, 300);
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                }, 600);
+                setTimeout(() => {
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                    this.botAddThrows();
+                }, 1000);
+                break;
+            case 'hard':
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                }, 300);
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
 
-                    break;
-                case 'hard':
-                    this.bot3MarkLogicSwitch(20);
-                    break;
+                }, 600);
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.setState({ activeThrows: this.state.activeThrows + 1 });
+                    this.botAddThrows();
+                }, 900);
+                break;
+            case 'pro':
+                randomMarks = Math.floor(Math.random() * Math.floor(10 - 5)) + 5;
+                switch (randomMarks) {
+                    case 5:
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                        }, 300);
+                        setTimeout(() => {
+                            this.botHitSingle(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
 
-                default:
-                    this.bot2MarkLogicSwitch(20);
-                    break;
-            }
-        }, 500)
+                        }, 600);
+                        setTimeout(() => {
+                            this.botHitSingle(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                            this.botAddThrows();
+                        }, 900);
+                        break;
+                    case 6:
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                        }, 300);
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+
+                        }, 600);
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                            this.botAddThrows();
+                        }, 900);
+                        break;
+                    case 7:
+                        setTimeout(() => {
+                            this.botHitTriple(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                        }, 300);
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+
+                        }, 600);
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                            this.botAddThrows();
+                        }, 900);
+                        break;
+                    case 8:
+                        setTimeout(() => {
+                            this.botHitTriple(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                        }, 300);
+                        setTimeout(() => {
+                            this.botHitTriple(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+
+                        }, 600);
+                        setTimeout(() => {
+                            this.botHitDouble(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                            this.botAddThrows();
+                        }, 900);
+                        break;
+
+                    case 9:
+                        setTimeout(() => {
+                            this.botHitTriple(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                        }, 300);
+                        setTimeout(() => {
+                            this.botHitTriple(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+
+                        }, 600);
+                        setTimeout(() => {
+                            this.botHitTriple(20);
+                            this.setState({ activeThrows: this.state.activeThrows + 1 });
+                            this.botAddThrows();
+                        }, 900);
+                        break;
+                    default:
+                        break;
+                }
+
+                break;
+
+            default:
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                }, 300);
+                setTimeout(() => {
+                    this.botHitSingle(20);
+                    this.botAddThrows();
+                }, 600);
+                break; break;
+        }
     }
 
-    bot3MarkLogicSwitch(number) {
+    botHitTriple(number) {
         let nextNumber = number !== 15 ? number - 1 : 25;
         nextNumber = this.botFindOpenNumber(nextNumber);
 
@@ -589,7 +716,7 @@ export default class Cricket extends Component {
         const botNextNumber = eval(`this.state.p2${nextNumber}`);
         const botNextNumberMarks = `p2${nextNumber}`;
         const double = number * 2;
-        const triple = number * 3;
+        const botHitSingle = number * 3;
         const awayFrom50 = 50 - number;
         const doubleAwayFrom50 = 50 - double;
         const botNumber = eval(`this.state.p2${number}`);
@@ -599,41 +726,18 @@ export default class Cricket extends Component {
         switch (botNumber) {
             case 0:
                 this.setState({ [botNumberMarks]: 3 }, () => {
-                    this.botAddThrows(botThrows);
                 })
                 break;
             case 1:
                 if (humanNumber >= 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
-                        if (scoreDiff > 50) {
-                            const nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                            const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
-                            const botNextNumberMarks = `p2${nextOpenNumber}`;
-
-                            this.setState({ [botNextNumberMarks]: botNextNumber + 1 }, () => {
-                                return this.botAddThrows(botThrows);
-
-                            })
-                        } else {
-                            const humanOpenNumber = this.humanFindOpenNumber();
-                            this.bot2MarkLogicSwitch(humanOpenNumber);
-                        }
+                        return;
                     })
                 }
                 else if (humanNumber < 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
-                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
-                        const botNextNumberMarks = `p2${nextOpenNumber}`;
-
                         if (scoreDiff <= 50) {
                             this.setState({ p2Score: botScore + number });
-                            return this.botAddThrows(botThrows);
-
-                        } else {
-                            this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
-                            return this.botAddThrows(botThrows);
-
                         }
                     })
                 }
@@ -641,14 +745,7 @@ export default class Cricket extends Component {
             case 2:
                 if (humanNumber >= 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
-                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
-                        const botNextNumberMarks = `p2${nextOpenNumber}`;
-
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 2 }, () => {
-                            return this.botAddThrows(botThrows);
-
-                        })
+                        return;
                     });
                 }
                 else if (humanNumber < 3) {
@@ -656,48 +753,22 @@ export default class Cricket extends Component {
                         const nextOpenNumber = this.botFindOpenNumber(nextNumber);
                         const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
                         const botNextNumberMarks = `p2${nextOpenNumber}`;
-
-                        if (scoreDiff <= awayFrom50) {
-                            this.setState({ p2Score: botScore + double });
-                            return this.botAddThrows(botThrows);
-                        } else if (scoreDiff <= 50) {
-                            this.setState({ p2Score: botScore + number });
-                            this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
-                            return this.botAddThrows(botThrows);
-                        } else {
-                            this.setState({ [botNextNumberMarks]: botNextNumber + 2 });
-                            return this.botAddThrows(botThrows);
-                        }
+                        this.setState({ p2Score: botScore + double });
                     })
                 }
                 break;
             default:
                 if (humanNumber >= 3) {
-                    this.bot3MarkLogicSwitch(nextNumber)
+                    this.botHitTriple(nextNumber)
                 } else if (humanNumber < 3) {
-                    if (scoreDiff <= doubleAwayFrom50) {
-                        this.setState({ p2Score: botScore + triple });
-                        this.botAddThrows(botThrows);
-                    } else if (scoreDiff <= awayFrom50) {
-                        this.setState({ p2Score: botScore + double });
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
-                        this.botAddThrows(botThrows);
-
-                    } else if (scoreDiff <= 50) {
-                        this.setState({ p2Score: botScore + number });
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 2 })
-                        this.botAddThrows(botThrows);
-                    } else {
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 3 })
-                        this.botAddThrows(botThrows);
-
-                    }
+                    this.setState({ p2Score: botScore + triple });
                 }
                 break;
         }
     }
 
-    bot2MarkLogicSwitch(number) {
+
+    botHitDouble(number) {
         let nextNumber = number !== 15 ? number - 1 : 25;
         nextNumber = this.botFindOpenNumber(nextNumber);
 
@@ -725,71 +796,39 @@ export default class Cricket extends Component {
         switch (botNumber) {
             case 0:
                 this.setState({ [botNumberMarks]: 2 }, () => {
-                    this.botAddThrows(botThrows);
+                    return
                 })
                 break;
             case 1:
                 this.setState({ [botNumberMarks]: 3 }, () => {
-                    this.botAddThrows(botThrows);
+                    return
                 })
                 break;
             case 2:
                 if (humanNumber >= 3) {
                     this.setState({ [botNumberMarks]: 3 }, () => {
-                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
-                        const botNextNumberMarks = `p2${nextOpenNumber}`;
-
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 }, () => {
-                            return this.botAddThrows(botThrows);
-
-                        })
+                        return;
                     })
                 }
                 else {
 
                     this.setState({ [botNumberMarks]: 3 }, () => {
-                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
-                        const botNextNumberMarks = `p2${nextOpenNumber}`;
-
-                        if (scoreDiff <= 50) {
-                            this.setState({ p2Score: botScore + number });
-                            return this.botAddThrows(botThrows);
-                        } else {
-                            this.setState({ [botNextNumberMarks]: botNextNumber + 1 });
-                            return this.botAddThrows(botThrows);
-                        }
+                        this.setState({ p2Score: botScore + number });
                     })
                 }
                 break;
             default:
                 if (humanNumber >= 3) {
-                    return this.bot2MarkLogicSwitch(nextNumber)
+                    return this.botHitDouble(nextNumber)
                 } else if (humanNumber < 3) {
-                    if (scoreDiff <= awayFrom50) {
-                        this.setState({ p2Score: botScore + double });
-                        this.botAddThrows(botThrows);
-
-                    } else if (scoreDiff <= 50) {
-                        const nextOpenNumber = this.botFindOpenNumber(nextNumber);
-                        const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
-                        const botNextNumberMarks = `p2${nextOpenNumber}`;
-
-                        this.setState({ p2Score: botScore + number });
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 1 })
-                        this.botAddThrows(botThrows);
-                    } else {
-                        this.setState({ [botNextNumberMarks]: botNextNumber + 2 })
-                        this.botAddThrows(botThrows);
-
-                    }
+                    this.setState({ p2Score: botScore + double });
+                    return;
                 }
                 break;
         }
     }
 
-    bot1MarkLogicSwitch(number) {
+    botHitSingle(number) {
         let nextNumber = number !== 15 ? number - 1 : 25;
         nextNumber = this.botFindOpenNumber(nextNumber);
 
@@ -798,7 +837,7 @@ export default class Cricket extends Component {
         const humanScore = parseInt(this.state.p1Score);
         const scoreDiff = botScore - humanScore;
 
-        if (scoreDiff >= 0 ) {
+        if (scoreDiff >= 50) {
             number = this.botFindOpenNumber();
         } else {
             number = this.humanFindOpenNumber();
@@ -817,18 +856,18 @@ export default class Cricket extends Component {
         switch (botNumber) {
             case 0:
                 this.setState({ [botNumberMarks]: 1 }, () => {
-                    this.botAddThrows(botThrows);
+                    // this.botAddThrows(botThrows);
                 })
                 break;
             case 1:
                 this.setState({ [botNumberMarks]: 2 }, () => {
-                    this.botAddThrows(botThrows);
+                    // this.botAddThrows(botThrows);
                 })
                 break;
             case 2:
                 this.setState({ [botNumberMarks]: 3 }, () => {
 
-                    return this.botAddThrows(botThrows);
+                    // return this.botAddThrows(botThrows);
 
                 })
                 break;
@@ -838,15 +877,15 @@ export default class Cricket extends Component {
                 const botNextNumberMarks = `p2${nextOpenNumber}`;
 
                 if (humanNumber >= 3) {
-                    return this.bot2MarkLogicSwitch(nextNumber)
+                    return this.botHitDouble(nextNumber)
                 } else if (humanNumber < 3) {
                     if (scoreDiff <= 50) {
 
                         this.setState({ p2Score: botScore + number });
-                        this.botAddThrows(botThrows);
+                        // this.botAddThrows(botThrows);
                     } else {
                         this.setState({ [botNextNumberMarks]: botNextNumber + 1 })
-                        this.botAddThrows(botThrows);
+                        // this.botAddThrows(botThrows);
 
                     }
                 }
@@ -854,8 +893,10 @@ export default class Cricket extends Component {
         }
     }
 
-    botAddThrows(botThrows) {
+    botAddThrows() {
+        const botThrows = parseInt(this.state.p2Throws);
         this.setState({ p2Throws: botThrows + 3 });
+        this.setState({ activeThrows: 0 })
         this.gameOverCheck();
         this.setActiveThrower("p1");
     }
@@ -1157,6 +1198,7 @@ export default class Cricket extends Component {
         } else if (this.state.gameState === "difficulty") {
             return (
                 <BotDifficulty
+                    game={'cricket'}
                     setBotDifficulty={this.setBotDifficulty}
                 />
             )
