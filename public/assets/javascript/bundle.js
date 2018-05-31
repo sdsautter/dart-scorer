@@ -7848,6 +7848,8 @@ var Cricket = function (_Component) {
     }, {
         key: "botHitSingle",
         value: function botHitSingle(number) {
+            var _this5 = this;
+
             var nextNumber = number !== 15 ? number - 1 : 25;
             nextNumber = this.botFindOpenNumber(nextNumber);
 
@@ -7875,19 +7877,17 @@ var Cricket = function (_Component) {
             switch (botNumber) {
                 case 0:
                     this.setState(_defineProperty({}, botNumberMarks, 1), function () {
-                        // this.botAddThrows(botThrows);
+                        return _this5.addToLog(number, 1);
                     });
                     break;
                 case 1:
                     this.setState(_defineProperty({}, botNumberMarks, 2), function () {
-                        // this.botAddThrows(botThrows);
+                        return _this5.addToLog(number, 1);
                     });
                     break;
                 case 2:
                     this.setState(_defineProperty({}, botNumberMarks, 3), function () {
-
-                        // return this.botAddThrows(botThrows);
-
+                        return _this5.addToLog(number, 1);
                     });
                     break;
                 default:
@@ -7899,12 +7899,11 @@ var Cricket = function (_Component) {
                         return this.botHitDouble(nextNumber);
                     } else if (humanNumber < 3) {
                         if (scoreDiff <= 50) {
-
                             this.setState({ p2Score: botScore + number });
-                            // this.botAddThrows(botThrows);
+                            return this.addToLog(number, 1);
                         } else {
                             this.setState(_defineProperty({}, _botNextNumberMarks, _botNextNumber + 1));
-                            // this.botAddThrows(botThrows);
+                            return this.addToLog(number, 1);
                         }
                     }
                     break;
@@ -8110,13 +8109,13 @@ var Cricket = function (_Component) {
     }, {
         key: "gameOverCheck",
         value: function gameOverCheck() {
-            var _this5 = this;
+            var _this6 = this;
 
             setTimeout(function () {
-                if (_this5.state.p120 >= 3 && _this5.state.p119 >= 3 && _this5.state.p118 >= 3 && _this5.state.p117 >= 3 && _this5.state.p116 >= 3 && _this5.state.p115 >= 3 && _this5.state.p125 >= 3 && _this5.state.p1Score >= _this5.state.p2Score) {
-                    _this5.gameStateChange("p1");
-                } else if (_this5.state.p220 >= 3 && _this5.state.p219 >= 3 && _this5.state.p218 >= 3 && _this5.state.p217 >= 3 && _this5.state.p216 >= 3 && _this5.state.p215 >= 3 && _this5.state.p225 >= 3 && _this5.state.p2Score >= _this5.state.p1Score) {
-                    _this5.gameStateChange("p2");
+                if (_this6.state.p120 >= 3 && _this6.state.p119 >= 3 && _this6.state.p118 >= 3 && _this6.state.p117 >= 3 && _this6.state.p116 >= 3 && _this6.state.p115 >= 3 && _this6.state.p125 >= 3 && _this6.state.p1Score >= _this6.state.p2Score) {
+                    _this6.gameStateChange("p1");
+                } else if (_this6.state.p220 >= 3 && _this6.state.p219 >= 3 && _this6.state.p218 >= 3 && _this6.state.p217 >= 3 && _this6.state.p216 >= 3 && _this6.state.p215 >= 3 && _this6.state.p225 >= 3 && _this6.state.p2Score >= _this6.state.p1Score) {
+                    _this6.gameStateChange("p2");
                 }
             }, 500);
         }
@@ -8138,10 +8137,10 @@ var Cricket = function (_Component) {
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this6 = this;
+            var _this7 = this;
 
             setTimeout(function () {
-                _this6.setState({ activeMarks: 0 });
+                _this7.setState({ activeMarks: 0 });
             }, 1000);
         }
     }, {

@@ -856,18 +856,17 @@ export default class Cricket extends Component {
         switch (botNumber) {
             case 0:
                 this.setState({ [botNumberMarks]: 1 }, () => {
-                    // this.botAddThrows(botThrows);
+                    return this.addToLog(number, 1);
                 })
                 break;
             case 1:
                 this.setState({ [botNumberMarks]: 2 }, () => {
-                    // this.botAddThrows(botThrows);
+                    return this.addToLog(number, 1);
                 })
                 break;
             case 2:
                 this.setState({ [botNumberMarks]: 3 }, () => {
-
-                    // return this.botAddThrows(botThrows);
+                    return this.addToLog(number, 1);
 
                 })
                 break;
@@ -880,13 +879,11 @@ export default class Cricket extends Component {
                     return this.botHitDouble(nextNumber)
                 } else if (humanNumber < 3) {
                     if (scoreDiff <= 50) {
-
                         this.setState({ p2Score: botScore + number });
-                        // this.botAddThrows(botThrows);
+                        return this.addToLog(number, 1);
                     } else {
                         this.setState({ [botNextNumberMarks]: botNextNumber + 1 })
-                        // this.botAddThrows(botThrows);
-
+                        return this.addToLog(number, 1);
                     }
                 }
                 break;
