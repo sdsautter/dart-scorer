@@ -16,7 +16,7 @@ export default class Numpad extends Component {
     }
 
     numberInput(number) {
-        if (this.state.numberEntry !== "Too High. Try Again.") {
+        if (this.state.numberEntry !== "Too High. Try Again." || this.state.numberEntry !== "Impossible Number. Try Again.") {
             let originalNumber = this.state.numberEntry;
             let addOnNumber = number;
             let newNumber = `${originalNumber}${addOnNumber}`;
@@ -39,9 +39,18 @@ export default class Numpad extends Component {
     }
 
     scoreEntry() {
+        const impossibleNumbers = [163, 166, 169, 172, 173, 175, 176, 178, 179];
+
         if (parseInt(this.state.numberEntry) <= 180) {
-            this.props.numpadScore(parseInt(this.state.numberEntry));
-            this.setState({ numberEntry: "" });
+            if (impossibleNumbers.includes(parseInt(this.state.numberEntry))) {
+                this.setState({ numberEntry: "Impossible Number. Try Again." });
+                setTimeout(() => {
+                    this.setState({ numberEntry: "" });
+                }, 1500);
+            } else {
+                this.props.numpadScore(parseInt(this.state.numberEntry));
+                this.setState({ numberEntry: "" });
+            }
         } else if (this.state.numberEntry === "") {
             this.props.numpadScore(0);
         } else {

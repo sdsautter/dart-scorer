@@ -245,16 +245,16 @@
         background-color: #F2DDC8;
         color: black;
     }
-    .p1-multiple button {
-        background-color: #1B4F2D;
+    .p1-multiple button, .p1-multiple button:disabled {
+        background-color: #1B4F2D !important;
         /* color: black; */
     }
-    .p2-single button {
-        background-color: black;
+    .p2-single button, .p2-single button:disabled {
+        background-color: black !important;
         /* color: #c7ab8d; */
     }
-    .p2-multiple button {
-        background-color: #881918;
+    .p2-multiple button, .p2-multiple button:disabled {
+        background-color: #881918 !important;
         /* color: #c7ab8d; */
     }
 }
