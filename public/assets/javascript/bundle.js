@@ -9542,7 +9542,12 @@ var X01 = function (_Component) {
                         this.addToLog("mi", "ss");
                     }
                     if (thrower === "p1") {
-                        this.setActiveThrower("p2");
+                        if (this.state.botGame) {
+                            this.setActiveThrower('p2');
+                            this.botLogic();
+                        } else {
+                            this.setActiveThrower("p2");
+                        }
                     } else {
                         this.setActiveThrower("p1");
                     }
@@ -9553,7 +9558,13 @@ var X01 = function (_Component) {
                     this.addToLog("mi", "ss");
                     this.addToLog("mi", "ss");
                     if (this.state.activeThrower === "p1") {
-                        this.setActiveThrower("p2");
+                        if (this.state.botGame) {
+                            this.setActiveThrower('p2');
+                            this.setThrowNumber(0);
+                            this.botLogic();
+                        } else {
+                            this.setActiveThrower("p2");
+                        }
                     } else {
                         this.setActiveThrower("p1");
                     }
@@ -9563,7 +9574,12 @@ var X01 = function (_Component) {
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
                     this.addToLog("mi", "ss");
                     if (this.state.activeThrower === "p1") {
-                        this.setActiveThrower("p2");
+                        if (this.state.botGame) {
+                            this.setActiveThrower('p2');
+                            this.botLogic();
+                        } else {
+                            this.setActiveThrower("p2");
+                        }
                     } else {
                         this.setActiveThrower("p1");
                     }
