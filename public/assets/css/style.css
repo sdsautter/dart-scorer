@@ -13,6 +13,9 @@
         font-size: 1rem;
         vertical-align: .6rem;
     }
+    .end-turn button{
+        font-size: 1.13rem !important;
+    }
     #mobileThrow {
         margin-top: 1%;
         font-size: 1rem;
@@ -160,19 +163,19 @@
         padding-left: .5%;
         padding-right: .5%;
     }
-    .miss,
+    .miss, .undo,
     .end-turn {
         padding-top: .5%;
         padding-bottom: .5%;
-        padding-left: 0;
+        padding-left: 1%;
         padding-right: 1%;
     }
-    .undo {
+    /* .undo {
         padding-top: .5%;
         padding-bottom: .5%;
         padding-left: 0;
         padding-right: 0;
-    }
+    } */
     .x01-option {
         padding-top: 3%;
     }
@@ -311,6 +314,9 @@
         font-family: 'Cuprum', cursive;
         font-size: 1.75rem !important;
         font-weight: normal;
+    }
+    .end-turn button{
+        font-size: 1.75rem !important;
     }
     .number {
         font-family: 'Cuprum', cursive;
@@ -505,7 +511,7 @@
     }
     #miss-x01 button,
     #undo-x01 button,
-    #end-turn-x01 {
+    #end-turn-x01 button {
         margin-bottom: 10%;
         margin-left: 3%;
     }
