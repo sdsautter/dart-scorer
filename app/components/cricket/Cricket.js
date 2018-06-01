@@ -830,14 +830,14 @@ export default class Cricket extends Component {
 
     botHitSingle(number) {
         let nextNumber = number !== 15 ? number - 1 : 25;
-        nextNumber = this.botFindOpenNumber(nextNumber);
+        nextNumber = this.botFindOpenNumber();
 
         const botScore = parseInt(this.state.p2Score);
         const botThrows = parseInt(this.state.p2Throws);
         const humanScore = parseInt(this.state.p1Score);
         const scoreDiff = botScore - humanScore;
 
-        if (scoreDiff >= 0) {
+        if (scoreDiff > 25) {
             number = this.botFindOpenNumber();
         } else {
             number = this.humanFindOpenNumber();
@@ -871,12 +871,12 @@ export default class Cricket extends Component {
                 })
                 break;
             default:
-                const nextOpenNumber = this.botFindOpenNumber(nextNumber);
+                const nextOpenNumber = this.botFindOpenNumber();
                 const botNextNumber = eval(`this.state.p2${nextOpenNumber}`);
                 const botNextNumberMarks = `p2${nextOpenNumber}`;
 
                 if (humanNumber >= 3) {
-                    return this.botHitDouble(nextNumber)
+                    return this.botHitSingle(nextNumber)
                 } else if (humanNumber < 3) {
                     if (scoreDiff <= 50) {
                         this.setState({ p2Score: botScore + number });
