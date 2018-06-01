@@ -7619,7 +7619,7 @@ var Cricket = function (_Component) {
                     }
                     break;
                 case 'medium':
-                    randomMarks = Math.random() > .75 ? 2 : 3;
+                    randomMarks = Math.random() > .75 ? 3 : 2;
 
                     switch (randomMarks) {
                         case 2:

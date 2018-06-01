@@ -551,7 +551,7 @@ export default class Cricket extends Component {
 
         switch (this.state.botDifficulty) {
             case 'easy':
-                randomMarks = Math.random() > .75 ? 1 : 2;
+                randomMarks = Math.random() > .75 ? 2 : 1;
 
                 switch (randomMarks) {
                     case 1:
@@ -595,7 +595,7 @@ export default class Cricket extends Component {
                 }
                 break;
             case 'medium':
-                randomMarks = Math.random() > .75 ? 2 : 3;
+                randomMarks = Math.random() > .75 ? 3 : 2;
 
                 switch (randomMarks) {
                     case 2:
