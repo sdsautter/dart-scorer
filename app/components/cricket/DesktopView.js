@@ -525,7 +525,7 @@ export default class DesktopView extends Component {
                         </button>
                         </div>
                         <div className="col-3 text-center undo">
-                            <button type="button" className="btn" onClick={() => { this.props.undo() }} disabled>
+                            <button type="button" className="btn" onClick={() => { this.props.undo() }} >
                                 Undo
                         </button>
                         </div>
