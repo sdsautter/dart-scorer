@@ -294,7 +294,7 @@ export default class X01 extends Component {
         if (gameOptions !== 'numpad') {
             this.setState({ gameState: "opponent" });
         } else {
-            this.setState({ gameState: 'playing'});
+            this.setState({ gameState: 'playing' });
         }
     }
 
@@ -580,7 +580,12 @@ export default class X01 extends Component {
                     this.addToLog("mi", "ss");
                 }
                 if (thrower === "p1") {
-                    this.setActiveThrower("p2");
+                    if (this.state.botGame) {
+                        this.setActiveThrower('p2');
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
@@ -591,7 +596,13 @@ export default class X01 extends Component {
                 this.addToLog("mi", "ss");
                 this.addToLog("mi", "ss");
                 if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
+                    if (this.state.botGame) {
+                        this.setActiveThrower('p2');
+                        this.setThrowNumber(0);
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
@@ -601,7 +612,12 @@ export default class X01 extends Component {
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
                 this.addToLog("mi", "ss");
                 if (this.state.activeThrower === "p1") {
-                    this.setActiveThrower("p2");
+                    if (this.state.botGame) {
+                        this.setActiveThrower('p2');
+                        this.botLogic();
+                    } else {
+                        this.setActiveThrower("p2");
+                    }
                 } else {
                     this.setActiveThrower("p1");
                 }
