@@ -837,7 +837,7 @@ export default class Cricket extends Component {
         const humanScore = parseInt(this.state.p1Score);
         const scoreDiff = botScore - humanScore;
 
-        if (scoreDiff >= 50) {
+        if (scoreDiff >= 0) {
             number = this.botFindOpenNumber();
         } else {
             number = this.humanFindOpenNumber();
