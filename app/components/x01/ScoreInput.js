@@ -18,6 +18,7 @@ export default class ScoreInput extends Component {
                     score={this.props.score}
                     endTurn={this.props.endTurn}
                     miss={this.props.miss}
+                    botGame={this.props.botGame}
                     undo={this.props.undo}
                     gameX01Reset={this.props.gameX01Reset}
                     activeThrows={this.props.activeThrows}
@@ -28,6 +29,7 @@ export default class ScoreInput extends Component {
 
                 <TabletInput
                     activeThrower={this.props.activeThrower}
+                    botGame={this.props.botGame}
                     score={this.props.score}
                     miss={this.props.miss}
                     endTurn={this.props.endTurn}
@@ -39,6 +41,7 @@ export default class ScoreInput extends Component {
             return (
                 <DesktopInput
                     activeThrower={this.props.activeThrower}
+                    botGame={this.props.botGame}
                     score={this.props.score}
                     miss={this.props.miss}
                     undo={this.props.undo}

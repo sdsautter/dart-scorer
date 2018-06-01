@@ -51,6 +51,7 @@ export default class Scoreboard extends Component {
                 <PlayerRender
                     activeThrower={this.props.activeThrower}
                     gameX01Reset={this.props.gameX01Reset}
+                    botGame={this.props.botGame}
                 />
             )
         }
@@ -71,6 +72,7 @@ export default class Scoreboard extends Component {
                 <ScoreInput
                     activeThrower={this.props.activeThrower}
                     endTurn={this.props.endTurn}
+                    botGame={this.props.botGame}
                     score={this.props.score}
                     miss={this.props.miss}
                     undo={this.props.undo}
