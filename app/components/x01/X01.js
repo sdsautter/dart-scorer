@@ -20,7 +20,7 @@ export default class X01 extends Component {
             throwLog: [],
 
             botGame: true,
-            botDifficulty: 'easy',
+            botDifficulty: '',
 
             p1DoubleIn: false,
             p1Score: 0,
@@ -37,6 +37,8 @@ export default class X01 extends Component {
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
         this.doubleInTrue = this.doubleInTrue.bind(this);
         this.gameX01Reset = this.gameX01Reset.bind(this);
+        this.botDartShot = this.botDartShot.bind(this);
+        this.botDoubleChance = this.botDoubleChance.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
         this.setThrowNumber = this.setThrowNumber.bind(this);
         this.setActiveThrower = this.setActiveThrower.bind(this);
@@ -60,30 +62,8 @@ export default class X01 extends Component {
         this.endTurn = this.endTurn.bind(this);
         this.botLogic = this.botLogic.bind(this);
         this.botRandomize = this.botRandomize.bind(this);
-        this.easyBot = this.easyBot.bind(this);
-        this.mediumBot = this.mediumBot.bind(this);
-        this.hardBot = this.hardBot.bind(this);
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
         this.setBotGame = this.setBotGame.bind(this);
-    }
-
-    botLogic() {
-        let difficulty = this.state.botDifficulty;
-        switch (difficulty) {
-            case 'easy':
-                this.easyBot();
-                break;
-            case 'medium':
-                this.mediumBot();
-                break;
-            case 'hard':
-                this.hardBot();
-                break;
-
-            default:
-                this.mediumBot();
-                break;
-        }
     }
 
     setBotGame(botGame) {
@@ -110,7 +90,7 @@ export default class X01 extends Component {
                 return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
                 break;
             case 'hard':
-                return Math.floor(Math.random() * Math.floor(22 - 19)) + 19;
+                return Math.floor(Math.random() * Math.floor(21 - 19)) + 19;
                 break;
             default:
                 return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
@@ -118,171 +98,83 @@ export default class X01 extends Component {
         }
     }
 
-    easyBot() {
-        const botScore = parseInt(this.state.p2Score);
-        const x01Game = parseInt(this.state.x01Game);
-        let dartThrow, newScore;
-
-        if (botScore === x01Game) {
-            this.score(5, 2);
-            setTimeout(() => {
-                dartThrow = this.botRandomize('easy');
-                this.score(dartThrow, 1);
-            }, 300);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('easy');
-                this.score(dartThrow, 1);
-                this.setActiveThrower('p1');
-                this.setThrowNumber(0);
-            }, 600);
-        } else if (botScore <= 30) {
-            if (botScore % 2 === 0) {
-                this.gameStateChange('p2');
-            } else {
-                setTimeout(() => {
-                    this.score(1, 1);
-                }, 300);
-
-                setTimeout(() => {
-                    this.gameStateChange('p2');
-                }, 600);
-            }
-        } else {
-            setTimeout(() => {
-                dartThrow = this.botRandomize('easy');
-                this.score(dartThrow, 1);
-            }, 300);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('easy');
-                this.score(dartThrow, 1);
-            }, 600);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('easy');
-                this.score(dartThrow, 1);
-            }, 900);
+    botDoubleChance() {
+        const difficulty = this.state.botDifficulty;
+        switch (difficulty) {
+            case 'easy':
+                return Math.random() < .50 ? 2 : 1;
+                break;
+            case 'medium':
+                return Math.random() < .75 ? 2 : 1;
+                break;
+            case 'hard':
+                return Math.random() < .90 ? 2 : 1;
+                break;
+            case 'pro':
+                return Math.random() < .98 ? 1 : 2;
+                break;
+            default:
+                return Math.random() < .50 ? 1 : 2;
+                break;
         }
     }
 
-    mediumBot() {
+    botDartShot() {
         const botScore = parseInt(this.state.p2Score);
-        const x01Game = parseInt(this.state.x01Game);
-        let dartThrow, newScore;
-
-        if (botScore === x01Game) {
-            this.score(16, 2);
-            setTimeout(() => {
-                dartThrow = this.botRandomize('medium');
-                this.score(dartThrow, 1);
-            }, 300);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('medium');
-                this.score(dartThrow, 1);
-                this.setActiveThrower('p1');
-                this.setThrowNumber(0);
-            }, 600);
-        } else if (botScore <= 50) {
+        let outShot;
+        if (botScore <= 40) {
             if (botScore % 2 === 0) {
-                this.gameStateChange('p2');
+                return botScore / 2;
             } else {
-                setTimeout(() => {
-                    if (botScore > 30) {
-                        this.score(17, 1);
-                    } else {
-                        this.score(1, 1);
-                    }
-                }, 300);
-
-                setTimeout(() => {
-                    this.gameStateChange('p2');
-                }, 600);
+                return 1;
             }
         } else {
-            setTimeout(() => {
-                dartThrow = this.botRandomize('medium');
-                this.score(dartThrow, 1);
-            }, 300);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('medium');
-                this.score(dartThrow, 1);
-            }, 600);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('medium');
-                this.score(dartThrow, 1);
-            }, 900);
+            return this.botRandomize(this.state.botDifficulty);
         }
     }
 
-    hardBot() {
+    botLogic() {
         const botScore = parseInt(this.state.p2Score);
         const x01Game = parseInt(this.state.x01Game);
-        let dartThrow, newScore;
-
-        if (botScore === x01Game) {
-            this.score(20, 2);
-            setTimeout(() => {
-                dartThrow = this.botRandomize('hard');
-                this.score(dartThrow, 1);
-            }, 300);
-
-            setTimeout(() => {
-                dartThrow = this.botRandomize('hard');
-                this.score(dartThrow, 1);
-                this.setActiveThrower('p1');
-                this.setThrowNumber(0);
-            }, 600);
-        } else if (botScore <= 70) {
-            if (botScore % 2 === 0) {
-                setTimeout(() => {
-                    this.score(20, 1);
-                }, 300);
-
-                setTimeout(() => {
-                    this.gameStateChange('p2');
-                }, 600);
-            } else {
-                setTimeout(() => {
-                    if (botScore > 50) {
-                        this.score(17, 1);
-                        setTimeout(() => {
-                            this.score(20, 1);
-                        }, 500);
-                    } else if (botScore >= 30) {
-                        this.score(17, 1);
-                        setTimeout(() => {
-                            this.score(20, 1);
-                        }, 500);
-                    } else {
-                        this.score(1, 1);
-                    }
-                }, 300);
-
-                setTimeout(() => {
-                    this.gameStateChange('p2');
-                }, 700);
+        let doubleChance, dartThrow;
+        setTimeout(() => {
+            if (this.state.gameState !== 'over') {
+                if (!this.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
+                    doubleChance = this.botDoubleChance();
+                } else {
+                    doubleChance = 1;
+                }
+                dartThrow = this.botDartShot();
+                this.score(dartThrow, doubleChance);
             }
-        } else {
-            setTimeout(() => {
-                dartThrow = this.botRandomize('hard');
-                this.score(dartThrow, 1);
-            }, 300);
+        }, 1000);
+        setTimeout(() => {
+            if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
 
-            setTimeout(() => {
-                dartThrow = this.botRandomize('hard');
-                this.score(dartThrow, 1);
-            }, 600);
+                if (!this.state.p2DoubleIn || botScore <= 40) {
+                    doubleChance = this.botDoubleChance();
+                } else {
+                    doubleChance = 1;
+                }
 
-            setTimeout(() => {
-                dartThrow = this.botRandomize('hard');
-                this.score(dartThrow, 1);
-            }, 900);
-        }
+                dartThrow = this.botDartShot();
+                this.score(dartThrow, doubleChance);
+            }
+        }, 2000);
+        setTimeout(() => {
+            if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
+                if (!this.state.p2DoubleIn || botScore <= 40) {
+                    doubleChance = this.botDoubleChance();
+                } else {
+                    doubleChance = 1;
+                }
+
+                dartThrow = this.botDartShot();
+                this.score(dartThrow, doubleChance);
+            }
+        }, 3000);
     }
+
 
     setX01Game(x01Game) {
         this.setState({ x01Game });

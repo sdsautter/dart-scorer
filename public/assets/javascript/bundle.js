@@ -7575,7 +7575,7 @@ var Cricket = function (_Component) {
 
             switch (this.state.botDifficulty) {
                 case 'easy':
-                    randomMarks = Math.random() > .75 ? 1 : 2;
+                    randomMarks = Math.random() > .75 ? 2 : 1;
 
                     switch (randomMarks) {
                         case 1:
@@ -8860,7 +8860,7 @@ var X01 = function (_Component) {
             throwLog: [],
 
             botGame: true,
-            botDifficulty: 'easy',
+            botDifficulty: '',
 
             p1DoubleIn: false,
             p1Score: 0,
@@ -8876,6 +8876,8 @@ var X01 = function (_Component) {
         };_this.doubleInOptionsCheck = _this.doubleInOptionsCheck.bind(_this);
         _this.doubleInTrue = _this.doubleInTrue.bind(_this);
         _this.gameX01Reset = _this.gameX01Reset.bind(_this);
+        _this.botDartShot = _this.botDartShot.bind(_this);
+        _this.botDoubleChance = _this.botDoubleChance.bind(_this);
         _this.conditionalRender = _this.conditionalRender.bind(_this);
         _this.setThrowNumber = _this.setThrowNumber.bind(_this);
         _this.setActiveThrower = _this.setActiveThrower.bind(_this);
@@ -8899,35 +8901,12 @@ var X01 = function (_Component) {
         _this.endTurn = _this.endTurn.bind(_this);
         _this.botLogic = _this.botLogic.bind(_this);
         _this.botRandomize = _this.botRandomize.bind(_this);
-        _this.easyBot = _this.easyBot.bind(_this);
-        _this.mediumBot = _this.mediumBot.bind(_this);
-        _this.hardBot = _this.hardBot.bind(_this);
         _this.setBotDifficulty = _this.setBotDifficulty.bind(_this);
         _this.setBotGame = _this.setBotGame.bind(_this);
         return _this;
     }
 
     _createClass(X01, [{
-        key: "botLogic",
-        value: function botLogic() {
-            var difficulty = this.state.botDifficulty;
-            switch (difficulty) {
-                case 'easy':
-                    this.easyBot();
-                    break;
-                case 'medium':
-                    this.mediumBot();
-                    break;
-                case 'hard':
-                    this.hardBot();
-                    break;
-
-                default:
-                    this.mediumBot();
-                    break;
-            }
-        }
-    }, {
         key: "setBotGame",
         value: function setBotGame(botGame) {
             this.setState({ botGame: botGame });
@@ -8955,7 +8934,7 @@ var X01 = function (_Component) {
                     return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
                     break;
                 case 'hard':
-                    return Math.floor(Math.random() * Math.floor(22 - 19)) + 19;
+                    return Math.floor(Math.random() * Math.floor(21 - 19)) + 19;
                     break;
                 default:
                     return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
@@ -8963,182 +8942,87 @@ var X01 = function (_Component) {
             }
         }
     }, {
-        key: "easyBot",
-        value: function easyBot() {
+        key: "botDoubleChance",
+        value: function botDoubleChance() {
+            var difficulty = this.state.botDifficulty;
+            switch (difficulty) {
+                case 'easy':
+                    return Math.random() < .50 ? 2 : 1;
+                    break;
+                case 'medium':
+                    return Math.random() < .75 ? 2 : 1;
+                    break;
+                case 'hard':
+                    return Math.random() < .90 ? 2 : 1;
+                    break;
+                case 'pro':
+                    return Math.random() < .98 ? 1 : 2;
+                    break;
+                default:
+                    return Math.random() < .50 ? 1 : 2;
+                    break;
+            }
+        }
+    }, {
+        key: "botDartShot",
+        value: function botDartShot() {
+            var botScore = parseInt(this.state.p2Score);
+            var outShot = void 0;
+            if (botScore <= 40) {
+                if (botScore % 2 === 0) {
+                    return botScore / 2;
+                } else {
+                    return 1;
+                }
+            } else {
+                return this.botRandomize(this.state.botDifficulty);
+            }
+        }
+    }, {
+        key: "botLogic",
+        value: function botLogic() {
             var _this2 = this;
 
             var botScore = parseInt(this.state.p2Score);
             var x01Game = parseInt(this.state.x01Game);
-            var dartThrow = void 0,
-                newScore = void 0;
-
-            if (botScore === x01Game) {
-                this.score(5, 2);
-                setTimeout(function () {
-                    dartThrow = _this2.botRandomize('easy');
-                    _this2.score(dartThrow, 1);
-                }, 300);
-
-                setTimeout(function () {
-                    dartThrow = _this2.botRandomize('easy');
-                    _this2.score(dartThrow, 1);
-                    _this2.setActiveThrower('p1');
-                    _this2.setThrowNumber(0);
-                }, 600);
-            } else if (botScore <= 30) {
-                if (botScore % 2 === 0) {
-                    this.gameStateChange('p2');
-                } else {
-                    setTimeout(function () {
-                        _this2.score(1, 1);
-                    }, 300);
-
-                    setTimeout(function () {
-                        _this2.gameStateChange('p2');
-                    }, 600);
+            var doubleChance = void 0,
+                dartThrow = void 0;
+            setTimeout(function () {
+                if (_this2.state.gameState !== 'over') {
+                    if (!_this2.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
+                        doubleChance = _this2.botDoubleChance();
+                    } else {
+                        doubleChance = 1;
+                    }
+                    dartThrow = _this2.botDartShot();
+                    _this2.score(dartThrow, doubleChance);
                 }
-            } else {
-                setTimeout(function () {
-                    dartThrow = _this2.botRandomize('easy');
-                    _this2.score(dartThrow, 1);
-                }, 300);
+            }, 1000);
+            setTimeout(function () {
+                if (_this2.state.gameState !== 'over' && _this2.state.activeThrower === 'p2') {
 
-                setTimeout(function () {
-                    dartThrow = _this2.botRandomize('easy');
-                    _this2.score(dartThrow, 1);
-                }, 600);
+                    if (!_this2.state.p2DoubleIn || botScore <= 40) {
+                        doubleChance = _this2.botDoubleChance();
+                    } else {
+                        doubleChance = 1;
+                    }
 
-                setTimeout(function () {
-                    dartThrow = _this2.botRandomize('easy');
-                    _this2.score(dartThrow, 1);
-                }, 900);
-            }
-        }
-    }, {
-        key: "mediumBot",
-        value: function mediumBot() {
-            var _this3 = this;
-
-            var botScore = parseInt(this.state.p2Score);
-            var x01Game = parseInt(this.state.x01Game);
-            var dartThrow = void 0,
-                newScore = void 0;
-
-            if (botScore === x01Game) {
-                this.score(16, 2);
-                setTimeout(function () {
-                    dartThrow = _this3.botRandomize('medium');
-                    _this3.score(dartThrow, 1);
-                }, 300);
-
-                setTimeout(function () {
-                    dartThrow = _this3.botRandomize('medium');
-                    _this3.score(dartThrow, 1);
-                    _this3.setActiveThrower('p1');
-                    _this3.setThrowNumber(0);
-                }, 600);
-            } else if (botScore <= 50) {
-                if (botScore % 2 === 0) {
-                    this.gameStateChange('p2');
-                } else {
-                    setTimeout(function () {
-                        if (botScore > 30) {
-                            _this3.score(17, 1);
-                        } else {
-                            _this3.score(1, 1);
-                        }
-                    }, 300);
-
-                    setTimeout(function () {
-                        _this3.gameStateChange('p2');
-                    }, 600);
+                    dartThrow = _this2.botDartShot();
+                    _this2.score(dartThrow, doubleChance);
                 }
-            } else {
-                setTimeout(function () {
-                    dartThrow = _this3.botRandomize('medium');
-                    _this3.score(dartThrow, 1);
-                }, 300);
+            }, 2000);
+            setTimeout(function () {
+                if (_this2.state.gameState !== 'over' && _this2.state.activeThrower === 'p2') {
+                    if (!_this2.state.p2DoubleIn || botScore <= 40) {
+                        doubleChance = _this2.botDoubleChance();
+                    } else {
+                        doubleChance = 1;
+                    }
 
-                setTimeout(function () {
-                    dartThrow = _this3.botRandomize('medium');
-                    _this3.score(dartThrow, 1);
-                }, 600);
-
-                setTimeout(function () {
-                    dartThrow = _this3.botRandomize('medium');
-                    _this3.score(dartThrow, 1);
-                }, 900);
-            }
-        }
-    }, {
-        key: "hardBot",
-        value: function hardBot() {
-            var _this4 = this;
-
-            var botScore = parseInt(this.state.p2Score);
-            var x01Game = parseInt(this.state.x01Game);
-            var dartThrow = void 0,
-                newScore = void 0;
-
-            if (botScore === x01Game) {
-                this.score(20, 2);
-                setTimeout(function () {
-                    dartThrow = _this4.botRandomize('hard');
-                    _this4.score(dartThrow, 1);
-                }, 300);
-
-                setTimeout(function () {
-                    dartThrow = _this4.botRandomize('hard');
-                    _this4.score(dartThrow, 1);
-                    _this4.setActiveThrower('p1');
-                    _this4.setThrowNumber(0);
-                }, 600);
-            } else if (botScore <= 70) {
-                if (botScore % 2 === 0) {
-                    setTimeout(function () {
-                        _this4.score(20, 1);
-                    }, 300);
-
-                    setTimeout(function () {
-                        _this4.gameStateChange('p2');
-                    }, 600);
-                } else {
-                    setTimeout(function () {
-                        if (botScore > 50) {
-                            _this4.score(17, 1);
-                            setTimeout(function () {
-                                _this4.score(20, 1);
-                            }, 500);
-                        } else if (botScore >= 30) {
-                            _this4.score(17, 1);
-                            setTimeout(function () {
-                                _this4.score(20, 1);
-                            }, 500);
-                        } else {
-                            _this4.score(1, 1);
-                        }
-                    }, 300);
-
-                    setTimeout(function () {
-                        _this4.gameStateChange('p2');
-                    }, 700);
+                    dartThrow = _this2.botDartShot();
+                    _this2.score(dartThrow, doubleChance);
                 }
-            } else {
-                setTimeout(function () {
-                    dartThrow = _this4.botRandomize('hard');
-                    _this4.score(dartThrow, 1);
-                }, 300);
-
-                setTimeout(function () {
-                    dartThrow = _this4.botRandomize('hard');
-                    _this4.score(dartThrow, 1);
-                }, 600);
-
-                setTimeout(function () {
-                    dartThrow = _this4.botRandomize('hard');
-                    _this4.score(dartThrow, 1);
-                }, 900);
-            }
+            }, 3000);
         }
     }, {
         key: "setX01Game",
@@ -9376,23 +9260,23 @@ var X01 = function (_Component) {
     }, {
         key: "checkThrower",
         value: function checkThrower() {
-            var _this5 = this;
+            var _this3 = this;
 
             setTimeout(function () {
-                if (_this5.state.activeThrows > 2) {
-                    if (_this5.state.activeThrower === "p1") {
-                        _this5.addToRoundStartScore("p1", _this5.state.p1Score);
-                        _this5.setActiveThrower("p2");
-                        _this5.setThrowNumber(0);
-                        if (_this5.state.botGame) {
-                            _this5.botLogic();
+                if (_this3.state.activeThrows > 2) {
+                    if (_this3.state.activeThrower === "p1") {
+                        _this3.addToRoundStartScore("p1", _this3.state.p1Score);
+                        _this3.setActiveThrower("p2");
+                        _this3.setThrowNumber(0);
+                        if (_this3.state.botGame) {
+                            _this3.botLogic();
                         }
                     } else {
-                        _this5.addToRoundStartScore("p2", _this5.state.p2Score);
-                        _this5.setActiveThrower("p1");
-                        _this5.setThrowNumber(0);
+                        _this3.addToRoundStartScore("p2", _this3.state.p2Score);
+                        _this3.setActiveThrower("p1");
+                        _this3.setThrowNumber(0);
                     }
-                    _this5.setThrowNumber(0);
+                    _this3.setThrowNumber(0);
                 }
             }, 5);
         }
