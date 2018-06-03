@@ -18,6 +18,7 @@ export default class X01 extends Component {
             gameState: "pick",
             gameWinner: {},
             throwLog: [],
+            gameOverModal: false,
 
             botGame: true,
             botDifficulty: '',
@@ -35,6 +36,7 @@ export default class X01 extends Component {
 
         //Binding functions to change the states       
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
+        this.undoGameOver = this.undoGameOver.bind(this);
         this.doubleInTrue = this.doubleInTrue.bind(this);
         this.gameX01Reset = this.gameX01Reset.bind(this);
         this.botDartShot = this.botDartShot.bind(this);
@@ -49,11 +51,13 @@ export default class X01 extends Component {
         this.checkThrower = this.checkThrower.bind(this);
         this.renderP1Score = this.renderP1Score.bind(this);
         this.renderP2Score = this.renderP2Score.bind(this);
-        this.gameStateChange = this.gameStateChange.bind(this);
+        this.setGameWinner = this.setGameWinner.bind(this);
         this.addThrow = this.addThrow.bind(this);
         this.undo = this.undo.bind(this);
         this.undoSwitch = this.undoSwitch.bind(this);
         this.setX01Game = this.setX01Game.bind(this);
+        this.showGameOverModal = this.showGameOverModal.bind(this);
+        this.gameStateOver = this.gameStateOver.bind(this);
         this.setGameOptions = this.setGameOptions.bind(this);
         this.setOriginalScore = this.setOriginalScore.bind(this);
         this.resetThrowLog = this.resetThrowLog.bind(this);
@@ -286,7 +290,7 @@ export default class X01 extends Component {
             scoresArray.push(newScore);
             if (newScore === 0) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
-                this.gameStateChange(thrower);
+                this.setGameWinner(thrower);
             } else if (newScore === 1) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ activeThrower: otherThrower });
@@ -353,10 +357,10 @@ export default class X01 extends Component {
                 this.setState({ [playerScore]: newScore });
             } else if (newScore === 0 && multiplier === 2) {
                 this.setState({ [playerScore]: newScore });
-                this.gameStateChange(thrower);
+                this.setGameWinner(thrower);
             } else if (newScore === 0 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
-                this.gameStateChange(thrower);
+                this.setGameWinner(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
             } else if ((newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0)) {
@@ -423,9 +427,18 @@ export default class X01 extends Component {
         return this.state.p2Score;
     }
 
-    gameStateChange(gameWinner) {
+    gameStateOver() {
+        this.showGameOverModal(false);
         this.setState({ gameState: "over" });
+    }
+
+    setGameWinner(gameWinner) {
         this.setState({ gameWinner })
+        this.showGameOverModal(true);
+    }
+
+    showGameOverModal(gameOverModal) {
+        this.setState({ gameOverModal });
     }
 
     addThrow() {
@@ -433,6 +446,12 @@ export default class X01 extends Component {
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);
         this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
+    }
+
+    undoGameOver() {
+        this.undo();
+        this.setGameWinner('');
+        this.showGameOverModal(false);
     }
 
     undo() {
@@ -585,6 +604,10 @@ export default class X01 extends Component {
                     numpadUndo={this.numpadUndo}
                     gameState={this.state.gameState}
                     gameX01Reset={this.gameX01Reset}
+                    setGameWinner={this.setGameWinner}
+                    gameStateOver={this.gameStateOver}
+                    gameOverModal={this.state.gameOverModal}
+                    undoGameOver={this.undoGameOver}
                 />
 
             )

@@ -22,6 +22,10 @@ export default class ScoreInput extends Component {
                     undo={this.props.undo}
                     gameX01Reset={this.props.gameX01Reset}
                     activeThrows={this.props.activeThrows}
+                    setGameWinner={this.props.setGameWinner}
+                    gameStateOver={this.props.gameStateOver}
+                    gameOverModal={this.props.gameOverModal}
+                    undoGameOver={this.props.undoGameOver}
                 />
             )
         } else if (intViewportWidth < 900) {
@@ -35,6 +39,10 @@ export default class ScoreInput extends Component {
                     endTurn={this.props.endTurn}
                     undo={this.props.undo}
                     activeThrows={this.props.activeThrows}
+                    setGameWinner={this.props.setGameWinner}
+                    gameStateOver={this.props.gameStateOver}
+                    gameOverModal={this.props.gameOverModal}
+                    undoGameOver={this.props.undoGameOver}
                 />
             )
         } else {
@@ -47,6 +55,10 @@ export default class ScoreInput extends Component {
                     undo={this.props.undo}
                     activeThrows={this.props.activeThrows}
                     endTurn={this.props.endTurn}
+                    setGameWinner={this.props.setGameWinner}
+                    gameStateOver={this.props.gameStateOver}
+                    gameOverModal={this.props.gameOverModal}
+                    undoGameOver={this.props.undoGameOver}
                 />
             )
         }

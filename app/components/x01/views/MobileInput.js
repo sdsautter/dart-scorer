@@ -5,6 +5,7 @@ export default class ScoreInput extends Component {
         super();
         this.nameRender = this.nameRender.bind(this);
         this.playerButtonsRender = this.playerButtonsRender.bind(this);
+        this.missUndoRow = this.missUndoRow.bind(this);
     }
 
     nameRender() {
@@ -16,262 +17,321 @@ export default class ScoreInput extends Component {
     }
 
     playerButtonsRender() {
-        if (this.props.activeThrower === 'p1') {
+        if (!this.props.gameOverModal) {
+            if (this.props.activeThrower === 'p1') {
+                return (
+                    <div className="row">
+                        <br />
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
+                                20
+                        </button>
+                        </div>
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineteenModal">
+                                19
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightteenModal">
+                                18
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
+                                17
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixteenModal">
+                                16
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fifteenModal">
+                                15
+                        </button>
+                        </div>
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourteenModal">
+                                14
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#thirteenModal">
+                                13
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twelveModal">
+                                12
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#elevenModal">
+                                11
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#tenModal">
+                                10
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineModal">
+                                9
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightModal">
+                                8
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#sevenModal">
+                                7
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixModal">
+                                6
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fiveModal">
+                                5
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourModal">
+                                4
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#threeModal">
+                                3
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-single">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twoModal">
+                                2
+                        </button>
+                        </div>
+                        <div className="col-4 text-right number p1-single">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#oneModal">
+                                1
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p1-multiple">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#bullModal">
+                                Bull
+                        </button>
+                        </div>
+                    </div>
+                )
+            } else if (this.props.activeThrower === 'p2') {
+                return (
+                    <div className="row">
+                        <br />
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
+                                20
+                        </button>
+                        </div>
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineteenModal">
+                                19
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightteenModal">
+                                18
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
+                                17
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixteenModal">
+                                16
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fifteenModal">
+                                15
+                        </button>
+                        </div>
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourteenModal">
+                                14
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#thirteenModal">
+                                13
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twelveModal">
+                                12
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#elevenModal">
+                                11
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#tenModal">
+                                10
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineModal">
+                                9
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightModal">
+                                8
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#sevenModal">
+                                7
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixModal">
+                                6
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fiveModal">
+                                5
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourModal">
+                                4
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single border-bottom">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#threeModal">
+                                3
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-single">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#twoModal">
+                                2
+                        </button>
+                        </div>
+                        <div className="col-4 text-right number p2-single">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#oneModal">
+                                1
+                        </button>
+                        </div>
+
+                        <div className="col-4 text-right number p2-multiple">
+                            <button type="button" className="btn text-center" data-toggle="modal" data-target="#bullModal">
+                                Bull
+                        </button>
+                        </div>
+                    </div>
+                )
+            }
+        } else {
             return (
-                <div className="row">
-                    <br />
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
-                            20
-                        </button>
+                <div>
+                    <div className='row'>
+                        <div className='col-12 text-center' id='x01GameOver'>
+                            <h3>Game Over?</h3>
+                        </div>
                     </div>
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineteenModal">
-                            19
+                    <div className='row'>
+                        <div className="col-12 text-center p2-multiple game-over">
+                            <br />
+                            <br />
+                            <br />
+                            <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
+                                Undo
                         </button>
+                            <br />
+                            <br />
+                            <br />
+
+                        </div>
+
+                        <div className="col-12 text-center p1-multiple game-over">
+                            <button type="button" className="btn" onClick={() => { this.props.gameStateOver() }}>
+                                Confirm
+                        </button>
+                        </div>
                     </div>
 
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightteenModal">
-                            18
-                        </button>
-                    </div>
+                </div>
+            )
+        }
+    }
 
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
-                            17
+    missUndoRow() {
+        if (!this.props.gameOverModal) {
+            return (
+                <div className="row miss-undo-row">
+                    <div className="col-3 text-center end-turn">
+                        <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
+                            End Turn
                         </button>
                     </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixteenModal">
-                            16
+                    <div className="col-6 text-center miss">
+                        <button type="button" className="btn" onClick={() => { this.props.miss() }}>
+                            Miss
                         </button>
                     </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fifteenModal">
-                            15
-                        </button>
-                    </div>
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourteenModal">
-                            14
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#thirteenModal">
-                            13
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twelveModal">
-                            12
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#elevenModal">
-                            11
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#tenModal">
-                            10
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineModal">
-                            9
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightModal">
-                            8
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#sevenModal">
-                            7
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixModal">
-                            6
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fiveModal">
-                            5
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourModal">
-                            4
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#threeModal">
-                            3
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-single">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twoModal">
-                            2
-                        </button>
-                    </div>
-                    <div className="col-4 text-right number p1-single">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#oneModal">
-                            1
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p1-multiple">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#bullModal">
-                            Bull
+                    <div className="col-3 text-center undo">
+                        <button type="button" className="btn" onClick={() => { this.props.undo() }}>
+                            Undo
                         </button>
                     </div>
                 </div>
             )
-        } else if (this.props.activeThrower === 'p2') {
-            return (
-                <div className="row">
-                    <br />
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twentyModal">
-                            20
-                        </button>
-                    </div>
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineteenModal">
-                            19
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightteenModal">
-                            18
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#seventeenModal">
-                            17
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixteenModal">
-                            16
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fifteenModal">
-                            15
-                        </button>
-                    </div>
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourteenModal">
-                            14
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#thirteenModal">
-                            13
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twelveModal">
-                            12
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#elevenModal">
-                            11
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#tenModal">
-                            10
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#nineModal">
-                            9
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#eightModal">
-                            8
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#sevenModal">
-                            7
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#sixModal">
-                            6
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fiveModal">
-                            5
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#fourModal">
-                            4
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single border-bottom">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#threeModal">
-                            3
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-single">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#twoModal">
-                            2
-                        </button>
-                    </div>
-                    <div className="col-4 text-right number p2-single">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#oneModal">
-                            1
-                        </button>
-                    </div>
-
-                    <div className="col-4 text-right number p2-multiple">
-                        <button type="button" className="btn text-center" data-toggle="modal" data-target="#bullModal">
-                            Bull
-                        </button>
-                    </div>
-                </div>
-            )
+        } else {
+            return null;
         }
     }
 
@@ -294,23 +354,7 @@ export default class ScoreInput extends Component {
                     </div>
                 </div>
                 {this.playerButtonsRender()}
-                <div className="row miss-undo-row">
-                    <div className="col-3 text-center end-turn">
-                        <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
-                            End Turn
-                        </button>
-                    </div>
-                    <div className="col-6 text-center miss">
-                        <button type="button" className="btn" onClick={() => { this.props.miss() }}>
-                            Miss
-                        </button>
-                    </div>
-                    <div className="col-3 text-center undo">
-                        <button type="button" className="btn" onClick={() => { this.props.undo() }}>
-                            Undo
-                        </button>
-                    </div>
-                </div>
+                {this.missUndoRow()}
                 <div className="modal fade" id="twentyModal" tabIndex="-1" role="dialog" aria-labelledby="twentyModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

@@ -78,6 +78,10 @@ export default class Scoreboard extends Component {
                     undo={this.props.undo}
                     activeThrows={this.props.activeThrows}
                     gameX01Reset={this.props.gameX01Reset}
+                    setGameWinner={this.props.setGameWinner}
+                    gameStateOver={this.props.gameStateOver}
+                    gameOverModal={this.props.gameOverModal}
+                    undoGameOver={this.props.undoGameOver}
                 />
             )
         }
