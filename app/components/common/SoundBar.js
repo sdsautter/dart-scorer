@@ -4,6 +4,8 @@ export default class PlayerRender extends Component {
     constructor() {
         super();
         this.gameReset = this.gameReset.bind(this);
+        this.soundToggle = this.soundToggle.bind(this);
+        this.soundBarRender = this.soundBarRender.bind(this);
     }
 
     gameReset() {
@@ -14,13 +16,39 @@ export default class PlayerRender extends Component {
         }
     }
 
+    soundToggle() {
+
+        const storageSound = localStorage.getItem('sounds');
+        let soundBool;
+        if (storageSound === 'on') {
+            soundBool = 'off';
+        } else {
+            soundBool = 'on';
+        }
+        localStorage.setItem('sounds', soundBool);
+        this.forceUpdate();
+    }
+
+    soundBarRender() {
+        if (localStorage.getItem('sounds') === 'on') {
+            return (
+                <div className='sound-toggle'>
+                    <img className='sound-icon' src='assets/images/sound_on.png' onClick={this.soundToggle} />
+                </div>
+            )
+        } else {
+            return (
+                <div className='sound-toggle'>
+                    <img className='sound-icon' src='assets/images/sound_off.png' onClick={this.soundToggle} />
+                </div>
+            )
+        }
+    }
+
     render() {
         return (
-            <div className='sound-toggle'>
-                <label>
-                    <span className='one-click-scoring'>Sounds</span>
-                    <input className="toggle" type="checkbox" onClick={this.props.soundToggle} />
-                </label>
+            <div>
+                {this.soundBarRender()}
             </div>
         )
 

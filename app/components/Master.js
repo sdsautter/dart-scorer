@@ -9,6 +9,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export default class Master extends Component {
     constructor() {
         super();
+        if (localStorage.getItem('sounds') !== 'off' || localStorage.getItem('sounds') !== 'on')
+            localStorage.setItem('sounds', 'on');
     }
 
     render() {
