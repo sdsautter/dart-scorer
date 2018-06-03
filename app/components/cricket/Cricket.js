@@ -4,7 +4,6 @@ import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import VsOptions from './../common/VsOptions';
-import SoundBar from './../common/SoundBar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
@@ -1154,8 +1153,6 @@ export default class Cricket extends Component {
         if (this.state.gameState === "playing") {
             return (
                 <div>
-                    <SoundBar />
-
                     <Scoreboard
                         score={this.score}
                         miss={this.miss}
