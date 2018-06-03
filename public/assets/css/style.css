@@ -8,12 +8,20 @@
     ul {
         padding-left: 5%;
     }
+    .p1-multiple button:hover {
+        background-color: #689276 !important;
+        /* color: black; */
+    }
+    .p2-multiple button:hover {
+        background-color: rgb(197, 98, 98) !important;
+        /* color: black; */
+    }
     .one-click-scoring {
         padding-right: 15px;
         font-size: 1rem;
         vertical-align: .6rem;
     }
-    .end-turn button{
+    .end-turn button {
         font-size: 1.13rem !important;
     }
     #mobileThrow {
@@ -21,10 +29,16 @@
         font-size: 1rem;
     }
     .left-mark img {
+        /* height: 50px; */
         margin-left: 8px;
     }
     .right-label {
         margin-left: -13px;
+    }
+    .right-mark, .left-mark {
+        padding-top: .5%;
+        padding-bottom: .5%;
+        height: 50px;
     }
     .right-mark img {
         margin-left: -15px;
@@ -163,7 +177,8 @@
         padding-left: .5%;
         padding-right: .5%;
     }
-    .miss, .undo,
+    .miss,
+    .undo,
     .end-turn {
         padding-top: .5%;
         padding-bottom: .5%;
@@ -248,15 +263,18 @@
         background-color: #F2DDC8;
         color: black;
     }
-    .p1-multiple button, .p1-multiple button:disabled {
+    .p1-multiple button,
+    .p1-multiple button:disabled {
         background-color: #1B4F2D !important;
         /* color: black; */
     }
-    .p2-single button, .p2-single button:disabled {
+    .p2-single button,
+    .p2-single button:disabled {
         background-color: black !important;
         /* color: #c7ab8d; */
     }
-    .p2-multiple button, .p2-multiple button:disabled {
+    .p2-multiple button,
+    .p2-multiple button:disabled {
         background-color: #881918 !important;
         /* color: #c7ab8d; */
     }
@@ -315,7 +333,7 @@
         font-size: 1.75rem !important;
         font-weight: normal;
     }
-    .end-turn button{
+    .end-turn button {
         font-size: 1.75rem !important;
     }
     .number {
@@ -609,4 +627,11 @@ img {
 
 .padding-top {
     padding-top: 1%;
+}
+
+.game-over button {
+    font-family: 'Cuprum', cursive;
+    font-size: 1.5rem;
+    width: 85%;
+    color: white;
 }

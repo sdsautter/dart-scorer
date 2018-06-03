@@ -3,7 +3,6 @@ import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import VsOptions from './../common/VsOptions';
-import GameOverModal from './../common/GameOverModal';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
@@ -16,7 +15,6 @@ export default class Cricket extends Component {
             gameState: "opponent",
             gameWinner: {},
             throwLog: [],
-            gameOverModal: false,
 
             botGame: false,
             botDifficulty: "",
@@ -58,21 +56,18 @@ export default class Cricket extends Component {
         this.botNumberHit = this.botNumberHit.bind(this);
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
         this.setBotGame = this.setBotGame.bind(this);
-        this.undoGameOver = this.undoGameOver.bind(this);
         this.humanFindOpenNumber = this.humanFindOpenNumber.bind(this);
         this.botFindOpenNumber = this.botFindOpenNumber.bind(this);
         this.checkThrower = this.checkThrower.bind(this);
         this.renderP1Score = this.renderP1Score.bind(this);
-        this.showGameOverModal = this.showGameOverModal.bind(this);
         this.renderP2Score = this.renderP2Score.bind(this);
         this.setActiveThrower = this.setActiveThrower.bind(this);
         this.setThrowNumber = this.setThrowNumber.bind(this);
         this.setPlayerScore = this.setPlayerScore.bind(this);
         this.addThrow = this.addThrow.bind(this);
         this.markProgress = this.markProgress.bind(this);
-        this.gameStateOver = this.gameStateOver.bind(this);
+        this.gameStateChange = this.gameStateChange.bind(this);
         this.gameOverCheck = this.gameOverCheck.bind(this);
-        this.setGameWinner = this.setGameWinner.bind(this);
         this.miss = this.miss.bind(this);
         this.endTurn = this.endTurn.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
@@ -1004,33 +999,17 @@ export default class Cricket extends Component {
         return this.state.p2Score;
     }
 
-    gameStateOver() {
-        this.showGameOverModal(false);
+    gameStateChange(gameWinner) {
         this.setState({ gameState: "over" });
-    }
-
-    setGameWinner(gameWinner) {
         this.setState({ gameWinner })
-        console.log('game Winner');
-        console.log(gameWinner);
-        this.showGameOverModal(true);
-    }
-
-    showGameOverModal(gameOverModal) {
-        console.log('in show game Over Moaldd');
-        console.log(gameOverModal);
-        this.setState({ gameOverModal });
     }
 
     gameOverCheck() {
         setTimeout(() => {
             if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
-                if (this.state.gameWinner !== 'p1') {
-                    console.log('p1 wins!');
-                    this.setGameWinner("p1");
-                }
+                this.gameStateChange("p1");
             } else if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p1Score) {
-                this.setGameWinner("p2");
+                this.gameStateChange("p2");
             }
         }, 500);
     }
@@ -1094,14 +1073,7 @@ export default class Cricket extends Component {
         }
     }
 
-    undoGameOver() {
-        this.undo();
-        this.setGameWinner('');
-        this.showGameOverModal(false);
-    }
-
     conditionalRender() {
-        console.log(this.state.gameOverModal);
         if (this.state.gameState === "playing") {
             return (
                 <Scoreboard
@@ -1117,13 +1089,8 @@ export default class Cricket extends Component {
                     undo={this.undo}
                     gameCricketReset={this.gameCricketReset}
                     modalSwitch={this.modalSwitch}
-                    setGameWinner={this.setGameWinner}
-                    gameStateOver={this.gameStateOver}
-                    gameOverModal={this.state.gameOverModal}
-                    undoGameOver={this.undoGameOver}
                 />
             )
-
         } else if (this.state.gameState === "over") {
             if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
                 return (
