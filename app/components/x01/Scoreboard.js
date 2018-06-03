@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ScoreInput from "./ScoreInput.js";
 import Numpad from "./Numpad.js";
 import PlayerRender from '../common/PlayerRender'
-import SoundBar from './../common/SoundBar';
 export default class Scoreboard extends Component {
     constructor() {
         super();
@@ -71,7 +70,6 @@ export default class Scoreboard extends Component {
         } else {
             return (
                 <div>
-                <SoundBar />
                 <ScoreInput
                     activeThrower={this.props.activeThrower}
                     endTurn={this.props.endTurn}

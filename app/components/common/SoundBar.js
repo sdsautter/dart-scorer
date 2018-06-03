@@ -3,6 +3,9 @@ import React, { Component } from "react";
 export default class PlayerRender extends Component {
     constructor() {
         super();
+        if (localStorage.getItem('sounds') !== 'off') {
+            localStorage.setItem('sounds', 'on');
+        }
         this.gameReset = this.gameReset.bind(this);
         this.soundToggle = this.soundToggle.bind(this);
         this.soundBarRender = this.soundBarRender.bind(this);
