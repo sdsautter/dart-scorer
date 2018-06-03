@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import { Howl, Howler } from 'howler';
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import VsOptions from './../common/VsOptions';
-import GameOverModal from './../common/GameOverModal';
+import SoundBar from './../common/SoundBar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Cricket extends Component {
     constructor() {
         super();
         this.state = {
+
             activeThrower: "p1",
             activeThrows: 0,
             activeMarks: 0,
@@ -17,6 +19,7 @@ export default class Cricket extends Component {
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
+            sounds: true,
 
             botGame: false,
             botDifficulty: "",
@@ -54,6 +57,8 @@ export default class Cricket extends Component {
 
         //Binding functions to change the states
         this.score = this.score.bind(this);
+        this.soundLogic = this.soundLogic.bind(this);
+        this.soundToggle = this.soundToggle.bind(this);
         this.botLogic = this.botLogic.bind(this);
         this.botNumberHit = this.botNumberHit.bind(this);
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
@@ -92,7 +97,7 @@ export default class Cricket extends Component {
         this.setState({ activeMarks: 0 });
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
-        this.setState({ gameOverModal: false });        
+        this.setState({ gameOverModal: false });
 
         this.setState({ p120: 0 });
         this.setState({ p119: 0 });
@@ -539,6 +544,9 @@ export default class Cricket extends Component {
     }
 
     score(number, multiplier) {
+        if (this.state.sounds) {
+            this.soundLogic(multiplier)
+        }
         this.scoringLogic(number, multiplier);
         this.addThrow();
         this.addMarks(multiplier);
@@ -546,6 +554,33 @@ export default class Cricket extends Component {
         this.gameOverCheck();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.checkThrower();
+    }
+
+    soundLogic(multiplier) {
+        const singleHitSound = new Howl({
+            src: ['assets/sounds/single_hit.mp3']
+        });
+        const doubleHitSound = new Howl({
+            src: ['assets/sounds/double_hit.mp3']
+        });
+        const tripleHitSound = new Howl({
+            src: ['assets/sounds/triple_hit.mp3']
+        });
+        Howler.volume(.2);
+
+        switch (multiplier) {
+            case 1:
+                singleHitSound.play();
+                break;
+            case 2:
+                doubleHitSound.play();
+                break;
+            case 3:
+                tripleHitSound.play();
+                break;
+            default:
+                break;
+        }
     }
 
     botLogic() {
@@ -918,16 +953,26 @@ export default class Cricket extends Component {
     }
 
     miss() {
+        const missSound = new Howl({
+            src: ['assets/sounds/miss_hit.mp3']
+        });
+        Howler.volume(.2);
         this.addThrow();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.addToLog("mi", "ss");
         this.checkThrower();
+        missSound.play();
     }
 
     endTurn() {
         let thrower = this.state.activeThrower;
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);
+        const missSound = new Howl({
+            src: ['assets/sounds/miss_hit.mp3']
+        });
+
+        missSound.play();
         switch (this.state.activeThrows) {
             case 0:
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 3 });
@@ -1006,8 +1051,13 @@ export default class Cricket extends Component {
     }
 
     gameStateOver() {
+        const gameOverSound = new Howl({
+            src: ['assets/sounds/game_over.mp3']
+        });
+        Howler.volume(.2);
         this.showGameOverModal(false);
         this.setState({ gameState: "over" });
+        gameOverSound.play();
     }
 
     setGameWinner(gameWinner) {
@@ -1096,28 +1146,38 @@ export default class Cricket extends Component {
         this.showGameOverModal(false);
     }
 
+    soundToggle() {
+        const sounds = this.state.sounds ? false : true;
+        this.setState({ sounds })
+    }
+
     conditionalRender() {
-        console.log(this.state.gameOverModal);
         if (this.state.gameState === "playing") {
             return (
-                <Scoreboard
-                    score={this.score}
-                    miss={this.miss}
-                    endTurn={this.endTurn}
-                    botGame={this.state.botGame}
-                    activeThrower={this.state.activeThrower}
-                    activeThrows={this.state.activeThrows}
-                    renderP1Score={this.renderP1Score}
-                    renderP2Score={this.renderP2Score}
-                    markProgress={this.markProgress}
-                    undo={this.undo}
-                    gameCricketReset={this.gameCricketReset}
-                    modalSwitch={this.modalSwitch}
-                    setGameWinner={this.setGameWinner}
-                    gameStateOver={this.gameStateOver}
-                    gameOverModal={this.state.gameOverModal}
-                    undoGameOver={this.undoGameOver}
-                />
+                <div>
+                    {/* <SoundBar
+                        soundToggle={this.soundToggle}
+                    /> */}
+
+                    <Scoreboard
+                        score={this.score}
+                        miss={this.miss}
+                        endTurn={this.endTurn}
+                        botGame={this.state.botGame}
+                        activeThrower={this.state.activeThrower}
+                        activeThrows={this.state.activeThrows}
+                        renderP1Score={this.renderP1Score}
+                        renderP2Score={this.renderP2Score}
+                        markProgress={this.markProgress}
+                        undo={this.undo}
+                        gameCricketReset={this.gameCricketReset}
+                        modalSwitch={this.modalSwitch}
+                        setGameWinner={this.setGameWinner}
+                        gameStateOver={this.gameStateOver}
+                        gameOverModal={this.state.gameOverModal}
+                        undoGameOver={this.undoGameOver}
+                    />
+                </div>
             )
 
         } else if (this.state.gameState === "over") {

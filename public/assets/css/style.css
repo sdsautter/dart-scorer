@@ -640,3 +640,9 @@ img {
     padding-top: 5%;
     padding-bottom  : 5%;    
 }
+
+.sound-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
