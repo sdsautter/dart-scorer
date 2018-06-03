@@ -635,3 +635,8 @@ img {
     width: 85%;
     color: white;
 }
+
+#x01GameOver {
+    padding-top: 5%;
+    padding-bottom  : 5%;    
+}

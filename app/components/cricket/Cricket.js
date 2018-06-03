@@ -1011,14 +1011,10 @@ export default class Cricket extends Component {
 
     setGameWinner(gameWinner) {
         this.setState({ gameWinner })
-        console.log('game Winner');
-        console.log(gameWinner);
         this.showGameOverModal(true);
     }
 
     showGameOverModal(gameOverModal) {
-        console.log('in show game Over Moaldd');
-        console.log(gameOverModal);
         this.setState({ gameOverModal });
     }
 
@@ -1026,7 +1022,6 @@ export default class Cricket extends Component {
         setTimeout(() => {
             if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
                 if (this.state.gameWinner !== 'p1') {
-                    console.log('p1 wins!');
                     this.setGameWinner("p1");
                 }
             } else if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p1Score) {
