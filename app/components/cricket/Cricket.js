@@ -19,7 +19,6 @@ export default class Cricket extends Component {
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
-            sounds: true,
 
             botGame: false,
             botDifficulty: "",
@@ -58,7 +57,6 @@ export default class Cricket extends Component {
         //Binding functions to change the states
         this.score = this.score.bind(this);
         this.soundLogic = this.soundLogic.bind(this);
-        this.soundToggle = this.soundToggle.bind(this);
         this.botLogic = this.botLogic.bind(this);
         this.botNumberHit = this.botNumberHit.bind(this);
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
@@ -544,7 +542,7 @@ export default class Cricket extends Component {
     }
 
     score(number, multiplier) {
-        if (this.state.sounds) {
+        if (localStorage.getItem('sounds') === 'on') {
             this.soundLogic(multiplier)
         }
         this.scoringLogic(number, multiplier);
@@ -566,7 +564,7 @@ export default class Cricket extends Component {
         const tripleHitSound = new Howl({
             src: ['assets/sounds/triple_hit.mp3']
         });
-        Howler.volume(.2);
+        Howler.volume(.4);
 
         switch (multiplier) {
             case 1:
@@ -956,12 +954,14 @@ export default class Cricket extends Component {
         const missSound = new Howl({
             src: ['assets/sounds/miss_hit.mp3']
         });
-        Howler.volume(.2);
+        Howler.volume(.4);
         this.addThrow();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.addToLog("mi", "ss");
         this.checkThrower();
-        missSound.play();
+        if (localStorage.getItem('sounds') === 'on') {
+            missSound.play();
+        }
     }
 
     endTurn() {
@@ -972,7 +972,9 @@ export default class Cricket extends Component {
             src: ['assets/sounds/miss_hit.mp3']
         });
 
-        missSound.play();
+        if (localStorage.getItem('sounds') === 'on') {
+            missSound.play();
+        }
         switch (this.state.activeThrows) {
             case 0:
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 3 });
@@ -1054,10 +1056,12 @@ export default class Cricket extends Component {
         const gameOverSound = new Howl({
             src: ['assets/sounds/game_over.mp3']
         });
-        Howler.volume(.2);
+        Howler.volume(.4);
         this.showGameOverModal(false);
         this.setState({ gameState: "over" });
-        gameOverSound.play();
+        if (localStorage.getItem('sounds') === 'on') {
+            gameOverSound.play();
+        }
     }
 
     setGameWinner(gameWinner) {
@@ -1146,18 +1150,11 @@ export default class Cricket extends Component {
         this.showGameOverModal(false);
     }
 
-    soundToggle() {
-        const sounds = this.state.sounds ? false : true;
-        this.setState({ sounds })
-    }
-
     conditionalRender() {
         if (this.state.gameState === "playing") {
             return (
                 <div>
-                    {/* <SoundBar
-                        soundToggle={this.soundToggle}
-                    /> */}
+                    <SoundBar />
 
                     <Scoreboard
                         score={this.score}

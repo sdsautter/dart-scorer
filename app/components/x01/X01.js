@@ -19,7 +19,6 @@ export default class X01 extends Component {
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
-            sounds: true,
 
             botGame: true,
             botDifficulty: '',
@@ -73,7 +72,7 @@ export default class X01 extends Component {
     }
 
     soundLogic(multiplier) {
-        Howler.volume(.2);
+        Howler.volume(.4);
         const singleHitSound = new Howl({
             src: ['assets/sounds/single_hit.mp3']
         });
@@ -369,7 +368,7 @@ export default class X01 extends Component {
     }
 
     score(number, multiplier) {
-        Howler.volume(.2);
+        Howler.volume(.4);
 
         const missSound = new Howl({
             src: ['assets/sounds/miss_hit.mp3']
@@ -419,7 +418,9 @@ export default class X01 extends Component {
                 } else if (this.state.activeThrows === 1) {
                     this.addToLog("mi", "ss");
                 }
-                missSound.play();
+                if (localStorage.getItem('sounds') === 'on') {
+                    missSound.play();
+                }
                 this.setThrowNumber(0);
                 this.setState({ [playerScore]: startScore });
                 scoresArray.push(startScore);
@@ -427,10 +428,12 @@ export default class X01 extends Component {
                 return;
             }
         } else {
-            missSound.play();
+            if (localStorage.getItem('sounds') === 'on') {
+                missSound.play();
+            }
         }
 
-        if (this.state.sounds) {
+        if (localStorage.getItem('sounds') === 'on') {
             this.soundLogic(multiplier)
         }
         this.addThrow();
@@ -448,7 +451,9 @@ export default class X01 extends Component {
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.addToLog("mi", "ss");
         this.checkThrower();
-        missSound.play();
+        if (localStorage.getItem('sounds') === 'on') {
+            missSound.play();
+        }
     }
 
     checkThrower() {
@@ -591,7 +596,9 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
                 break;
         }
-        missSound.play();
+        if (localStorage.getItem('sounds') === 'on') {
+            missSound.play();
+        }
     }
 
     undoSwitch(player) {

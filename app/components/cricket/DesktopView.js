@@ -121,8 +121,6 @@ export default class DesktopView extends Component {
     scoreButtonsRender() {
         //Renders either an input or a text area depending on the screen width
         if (!this.props.gameOverModal) {
-            console.log("Hello in no modal");
-            console.log(this.props.gameOverModal)
             if (this.props.activeThrower === 'p1') {
                 return (
                     <div className='col-8'>
