@@ -19,6 +19,7 @@ export default class X01 extends Component {
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
+            sounds: true,
 
             botGame: true,
             botDifficulty: '',
@@ -68,6 +69,39 @@ export default class X01 extends Component {
         this.botRandomize = this.botRandomize.bind(this);
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
         this.setBotGame = this.setBotGame.bind(this);
+        this.soundLogic = this.soundLogic.bind(this);
+    }
+
+    soundLogic(multiplier) {
+        Howler.volume(.2);
+        const singleHitSound = new Howl({
+            src: ['assets/sounds/single_hit.mp3']
+        });
+        const doubleHitSound = new Howl({
+            src: ['assets/sounds/double_hit.mp3']
+        });
+        const tripleHitSound = new Howl({
+            src: ['assets/sounds/triple_hit.mp3']
+        });
+
+        const thrower = this.state.activeThrower;
+        const doubleInBool = eval(`this.state.${thrower}DoubleIn`);
+
+        if (doubleInBool || multiplier === 2) {
+            switch (multiplier) {
+                case 1:
+                    singleHitSound.play();
+                    break;
+                case 2:
+                    doubleHitSound.play();
+                    break;
+                case 3:
+                    tripleHitSound.play();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     setBotGame(botGame) {
@@ -335,6 +369,12 @@ export default class X01 extends Component {
     }
 
     score(number, multiplier) {
+        Howler.volume(.2);
+
+        const missSound = new Howl({
+            src: ['assets/sounds/miss_hit.mp3']
+        });
+
         let thrower = this.state.activeThrower;
         if (multiplier === 2) {
             this.doubleInTrue(thrower);
@@ -364,7 +404,7 @@ export default class X01 extends Component {
                 this.setGameWinner(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
-            } else if ((newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0)) {
+            } else if ((newScore === 0 && multiplier !== 2) || (newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0)) {
                 if (thrower === "p1") {
 
                     this.setState({ activeThrower: "p2" });
@@ -379,14 +419,20 @@ export default class X01 extends Component {
                 } else if (this.state.activeThrows === 1) {
                     this.addToLog("mi", "ss");
                 }
+                missSound.play();
                 this.setThrowNumber(0);
                 this.setState({ [playerScore]: startScore });
                 scoresArray.push(startScore);
                 this.setState({ [playerStartScore]: scoresArray });
                 return;
             }
+        } else {
+            missSound.play();
         }
 
+        if (this.state.sounds) {
+            this.soundLogic(multiplier)
+        }
         this.addThrow();
         this.addToLog(number, multiplier);
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
@@ -394,10 +440,15 @@ export default class X01 extends Component {
     }
 
     miss() {
+        Howler.volume(.2);
+        const missSound = new Howl({
+            src: ['assets/sounds/miss_hit.mp3']
+        });
         this.addThrow();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.addToLog("mi", "ss");
         this.checkThrower();
+        missSound.play();
     }
 
     checkThrower() {
@@ -482,6 +533,10 @@ export default class X01 extends Component {
     }
 
     endTurn() {
+        Howler.volume(.2);
+        const missSound = new Howl({
+            src: ['assets/sounds/miss_hit.mp3']
+        });
         let thrower = this.state.activeThrower;
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);
@@ -536,6 +591,7 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
                 break;
         }
+        missSound.play();
     }
 
     undoSwitch(player) {

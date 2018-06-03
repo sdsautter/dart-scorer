@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PlayerRender from "../common/PlayerRender";
-import GameOverModal from './../common/GameOverModal';
 
 export default class DesktopView extends Component {
     constructor() {
