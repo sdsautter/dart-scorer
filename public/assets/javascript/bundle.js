@@ -7105,6 +7105,7 @@ var Cricket = function (_Component) {
             this.setState({ activeMarks: 0 });
             this.setState({ gameState: "playing" });
             this.setState({ gameWinner: {} });
+            this.setState({ gameOverModal: false });
 
             this.setState({ p120: 0 });
             this.setState({ p119: 0 });
@@ -9112,6 +9113,7 @@ var X01 = function (_Component) {
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
             this.setState({ gameWinner: {} });
+            this.setState({ gameOverModal: false });
 
             this.setState({ p1Score: this.state.x01Game });
             this.setState({ p1Throws: 0 });

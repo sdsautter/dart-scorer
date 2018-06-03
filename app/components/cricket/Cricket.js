@@ -92,6 +92,7 @@ export default class Cricket extends Component {
         this.setState({ activeMarks: 0 });
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
+        this.setState({ gameOverModal: false });        
 
         this.setState({ p120: 0 });
         this.setState({ p119: 0 });

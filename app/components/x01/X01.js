@@ -223,6 +223,7 @@ export default class X01 extends Component {
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
+        this.setState({ gameOverModal: false });
 
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
