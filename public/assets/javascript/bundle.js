@@ -7157,7 +7157,9 @@ var Cricket = function (_Component) {
     }, {
         key: "setThrowNumber",
         value: function setThrowNumber(activeThrows) {
+            // new Promise(() => {
             this.setState({ activeThrows: activeThrows });
+            // })
         }
     }, {
         key: "setActiveThrower",
@@ -7924,45 +7926,55 @@ var Cricket = function (_Component) {
             var otherThrowerState = eval("this.state." + otherThrowerNumber);
             var throwerNumber = "" + thrower + number;
             var numberState = eval("this.state." + throwerNumber);
+            switch (numberState) {
+                case 0:
+                    this.setThrowerNumber(thrower, number, multiplier);
+                    break;
+                case 1:
 
-            if (numberState === 0) {
-                this.setThrowerNumber(thrower, number, multiplier);
-            } else if (numberState === 1) {
-                if (multiplier === 1 || multiplier === 2) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                } else if (multiplier === 3) {
+                    if (multiplier === 1 || multiplier === 2) {
+                        this.setThrowerNumber(thrower, number, multiplier);
+                    } else if (multiplier === 3) {
+                        if (otherThrowerState < 3) {
+                            this.setThrowerNumber(thrower, number, multiplier);
+                            this.setPlayerScore(thrower, number, 1);
+                        } else {
+                            this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                    }
+
+                    break;
+                case 2:
+
+                    if (multiplier === 1) {
+                        this.setThrowerNumber(thrower, number, multiplier);
+                    } else if (multiplier === 2) {
+                        if (otherThrowerState < 3) {
+                            this.setThrowerNumber(thrower, number, multiplier);
+                            this.setPlayerScore(thrower, number, 1);
+                        } else {
+                            this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                    } else if (multiplier === 3) {
+                        if (otherThrowerState < 3) {
+                            this.setThrowerNumber(thrower, number, multiplier);
+                            this.setPlayerScore(thrower, number, 2);
+                        } else {
+                            this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                    }
+
+                    break;
+                default:
+
                     if (otherThrowerState < 3) {
                         this.setThrowerNumber(thrower, number, multiplier);
-                        this.setPlayerScore(thrower, number, 1);
+                        this.setPlayerScore(thrower, number, multiplier);
                     } else {
                         this.setThrowerNumber(thrower, number, multiplier);
                     }
-                }
-            } else if (numberState === 2) {
-                if (multiplier === 1) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                } else if (multiplier === 2) {
-                    if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                        this.setPlayerScore(thrower, number, 1);
-                    } else {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                    }
-                } else if (multiplier === 3) {
-                    if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                        this.setPlayerScore(thrower, number, 2);
-                    } else {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                    }
-                }
-            } else if (numberState >= 3) {
-                if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                    this.setPlayerScore(thrower, number, multiplier);
-                } else {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
+
+                    break;
             }
         }
     }, {
