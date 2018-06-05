@@ -227,7 +227,7 @@ export default class X01 extends Component {
                 return Math.random() < .90 ? 2 : 1;
                 break;
             case 'pro':
-                return Math.random() < .98 ? 1 : 2;
+                return Math.random() < .98 ? 2 : 1;
                 break;
             default:
                 return Math.random() < .50 ? 1 : 2;
@@ -835,6 +835,7 @@ export default class X01 extends Component {
             return (
                 <BotDifficulty
                     game={'x01'}
+                    options={this.state.gameOptions}
                     setBotDifficulty={this.setBotDifficulty}
                 />
             )

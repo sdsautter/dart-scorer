@@ -6,7 +6,7 @@ export default class BotDifficulty extends Component {
     }
 
     render() {
-        if (this.props.game === 'cricket') {
+        if (this.props.game === 'cricket' || this.props.options === 'numpad') {
             return (
                 <div className="container-fluid">
                     <div className="row top-row">
