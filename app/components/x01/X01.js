@@ -429,7 +429,7 @@ export default class X01 extends Component {
             } else if (newScore === 1) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ activeThrower: otherThrower });
-                missSound.play();
+                if (localStorage.getItem('sounds') === 'on') { missSound.play(); }
                 if (this.state.botGame && thrower === 'p1') {
                     this.botLogic();
                 }
@@ -437,19 +437,19 @@ export default class X01 extends Component {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ [playerScore]: parseInt(playerScoreState) });
                 this.setState({ activeThrower: otherThrower });
-                missSound.play();
+                if (localStorage.getItem('sounds') === 'on') { missSound.play(); }
                 if (this.state.botGame && thrower === 'p1') {
                     this.botLogic();
                 }
             } else {
                 if (score === 0) {
-                    missSound.play();
+                    if (localStorage.getItem('sounds') === 'on') { missSound.play(); }
                 } else if (score <= 30) {
-                    singleHitSound.play();
+                    if (localStorage.getItem('sounds') === 'on') { singleHitSound.play(); }
                 } else if (score <= 50) {
-                    doubleHitSound.play();
+                    if (localStorage.getItem('sounds') === 'on') { doubleHitSound.play(); }
                 } else {
-                    tripleHitSound.play();
+                    if (localStorage.getItem('sounds') === 'on') { tripleHitSound.play(); }
                 }
 
                 this.setState({ [playerScore]: newScore });
@@ -613,7 +613,7 @@ export default class X01 extends Component {
             src: ['assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
-        gameOverSound.play()
+        if (localStorage.getItem('sounds') === 'on') { gameOverSound.play(); }
         this.setState({ gameState: "over" });
     }
 
@@ -627,7 +627,7 @@ export default class X01 extends Component {
         const doubleHitSound = new Howl({
             src: ['assets/sounds/double_hit.mp3']
         });
-        doubleHitSound.play();
+        if (localStorage.getItem('sounds') === 'on') { doubleHitSound.play(); }
         this.setState({ gameOverModal });
     }
 
