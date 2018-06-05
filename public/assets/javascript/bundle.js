@@ -9161,7 +9161,7 @@ var X01 = function (_Component) {
                     return Math.random() < .90 ? 2 : 1;
                     break;
                 case 'pro':
-                    return Math.random() < .98 ? 1 : 2;
+                    return Math.random() < .98 ? 2 : 1;
                     break;
                 default:
                     return Math.random() < .50 ? 1 : 2;
@@ -9378,7 +9378,9 @@ var X01 = function (_Component) {
                 } else if (newScore === 1) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState({ activeThrower: otherThrower });
-                    missSound.play();
+                    if (localStorage.getItem('sounds') === 'on') {
+                        missSound.play();
+                    }
                     if (this.state.botGame && thrower === 'p1') {
                         this.botLogic();
                     }
@@ -9386,19 +9388,29 @@ var X01 = function (_Component) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState)));
                     this.setState({ activeThrower: otherThrower });
-                    missSound.play();
+                    if (localStorage.getItem('sounds') === 'on') {
+                        missSound.play();
+                    }
                     if (this.state.botGame && thrower === 'p1') {
                         this.botLogic();
                     }
                 } else {
                     if (score === 0) {
-                        missSound.play();
+                        if (localStorage.getItem('sounds') === 'on') {
+                            missSound.play();
+                        }
                     } else if (score <= 30) {
-                        singleHitSound.play();
+                        if (localStorage.getItem('sounds') === 'on') {
+                            singleHitSound.play();
+                        }
                     } else if (score <= 50) {
-                        doubleHitSound.play();
+                        if (localStorage.getItem('sounds') === 'on') {
+                            doubleHitSound.play();
+                        }
                     } else {
-                        tripleHitSound.play();
+                        if (localStorage.getItem('sounds') === 'on') {
+                            tripleHitSound.play();
+                        }
                     }
 
                     this.setState(_defineProperty({}, playerScore, newScore));
@@ -9570,7 +9582,9 @@ var X01 = function (_Component) {
                 src: ['assets/sounds/game_over.mp3']
             });
             this.showGameOverModal(false);
-            gameOverSound.play();
+            if (localStorage.getItem('sounds') === 'on') {
+                gameOverSound.play();
+            }
             this.setState({ gameState: "over" });
         }
     }, {
@@ -9586,7 +9600,9 @@ var X01 = function (_Component) {
             var doubleHitSound = new Howl({
                 src: ['assets/sounds/double_hit.mp3']
             });
-            doubleHitSound.play();
+            if (localStorage.getItem('sounds') === 'on') {
+                doubleHitSound.play();
+            }
             this.setState({ gameOverModal: gameOverModal });
         }
     }, {
@@ -9786,6 +9802,7 @@ var X01 = function (_Component) {
             } else if (this.state.gameState === "difficulty") {
                 return _react2.default.createElement(_BotDifficulty2.default, {
                     game: 'x01',
+                    options: this.state.gameOptions,
                     setBotDifficulty: this.setBotDifficulty
                 });
             }
@@ -14007,121 +14024,121 @@ var BotDifficulty = function (_Component) {
     }
 
     _createClass(BotDifficulty, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var _this2 = this;
 
-            if (this.props.game === 'cricket') {
+            if (this.props.game === 'cricket' || this.props.options === 'numpad') {
                 return _react2.default.createElement(
-                    "div",
-                    { className: "container-fluid" },
+                    'div',
+                    { className: 'container-fluid' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "row top-row" },
+                        'div',
+                        { className: 'row top-row' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "col title text-center" },
-                            "Bot Difficulty"
+                            'div',
+                            { className: 'col title text-center' },
+                            'Bot Difficulty'
                         )
                     ),
-                    _react2.default.createElement("br", null),
+                    _react2.default.createElement('br', null),
                     _react2.default.createElement(
-                        "div",
-                        { className: "row" },
+                        'div',
+                        { className: 'row' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-3 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-3 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("easy");
                                     } },
-                                "Easy"
+                                'Easy'
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-3 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-3 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("medium");
                                     } },
-                                "Medium"
+                                'Medium'
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-3 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-3 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("hard");
                                     } },
-                                "Hard"
+                                'Hard'
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-3 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-3 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("pro");
                                     } },
-                                "Pro"
+                                'Pro'
                             )
                         )
                     )
                 );
             } else {
                 return _react2.default.createElement(
-                    "div",
-                    { className: "container-fluid" },
+                    'div',
+                    { className: 'container-fluid' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "row top-row" },
+                        'div',
+                        { className: 'row top-row' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "col title text-center" },
-                            "Bot Difficulty"
+                            'div',
+                            { className: 'col title text-center' },
+                            'Bot Difficulty'
                         )
                     ),
-                    _react2.default.createElement("br", null),
+                    _react2.default.createElement('br', null),
                     _react2.default.createElement(
-                        "div",
-                        { className: "row" },
+                        'div',
+                        { className: 'row' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-4 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("easy");
                                     } },
-                                "Easy"
+                                'Easy'
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-4 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("medium");
                                     } },
-                                "Medium"
+                                'Medium'
                             )
                         ),
                         _react2.default.createElement(
-                            "div",
-                            { className: "col-md-4 col-sm-12 x01-option number text-center" },
+                            'div',
+                            { className: 'col-md-4 col-sm-12 x01-option number text-center' },
                             _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                'button',
+                                { type: 'button', className: 'btn btn-success', onClick: function onClick() {
                                         _this2.props.setBotDifficulty("hard");
                                     } },
-                                "Hard"
+                                'Hard'
                             )
                         )
                     )
