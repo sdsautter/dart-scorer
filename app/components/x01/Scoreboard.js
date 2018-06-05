@@ -65,25 +65,30 @@ export default class Scoreboard extends Component {
                     numpadScore={this.props.numpadScore}
                     numpadUndo={this.props.numpadUndo}
                     gameState={this.props.gameState}
+                    setGameWinner={this.props.setGameWinner}
+                    gameStateOver={this.props.gameStateOver}
+                    gameOverModal={this.props.gameOverModal}
+                    undoGameOver={this.props.undoGameOver}
+                    botGame={this.props.botGame}
                 />
             )
         } else {
             return (
                 <div>
-                <ScoreInput
-                    activeThrower={this.props.activeThrower}
-                    endTurn={this.props.endTurn}
-                    botGame={this.props.botGame}
-                    score={this.props.score}
-                    miss={this.props.miss}
-                    undo={this.props.undo}
-                    activeThrows={this.props.activeThrows}
-                    gameX01Reset={this.props.gameX01Reset}
-                    setGameWinner={this.props.setGameWinner}
-                    gameStateOver={this.props.gameStateOver}
-                    gameOverModal={this.props.gameOverModal}
-                    undoGameOver={this.props.undoGameOver}
-                />
+                    <ScoreInput
+                        activeThrower={this.props.activeThrower}
+                        endTurn={this.props.endTurn}
+                        botGame={this.props.botGame}
+                        score={this.props.score}
+                        miss={this.props.miss}
+                        undo={this.props.undo}
+                        activeThrows={this.props.activeThrows}
+                        gameX01Reset={this.props.gameX01Reset}
+                        setGameWinner={this.props.setGameWinner}
+                        gameStateOver={this.props.gameStateOver}
+                        gameOverModal={this.props.gameOverModal}
+                        undoGameOver={this.props.undoGameOver}
+                    />
                 </div>
             )
         }

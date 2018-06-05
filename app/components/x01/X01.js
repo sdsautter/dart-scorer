@@ -119,25 +119,104 @@ export default class X01 extends Component {
     }
 
     botRandomize(difficulty) {
-        switch (difficulty) {
-            case 'easy':
-                return Math.floor(Math.random() * Math.floor(11 - 7)) + 7;
-                break;
-            case 'medium':
-                return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
-                break;
-            case 'hard':
-                return Math.floor(Math.random() * Math.floor(21 - 19)) + 19;
-                break;
-            default:
-                return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
-                break;
+        const botScore = this.state.p2Score;
+        const doubleChance = this.botDoubleChance();
+        let shot;
+        if (this.state.gameOptions === 'numpad') {
+            switch (this.state.botDifficulty) {
+                case 'easy':
+                    if (doubleChance === 1) {
+                        if (this.state.p2Score === this.state.x01Game) {
+                            return 0;
+                        } else if (this.state.p2Score <= 40) {
+                            return this.state.p2Score / 2;
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(31 - 22)) + 22;
+                        }
+                    } else {
+                        if (botScore <= 40) {
+                            return parseInt(botScore);
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(31 - 22)) + 22;
+                        }
+                    }
+                    break;
+                case 'medium':
+                    if (doubleChance === 1) {
+                        if (botScore === this.state.x01Game) {
+                            return 0;
+                        } else if (botScore < 60) {
+                            return parseInt(botScore / 2);
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(49 - 32)) + 32;
+                        }
+                    } else {
+                        if (botScore <= 60) {
+                            return parseInt(botScore);
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(49 - 32)) + 32;
+                        }
+                    }
+                    break;
+                case 'hard':
+                    if (doubleChance === 1) {
+                        if (this.state.p2Score === this.state.x01Game) {
+                            return 0;
+                        } else if (this.state.p2Score <= 100) {
+                            return this.state.p2Score / 2;
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(61 - 57)) + 57;
+                        }
+                    } else {
+                        if (botScore <= 100) {
+                            return parseInt(botScore);
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(61 - 57)) + 57;
+                        }
+                    }
+                    break;
+                case 'pro':
+                    if (doubleChance === 1) {
+                        if (this.state.p2Score === this.state.x01Game) {
+                            return 0;
+                        } else if (this.state.p2Score <= 120) {
+                            return this.state.p2Score / 2;
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(180 - 60)) + 60;
+                        }
+                    } else {
+                        if (botScore <= 140) {
+                            return parseInt(botScore);
+                        } else {
+                            return Math.floor(Math.random() * Math.floor(180 - 60)) + 60;
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        } else {
+            switch (this.state.botDifficulty) {
+                case 'easy':
+                    if (botScore <= 40)
+                        return Math.floor(Math.random() * Math.floor(11 - 7)) + 7;
+                    break;
+                case 'medium':
+                    return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
+                    break;
+                case 'hard':
+                    return Math.floor(Math.random() * Math.floor(21 - 19)) + 19;
+                    break;
+                default:
+                    return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
+                    break;
+            }
         }
     }
 
     botDoubleChance() {
-        const difficulty = this.state.botDifficulty;
-        switch (difficulty) {
+        switch (this.state.botDifficulty) {
             case 'easy':
                 return Math.random() < .50 ? 2 : 1;
                 break;
@@ -170,46 +249,57 @@ export default class X01 extends Component {
         }
     }
 
+    botNumpad() {
+        let botShot = this.botRandomize();
+        return this.numpadScore(botShot);
+    }
+
     botLogic() {
-        const botScore = parseInt(this.state.p2Score);
-        const x01Game = parseInt(this.state.x01Game);
-        let doubleChance, dartThrow;
-        setTimeout(() => {
-            if (this.state.gameState !== 'over') {
-                if (!this.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
-                    doubleChance = this.botDoubleChance();
-                } else {
-                    doubleChance = 1;
+        if (this.state.gameOptions !== 'numpad') {
+            const botScore = parseInt(this.state.p2Score);
+            const x01Game = parseInt(this.state.x01Game);
+            let doubleChance, dartThrow;
+            setTimeout(() => {
+                if (this.state.gameState !== 'over') {
+                    if (!this.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
+                        doubleChance = this.botDoubleChance();
+                    } else {
+                        doubleChance = 1;
+                    }
+                    dartThrow = this.botDartShot();
+                    this.score(dartThrow, doubleChance);
                 }
-                dartThrow = this.botDartShot();
-                this.score(dartThrow, doubleChance);
-            }
-        }, 1000);
-        setTimeout(() => {
-            if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
+            }, 1500);
+            setTimeout(() => {
+                if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
 
-                if (!this.state.p2DoubleIn || botScore <= 40) {
-                    doubleChance = this.botDoubleChance();
-                } else {
-                    doubleChance = 1;
+                    if (!this.state.p2DoubleIn || botScore <= 40) {
+                        doubleChance = this.botDoubleChance();
+                    } else {
+                        doubleChance = 1;
+                    }
+
+                    dartThrow = this.botDartShot();
+                    this.score(dartThrow, doubleChance);
                 }
+            }, 2500);
+            setTimeout(() => {
+                if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
+                    if (!this.state.p2DoubleIn || botScore <= 40) {
+                        doubleChance = this.botDoubleChance();
+                    } else {
+                        doubleChance = 1;
+                    }
 
-                dartThrow = this.botDartShot();
-                this.score(dartThrow, doubleChance);
-            }
-        }, 2000);
-        setTimeout(() => {
-            if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
-                if (!this.state.p2DoubleIn || botScore <= 40) {
-                    doubleChance = this.botDoubleChance();
-                } else {
-                    doubleChance = 1;
+                    dartThrow = this.botDartShot();
+                    this.score(dartThrow, doubleChance);
                 }
-
-                dartThrow = this.botDartShot();
-                this.score(dartThrow, doubleChance);
-            }
-        }, 3000);
+            }, 3500);
+        } else {
+            setTimeout(() => {
+                this.botNumpad();
+            }, 1500);
+        }
     }
 
 
@@ -220,11 +310,7 @@ export default class X01 extends Component {
 
     setGameOptions(gameOptions) {
         this.setState({ gameOptions });
-        if (gameOptions !== 'numpad') {
-            this.setState({ gameState: "opponent" });
-        } else {
-            this.setState({ gameState: 'playing' });
-        }
+        this.setState({ gameState: "opponent" });
     }
 
     setOriginalScore(score) {
@@ -303,6 +389,21 @@ export default class X01 extends Component {
     }
 
     numpadScore(score) {
+        Howler.volume(.4);
+        const singleHitSound = new Howl({
+            src: ['assets/sounds/single_hit.mp3']
+        });
+        const doubleHitSound = new Howl({
+            src: ['assets/sounds/double_hit.mp3']
+        });
+        const tripleHitSound = new Howl({
+            src: ['assets/sounds/triple_hit.mp3']
+        });
+        const missSound = new Howl({
+            src: ['assets/sounds/miss_hit.mp3']
+        });
+
+
         const thrower = this.state.activeThrower;
 
         if (this.state.gameState === "playing") {
@@ -328,15 +429,36 @@ export default class X01 extends Component {
             } else if (newScore === 1) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ activeThrower: otherThrower });
+                missSound.play();
+                if (this.state.botGame && thrower === 'p1') {
+                    this.botLogic();
+                }
             } else if (newScore < 0) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ [playerScore]: parseInt(playerScoreState) });
                 this.setState({ activeThrower: otherThrower });
+                missSound.play();
+                if (this.state.botGame && thrower === 'p1') {
+                    this.botLogic();
+                }
             } else {
+                if (score === 0) {
+                    missSound.play();
+                } else if (score <= 30) {
+                    singleHitSound.play();
+                } else if (score <= 50) {
+                    doubleHitSound.play();
+                } else {
+                    tripleHitSound.play();
+                }
+
                 this.setState({ [playerScore]: newScore });
                 this.setState({ [playerStartScore]: scoresArray });
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ activeThrower: otherThrower });
+                if (this.state.botGame && thrower === 'p1') {
+                    this.botLogic();
+                }
             }
         }
     }
@@ -365,6 +487,7 @@ export default class X01 extends Component {
         }
         this.setState({ [playerScore]: startScore });
         this.setState({ activeThrower: otherThrower });
+
     }
 
     score(number, multiplier) {
@@ -485,7 +608,12 @@ export default class X01 extends Component {
     }
 
     gameStateOver() {
+        Howler.volume(.4);
+        const gameOverSound = new Howl({
+            src: ['assets/sounds/game_over.mp3']
+        });
         this.showGameOverModal(false);
+        gameOverSound.play()
         this.setState({ gameState: "over" });
     }
 
@@ -495,6 +623,11 @@ export default class X01 extends Component {
     }
 
     showGameOverModal(gameOverModal) {
+        Howler.volume(.4);
+        const doubleHitSound = new Howl({
+            src: ['assets/sounds/double_hit.mp3']
+        });
+        doubleHitSound.play();
         this.setState({ gameOverModal });
     }
 

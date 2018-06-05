@@ -595,40 +595,40 @@ export default class Cricket extends Component {
                     case 1:
                         setTimeout(() => {
                             this.miss();
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1000);
+                        }, 3000);
                         setTimeout(() => {
                             this.miss();
-                        }, 1500);
+                        }, 4000);
                         break;
                     case 2:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1000);
+                        }, 2500);
                         setTimeout(() => {
                             this.miss();
-                        }, 1500);
+                        }, 3500);
                         break;
                     default:
                         setTimeout(() => {
                             this.miss();
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1000);
+                        }, 3000);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.miss();
-                        }, 1500);
+                        }, 4000);
                         break;
                 }
                 break;
@@ -640,43 +640,43 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1000);
+                        }, 2500);
                         setTimeout(() => {
                             this.miss();
-                        }, 1500);
+                        }, 3500);
                         break;
                     case 3:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 2500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 3500);
                         break;
 
                     default:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1000);
+                        }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.miss();
-                        }, 1500);
+                        }, 3500);
                         break;
                 }
                 break;
@@ -688,57 +688,57 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 2500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 3500);
                         break;
                     case 4:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 2);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 2750);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 3750);
                         break;
                     case 5:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1000);
+                        }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 3);
-                        }, 1500);
+                        }, 3500);
                         break;
                     default:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 1);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 2500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 1);
+                        }, 3500);
                         break;
                 }
 
@@ -750,72 +750,72 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 2);
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 2);
-                        }, 1000);
+                        }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 1);
-                        }, 1500);
+                        }, 4500);
                         break;
                     case 6:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 2);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 2);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 2);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 2);
+                        }, 3000);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 2);
+                        }, 4500);
                         break;
                     case 7:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 3);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 2);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 2);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 2);
+                        }, 3000);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 2);
+                        }, 4500);
                         break;
                     case 8:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 3);
-                        }, 500);
+                        }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 3);
-                        }, 1000);
+                        }, 3000);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 2);
-                        }, 1500);
+                        }, 4500);
                         break;
 
                     case 9:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             this.score(number, 3);
-                        }, 500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 3);
-                        }, 1000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, 3);
                         }, 1500);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 3);
+                        }, 3000);
+                        setTimeout(() => {
+                            number = this.botNumberHit();
+                            this.score(number, 3);
+                        }, 4500);
                         break;
                     default:
                         break;
@@ -827,14 +827,14 @@ export default class Cricket extends Component {
                 setTimeout(() => {
                     number = this.botNumberHit();
                     this.score(number, 1);
-                }, 300);
+                }, 1500);
                 setTimeout(() => {
                     number = this.botNumberHit();
                     this.score(number, 1);
-                }, 600);
+                }, 3000);
                 setTimeout(() => {
                     this.miss();
-                }, 1000);
+                }, 4500);
                 break;
 
         }
