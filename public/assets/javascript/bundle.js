@@ -7621,40 +7621,40 @@ var Cricket = function (_Component) {
                         case 1:
                             setTimeout(function () {
                                 _this2.miss();
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1000);
+                            }, 3000);
                             setTimeout(function () {
                                 _this2.miss();
-                            }, 1500);
+                            }, 4000);
                             break;
                         case 2:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1000);
+                            }, 2500);
                             setTimeout(function () {
                                 _this2.miss();
-                            }, 1500);
+                            }, 3500);
                             break;
                         default:
                             setTimeout(function () {
                                 _this2.miss();
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1000);
+                            }, 3000);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.miss();
-                            }, 1500);
+                            }, 4000);
                             break;
                     }
                     break;
@@ -7666,43 +7666,43 @@ var Cricket = function (_Component) {
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1000);
+                            }, 2500);
                             setTimeout(function () {
                                 _this2.miss();
-                            }, 1500);
+                            }, 3500);
                             break;
                         case 3:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 2500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 3500);
                             break;
 
                         default:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1000);
+                            }, 2500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.miss();
-                            }, 1500);
+                            }, 3500);
                             break;
                     }
                     break;
@@ -7714,57 +7714,57 @@ var Cricket = function (_Component) {
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 2500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 3500);
                             break;
                         case 4:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 2);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 2750);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 3750);
                             break;
                         case 5:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1000);
+                            }, 2500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 3);
-                            }, 1500);
+                            }, 3500);
                             break;
                         default:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 1);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 2500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 1);
+                            }, 3500);
                             break;
                     }
 
@@ -7776,72 +7776,72 @@ var Cricket = function (_Component) {
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 2);
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 2);
-                            }, 1000);
+                            }, 2500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 1);
-                            }, 1500);
+                            }, 4500);
                             break;
                         case 6:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 2);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 2);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 2);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 2);
+                            }, 3000);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 2);
+                            }, 4500);
                             break;
                         case 7:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 3);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 2);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 2);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 2);
+                            }, 3000);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 2);
+                            }, 4500);
                             break;
                         case 8:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 3);
-                            }, 500);
+                            }, 1500);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 3);
-                            }, 1000);
+                            }, 3000);
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 2);
-                            }, 1500);
+                            }, 4500);
                             break;
 
                         case 9:
                             setTimeout(function () {
                                 number = _this2.botNumberHit();
                                 _this2.score(number, 3);
-                            }, 500);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 3);
-                            }, 1000);
-                            setTimeout(function () {
-                                number = _this2.botNumberHit();
-                                _this2.score(number, 3);
                             }, 1500);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 3);
+                            }, 3000);
+                            setTimeout(function () {
+                                number = _this2.botNumberHit();
+                                _this2.score(number, 3);
+                            }, 4500);
                             break;
                         default:
                             break;
@@ -7853,14 +7853,14 @@ var Cricket = function (_Component) {
                     setTimeout(function () {
                         number = _this2.botNumberHit();
                         _this2.score(number, 1);
-                    }, 300);
+                    }, 1500);
                     setTimeout(function () {
                         number = _this2.botNumberHit();
                         _this2.score(number, 1);
-                    }, 600);
+                    }, 3000);
                     setTimeout(function () {
                         _this2.miss();
-                    }, 1000);
+                    }, 4500);
                     break;
 
             }
@@ -9053,26 +9053,104 @@ var X01 = function (_Component) {
     }, {
         key: "botRandomize",
         value: function botRandomize(difficulty) {
-            switch (difficulty) {
-                case 'easy':
-                    return Math.floor(Math.random() * Math.floor(11 - 7)) + 7;
-                    break;
-                case 'medium':
-                    return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
-                    break;
-                case 'hard':
-                    return Math.floor(Math.random() * Math.floor(21 - 19)) + 19;
-                    break;
-                default:
-                    return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
-                    break;
+            var botScore = this.state.p2Score;
+            var doubleChance = this.botDoubleChance();
+            var shot = void 0;
+            if (this.state.gameOptions === 'numpad') {
+                switch (this.state.botDifficulty) {
+                    case 'easy':
+                        if (doubleChance === 1) {
+                            if (this.state.p2Score === this.state.x01Game) {
+                                return 0;
+                            } else if (this.state.p2Score <= 40) {
+                                return this.state.p2Score / 2;
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(31 - 22)) + 22;
+                            }
+                        } else {
+                            if (botScore <= 40) {
+                                return parseInt(botScore);
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(31 - 22)) + 22;
+                            }
+                        }
+                        break;
+                    case 'medium':
+                        if (doubleChance === 1) {
+                            if (botScore === this.state.x01Game) {
+                                return 0;
+                            } else if (botScore < 60) {
+                                return parseInt(botScore / 2);
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(49 - 32)) + 32;
+                            }
+                        } else {
+                            if (botScore <= 60) {
+                                return parseInt(botScore);
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(49 - 32)) + 32;
+                            }
+                        }
+                        break;
+                    case 'hard':
+                        if (doubleChance === 1) {
+                            if (this.state.p2Score === this.state.x01Game) {
+                                return 0;
+                            } else if (this.state.p2Score <= 100) {
+                                return this.state.p2Score / 2;
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(61 - 57)) + 57;
+                            }
+                        } else {
+                            if (botScore <= 100) {
+                                return parseInt(botScore);
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(61 - 57)) + 57;
+                            }
+                        }
+                        break;
+                    case 'pro':
+                        if (doubleChance === 1) {
+                            if (this.state.p2Score === this.state.x01Game) {
+                                return 0;
+                            } else if (this.state.p2Score <= 120) {
+                                return this.state.p2Score / 2;
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(180 - 60)) + 60;
+                            }
+                        } else {
+                            if (botScore <= 140) {
+                                return parseInt(botScore);
+                            } else {
+                                return Math.floor(Math.random() * Math.floor(180 - 60)) + 60;
+                            }
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            } else {
+                switch (this.state.botDifficulty) {
+                    case 'easy':
+                        if (botScore <= 40) return Math.floor(Math.random() * Math.floor(11 - 7)) + 7;
+                        break;
+                    case 'medium':
+                        return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
+                        break;
+                    case 'hard':
+                        return Math.floor(Math.random() * Math.floor(21 - 19)) + 19;
+                        break;
+                    default:
+                        return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
+                        break;
+                }
             }
         }
     }, {
         key: "botDoubleChance",
         value: function botDoubleChance() {
-            var difficulty = this.state.botDifficulty;
-            switch (difficulty) {
+            switch (this.state.botDifficulty) {
                 case 'easy':
                     return Math.random() < .50 ? 2 : 1;
                     break;
@@ -9106,50 +9184,62 @@ var X01 = function (_Component) {
             }
         }
     }, {
+        key: "botNumpad",
+        value: function botNumpad() {
+            var botShot = this.botRandomize();
+            return this.numpadScore(botShot);
+        }
+    }, {
         key: "botLogic",
         value: function botLogic() {
             var _this2 = this;
 
-            var botScore = parseInt(this.state.p2Score);
-            var x01Game = parseInt(this.state.x01Game);
-            var doubleChance = void 0,
-                dartThrow = void 0;
-            setTimeout(function () {
-                if (_this2.state.gameState !== 'over') {
-                    if (!_this2.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
-                        doubleChance = _this2.botDoubleChance();
-                    } else {
-                        doubleChance = 1;
+            if (this.state.gameOptions !== 'numpad') {
+                var botScore = parseInt(this.state.p2Score);
+                var x01Game = parseInt(this.state.x01Game);
+                var doubleChance = void 0,
+                    dartThrow = void 0;
+                setTimeout(function () {
+                    if (_this2.state.gameState !== 'over') {
+                        if (!_this2.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
+                            doubleChance = _this2.botDoubleChance();
+                        } else {
+                            doubleChance = 1;
+                        }
+                        dartThrow = _this2.botDartShot();
+                        _this2.score(dartThrow, doubleChance);
                     }
-                    dartThrow = _this2.botDartShot();
-                    _this2.score(dartThrow, doubleChance);
-                }
-            }, 1000);
-            setTimeout(function () {
-                if (_this2.state.gameState !== 'over' && _this2.state.activeThrower === 'p2') {
+                }, 1500);
+                setTimeout(function () {
+                    if (_this2.state.gameState !== 'over' && _this2.state.activeThrower === 'p2') {
 
-                    if (!_this2.state.p2DoubleIn || botScore <= 40) {
-                        doubleChance = _this2.botDoubleChance();
-                    } else {
-                        doubleChance = 1;
+                        if (!_this2.state.p2DoubleIn || botScore <= 40) {
+                            doubleChance = _this2.botDoubleChance();
+                        } else {
+                            doubleChance = 1;
+                        }
+
+                        dartThrow = _this2.botDartShot();
+                        _this2.score(dartThrow, doubleChance);
                     }
+                }, 2500);
+                setTimeout(function () {
+                    if (_this2.state.gameState !== 'over' && _this2.state.activeThrower === 'p2') {
+                        if (!_this2.state.p2DoubleIn || botScore <= 40) {
+                            doubleChance = _this2.botDoubleChance();
+                        } else {
+                            doubleChance = 1;
+                        }
 
-                    dartThrow = _this2.botDartShot();
-                    _this2.score(dartThrow, doubleChance);
-                }
-            }, 2000);
-            setTimeout(function () {
-                if (_this2.state.gameState !== 'over' && _this2.state.activeThrower === 'p2') {
-                    if (!_this2.state.p2DoubleIn || botScore <= 40) {
-                        doubleChance = _this2.botDoubleChance();
-                    } else {
-                        doubleChance = 1;
+                        dartThrow = _this2.botDartShot();
+                        _this2.score(dartThrow, doubleChance);
                     }
-
-                    dartThrow = _this2.botDartShot();
-                    _this2.score(dartThrow, doubleChance);
-                }
-            }, 3000);
+                }, 3500);
+            } else {
+                setTimeout(function () {
+                    _this2.botNumpad();
+                }, 1500);
+            }
         }
     }, {
         key: "setX01Game",
@@ -9161,11 +9251,7 @@ var X01 = function (_Component) {
         key: "setGameOptions",
         value: function setGameOptions(gameOptions) {
             this.setState({ gameOptions: gameOptions });
-            if (gameOptions !== 'numpad') {
-                this.setState({ gameState: "opponent" });
-            } else {
-                this.setState({ gameState: 'playing' });
-            }
+            this.setState({ gameState: "opponent" });
         }
     }, {
         key: "setOriginalScore",
@@ -9253,6 +9339,20 @@ var X01 = function (_Component) {
     }, {
         key: "numpadScore",
         value: function numpadScore(score) {
+            Howler.volume(.4);
+            var singleHitSound = new Howl({
+                src: ['assets/sounds/single_hit.mp3']
+            });
+            var doubleHitSound = new Howl({
+                src: ['assets/sounds/double_hit.mp3']
+            });
+            var tripleHitSound = new Howl({
+                src: ['assets/sounds/triple_hit.mp3']
+            });
+            var missSound = new Howl({
+                src: ['assets/sounds/miss_hit.mp3']
+            });
+
             var thrower = this.state.activeThrower;
 
             if (this.state.gameState === "playing") {
@@ -9278,15 +9378,36 @@ var X01 = function (_Component) {
                 } else if (newScore === 1) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState({ activeThrower: otherThrower });
+                    missSound.play();
+                    if (this.state.botGame && thrower === 'p1') {
+                        this.botLogic();
+                    }
                 } else if (newScore < 0) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState)));
                     this.setState({ activeThrower: otherThrower });
+                    missSound.play();
+                    if (this.state.botGame && thrower === 'p1') {
+                        this.botLogic();
+                    }
                 } else {
+                    if (score === 0) {
+                        missSound.play();
+                    } else if (score <= 30) {
+                        singleHitSound.play();
+                    } else if (score <= 50) {
+                        doubleHitSound.play();
+                    } else {
+                        tripleHitSound.play();
+                    }
+
                     this.setState(_defineProperty({}, playerScore, newScore));
                     this.setState(_defineProperty({}, playerStartScore, scoresArray));
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState({ activeThrower: otherThrower });
+                    if (this.state.botGame && thrower === 'p1') {
+                        this.botLogic();
+                    }
                 }
             }
         }
@@ -9444,7 +9565,12 @@ var X01 = function (_Component) {
     }, {
         key: "gameStateOver",
         value: function gameStateOver() {
+            Howler.volume(.4);
+            var gameOverSound = new Howl({
+                src: ['assets/sounds/game_over.mp3']
+            });
             this.showGameOverModal(false);
+            gameOverSound.play();
             this.setState({ gameState: "over" });
         }
     }, {
@@ -9456,6 +9582,11 @@ var X01 = function (_Component) {
     }, {
         key: "showGameOverModal",
         value: function showGameOverModal(gameOverModal) {
+            Howler.volume(.4);
+            var doubleHitSound = new Howl({
+                src: ['assets/sounds/double_hit.mp3']
+            });
+            doubleHitSound.play();
             this.setState({ gameOverModal: gameOverModal });
         }
     }, {
@@ -36535,7 +36666,12 @@ var Scoreboard = function (_Component) {
                     activeThrower: this.props.activeThrower,
                     numpadScore: this.props.numpadScore,
                     numpadUndo: this.props.numpadUndo,
-                    gameState: this.props.gameState
+                    gameState: this.props.gameState,
+                    setGameWinner: this.props.setGameWinner,
+                    gameStateOver: this.props.gameStateOver,
+                    gameOverModal: this.props.gameOverModal,
+                    undoGameOver: this.props.undoGameOver,
+                    botGame: this.props.botGame
                 });
             } else {
                 return _react2.default.createElement(
@@ -43023,186 +43159,521 @@ var Numpad = function (_Component) {
         value: function numpadRender() {
             var _this3 = this;
 
-            if (this.props.activeThrower === 'p1') {
-                return _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
+            if (!this.props.gameOverModal) {
+                if (this.props.activeThrower === 'p1') {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
-                        _react2.default.createElement("br", null),
+                        { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "row" },
+                            { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
+                            _react2.default.createElement("br", null),
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-12 text-center points-score" },
-                                this.renderNumberEntry()
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                { className: "row" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(9);
-                                        } },
-                                    "9"
+                                    "div",
+                                    { className: "col-12 text-center points-score" },
+                                    this.renderNumberEntry()
                                 )
                             ),
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-4 number p1-single" },
+                                { className: "row" },
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(8);
-                                        } },
-                                    "8"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(9);
+                                            } },
+                                        "9"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(7);
-                                        } },
-                                    "7"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(8);
+                                            } },
+                                        "8"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(6);
-                                        } },
-                                    "6"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(7);
+                                            } },
+                                        "7"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(5);
-                                        } },
-                                    "5"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(6);
+                                            } },
+                                        "6"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(4);
-                                        } },
-                                    "4"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(5);
+                                            } },
+                                        "5"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(3);
-                                        } },
-                                    "3"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(4);
+                                            } },
+                                        "4"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(2);
-                                        } },
-                                    "2"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(3);
+                                            } },
+                                        "3"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(1);
-                                        } },
-                                    "1"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-multiple" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(2);
+                                            } },
+                                        "2"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberRemove();
-                                        } },
-                                    _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-single" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(1);
+                                            } },
+                                        "1"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.numberInput(0);
-                                        } },
-                                    "0"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-4 number p1-multiple" },
+                                    "div",
+                                    { className: "col-4 number p1-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberRemove();
+                                            } },
+                                        _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.scoreEntry();
-                                        } },
-                                    "Enter"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col undo" },
+                                    "div",
+                                    { className: "col-4 number p1-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(0);
+                                            } },
+                                        "0"
+                                    )
+                                ),
                                 _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                            _this3.props.numpadUndo();
-                                        } },
-                                    "Undo"
+                                    "div",
+                                    { className: "col-4 number p1-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.scoreEntry();
+                                            } },
+                                        "Enter"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col undo" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.props.numpadUndo();
+                                            } },
+                                        "Undo"
+                                    )
                                 )
                             )
                         )
-                    )
-                );
-            } else if (this.props.activeThrower === 'p2') return _react2.default.createElement(
-                "div",
-                { className: "row" },
-                _react2.default.createElement(
+                    );
+                } else if (this.props.activeThrower === 'p2') if (!this.props.botGame) {
+                    return _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
+                            _react2.default.createElement("br", null),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "row" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-12 text-center points-score" },
+                                    this.renderNumberEntry()
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "row" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(9);
+                                            } },
+                                        "9"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(8);
+                                            } },
+                                        "8"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(7);
+                                            } },
+                                        "7"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(6);
+                                            } },
+                                        "6"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(5);
+                                            } },
+                                        "5"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(4);
+                                            } },
+                                        "4"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(3);
+                                            } },
+                                        "3"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(2);
+                                            } },
+                                        "2"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(1);
+                                            } },
+                                        "1"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberRemove();
+                                            } },
+                                        _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(0);
+                                            } },
+                                        "0"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.scoreEntry();
+                                            } },
+                                        "Enter"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col undo" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.props.numpadUndo();
+                                            } },
+                                        "Undo"
+                                    )
+                                )
+                            )
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
+                            _react2.default.createElement("br", null),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "row" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-12 text-center points-score" },
+                                    this.renderNumberEntry()
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "row" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(9);
+                                            }, disabled: true },
+                                        "9"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(8);
+                                            }, disabled: true },
+                                        "8"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(7);
+                                            }, disabled: true },
+                                        "7"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(6);
+                                            }, disabled: true },
+                                        "6"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(5);
+                                            }, disabled: true },
+                                        "5"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(4);
+                                            }, disabled: true },
+                                        "4"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(3);
+                                            }, disabled: true },
+                                        "3"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(2);
+                                            }, disabled: true },
+                                        "2"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(1);
+                                            }, disabled: true },
+                                        "1"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberRemove();
+                                            }, disabled: true },
+                                        _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-single" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.numberInput(0);
+                                            }, disabled: true },
+                                        "0"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-4 number p2-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.scoreEntry();
+                                            }, disabled: true },
+                                        "Enter"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col undo" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                                _this3.props.numpadUndo();
+                                            } },
+                                        "Undo"
+                                    )
+                                )
+                            )
+                        )
+                    );
+                }
+            } else {
+                return _react2.default.createElement(
                     "div",
-                    { className: "col-sm-10 offset-sm-1 col-md-6 offset-md-3" },
-                    _react2.default.createElement("br", null),
+                    null,
                     _react2.default.createElement(
                         "div",
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-12 text-center points-score" },
-                            this.renderNumberEntry()
+                            { className: "col-12 text-center", id: "x01GameOver" },
+                            _react2.default.createElement(
+                                "h3",
+                                null,
+                                "Game Over?"
+                            )
                         )
                     ),
                     _react2.default.createElement(
@@ -43210,150 +43681,29 @@ var Numpad = function (_Component) {
                         { className: "row" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-4 number p2-single" },
+                            { className: "col-12 col-md-4 offset-md-1 text-center p2-multiple game-over" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(9);
-                                    } },
-                                "9"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(8);
-                                    } },
-                                "8"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(7);
-                                    } },
-                                "7"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(6);
-                                    } },
-                                "6"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(5);
-                                    } },
-                                "5"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(4);
-                                    } },
-                                "4"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(3);
-                                    } },
-                                "3"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(2);
-                                    } },
-                                "2"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(1);
-                                    } },
-                                "1"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-multiple" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberRemove();
-                                    } },
-                                _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-single" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.numberInput(0);
-                                    } },
-                                "0"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 number p2-multiple" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.scoreEntry();
-                                    } },
-                                "Enter"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col undo" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "button", className: "btn btn-success", onClick: function onClick() {
-                                        _this3.props.numpadUndo();
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this3.props.undoGameOver();
                                     } },
                                 "Undo"
                             )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-12 col-md-4 offset-md-2 text-center p1-multiple game-over" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this3.props.gameStateOver();
+                                    } },
+                                "Confirm"
+                            )
                         )
                     )
-                )
-            );
+                );
+            }
         }
     }, {
         key: "render",
