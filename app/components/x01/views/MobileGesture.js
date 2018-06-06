@@ -58,9 +58,9 @@ export default class MobileGesture extends Component {
                         this.touchStartRender(0)
                     }}
                     onTap={() => (this.props.score(number, 1))}
-                    direction='DIRECTION_VERTICAL'
-                    onSwipeUp={() => (this.props.score(number, 2))}
-                    onSwipeDown={() => (this.props.score(number, 3))}>
+                    direction='DIRECTION_HORIZONTAL'
+                    onSwipeLeft={() => (this.props.score(number, 2))}
+                    onSwipeRight={() => (this.props.score(number, 3))}>
                     <button type="button" className="btn text-center" >
                         {number}
                     </button>
@@ -70,8 +70,8 @@ export default class MobileGesture extends Component {
             return (
                 <Hammer onPress={() => (this.props.score(number, 1))}
                     onTap={() => (this.props.score(number, 1))}
-                    direction='DIRECTION_VERTICAL'
-                    onSwipeUp={() => (this.props.score(number, 2))}>
+                    direction='DIRECTION_HORIZONTAL'
+                    onSwipeLeft={() => (this.props.score(number, 2))}>
                     <button type="button" className="btn text-center" >
                         Bull
                     </button>
@@ -110,8 +110,8 @@ export default class MobileGesture extends Component {
                                 <div className='col-12'>
                                 <ul className='gestures'>
                                     <li className='gesture-item'>Tap or Press for x1</li>
-                                    <li className='gesture-item'>Swipe up for x2</li>
-                                    <li className='gesture-item'>Swipe down for x3</li>
+                                    <li className='gesture-item'>Swipe left for x2</li>
+                                    <li className='gesture-item'>Swipe right for x3</li>
                                     </ul>
                                 </div>
                             </div>
