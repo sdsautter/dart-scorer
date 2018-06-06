@@ -39297,11 +39297,11 @@ var MobileGesture = function (_Component) {
                         onTap: function onTap() {
                             return _this2.props.score(number, 1);
                         },
-                        direction: "DIRECTION_VERTICAL",
-                        onSwipeUp: function onSwipeUp() {
+                        direction: "DIRECTION_HORIZONTAL",
+                        onSwipeLeft: function onSwipeLeft() {
                             return _this2.props.score(number, 2);
                         },
-                        onSwipeDown: function onSwipeDown() {
+                        onSwipeRight: function onSwipeRight() {
                             return _this2.props.score(number, 3);
                         } },
                     _react2.default.createElement(
@@ -39319,8 +39319,8 @@ var MobileGesture = function (_Component) {
                         onTap: function onTap() {
                             return _this2.props.score(number, 1);
                         },
-                        direction: "DIRECTION_VERTICAL",
-                        onSwipeUp: function onSwipeUp() {
+                        direction: "DIRECTION_HORIZONTAL",
+                        onSwipeLeft: function onSwipeLeft() {
                             return _this2.props.score(number, 2);
                         } },
                     _react2.default.createElement(
@@ -39390,12 +39390,12 @@ var MobileGesture = function (_Component) {
                                         _react2.default.createElement(
                                             "li",
                                             { className: "gesture-item" },
-                                            "Swipe up for x2"
+                                            "Swipe left for x2"
                                         ),
                                         _react2.default.createElement(
                                             "li",
                                             { className: "gesture-item" },
-                                            "Swipe down for x3"
+                                            "Swipe right for x3"
                                         )
                                     )
                                 )
@@ -46467,12 +46467,12 @@ var GestureToggle = function (_Component) {
                                             _react2.default.createElement(
                                                 'li',
                                                 { className: 'gesture-item' },
-                                                'Swipe up for x2'
+                                                'Swipe left for x2'
                                             ),
                                             _react2.default.createElement(
                                                 'li',
                                                 { className: 'gesture-item' },
-                                                'Swipe down for x3'
+                                                'Swipe right for x3'
                                             )
                                         )
                                     )
