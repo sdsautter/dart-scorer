@@ -49,34 +49,50 @@ export default class MobileGesture extends Component {
     }
 
     conditionalButtonRender(number) {
-        if (number !== 25) {
-            return (
-                <Hammer onPress={() => {
-                    this.touchStartRender(number)
-                }}
-                    onPressUp={() => {
-                        this.touchStartRender(0)
+        if (!this.props.botGame || this.props.activeThrower === 'p1') {
+            if (number !== 25) {
+                return (
+                    <Hammer onPress={() => {
+                        this.touchStartRender(number)
                     }}
-                    onTap={() => (this.props.score(number, 1))}
-                    direction='DIRECTION_HORIZONTAL'
-                    onSwipeLeft={() => (this.props.score(number, 2))}
-                    onSwipeRight={() => (this.props.score(number, 3))}>
-                    <button type="button" className="btn text-center" >
-                        {number}
-                    </button>
-                </Hammer>
-            )
+                        onPressUp={() => {
+                            this.touchStartRender(0)
+                        }}
+                        onTap={() => (this.props.score(number, 1))}
+                        direction='DIRECTION_HORIZONTAL'
+                        onSwipeLeft={() => (this.props.score(number, 2))}
+                        onSwipeRight={() => (this.props.score(number, 3))}>
+                        <button type="button" className="btn text-center" >
+                            {number}
+                        </button>
+                    </Hammer>
+                )
+            } else {
+                return (
+                    <Hammer onPress={() => (this.props.score(number, 1))}
+                        onTap={() => (this.props.score(number, 1))}
+                        direction='DIRECTION_HORIZONTAL'
+                        onSwipeLeft={() => (this.props.score(number, 2))}>
+                        <button type="button" className="btn text-center" >
+                            Bull
+                        </button>
+                    </Hammer>
+                )
+            }
         } else {
-            return (
-                <Hammer onPress={() => (this.props.score(number, 1))}
-                    onTap={() => (this.props.score(number, 1))}
-                    direction='DIRECTION_HORIZONTAL'
-                    onSwipeLeft={() => (this.props.score(number, 2))}>
-                    <button type="button" className="btn text-center" >
-                        Bull
+            if (number !== 25) {
+                return (          
+                    <button type="button" className="btn text-center" disabled >
+                            {number}
                     </button>
-                </Hammer>
-            )
+                )
+            } else {
+                return (
+                    <button type="button" className="btn text-center" disabled>
+                            Bull
+                    </button>
+                )
+            }
         }
     }
 
@@ -261,7 +277,7 @@ export default class MobileGesture extends Component {
 
     missUndoRow() {
         if (!this.props.gameOverModal && !this.state.showHelp) {
-            
+            if (!this.props.botGame || this.props.activeThrower === 'p1') {
                 return (
                 <div className="row miss-undo-row" id='x01MobileUndoRow'>
                     <div className="col-3 text-center end-turn">
@@ -281,6 +297,27 @@ export default class MobileGesture extends Component {
                     </div>
                 </div>
             )
+        } else {
+            return (
+                <div className="row miss-undo-row" id='x01MobileUndoRow'>
+                    <div className="col-3 text-center end-turn">
+                        <button type="button" className="btn" onClick={() => { this.props.endTurn() }} disabled>
+                            End Turn
+                        </button>
+                    </div>
+                    <div className="col-6 text-center miss">
+                        <button type="button" className="btn" onClick={() => { this.props.miss() }} disabled>
+                            Miss
+                        </button>
+                    </div>
+                    <div className="col-3 text-center undo">
+                        <button type="button" className="btn" onClick={() => { this.props.undo() }}>
+                            Undo
+                        </button>
+                    </div>
+                </div>
+            )
+        }
         } else {
             return null;
         }
@@ -306,6 +343,44 @@ export default class MobileGesture extends Component {
                 </div>
                 {this.playerButtonsRender()}
                 {this.missUndoRow()}
+                <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="reloadModalLabel">Start Game Over</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="row">
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                            </div>
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.gameReset() }}>Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="modal fade" id="exitModal" tabIndex="-1" role="dialog" aria-labelledby="exitModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="exitModalLabel">Exit Game</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="row">
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                            </div>
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/') }}>Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
             </div >
         )
 

@@ -39285,50 +39285,66 @@ var MobileGesture = function (_Component) {
         value: function conditionalButtonRender(number) {
             var _this2 = this;
 
-            if (number !== 25) {
-                return _react2.default.createElement(
-                    _reactHammerjs2.default,
-                    { onPress: function onPress() {
-                            _this2.touchStartRender(number);
-                        },
-                        onPressUp: function onPressUp() {
-                            _this2.touchStartRender(0);
-                        },
-                        onTap: function onTap() {
-                            return _this2.props.score(number, 1);
-                        },
-                        direction: "DIRECTION_HORIZONTAL",
-                        onSwipeLeft: function onSwipeLeft() {
-                            return _this2.props.score(number, 2);
-                        },
-                        onSwipeRight: function onSwipeRight() {
-                            return _this2.props.score(number, 3);
-                        } },
-                    _react2.default.createElement(
-                        "button",
-                        { type: "button", className: "btn text-center" },
-                        number
-                    )
-                );
+            if (!this.props.botGame || this.props.activeThrower === 'p1') {
+                if (number !== 25) {
+                    return _react2.default.createElement(
+                        _reactHammerjs2.default,
+                        { onPress: function onPress() {
+                                _this2.touchStartRender(number);
+                            },
+                            onPressUp: function onPressUp() {
+                                _this2.touchStartRender(0);
+                            },
+                            onTap: function onTap() {
+                                return _this2.props.score(number, 1);
+                            },
+                            direction: "DIRECTION_HORIZONTAL",
+                            onSwipeLeft: function onSwipeLeft() {
+                                return _this2.props.score(number, 2);
+                            },
+                            onSwipeRight: function onSwipeRight() {
+                                return _this2.props.score(number, 3);
+                            } },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn text-center" },
+                            number
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        _reactHammerjs2.default,
+                        { onPress: function onPress() {
+                                return _this2.props.score(number, 1);
+                            },
+                            onTap: function onTap() {
+                                return _this2.props.score(number, 1);
+                            },
+                            direction: "DIRECTION_HORIZONTAL",
+                            onSwipeLeft: function onSwipeLeft() {
+                                return _this2.props.score(number, 2);
+                            } },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn text-center" },
+                            "Bull"
+                        )
+                    );
+                }
             } else {
-                return _react2.default.createElement(
-                    _reactHammerjs2.default,
-                    { onPress: function onPress() {
-                            return _this2.props.score(number, 1);
-                        },
-                        onTap: function onTap() {
-                            return _this2.props.score(number, 1);
-                        },
-                        direction: "DIRECTION_HORIZONTAL",
-                        onSwipeLeft: function onSwipeLeft() {
-                            return _this2.props.score(number, 2);
-                        } },
-                    _react2.default.createElement(
+                if (number !== 25) {
+                    return _react2.default.createElement(
                         "button",
-                        { type: "button", className: "btn text-center" },
+                        { type: "button", className: "btn text-center", disabled: true },
+                        number
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        "button",
+                        { type: "button", className: "btn text-center", disabled: true },
                         "Bull"
-                    )
-                );
+                    );
+                }
             }
         }
     }, {
@@ -39594,44 +39610,83 @@ var MobileGesture = function (_Component) {
             var _this5 = this;
 
             if (!this.props.gameOverModal && !this.state.showHelp) {
-
-                return _react2.default.createElement(
-                    "div",
-                    { className: "row miss-undo-row", id: "x01MobileUndoRow" },
-                    _react2.default.createElement(
+                if (!this.props.botGame || this.props.activeThrower === 'p1') {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-3 text-center end-turn" },
+                        { className: "row miss-undo-row", id: "x01MobileUndoRow" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    _this5.props.endTurn();
-                                } },
-                            "End Turn"
+                            "div",
+                            { className: "col-3 text-center end-turn" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this5.props.endTurn();
+                                    } },
+                                "End Turn"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-6 text-center miss" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this5.props.miss();
+                                    } },
+                                "Miss"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-3 text-center undo" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this5.props.undo();
+                                    } },
+                                "Undo"
+                            )
                         )
-                    ),
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         "div",
-                        { className: "col-6 text-center miss" },
+                        { className: "row miss-undo-row", id: "x01MobileUndoRow" },
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    _this5.props.miss();
-                                } },
-                            "Miss"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-3 text-center undo" },
+                            "div",
+                            { className: "col-3 text-center end-turn" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this5.props.endTurn();
+                                    }, disabled: true },
+                                "End Turn"
+                            )
+                        ),
                         _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    _this5.props.undo();
-                                } },
-                            "Undo"
+                            "div",
+                            { className: "col-6 text-center miss" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this5.props.miss();
+                                    }, disabled: true },
+                                "Miss"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-3 text-center undo" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "btn", onClick: function onClick() {
+                                        _this5.props.undo();
+                                    } },
+                                "Undo"
+                            )
                         )
-                    )
-                );
+                    );
+                }
             } else {
                 return null;
             }
@@ -39639,6 +39694,8 @@ var MobileGesture = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var _this6 = this;
+
             return _react2.default.createElement(
                 "div",
                 null,
@@ -39675,7 +39732,105 @@ var MobileGesture = function (_Component) {
                     )
                 ),
                 this.playerButtonsRender(),
-                this.missUndoRow()
+                this.missUndoRow(),
+                _react2.default.createElement(
+                    "div",
+                    { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal-dialog", role: "document" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-content" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-header" },
+                                _react2.default.createElement(
+                                    "h5",
+                                    { className: "modal-title", id: "reloadModalLabel" },
+                                    "Start Game Over"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-body" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                            "No"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this6.gameReset();
+                                                } },
+                                            "Yes"
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "modal fade", id: "exitModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "exitModalLabel", "aria-hidden": "true" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal-dialog", role: "document" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-content" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-header" },
+                                _react2.default.createElement(
+                                    "h5",
+                                    { className: "modal-title", id: "exitModalLabel" },
+                                    "Exit Game"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-body" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                            "No"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    location.assign('/');
+                                                } },
+                                            "Yes"
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
