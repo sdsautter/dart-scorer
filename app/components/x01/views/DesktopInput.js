@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class ScoreInput extends Component {
+export default class DesktopInput extends Component {
     constructor() {
         super();
         this.playerButtonsRender = this.playerButtonsRender.bind(this);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class ScoreInput extends Component {
+export default class MobileModal extends Component {
     constructor() {
         super();
         this.nameRender = this.nameRender.bind(this);
@@ -312,7 +312,7 @@ export default class ScoreInput extends Component {
     missUndoRow() {
         if (!this.props.gameOverModal) {
             return (
-                <div className="row miss-undo-row">
+                <div className="row miss-undo-row" id='x01MobileUndoRow'>
                     <div className="col-3 text-center end-turn">
                         <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
                             End Turn

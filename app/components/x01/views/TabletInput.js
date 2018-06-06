@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class ScoreInput extends Component {
+export default class TabletInput extends Component {
     constructor() {
         super();
 
