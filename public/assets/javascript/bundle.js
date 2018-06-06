@@ -46415,7 +46415,7 @@ var GestureToggle = function (_Component) {
                         _react2.default.createElement(
                             'span',
                             { className: 'help-img' },
-                            _react2.default.createElement('img', { type: 'button', className: 'help-img', src: 'assets/images/help2.png', 'data-toggle': 'modal', 'data-target': '#gestureHelp' })
+                            _react2.default.createElement('img', { className: 'help-img', src: 'assets/images/help2.jpg', alt: 'help', 'data-toggle': 'modal', 'data-target': '#gestureHelp' })
                         ),
                         _react2.default.createElement(
                             'label',
