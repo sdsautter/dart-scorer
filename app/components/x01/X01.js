@@ -530,6 +530,9 @@ export default class X01 extends Component {
                 if (thrower === "p1") {
 
                     this.setState({ activeThrower: "p2" });
+                    if (this.state.botGame) {
+                        this.botLogic();
+                    }
                 } else {
                     this.setState({ activeThrower: "p1" });
                 }

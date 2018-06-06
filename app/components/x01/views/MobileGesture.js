@@ -53,12 +53,8 @@ export default class MobileGesture extends Component {
             if (number !== 25) {
                 return (
                     <Hammer onPress={() => {
-                        this.touchStartRender(number)
-                    }}
-                        onPressUp={() => {
-                            this.touchStartRender(0)
-                        }}
-                        onTap={() => (this.props.score(number, 1))}
+                        (this.props.score(number, 1))                    }}
+                        // onTap={() => (this.props.score(number, 1))}
                         direction='DIRECTION_HORIZONTAL'
                         onSwipeLeft={() => (this.props.score(number, 2))}
                         onSwipeRight={() => (this.props.score(number, 3))}>
@@ -70,7 +66,7 @@ export default class MobileGesture extends Component {
             } else {
                 return (
                     <Hammer onPress={() => (this.props.score(number, 1))}
-                        onTap={() => (this.props.score(number, 1))}
+                        // onTap={() => (this.props.score(number, 1))}
                         direction='DIRECTION_HORIZONTAL'
                         onSwipeLeft={() => (this.props.score(number, 2))}>
                         <button type="button" className="btn text-center" >
@@ -125,7 +121,7 @@ export default class MobileGesture extends Component {
                                 </div>                         
                                 <div className='col-12'>
                                 <ul className='gestures'>
-                                    <li className='gesture-item'>Tap or Press for x1</li>
+                                    <li className='gesture-item'>Press for x1</li>
                                     <li className='gesture-item'>Swipe left for x2</li>
                                     <li className='gesture-item'>Swipe right for x3</li>
                                     </ul>

@@ -9467,6 +9467,9 @@ var X01 = function (_Component) {
                     if (thrower === "p1") {
 
                         this.setState({ activeThrower: "p2" });
+                        if (this.state.botGame) {
+                            this.botLogic();
+                        }
                     } else {
                         this.setState({ activeThrower: "p1" });
                     }
@@ -39290,15 +39293,10 @@ var MobileGesture = function (_Component) {
                     return _react2.default.createElement(
                         _reactHammerjs2.default,
                         { onPress: function onPress() {
-                                _this2.touchStartRender(number);
-                            },
-                            onPressUp: function onPressUp() {
-                                _this2.touchStartRender(0);
-                            },
-                            onTap: function onTap() {
-                                return _this2.props.score(number, 1);
-                            },
-                            direction: "DIRECTION_HORIZONTAL",
+                                _this2.props.score(number, 1);
+                            }
+                            // onTap={() => (this.props.score(number, 1))}
+                            , direction: "DIRECTION_HORIZONTAL",
                             onSwipeLeft: function onSwipeLeft() {
                                 return _this2.props.score(number, 2);
                             },
@@ -39316,11 +39314,9 @@ var MobileGesture = function (_Component) {
                         _reactHammerjs2.default,
                         { onPress: function onPress() {
                                 return _this2.props.score(number, 1);
-                            },
-                            onTap: function onTap() {
-                                return _this2.props.score(number, 1);
-                            },
-                            direction: "DIRECTION_HORIZONTAL",
+                            }
+                            // onTap={() => (this.props.score(number, 1))}
+                            , direction: "DIRECTION_HORIZONTAL",
                             onSwipeLeft: function onSwipeLeft() {
                                 return _this2.props.score(number, 2);
                             } },
@@ -39401,7 +39397,7 @@ var MobileGesture = function (_Component) {
                                         _react2.default.createElement(
                                             "li",
                                             { className: "gesture-item" },
-                                            "Tap or Press for x1"
+                                            "Press for x1"
                                         ),
                                         _react2.default.createElement(
                                             "li",
@@ -46617,7 +46613,7 @@ var GestureToggle = function (_Component) {
                                             _react2.default.createElement(
                                                 'li',
                                                 { className: 'gesture-item' },
-                                                'Tap or Press for x1'
+                                                'Press for x1'
                                             ),
                                             _react2.default.createElement(
                                                 'li',
