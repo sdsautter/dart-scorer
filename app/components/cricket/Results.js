@@ -25,9 +25,13 @@ export default class Results extends Component {
         return this.props.p2Throws;
     }
 
+    renderMarks(player, marks) {
+        return eval(`this.props.${player}${marks}m`);
+    }
+
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid results-screen">
                 <div className="row">
                     <div className="col text-center">
                         Game Over
@@ -55,7 +59,68 @@ export default class Results extends Component {
                         Throws: {this.player2ThrowRender()}
                     </div>
                 </div>
+                <div className='row'>
+                    <div className='col-12'>
+                        <br />
+                        <div className='row'>
+                            <div className='col-4 text-right'>
+                                {this.renderMarks('p1', 5)}
+                            </div>
+                            <div className='col-4 text-center'>
+                                5 marks
+                            </div>
+                            <div className='col-4 text-left'>
+                                {this.renderMarks('p2', 5)}
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-4 text-right'>
+                                {this.renderMarks('p1', 6)}
+                            </div>
+                            <div className='col-4 text-center'>
+                                6 marks
+                            </div>
+                            <div className='col-4 text-left'>
+                                {this.renderMarks('p2', 6)}
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-4 text-right'>
+                                {this.renderMarks('p1', 7)}
+                            </div>
+                            <div className='col-4 text-center'>
+                                7 marks
+                            </div>
+                            <div className='col-4 text-left'>
+                                {this.renderMarks('p2', 7)}
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-4 text-right'>
+                                {this.renderMarks('p1', 8)}
+                            </div>
+                            <div className='col-4 text-center'>
+                                8 marks
+                            </div>
+                            <div className='col-4 text-left'>
+                                {this.renderMarks('p2', 8)}
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-4 text-right'>
+                                {this.renderMarks('p1', 9)}
+                            </div>
+                            <div className='col-4 text-center'>
+                                9 marks
+                            </div>
+                            <div className='col-4 text-left'>
+                                {this.renderMarks('p2', 9)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <br />
+
                 <div className="row">
                     <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
                         <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>

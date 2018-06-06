@@ -143,9 +143,9 @@ export default class Cricket extends Component {
     }
 
     setThrowNumber(activeThrows) {
-        // new Promise(() => {
-            this.setState({ activeThrows })
-        // })
+        new Promise(() => {
+            return this.setState({ activeThrows })
+        })
     }
 
     setActiveThrower(activeThrower) {
@@ -169,33 +169,38 @@ export default class Cricket extends Component {
     addToLog(number, multiplier) {
         let loggedThrow = `${number}${multiplier}`;
         let loggedArray = this.state.throwLog;
-        loggedArray.push(loggedThrow);
-        this.setState({ throwLog: loggedArray });
+        new Promise(() => {
+            loggedArray.push(loggedThrow);
+            return this.setState({ throwLog: loggedArray });
+        });
     }
 
-    undo() {
+    async undo() {
+        let playerThrows = `${this.state.activeThrower}Throws`;
+        let throwsState = eval(`this.state.${playerThrows}`);
         if (this.state.p1Throws > 0) {
             if (this.state.activeThrows === 0) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {
                     this.setActiveThrower("p2");
-                    this.undoSwitch("p2");
+                    await this.undoSwitch("p2");
                 } else {
                     this.setActiveThrower("p1");
-                    this.undoSwitch("p1");
+                    await this.undoSwitch("p1");
                 }
             } else {
                 this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
                 if (this.state.activeThrower === "p1") {
-                    this.undoSwitch("p1");
+                    await this.undoSwitch("p1");
                 } else {
-                    this.undoSwitch("p2");
+                    await this.undoSwitch("p2");
                 }
             }
 
+            await this.setState({ [playerThrows]: parseInt(throwsState) - 1 })
             let loggedArray = this.state.throwLog;
-            loggedArray.pop();
-            this.setState({ throwLog: loggedArray });
+            await loggedArray.pop();
+            return this.setState({ throwLog: loggedArray });
         }
     }
 
@@ -239,320 +244,322 @@ export default class Cricket extends Component {
         let other16State = eval(`this.state.${otherThrower}16`);
         let other15State = eval(`this.state.${otherThrower}15`);
         let other25State = eval(`this.state.${otherThrower}25`);
-
         if (throwsState > 0) {
-            switch (lastThrow) {
-                case "203":
-                    if (player20State >= 6) {
-                        if (other20State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 60 })
+            new Promise(() => {
+                switch (lastThrow) {
+                    case "203":
+                        if (player20State >= 6) {
+                            if (other20State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 60 })
+                            }
+                            return this.setState({ [player20]: parseInt(player20State) - 3 })
+                        } else if (player20State === 5) {
+                            if (other20State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 40 })
+                            }
+                            return this.setState({ [player20]: 2 })
+                        } else if (player20State === 4) {
+                            if (other20State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 20 })
+                            }
+                            return this.setState({ [player20]: 1 })
+                        } else if (player20State < 4) {
+                            return this.setState({ [player20]: parseInt(player20State) - 3 })
                         }
-                        this.setState({ [player20]: parseInt(player20State) - 3 })
-                    } else if (player20State === 5) {
-                        if (other20State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 40 })
+                        break;
+                    case "202":
+                        if (player20State >= 5) {
+                            if (other20State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 40 })
+                            }
+                            return this.setState({ [player20]: parseInt(player20State) - 2 })
+                        } else if (player20State === 4) {
+                            if (other20State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 20 })
+                            }
+                            this.setState({ [player20]: 2 })
+                        } else if (player20State < 4) {
+                            return this.setState({ [player20]: parseInt(player20State) - 2 })
                         }
-                        this.setState({ [player20]: 2 })
-                    } else if (player20State === 4) {
-                        if (other20State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 20 })
+                        break;
+                    case "201":
+                        if (player20State === 4) {
+                            if (other20State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 20 })
+                            }
+                            return this.setState({ [player20]: 3 })
+                        } else if (player20State < 4) {
+                            return this.setState({ [player20]: parseInt(player20State) - 1 })
                         }
-                        this.setState({ [player20]: 1 })
-                    } else if (player20State < 4) {
-                        this.setState({ [player20]: parseInt(player20State) - 3 })
-                    }
-                    break;
-                case "202":
-                    if (player20State >= 5) {
-                        if (other20State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 40 })
+                        break;
+                    case "193":
+                        if (player19State >= 6) {
+                            if (other19State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 57 })
+                            }
+                            return this.setState({ [player19]: parseInt(player19State) - 3 })
+                        } else if (player19State === 5) {
+                            if (other19State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 38 })
+                            }
+                            return this.setState({ [player19]: 2 })
+                        } else if (player19State === 4) {
+                            if (other19State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 19 })
+                            }
+                            return this.setState({ [player19]: 1 })
+                        } else if (player19State < 4) {
+                            return this.setState({ [player19]: parseInt(player19State) - 3 })
                         }
-                        this.setState({ [player20]: parseInt(player20State) - 2 })
-                    } else if (player20State === 4) {
-                        if (other20State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 20 })
+                        break;
+                    case "192":
+                        if (player19State >= 5) {
+                            if (other19State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 38 })
+                            }
+                            return this.setState({ [player19]: parseInt(player19State) - 2 })
+                        } else if (player19State === 4) {
+                            if (other19State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 19 })
+                            }
+                            return this.setState({ [player19]: 2 })
+                        } else if (player19State < 4) {
+                            return this.setState({ [player19]: parseInt(player19State) - 2 })
                         }
-                        this.setState({ [player20]: 2 })
-                    } else if (player20State < 4) {
-                        this.setState({ [player20]: parseInt(player20State) - 2 })
-                    }
-                    break;
-                case "201":
-                    if (player20State === 4) {
-                        if (other20State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 20 })
+                        break;
+                    case "191":
+                        if (player19State === 4) {
+                            if (other19State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 19 })
+                            }
+                            return this.setState({ [player19]: 3 })
+                        } else if (player19State < 4) {
+                            return this.setState({ [player19]: parseInt(player19State) - 1 })
                         }
-                        this.setState({ [player20]: 3 })
-                    } else if (player20State < 4) {
-                        this.setState({ [player20]: parseInt(player20State) - 1 })
-                    }
-                    break;
-                case "193":
-                    if (player19State >= 6) {
-                        if (other19State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 57 })
+                        break;
+                    case "183":
+                        if (player18State >= 6) {
+                            if (other18State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 54 })
+                            }
+                            return this.setState({ [player18]: parseInt(player18State) - 3 })
+                        } else if (player18State === 5) {
+                            if (other18State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 36 })
+                            }
+                            return this.setState({ [player18]: 2 })
+                        } else if (player18State === 4) {
+                            if (other18State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 18 })
+                            }
+                            return this.setState({ [player18]: 1 })
+                        } else if (player18State < 4) {
+                            return this.setState({ [player18]: parseInt(player18State) - 3 })
                         }
-                        this.setState({ [player19]: parseInt(player19State) - 3 })
-                    } else if (player19State === 5) {
-                        if (other19State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 38 })
+                        break;
+                    case "182":
+                        if (player18State >= 5) {
+                            if (other18State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 36 })
+                            }
+                            return this.setState({ [player18]: parseInt(player18State) - 2 })
+                        } else if (player18State === 4) {
+                            if (other18State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 18 })
+                            }
+                            return this.setState({ [player18]: 2 })
+                        } else if (player18State < 4) {
+                            return this.setState({ [player18]: parseInt(player18State) - 2 })
                         }
-                        this.setState({ [player19]: 2 })
-                    } else if (player19State === 4) {
-                        if (other19State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 19 })
+                        break;
+                    case "181":
+                        if (player18State === 4) {
+                            if (other18State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 18 })
+                            }
+                            return this.setState({ [player18]: 3 })
+                        } else if (player18State < 4) {
+                            return this.setState({ [player18]: parseInt(player18State) - 1 })
                         }
-                        this.setState({ [player19]: 1 })
-                    } else if (player19State < 4) {
-                        this.setState({ [player19]: parseInt(player19State) - 3 })
-                    }
-                    break;
-                case "192":
-                    if (player19State >= 5) {
-                        if (other19State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 38 })
+                        break;
+                    case "173":
+                        if (player17State >= 6) {
+                            if (other17State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 51 })
+                            }
+                            return this.setState({ [player17]: parseInt(player17State) - 3 })
+                        } else if (player17State === 5) {
+                            if (other17State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 34 })
+                            }
+                            return this.setState({ [player17]: 2 })
+                        } else if (player17State === 4) {
+                            if (other17State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 17 })
+                            }
+                            return this.setState({ [player17]: 1 })
+                        } else if (player17State < 4) {
+                            this.setState({ [player17]: parseInt(player17State) - 3 })
                         }
-                        this.setState({ [player19]: parseInt(player19State) - 2 })
-                    } else if (player19State === 4) {
-                        if (other19State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 19 })
+                        break;
+                    case "172":
+                        if (player17State >= 5) {
+                            if (other17State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 34 })
+                            }
+                            return this.setState({ [player17]: parseInt(player17State) - 2 })
+                        } else if (player17State === 4) {
+                            if (other17State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 17 })
+                            }
+                            return this.setState({ [player17]: 2 })
+                        } else if (player17State < 4) {
+                            return this.setState({ [player17]: parseInt(player17State) - 2 })
                         }
-                        this.setState({ [player19]: 2 })
-                    } else if (player19State < 4) {
-                        this.setState({ [player19]: parseInt(player19State) - 2 })
-                    }
-                    break;
-                case "191":
-                    if (player19State === 4) {
-                        if (other19State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 19 })
+                        break;
+                    case "171":
+                        if (player17State === 4) {
+                            if (other17State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 17 })
+                            }
+                            return this.setState({ [player17]: 3 })
+                        } else if (player17State < 4) {
+                            return this.setState({ [player17]: parseInt(player17State) - 1 })
                         }
-                        this.setState({ [player19]: 3 })
-                    } else if (player19State < 4) {
-                        this.setState({ [player19]: parseInt(player19State) - 1 })
-                    }
-                    break;
-                case "183":
-                    if (player18State >= 6) {
-                        if (other18State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 54 })
+                        break;
+                    case "163":
+                        if (player16State >= 6) {
+                            if (other16State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 48 })
+                            }
+                            return this.setState({ [player16]: parseInt(player16State) - 3 })
+                        } else if (player16State === 5) {
+                            if (other16State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 32 })
+                            }
+                            return this.setState({ [player16]: 2 })
+                        } else if (player16State === 4) {
+                            if (other16State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 16 })
+                            }
+                            return this.setState({ [player16]: 1 })
+                        } else if (player16State < 4) {
+                            return this.setState({ [player16]: parseInt(player16State) - 3 })
                         }
-                        this.setState({ [player18]: parseInt(player18State) - 3 })
-                    } else if (player18State === 5) {
-                        if (other18State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 36 })
+                        break;
+                    case "162":
+                        if (player16State >= 5) {
+                            if (other16State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 32 })
+                            }
+                            return this.setState({ [player16]: parseInt(player16State) - 2 })
+                        } else if (player16State === 4) {
+                            if (other16State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 16 })
+                            }
+                            return this.setState({ [player16]: 2 })
+                        } else if (player16State < 4) {
+                            return this.setState({ [player16]: parseInt(player16State) - 2 })
                         }
-                        this.setState({ [player18]: 2 })
-                    } else if (player18State === 4) {
-                        if (other18State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 18 })
+                        break;
+                    case "161":
+                        if (player16State === 4) {
+                            if (other16State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 16 })
+                            }
+                            return this.setState({ [player16]: 3 })
+                        } else if (player16State < 4) {
+                            return this.setState({ [player16]: parseInt(player16State) - 1 })
                         }
-                        this.setState({ [player18]: 1 })
-                    } else if (player18State < 4) {
-                        this.setState({ [player18]: parseInt(player18State) - 3 })
-                    }
-                    break;
-                case "182":
-                    if (player18State >= 5) {
-                        if (other18State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 36 })
+                        break;
+                    case "153":
+                        if (player15State >= 6) {
+                            if (other15State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 45 })
+                            }
+                            return this.setState({ [player15]: parseInt(player15State) - 3 })
+                        } else if (player15State === 5) {
+                            if (other15State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 30 })
+                            }
+                            return this.setState({ [player15]: 2 })
+                        } else if (player15State === 4) {
+                            if (other15State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 15 })
+                            }
+                            return this.setState({ [player15]: 1 })
+                        } else if (player15State < 4) {
+                            return this.setState({ [player15]: parseInt(player15State) - 3 })
                         }
-                        this.setState({ [player18]: parseInt(player18State) - 2 })
-                    } else if (player18State === 4) {
-                        if (other18State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 18 })
+                        break;
+                    case "152":
+                        if (player15State >= 5) {
+                            if (other15State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 30 })
+                            }
+                            return this.setState({ [player15]: parseInt(player15State) - 2 })
+                        } else if (player15State === 4) {
+                            if (other15State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 15 })
+                            }
+                            return this.setState({ [player15]: 2 })
+                        } else if (player15State < 4) {
+                            return this.setState({ [player15]: parseInt(player15State) - 2 })
                         }
-                        this.setState({ [player18]: 2 })
-                    } else if (player18State < 4) {
-                        this.setState({ [player18]: parseInt(player18State) - 2 })
-                    }
-                    break;
-                case "181":
-                    if (player18State === 4) {
-                        if (other18State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 18 })
+                        break;
+                    case "151":
+                        if (player15State === 4) {
+                            if (other15State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 15 })
+                            }
+                            return this.setState({ [player15]: 3 })
+                        } else if (player15State < 4) {
+                            return this.setState({ [player15]: parseInt(player15State) - 1 })
                         }
-                        this.setState({ [player18]: 3 })
-                    } else if (player18State < 4) {
-                        this.setState({ [player18]: parseInt(player18State) - 1 })
-                    }
-                    break;
-                case "173":
-                    if (player17State >= 6) {
-                        if (other17State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 51 })
+                        break;
+                    case "252":
+                        if (player25State >= 5) {
+                            if (other25State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 50 })
+                            }
+                            return this.setState({ [player25]: parseInt(player25State) - 2 })
+                        } else if (player25State === 4) {
+                            if (other25State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 25 })
+                            }
+                            return this.setState({ [player25]: 2 })
+                        } else if (player25State < 4) {
+                            return this.setState({ [player25]: parseInt(player25State) - 2 })
                         }
-                        this.setState({ [player17]: parseInt(player17State) - 3 })
-                    } else if (player17State === 5) {
-                        if (other17State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 34 })
+                        break;
+                    case "251":
+                        if (player25State === 4) {
+                            if (other25State < 3) {
+                                this.setState({ [playerScore]: parseInt(playerScoreState) - 25 })
+                            }
+                            return this.setState({ [player25]: 3 })
+                        } else if (player25State < 4) {
+                            return this.setState({ [player25]: parseInt(player25State) - 1 })
                         }
-                        this.setState({ [player17]: 2 })
-                    } else if (player17State === 4) {
-                        if (other17State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 17 })
-                        }
-                        this.setState({ [player17]: 1 })
-                    } else if (player17State < 4) {
-                        this.setState({ [player17]: parseInt(player17State) - 3 })
-                    }
-                    break;
-                case "172":
-                    if (player17State >= 5) {
-                        if (other17State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 34 })
-                        }
-                        this.setState({ [player17]: parseInt(player17State) - 2 })
-                    } else if (player17State === 4) {
-                        if (other17State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 17 })
-                        }
-                        this.setState({ [player17]: 2 })
-                    } else if (player17State < 4) {
-                        this.setState({ [player17]: parseInt(player17State) - 2 })
-                    }
-                    break;
-                case "171":
-                    if (player17State === 4) {
-                        if (other17State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 17 })
-                        }
-                        this.setState({ [player17]: 3 })
-                    } else if (player17State < 4) {
-                        this.setState({ [player17]: parseInt(player17State) - 1 })
-                    }
-                    break;
-                case "163":
-                    if (player16State >= 6) {
-                        if (other16State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 48 })
-                        }
-                        this.setState({ [player16]: parseInt(player16State) - 3 })
-                    } else if (player16State === 5) {
-                        if (other16State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 32 })
-                        }
-                        this.setState({ [player16]: 2 })
-                    } else if (player16State === 4) {
-                        if (other16State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 16 })
-                        }
-                        this.setState({ [player16]: 1 })
-                    } else if (player16State < 4) {
-                        this.setState({ [player16]: parseInt(player16State) - 3 })
-                    }
-                    break;
-                case "162":
-                    if (player16State >= 5) {
-                        if (other16State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 32 })
-                        }
-                        this.setState({ [player16]: parseInt(player16State) - 2 })
-                    } else if (player16State === 4) {
-                        if (other16State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 16 })
-                        }
-                        this.setState({ [player16]: 2 })
-                    } else if (player16State < 4) {
-                        this.setState({ [player16]: parseInt(player16State) - 2 })
-                    }
-                    break;
-                case "161":
-                    if (player16State === 4) {
-                        if (other16State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 16 })
-                        }
-                        this.setState({ [player16]: 3 })
-                    } else if (player16State < 4) {
-                        this.setState({ [player16]: parseInt(player16State) - 1 })
-                    }
-                    break;
-                case "153":
-                    if (player15State >= 6) {
-                        if (other15State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 45 })
-                        }
-                        this.setState({ [player15]: parseInt(player15State) - 3 })
-                    } else if (player15State === 5) {
-                        if (other15State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 30 })
-                        }
-                        this.setState({ [player15]: 2 })
-                    } else if (player15State === 4) {
-                        if (other15State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 15 })
-                        }
-                        this.setState({ [player15]: 1 })
-                    } else if (player15State < 4) {
-                        this.setState({ [player15]: parseInt(player15State) - 3 })
-                    }
-                    break;
-                case "152":
-                    if (player15State >= 5) {
-                        if (other15State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 30 })
-                        }
-                        this.setState({ [player15]: parseInt(player15State) - 2 })
-                    } else if (player15State === 4) {
-                        if (other15State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 15 })
-                        }
-                        this.setState({ [player15]: 2 })
-                    } else if (player15State < 4) {
-                        this.setState({ [player15]: parseInt(player15State) - 2 })
-                    }
-                    break;
-                case "151":
-                    if (player15State === 4) {
-                        if (other15State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 15 })
-                        }
-                        this.setState({ [player15]: 3 })
-                    } else if (player15State < 4) {
-                        this.setState({ [player15]: parseInt(player15State) - 1 })
-                    }
-                    break;
-                case "252":
-                    if (player25State >= 5) {
-                        if (other25State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 50 })
-                        }
-                        this.setState({ [player25]: parseInt(player25State) - 2 })
-                    } else if (player25State === 4) {
-                        if (other25State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 25 })
-                        }
-                        this.setState({ [player25]: 2 })
-                    } else if (player25State < 4) {
-                        this.setState({ [player25]: parseInt(player25State) - 2 })
-                    }
-                    break;
-                case "251":
-                    if (player25State === 4) {
-                        if (other25State < 3) {
-                            this.setState({ [playerScore]: parseInt(playerScoreState) - 25 })
-                        }
-                        this.setState({ [player25]: 3 })
-                    } else if (player25State < 4) {
-                        this.setState({ [player25]: parseInt(player25State) - 1 })
-                    }
-                    break;
-            }
-            this.setState({ [playerThrows]: parseInt(throwsState) - 1 })
+                        break;
+                }
+            })
         }
+
     }
 
-    score(number, multiplier) {
+    async score(number, multiplier) {
         if (localStorage.getItem('sounds') === 'on') {
             this.soundLogic(multiplier)
         }
-        this.scoringLogic(number, multiplier);
-        this.addThrow();
-        this.addMarks(multiplier);
-        this.addToLog(number, multiplier);
-        this.gameOverCheck();
-        this.setThrowNumber(parseInt(this.state.activeThrows + 1));
-        this.checkThrower();
+
+        await this.addMarks(number, multiplier);
+        await this.scoringLogic(number, multiplier);
+        await this.addThrow();
+        await this.addToLog(number, multiplier);
+        await this.gameOverCheck();
+        await this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+        await this.checkThrower();
     }
 
     soundLogic(multiplier) {
@@ -899,75 +906,75 @@ export default class Cricket extends Component {
         const otherThrowerState = eval("this.state." + otherThrowerNumber);
         const throwerNumber = `${thrower}${number}`;
         const numberState = eval("this.state." + throwerNumber);
-        switch (numberState) {
-            case 0:
-                this.setThrowerNumber(thrower, number, multiplier);
-                break;
-            case 1:
+        new Promise(() => {
 
-                if (multiplier === 1 || multiplier === 2) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
-                else if (multiplier === 3) {
+            switch (numberState) {
+                case 0:
+                    return this.setThrowerNumber(thrower, number, multiplier);
+                    break;
+                case 1:
+                    if (multiplier === 1 || multiplier === 2) {
+                        return this.setThrowerNumber(thrower, number, multiplier);
+
+                    }
+                    else if (multiplier === 3) {
+                        if (otherThrowerState < 3) {
+                            this.setPlayerScore(thrower, number, 1);
+                            return this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                        else {
+                            return this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                    }
+
+                    break;
+                case 2:
+                    if (multiplier === 1) {
+                        return this.setThrowerNumber(thrower, number, multiplier);
+                    }
+                    else if (multiplier === 2) {
+                        if (otherThrowerState < 3) {
+                            this.setPlayerScore(thrower, number, 1);
+                            return this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                        else {
+                            return this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                    }
+                    else if (multiplier === 3) {
+                        if (otherThrowerState < 3) {
+                            this.setPlayerScore(thrower, number, 2);
+                            return this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                        else {
+                            return this.setThrowerNumber(thrower, number, multiplier);
+                        }
+                    }
+
+                    break;
+                default:
                     if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                        this.setPlayerScore(thrower, number, 1);
+                        this.setPlayerScore(thrower, number, multiplier);
+                        return this.setThrowerNumber(thrower, number, multiplier);
                     }
                     else {
-                        this.setThrowerNumber(thrower, number, multiplier);
+                        return this.setThrowerNumber(thrower, number, multiplier);
                     }
-                }
 
-                break;
-            case 2:
-
-                if (multiplier === 1) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
-                else if (multiplier === 2) {
-                    if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                        this.setPlayerScore(thrower, number, 1);
-                    }
-                    else {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                    }
-                }
-                else if (multiplier === 3) {
-                    if (otherThrowerState < 3) {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                        this.setPlayerScore(thrower, number, 2);
-                    }
-                    else {
-                        this.setThrowerNumber(thrower, number, multiplier);
-                    }
-                }
-
-                break;
-            default:
-
-                if (otherThrowerState < 3) {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                    this.setPlayerScore(thrower, number, multiplier);
-                }
-                else {
-                    this.setThrowerNumber(thrower, number, multiplier);
-                }
-
-                break;
-        }
-        
+                    break;
+            }
+        })
     }
 
-    miss() {
+    async miss() {
         const missSound = new Howl({
             src: ['assets/sounds/miss_hit.mp3']
         });
         Howler.volume(.4);
-        this.addThrow();
-        this.setThrowNumber(parseInt(this.state.activeThrows + 1));
-        this.addToLog("mi", "ss");
-        this.checkThrower();
+        await this.addThrow();
+        await this.setThrowNumber(parseInt(this.state.activeThrows + 1));
+        await this.addToLog("mi", "ss");
+        await this.checkThrower();
         if (localStorage.getItem('sounds') === 'on') {
             missSound.play();
         }
@@ -998,6 +1005,7 @@ export default class Cricket extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
+                this.resetMarks();
                 this.setThrowNumber(0);
                 break;
             case 1:
@@ -1012,6 +1020,7 @@ export default class Cricket extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
+                this.resetMarks();
                 this.setThrowNumber(0);
                 break;
             case 2:
@@ -1025,32 +1034,31 @@ export default class Cricket extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
+                this.resetMarks();
                 this.setThrowNumber(0);
                 break;
         }
     }
 
     checkThrower() {
-        let activeThrows;
-        if (this.state.botGame) {
-            activeThrows = this.state.activeThrower === 'p1' ? this.state.activeThrows : this.state.activeThrows - 1;
-        } else {
-            activeThrows = this.state.activeThrows;
-        }
-        if (activeThrows >= 2) {
-            this.allStarPoints();
-            if (this.state.activeThrower === "p1") {
+        let activeThrows = this.state.activeThrows;
+        new Promise(() => {
+            if (activeThrows > 2) {
+                this.allStarPoints(this.state.activeThrower, this.state.activeMarks);
+                if (this.state.activeThrower === "p1") {
 
-                this.setActiveThrower('p2');
-                if (this.state.botGame) {
-                    this.botLogic();
+                    this.setActiveThrower('p2');
+                    if (this.state.botGame) {
+                        this.botLogic();
+                    }
+                } else {
+                    this.setActiveThrower("p1");
                 }
-            } else {
-                this.setActiveThrower("p1");
+                this.resetMarks();
+
+                return this.setThrowNumber(0);
             }
-            this.setThrowNumber(0);
-            this.resetMarks();
-        }
+        });
     }
 
     renderP1Score() {
@@ -1083,28 +1091,76 @@ export default class Cricket extends Component {
     }
 
     gameOverCheck() {
-        setTimeout(() => {
-            if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
-                if (this.state.gameWinner !== 'p1') {
-                    this.setGameWinner("p1");
-                }
-            } else if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p1Score) {
-                this.setGameWinner("p2");
+        if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+            if (this.state.gameWinner !== 'p1') {
+                this.setGameWinner("p1");
             }
-        }, 500);
+        } else if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p1Score) {
+            this.setGameWinner("p2");
+        }
     }
 
     addThrow() {
         let thrower = this.state.activeThrower;
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);
-        this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
+        new Promise(() => {
+            this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
+        });
     }
 
-    addMarks(number) {
-        let marks = parseInt(this.state.activeMarks);
-        let newMark = parseInt(number)
-        this.setState({ activeMarks: marks + newMark })
+    addMarks(number, multiplier) {
+        const otherThrower = this.state.activeThrower === 'p1' ? 'p2' : 'p1';
+        const playerMarks = eval(`this.state.${this.state.activeThrower}${number}`);
+        const otherMarks = eval(`this.state.${otherThrower}${number}`);
+        const marks = parseInt(this.state.activeMarks);
+        let newMark;
+
+        switch (multiplier) {
+            case 1:
+                if (otherMarks < 3) {
+                    newMark = 1;
+                } else {
+                    if (playerMarks < 3) {
+                        newMark = 1;
+                    } else {
+                        newMark = 0;
+                    }
+                }
+                break;
+            case 2:
+                if (otherMarks < 3) {
+                    newMark = 2;
+                } else {
+                    if (playerMarks < 2) {
+                        newMark = 2;
+                    } else if (playerMarks < 3) {
+                        newMark = 1;
+                    } else {
+                        newMark = 0;
+                    }
+                }
+                break;
+            case 3:
+                if (otherMarks < 3) {
+                    newMark = 3;
+                } else {
+                    if (playerMarks < 1) {
+                        newMark = 3;
+                    } else if (playerMarks < 2) {
+                        newMark = 2;
+                    } else if (playerMarks < 3) {
+                        newMark = 1;
+                    } else {
+                        newMark = 0;
+                    }
+                }
+                break;
+        }
+        const activeMarks = marks + newMark;
+        new Promise(() => {
+            return this.setState({ activeMarks })
+        })
     }
 
     resetMarks() {
@@ -1113,32 +1169,11 @@ export default class Cricket extends Component {
         }, 1000);
     }
 
-    allStarPoints() {
-        let marks = parseInt(this.state.activeMarks);
-        if (this.state.activeThrower === "p1") {
-            if (marks === 5) {
-                this.setState({ p15m: parseInt(this.state.p15m) + 1 });
-            } else if (marks === 6) {
-                this.setState({ p16m: parseInt(this.state.p16m) + 1 });
-            } else if (marks === 7) {
-                this.setState({ p17m: parseInt(this.state.p17m) + 1 });
-            } else if (marks === 8) {
-                this.setState({ p18m: parseInt(this.state.p18m) + 1 });
-            } else if (marks === 9) {
-                this.setState({ p19m: parseInt(this.state.p19m) + 1 });
-            }
-        } else {
-            if (marks === 5) {
-                this.setState({ p25m: parseInt(this.state.p25m) + 1 });
-            } else if (marks === 6) {
-                this.setState({ p26m: parseInt(this.state.p26m) + 1 });
-            } else if (marks === 7) {
-                this.setState({ p27m: parseInt(this.state.p27m) + 1 });
-            } else if (marks === 8) {
-                this.setState({ p28m: parseInt(this.state.p28m) + 1 });
-            } else if (marks === 9) {
-                this.setState({ p29m: parseInt(this.state.p29m) + 1 });
-            }
+    allStarPoints(thrower, marks) {
+        if (marks >= 5) {
+            const playerMark = `${thrower}${marks}m`;
+            const playerMarkState = eval(`this.state.${playerMark}`);
+            this.setState({ [playerMark]: playerMarkState + 1 });
         }
     }
 
@@ -1192,6 +1227,16 @@ export default class Cricket extends Component {
                         gameCricketReset={this.gameCricketReset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
+                        p15m={this.state.p15m}
+                        p16m={this.state.p16m}
+                        p17m={this.state.p17m}
+                        p18m={this.state.p18m}
+                        p19m={this.state.p19m}
+                        p25m={this.state.p25m}
+                        p26m={this.state.p26m}
+                        p27m={this.state.p27m}
+                        p28m={this.state.p28m}
+                        p29m={this.state.p29m}
                     />
                 )
             }

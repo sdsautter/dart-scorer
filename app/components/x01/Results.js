@@ -28,7 +28,7 @@ export default class Results extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
+            <div className="container-fluid results-screen">
                 <div className="row">
                     <div className="col text-center">
                         Game Over
