@@ -3,6 +3,8 @@ import DesktopInput from './views/DesktopInput';
 import MobileGesture from './views/MobileGesture';
 import MobileModal from './views/MobileModal';
 import TabletInput from './views/TabletInput';
+import GestureToggle from './views/GestureToggle';
+
 
 export default class ScoreInput extends Component {
     constructor() {
@@ -40,26 +42,11 @@ export default class ScoreInput extends Component {
                             gameOverModal={this.props.gameOverModal}
                             undoGameOver={this.props.undoGameOver}
                         />
-                        <div className='row align-items-center modal-toggle'>
-                            <div className='col text-center align-self-center'>
-                                <label className='align-self-center'>
-                                    <span className='one-click-scoring'>Gesture Scoring</span>
-                                    <input className="toggle" type="checkbox" onClick={this.changeMobileGesture} />
-                                </label>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-4 text-center gesture'>
-                                Tap for x1
-                            </div>
-                            <div className='col-4 text-center gesture'>
-                                Swipe Up for x2
-                            </div>
-                            <div className='col-4 text-center gesture'>
-                                Swipe Down for x3
-                            </div>
-                        </div>
-                    </div >
+                        <GestureToggle
+                            changeMobileGesture={this.changeMobileGesture}
+                        >
+                        </GestureToggle>
+                    </div>
                 )
             } else {
                 return (
@@ -78,14 +65,10 @@ export default class ScoreInput extends Component {
                             gameOverModal={this.props.gameOverModal}
                             undoGameOver={this.props.undoGameOver}
                         />
-                        <div className='row align-items-center modal-toggle'>
-                            <div className='col text-center align-self-center'>
-                                <label className='align-self-center'>
-                                    <span className='one-click-scoring'>Gesture Scoring</span>
-                                    <input className="toggle" type="checkbox" onClick={this.changeMobileGesture} />
-                                </label>
-                            </div>
-                        </div>
+                        <GestureToggle
+                            changeMobileGesture={this.changeMobileGesture}
+                        >
+                        </GestureToggle>
                     </div>
                 )
             }
