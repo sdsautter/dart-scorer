@@ -6,6 +6,7 @@ export default class MobileGesture extends Component {
         super();
         this.state = {
             touchNumber: 0,
+            showHelp: true,
         }
 
         this.nameRender = this.nameRender.bind(this);
@@ -15,6 +16,8 @@ export default class MobileGesture extends Component {
         this.touchEnd = this.touchEnd.bind(this);
         this.setTouchNumber = this.setTouchNumber.bind(this);
         this.conditionalButtonRender = this.conditionalButtonRender.bind(this);
+        this.neverShowAgain = this.neverShowAgain.bind(this);
+        this.hideHelp = this.hideHelp.bind(this);
     }
 
     nameRender() {
@@ -22,6 +25,26 @@ export default class MobileGesture extends Component {
             return "Player 1";
         } else {
             return "Player 2";
+        }
+    }
+
+    neverShowAgain() {
+        localStorage.setItem('gesture-help', 'off');
+        this.setState({ showHelp: false });
+    }
+
+    hideHelp() {
+        this.setState({ showHelp: false });
+    }
+
+    componentWillMount() {
+        const gestureHelp = localStorage.getItem('gesture-help');
+
+        if (gestureHelp !== 'off') {
+            localStorage.setItem('gesture-help', 'on');
+            this.setState({ showHelp: true });
+        } else {
+            this.setState({ showHelp: false })
         }
     }
 
@@ -45,12 +68,7 @@ export default class MobileGesture extends Component {
             )
         } else {
             return (
-                <Hammer onPress={() => {
-                    this.touchStartRender(number)
-                }}
-                    onPressUp={() => {
-                        this.touchStartRender(0)
-                    }}
+                <Hammer onPress={() => (this.props.score(number, 1))}
                     onTap={() => (this.props.score(number, 1))}
                     direction='DIRECTION_VERTICAL'
                     onSwipeUp={() => (this.props.score(number, 2))}>
@@ -80,7 +98,39 @@ export default class MobileGesture extends Component {
 
     playerButtonsRender() {
         if (!this.props.gameOverModal) {
-            return (
+            if (this.state.showHelp) {
+                return (
+                    <div className="row">
+                        <div className='col-12'>
+                            <div className='row'>
+
+                                <div className='col-12 text-center'>
+                                <h2 className='text-center' id='gestureHeader'>Touch Gestures</h2>
+                                </div>                         
+                                <div className='col-12'>
+                                <ul className='gestures'>
+                                    <li className='gesture-item'>Tap or Press for x1</li>
+                                    <li className='gesture-item'>Swipe up for x2</li>
+                                    <li className='gesture-item'>Swipe down for x3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className='row'>
+                                <div className='col-6 end-turn text-center'>
+                                <button type="button" className="btn text-center" id="neverShowAgain" onClick={this.neverShowAgain}>
+                                    Never Show Again
+                                </button>
+                                </div>
+                                <div className='col-6 undo'>
+                                <button type="button" className="btn" onClick={ this.hideHelp }>
+                                    Ok
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div >
+                )
+            } else {return (
                 <div className="row">
                     <br />
                     <div className={`col-4 text-right number ${this.props.activeThrower}-single border-bottom`}>
@@ -174,7 +224,7 @@ export default class MobileGesture extends Component {
                         {this.conditionalButtonRender(25)}
                     </div>
                 </div >
-            )
+            )}
         } else {
             return (
                 <div>
@@ -210,8 +260,9 @@ export default class MobileGesture extends Component {
     }
 
     missUndoRow() {
-        if (!this.props.gameOverModal) {
-            return (
+        if (!this.props.gameOverModal && !this.state.showHelp) {
+            
+                return (
                 <div className="row miss-undo-row" id='x01MobileUndoRow'>
                     <div className="col-3 text-center end-turn">
                         <button type="button" className="btn" onClick={() => { this.props.endTurn() }}>
