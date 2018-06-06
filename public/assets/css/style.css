@@ -119,10 +119,17 @@
     .miss-undo-row img {
         width: 50%;
     }
+    #x01MobileUndoRow {
+        padding: 0;
+        margin: 0;
+    }
     .start-over {
         padding-left: 2%;
         padding-right: 2%;
         padding-top: .5%;
+    }
+    .gesture {
+        font-size: 1rem;
     }
     .toggle {
         -webkit-appearance: none;
@@ -136,11 +143,11 @@
         outline: none;
         border: none;
         cursor: pointer;
-        background-color: #707070;
+        background-color: #881918;
         transition: background-color ease 0.3s;
     }
     .toggle:before {
-        content: "on off";
+        content: "off on";
         display: block;
         position: absolute;
         z-index: 2;
@@ -162,7 +169,7 @@
         transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
     }
     .toggle:checked {
-        background-color: #4CD964;
+        background-color: #707070;
     }
     .toggle:checked:before {
         left: 32px;
@@ -661,4 +668,13 @@ img {
 .sound-toggle img {
     z-index: 99;
     max-height: 25px;
+}
+
+.mobile-popup {
+    height: 150px;
+    width: 100px;
+    z-index: 100;
+    background-color: black;
+    position: fixed;
+    margin-top: -50px;
 }
