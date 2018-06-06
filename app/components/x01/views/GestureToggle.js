@@ -35,7 +35,7 @@ export default class GestureToggle extends Component {
                                      
                                 <div className='col-12'>
                                 <ul className='gestures'>
-                                    <li className='gesture-item'>Tap or Press for x1</li>
+                                    <li className='gesture-item'>Press for x1</li>
                                     <li className='gesture-item'>Swipe left for x2</li>
                                     <li className='gesture-item'>Swipe right for x3</li>
                                     </ul>
