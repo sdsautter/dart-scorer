@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import Hammer from 'hammerjs';
 
-export default class PlayerRender extends Component {
+export default class SettingsMenu extends Component {
     constructor() {
 
         super();
@@ -14,7 +15,7 @@ export default class PlayerRender extends Component {
             localStorage.setItem('multiple', 'vertical');
         }
         this.soundToggle = this.soundToggle.bind(this);
-        this.soundBarRender = this.soundBarRender.bind(this);
+        this.settingsMenuRender = this.settingsMenuRender.bind(this);
         this.singleToggle = this.singleToggle.bind(this);
         this.multipleToggle = this.multipleToggle.bind(this);
         this.soundToggleRender = this.soundToggleRender.bind(this);
@@ -62,31 +63,44 @@ export default class PlayerRender extends Component {
         this.forceUpdate();
     }
 
-    soundBarRender() {
+    settingsMenuRender() {
         return (
             <div className='sound-toggle'>
-                <img className='sound-icon' src='assets/images/dart-settings.png' data-toggle="modal" data-target="#gestureHelp" />
+                <img className='sound-icon' src='assets/images/dart_settings.png' data-toggle="modal" data-target="#settings" />
             </div>
         )
 
     }
 
     soundToggleRender() {
-        return (
-            <input className="toggle" type="checkbox" onClick={this.soundToggle} />
-        )
+        if (localStorage.getItem('sounds') === 'on') {
+            return (
+                <div className="col-4 text-center">
+                    <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.soundToggle} />
+                </div>
+            )
+        } else {
+            return (
+                <div className="col-4 text-center">
+                    <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.soundToggle} />
+                </div>
+            )
+        }
 
     }
 
     singleToggleRender() {
         if (localStorage.getItem('single') === 'press') {
             return (
-                <input className="toggle" type="checkbox" onClick={this.singleToggle} />
-
+                <div className="col-4 text-center">
+                    <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.singleToggle} />
+                </div>
             )
         } else {
             return (
-                <input className="toggle" type="checkbox" onClick={this.singleToggle} checked />
+                <div className="col-4 text-center">
+                    <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.singleToggle} />
+                </div>
             )
         }
     }
@@ -94,11 +108,15 @@ export default class PlayerRender extends Component {
     multipleToggleRender() {
         if (localStorage.getItem('multiple') === 'horizontal') {
             return (
-                <input className="toggle" type="checkbox" onClick={this.multipleToggle} />
+                <div className="col-4 text-center">
+                    <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.multipleToggle} />
+                </div>
             )
         } else {
             return (
-                <input className="toggle" type="checkbox" onClick={this.multipleToggle} checked />
+                <div className="col-4 text-center">
+                    <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.multipleToggle} />
+                </div>
             )
         }
     }
@@ -106,12 +124,12 @@ export default class PlayerRender extends Component {
     render() {
         return (
             <div>
-                {this.soundBarRender()}
-                <div className="modal fade" id="gestureHelp" tabIndex="-1" role="dialog" aria-labelledby="gestureHelpLabel" aria-hidden="true">
+                {this.settingsMenuRender()}
+                <div className="modal fade" id="settings" tabIndex="-1" role="dialog" aria-labelledby="settingsLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="gestureHelpLabel">Settings</h5>
+                                <h5 className="modal-title" id="settingsLabel">Settings</h5>
                             </div>
                             <div className="modal-body">
                                 <div className="row">
@@ -123,31 +141,36 @@ export default class PlayerRender extends Component {
                                                     <div className='col-12'>
                                                         <h5>Sounds</h5>
                                                     </div>
-                                                    <div className='col-12'>
-                                                        <span className='description-left'>On</span>
+                                                    <div className='row'>
+                                                        <div className='col-4 text-right'>On</div>
                                                         {this.soundToggleRender()}
-                                                        <span className='description-right'>Off</span>
+                                                        <div className='col-4 text-left'>Off
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <br />
+                                                <br />
                                                 <div className='row gesture-options'>
                                                     <div className='col-12'>
                                                         <h5>Gestures</h5>
                                                     </div>
-                                                    <div className='col-12 option'>
-                                                        <h6>Single</h6>
-                                                    </div>
-                                                    <div className='col-12'>
-                                                        <span className='description-left'>Press</span>
+                                                    <div className='row'>
+                                                        <div className='col-12 option'>
+                                                            <h6>Single</h6>
+                                                        </div>
+                                                        <div className='col-4 text-right'>Press</div>
                                                         {this.singleToggleRender()}
-                                                        <span className='description-right'>Tap</span>
+                                                        <div className='col-4 text-left'>Tap
+                                                        </div>
                                                     </div>
-                                                    <div className='col-12 option'>
-                                                        <h6>Double/Triple Swiple</h6>
-                                                    </div>
-                                                    <div className='col-12'>
-                                                        <span className='description-left'>Horizontal</span>
+                                                    <div className='row'>
+                                                        <div className='col-12 option'>
+                                                            <h6>Multiple Swipe</h6>
+                                                        </div>
+                                                        <div className='col-4 text-right'>Horizontal</div>
                                                         {this.multipleToggleRender()}
-                                                        <span className='description-right'>Vertical</span>
+                                                        <div className='col-4 text-left'>Vertical
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

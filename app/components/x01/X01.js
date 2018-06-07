@@ -5,7 +5,7 @@ import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import VsOptions from './../common/VsOptions';
 import BotDifficulty from './../common/BotDifficulty';
-import SoundBar from './../common/SoundBar';
+import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class X01 extends Component {
@@ -894,10 +894,10 @@ export default class X01 extends Component {
                 transitionEnter={false}
                 transitionLeave={false}>
                 <div>
-                    <SoundBar
+                    <SettingsMenu
                     gestureSwitch={this.gestureSwitch}
                     >
-                    </SoundBar>
+                    </SettingsMenu>
                     {this.conditionalRender()}
                 </div>
             </ReactCSSTransitionGroup>

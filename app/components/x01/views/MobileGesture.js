@@ -160,6 +160,10 @@ export default class MobileGesture extends Component {
     }
 
     playerButtonsRender() {
+        const singleGesture = localStorage.getItem('single') === 'tap' ? 'Tap' : 'Press';
+        const doubleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'left' : 'up';
+        const tripleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'right' : 'down';
+
         if (!this.props.gameOverModal) {
             if (this.state.showHelp) {
                 return (
@@ -172,9 +176,10 @@ export default class MobileGesture extends Component {
                                 </div>
                                 <div className='col-12'>
                                     <ul className='gestures'>
-                                        <li className='gesture-item'>Press for x1</li>
-                                        <li className='gesture-item'>Swipe left for x2</li>
-                                        <li className='gesture-item'>Swipe right for x3</li>
+                                        <li className='gesture-item'>
+                                            {singleGesture} for x1</li>
+                                        <li className='gesture-item'>Swipe {doubleGesture} for x2</li>
+                                        <li className='gesture-item'>Swipe {tripleGesture} for x3</li>
                                     </ul>
                                 </div>
                             </div>
