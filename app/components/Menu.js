@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Cricket from "./cricket/Cricket.js";
 import X01 from "./x01/X01.js";
-import SoundBar from './common/SoundBar';
+import SettingsMenu from './common/SettingsMenu';
 const ReactRouter = require('react-router-dom');
 const Router = ReactRouter.BrowserRouter;
 const Route = ReactRouter.Route;
@@ -57,7 +57,7 @@ export default class Menu extends Component {
     render() {
         return (
             <div>
-                <SoundBar></SoundBar>
+                <SettingsMenu></SettingsMenu>
                 <div className="container-fluid">
                     <div className="row top-row">
                         <div className="col title text-center">
