@@ -41,6 +41,8 @@ export default class ScoreInput extends Component {
                             gameStateOver={this.props.gameStateOver}
                             gameOverModal={this.props.gameOverModal}
                             undoGameOver={this.props.undoGameOver}
+                            singleGesture={this.props.singleGesture}
+                            multipleGesture={this.props.multipleGesture}
                         />
                         <GestureToggle
                             changeMobileGesture={this.changeMobileGesture}

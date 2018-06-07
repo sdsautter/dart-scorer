@@ -20,7 +20,7 @@ export default class GestureToggle extends Component {
                                 </span>
                         <label className='align-self-center'>
                             <span className='one-click-scoring'>Gesture Scoring</span>
-                            <input className="toggle" type="checkbox" onClick={this.props.changeMobileGesture} />
+                            <input className="gesture-toggle" type="checkbox" onClick={this.props.changeMobileGesture} />
                         </label>
                     </div>
                 </div>

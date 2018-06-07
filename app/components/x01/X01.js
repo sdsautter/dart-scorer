@@ -5,6 +5,7 @@ import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import VsOptions from './../common/VsOptions';
 import BotDifficulty from './../common/BotDifficulty';
+import SoundBar from './../common/SoundBar';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class X01 extends Component {
@@ -32,6 +33,9 @@ export default class X01 extends Component {
             p2Score: 0,
             p2Throws: 0,
             p2RoundStartScore: [],
+
+            singleGesture: 'press',
+            multipleGesture: 'horizontal'
         }
 
         //Binding functions to change the states       
@@ -69,6 +73,40 @@ export default class X01 extends Component {
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
         this.setBotGame = this.setBotGame.bind(this);
         this.soundLogic = this.soundLogic.bind(this);
+        this.gestureSwitch = this.gestureSwitch.bind(this);
+    }
+
+    componentWillMount() {
+        this.setState({ singleGesture: localStorage.getItem('single') });
+        this.setState({ multipleGesture: localStorage.getItem('multiple') });
+
+    }
+
+    gestureSwitch(multiple) {
+        console.log(multiple);
+        const localStorageItem = localStorage.getItem(multiple);
+        let newState;
+        console.log(localStorageItem);
+
+        switch (localStorageItem) {
+            case 'press':
+                newState = 'tap'
+                break;
+            case 'tap':
+                newState = 'press'
+                break;
+            case 'horizontal':
+                newState = 'vertical'
+                break;
+
+            case 'vertical':
+                newState = 'horizontal'
+                break;
+            default:
+                break;
+        }
+        
+        this.setState({ [`${multiple}Gesture`]: newState });
     }
 
     soundLogic(multiplier) {
@@ -790,6 +828,8 @@ export default class X01 extends Component {
                     activeThrower={this.state.activeThrower}
                     activeThrows={this.state.activeThrows}
                     x01Game={this.state.x01Game}
+                    singleGesture={this.state.singleGesture}
+                    multipleGesture={this.state.multipleGesture}                    
                     playersRender={this.playersRender}
                     renderP1Score={this.renderP1Score}
                     renderP2Score={this.renderP2Score}
@@ -854,6 +894,10 @@ export default class X01 extends Component {
                 transitionEnter={false}
                 transitionLeave={false}>
                 <div>
+                    <SoundBar
+                    gestureSwitch={this.gestureSwitch}
+                    >
+                    </SoundBar>
                     {this.conditionalRender()}
                 </div>
             </ReactCSSTransitionGroup>
