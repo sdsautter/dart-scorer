@@ -8,7 +8,6 @@ export default class GestureToggle extends Component {
     }
 
     render() {
-        const singleGesture = localStorage.getItem('single') === 'tap' ? 'Tap' : 'Press';
         const doubleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'left' : 'up';
         const tripleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'right' : 'down';
 
@@ -38,7 +37,7 @@ export default class GestureToggle extends Component {
 
                                     <div className='col-12'>
                                         <ul className='gestures'>
-                                            <li className='gesture-item'>{singleGesture} for x1</li>
+                                            <li className='gesture-item'>Tap or Press for x1</li>
                                             <li className='gesture-item'>Swipe {doubleGesture} for x2</li>
                                             <li className='gesture-item'>Swipe {tripleGesture} for x3</li>
                                         </ul>
