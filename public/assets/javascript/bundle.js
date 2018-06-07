@@ -6996,7 +6996,7 @@ var _VsOptions = __webpack_require__(102);
 
 var _VsOptions2 = _interopRequireDefault(_VsOptions);
 
-var _SettingsMenu = __webpack_require__(274);
+var _SettingsMenu = __webpack_require__(59);
 
 var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
 
@@ -8933,7 +8933,254 @@ var PlayerRender = function (_Component) {
 exports.default = PlayerRender;
 
 /***/ }),
-/* 59 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _hammerjs = __webpack_require__(103);
+
+var _hammerjs2 = _interopRequireDefault(_hammerjs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SettingsMenu = function (_Component) {
+    _inherits(SettingsMenu, _Component);
+
+    function SettingsMenu() {
+        _classCallCheck(this, SettingsMenu);
+
+        var _this = _possibleConstructorReturn(this, (SettingsMenu.__proto__ || Object.getPrototypeOf(SettingsMenu)).call(this));
+
+        if (localStorage.getItem('sounds') !== 'off') {
+            localStorage.setItem('sounds', 'on');
+        }
+        if (localStorage.getItem('multiple') !== 'horizontal') {
+            localStorage.setItem('multiple', 'vertical');
+        }
+        _this.soundToggle = _this.soundToggle.bind(_this);
+        _this.settingsMenuRender = _this.settingsMenuRender.bind(_this);
+        _this.multipleToggle = _this.multipleToggle.bind(_this);
+        _this.soundToggleRender = _this.soundToggleRender.bind(_this);
+        _this.multipleToggleRender = _this.multipleToggleRender.bind(_this);
+
+        return _this;
+    }
+
+    _createClass(SettingsMenu, [{
+        key: 'multipleToggle',
+        value: function multipleToggle() {
+            var storageMultiple = localStorage.getItem('multiple');
+            var multipleTouch = void 0;
+            if (storageMultiple === 'horizontal') {
+                multipleTouch = 'vertical';
+            } else {
+                multipleTouch = 'horizontal';
+            }
+            localStorage.setItem('multiple', multipleTouch);
+            if (this.props.gestureSwitch) {
+                this.props.gestureSwitch('multiple');
+            }
+            this.forceUpdate();
+        }
+    }, {
+        key: 'soundToggle',
+        value: function soundToggle() {
+
+            var storageSound = localStorage.getItem('sounds');
+            var soundBool = void 0;
+            if (storageSound === 'on') {
+                soundBool = 'off';
+            } else {
+                soundBool = 'on';
+            }
+            localStorage.setItem('sounds', soundBool);
+            this.forceUpdate();
+        }
+    }, {
+        key: 'settingsMenuRender',
+        value: function settingsMenuRender() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'sound-toggle' },
+                _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_settings.png', 'data-toggle': 'modal', 'data-target': '#settings' })
+            );
+        }
+    }, {
+        key: 'soundToggleRender',
+        value: function soundToggleRender() {
+            if (localStorage.getItem('sounds') === 'on') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col-4 text-center' },
+                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.soundToggle })
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col-4 text-center' },
+                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.soundToggle })
+                );
+            }
+        }
+    }, {
+        key: 'multipleToggleRender',
+        value: function multipleToggleRender() {
+            if (localStorage.getItem('multiple') === 'horizontal') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col-4 text-center' },
+                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.multipleToggle })
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col-4 text-center' },
+                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.multipleToggle })
+                );
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                this.settingsMenuRender(),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'settings', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'settingsLabel', 'aria-hidden': 'true' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-dialog', role: 'document' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-content' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-header' },
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'modal-title', id: 'settingsLabel' },
+                                    'Settings'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-12' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'row' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col text-center' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'row sound-options' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'col-12' },
+                                                        _react2.default.createElement(
+                                                            'h5',
+                                                            null,
+                                                            'Sounds'
+                                                        )
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'row' },
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'col-4 text-right' },
+                                                            'On'
+                                                        ),
+                                                        this.soundToggleRender(),
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'col-4 text-left' },
+                                                            'Off'
+                                                        )
+                                                    )
+                                                ),
+                                                _react2.default.createElement('br', null),
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'row gesture-options' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'col-12' },
+                                                        _react2.default.createElement(
+                                                            'h5',
+                                                            null,
+                                                            'Gestures'
+                                                        )
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'row' },
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'col-12 option' },
+                                                            _react2.default.createElement(
+                                                                'h6',
+                                                                null,
+                                                                'Swipe Direction'
+                                                            )
+                                                        ),
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'col-4 text-right' },
+                                                            'Horizontal'
+                                                        ),
+                                                        this.multipleToggleRender(),
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'col-4 text-left' },
+                                                            'Vertical'
+                                                        )
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SettingsMenu;
+}(_react.Component);
+
+exports.default = SettingsMenu;
+
+/***/ }),
 /* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8991,7 +9238,7 @@ var _BotDifficulty = __webpack_require__(101);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
-var _SettingsMenu = __webpack_require__(274);
+var _SettingsMenu = __webpack_require__(59);
 
 var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
 
@@ -42262,11 +42509,13 @@ var MobileGesture = function (_Component) {
             var multipleOption = localStorage.getItem('multiple');
             console.log(singleOption);
             console.log(multipleOption);
-            if (singleOption === 'press' && multipleOption === 'horizontal') {
+            if (multipleOption === 'horizontal') {
                 return _react2.default.createElement(
                     _reactHammerjs2.default,
                     { onPress: function onPress() {
-                            console.log('press');
+                            _this2.props.score(number, 1);
+                        },
+                        onTap: function onTap() {
                             _this2.props.score(number, 1);
                         },
                         direction: "DIRECTION_HORIZONTAL",
@@ -42282,48 +42531,14 @@ var MobileGesture = function (_Component) {
                         number
                     )
                 );
-            } else if (singleOption === 'press' && multipleOption === 'vertical') {
+            } else if (multipleOption === 'vertical') {
                 return _react2.default.createElement(
                     _reactHammerjs2.default,
-                    { onPress: function onPress() {
+                    {
+                        onPress: function onPress() {
                             _this2.props.score(number, 1);
                         },
-                        direction: "DIRECTION_VERTICAL",
-                        onSwipeUp: function onSwipeUp() {
-                            return _this2.props.score(number, 2);
-                        },
-                        onSwipeDown: function onSwipeDown() {
-                            return _this2.props.score(number, 3);
-                        } },
-                    _react2.default.createElement(
-                        "button",
-                        { type: "button", className: "btn text-center" },
-                        number
-                    )
-                );
-            } else if (singleOption === 'tap' && multipleOption === 'horizontal') {
-                return _react2.default.createElement(
-                    _reactHammerjs2.default,
-                    { onTap: function onTap() {
-                            _this2.props.score(number, 1);
-                        },
-                        direction: "DIRECTION_HORIZONTAL",
-                        onSwipeLeft: function onSwipeLeft() {
-                            return _this2.props.score(number, 2);
-                        },
-                        onSwipeRight: function onSwipeRight() {
-                            return _this2.props.score(number, 3);
-                        } },
-                    _react2.default.createElement(
-                        "button",
-                        { type: "button", className: "btn text-center" },
-                        number
-                    )
-                );
-            } else if (singleOption === 'tap' && multipleOption === 'vertical') {
-                return _react2.default.createElement(
-                    _reactHammerjs2.default,
-                    { onTap: function onTap() {
+                        onTap: function onTap() {
                             _this2.props.score(number, 1);
                         },
                         direction: "DIRECTION_VERTICAL",
@@ -42409,7 +42624,6 @@ var MobileGesture = function (_Component) {
         value: function playerButtonsRender() {
             var _this5 = this;
 
-            var singleGesture = localStorage.getItem('single') === 'tap' ? 'Tap' : 'Press';
             var doubleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'left' : 'up';
             var tripleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'right' : 'down';
 
@@ -42442,8 +42656,7 @@ var MobileGesture = function (_Component) {
                                         _react2.default.createElement(
                                             "li",
                                             { className: "gesture-item" },
-                                            singleGesture,
-                                            " for x1"
+                                            "Tap or Press for x1"
                                         ),
                                         _react2.default.createElement(
                                             "li",
@@ -46953,7 +47166,6 @@ var GestureToggle = function (_Component) {
     _createClass(GestureToggle, [{
         key: 'render',
         value: function render() {
-            var singleGesture = localStorage.getItem('single') === 'tap' ? 'Tap' : 'Press';
             var doubleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'left' : 'up';
             var tripleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'right' : 'down';
 
@@ -47016,8 +47228,7 @@ var GestureToggle = function (_Component) {
                                             _react2.default.createElement(
                                                 'li',
                                                 { className: 'gesture-item' },
-                                                singleGesture,
-                                                ' for x1'
+                                                'Tap or Press for x1'
                                             ),
                                             _react2.default.createElement(
                                                 'li',
@@ -48025,7 +48236,7 @@ var _X = __webpack_require__(61);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _SettingsMenu = __webpack_require__(274);
+var _SettingsMenu = __webpack_require__(59);
 
 var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
 
@@ -51282,317 +51493,6 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 
-
-/***/ }),
-/* 274 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _hammerjs = __webpack_require__(103);
-
-var _hammerjs2 = _interopRequireDefault(_hammerjs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SettingsMenu = function (_Component) {
-    _inherits(SettingsMenu, _Component);
-
-    function SettingsMenu() {
-        _classCallCheck(this, SettingsMenu);
-
-        var _this = _possibleConstructorReturn(this, (SettingsMenu.__proto__ || Object.getPrototypeOf(SettingsMenu)).call(this));
-
-        if (localStorage.getItem('sounds') !== 'off') {
-            localStorage.setItem('sounds', 'on');
-        }
-        if (localStorage.getItem('single') !== 'press') {
-            localStorage.setItem('single', 'tap');
-        }
-        if (localStorage.getItem('multiple') !== 'horizontal') {
-            localStorage.setItem('multiple', 'vertical');
-        }
-        _this.soundToggle = _this.soundToggle.bind(_this);
-        _this.settingsMenuRender = _this.settingsMenuRender.bind(_this);
-        _this.singleToggle = _this.singleToggle.bind(_this);
-        _this.multipleToggle = _this.multipleToggle.bind(_this);
-        _this.soundToggleRender = _this.soundToggleRender.bind(_this);
-        _this.singleToggleRender = _this.singleToggleRender.bind(_this);
-        _this.multipleToggleRender = _this.multipleToggleRender.bind(_this);
-
-        return _this;
-    }
-
-    _createClass(SettingsMenu, [{
-        key: 'singleToggle',
-        value: function singleToggle() {
-            var storageSingle = localStorage.getItem('single');
-            var singleTouch = void 0;
-            if (storageSingle === 'press') {
-                singleTouch = 'tap';
-            } else {
-                singleTouch = 'press';
-            }
-            localStorage.setItem('single', singleTouch);
-            if (this.props.gestureSwitch) {
-                this.props.gestureSwitch('single');
-            }
-            this.forceUpdate();
-        }
-    }, {
-        key: 'multipleToggle',
-        value: function multipleToggle() {
-            var storageMultiple = localStorage.getItem('multiple');
-            var multipleTouch = void 0;
-            if (storageMultiple === 'horizontal') {
-                multipleTouch = 'vertical';
-            } else {
-                multipleTouch = 'horizontal';
-            }
-            localStorage.setItem('multiple', multipleTouch);
-            if (this.props.gestureSwitch) {
-                this.props.gestureSwitch('multiple');
-            }
-            this.forceUpdate();
-        }
-    }, {
-        key: 'soundToggle',
-        value: function soundToggle() {
-
-            var storageSound = localStorage.getItem('sounds');
-            var soundBool = void 0;
-            if (storageSound === 'on') {
-                soundBool = 'off';
-            } else {
-                soundBool = 'on';
-            }
-            localStorage.setItem('sounds', soundBool);
-            this.forceUpdate();
-        }
-    }, {
-        key: 'settingsMenuRender',
-        value: function settingsMenuRender() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'sound-toggle' },
-                _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_settings.png', 'data-toggle': 'modal', 'data-target': '#settings' })
-            );
-        }
-    }, {
-        key: 'soundToggleRender',
-        value: function soundToggleRender() {
-            if (localStorage.getItem('sounds') === 'on') {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.soundToggle })
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.soundToggle })
-                );
-            }
-        }
-    }, {
-        key: 'singleToggleRender',
-        value: function singleToggleRender() {
-            if (localStorage.getItem('single') === 'press') {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.singleToggle })
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.singleToggle })
-                );
-            }
-        }
-    }, {
-        key: 'multipleToggleRender',
-        value: function multipleToggleRender() {
-            if (localStorage.getItem('multiple') === 'horizontal') {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.multipleToggle })
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.multipleToggle })
-                );
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                this.settingsMenuRender(),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'settings', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'settingsLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'settingsLabel' },
-                                    'Settings'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-12' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'row sound-options' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'col-12' },
-                                                        _react2.default.createElement(
-                                                            'h5',
-                                                            null,
-                                                            'Sounds'
-                                                        )
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'row' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-right' },
-                                                            'On'
-                                                        ),
-                                                        this.soundToggleRender(),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-left' },
-                                                            'Off'
-                                                        )
-                                                    )
-                                                ),
-                                                _react2.default.createElement('br', null),
-                                                _react2.default.createElement('br', null),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'row gesture-options' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'col-12' },
-                                                        _react2.default.createElement(
-                                                            'h5',
-                                                            null,
-                                                            'Gestures'
-                                                        )
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'row' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-12 option' },
-                                                            _react2.default.createElement(
-                                                                'h6',
-                                                                null,
-                                                                'Single'
-                                                            )
-                                                        ),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-right' },
-                                                            'Press'
-                                                        ),
-                                                        this.singleToggleRender(),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-left' },
-                                                            'Tap'
-                                                        )
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'row' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-12 option' },
-                                                            _react2.default.createElement(
-                                                                'h6',
-                                                                null,
-                                                                'Multiple Swipe'
-                                                            )
-                                                        ),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-right' },
-                                                            'Horizontal'
-                                                        ),
-                                                        this.multipleToggleRender(),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-left' },
-                                                            'Vertical'
-                                                        )
-                                                    )
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return SettingsMenu;
-}(_react.Component);
-
-exports.default = SettingsMenu;
 
 /***/ })
 /******/ ]);

@@ -8,33 +8,15 @@ export default class SettingsMenu extends Component {
         if (localStorage.getItem('sounds') !== 'off') {
             localStorage.setItem('sounds', 'on');
         }
-        if (localStorage.getItem('single') !== 'press') {
-            localStorage.setItem('single', 'tap');
-        }
         if (localStorage.getItem('multiple') !== 'horizontal') {
             localStorage.setItem('multiple', 'vertical');
         }
         this.soundToggle = this.soundToggle.bind(this);
         this.settingsMenuRender = this.settingsMenuRender.bind(this);
-        this.singleToggle = this.singleToggle.bind(this);
         this.multipleToggle = this.multipleToggle.bind(this);
         this.soundToggleRender = this.soundToggleRender.bind(this);
-        this.singleToggleRender = this.singleToggleRender.bind(this);
         this.multipleToggleRender = this.multipleToggleRender.bind(this);
 
-    }
-
-    singleToggle() {
-        const storageSingle = localStorage.getItem('single');
-        let singleTouch;
-        if (storageSingle === 'press') {
-            singleTouch = 'tap';
-        } else {
-            singleTouch = 'press';
-        }
-        localStorage.setItem('single', singleTouch);
-        if (this.props.gestureSwitch) { this.props.gestureSwitch('single') }
-        this.forceUpdate();
     }
 
     multipleToggle() {
@@ -89,22 +71,6 @@ export default class SettingsMenu extends Component {
 
     }
 
-    singleToggleRender() {
-        if (localStorage.getItem('single') === 'press') {
-            return (
-                <div className="col-4 text-center">
-                    <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.singleToggle} />
-                </div>
-            )
-        } else {
-            return (
-                <div className="col-4 text-center">
-                    <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.singleToggle} />
-                </div>
-            )
-        }
-    }
-
     multipleToggleRender() {
         if (localStorage.getItem('multiple') === 'horizontal') {
             return (
@@ -149,23 +115,13 @@ export default class SettingsMenu extends Component {
                                                     </div>
                                                 </div>
                                                 <br />
-                                                <br />
                                                 <div className='row gesture-options'>
                                                     <div className='col-12'>
                                                         <h5>Gestures</h5>
                                                     </div>
                                                     <div className='row'>
                                                         <div className='col-12 option'>
-                                                            <h6>Single</h6>
-                                                        </div>
-                                                        <div className='col-4 text-right'>Press</div>
-                                                        {this.singleToggleRender()}
-                                                        <div className='col-4 text-left'>Tap
-                                                        </div>
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-12 option'>
-                                                            <h6>Multiple Swipe</h6>
+                                                            <h6>Swipe Direction</h6>
                                                         </div>
                                                         <div className='col-4 text-right'>Horizontal</div>
                                                         {this.multipleToggleRender()}

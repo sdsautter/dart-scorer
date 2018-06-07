@@ -54,12 +54,14 @@ export default class MobileGesture extends Component {
         const multipleOption = localStorage.getItem('multiple');
         console.log(singleOption);
         console.log(multipleOption);
-        if (singleOption === 'press' && multipleOption === 'horizontal') {
+        if (multipleOption === 'horizontal') {
             return (
                 <Hammer onPress={() => {
-                    console.log('press');
-                    this.props.score(number, 1)
+                    (this.props.score(number, 1))
                 }}
+                    onTap={() => {
+                        (this.props.score(number, 1))
+                    }}
                     direction='DIRECTION_HORIZONTAL'
                     onSwipeLeft={() => (this.props.score(number, 2))}
                     onSwipeRight={() => (this.props.score(number, 3))}>
@@ -68,38 +70,15 @@ export default class MobileGesture extends Component {
                     </button>
                 </Hammer>
             )
-        } else if (singleOption === 'press' && multipleOption === 'vertical') {
+        } else if (multipleOption === 'vertical') {
             return (
-                <Hammer onPress={() => {
-                    (this.props.score(number, 1))
-                }}
-                    direction='DIRECTION_VERTICAL'
-                    onSwipeUp={() => (this.props.score(number, 2))}
-                    onSwipeDown={() => (this.props.score(number, 3))}>
-                    <button type="button" className="btn text-center" >
-                        {number}
-                    </button>
-                </Hammer>
-
-            )
-        } else if (singleOption === 'tap' && multipleOption === 'horizontal') {
-            return (
-                <Hammer onTap={() => {
-                    (this.props.score(number, 1))
-                }}
-                    direction='DIRECTION_HORIZONTAL'
-                    onSwipeLeft={() => (this.props.score(number, 2))}
-                    onSwipeRight={() => (this.props.score(number, 3))}>
-                    <button type="button" className="btn text-center" >
-                        {number}
-                    </button>
-                </Hammer>
-            )
-        } else if (singleOption === 'tap' && multipleOption === 'vertical') {
-            return (
-                <Hammer onTap={() => {
-                    (this.props.score(number, 1))
-                }}
+                <Hammer
+                    onPress={() => {
+                        (this.props.score(number, 1))
+                    }}
+                    onTap={() => {
+                        (this.props.score(number, 1))
+                    }}
                     direction='DIRECTION_VERTICAL'
                     onSwipeUp={() => (this.props.score(number, 2))}
                     onSwipeDown={() => (this.props.score(number, 3))}>
@@ -160,7 +139,6 @@ export default class MobileGesture extends Component {
     }
 
     playerButtonsRender() {
-        const singleGesture = localStorage.getItem('single') === 'tap' ? 'Tap' : 'Press';
         const doubleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'left' : 'up';
         const tripleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'right' : 'down';
 
@@ -177,7 +155,7 @@ export default class MobileGesture extends Component {
                                 <div className='col-12'>
                                     <ul className='gestures'>
                                         <li className='gesture-item'>
-                                            {singleGesture} for x1</li>
+                                            Tap or Press for x1</li>
                                         <li className='gesture-item'>Swipe {doubleGesture} for x2</li>
                                         <li className='gesture-item'>Swipe {tripleGesture} for x3</li>
                                     </ul>
