@@ -9281,11 +9281,13 @@ var X01 = function (_Component) {
             p1Score: 0,
             p1Throws: 0,
             p1RoundStartScore: [],
+            p1RoundScores: [],
 
             p2DoubleIn: false,
             p2Score: 0,
             p2Throws: 0,
             p2RoundStartScore: [],
+            p2RoundScores: [],
 
             singleGesture: 'press',
             multipleGesture: 'horizontal'
@@ -9296,6 +9298,7 @@ var X01 = function (_Component) {
         _this.doubleInTrue = _this.doubleInTrue.bind(_this);
         _this.gameX01Reset = _this.gameX01Reset.bind(_this);
         _this.botDartShot = _this.botDartShot.bind(_this);
+        _this.setRoundScores = _this.setRoundScores.bind(_this);
         _this.botDoubleChance = _this.botDoubleChance.bind(_this);
         _this.conditionalRender = _this.conditionalRender.bind(_this);
         _this.setThrowNumber = _this.setThrowNumber.bind(_this);
@@ -9325,6 +9328,7 @@ var X01 = function (_Component) {
         _this.setBotDifficulty = _this.setBotDifficulty.bind(_this);
         _this.setBotGame = _this.setBotGame.bind(_this);
         _this.soundLogic = _this.soundLogic.bind(_this);
+        _this.popRoundScore = _this.popRoundScore.bind(_this);
         _this.gestureSwitch = _this.gestureSwitch.bind(_this);
         return _this;
     }
@@ -9547,6 +9551,20 @@ var X01 = function (_Component) {
             }
         }
     }, {
+        key: "setRoundScores",
+        value: function setRoundScores(thrower, score) {
+            var scoreArray = eval("this.state." + thrower + "RoundScores");
+            scoreArray.push(score);
+            this.setState(_defineProperty({}, thrower + "RoundScores", scoreArray));
+        }
+    }, {
+        key: "popRoundScore",
+        value: function popRoundScore(thrower) {
+            var scoreArray = eval("this.state." + thrower + "RoundScores");
+            scoreArray.pop();
+            this.setState(_defineProperty({}, thrower + "RoundScores", scoreArray));
+        }
+    }, {
         key: "botNumpad",
         value: function botNumpad() {
             var botShot = this.botRandomize();
@@ -9737,8 +9755,10 @@ var X01 = function (_Component) {
                 scoresArray.push(newScore);
                 if (newScore === 0) {
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
+                    this.setRoundScores(thrower, score);
                     this.setGameWinner(thrower);
                 } else if (newScore === 1) {
+                    this.setRoundScores(thrower, 0);
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState({ activeThrower: otherThrower });
                     if (localStorage.getItem('sounds') === 'on') {
@@ -9748,6 +9768,7 @@ var X01 = function (_Component) {
                         this.botLogic();
                     }
                 } else if (newScore < 0) {
+                    this.setRoundScores(thrower, 0);
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
                     this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState)));
                     this.setState({ activeThrower: otherThrower });
@@ -9776,6 +9797,7 @@ var X01 = function (_Component) {
                         }
                     }
 
+                    this.setRoundScores(thrower, score);
                     this.setState(_defineProperty({}, playerScore, newScore));
                     this.setState(_defineProperty({}, playerStartScore, scoresArray));
                     this.setState(_defineProperty({}, playerThrows, parseInt(playerThrowsState) + 3));
@@ -9845,21 +9867,23 @@ var X01 = function (_Component) {
                     this.setState(_defineProperty({}, playerScore, newScore));
                 } else if (newScore === 0 && multiplier === 2) {
                     this.setState(_defineProperty({}, playerScore, newScore));
+                    this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1]);
                     this.setGameWinner(thrower);
                 } else if (newScore === 0 && this.state.gameOptions === "siso") {
                     this.setState(_defineProperty({}, playerScore, newScore));
+                    this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1]);
                     this.setGameWinner(thrower);
                 } else if (newScore === 1 && this.state.gameOptions === "siso") {
                     this.setState(_defineProperty({}, playerScore, newScore));
                 } else if (newScore === 0 && multiplier !== 2 || newScore === 1 && this.state.gameOptions !== "siso" || newScore < 0) {
+                    this.setRoundScores(thrower, 0);
                     if (thrower === "p1") {
-
                         this.setState({ activeThrower: "p2" });
                         if (this.state.botGame) {
                             this.botLogic();
                         }
                     } else {
-                        this.setState({ activeThrower: "p1" });
+                        this.setActiveThrower("p1");
                     }
                     this.addThrow();
                     this.addToLog(number, multiplier);
@@ -9912,17 +9936,31 @@ var X01 = function (_Component) {
         value: function checkThrower() {
             var _this3 = this;
 
+            var thrower = this.state.activeThrower;
+            var throwerStartArray = eval("this.state." + thrower + "RoundStartScore");
+            var startScore = void 0,
+                scoreDifference = void 0;
+            if (throwerStartArray.length === 0) {
+                startScore = this.state.x01Game;
+            } else {
+                startScore = throwerStartArray[throwerStartArray.length - 1];
+            }
+
             setTimeout(function () {
                 if (_this3.state.activeThrows > 2) {
                     if (_this3.state.activeThrower === "p1") {
+                        scoreDifference = startScore - _this3.state.p1Score;
                         _this3.addToRoundStartScore("p1", _this3.state.p1Score);
+                        _this3.setRoundScores('p1', scoreDifference);
                         _this3.setActiveThrower("p2");
                         _this3.setThrowNumber(0);
                         if (_this3.state.botGame) {
                             _this3.botLogic();
                         }
                     } else {
+                        scoreDifference = startScore - _this3.state.p2Score;
                         _this3.addToRoundStartScore("p2", _this3.state.p2Score);
+                        _this3.setRoundScores('p2', scoreDifference);
                         _this3.setActiveThrower("p1");
                         _this3.setThrowNumber(0);
                     }
@@ -9982,6 +10020,7 @@ var X01 = function (_Component) {
     }, {
         key: "undoGameOver",
         value: function undoGameOver() {
+            this.popRoundScore(this.state.activeThrower);
             this.undo();
             this.setGameWinner('');
             this.showGameOverModal(false);
@@ -9993,9 +10032,11 @@ var X01 = function (_Component) {
                 if (this.state.activeThrows === 0) {
                     this.setThrowNumber(2);
                     if (this.state.activeThrower === "p1") {
+                        this.popRoundScore('p1');
                         this.setActiveThrower("p2");
                         this.undoSwitch("p2");
                     } else {
+                        this.popRoundScore('p2');
                         this.setActiveThrower("p1");
                         this.undoSwitch("p1");
                     }
@@ -10023,6 +10064,12 @@ var X01 = function (_Component) {
             var thrower = this.state.activeThrower;
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
+            if (thrower === 'p1') {
+                this.setRoundScores('p1', 0);
+            } else {
+                this.setRoundScores('p2', 0);
+            }
+
             switch (this.state.activeThrows) {
                 case 0:
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 3));
@@ -10108,6 +10155,7 @@ var X01 = function (_Component) {
                     var _number = parseInt("" + lastThrowArray[0]);
                     var _multiplier = parseInt(lastThrowArray[1]);
                     var _score = _number * _multiplier;
+                    this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) + _score));
                 }
                 this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
             } else if (throwsState > 0 && parseInt(this.state.x01Game) === parseInt(playerScoreState)) {
@@ -10156,7 +10204,9 @@ var X01 = function (_Component) {
                         gameWinner: this.state.gameWinner,
                         gameX01Reset: this.gameX01Reset,
                         p1Throws: this.state.p1Throws,
-                        p2Throws: this.state.p2Throws
+                        p2Throws: this.state.p2Throws,
+                        p1RoundScores: this.state.p1RoundScores,
+                        p2RoundScores: this.state.p2RoundScores
                     });
                 }
             } else if (this.state.gameState === "options") {
@@ -48001,13 +48051,36 @@ var Results = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this));
 
+        _this.state = {
+            p160: 0,
+            p1100: 0,
+            p1120: 0,
+            p1140: 0,
+            p1160: 0,
+            p1180: 0,
+
+            p260: 0,
+            p2100: 0,
+            p2120: 0,
+            p2140: 0,
+            p2160: 0,
+            p2180: 0
+        };
+
         _this.renderWinner = _this.renderWinner.bind(_this);
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
+        _this.setScores = _this.setScores.bind(_this);
+        _this.scoresRender = _this.scoresRender.bind(_this);
         return _this;
     }
 
     _createClass(Results, [{
+        key: "componentWillMount",
+        value: function componentWillMount() {
+            this.setScores();
+        }
+    }, {
         key: "renderWinner",
         value: function renderWinner() {
             if (this.props.gameWinner === "p1") {
@@ -48015,6 +48088,196 @@ var Results = function (_Component) {
             } else {
                 return "Player 2";
             }
+        }
+    }, {
+        key: "setScores",
+        value: function setScores() {
+            var player1Scores = this.props.p1RoundScores;
+            var player2Scores = this.props.p2RoundScores;
+            var p160 = 0;
+            var p1100 = 0;
+            var p1120 = 0;
+            var p1140 = 0;
+            var p1160 = 0;
+            var p1180 = 0;
+            var p260 = 0;
+            var p2100 = 0;
+            var p2120 = 0;
+            var p2140 = 0;
+            var p2160 = 0;
+            var p2180 = 0;
+
+            for (var i in player1Scores) {
+                if (player1Scores[i] >= 60 && player1Scores[i] < 100) {
+                    p160++;
+                } else if (player1Scores[i] >= 100 && player1Scores[i] < 120) {
+                    p1100++;
+                } else if (player1Scores[i] >= 120 && player1Scores[i] < 140) {
+                    p1120++;
+                } else if (player1Scores[i] >= 140 && player1Scores[i] < 160) {
+                    p1140++;
+                } else if (player1Scores[i] >= 160 && player1Scores[i] < 180) {
+                    p1160++;
+                } else if (player1Scores[i] === 180) {
+                    p1180++;
+                }
+            }
+
+            for (var i in player2Scores) {
+                if (player2Scores[i] >= 60 && player2Scores[i] < 100) {
+                    p260++;
+                } else if (player2Scores[i] >= 100 && player2Scores[i] < 120) {
+                    p2100++;
+                } else if (player2Scores[i] >= 120 && player2Scores[i] < 140) {
+                    p2120++;
+                } else if (player2Scores[i] >= 140 && player2Scores[i] < 160) {
+                    p2140++;
+                } else if (player2Scores[i] >= 160 && player2Scores[i] < 180) {
+                    p2160++;
+                } else if (player2Scores[i] === 180) {
+                    p2180++;
+                }
+            }
+
+            this.setState({ p160: p160 });
+            this.setState({ p1100: p1100 });
+            this.setState({ p1120: p1120 });
+            this.setState({ p1140: p1140 });
+            this.setState({ p1160: p1160 });
+            this.setState({ p1180: p1180 });
+
+            this.setState({ p260: p260 });
+            this.setState({ p2100: p2100 });
+            this.setState({ p2120: p2120 });
+            this.setState({ p2140: p2140 });
+            this.setState({ p2160: p2160 });
+            this.setState({ p2180: p2180 });
+        }
+    }, {
+        key: "scoresRender",
+        value: function scoresRender() {
+            return _react2.default.createElement(
+                "div",
+                { className: "row" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-12" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p160
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            "60+"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p260
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p1100
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            "100+"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p2100
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p1120
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            "120+"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p2120
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p1140
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            "140+"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p2140
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p1160
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            "160+"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p2160
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p1180
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            "180"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-4 text-center" },
+                            this.state.p2180
+                        )
+                    )
+                )
+            );
         }
     }, {
         key: "player1ThrowRender",
@@ -48059,32 +48322,48 @@ var Results = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col player1-results text-center" },
-                        "Player 1"
+                        { className: "col-3" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 player1-results text-center" },
+                                "Player 1"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 throws text-center" },
+                                "Throws: ",
+                                this.player1ThrowRender()
+                            )
+                        )
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col player-2 results text-center" },
-                        "Player 2"
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col throws text-center" },
-                        "Throws: ",
-                        this.player1ThrowRender()
+                        { className: "col-6 x01-stats" },
+                        this.scoresRender()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col throws text-center" },
-                        "Throws: ",
-                        this.player2ThrowRender()
+                        { className: "col-3" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 player1-results text-center" },
+                                "Player 2"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-12 throws text-center" },
+                                "Throws: ",
+                                this.player2ThrowRender()
+                            )
+                        )
                     )
                 ),
-                _react2.default.createElement("br", null),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
