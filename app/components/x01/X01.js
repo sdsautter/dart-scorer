@@ -28,11 +28,13 @@ export default class X01 extends Component {
             p1Score: 0,
             p1Throws: 0,
             p1RoundStartScore: [],
+            p1RoundScores: [],
 
             p2DoubleIn: false,
             p2Score: 0,
             p2Throws: 0,
             p2RoundStartScore: [],
+            p2RoundScores: [],
 
             singleGesture: 'press',
             multipleGesture: 'horizontal'
@@ -44,6 +46,7 @@ export default class X01 extends Component {
         this.doubleInTrue = this.doubleInTrue.bind(this);
         this.gameX01Reset = this.gameX01Reset.bind(this);
         this.botDartShot = this.botDartShot.bind(this);
+        this.setRoundScores = this.setRoundScores.bind(this);
         this.botDoubleChance = this.botDoubleChance.bind(this);
         this.conditionalRender = this.conditionalRender.bind(this);
         this.setThrowNumber = this.setThrowNumber.bind(this);
@@ -73,6 +76,7 @@ export default class X01 extends Component {
         this.setBotDifficulty = this.setBotDifficulty.bind(this);
         this.setBotGame = this.setBotGame.bind(this);
         this.soundLogic = this.soundLogic.bind(this);
+        this.popRoundScore = this.popRoundScore.bind(this);
         this.gestureSwitch = this.gestureSwitch.bind(this);
     }
 
@@ -105,7 +109,7 @@ export default class X01 extends Component {
             default:
                 break;
         }
-        
+
         this.setState({ [`${multiple}Gesture`]: newState });
     }
 
@@ -287,6 +291,19 @@ export default class X01 extends Component {
         }
     }
 
+    setRoundScores(thrower, score) {
+        const scoreArray = eval(`this.state.${thrower}RoundScores`);
+        scoreArray.push(score);
+        this.setState({ [`${thrower}RoundScores`]: scoreArray });
+    }
+
+    popRoundScore(thrower) {
+        const scoreArray = eval(`this.state.${thrower}RoundScores`);
+        scoreArray.pop();
+        this.setState({ [`${thrower}RoundScores`]: scoreArray });
+
+    }
+
     botNumpad() {
         let botShot = this.botRandomize();
         return this.numpadScore(botShot);
@@ -463,8 +480,10 @@ export default class X01 extends Component {
             scoresArray.push(newScore);
             if (newScore === 0) {
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
+                this.setRoundScores(thrower, score);
                 this.setGameWinner(thrower);
             } else if (newScore === 1) {
+                this.setRoundScores(thrower, 0);
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ activeThrower: otherThrower });
                 if (localStorage.getItem('sounds') === 'on') { missSound.play(); }
@@ -472,6 +491,7 @@ export default class X01 extends Component {
                     this.botLogic();
                 }
             } else if (newScore < 0) {
+                this.setRoundScores(thrower, 0);
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
                 this.setState({ [playerScore]: parseInt(playerScoreState) });
                 this.setState({ activeThrower: otherThrower });
@@ -490,6 +510,7 @@ export default class X01 extends Component {
                     if (localStorage.getItem('sounds') === 'on') { tripleHitSound.play(); }
                 }
 
+                this.setRoundScores(thrower, score);
                 this.setState({ [playerScore]: newScore });
                 this.setState({ [playerStartScore]: scoresArray });
                 this.setState({ [playerThrows]: parseInt(playerThrowsState) + 3 });
@@ -558,21 +579,23 @@ export default class X01 extends Component {
                 this.setState({ [playerScore]: newScore });
             } else if (newScore === 0 && multiplier === 2) {
                 this.setState({ [playerScore]: newScore });
+                this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
                 this.setGameWinner(thrower);
             } else if (newScore === 0 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
+                this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
                 this.setGameWinner(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
             } else if ((newScore === 0 && multiplier !== 2) || (newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0)) {
+                this.setRoundScores(thrower, 0)
                 if (thrower === "p1") {
-
                     this.setState({ activeThrower: "p2" });
                     if (this.state.botGame) {
                         this.botLogic();
                     }
                 } else {
-                    this.setState({ activeThrower: "p1" });
+                    this.setActiveThrower("p1");
                 }
                 this.addThrow();
                 this.addToLog(number, multiplier);
@@ -621,17 +644,30 @@ export default class X01 extends Component {
     }
 
     checkThrower() {
+        const thrower = this.state.activeThrower;
+        const throwerStartArray = eval(`this.state.${thrower}RoundStartScore`)
+        let startScore, scoreDifference;
+        if (throwerStartArray.length === 0) {
+            startScore = this.state.x01Game;
+        } else {
+            startScore = throwerStartArray[throwerStartArray.length - 1];
+        }
+
         setTimeout(() => {
             if (this.state.activeThrows > 2) {
                 if (this.state.activeThrower === "p1") {
+                    scoreDifference = startScore - this.state.p1Score;
                     this.addToRoundStartScore("p1", this.state.p1Score);
+                    this.setRoundScores('p1', scoreDifference);
                     this.setActiveThrower("p2");
                     this.setThrowNumber(0);
                     if (this.state.botGame) {
                         this.botLogic();
                     }
                 } else {
+                    scoreDifference = startScore - this.state.p2Score;
                     this.addToRoundStartScore("p2", this.state.p2Score);
+                    this.setRoundScores('p2', scoreDifference);
                     this.setActiveThrower("p1");
                     this.setThrowNumber(0);
                 }
@@ -680,6 +716,7 @@ export default class X01 extends Component {
     }
 
     undoGameOver() {
+        this.popRoundScore(this.state.activeThrower);
         this.undo();
         this.setGameWinner('');
         this.showGameOverModal(false);
@@ -690,9 +727,11 @@ export default class X01 extends Component {
             if (this.state.activeThrows === 0) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {
+                    this.popRoundScore('p1');
                     this.setActiveThrower("p2");
                     this.undoSwitch("p2");
                 } else {
+                    this.popRoundScore('p2');
                     this.setActiveThrower("p1");
                     this.undoSwitch("p1");
                 }
@@ -719,6 +758,12 @@ export default class X01 extends Component {
         let thrower = this.state.activeThrower;
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);
+        if (thrower === 'p1') {
+            this.setRoundScores('p1', 0);
+        } else {
+            this.setRoundScores('p2', 0);
+        }
+
         switch (this.state.activeThrows) {
             case 0:
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 3 });
@@ -803,6 +848,7 @@ export default class X01 extends Component {
                 const number = parseInt(`${lastThrowArray[0]}`)
                 const multiplier = parseInt(lastThrowArray[1]);
                 const score = number * multiplier;
+                this.setState({ [playerScore]: parseInt(playerScoreState) + score });
             }
             this.setState({ [playerThrows]: parseInt(throwsState) - 1 })
         } else if (throwsState > 0 && parseInt(this.state.x01Game) === parseInt(playerScoreState)) {
@@ -829,7 +875,7 @@ export default class X01 extends Component {
                     activeThrows={this.state.activeThrows}
                     x01Game={this.state.x01Game}
                     singleGesture={this.state.singleGesture}
-                    multipleGesture={this.state.multipleGesture}                    
+                    multipleGesture={this.state.multipleGesture}
                     playersRender={this.playersRender}
                     renderP1Score={this.renderP1Score}
                     renderP2Score={this.renderP2Score}
@@ -859,6 +905,8 @@ export default class X01 extends Component {
                         gameX01Reset={this.gameX01Reset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
+                        p1RoundScores={this.state.p1RoundScores}
+                        p2RoundScores={this.state.p2RoundScores}
                     />
                 )
             }
@@ -895,7 +943,7 @@ export default class X01 extends Component {
                 transitionLeave={false}>
                 <div>
                     <SettingsMenu
-                    gestureSwitch={this.gestureSwitch}
+                        gestureSwitch={this.gestureSwitch}
                     >
                     </SettingsMenu>
                     {this.conditionalRender()}

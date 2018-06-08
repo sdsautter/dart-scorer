@@ -19,6 +19,9 @@
         background-color: rgb(197, 98, 98) !important;
         /* color: black; */
     }
+    .x01-stats {
+        margin-bottom: 4%;
+    }
     .one-click-scoring {
         padding-right: 15px;
         font-size: 1rem;
