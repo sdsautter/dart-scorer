@@ -76,21 +76,21 @@ export default class SettingsMenu extends Component {
         if (localStorage.getItem('sounds') === 'on') {
             return (
                 <div className='row'>
-                    <div className='col-4 text-right settings-selected'>On</div>
+                    <div className='col-4 text-right settings-selected' onClick={this.soundToggle}>On</div>
                     <div className="col-4 text-center">
                         <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.soundToggle} />
                     </div>
-                    <div className='col-4 text-left settings-fade'>Off</div>
+                    <div className='col-4 text-left settings-fade' onClick={this.soundToggle}>Off</div>
                 </div>
             )
         } else {
             return (
                 <div className='row'>
-                    <div className='col-4 text-right settings-fade'>On</div>
+                    <div className='col-4 text-right settings-fade' onClick={this.soundToggle}>On</div>
                     <div className="col-4 text-center">
                         <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.soundToggle} />
                     </div>
-                    <div className='col-4 text-left settings-selected'>Off</div>
+                    <div className='col-4 text-left settings-selected' onClick={this.soundToggle}>Off</div>
                 </div>
             )
         }
@@ -101,21 +101,21 @@ export default class SettingsMenu extends Component {
         if (localStorage.getItem('multiple') === 'horizontal') {
             return (
                 <div className='row'>
-                    <div className='col-4 swipe-option text-center settings-selected'>Horizontal</div>
+                    <div className='col-4 swipe-option text-center settings-selected' onClick={this.multipleToggle}>Horizontal</div>
                     <div className="col-4 text-center">
                         <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.multipleToggle} />
                     </div>
-                    <div className='col-4 swipe-option text-center settings-fade'>Vertical</div>
+                    <div className='col-4 swipe-option text-center settings-fade' onClick={this.multipleToggle}>Vertical</div>
                 </div>
             )
         } else {
             return (
                 <div className='row'>
-                    <div className='col-4 swipe-option text-center settings-fade'>Horizontal</div>
+                    <div className='col-4 swipe-option text-center settings-fade' onClick={this.multipleToggle}>Horizontal</div>
                     <div className="col-4 text-center">
                         <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.multipleToggle} />
                     </div>
-                    <div className='col-4 swipe-option text-center settings-selected'>Vertical</div>
+                    <div className='col-4 swipe-option text-center settings-selected' onClick={this.multipleToggle}>Vertical</div>
                 </div>
             )
         }

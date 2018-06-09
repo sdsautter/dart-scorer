@@ -9174,7 +9174,7 @@ var SettingsMenu = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 text-right settings-selected' },
+                        { className: 'col-4 text-right settings-selected', onClick: this.soundToggle },
                         'On'
                     ),
                     _react2.default.createElement(
@@ -9184,7 +9184,7 @@ var SettingsMenu = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 text-left settings-fade' },
+                        { className: 'col-4 text-left settings-fade', onClick: this.soundToggle },
                         'Off'
                     )
                 );
@@ -9194,7 +9194,7 @@ var SettingsMenu = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 text-right settings-fade' },
+                        { className: 'col-4 text-right settings-fade', onClick: this.soundToggle },
                         'On'
                     ),
                     _react2.default.createElement(
@@ -9204,7 +9204,7 @@ var SettingsMenu = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 text-left settings-selected' },
+                        { className: 'col-4 text-left settings-selected', onClick: this.soundToggle },
                         'Off'
                     )
                 );
@@ -9219,7 +9219,7 @@ var SettingsMenu = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 swipe-option text-center settings-selected' },
+                        { className: 'col-4 swipe-option text-center settings-selected', onClick: this.multipleToggle },
                         'Horizontal'
                     ),
                     _react2.default.createElement(
@@ -9229,7 +9229,7 @@ var SettingsMenu = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 swipe-option text-center settings-fade' },
+                        { className: 'col-4 swipe-option text-center settings-fade', onClick: this.multipleToggle },
                         'Vertical'
                     )
                 );
@@ -9239,7 +9239,7 @@ var SettingsMenu = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 swipe-option text-center settings-fade' },
+                        { className: 'col-4 swipe-option text-center settings-fade', onClick: this.multipleToggle },
                         'Horizontal'
                     ),
                     _react2.default.createElement(
@@ -9249,7 +9249,7 @@ var SettingsMenu = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-4 swipe-option text-center settings-selected' },
+                        { className: 'col-4 swipe-option text-center settings-selected', onClick: this.multipleToggle },
                         'Vertical'
                     )
                 );
