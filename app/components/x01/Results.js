@@ -223,19 +223,19 @@ export default class Results extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div className="row">
-                            <div className="col-6 offset-3 text-center number">
+                            <div className="col-sm-12 col-md-3 offset-md-3 text-center number p2-multiple">
+                                <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
+                                    Reset Set
+                        </button>
+                            </div>
+                            <div className="col-sm-12 col-md-3 text-center number p1-multiple">
                                 <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
                                     Continue Set
                         </button>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-sm-12 col-md-3 offset-md-3 text-center miss">
-                                <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
-                                    Play Again
-                        </button>
-                            </div>
-                            <div className="col-sm-12 col-md-3 text-center miss">
+                        <div className='row'>
+                            <div className="col-sm-12 col-md-6 offset-md-3 text-center miss">
                                 <button type="button" className="btn" onClick={() => {
                                     location.assign('/x01');
                                 }}>

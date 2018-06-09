@@ -9597,10 +9597,8 @@ var X01 = function (_Component) {
     }, {
         key: "gestureSwitch",
         value: function gestureSwitch(multiple) {
-            console.log(multiple);
             var localStorageItem = localStorage.getItem(multiple);
             var newState = void 0;
-            console.log(localStorageItem);
 
             switch (localStorageItem) {
                 case 'press':
@@ -42968,8 +42966,6 @@ var MobileGesture = function (_Component) {
 
             var singleOption = localStorage.getItem('single');
             var multipleOption = localStorage.getItem('multiple');
-            console.log(singleOption);
-            console.log(multipleOption);
             if (multipleOption === 'horizontal') {
                 return _react2.default.createElement(
                     _reactHammerjs2.default,
@@ -48771,7 +48767,18 @@ var Results = function (_Component) {
                             { className: "row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-6 offset-3 text-center number" },
+                                { className: "col-sm-12 col-md-3 offset-md-3 text-center number p2-multiple" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.gameX01Reset();
+                                        } },
+                                    "Reset Set"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-sm-12 col-md-3 text-center number p1-multiple" },
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn", onClick: function onClick() {
@@ -48786,18 +48793,7 @@ var Results = function (_Component) {
                             { className: "row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-sm-12 col-md-3 offset-md-3 text-center miss" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
-                                            _this2.props.gameX01Reset();
-                                        } },
-                                    "Play Again"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-sm-12 col-md-3 text-center miss" },
+                                { className: "col-sm-12 col-md-6 offset-md-3 text-center miss" },
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn", onClick: function onClick() {
