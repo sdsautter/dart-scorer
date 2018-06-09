@@ -19,6 +19,7 @@ export default class Cricket extends Component {
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
+            setHistory: [],
 
             botGame: false,
             botDifficulty: "",
@@ -37,6 +38,8 @@ export default class Cricket extends Component {
             p17m: 0,
             p18m: 0,
             p19m: 0,
+            p1Legs: 0,
+            p1Sets: 0,
 
             p220: 0,
             p219: 0,
@@ -51,11 +54,15 @@ export default class Cricket extends Component {
             p26m: 0,
             p27m: 0,
             p28m: 0,
-            p29m: 0
+            p29m: 0,
+            p2Legs: 0,
+            p2Sets: 0
         }
 
         //Binding functions to change the states
         this.score = this.score.bind(this);
+        this.addLeg = this.addLeg.bind(this);
+        this.continueSet = this.continueSet.bind(this);
         this.soundLogic = this.soundLogic.bind(this);
         this.botLogic = this.botLogic.bind(this);
         this.botNumberHit = this.botNumberHit.bind(this);
@@ -89,8 +96,34 @@ export default class Cricket extends Component {
         this.scoringLogic = this.scoringLogic.bind(this);
     }
 
-    gameCricketReset() {
-        this.setState({ activeThrower: "p1" });
+    continueSet() {
+        let activeThrower;
+        const firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+        const evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
+        const evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
+
+        switch (evenSet) {
+            case true:
+                if (evenLeg) {
+                    activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                } else {
+                    activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+
+                }
+                break;
+            case false:
+                if (evenLeg) {
+                    activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+                } else {
+                    activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        this.setState({ activeThrower });
         this.setState({ activeThrows: 0 });
         this.setState({ activeMarks: 0 });
         this.setState({ gameState: "playing" });
@@ -126,6 +159,49 @@ export default class Cricket extends Component {
         this.setState({ p27m: 0 });
         this.setState({ p28m: 0 });
         this.setState({ p29m: 0 });
+    }
+
+    gameCricketReset() {
+        this.setState({ activeThrower: "p1" });
+        this.setState({ activeThrows: 0 });
+        this.setState({ activeMarks: 0 });
+        this.setState({ gameState: "playing" });
+        this.setState({ gameWinner: {} });
+        this.setState({ gameOverModal: false });
+
+        this.setState({ p120: 0 });
+        this.setState({ p119: 0 });
+        this.setState({ p118: 0 });
+        this.setState({ p117: 0 });
+        this.setState({ p116: 0 });
+        this.setState({ p115: 0 });
+        this.setState({ p125: 0 });
+        this.setState({ p1Score: 0 });
+        this.setState({ p1Throws: 0 });
+        this.setState({ p15m: 0 });
+        this.setState({ p16m: 0 });
+        this.setState({ p17m: 0 });
+        this.setState({ p18m: 0 });
+        this.setState({ p19m: 0 });
+        this.setState({ p1Legs: 0 });
+        this.setState({ p1Sets: 0 });
+
+        this.setState({ p220: 0 });
+        this.setState({ p219: 0 });
+        this.setState({ p218: 0 });
+        this.setState({ p217: 0 });
+        this.setState({ p216: 0 });
+        this.setState({ p215: 0 });
+        this.setState({ p225: 0 });
+        this.setState({ p2Score: 0 });
+        this.setState({ p2Throws: 0 });
+        this.setState({ p25m: 0 });
+        this.setState({ p26m: 0 });
+        this.setState({ p27m: 0 });
+        this.setState({ p28m: 0 });
+        this.setState({ p29m: 0 });
+        this.setState({ p2Legs: 0 });
+        this.setState({ p2Sets: 0 });
     }
 
     setBotGame(botGame) {
@@ -1070,11 +1146,40 @@ export default class Cricket extends Component {
         return this.state.p2Score;
     }
 
+    addLeg() {
+        const winner = this.state.gameWinner;
+        const loser = winner === 'p1' ? 'p2' : 'p1';
+        const setHistory = this.state.setHistory;
+        let winnerLegs = parseInt(eval(`this.state.${winner}Legs`));
+        const loserLegs = parseInt(eval(`this.state.${loser}Legs`));
+        let winnerSets = parseInt(eval(`this.state.${winner}Sets`));
+        const legSettings = localStorage.getItem('legs');
+
+        winnerLegs = winnerLegs + 1;
+        winnerSets = winnerSets + 1;
+
+        if (winnerLegs < legSettings) {
+            this.setState({ [`${winner}Legs`]: winnerLegs });
+        } else if (winnerLegs >= legSettings) {
+            setHistory.push({
+                p1: winner === 'p1' ? winnerLegs : loserLegs,
+                p2: loser === 'p2' ? loserLegs : winnerLegs
+            });
+            this.setState({ setHistory });
+            this.setState({ [`${winner}Legs`]: 0 });
+            this.setState({ [`${loser}Legs`]: 0 });
+            this.setState({ [`${winner}Sets`]: winnerSets })
+
+        }
+    }
+
     gameStateOver() {
         const gameOverSound = new Howl({
             src: ['assets/sounds/game_over.mp3']
         });
         Howler.volume(.4);
+
+        this.addLeg();
         this.showGameOverModal(false);
         this.setState({ gameState: "over" });
         if (localStorage.getItem('sounds') === 'on') {
@@ -1238,6 +1343,11 @@ export default class Cricket extends Component {
                         p27m={this.state.p27m}
                         p28m={this.state.p28m}
                         p29m={this.state.p29m}
+                        p1Legs={this.state.p1Legs}
+                        p1Sets={this.state.p1Sets}
+                        p2Legs={this.state.p2Legs}
+                        p2Sets={this.state.p2Sets}
+                        continueSet={this.continueSet}
                     />
                 )
             }

@@ -5,18 +5,36 @@ export default class SettingsMenu extends Component {
     constructor() {
 
         super();
+
+        this.state = {
+            legs: 1,
+            sets: 3
+        }
+
         if (localStorage.getItem('sounds') !== 'off') {
             localStorage.setItem('sounds', 'on');
         }
         if (localStorage.getItem('multiple') !== 'horizontal') {
             localStorage.setItem('multiple', 'vertical');
         }
+
+        if (localStorage.getItem('legs') == null) {
+            localStorage.setItem('legs', 1);
+        }
+
+        if (localStorage.getItem('sets') == null) {
+            localStorage.setItem('sets', 3);
+        }
+
         this.soundToggle = this.soundToggle.bind(this);
         this.settingsMenuRender = this.settingsMenuRender.bind(this);
         this.multipleToggle = this.multipleToggle.bind(this);
         this.soundToggleRender = this.soundToggleRender.bind(this);
         this.multipleToggleRender = this.multipleToggleRender.bind(this);
-
+        this.legRender = this.legRender.bind(this);
+        this.setRender = this.setRender.bind(this);
+        this.setSetNumber = this.setSetNumber.bind(this);
+        this.setLegNumber = this.setLegNumber.bind(this);
     }
 
     multipleToggle() {
@@ -87,6 +105,32 @@ export default class SettingsMenu extends Component {
         }
     }
 
+    legRender(number) {
+        if (parseInt(localStorage.getItem('legs')) === number) {
+            return 'col-6 col-md-3 leg-options leg-selected';
+        } else {
+            return 'col-6 col-md-3 leg-options leg-faded';
+        }
+    }
+
+    setLegNumber(legs) {
+        this.setState({ legs })
+        localStorage.setItem('legs', legs);
+    }
+
+    setRender(number) {
+        if (parseInt(localStorage.getItem('sets')) === number) {
+            return 'col-4 set-option set-selected';
+        } else {
+            return 'col-4 set-option set-faded';
+        }
+    }
+
+    setSetNumber(sets) {
+        this.setState({ sets })
+        localStorage.setItem('sets', sets);
+    }
+
     render() {
         return (
             <div>
@@ -98,36 +142,87 @@ export default class SettingsMenu extends Component {
                                 <h5 className="modal-title" id="settingsLabel">Settings</h5>
                             </div>
                             <div className="modal-body">
-                                <div className="row">
 
-                                    <div className='col-12'>
-                                        <div className='row'>
-                                            <div className='col text-center'>
-                                                <div className='row sound-options'>
-                                                    <div className='col-12'>
-                                                        <h5>Sounds</h5>
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-4 text-right'>On</div>
-                                                        {this.soundToggleRender()}
-                                                        <div className='col-4 text-left'>Off
+                                <div className='row'>
+                                    <div className='col text-center'>
+                                        <div className='row sound-options'>
+                                            <div className='col-12 sound-header'>
+                                                Sounds
+                                            </div>
+                                            <div className='row'>
+                                                <div className='col-4 text-right'>On</div>
+                                                {this.soundToggleRender()}
+                                                <div className='col-4 text-left'>Off
                                                         </div>
-                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div className='row gesture-options'>
+                                            <div className='col-12 swipe-header'>
+                                                Swipe Direction
+                                            </div>
+                                            <div className='col-4 swipe-option text-center'>Horizontal</div>
+                                            {this.multipleToggleRender()}
+                                            <div className='col-4 swipe-option text-center'>Vertical
+                                                        </div>
+                                        </div>
+                                        <div className='row set-options'>
+                                            <div className='col-5'>
+                                                <div className='row'>
+                                                    <div className='col-12 set-header'>
+                                                        Legs
+                                                                </div>
+                                                    <div className={this.legRender(1)} onClick={() => { this.setLegNumber(1) }}>
+                                                        1
+                                                            </div>
+                                                    <div className={this.legRender(3)} onClick={() => { this.setLegNumber(3) }}>
+                                                        3
+                                                            </div>
+                                                    <div className={this.legRender(5)} onClick={() => { this.setLegNumber(5) }}>
+                                                        5
+                                                            </div>
+                                                    <div className={this.legRender(7)} onClick={() => { this.setLegNumber(7) }}>
+                                                        7
+                                                            </div>
                                                 </div>
-                                                <br />
-                                                <div className='row gesture-options'>
+                                            </div>
+                                            <div className='col-2 best-of text-center'>
+                                                <div className='row'>
                                                     <div className='col-12'>
-                                                        <h5>Gestures</h5>
-                                                    </div>
-                                                    <div className='row'>
-                                                        <div className='col-12 option'>
-                                                            <h6>Swipe Direction</h6>
-                                                        </div>
-                                                        <div className='col-4 text-right'>Horizontal</div>
-                                                        {this.multipleToggleRender()}
-                                                        <div className='col-4 text-left'>Vertical
-                                                        </div>
-                                                    </div>
+                                                        Best Of
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div className='col-5'>
+                                                <div className='row'>
+                                                    <div className='col-12 set-header'>
+                                                        Sets
+                                                                </div>
+                                                    <div
+                                                        className={this.setRender(3)}
+                                                        onClick={() => { this.setSetNumber(3) }}
+                                                    >
+                                                        3
+                                                            </div>
+                                                    <div
+                                                        className={this.setRender(5)}
+                                                        onClick={() => { this.setSetNumber(5) }}
+                                                    >
+                                                        5
+                                                            </div>
+                                                    <div className={this.setRender(7)} onClick={() => { this.setSetNumber(7) }}>
+                                                        7
+                                                            </div>
+                                                    <div className={this.setRender(9)} onClick={() => {
+                                                        this.setSetNumber(9)
+                                                    }}>
+                                                        9
+                                                            </div>
+                                                    <div className={this.setRender(11)} onClick={() => { this.setSetNumber(11) }}>
+                                                        11
+                                                            </div>
+                                                    <div className={this.setRender(13)} onClick={() => { this.setSetNumber(13) }}>
+                                                        13
+                                                            </div>
                                                 </div>
                                             </div>
                                         </div>

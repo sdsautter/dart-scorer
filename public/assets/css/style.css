@@ -8,6 +8,38 @@
     ul {
         padding-left: 5%;
     }
+    .leg-header,
+    .set-header,
+    .leg-options,
+    .set-option,
+    .best-of {
+        font-family: 'Cuprum', cursive;
+    }
+    .leg-options,
+    .set-option {
+        padding-top: 5%;
+    }
+    .leg-selected,
+    .set-selected {
+        font-weight: strong;
+        color: #F2DDC8;
+    }
+    .leg-faded,
+    .set-faded {
+        color: rgba(239, 220, 200, .5);
+    }
+    .best-of {
+        padding-top: 1%;
+    }
+    .best-of {
+        font-size: .75rem;
+    }
+    .leg-header,
+    .set-header,
+    .sound-header,
+    .swipe-header {
+        font-size: 1rem;
+    }
     .results-screen {
         font-size: 1.3rem;
     }
@@ -135,8 +167,9 @@
     .gesture {
         font-size: 1rem;
     }
-    .toggle, .gesture-toggle {
-        font-family: 'Cuprum', cursive;        
+    .toggle,
+    .gesture-toggle {
+        font-family: 'Cuprum', cursive;
         -webkit-appearance: none;
         appearance: none;
         width: 62px;
@@ -151,9 +184,10 @@
         background-color: #881918;
         transition: background-color ease 0.3s;
     }
-    .toggle:before, .gesture-toggle:before {
+    .toggle:before,
+    .gesture-toggle:before {
         font-family: 'Cuprum', cursive;
-        content: "off on";        
+        content: "off on";
         display: block;
         position: absolute;
         z-index: 2;
@@ -176,7 +210,7 @@
     }
     .toggle:before {
         font-family: 'Cuprum', cursive;
-        content: " ";        
+        content: " ";
         display: block;
         position: absolute;
         z-index: 2;
@@ -197,49 +231,48 @@
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         transition: all cubic-bezier(0.3, 1.5, 0.7, 1) 0.3s;
     }
-    .gesture-toggle:checked, .toggle:checked {
+    .gesture-toggle:checked,
+    .toggle:checked {
         background-color: #707070;
     }
-    .gesture-toggle:checked:before, .toggle:checked:before {
+    .gesture-toggle:checked:before,
+    .toggle:checked:before {
         left: 32px;
     }
-
     .gesture-toggle {
         position: fixed;
         bottom: 0;
         right: 18%;
     }
-    
-    .sound-options, .gesture-options {
-        margin-top: 5%;
-        font-family: 'Cuprum', cursive;   
+    .sound-options,
+    .gesture-options {
+        font-family: 'Cuprum', cursive;
     }
-
+    .gesture-options,
+    .set-options {
+        margin-top: 10%;
+    }
     .description-left {
         margin-right: 5%;
     }
-
     .description-right {
         margin-left: 5%;
     }
-
     .option {
         margin-top: 2%;
     }
-
     .one-click-scoring {
         position: fixed;
         left: 18%;
         bottom: 0;
     }
-
-    .help-img, .help-img img {
+    .help-img,
+    .help-img img {
         position: fixed;
         bottom: 5px;
         left: 8%;
         max-height: 20px;
         max-width: 20px;
-        
     }
     .number,
     .p1-number,
@@ -356,26 +389,23 @@
         background-color: #881918 !important;
         /* color: #c7ab8d; */
     }
-
     .gesture-item {
         font-size: 1.5rem;
-        font-family: 'Cuprum', cursive;                
+        font-family: 'Cuprum', cursive;
         text-align: center;
     }
-
-    ul, li {
+    ul,
+    li {
         list-style-type: none;
-        padding-top: 2%;        
+        padding-top: 2%;
         padding-bottom: 2%;
     }
-
     #gestureHeader h2 {
         margin-top: 10%;
-        font-family: 'Cuprum', cursive;        
+        font-family: 'Cuprum', cursive;
         text-align: center;
     }
-
-    #neverShowAgain button { 
+    #neverShowAgain button {
         font-size: 1.1rem !important;
         padding-bottom: 4%;
     }
@@ -386,6 +416,15 @@
         background-color: rgb(73, 121, 89);
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
+        font-size: 1.75rem;
+    }
+    .best-of {
+        font-size: 1.15rem;
+    }
+    .leg-header,
+    .set-header,
+    .sound-header,
+    .swipe-header {
         font-size: 1.75rem;
     }
     .rules-header {
@@ -519,6 +558,15 @@
         background-color: rgb(73, 121, 89);
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
+        font-size: 1.75rem;
+    }
+    .best-of {
+        font-size: 1.15rem;
+    }
+    .swipe-option {
+        font-size: 1.5rem;
+    }
+    .leg-header, .set-header, .sound-header, .swipe-header {
         font-size: 1.75rem;
     }
     .title {
@@ -770,43 +818,51 @@ img {
 }
 
 .flip-container {
-	perspective: 100%;
+    perspective: 100%;
 }
-	/* flip the pane when hovered */
-	.flip-container:hover .flipper, .flip-container.hover .flipper {
-		transform: rotateY(180deg);
-	}
 
-.flip-container, .front, .back {
-	width: 160px;
-	height: 320px;
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+    width: 160px;
+    height: 320px;
 }
 
 /* flip speed goes here */
-.flipper {
-	transition: 0.6s;
-	transform-style: preserve-3d;
 
-	position: relative;
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
 }
 
 /* hide back of pane during swap */
-.front, .back {
-	backface-visibility: hidden;
 
-	position: absolute;
-	top: 0;
-	left: 0;
+.front,
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* front pane, placed above back */
+
 .front {
-	z-index: 2;
-	/* for firefox 31 */
-	transform: rotateY(0deg);
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
 }
 
 /* back, initially hidden pane */
+
 .back {
-	transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
