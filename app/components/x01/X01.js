@@ -442,6 +442,10 @@ export default class X01 extends Component {
             this.setState({ p1DoubleIn: false });
             this.setState({ p2DoubleIn: false });
         }
+
+        if (this.state.botGame && activeThrower === 'p2') {
+            this.botLogic();
+        }
     }
 
     gameX01Reset() {
