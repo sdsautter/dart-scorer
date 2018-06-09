@@ -1,3 +1,11 @@
+:root {
+    --nice-font: 'Cuprum', cursive;
+    --p1-color: #F2DDC8;
+    --p1-singe: #F2DDC8;
+    --p1-multiple-hover: #689276;
+    --p2-multiple-hover: rgb(197, 98, 98);
+}
+
 @media (min-width: 0px) {
     body {
         background-color: rgb(73, 121, 89);
@@ -7,6 +15,27 @@
     }
     ul {
         padding-left: 5%;
+    }
+    .set-box {
+        font-family: var(--nice-font);
+        padding: 0 !important;
+        max-width: 20px !important;
+        min-width: 20px !important;
+        border: 1px solid black;
+    }
+    .set-header {
+        margin-top: 1%;
+    }
+    .x01-stats {
+        font-family: var(--nice-font);
+    }
+    .p1-set {
+        background-color: var(--p1-color);
+        color: black;
+    }
+    .p2-set {
+        background-color: var(--p2-multiple-hover);
+        color: black;
     }
     .leg-header,
     .set-header,
@@ -566,7 +595,10 @@
     .swipe-option {
         font-size: 1.5rem;
     }
-    .leg-header, .set-header, .sound-header, .swipe-header {
+    .leg-header,
+    .set-header,
+    .sound-header,
+    .swipe-header {
         font-size: 1.75rem;
     }
     .title {

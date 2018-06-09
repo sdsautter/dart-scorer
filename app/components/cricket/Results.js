@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SetTable from '../common/SetTable';
 
 export default class Results extends Component {
     constructor() {
@@ -61,7 +62,7 @@ export default class Results extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div className="row">
-                        <div className="col-md-3 col-sm-12 offset-md-3 text-center p2-multiple">
+                            <div className="col-md-3 col-sm-12 offset-md-3 text-center p2-multiple">
                                 <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>
                                     Reset Set
                         </button>
@@ -71,7 +72,7 @@ export default class Results extends Component {
                                     Continue Set
                         </button>
                             </div>
-                            
+
                         </div>
                         <div className="row">
                             <br />
@@ -93,15 +94,16 @@ export default class Results extends Component {
             <div className="container-fluid results-screen">
                 <div className="row">
                     <div className="col text-center">
-                        Game Over
+                        Sets
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col text-center">
-                        {this.renderWinner()} Wins!
-                    </div>
-                </div>
-                <br />
+                <SetTable
+                    setHistory={this.props.setHistory}
+                    p1Legs={this.props.p1Legs}
+                    p2Legs={this.props.p2Legs}
+                    p1Sets={this.props.p1Sets}
+                    p2Sets={this.props.p2Sets}
+                />
                 <div className="row">
                     <div className="col player1-results text-center">
                         Player 1
