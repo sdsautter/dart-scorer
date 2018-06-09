@@ -7172,6 +7172,10 @@ var Cricket = function (_Component) {
             this.setState({ p27m: 0 });
             this.setState({ p28m: 0 });
             this.setState({ p29m: 0 });
+
+            if (this.state.botGame && activeThrower === 'p2') {
+                this.botLogic();
+            }
         }
     }, {
         key: "gameCricketReset",
@@ -9960,6 +9964,10 @@ var X01 = function (_Component) {
             if (this.state.gameOptions === "dido") {
                 this.setState({ p1DoubleIn: false });
                 this.setState({ p2DoubleIn: false });
+            }
+
+            if (this.state.botGame && activeThrower === 'p2') {
+                this.botLogic();
             }
         }
     }, {

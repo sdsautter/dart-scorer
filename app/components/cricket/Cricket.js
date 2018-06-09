@@ -159,6 +159,10 @@ export default class Cricket extends Component {
         this.setState({ p27m: 0 });
         this.setState({ p28m: 0 });
         this.setState({ p29m: 0 });
+
+        if (this.state.botGame && activeThrower === 'p2') {
+            this.botLogic();
+        }
     }
 
     gameCricketReset() {
