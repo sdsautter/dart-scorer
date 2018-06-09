@@ -1008,6 +1008,7 @@ export default class X01 extends Component {
                         p1Legs={this.state.p1Legs}
                         p2Legs={this.state.p2Legs}
                         p2Sets={this.state.p2Sets}
+                        setHistory={this.state.setHistory}
                     />
                 )
             }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SetTable from "../common/SetTable";
 
 export default class Results extends Component {
     constructor() {
@@ -189,7 +190,7 @@ export default class Results extends Component {
     buttonsRender() {
         let setSettings = parseInt(localStorage.getItem('sets'));
         setSettings = Math.ceil(setSettings / 2);
-        
+
         if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
             return (
                 <div className='row'>
@@ -224,12 +225,12 @@ export default class Results extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div className="row">
-                            <div className="col-sm-12 col-md-3 offset-md-3 text-center number p2-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
+                            <div className="col-6 col-md-3 offset-md-3 text-center number p2-multiple">
+                                <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
                                     Reset Set
                         </button>
                             </div>
-                            <div className="col-sm-12 col-md-3 text-center number p1-multiple">
+                            <div className="col-6 col-md-3 text-center number p1-multiple">
                                 <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
                                     Continue Set
                         </button>
@@ -260,18 +261,19 @@ export default class Results extends Component {
 
     render() {
         return (
-            <div className="container-fluid results-screen">
+            <div className="results-screen">
                 <div className="row">
-                    <div className="col text-center">
-                        Game Over
+                    <div className="col set-header text-center">
+                        Sets
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col text-center">
-                        {this.renderWinner()} Wins!
-                    </div>
-                </div>
-                <br />
+                <SetTable
+                    setHistory={this.props.setHistory}
+                    p1Legs={this.props.p1Legs}
+                    p2Legs={this.props.p2Legs}
+                    p1Sets={this.props.p1Sets}
+                    p2Sets={this.props.p2Sets}
+                />
                 <div className="row">
                     <div className='col-3'>
                         <div className="row">
@@ -297,7 +299,27 @@ export default class Results extends Component {
                         </div>
                     </div>
                 </div>
+                <br />
                 {this.buttonsRender()}
+                <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="reloadModalLabel">Start Set Over</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameX01Reset() }}>Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div >
         )
     }

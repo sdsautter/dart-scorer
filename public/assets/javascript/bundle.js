@@ -8412,7 +8412,8 @@ var Cricket = function (_Component) {
                         p1Sets: this.state.p1Sets,
                         p2Legs: this.state.p2Legs,
                         p2Sets: this.state.p2Sets,
-                        continueSet: this.continueSet
+                        continueSet: this.continueSet,
+                        setHistory: this.state.setHistory
                     });
                 }
             } else if (this.state.gameState === "opponent") {
@@ -10571,7 +10572,8 @@ var X01 = function (_Component) {
                         p1Sets: this.state.p1Sets,
                         p1Legs: this.state.p1Legs,
                         p2Legs: this.state.p2Legs,
-                        p2Sets: this.state.p2Sets
+                        p2Sets: this.state.p2Sets,
+                        setHistory: this.state.setHistory
                     });
                 }
             } else if (this.state.gameState === "options") {
@@ -38537,6 +38539,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _SetTable = __webpack_require__(274);
+
+var _SetTable2 = _interopRequireDefault(_SetTable);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38697,20 +38703,16 @@ var Results = function (_Component) {
                     _react2.default.createElement(
                         "div",
                         { className: "col text-center" },
-                        "Game Over"
+                        "Sets"
                     )
                 ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col text-center" },
-                        this.renderWinner(),
-                        " Wins!"
-                    )
-                ),
-                _react2.default.createElement("br", null),
+                _react2.default.createElement(_SetTable2.default, {
+                    setHistory: this.props.setHistory,
+                    p1Legs: this.props.p1Legs,
+                    p2Legs: this.props.p2Legs,
+                    p1Sets: this.props.p1Sets,
+                    p2Sets: this.props.p2Sets
+                }),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
@@ -48468,6 +48470,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _SetTable = __webpack_require__(274);
+
+var _SetTable2 = _interopRequireDefault(_SetTable);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48794,18 +48800,16 @@ var Results = function (_Component) {
                             { className: "row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-sm-12 col-md-3 offset-md-3 text-center number p2-multiple" },
+                                { className: "col-6 col-md-3 offset-md-3 text-center number p2-multiple" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
-                                            _this2.props.gameX01Reset();
-                                        } },
+                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
                                     "Reset Set"
                                 )
                             ),
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-sm-12 col-md-3 text-center number p1-multiple" },
+                                { className: "col-6 col-md-3 text-center number p1-multiple" },
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn", onClick: function onClick() {
@@ -48853,29 +48857,27 @@ var Results = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var _this3 = this;
+
             return _react2.default.createElement(
                 "div",
-                { className: "container-fluid results-screen" },
+                { className: "results-screen" },
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col text-center" },
-                        "Game Over"
+                        { className: "col set-header text-center" },
+                        "Sets"
                     )
                 ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col text-center" },
-                        this.renderWinner(),
-                        " Wins!"
-                    )
-                ),
-                _react2.default.createElement("br", null),
+                _react2.default.createElement(_SetTable2.default, {
+                    setHistory: this.props.setHistory,
+                    p1Legs: this.props.p1Legs,
+                    p2Legs: this.props.p2Legs,
+                    p1Sets: this.props.p1Sets,
+                    p2Sets: this.props.p2Sets
+                }),
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
@@ -48923,7 +48925,57 @@ var Results = function (_Component) {
                         )
                     )
                 ),
-                this.buttonsRender()
+                _react2.default.createElement("br", null),
+                this.buttonsRender(),
+                _react2.default.createElement(
+                    "div",
+                    { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "modal-dialog", role: "document" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "modal-content" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-header" },
+                                _react2.default.createElement(
+                                    "h5",
+                                    { className: "modal-title", id: "reloadModalLabel" },
+                                    "Start Set Over"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-body" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal" },
+                                            "No"
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col text-center" },
+                                        _react2.default.createElement(
+                                            "button",
+                                            { type: "button", className: "btn btn-success", "data-dismiss": "modal", onClick: function onClick() {
+                                                    _this3.props.gameX01Reset();
+                                                } },
+                                            "Yes"
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
             );
         }
     }]);
@@ -52290,6 +52342,703 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SetTable = function (_Component) {
+    _inherits(SetTable, _Component);
+
+    function SetTable() {
+        _classCallCheck(this, SetTable);
+
+        var _this = _possibleConstructorReturn(this, (SetTable.__proto__ || Object.getPrototypeOf(SetTable)).call(this));
+
+        _this.legNumberRender = _this.legNumberRender.bind(_this);
+        _this.tableRender = _this.tableRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(SetTable, [{
+        key: 'legNumberRender',
+        value: function legNumberRender() {
+            var set = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+            var player = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+            var setHistory = this.props.setHistory;
+            var playerLegs = eval('this.props.' + player + 'Legs');
+            console.log(setHistory);
+            console.log(set);
+            if (player === 'p1' && setHistory.length >= set) {
+                return setHistory[set - 1].p1;
+            } else if (player === 'p2' && setHistory.length >= set) {
+                return setHistory[set - 1].p2;
+            } else if (setHistory.length === set - 1) {
+                return playerLegs;
+            } else {
+                return '-';
+            }
+        }
+    }, {
+        key: 'tableRender',
+        value: function tableRender() {
+            var setNumber = parseInt(localStorage.getItem('sets'));
+            switch (setNumber) {
+                case 3:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1', 'p2')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2', 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+
+                case 5:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 7:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 9:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(8, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(9, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(8, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(9, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 11:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col col-md-10 offset-md-1 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(8, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(9, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(10, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(11, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(8, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(9, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(10, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(11, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 13:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col col-md-6 offset-md-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(8, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(9, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(10, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(11, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(12, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(13, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(8, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(9, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(10, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(11, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(12, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(13, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'row text-center' },
+                this.tableRender()
+            );
+        }
+    }]);
+
+    return SetTable;
+}(_react.Component);
+
+exports.default = SetTable;
 
 /***/ })
 /******/ ]);
