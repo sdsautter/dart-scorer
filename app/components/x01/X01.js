@@ -434,10 +434,14 @@ export default class X01 extends Component {
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
         this.setState({ p1RoundStartScore: [] });
+        this.setState({ p1RoundScores: [] });
+
 
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
         this.setState({ p2RoundStartScore: [] })
+        this.setState({ p2RoundScores: [] });
+        this.setState({ throwLog: [] });
 
         if (this.state.gameOptions === "dido") {
             this.setState({ p1DoubleIn: false });
@@ -458,15 +462,18 @@ export default class X01 extends Component {
 
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
-        this.setState({ p1RoundStartScore: [] });
+        this.setState({ p1RoundStartScore: [this.state.x01Game] });
+        this.setState({ p1RoundScores: [] });
         this.setState({ p1Legs: 0 });
         this.setState({ p1Sets: 0 });
 
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
-        this.setState({ p2RoundStartScore: [] });
+        this.setState({ p2RoundStartScore: [this.state.x01Game] });
+        this.setState({ p2RoundScores: [] });
         this.setState({ p2Legs: 0 });
         this.setState({ p2Sets: 0 });
+        this.setState({ throwLog: [] })
 
         if (this.state.gameOptions === "dido") {
             this.setState({ p1DoubleIn: false });
@@ -990,6 +997,10 @@ export default class X01 extends Component {
                     gameStateOver={this.gameStateOver}
                     gameOverModal={this.state.gameOverModal}
                     undoGameOver={this.undoGameOver}
+                    p1RoundStartScore={this.state.p1RoundStartScore}
+                    p1RoundScores={this.state.p1RoundScores}
+                    p2RoundStartScore={this.state.p2RoundStartScore}
+                    p2RoundScores={this.state.p2RoundScores}
                 />
 
             )

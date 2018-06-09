@@ -90,6 +90,10 @@ export default class Scoreboard extends Component {
                         undoGameOver={this.props.undoGameOver}
                         singleGesture={this.props.singleGesture}
                         multipleGesture={this.props.multipleGesture}
+                        p1RoundStartScore={this.props.p1RoundStartScore}
+                        p1RoundScores={this.props.p1RoundScores}
+                        p2RoundStartScore={this.props.p2RoundStartScore}
+                        p2RoundScores={this.props.p2RoundScores}
                     />
                 </div>
             )
