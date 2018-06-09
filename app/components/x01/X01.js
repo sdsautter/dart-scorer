@@ -21,6 +21,7 @@ export default class X01 extends Component {
             throwLog: [],
             setHistory: [],
             gameOverModal: false,
+            firstWinner: '',
 
             botGame: true,
             botDifficulty: '',
@@ -399,7 +400,7 @@ export default class X01 extends Component {
 
     continueSet() {
         let activeThrower;
-        const firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+        const firstWinner = this.state.firstWinner;
         const evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
         const evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
 
@@ -751,7 +752,8 @@ export default class X01 extends Component {
         let winnerLegs = parseInt(eval(`this.state.${winner}Legs`));
         const loserLegs = parseInt(eval(`this.state.${loser}Legs`));
         let winnerSets = parseInt(eval(`this.state.${winner}Sets`));
-        const legSettings = localStorage.getItem('legs');
+        let legSettings = parseInt(localStorage.getItem('legs'));
+        legSettings = Math.ceil(legSettings / 2);
 
         winnerLegs = winnerLegs + 1;
         winnerSets = winnerSets + 1;
@@ -777,7 +779,13 @@ export default class X01 extends Component {
             src: ['assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
-        this.addLeg();
+        if (this.state.firstWinner === '') {
+            this.setState({ firstWinner: this.state.gameWinner }, () => {
+                this.addLeg();
+            });
+        } else {
+            this.addLeg();
+        }
         if (localStorage.getItem('sounds') === 'on') { gameOverSound.play(); }
         this.setState({ gameState: "over" });
     }
@@ -811,7 +819,7 @@ export default class X01 extends Component {
     }
 
     undo() {
-        if (this.state.p1Throws > 0) {
+        if (this.state.throwLog.length > 0) {
             if (this.state.activeThrows === 0) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {

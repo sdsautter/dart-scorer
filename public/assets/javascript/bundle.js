@@ -7032,6 +7032,7 @@ var Cricket = function (_Component) {
             throwLog: [],
             gameOverModal: false,
             setHistory: [],
+            firstWinner: '',
 
             botGame: false,
             botDifficulty: "",
@@ -7112,7 +7113,7 @@ var Cricket = function (_Component) {
         key: "continueSet",
         value: function continueSet() {
             var activeThrower = void 0;
-            var firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+            var firstWinner = this.state.firstWinner;
             var evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
             var evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
 
@@ -7285,7 +7286,7 @@ var Cricket = function (_Component) {
         value: async function undo() {
             var playerThrows = this.state.activeThrower + "Throws";
             var throwsState = eval("this.state." + playerThrows);
-            if (this.state.p1Throws > 0) {
+            if (this.state.throwLog.length > 0) {
                 if (this.state.activeThrows === 0) {
                     this.setThrowNumber(2);
                     if (this.state.activeThrower === "p1") {
@@ -8194,7 +8195,8 @@ var Cricket = function (_Component) {
             var winnerLegs = parseInt(eval("this.state." + winner + "Legs"));
             var loserLegs = parseInt(eval("this.state." + loser + "Legs"));
             var winnerSets = parseInt(eval("this.state." + winner + "Sets"));
-            var legSettings = localStorage.getItem('legs');
+            var legSettings = parseInt(localStorage.getItem('legs'));
+            legSettings = Math.ceil(legSettings / 2);
 
             winnerLegs = winnerLegs + 1;
             winnerSets = winnerSets + 1;
@@ -8215,12 +8217,20 @@ var Cricket = function (_Component) {
     }, {
         key: "gameStateOver",
         value: function gameStateOver() {
+            var _this8 = this;
+
             var gameOverSound = new _howler.Howl({
                 src: ['assets/sounds/game_over.mp3']
             });
             _howler.Howler.volume(.4);
 
-            this.addLeg();
+            if (this.state.firstWinner === '') {
+                this.setState({ firstWinner: this.state.gameWinner }, function () {
+                    _this8.addLeg();
+                });
+            } else {
+                this.addLeg();
+            }
             this.showGameOverModal(false);
             this.setState({ gameState: "over" });
             if (localStorage.getItem('sounds') === 'on') {
@@ -8252,19 +8262,19 @@ var Cricket = function (_Component) {
     }, {
         key: "addThrow",
         value: function addThrow() {
-            var _this8 = this;
+            var _this9 = this;
 
             var thrower = this.state.activeThrower;
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
             new Promise(function () {
-                _this8.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
+                _this9.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
             });
         }
     }, {
         key: "addMarks",
         value: function addMarks(number, multiplier) {
-            var _this9 = this;
+            var _this10 = this;
 
             var otherThrower = this.state.activeThrower === 'p1' ? 'p2' : 'p1';
             var playerMarks = eval("this.state." + this.state.activeThrower + number);
@@ -8315,16 +8325,16 @@ var Cricket = function (_Component) {
             }
             var activeMarks = marks + newMark;
             new Promise(function () {
-                return _this9.setState({ activeMarks: activeMarks });
+                return _this10.setState({ activeMarks: activeMarks });
             });
         }
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this10 = this;
+            var _this11 = this;
 
             setTimeout(function () {
-                _this10.setState({ activeMarks: 0 });
+                _this11.setState({ activeMarks: 0 });
             }, 1000);
         }
     }, {
@@ -9526,6 +9536,7 @@ var X01 = function (_Component) {
             throwLog: [],
             setHistory: [],
             gameOverModal: false,
+            firstWinner: '',
 
             botGame: true,
             botDifficulty: '',
@@ -9923,7 +9934,7 @@ var X01 = function (_Component) {
         key: "continueSet",
         value: function continueSet() {
             var activeThrower = void 0;
-            var firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+            var firstWinner = this.state.firstWinner;
             var evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
             var evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
 
@@ -10299,7 +10310,8 @@ var X01 = function (_Component) {
             var winnerLegs = parseInt(eval("this.state." + winner + "Legs"));
             var loserLegs = parseInt(eval("this.state." + loser + "Legs"));
             var winnerSets = parseInt(eval("this.state." + winner + "Sets"));
-            var legSettings = localStorage.getItem('legs');
+            var legSettings = parseInt(localStorage.getItem('legs'));
+            legSettings = Math.ceil(legSettings / 2);
 
             winnerLegs = winnerLegs + 1;
             winnerSets = winnerSets + 1;
@@ -10320,12 +10332,20 @@ var X01 = function (_Component) {
     }, {
         key: "gameStateOver",
         value: function gameStateOver() {
+            var _this4 = this;
+
             Howler.volume(.4);
             var gameOverSound = new Howl({
                 src: ['assets/sounds/game_over.mp3']
             });
             this.showGameOverModal(false);
-            this.addLeg();
+            if (this.state.firstWinner === '') {
+                this.setState({ firstWinner: this.state.gameWinner }, function () {
+                    _this4.addLeg();
+                });
+            } else {
+                this.addLeg();
+            }
             if (localStorage.getItem('sounds') === 'on') {
                 gameOverSound.play();
             }
@@ -10368,7 +10388,7 @@ var X01 = function (_Component) {
     }, {
         key: "undo",
         value: function undo() {
-            if (this.state.p1Throws > 0) {
+            if (this.state.throwLog.length > 0) {
                 if (this.state.activeThrows === 0) {
                     this.setThrowNumber(2);
                     if (this.state.activeThrower === "p1") {
@@ -38570,6 +38590,7 @@ var Results = function (_Component) {
             var _this2 = this;
 
             var setSettings = parseInt(localStorage.getItem('sets'));
+            setSettings = Math.ceil(setSettings / 2);
 
             if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
                 return _react2.default.createElement(
@@ -48708,6 +48729,7 @@ var Results = function (_Component) {
             var _this2 = this;
 
             var setSettings = parseInt(localStorage.getItem('sets'));
+            setSettings = Math.ceil(setSettings / 2);
 
             if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
                 return _react2.default.createElement(
