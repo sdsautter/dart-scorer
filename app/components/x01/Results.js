@@ -187,8 +187,9 @@ export default class Results extends Component {
     }
 
     buttonsRender() {
-        const setSettings = parseInt(localStorage.getItem('sets'));
-
+        let setSettings = parseInt(localStorage.getItem('sets'));
+        setSettings = Math.ceil(setSettings / 2);
+        
         if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
             return (
                 <div className='row'>
