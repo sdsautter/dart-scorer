@@ -7031,6 +7031,7 @@ var Cricket = function (_Component) {
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
+            setHistory: [],
 
             botGame: false,
             botDifficulty: "",
@@ -7049,6 +7050,8 @@ var Cricket = function (_Component) {
             p17m: 0,
             p18m: 0,
             p19m: 0,
+            p1Legs: 0,
+            p1Sets: 0,
 
             p220: 0,
             p219: 0,
@@ -7063,10 +7066,14 @@ var Cricket = function (_Component) {
             p26m: 0,
             p27m: 0,
             p28m: 0,
-            p29m: 0
+            p29m: 0,
+            p2Legs: 0,
+            p2Sets: 0
 
             //Binding functions to change the states
         };_this.score = _this.score.bind(_this);
+        _this.addLeg = _this.addLeg.bind(_this);
+        _this.continueSet = _this.continueSet.bind(_this);
         _this.soundLogic = _this.soundLogic.bind(_this);
         _this.botLogic = _this.botLogic.bind(_this);
         _this.botNumberHit = _this.botNumberHit.bind(_this);
@@ -7102,9 +7109,34 @@ var Cricket = function (_Component) {
     }
 
     _createClass(Cricket, [{
-        key: "gameCricketReset",
-        value: function gameCricketReset() {
-            this.setState({ activeThrower: "p1" });
+        key: "continueSet",
+        value: function continueSet() {
+            var activeThrower = void 0;
+            var firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+            var evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
+            var evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
+
+            switch (evenSet) {
+                case true:
+                    if (evenLeg) {
+                        activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                    } else {
+                        activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+                    }
+                    break;
+                case false:
+                    if (evenLeg) {
+                        activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+                    } else {
+                        activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
             this.setState({ activeMarks: 0 });
             this.setState({ gameState: "playing" });
@@ -7140,6 +7172,50 @@ var Cricket = function (_Component) {
             this.setState({ p27m: 0 });
             this.setState({ p28m: 0 });
             this.setState({ p29m: 0 });
+        }
+    }, {
+        key: "gameCricketReset",
+        value: function gameCricketReset() {
+            this.setState({ activeThrower: "p1" });
+            this.setState({ activeThrows: 0 });
+            this.setState({ activeMarks: 0 });
+            this.setState({ gameState: "playing" });
+            this.setState({ gameWinner: {} });
+            this.setState({ gameOverModal: false });
+
+            this.setState({ p120: 0 });
+            this.setState({ p119: 0 });
+            this.setState({ p118: 0 });
+            this.setState({ p117: 0 });
+            this.setState({ p116: 0 });
+            this.setState({ p115: 0 });
+            this.setState({ p125: 0 });
+            this.setState({ p1Score: 0 });
+            this.setState({ p1Throws: 0 });
+            this.setState({ p15m: 0 });
+            this.setState({ p16m: 0 });
+            this.setState({ p17m: 0 });
+            this.setState({ p18m: 0 });
+            this.setState({ p19m: 0 });
+            this.setState({ p1Legs: 0 });
+            this.setState({ p1Sets: 0 });
+
+            this.setState({ p220: 0 });
+            this.setState({ p219: 0 });
+            this.setState({ p218: 0 });
+            this.setState({ p217: 0 });
+            this.setState({ p216: 0 });
+            this.setState({ p215: 0 });
+            this.setState({ p225: 0 });
+            this.setState({ p2Score: 0 });
+            this.setState({ p2Throws: 0 });
+            this.setState({ p25m: 0 });
+            this.setState({ p26m: 0 });
+            this.setState({ p27m: 0 });
+            this.setState({ p28m: 0 });
+            this.setState({ p29m: 0 });
+            this.setState({ p2Legs: 0 });
+            this.setState({ p2Sets: 0 });
         }
     }, {
         key: "setBotGame",
@@ -8106,12 +8182,41 @@ var Cricket = function (_Component) {
             return this.state.p2Score;
         }
     }, {
+        key: "addLeg",
+        value: function addLeg() {
+            var winner = this.state.gameWinner;
+            var loser = winner === 'p1' ? 'p2' : 'p1';
+            var setHistory = this.state.setHistory;
+            var winnerLegs = parseInt(eval("this.state." + winner + "Legs"));
+            var loserLegs = parseInt(eval("this.state." + loser + "Legs"));
+            var winnerSets = parseInt(eval("this.state." + winner + "Sets"));
+            var legSettings = localStorage.getItem('legs');
+
+            winnerLegs = winnerLegs + 1;
+            winnerSets = winnerSets + 1;
+
+            if (winnerLegs < legSettings) {
+                this.setState(_defineProperty({}, winner + "Legs", winnerLegs));
+            } else if (winnerLegs >= legSettings) {
+                setHistory.push({
+                    p1: winner === 'p1' ? winnerLegs : loserLegs,
+                    p2: loser === 'p2' ? loserLegs : winnerLegs
+                });
+                this.setState({ setHistory: setHistory });
+                this.setState(_defineProperty({}, winner + "Legs", 0));
+                this.setState(_defineProperty({}, loser + "Legs", 0));
+                this.setState(_defineProperty({}, winner + "Sets", winnerSets));
+            }
+        }
+    }, {
         key: "gameStateOver",
         value: function gameStateOver() {
             var gameOverSound = new _howler.Howl({
                 src: ['assets/sounds/game_over.mp3']
             });
             _howler.Howler.volume(.4);
+
+            this.addLeg();
             this.showGameOverModal(false);
             this.setState({ gameState: "over" });
             if (localStorage.getItem('sounds') === 'on') {
@@ -8288,7 +8393,12 @@ var Cricket = function (_Component) {
                         p26m: this.state.p26m,
                         p27m: this.state.p27m,
                         p28m: this.state.p28m,
-                        p29m: this.state.p29m
+                        p29m: this.state.p29m,
+                        p1Legs: this.state.p1Legs,
+                        p1Sets: this.state.p1Sets,
+                        p2Legs: this.state.p2Legs,
+                        p2Sets: this.state.p2Sets,
+                        continueSet: this.continueSet
                     });
                 }
             } else if (this.state.gameState === "opponent") {
@@ -8969,18 +9079,35 @@ var SettingsMenu = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (SettingsMenu.__proto__ || Object.getPrototypeOf(SettingsMenu)).call(this));
 
+        _this.state = {
+            legs: 1,
+            sets: 3
+        };
+
         if (localStorage.getItem('sounds') !== 'off') {
             localStorage.setItem('sounds', 'on');
         }
         if (localStorage.getItem('multiple') !== 'horizontal') {
             localStorage.setItem('multiple', 'vertical');
         }
+
+        if (localStorage.getItem('legs') == null) {
+            localStorage.setItem('legs', 1);
+        }
+
+        if (localStorage.getItem('sets') == null) {
+            localStorage.setItem('sets', 3);
+        }
+
         _this.soundToggle = _this.soundToggle.bind(_this);
         _this.settingsMenuRender = _this.settingsMenuRender.bind(_this);
         _this.multipleToggle = _this.multipleToggle.bind(_this);
         _this.soundToggleRender = _this.soundToggleRender.bind(_this);
         _this.multipleToggleRender = _this.multipleToggleRender.bind(_this);
-
+        _this.legRender = _this.legRender.bind(_this);
+        _this.setRender = _this.setRender.bind(_this);
+        _this.setSetNumber = _this.setSetNumber.bind(_this);
+        _this.setLegNumber = _this.setLegNumber.bind(_this);
         return _this;
     }
 
@@ -9058,8 +9185,40 @@ var SettingsMenu = function (_Component) {
             }
         }
     }, {
+        key: 'legRender',
+        value: function legRender(number) {
+            if (parseInt(localStorage.getItem('legs')) === number) {
+                return 'col-6 col-md-3 leg-options leg-selected';
+            } else {
+                return 'col-6 col-md-3 leg-options leg-faded';
+            }
+        }
+    }, {
+        key: 'setLegNumber',
+        value: function setLegNumber(legs) {
+            this.setState({ legs: legs });
+            localStorage.setItem('legs', legs);
+        }
+    }, {
+        key: 'setRender',
+        value: function setRender(number) {
+            if (parseInt(localStorage.getItem('sets')) === number) {
+                return 'col-4 set-option set-selected';
+            } else {
+                return 'col-4 set-option set-faded';
+            }
+        }
+    }, {
+        key: 'setSetNumber',
+        value: function setSetNumber(sets) {
+            this.setState({ sets: sets });
+            localStorage.setItem('sets', sets);
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -9090,77 +9249,166 @@ var SettingsMenu = function (_Component) {
                                     { className: 'row' },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'col-12' },
+                                        { className: 'col text-center' },
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'row' },
+                                            { className: 'row sound-options' },
                                             _react2.default.createElement(
                                                 'div',
-                                                { className: 'col text-center' },
+                                                { className: 'col-12 sound-header' },
+                                                'Sounds'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
                                                 _react2.default.createElement(
                                                     'div',
-                                                    { className: 'row sound-options' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'col-12' },
-                                                        _react2.default.createElement(
-                                                            'h5',
-                                                            null,
-                                                            'Sounds'
-                                                        )
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'row' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-right' },
-                                                            'On'
-                                                        ),
-                                                        this.soundToggleRender(),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-left' },
-                                                            'Off'
-                                                        )
-                                                    )
+                                                    { className: 'col-4 text-right' },
+                                                    'On'
                                                 ),
-                                                _react2.default.createElement('br', null),
+                                                this.soundToggleRender(),
                                                 _react2.default.createElement(
                                                     'div',
-                                                    { className: 'row gesture-options' },
+                                                    { className: 'col-4 text-left' },
+                                                    'Off'
+                                                )
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'row gesture-options' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col-12 swipe-header' },
+                                                'Swipe Direction'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col-4 swipe-option text-center' },
+                                                'Horizontal'
+                                            ),
+                                            this.multipleToggleRender(),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col-4 swipe-option text-center' },
+                                                'Vertical'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'row set-options' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col-5' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'row' },
                                                     _react2.default.createElement(
                                                         'div',
-                                                        { className: 'col-12' },
-                                                        _react2.default.createElement(
-                                                            'h5',
-                                                            null,
-                                                            'Gestures'
-                                                        )
+                                                        { className: 'col-12 set-header' },
+                                                        'Legs'
                                                     ),
                                                     _react2.default.createElement(
                                                         'div',
-                                                        { className: 'row' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-12 option' },
-                                                            _react2.default.createElement(
-                                                                'h6',
-                                                                null,
-                                                                'Swipe Direction'
-                                                            )
-                                                        ),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-right' },
-                                                            'Horizontal'
-                                                        ),
-                                                        this.multipleToggleRender(),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'col-4 text-left' },
-                                                            'Vertical'
-                                                        )
+                                                        { className: this.legRender(1), onClick: function onClick() {
+                                                                _this2.setLegNumber(1);
+                                                            } },
+                                                        '1'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.legRender(3), onClick: function onClick() {
+                                                                _this2.setLegNumber(3);
+                                                            } },
+                                                        '3'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.legRender(5), onClick: function onClick() {
+                                                                _this2.setLegNumber(5);
+                                                            } },
+                                                        '5'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.legRender(7), onClick: function onClick() {
+                                                                _this2.setLegNumber(7);
+                                                            } },
+                                                        '7'
+                                                    )
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col-2 best-of text-center' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'row' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'col-12' },
+                                                        'Best Of'
+                                                    )
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'col-5' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'row' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'col-12 set-header' },
+                                                        'Sets'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        {
+                                                            className: this.setRender(3),
+                                                            onClick: function onClick() {
+                                                                _this2.setSetNumber(3);
+                                                            }
+                                                        },
+                                                        '3'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        {
+                                                            className: this.setRender(5),
+                                                            onClick: function onClick() {
+                                                                _this2.setSetNumber(5);
+                                                            }
+                                                        },
+                                                        '5'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.setRender(7), onClick: function onClick() {
+                                                                _this2.setSetNumber(7);
+                                                            } },
+                                                        '7'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.setRender(9), onClick: function onClick() {
+                                                                _this2.setSetNumber(9);
+                                                            } },
+                                                        '9'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.setRender(11), onClick: function onClick() {
+                                                                _this2.setSetNumber(11);
+                                                            } },
+                                                        '11'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: this.setRender(13), onClick: function onClick() {
+                                                                _this2.setSetNumber(13);
+                                                            } },
+                                                        '13'
                                                     )
                                                 )
                                             )
@@ -9272,6 +9520,7 @@ var X01 = function (_Component) {
             gameState: "pick",
             gameWinner: {},
             throwLog: [],
+            setHistory: [],
             gameOverModal: false,
 
             botGame: true,
@@ -9282,12 +9531,16 @@ var X01 = function (_Component) {
             p1Throws: 0,
             p1RoundStartScore: [],
             p1RoundScores: [],
+            p1Legs: 0,
+            p1Sets: 0,
 
             p2DoubleIn: false,
             p2Score: 0,
             p2Throws: 0,
             p2RoundStartScore: [],
             p2RoundScores: [],
+            p2Legs: 0,
+            p2Sets: 0,
 
             singleGesture: 'press',
             multipleGesture: 'horizontal'
@@ -9295,6 +9548,8 @@ var X01 = function (_Component) {
             //Binding functions to change the states       
         };_this.doubleInOptionsCheck = _this.doubleInOptionsCheck.bind(_this);
         _this.undoGameOver = _this.undoGameOver.bind(_this);
+        _this.addLeg = _this.addLeg.bind(_this);
+        _this.continueSet = _this.continueSet.bind(_this);
         _this.doubleInTrue = _this.doubleInTrue.bind(_this);
         _this.gameX01Reset = _this.gameX01Reset.bind(_this);
         _this.botDartShot = _this.botDartShot.bind(_this);
@@ -9663,9 +9918,34 @@ var X01 = function (_Component) {
             }
         }
     }, {
-        key: "gameX01Reset",
-        value: function gameX01Reset() {
-            this.setState({ activeThrower: "p1" });
+        key: "continueSet",
+        value: function continueSet() {
+            var activeThrower = void 0;
+            var firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+            var evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
+            var evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
+
+            switch (evenSet) {
+                case true:
+                    if (evenLeg) {
+                        activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                    } else {
+                        activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+                    }
+                    break;
+                case false:
+                    if (evenLeg) {
+                        activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+                    } else {
+                        activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
             this.setState({ gameWinner: {} });
@@ -9678,6 +9958,32 @@ var X01 = function (_Component) {
             this.setState({ p2Score: this.state.x01Game });
             this.setState({ p2Throws: 0 });
             this.setState({ p2RoundStartScore: [] });
+
+            if (this.state.gameOptions === "dido") {
+                this.setState({ p1DoubleIn: false });
+                this.setState({ p2DoubleIn: false });
+            }
+        }
+    }, {
+        key: "gameX01Reset",
+        value: function gameX01Reset() {
+            this.setState({ activeThrower: "p1" });
+            this.setState({ activeThrows: 0 });
+            this.setState({ gameState: "playing" });
+            this.setState({ gameWinner: {} });
+            this.setState({ gameOverModal: false });
+
+            this.setState({ p1Score: this.state.x01Game });
+            this.setState({ p1Throws: 0 });
+            this.setState({ p1RoundStartScore: [] });
+            this.setState({ p1Legs: 0 });
+            this.setState({ p1Sets: 0 });
+
+            this.setState({ p2Score: this.state.x01Game });
+            this.setState({ p2Throws: 0 });
+            this.setState({ p2RoundStartScore: [] });
+            this.setState({ p2Legs: 0 });
+            this.setState({ p2Sets: 0 });
 
             if (this.state.gameOptions === "dido") {
                 this.setState({ p1DoubleIn: false });
@@ -9979,6 +10285,33 @@ var X01 = function (_Component) {
             return this.state.p2Score;
         }
     }, {
+        key: "addLeg",
+        value: function addLeg() {
+            var winner = this.state.gameWinner;
+            var loser = winner === 'p1' ? 'p2' : 'p1';
+            var setHistory = this.state.setHistory;
+            var winnerLegs = parseInt(eval("this.state." + winner + "Legs"));
+            var loserLegs = parseInt(eval("this.state." + loser + "Legs"));
+            var winnerSets = parseInt(eval("this.state." + winner + "Sets"));
+            var legSettings = localStorage.getItem('legs');
+
+            winnerLegs = winnerLegs + 1;
+            winnerSets = winnerSets + 1;
+
+            if (winnerLegs < legSettings) {
+                this.setState(_defineProperty({}, winner + "Legs", winnerLegs));
+            } else if (winnerLegs >= legSettings) {
+                setHistory.push({
+                    p1: winner === 'p1' ? winnerLegs : loserLegs,
+                    p2: loser === 'p2' ? loserLegs : winnerLegs
+                });
+                this.setState({ setHistory: setHistory });
+                this.setState(_defineProperty({}, winner + "Legs", 0));
+                this.setState(_defineProperty({}, loser + "Legs", 0));
+                this.setState(_defineProperty({}, winner + "Sets", winnerSets));
+            }
+        }
+    }, {
         key: "gameStateOver",
         value: function gameStateOver() {
             Howler.volume(.4);
@@ -9986,6 +10319,7 @@ var X01 = function (_Component) {
                 src: ['assets/sounds/game_over.mp3']
             });
             this.showGameOverModal(false);
+            this.addLeg();
             if (localStorage.getItem('sounds') === 'on') {
                 gameOverSound.play();
             }
@@ -10206,7 +10540,12 @@ var X01 = function (_Component) {
                         p1Throws: this.state.p1Throws,
                         p2Throws: this.state.p2Throws,
                         p1RoundScores: this.state.p1RoundScores,
-                        p2RoundScores: this.state.p2RoundScores
+                        p2RoundScores: this.state.p2RoundScores,
+                        continueSet: this.continueSet,
+                        p1Sets: this.state.p1Sets,
+                        p1Legs: this.state.p1Legs,
+                        p2Legs: this.state.p2Legs,
+                        p2Sets: this.state.p2Sets
                     });
                 }
             } else if (this.state.gameState === "options") {
@@ -38191,6 +38530,7 @@ var Results = function (_Component) {
         _this.renderWinner = _this.renderWinner.bind(_this);
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
+        _this.buttonsRender = _this.buttonsRender.bind(_this);
         return _this;
     }
 
@@ -38219,10 +38559,111 @@ var Results = function (_Component) {
             return eval("this.props." + player + marks + "m");
         }
     }, {
-        key: "render",
-        value: function render() {
+        key: "buttonsRender",
+        value: function buttonsRender() {
             var _this2 = this;
 
+            var setSettings = parseInt(localStorage.getItem('sets'));
+            console.log(this.props.p1Sets);
+
+            console.log(setSettings);
+
+            if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-12" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-6 offset-md-3 col-sm-12 text-center miss" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.gameCricketReset();
+                                        } },
+                                    "Play Again"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement("br", null),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/x01');
+                                        } },
+                                    "Play x01"
+                                )
+                            )
+                        )
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-12" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-3 col-sm-12 offset-md-3 text-center p2-multiple" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.gameCricketReset();
+                                        } },
+                                    "Reset Set"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-3 col-sm-12 text-center p1-multiple" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.continueSet();
+                                        } },
+                                    "Continue Set"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement("br", null),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/x01');
+                                        } },
+                                    "Play x01"
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+        }
+    }, {
+        key: "render",
+        value: function render() {
             return _react2.default.createElement(
                 "div",
                 { className: "container-fluid results-screen" },
@@ -38381,37 +38822,7 @@ var Results = function (_Component) {
                     )
                 ),
                 _react2.default.createElement("br", null),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-md-6 offset-md-3 col-sm-12 text-center miss" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    _this2.props.gameCricketReset();
-                                } },
-                            "Play Again"
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement("br", null),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/x01');
-                                } },
-                            "Play x01"
-                        )
-                    )
-                )
+                this.buttonsRender()
             );
         }
     }]);
@@ -48071,6 +48482,7 @@ var Results = function (_Component) {
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
         _this.setScores = _this.setScores.bind(_this);
+        _this.buttonsRender = _this.buttonsRender.bind(_this);
         _this.scoresRender = _this.scoresRender.bind(_this);
         return _this;
     }
@@ -48290,10 +48702,134 @@ var Results = function (_Component) {
             return this.props.p2Throws;
         }
     }, {
-        key: "render",
-        value: function render() {
+        key: "buttonsRender",
+        value: function buttonsRender() {
             var _this2 = this;
 
+            var setSettings = parseInt(localStorage.getItem('sets'));
+
+            if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-12" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-sm-12 col-md-3 offset-md-3 text-center miss" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.gameX01Reset();
+                                        } },
+                                    "Play Again"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-sm-12 col-md-3 text-center miss" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/x01');
+                                        } },
+                                    "Pick New x01"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement("br", null),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/cricket');
+                                        } },
+                                    "Play Cricket"
+                                )
+                            )
+                        )
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-12" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-6 offset-3 text-center number" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.continueSet();
+                                        } },
+                                    "Continue Set"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-sm-12 col-md-3 offset-md-3 text-center miss" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            _this2.props.gameX01Reset();
+                                        } },
+                                    "Play Again"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-sm-12 col-md-3 text-center miss" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/x01');
+                                        } },
+                                    "Pick New x01"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement("br", null),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn", onClick: function onClick() {
+                                            location.assign('/cricket');
+                                        } },
+                                    "Play Cricket"
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+        }
+    }, {
+        key: "render",
+        value: function render() {
             return _react2.default.createElement(
                 "div",
                 { className: "container-fluid results-screen" },
@@ -48364,48 +48900,7 @@ var Results = function (_Component) {
                         )
                     )
                 ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-sm-12 col-md-3 offset-md-3 text-center miss" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    _this2.props.gameX01Reset();
-                                } },
-                            "Play Again"
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-sm-12 col-md-3 text-center miss" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/x01');
-                                } },
-                            "Pick New x01"
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    "div",
-                    { className: "row" },
-                    _react2.default.createElement("br", null),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
-                        _react2.default.createElement(
-                            "button",
-                            { type: "button", className: "btn", onClick: function onClick() {
-                                    location.assign('/cricket');
-                                } },
-                            "Play Cricket"
-                        )
-                    )
-                )
+                this.buttonsRender()
             );
         }
     }]);

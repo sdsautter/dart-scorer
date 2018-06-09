@@ -19,6 +19,7 @@ export default class X01 extends Component {
             gameState: "pick",
             gameWinner: {},
             throwLog: [],
+            setHistory: [],
             gameOverModal: false,
 
             botGame: true,
@@ -29,12 +30,16 @@ export default class X01 extends Component {
             p1Throws: 0,
             p1RoundStartScore: [],
             p1RoundScores: [],
+            p1Legs: 0,
+            p1Sets: 0,
 
             p2DoubleIn: false,
             p2Score: 0,
             p2Throws: 0,
             p2RoundStartScore: [],
             p2RoundScores: [],
+            p2Legs: 0,
+            p2Sets: 0,
 
             singleGesture: 'press',
             multipleGesture: 'horizontal'
@@ -43,6 +48,8 @@ export default class X01 extends Component {
         //Binding functions to change the states       
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
         this.undoGameOver = this.undoGameOver.bind(this);
+        this.addLeg = this.addLeg.bind(this);
+        this.continueSet = this.continueSet.bind(this);
         this.doubleInTrue = this.doubleInTrue.bind(this);
         this.gameX01Reset = this.gameX01Reset.bind(this);
         this.botDartShot = this.botDartShot.bind(this);
@@ -392,8 +399,34 @@ export default class X01 extends Component {
         }
     }
 
-    gameX01Reset() {
-        this.setState({ activeThrower: "p1" });
+    continueSet() {
+        let activeThrower;
+        const firstWinner = this.state.setHistory[0].p1 > this.state.setHistory[0].p2 ? 'p1' : 'p2';
+        const evenLeg = (this.state.p1Legs + this.state.p2Legs) % 2 === 0;
+        const evenSet = (this.state.p1Sets + this.state.p2Sets) % 2 === 0;
+
+        switch (evenSet) {
+            case true:
+                if (evenLeg) {
+                    activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                } else {
+                    activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+
+                }
+                break;
+            case false:
+                if (evenLeg) {
+                    activeThrower = firstWinner === 'p1' ? 'p2' : 'p1';
+                } else {
+                    activeThrower = firstWinner === 'p1' ? 'p1' : 'p2';
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        this.setState({ activeThrower });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
@@ -406,6 +439,31 @@ export default class X01 extends Component {
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
         this.setState({ p2RoundStartScore: [] })
+
+        if (this.state.gameOptions === "dido") {
+            this.setState({ p1DoubleIn: false });
+            this.setState({ p2DoubleIn: false });
+        }
+    }
+
+    gameX01Reset() {
+        this.setState({ activeThrower: "p1" });
+        this.setState({ activeThrows: 0 });
+        this.setState({ gameState: "playing" });
+        this.setState({ gameWinner: {} });
+        this.setState({ gameOverModal: false });
+
+        this.setState({ p1Score: this.state.x01Game });
+        this.setState({ p1Throws: 0 });
+        this.setState({ p1RoundStartScore: [] });
+        this.setState({ p1Legs: 0 });
+        this.setState({ p1Sets: 0 });
+
+        this.setState({ p2Score: this.state.x01Game });
+        this.setState({ p2Throws: 0 });
+        this.setState({ p2RoundStartScore: [] });
+        this.setState({ p2Legs: 0 });
+        this.setState({ p2Sets: 0 });
 
         if (this.state.gameOptions === "dido") {
             this.setState({ p1DoubleIn: false });
@@ -684,12 +742,40 @@ export default class X01 extends Component {
         return this.state.p2Score;
     }
 
+    addLeg() {
+        const winner = this.state.gameWinner;
+        const loser = winner === 'p1' ? 'p2' : 'p1';
+        const setHistory = this.state.setHistory;
+        let winnerLegs = parseInt(eval(`this.state.${winner}Legs`));
+        const loserLegs = parseInt(eval(`this.state.${loser}Legs`));
+        let winnerSets = parseInt(eval(`this.state.${winner}Sets`));
+        const legSettings = localStorage.getItem('legs');
+
+        winnerLegs = winnerLegs + 1;
+        winnerSets = winnerSets + 1;
+
+        if (winnerLegs < legSettings) {
+            this.setState({ [`${winner}Legs`]: winnerLegs });
+        } else if (winnerLegs >= legSettings) {
+            setHistory.push({
+                p1: winner === 'p1' ? winnerLegs : loserLegs,
+                p2: loser === 'p2' ? loserLegs : winnerLegs
+            });
+            this.setState({ setHistory });
+            this.setState({ [`${winner}Legs`]: 0 });
+            this.setState({ [`${loser}Legs`]: 0 });
+            this.setState({ [`${winner}Sets`]: winnerSets })
+
+        }
+    }
+
     gameStateOver() {
         Howler.volume(.4);
         const gameOverSound = new Howl({
             src: ['assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
+        this.addLeg();
         if (localStorage.getItem('sounds') === 'on') { gameOverSound.play(); }
         this.setState({ gameState: "over" });
     }
@@ -907,6 +993,11 @@ export default class X01 extends Component {
                         p2Throws={this.state.p2Throws}
                         p1RoundScores={this.state.p1RoundScores}
                         p2RoundScores={this.state.p2RoundScores}
+                        continueSet={this.continueSet}
+                        p1Sets={this.state.p1Sets}
+                        p1Legs={this.state.p1Legs}
+                        p2Legs={this.state.p2Legs}
+                        p2Sets={this.state.p2Sets}
                     />
                 )
             }
