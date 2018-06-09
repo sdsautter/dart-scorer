@@ -52,8 +52,6 @@ export default class MobileGesture extends Component {
     gestureOptions(number) {
         const singleOption = localStorage.getItem('single');
         const multipleOption = localStorage.getItem('multiple');
-        console.log(singleOption);
-        console.log(multipleOption);
         if (multipleOption === 'horizontal') {
             return (
                 <Hammer onPress={() => {

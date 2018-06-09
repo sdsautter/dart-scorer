@@ -94,10 +94,8 @@ export default class X01 extends Component {
     }
 
     gestureSwitch(multiple) {
-        console.log(multiple);
         const localStorageItem = localStorage.getItem(multiple);
         let newState;
-        console.log(localStorageItem);
 
         switch (localStorageItem) {
             case 'press':
