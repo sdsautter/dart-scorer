@@ -32,9 +32,6 @@ export default class Results extends Component {
 
     buttonsRender() {
         const setSettings = parseInt(localStorage.getItem('sets'));
-        console.log(this.props.p1Sets);
-        
-        console.log(setSettings);
 
         if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
             return (

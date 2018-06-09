@@ -38562,9 +38562,6 @@ var Results = function (_Component) {
             var _this2 = this;
 
             var setSettings = parseInt(localStorage.getItem('sets'));
-            console.log(this.props.p1Sets);
-
-            console.log(setSettings);
 
             if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
                 return _react2.default.createElement(
