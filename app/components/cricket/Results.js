@@ -91,7 +91,7 @@ export default class Results extends Component {
 
     render() {
         return (
-            <div className="container-fluid results-screen">
+            <div className="results-screen">
                 <div className="row">
                     <div className="col text-center">
                         Sets
@@ -120,9 +120,8 @@ export default class Results extends Component {
                         Throws: {this.player2ThrowRender()}
                     </div>
                 </div>
-                <div className='row'>
+                <div className='row cricket-results'>
                     <div className='col-12'>
-                        <br />
                         <div className='row'>
                             <div className='col-4 text-right'>
                                 {this.renderMarks('p1', 5)}
