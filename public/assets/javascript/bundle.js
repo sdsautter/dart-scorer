@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./public/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 114);
+/******/ 	return __webpack_require__(__webpack_require__.s = 115);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -811,7 +811,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(224)();
+  module.exports = __webpack_require__(225)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -1336,7 +1336,7 @@ module.exports = emptyFunction;
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactDebugTool = __webpack_require__(140);
+  var ReactDebugTool = __webpack_require__(141);
   debugTool = ReactDebugTool;
 }
 
@@ -2665,14 +2665,14 @@ module.exports = PooledClass;
 var _assign = __webpack_require__(5);
 
 var ReactBaseClasses = __webpack_require__(68);
-var ReactChildren = __webpack_require__(116);
-var ReactDOMFactories = __webpack_require__(120);
+var ReactChildren = __webpack_require__(117);
+var ReactDOMFactories = __webpack_require__(121);
 var ReactElement = __webpack_require__(18);
-var ReactPropTypes = __webpack_require__(124);
-var ReactVersion = __webpack_require__(126);
+var ReactPropTypes = __webpack_require__(125);
+var ReactVersion = __webpack_require__(127);
 
-var createReactClass = __webpack_require__(127);
-var onlyChild = __webpack_require__(129);
+var createReactClass = __webpack_require__(128);
+var onlyChild = __webpack_require__(130);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
@@ -2844,7 +2844,7 @@ module.exports = reactProdInvariant;
 
 
 
-var ReactRef = __webpack_require__(138);
+var ReactRef = __webpack_require__(139);
 var ReactInstrumentation = __webpack_require__(12);
 
 var warning = __webpack_require__(3);
@@ -4673,10 +4673,10 @@ module.exports = escapeTextContentForBrowser;
 var _assign = __webpack_require__(5);
 
 var EventPluginRegistry = __webpack_require__(32);
-var ReactEventEmitterMixin = __webpack_require__(164);
+var ReactEventEmitterMixin = __webpack_require__(165);
 var ViewportMetrics = __webpack_require__(84);
 
-var getVendorPrefixedEventName = __webpack_require__(165);
+var getVendorPrefixedEventName = __webpack_require__(166);
 var isEventSupported = __webpack_require__(44);
 
 /**
@@ -4989,8 +4989,8 @@ module.exports = ReactBrowserEventEmitter;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(29);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -5635,7 +5635,7 @@ module.exports = getEventModifierState;
 
 
 var DOMLazyTree = __webpack_require__(23);
-var Danger = __webpack_require__(149);
+var Danger = __webpack_require__(150);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
@@ -6978,21 +6978,21 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _howler = __webpack_require__(215);
+var _howler = __webpack_require__(216);
 
-var _Scoreboard = __webpack_require__(217);
+var _Scoreboard = __webpack_require__(218);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(222);
+var _Results = __webpack_require__(223);
 
 var _Results2 = _interopRequireDefault(_Results);
 
-var _BotDifficulty = __webpack_require__(101);
+var _BotDifficulty = __webpack_require__(102);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
-var _VsOptions = __webpack_require__(102);
+var _VsOptions = __webpack_require__(103);
 
 var _VsOptions2 = _interopRequireDefault(_VsOptions);
 
@@ -9074,7 +9074,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _hammerjs = __webpack_require__(103);
+var _hammerjs = __webpack_require__(104);
 
 var _hammerjs2 = _interopRequireDefault(_hammerjs);
 
@@ -9457,7 +9457,7 @@ exports.default = SettingsMenu;
 
 
 
-module.exports = __webpack_require__(223);
+module.exports = __webpack_require__(224);
 
 
 /***/ }),
@@ -9477,27 +9477,27 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _GamePick = __webpack_require__(234);
+var _GamePick = __webpack_require__(235);
 
 var _GamePick2 = _interopRequireDefault(_GamePick);
 
-var _GameOptions = __webpack_require__(235);
+var _GameOptions = __webpack_require__(236);
 
 var _GameOptions2 = _interopRequireDefault(_GameOptions);
 
-var _Scoreboard = __webpack_require__(236);
+var _Scoreboard = __webpack_require__(237);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(245);
+var _Results = __webpack_require__(246);
 
 var _Results2 = _interopRequireDefault(_Results);
 
-var _VsOptions = __webpack_require__(102);
+var _VsOptions = __webpack_require__(103);
 
 var _VsOptions2 = _interopRequireDefault(_VsOptions);
 
-var _BotDifficulty = __webpack_require__(101);
+var _BotDifficulty = __webpack_require__(102);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
@@ -10632,11 +10632,11 @@ exports.locationsAreEqual = exports.createLocation = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _resolvePathname = __webpack_require__(107);
+var _resolvePathname = __webpack_require__(108);
 
 var _resolvePathname2 = _interopRequireDefault(_resolvePathname);
 
-var _valueEqual = __webpack_require__(108);
+var _valueEqual = __webpack_require__(109);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
@@ -10930,7 +10930,7 @@ Router.childContextTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(256);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(257);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_path_to_regexp__);
 
 
@@ -11436,7 +11436,7 @@ var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(10);
 var ReactElement = __webpack_require__(18);
 
-var checkReactTypeSpec = __webpack_require__(121);
+var checkReactTypeSpec = __webpack_require__(122);
 
 var canDefineProperty = __webpack_require__(30);
 var getIteratorFn = __webpack_require__(71);
@@ -11718,7 +11718,7 @@ var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
 var ReactPropTypesSecret = __webpack_require__(40);
-var checkPropTypes = __webpack_require__(125);
+var checkPropTypes = __webpack_require__(126);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -12224,7 +12224,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 "use strict";
 
 
-module.exports = __webpack_require__(130);
+module.exports = __webpack_require__(131);
 
 
 /***/ }),
@@ -13023,7 +13023,7 @@ var DOMProperty = __webpack_require__(17);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(12);
 
-var quoteAttributeValueForBrowser = __webpack_require__(163);
+var quoteAttributeValueForBrowser = __webpack_require__(164);
 var warning = __webpack_require__(3);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -13491,11 +13491,11 @@ module.exports = ReactDOMSelect;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var ReactCompositeComponent = __webpack_require__(171);
+var ReactCompositeComponent = __webpack_require__(172);
 var ReactEmptyComponent = __webpack_require__(93);
 var ReactHostComponent = __webpack_require__(94);
 
-var getNextDebugID = __webpack_require__(174);
+var getNextDebugID = __webpack_require__(175);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
@@ -13781,9 +13781,9 @@ module.exports = ReactHostComponent;
 var _prodInvariant = __webpack_require__(4);
 
 var ReactCurrentOwner = __webpack_require__(14);
-var REACT_ELEMENT_TYPE = __webpack_require__(175);
+var REACT_ELEMENT_TYPE = __webpack_require__(176);
 
-var getIteratorFn = __webpack_require__(176);
+var getIteratorFn = __webpack_require__(177);
 var invariant = __webpack_require__(2);
 var KeyEscapeUtils = __webpack_require__(53);
 var warning = __webpack_require__(3);
@@ -14043,9 +14043,9 @@ module.exports = EventListener;
 
 
 
-var ReactDOMSelection = __webpack_require__(188);
+var ReactDOMSelection = __webpack_require__(189);
 
-var containsNode = __webpack_require__(190);
+var containsNode = __webpack_require__(191);
 var focusNode = __webpack_require__(86);
 var getActiveElement = __webpack_require__(98);
 
@@ -14223,12 +14223,12 @@ var React = __webpack_require__(20);
 var ReactBrowserEventEmitter = __webpack_require__(37);
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMContainerInfo = __webpack_require__(205);
-var ReactDOMFeatureFlags = __webpack_require__(206);
+var ReactDOMContainerInfo = __webpack_require__(206);
+var ReactDOMFeatureFlags = __webpack_require__(207);
 var ReactFeatureFlags = __webpack_require__(81);
 var ReactInstanceMap = __webpack_require__(27);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactMarkupChecksum = __webpack_require__(207);
+var ReactMarkupChecksum = __webpack_require__(208);
 var ReactReconciler = __webpack_require__(22);
 var ReactUpdateQueue = __webpack_require__(54);
 var ReactUpdates = __webpack_require__(15);
@@ -14802,6 +14802,703 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var SetTable = function (_Component) {
+    _inherits(SetTable, _Component);
+
+    function SetTable() {
+        _classCallCheck(this, SetTable);
+
+        var _this = _possibleConstructorReturn(this, (SetTable.__proto__ || Object.getPrototypeOf(SetTable)).call(this));
+
+        _this.legNumberRender = _this.legNumberRender.bind(_this);
+        _this.tableRender = _this.tableRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(SetTable, [{
+        key: 'legNumberRender',
+        value: function legNumberRender() {
+            var set = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+            var player = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+
+            var setHistory = this.props.setHistory;
+            var playerLegs = eval('this.props.' + player + 'Legs');
+            console.log(setHistory);
+            console.log(set);
+            if (player === 'p1' && setHistory.length >= set) {
+                return setHistory[set - 1].p1;
+            } else if (player === 'p2' && setHistory.length >= set) {
+                return setHistory[set - 1].p2;
+            } else if (setHistory.length === set - 1) {
+                return playerLegs;
+            } else {
+                return '-';
+            }
+        }
+    }, {
+        key: 'tableRender',
+        value: function tableRender() {
+            var setNumber = parseInt(localStorage.getItem('sets'));
+            switch (setNumber) {
+                case 3:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1', 'p2')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2', 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2', 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+
+                case 5:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 7:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 9:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(8, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(9, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(8, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(9, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 11:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col col-md-10 offset-md-1 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(8, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(9, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(10, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(11, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(8, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(9, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(10, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(11, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+                case 13:
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'col col-md-6 offset-md-3 text-center' },
+                        _react2.default.createElement(
+                            'table',
+                            { className: 'table set-table text-center' },
+                            _react2.default.createElement(
+                                'tbody',
+                                { className: 'text-center' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(1, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(2, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(3, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(4, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(5, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(6, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(7, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(8, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(9, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(10, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(11, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(12, 'p1')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p1-set' },
+                                        this.legNumberRender(13, 'p1')
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(1, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(2, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(3, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(4, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(5, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(6, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(7, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(8, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(9, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(10, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(11, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(12, 'p2')
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        { className: 'set-box p2-set' },
+                                        this.legNumberRender(13, 'p2')
+                                    )
+                                )
+                            )
+                        )
+                    );
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'row text-center' },
+                this.tableRender()
+            );
+        }
+    }]);
+
+    return SetTable;
+}(_react.Component);
+
+exports.default = SetTable;
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var BotDifficulty = function (_Component) {
     _inherits(BotDifficulty, _Component);
 
@@ -14941,7 +15638,7 @@ var BotDifficulty = function (_Component) {
 exports.default = BotDifficulty;
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15028,7 +15725,7 @@ var VsOptions = function (_Component) {
 exports.default = VsOptions;
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -17678,7 +18375,7 @@ if (true) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17691,7 +18388,7 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17746,36 +18443,36 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([_propTypes2.d
 })]);
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(248);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(249);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(250);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(251);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(111);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(252);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(253);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(256);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(258);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(259);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(261);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(112);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(64);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(267);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(269);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(271);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(272);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
 
 
@@ -17805,7 +18502,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17882,7 +18579,7 @@ function resolvePathname(to) {
 /* harmony default export */ __webpack_exports__["default"] = (resolvePathname);
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -17927,7 +18624,7 @@ function valueEqual(a, b) {
 /* harmony default export */ __webpack_exports__["default"] = (valueEqual);
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17988,7 +18685,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 };
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18098,18 +18795,18 @@ Link.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Link);
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__ = __webpack_require__(113);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__["a" /* default */]);
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18258,7 +18955,7 @@ Route.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Route);
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18324,14 +19021,14 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 };
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(115);
+module.exports = __webpack_require__(116);
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18351,7 +19048,7 @@ var _X = __webpack_require__(61);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Master = __webpack_require__(246);
+var _Master = __webpack_require__(247);
 
 var _Master2 = _interopRequireDefault(_Master);
 
@@ -18360,7 +19057,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _reactDom.render)(_react2.default.createElement(_Master2.default, null), document.querySelector('#app'));
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18376,11 +19073,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 
-var PooledClass = __webpack_require__(117);
+var PooledClass = __webpack_require__(118);
 var ReactElement = __webpack_require__(18);
 
 var emptyFunction = __webpack_require__(11);
-var traverseAllChildren = __webpack_require__(118);
+var traverseAllChildren = __webpack_require__(119);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -18556,7 +19253,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18674,7 +19371,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18697,7 +19394,7 @@ var REACT_ELEMENT_TYPE = __webpack_require__(70);
 
 var getIteratorFn = __webpack_require__(71);
 var invariant = __webpack_require__(2);
-var KeyEscapeUtils = __webpack_require__(119);
+var KeyEscapeUtils = __webpack_require__(120);
 var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
@@ -18856,7 +19553,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18920,7 +19617,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19095,7 +19792,7 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19113,8 +19810,8 @@ module.exports = ReactDOMFactories;
 
 var _prodInvariant = __webpack_require__(21);
 
-var ReactPropTypeLocationNames = __webpack_require__(122);
-var ReactPropTypesSecret = __webpack_require__(123);
+var ReactPropTypeLocationNames = __webpack_require__(123);
+var ReactPropTypesSecret = __webpack_require__(124);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -19188,7 +19885,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19219,7 +19916,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19241,7 +19938,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19265,7 +19962,7 @@ var factory = __webpack_require__(73);
 module.exports = factory(isValidElement);
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19334,7 +20031,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19353,7 +20050,7 @@ module.exports = checkPropTypes;
 module.exports = '15.6.1';
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19376,12 +20073,12 @@ var _require2 = __webpack_require__(18),
     isValidElement = _require2.isValidElement;
 
 var ReactNoopUpdateQueue = __webpack_require__(69);
-var factory = __webpack_require__(128);
+var factory = __webpack_require__(129);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20261,7 +20958,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20305,7 +21002,7 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20324,15 +21021,15 @@ module.exports = onlyChild;
 
 
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDefaultInjection = __webpack_require__(131);
+var ReactDefaultInjection = __webpack_require__(132);
 var ReactMount = __webpack_require__(99);
 var ReactReconciler = __webpack_require__(22);
 var ReactUpdates = __webpack_require__(15);
-var ReactVersion = __webpack_require__(209);
+var ReactVersion = __webpack_require__(210);
 
-var findDOMNode = __webpack_require__(210);
+var findDOMNode = __webpack_require__(211);
 var getHostComponentFromComposite = __webpack_require__(100);
-var renderSubtreeIntoContainer = __webpack_require__(211);
+var renderSubtreeIntoContainer = __webpack_require__(212);
 var warning = __webpack_require__(3);
 
 ReactDefaultInjection.inject();
@@ -20409,9 +21106,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 if (process.env.NODE_ENV !== 'production') {
   var ReactInstrumentation = __webpack_require__(12);
-  var ReactDOMUnknownPropertyHook = __webpack_require__(212);
-  var ReactDOMNullInputValuePropHook = __webpack_require__(213);
-  var ReactDOMInvalidARIAHook = __webpack_require__(214);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(213);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(214);
+  var ReactDOMInvalidARIAHook = __webpack_require__(215);
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -20422,7 +21119,7 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20438,25 +21135,25 @@ module.exports = ReactDOM;
 
 
 
-var ARIADOMPropertyConfig = __webpack_require__(132);
-var BeforeInputEventPlugin = __webpack_require__(133);
-var ChangeEventPlugin = __webpack_require__(137);
-var DefaultEventPluginOrder = __webpack_require__(145);
-var EnterLeaveEventPlugin = __webpack_require__(146);
-var HTMLDOMPropertyConfig = __webpack_require__(147);
-var ReactComponentBrowserEnvironment = __webpack_require__(148);
-var ReactDOMComponent = __webpack_require__(154);
+var ARIADOMPropertyConfig = __webpack_require__(133);
+var BeforeInputEventPlugin = __webpack_require__(134);
+var ChangeEventPlugin = __webpack_require__(138);
+var DefaultEventPluginOrder = __webpack_require__(146);
+var EnterLeaveEventPlugin = __webpack_require__(147);
+var HTMLDOMPropertyConfig = __webpack_require__(148);
+var ReactComponentBrowserEnvironment = __webpack_require__(149);
+var ReactDOMComponent = __webpack_require__(155);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMEmptyComponent = __webpack_require__(180);
-var ReactDOMTreeTraversal = __webpack_require__(181);
-var ReactDOMTextComponent = __webpack_require__(182);
-var ReactDefaultBatchingStrategy = __webpack_require__(183);
-var ReactEventListener = __webpack_require__(184);
-var ReactInjection = __webpack_require__(186);
-var ReactReconcileTransaction = __webpack_require__(187);
-var SVGDOMPropertyConfig = __webpack_require__(193);
-var SelectEventPlugin = __webpack_require__(194);
-var SimpleEventPlugin = __webpack_require__(195);
+var ReactDOMEmptyComponent = __webpack_require__(181);
+var ReactDOMTreeTraversal = __webpack_require__(182);
+var ReactDOMTextComponent = __webpack_require__(183);
+var ReactDefaultBatchingStrategy = __webpack_require__(184);
+var ReactEventListener = __webpack_require__(185);
+var ReactInjection = __webpack_require__(187);
+var ReactReconcileTransaction = __webpack_require__(188);
+var SVGDOMPropertyConfig = __webpack_require__(194);
+var SelectEventPlugin = __webpack_require__(195);
+var SimpleEventPlugin = __webpack_require__(196);
 
 var alreadyInjected = false;
 
@@ -20513,7 +21210,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20592,7 +21289,7 @@ var ARIADOMPropertyConfig = {
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20610,9 +21307,9 @@ module.exports = ARIADOMPropertyConfig;
 
 var EventPropagators = __webpack_require__(24);
 var ExecutionEnvironment = __webpack_require__(7);
-var FallbackCompositionState = __webpack_require__(134);
-var SyntheticCompositionEvent = __webpack_require__(135);
-var SyntheticInputEvent = __webpack_require__(136);
+var FallbackCompositionState = __webpack_require__(135);
+var SyntheticCompositionEvent = __webpack_require__(136);
+var SyntheticInputEvent = __webpack_require__(137);
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -20981,7 +21678,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21081,7 +21778,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21122,7 +21819,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21164,7 +21861,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21481,7 +22178,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21498,7 +22195,7 @@ module.exports = ChangeEventPlugin;
 
 
 
-var ReactOwner = __webpack_require__(139);
+var ReactOwner = __webpack_require__(140);
 
 var ReactRef = {};
 
@@ -21575,7 +22272,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21674,7 +22371,7 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21691,12 +22388,12 @@ module.exports = ReactOwner;
 
 
 
-var ReactInvalidSetStateWarningHook = __webpack_require__(141);
-var ReactHostOperationHistoryHook = __webpack_require__(142);
+var ReactInvalidSetStateWarningHook = __webpack_require__(142);
+var ReactHostOperationHistoryHook = __webpack_require__(143);
 var ReactComponentTreeHook = __webpack_require__(10);
 var ExecutionEnvironment = __webpack_require__(7);
 
-var performanceNow = __webpack_require__(143);
+var performanceNow = __webpack_require__(144);
 var warning = __webpack_require__(3);
 
 var hooks = [];
@@ -22041,7 +22738,7 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22084,7 +22781,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22123,7 +22820,7 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22140,7 +22837,7 @@ module.exports = ReactHostOperationHistoryHook;
  * @typechecks
  */
 
-var performance = __webpack_require__(144);
+var performance = __webpack_require__(145);
 
 var performanceNow;
 
@@ -22162,7 +22859,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22190,7 +22887,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22221,7 +22918,7 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22324,7 +23021,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22565,7 +23262,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22582,7 +23279,7 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 var DOMChildrenOperations = __webpack_require__(46);
-var ReactDOMIDOperations = __webpack_require__(153);
+var ReactDOMIDOperations = __webpack_require__(154);
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -22598,7 +23295,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22619,7 +23316,7 @@ var _prodInvariant = __webpack_require__(4);
 var DOMLazyTree = __webpack_require__(23);
 var ExecutionEnvironment = __webpack_require__(7);
 
-var createNodesFromMarkup = __webpack_require__(150);
+var createNodesFromMarkup = __webpack_require__(151);
 var emptyFunction = __webpack_require__(11);
 var invariant = __webpack_require__(2);
 
@@ -22650,7 +23347,7 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22671,8 +23368,8 @@ module.exports = Danger;
 
 var ExecutionEnvironment = __webpack_require__(7);
 
-var createArrayFromMixed = __webpack_require__(151);
-var getMarkupWrap = __webpack_require__(152);
+var createArrayFromMixed = __webpack_require__(152);
+var getMarkupWrap = __webpack_require__(153);
 var invariant = __webpack_require__(2);
 
 /**
@@ -22740,7 +23437,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22873,7 +23570,7 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22974,7 +23671,7 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23012,7 +23709,7 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23033,8 +23730,8 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var AutoFocusUtils = __webpack_require__(155);
-var CSSPropertyOperations = __webpack_require__(156);
+var AutoFocusUtils = __webpack_require__(156);
+var CSSPropertyOperations = __webpack_require__(157);
 var DOMLazyTree = __webpack_require__(23);
 var DOMNamespaces = __webpack_require__(47);
 var DOMProperty = __webpack_require__(17);
@@ -23044,13 +23741,13 @@ var EventPluginRegistry = __webpack_require__(32);
 var ReactBrowserEventEmitter = __webpack_require__(37);
 var ReactDOMComponentFlags = __webpack_require__(76);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMInput = __webpack_require__(166);
-var ReactDOMOption = __webpack_require__(167);
+var ReactDOMInput = __webpack_require__(167);
+var ReactDOMOption = __webpack_require__(168);
 var ReactDOMSelect = __webpack_require__(90);
-var ReactDOMTextarea = __webpack_require__(168);
+var ReactDOMTextarea = __webpack_require__(169);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactMultiChild = __webpack_require__(169);
-var ReactServerRenderingTransaction = __webpack_require__(178);
+var ReactMultiChild = __webpack_require__(170);
+var ReactServerRenderingTransaction = __webpack_require__(179);
 
 var emptyFunction = __webpack_require__(11);
 var escapeTextContentForBrowser = __webpack_require__(36);
@@ -24028,7 +24725,7 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24057,7 +24754,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24077,10 +24774,10 @@ var CSSProperty = __webpack_require__(87);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(12);
 
-var camelizeStyleName = __webpack_require__(157);
-var dangerousStyleValue = __webpack_require__(159);
-var hyphenateStyleName = __webpack_require__(160);
-var memoizeStringOnly = __webpack_require__(162);
+var camelizeStyleName = __webpack_require__(158);
+var dangerousStyleValue = __webpack_require__(160);
+var hyphenateStyleName = __webpack_require__(161);
+var memoizeStringOnly = __webpack_require__(163);
 var warning = __webpack_require__(3);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -24278,7 +24975,7 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24295,7 +24992,7 @@ module.exports = CSSPropertyOperations;
 
 
 
-var camelize = __webpack_require__(158);
+var camelize = __webpack_require__(159);
 
 var msPattern = /^-ms-/;
 
@@ -24323,7 +25020,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24360,7 +25057,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24445,7 +25142,7 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24462,7 +25159,7 @@ module.exports = dangerousStyleValue;
 
 
 
-var hyphenate = __webpack_require__(161);
+var hyphenate = __webpack_require__(162);
 
 var msPattern = /^ms-/;
 
@@ -24489,7 +25186,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24527,7 +25224,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24562,7 +25259,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24593,7 +25290,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24630,7 +25327,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24736,7 +25433,7 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25029,7 +25726,7 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25157,7 +25854,7 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25323,7 +26020,7 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25347,10 +26044,10 @@ var ReactInstrumentation = __webpack_require__(12);
 
 var ReactCurrentOwner = __webpack_require__(14);
 var ReactReconciler = __webpack_require__(22);
-var ReactChildReconciler = __webpack_require__(170);
+var ReactChildReconciler = __webpack_require__(171);
 
 var emptyFunction = __webpack_require__(11);
-var flattenChildren = __webpack_require__(177);
+var flattenChildren = __webpack_require__(178);
 var invariant = __webpack_require__(2);
 
 /**
@@ -25775,7 +26472,7 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25934,7 +26631,7 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25963,7 +26660,7 @@ var ReactNodeTypes = __webpack_require__(92);
 var ReactReconciler = __webpack_require__(22);
 
 if (process.env.NODE_ENV !== 'production') {
-  var checkReactTypeSpec = __webpack_require__(172);
+  var checkReactTypeSpec = __webpack_require__(173);
 }
 
 var emptyObject = __webpack_require__(31);
@@ -26840,7 +27537,7 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26858,7 +27555,7 @@ module.exports = ReactCompositeComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypeLocationNames = __webpack_require__(173);
+var ReactPropTypeLocationNames = __webpack_require__(174);
 var ReactPropTypesSecret = __webpack_require__(89);
 
 var invariant = __webpack_require__(2);
@@ -26933,7 +27630,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26964,7 +27661,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26990,7 +27687,7 @@ function getNextDebugID() {
 module.exports = getNextDebugID;
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27015,7 +27712,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27061,7 +27758,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27143,7 +27840,7 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27164,7 +27861,7 @@ var _assign = __webpack_require__(5);
 var PooledClass = __webpack_require__(19);
 var Transaction = __webpack_require__(33);
 var ReactInstrumentation = __webpack_require__(12);
-var ReactServerUpdateQueue = __webpack_require__(179);
+var ReactServerUpdateQueue = __webpack_require__(180);
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -27239,7 +27936,7 @@ module.exports = ReactServerRenderingTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27384,7 +28081,7 @@ module.exports = ReactServerUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27449,7 +28146,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27591,7 +28288,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27759,7 +28456,7 @@ module.exports = ReactDOMTextComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27832,7 +28529,7 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27857,7 +28554,7 @@ var ReactDOMComponentTree = __webpack_require__(6);
 var ReactUpdates = __webpack_require__(15);
 
 var getEventTarget = __webpack_require__(43);
-var getUnboundedScrollPosition = __webpack_require__(185);
+var getUnboundedScrollPosition = __webpack_require__(186);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -27992,7 +28689,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28036,7 +28733,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28075,7 +28772,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28259,7 +28956,7 @@ module.exports = ReactReconcileTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28277,7 +28974,7 @@ module.exports = ReactReconcileTransaction;
 
 var ExecutionEnvironment = __webpack_require__(7);
 
-var getNodeForCharacterOffset = __webpack_require__(189);
+var getNodeForCharacterOffset = __webpack_require__(190);
 var getTextContentAccessor = __webpack_require__(79);
 
 /**
@@ -28476,7 +29173,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28555,7 +29252,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28572,7 +29269,7 @@ module.exports = getNodeForCharacterOffset;
  * 
  */
 
-var isTextNode = __webpack_require__(191);
+var isTextNode = __webpack_require__(192);
 
 /*eslint-disable no-bitwise */
 
@@ -28600,7 +29297,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28617,7 +29314,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(192);
+var isNode = __webpack_require__(193);
 
 /**
  * @param {*} object The object to check.
@@ -28630,7 +29327,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28660,7 +29357,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28967,7 +29664,7 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29160,7 +29857,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29182,17 +29879,17 @@ var _prodInvariant = __webpack_require__(4);
 var EventListener = __webpack_require__(96);
 var EventPropagators = __webpack_require__(24);
 var ReactDOMComponentTree = __webpack_require__(6);
-var SyntheticAnimationEvent = __webpack_require__(196);
-var SyntheticClipboardEvent = __webpack_require__(197);
+var SyntheticAnimationEvent = __webpack_require__(197);
+var SyntheticClipboardEvent = __webpack_require__(198);
 var SyntheticEvent = __webpack_require__(16);
-var SyntheticFocusEvent = __webpack_require__(198);
-var SyntheticKeyboardEvent = __webpack_require__(199);
+var SyntheticFocusEvent = __webpack_require__(199);
+var SyntheticKeyboardEvent = __webpack_require__(200);
 var SyntheticMouseEvent = __webpack_require__(34);
-var SyntheticDragEvent = __webpack_require__(201);
-var SyntheticTouchEvent = __webpack_require__(202);
-var SyntheticTransitionEvent = __webpack_require__(203);
+var SyntheticDragEvent = __webpack_require__(202);
+var SyntheticTouchEvent = __webpack_require__(203);
+var SyntheticTransitionEvent = __webpack_require__(204);
 var SyntheticUIEvent = __webpack_require__(26);
-var SyntheticWheelEvent = __webpack_require__(204);
+var SyntheticWheelEvent = __webpack_require__(205);
 
 var emptyFunction = __webpack_require__(11);
 var getEventCharCode = __webpack_require__(56);
@@ -29392,7 +30089,7 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29436,7 +30133,7 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29479,7 +30176,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29520,7 +30217,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29539,7 +30236,7 @@ module.exports = SyntheticFocusEvent;
 var SyntheticUIEvent = __webpack_require__(26);
 
 var getEventCharCode = __webpack_require__(56);
-var getEventKey = __webpack_require__(200);
+var getEventKey = __webpack_require__(201);
 var getEventModifierState = __webpack_require__(45);
 
 /**
@@ -29609,7 +30306,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29726,7 +30423,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29767,7 +30464,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29817,7 +30514,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29861,7 +30558,7 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29917,7 +30614,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29956,7 +30653,7 @@ module.exports = ReactDOMContainerInfo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29980,7 +30677,7 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29996,7 +30693,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var adler32 = __webpack_require__(208);
+var adler32 = __webpack_require__(209);
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -30035,7 +30732,7 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30084,7 +30781,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30103,7 +30800,7 @@ module.exports = adler32;
 module.exports = '15.6.1';
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30169,7 +30866,7 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30190,7 +30887,7 @@ var ReactMount = __webpack_require__(99);
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30308,7 +31005,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30357,7 +31054,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30456,7 +31153,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -33412,10 +34109,10 @@ module.exports = ReactDOMInvalidARIAHook;
   };
 })();
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(216)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(217)))
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, exports) {
 
 var g;
@@ -33442,7 +34139,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33458,19 +34155,19 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopView = __webpack_require__(218);
+var _DesktopView = __webpack_require__(219);
 
 var _DesktopView2 = _interopRequireDefault(_DesktopView);
 
-var _TabletView = __webpack_require__(219);
+var _TabletView = __webpack_require__(220);
 
 var _TabletView2 = _interopRequireDefault(_TabletView);
 
-var _MobileView = __webpack_require__(220);
+var _MobileView = __webpack_require__(221);
 
 var _MobileView2 = _interopRequireDefault(_MobileView);
 
-var _MobileModal = __webpack_require__(221);
+var _MobileModal = __webpack_require__(222);
 
 var _MobileModal2 = _interopRequireDefault(_MobileModal);
 
@@ -33540,7 +34237,7 @@ var Scoreboard = function (_Component) {
 exports.default = Scoreboard;
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35036,7 +35733,7 @@ var DesktopView = function (_Component) {
 exports.default = DesktopView;
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35658,7 +36355,7 @@ var TabletView = function (_Component) {
 exports.default = TabletView;
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37335,7 +38032,7 @@ var MobileModalView = function (_Component) {
 exports.default = MobileModalView;
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38523,7 +39220,7 @@ var MobileModalView = function (_Component) {
 exports.default = MobileModalView;
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38539,7 +39236,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SetTable = __webpack_require__(274);
+var _SetTable = __webpack_require__(101);
 
 var _SetTable2 = _interopRequireDefault(_SetTable);
 
@@ -38696,7 +39393,7 @@ var Results = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 "div",
-                { className: "container-fluid results-screen" },
+                { className: "results-screen" },
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
@@ -38745,11 +39442,10 @@ var Results = function (_Component) {
                 ),
                 _react2.default.createElement(
                     "div",
-                    { className: "row" },
+                    { className: "row cricket-results" },
                     _react2.default.createElement(
                         "div",
                         { className: "col-12" },
-                        _react2.default.createElement("br", null),
                         _react2.default.createElement(
                             "div",
                             { className: "row" },
@@ -38859,7 +39555,7 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38877,15 +39573,15 @@ var _propTypes = __webpack_require__(8);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TransitionGroup = __webpack_require__(225);
+var _TransitionGroup = __webpack_require__(226);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _CSSTransitionGroupChild = __webpack_require__(228);
+var _CSSTransitionGroupChild = __webpack_require__(229);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
-var _PropTypes = __webpack_require__(105);
+var _PropTypes = __webpack_require__(106);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38960,7 +39656,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 224 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39026,7 +39722,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 225 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39036,7 +39732,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _chainFunction = __webpack_require__(226);
+var _chainFunction = __webpack_require__(227);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
@@ -39052,7 +39748,7 @@ var _warning = __webpack_require__(9);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ChildMapping = __webpack_require__(227);
+var _ChildMapping = __webpack_require__(228);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39302,7 +39998,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 226 */
+/* 227 */
 /***/ (function(module, exports) {
 
 
@@ -39328,7 +40024,7 @@ module.exports = function chain(){
 
 
 /***/ }),
-/* 227 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39425,7 +40121,7 @@ function mergeChildMappings(prev, next) {
 }
 
 /***/ }),
-/* 228 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39435,19 +40131,19 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _addClass = __webpack_require__(229);
+var _addClass = __webpack_require__(230);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(231);
+var _removeClass = __webpack_require__(232);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(232);
+var _requestAnimationFrame = __webpack_require__(233);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(233);
+var _properties = __webpack_require__(234);
 
 var _react = __webpack_require__(1);
 
@@ -39459,7 +40155,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactDom = __webpack_require__(75);
 
-var _PropTypes = __webpack_require__(105);
+var _PropTypes = __webpack_require__(106);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -39661,7 +40357,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 229 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39672,7 +40368,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(230);
+var _hasClass = __webpack_require__(231);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -39684,7 +40380,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 230 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39700,7 +40396,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 231 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39715,7 +40411,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 232 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39725,7 +40421,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _inDOM = __webpack_require__(104);
+var _inDOM = __webpack_require__(105);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -39774,7 +40470,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 233 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39785,7 +40481,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.animationEnd = exports.animationDelay = exports.animationTiming = exports.animationDuration = exports.animationName = exports.transitionEnd = exports.transitionDuration = exports.transitionDelay = exports.transitionTiming = exports.transitionProperty = exports.transform = undefined;
 
-var _inDOM = __webpack_require__(104);
+var _inDOM = __webpack_require__(105);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -39890,7 +40586,7 @@ function getTransitionProperties() {
 }
 
 /***/ }),
-/* 234 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40080,7 +40776,7 @@ var GamePick = function (_Component) {
 exports.default = GamePick;
 
 /***/ }),
-/* 235 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40189,7 +40885,7 @@ var GameOptions = function (_Component) {
 exports.default = GameOptions;
 
 /***/ }),
-/* 236 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40205,11 +40901,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ScoreInput = __webpack_require__(237);
+var _ScoreInput = __webpack_require__(238);
 
 var _ScoreInput2 = _interopRequireDefault(_ScoreInput);
 
-var _Numpad = __webpack_require__(244);
+var _Numpad = __webpack_require__(245);
 
 var _Numpad2 = _interopRequireDefault(_Numpad);
 
@@ -40362,7 +41058,7 @@ var Scoreboard = function (_Component) {
 exports.default = Scoreboard;
 
 /***/ }),
-/* 237 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40378,23 +41074,23 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopInput = __webpack_require__(238);
+var _DesktopInput = __webpack_require__(239);
 
 var _DesktopInput2 = _interopRequireDefault(_DesktopInput);
 
-var _MobileGesture = __webpack_require__(239);
+var _MobileGesture = __webpack_require__(240);
 
 var _MobileGesture2 = _interopRequireDefault(_MobileGesture);
 
-var _MobileModal = __webpack_require__(241);
+var _MobileModal = __webpack_require__(242);
 
 var _MobileModal2 = _interopRequireDefault(_MobileModal);
 
-var _TabletInput = __webpack_require__(242);
+var _TabletInput = __webpack_require__(243);
 
 var _TabletInput2 = _interopRequireDefault(_TabletInput);
 
-var _GestureToggle = __webpack_require__(243);
+var _GestureToggle = __webpack_require__(244);
 
 var _GestureToggle2 = _interopRequireDefault(_GestureToggle);
 
@@ -40518,7 +41214,7 @@ var ScoreInput = function (_Component) {
 exports.default = ScoreInput;
 
 /***/ }),
-/* 238 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42901,7 +43597,7 @@ var DesktopInput = function (_Component) {
 exports.default = DesktopInput;
 
 /***/ }),
-/* 239 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42917,7 +43613,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactHammerjs = __webpack_require__(240);
+var _reactHammerjs = __webpack_require__(241);
 
 var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
 
@@ -43585,7 +44281,7 @@ var MobileGesture = function (_Component) {
 exports.default = MobileGesture;
 
 /***/ }),
-/* 240 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43607,7 +44303,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // require('hammerjs') when in a browser. This is safe because Hammer is only
 // invoked in componentDidMount, which is not executed on the server.
-var Hammer = typeof window !== 'undefined' ? __webpack_require__(103) : undefined;
+var Hammer = typeof window !== 'undefined' ? __webpack_require__(104) : undefined;
 
 var privateProps = {
 	children: true,
@@ -43769,7 +44465,7 @@ HammerComponent.propTypes = {
 
 
 /***/ }),
-/* 241 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46047,7 +46743,7 @@ var MobileModal = function (_Component) {
 exports.default = MobileModal;
 
 /***/ }),
-/* 242 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47615,7 +48311,7 @@ var TabletInput = function (_Component) {
 exports.default = TabletInput;
 
 /***/ }),
-/* 243 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47746,7 +48442,7 @@ var GestureToggle = function (_Component) {
 exports.default = GestureToggle;
 
 /***/ }),
-/* 244 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48454,7 +49150,7 @@ var Numpad = function (_Component) {
 exports.default = Numpad;
 
 /***/ }),
-/* 245 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48470,7 +49166,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SetTable = __webpack_require__(274);
+var _SetTable = __webpack_require__(101);
 
 var _SetTable2 = _interopRequireDefault(_SetTable);
 
@@ -48986,7 +49682,7 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 246 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49010,11 +49706,11 @@ var _X = __webpack_require__(61);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Menu = __webpack_require__(247);
+var _Menu = __webpack_require__(248);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-var _reactRouterDom = __webpack_require__(106);
+var _reactRouterDom = __webpack_require__(107);
 
 var _reactAddonsCssTransitionGroup = __webpack_require__(60);
 
@@ -49061,7 +49757,7 @@ var Master = function (_Component) {
 exports.default = Master;
 
 /***/ }),
-/* 247 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49097,7 +49793,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ReactRouter = __webpack_require__(106);
+var ReactRouter = __webpack_require__(107);
 var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 
@@ -49313,7 +50009,7 @@ var Menu = function (_Component) {
 exports.default = Menu;
 
 /***/ }),
-/* 248 */
+/* 249 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49323,7 +50019,7 @@ exports.default = Menu;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(249);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(250);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(64);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49380,7 +50076,7 @@ BrowserRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (BrowserRouter);
 
 /***/ }),
-/* 249 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49408,7 +50104,7 @@ var _createTransitionManager = __webpack_require__(63);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(109);
+var _DOMUtils = __webpack_require__(110);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49693,7 +50389,7 @@ var createBrowserHistory = function createBrowserHistory() {
 exports.default = createBrowserHistory;
 
 /***/ }),
-/* 250 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49703,7 +50399,7 @@ exports.default = createBrowserHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(64);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -49759,7 +50455,7 @@ HashRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (HashRouter);
 
 /***/ }),
-/* 251 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49785,7 +50481,7 @@ var _createTransitionManager = __webpack_require__(63);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(109);
+var _DOMUtils = __webpack_require__(110);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -50089,18 +50785,18 @@ var createHashHistory = function createHashHistory() {
 exports.default = createHashHistory;
 
 /***/ }),
-/* 252 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(254);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__["a" /* default */]);
 
 /***/ }),
-/* 253 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50110,7 +50806,7 @@ exports.default = createHashHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(65);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -50167,7 +50863,7 @@ MemoryRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (MemoryRouter);
 
 /***/ }),
-/* 254 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50343,7 +51039,7 @@ var createMemoryHistory = function createMemoryHistory() {
 exports.default = createMemoryHistory;
 
 /***/ }),
-/* 255 */
+/* 256 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50351,8 +51047,8 @@ exports.default = createMemoryHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Route__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Route__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(111);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -50424,10 +51120,10 @@ NavLink.defaultProps = {
 /* harmony default export */ __webpack_exports__["a"] = (NavLink);
 
 /***/ }),
-/* 256 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(257)
+var isarray = __webpack_require__(258)
 
 /**
  * Expose `pathToRegexp`.
@@ -50856,7 +51552,7 @@ function pathToRegexp (path, keys, options) {
 
 
 /***/ }),
-/* 257 */
+/* 258 */
 /***/ (function(module, exports) {
 
 module.exports = Array.isArray || function (arr) {
@@ -50865,18 +51561,18 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(260);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__["a" /* default */]);
 
 /***/ }),
-/* 259 */
+/* 260 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50967,18 +51663,18 @@ Prompt.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Prompt);
 
 /***/ }),
-/* 260 */
+/* 261 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(262);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__["a" /* default */]);
 
 /***/ }),
-/* 261 */
+/* 262 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -50990,7 +51686,7 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(263);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -51086,15 +51782,15 @@ Redirect.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Redirect);
 
 /***/ }),
-/* 262 */
+/* 263 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(264);
 /* unused harmony reexport createBrowserHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(265);
 /* unused harmony reexport createHashHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(266);
 /* unused harmony reexport createMemoryHistory */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(38);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
@@ -51113,7 +51809,7 @@ Redirect.contextTypes = {
 
 
 /***/ }),
-/* 263 */
+/* 264 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51124,7 +51820,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(114);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -51417,7 +52113,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createBrowserHistory);
 
 /***/ }),
-/* 264 */
+/* 265 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51428,7 +52124,7 @@ var createBrowserHistory = function createBrowserHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(114);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -51738,7 +52434,7 @@ var createHashHistory = function createHashHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createHashHistory);
 
 /***/ }),
-/* 265 */
+/* 266 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51906,18 +52602,18 @@ var createMemoryHistory = function createMemoryHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createMemoryHistory);
 
 /***/ }),
-/* 266 */
+/* 267 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(268);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__["a" /* default */]);
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52100,18 +52796,18 @@ StaticRouter.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (StaticRouter);
 
 /***/ }),
-/* 268 */
+/* 269 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(270);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__["a" /* default */]);
 
 /***/ }),
-/* 269 */
+/* 270 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52205,7 +52901,7 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Switch);
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52216,18 +52912,18 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__["a" /* default */]);
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(273);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__["a" /* default */]);
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52235,9 +52931,9 @@ Switch.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(113);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -52272,7 +52968,7 @@ var withRouter = function withRouter(Component) {
 /* harmony default export */ __webpack_exports__["a"] = (withRouter);
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52342,703 +53038,6 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
     return targetComponent;
 };
 
-
-/***/ }),
-/* 274 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SetTable = function (_Component) {
-    _inherits(SetTable, _Component);
-
-    function SetTable() {
-        _classCallCheck(this, SetTable);
-
-        var _this = _possibleConstructorReturn(this, (SetTable.__proto__ || Object.getPrototypeOf(SetTable)).call(this));
-
-        _this.legNumberRender = _this.legNumberRender.bind(_this);
-        _this.tableRender = _this.tableRender.bind(_this);
-        return _this;
-    }
-
-    _createClass(SetTable, [{
-        key: 'legNumberRender',
-        value: function legNumberRender() {
-            var set = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-            var player = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-            var setHistory = this.props.setHistory;
-            var playerLegs = eval('this.props.' + player + 'Legs');
-            console.log(setHistory);
-            console.log(set);
-            if (player === 'p1' && setHistory.length >= set) {
-                return setHistory[set - 1].p1;
-            } else if (player === 'p2' && setHistory.length >= set) {
-                return setHistory[set - 1].p2;
-            } else if (setHistory.length === set - 1) {
-                return playerLegs;
-            } else {
-                return '-';
-            }
-        }
-    }, {
-        key: 'tableRender',
-        value: function tableRender() {
-            var setNumber = parseInt(localStorage.getItem('sets'));
-            switch (setNumber) {
-                case 3:
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 offset-3 text-center' },
-                        _react2.default.createElement(
-                            'table',
-                            { className: 'table set-table text-center' },
-                            _react2.default.createElement(
-                                'tbody',
-                                { className: 'text-center' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(1, 'p1', 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(2, 'p1', 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(3, 'p1', 'p2')
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(1, 'p2', 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(2, 'p2', 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(3, 'p2', 'p2')
-                                    )
-                                )
-                            )
-                        )
-                    );
-                    break;
-
-                case 5:
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 offset-3 text-center' },
-                        _react2.default.createElement(
-                            'table',
-                            { className: 'table set-table text-center' },
-                            _react2.default.createElement(
-                                'tbody',
-                                { className: 'text-center' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(1, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(2, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(3, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(4, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(5, 'p1')
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(1, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(2, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(3, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(4, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(5, 'p2')
-                                    )
-                                )
-                            )
-                        )
-                    );
-                    break;
-                case 7:
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 offset-3 text-center' },
-                        _react2.default.createElement(
-                            'table',
-                            { className: 'table set-table text-center' },
-                            _react2.default.createElement(
-                                'tbody',
-                                { className: 'text-center' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(1, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(2, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(3, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(4, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(5, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(6, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(7, 'p1')
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(1, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(2, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(3, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(4, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(5, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(6, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(7, 'p2')
-                                    )
-                                )
-                            )
-                        )
-                    );
-                    break;
-                case 9:
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 offset-3 text-center' },
-                        _react2.default.createElement(
-                            'table',
-                            { className: 'table set-table text-center' },
-                            _react2.default.createElement(
-                                'tbody',
-                                { className: 'text-center' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(1, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(2, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(3, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(4, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(5, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(6, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(7, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(8, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(9, 'p1')
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(1, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(2, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(3, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(4, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(5, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(6, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(7, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(8, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(9, 'p2')
-                                    )
-                                )
-                            )
-                        )
-                    );
-                    break;
-                case 11:
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'col col-md-10 offset-md-1 text-center' },
-                        _react2.default.createElement(
-                            'table',
-                            { className: 'table set-table text-center' },
-                            _react2.default.createElement(
-                                'tbody',
-                                { className: 'text-center' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(1, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(2, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(3, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(4, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(5, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(6, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(7, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(8, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(9, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(10, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(11, 'p1')
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(1, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(2, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(3, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(4, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(5, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(6, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(7, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(8, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(9, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(10, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(11, 'p2')
-                                    )
-                                )
-                            )
-                        )
-                    );
-                    break;
-                case 13:
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'col col-md-6 offset-md-3 text-center' },
-                        _react2.default.createElement(
-                            'table',
-                            { className: 'table set-table text-center' },
-                            _react2.default.createElement(
-                                'tbody',
-                                { className: 'text-center' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(1, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(2, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(3, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(4, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(5, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(6, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(7, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(8, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(9, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(10, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(11, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(12, 'p1')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p1-set' },
-                                        this.legNumberRender(13, 'p1')
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(1, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(2, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(3, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(4, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(5, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(6, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(7, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(8, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(9, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(10, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(11, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(12, 'p2')
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { className: 'set-box p2-set' },
-                                        this.legNumberRender(13, 'p2')
-                                    )
-                                )
-                            )
-                        )
-                    );
-                    break;
-
-                default:
-                    break;
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'row text-center' },
-                this.tableRender()
-            );
-        }
-    }]);
-
-    return SetTable;
-}(_react.Component);
-
-exports.default = SetTable;
 
 /***/ })
 /******/ ]);

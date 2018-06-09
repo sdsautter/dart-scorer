@@ -26,7 +26,7 @@
     .set-header {
         margin-top: 1%;
     }
-    .x01-stats {
+    .x01-stats, .cricket-stats {
         font-family: var(--nice-font);
     }
     .p1-set {
@@ -46,6 +46,7 @@
     }
     .leg-options,
     .set-option {
+        font-size: 1rem;
         padding-top: 5%;
     }
     .leg-selected,
@@ -449,6 +450,11 @@
     }
     .best-of {
         font-size: 1.15rem;
+    }
+    .leg-options,
+    .set-option {
+        font-size: 1.5rem;
+        padding-top: 5%;
     }
     .leg-header,
     .set-header,
