@@ -9171,14 +9171,42 @@ var SettingsMenu = function (_Component) {
             if (localStorage.getItem('sounds') === 'on') {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.soundToggle })
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-right settings-selected' },
+                        'On'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.soundToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-left settings-fade' },
+                        'Off'
+                    )
                 );
             } else {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.soundToggle })
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-right settings-fade' },
+                        'On'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.soundToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-left settings-selected' },
+                        'Off'
+                    )
                 );
             }
         }
@@ -9188,14 +9216,42 @@ var SettingsMenu = function (_Component) {
             if (localStorage.getItem('multiple') === 'horizontal') {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.multipleToggle })
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-selected' },
+                        'Horizontal'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_left.png', onClick: this.multipleToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-fade' },
+                        'Vertical'
+                    )
                 );
             } else {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'col-4 text-center' },
-                    _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.multipleToggle })
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-fade' },
+                        'Horizontal'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon', src: 'assets/images/dart_right.png', onClick: this.multipleToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-selected' },
+                        'Vertical'
+                    )
                 );
             }
         }
@@ -9273,21 +9329,7 @@ var SettingsMenu = function (_Component) {
                                                 { className: 'col-12 sound-header' },
                                                 'Sounds'
                                             ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'row' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'col-4 text-right' },
-                                                    'On'
-                                                ),
-                                                this.soundToggleRender(),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'col-4 text-left' },
-                                                    'Off'
-                                                )
-                                            )
+                                            this.soundToggleRender()
                                         ),
                                         _react2.default.createElement(
                                             'div',
@@ -9297,17 +9339,7 @@ var SettingsMenu = function (_Component) {
                                                 { className: 'col-12 swipe-header' },
                                                 'Swipe Direction'
                                             ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-4 swipe-option text-center' },
-                                                'Horizontal'
-                                            ),
-                                            this.multipleToggleRender(),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-4 swipe-option text-center' },
-                                                'Vertical'
-                                            )
+                                            this.multipleToggleRender()
                                         ),
                                         _react2.default.createElement(
                                             'div',

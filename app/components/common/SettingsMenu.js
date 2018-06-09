@@ -75,14 +75,22 @@ export default class SettingsMenu extends Component {
     soundToggleRender() {
         if (localStorage.getItem('sounds') === 'on') {
             return (
-                <div className="col-4 text-center">
-                    <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.soundToggle} />
+                <div className='row'>
+                    <div className='col-4 text-right settings-selected'>On</div>
+                    <div className="col-4 text-center">
+                        <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.soundToggle} />
+                    </div>
+                    <div className='col-4 text-left settings-fade'>Off</div>
                 </div>
             )
         } else {
             return (
-                <div className="col-4 text-center">
-                    <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.soundToggle} />
+                <div className='row'>
+                    <div className='col-4 text-right settings-fade'>On</div>
+                    <div className="col-4 text-center">
+                        <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.soundToggle} />
+                    </div>
+                    <div className='col-4 text-left settings-selected'>Off</div>
                 </div>
             )
         }
@@ -92,14 +100,22 @@ export default class SettingsMenu extends Component {
     multipleToggleRender() {
         if (localStorage.getItem('multiple') === 'horizontal') {
             return (
-                <div className="col-4 text-center">
-                    <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.multipleToggle} />
+                <div className='row'>
+                    <div className='col-4 swipe-option text-center settings-selected'>Horizontal</div>
+                    <div className="col-4 text-center">
+                        <img className='sound-icon' src='assets/images/dart_left.png' onClick={this.multipleToggle} />
+                    </div>
+                    <div className='col-4 swipe-option text-center settings-fade'>Vertical</div>
                 </div>
             )
         } else {
             return (
-                <div className="col-4 text-center">
-                    <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.multipleToggle} />
+                <div className='row'>
+                    <div className='col-4 swipe-option text-center settings-fade'>Horizontal</div>
+                    <div className="col-4 text-center">
+                        <img className='sound-icon' src='assets/images/dart_right.png' onClick={this.multipleToggle} />
+                    </div>
+                    <div className='col-4 swipe-option text-center settings-selected'>Vertical</div>
                 </div>
             )
         }
@@ -149,21 +165,13 @@ export default class SettingsMenu extends Component {
                                             <div className='col-12 sound-header'>
                                                 Sounds
                                             </div>
-                                            <div className='row'>
-                                                <div className='col-4 text-right'>On</div>
-                                                {this.soundToggleRender()}
-                                                <div className='col-4 text-left'>Off
-                                                        </div>
-                                            </div>
+                                            {this.soundToggleRender()}
                                         </div>
                                         <div className='row gesture-options'>
                                             <div className='col-12 swipe-header'>
                                                 Swipe Direction
                                             </div>
-                                            <div className='col-4 swipe-option text-center'>Horizontal</div>
                                             {this.multipleToggleRender()}
-                                            <div className='col-4 swipe-option text-center'>Vertical
-                                                        </div>
                                         </div>
                                         <div className='row set-options'>
                                             <div className='col-5'>

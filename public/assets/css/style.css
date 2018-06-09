@@ -26,7 +26,8 @@
     .set-header {
         margin-top: 1%;
     }
-    .x01-stats, .cricket-stats {
+    .x01-stats,
+    .cricket-stats {
         font-family: var(--nice-font);
     }
     .p1-set {
@@ -50,12 +51,14 @@
         padding-top: 5%;
     }
     .leg-selected,
-    .set-selected {
+    .set-selected,
+    .settings-selected {
         font-weight: strong;
         color: #F2DDC8;
     }
     .leg-faded,
-    .set-faded {
+    .set-faded,
+    .settings-fade {
         color: rgba(239, 220, 200, .5);
     }
     .best-of {
