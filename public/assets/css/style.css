@@ -23,6 +23,12 @@
         min-width: 20px !important;
         border: 1px solid black;
     }
+    .shot-history {
+        padding: 0 !important;
+    }
+    .strike-out {
+        text-decoration: line-through;
+    }
     .set-header {
         margin-top: 1%;
     }
