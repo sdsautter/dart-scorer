@@ -340,21 +340,33 @@ export default class MobileModal extends Component {
             <div>
                 <div className='row' id='x01MobileThrow'>
                     <div className="col-3 text-center start-over mobile-start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
+                        <button type="button" className="btn" data-toggle="modal" data-target="#p1ShotModal">
+                            Shots
                         </button>
                     </div>
                     <div className='col-6 throw-borders text-center align-self-center' id='mobileThrow'>
                         Throw: <span>{this.props.activeThrows + 1}</span>
                     </div>
                     <div className="col-3 text-center start-over mobile-start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
-                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
+                        <button type="button" className="btn" data-toggle="modal" data-target="#p2ShotModal">
+                            Shots
                         </button>
                     </div>
                 </div>
                 {this.playerButtonsRender()}
                 {this.missUndoRow()}
+                <div className='row' id='x01MobileThrow'>
+                    <div className="col-6 text-center start-over mobile-start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
+                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
+                        </button>
+                    </div>
+                    <div className="col-6 text-center start-over mobile-start-over">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
+                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
+                        </button>
+                    </div>
+                </div>
                 <div className="modal fade" id="twentyModal" tabIndex="-1" role="dialog" aria-labelledby="twentyModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

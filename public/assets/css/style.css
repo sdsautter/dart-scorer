@@ -98,8 +98,10 @@
     }
     .one-click-scoring {
         padding-right: 15px;
+        padding-left: 15px;
+        bottom: 0;
         font-size: 1rem;
-        vertical-align: .6rem;
+        /* vertical-align: .6rem; */
     }
     .end-turn button {
         font-size: 1.07rem !important;
@@ -282,9 +284,9 @@
         left: 32px;
     }
     .gesture-toggle {
-        position: fixed;
-        bottom: 0;
-        right: 18%;
+        /* position: fixed; */
+        /* bottom: 0; */
+        /* right: 18%; */
     }
     .sound-options,
     .gesture-options {
@@ -304,15 +306,15 @@
         margin-top: 2%;
     }
     .one-click-scoring {
-        position: fixed;
-        left: 18%;
-        bottom: 0;
+        /* position: fixed; */
+        /* left: 18%; */
+        /* bottom: 0; */
     }
     .help-img,
     .help-img img {
-        position: fixed;
-        bottom: 5px;
-        left: 8%;
+        /* position: fixed; */
+        /* bottom: 5px; */
+        /* left: 8%; */
         max-height: 20px;
         max-width: 20px;
     }
