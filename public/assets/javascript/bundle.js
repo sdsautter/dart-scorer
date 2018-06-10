@@ -10742,7 +10742,7 @@ var ShotHistory = function (_Component) {
             if (p1) {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'col-12 text-center' },
+                    { className: 'col-12 shot-history text-center' },
                     _react2.default.createElement(
                         'table',
                         { className: 'table set-table text-center' },
@@ -10756,7 +10756,7 @@ var ShotHistory = function (_Component) {
             } else {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'col-12 text-center' },
+                    { className: 'col-12 shot-history text-center' },
                     _react2.default.createElement(
                         'table',
                         { className: 'table set-table text-center' },
@@ -41236,7 +41236,16 @@ var Scoreboard = function (_Component) {
                                 p2RoundStartScore: this.props.p2RoundStartScore,
                                 p2RoundScores: this.props.p2RoundScores,
                                 p1: "p1"
-                            })
+                            }),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-footer" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
+                                    "Close"
+                                )
+                            )
                         )
                     )
                 ),
@@ -41254,7 +41263,16 @@ var Scoreboard = function (_Component) {
                                 p1RoundScores: this.props.p1RoundScores,
                                 p2RoundStartScore: this.props.p2RoundStartScore,
                                 p2RoundScores: this.props.p2RoundScores
-                            })
+                            }),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "modal-footer" },
+                                _react2.default.createElement(
+                                    "button",
+                                    { type: "button", className: "btn btn-danger", "data-dismiss": "modal" },
+                                    "Close"
+                                )
+                            )
                         )
                     )
                 )
@@ -43851,7 +43869,7 @@ var DesktopInput = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-1' },
+                        { className: 'col-1 shot-history-col' },
                         _react2.default.createElement(_ShotHistory2.default, {
                             p1RoundStartScore: this.props.p1RoundStartScore,
                             p1RoundScores: this.props.p1RoundScores,
@@ -43867,7 +43885,7 @@ var DesktopInput = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-1' },
+                        { className: 'col-1 shot-history-col' },
                         _react2.default.createElement(_ShotHistory2.default, {
                             p1RoundStartScore: this.props.p1RoundStartScore,
                             p1RoundScores: this.props.p1RoundScores,
