@@ -14,8 +14,8 @@ export default class SettingsMenu extends Component {
         if (localStorage.getItem('sounds') !== 'off') {
             localStorage.setItem('sounds', 'on');
         }
-        if (localStorage.getItem('multiple') !== 'horizontal') {
-            localStorage.setItem('multiple', 'vertical');
+        if (localStorage.getItem('multiple') !== 'vertical') {
+            localStorage.setItem('multiple', 'horizontal');
         }
 
         if (localStorage.getItem('legs') == null) {
