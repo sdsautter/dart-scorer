@@ -24,6 +24,7 @@
         border: 1px solid black;
     }
     .shot-history {
+        font-size: 1.75rem;
         padding: 0 !important;
     }
     .modal-content {
@@ -305,16 +306,8 @@
     .option {
         margin-top: 2%;
     }
-    .one-click-scoring {
-        /* position: fixed; */
-        /* left: 18%; */
-        /* bottom: 0; */
-    }
     .help-img,
     .help-img img {
-        /* position: fixed; */
-        /* bottom: 5px; */
-        /* left: 8%; */
         max-height: 20px;
         max-width: 20px;
     }
@@ -325,8 +318,6 @@
     .p2-number,
     .p2-single,
     .p2-multiple {
-        /* border-left: 4px double black;
-    border-right: 4px double black;  */
         padding-top: .5%;
         padding-bottom: .5%;
         padding-left: .5%;

@@ -726,7 +726,7 @@ export default class DesktopInput extends Component {
         return (
             <div>
                 <div className="row">
-                    <div className='col-1'>
+                    <div className='col-1 shot-history-col'>
                         <ShotHistory
                             p1RoundStartScore={this.props.p1RoundStartScore}
                             p1RoundScores={this.props.p1RoundScores}
@@ -738,7 +738,7 @@ export default class DesktopInput extends Component {
                     <div className='col-8'>
                         {this.playerButtonsRender()}
                     </div>
-                    <div className='col-1'>
+                    <div className='col-1 shot-history-col'>
                         <ShotHistory
                             p1RoundStartScore={this.props.p1RoundStartScore}
                             p1RoundScores={this.props.p1RoundScores}

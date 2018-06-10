@@ -124,6 +124,9 @@ export default class Scoreboard extends Component {
                                 p2RoundScores={this.props.p2RoundScores}
                                 p1='p1'
                             />
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,6 +139,9 @@ export default class Scoreboard extends Component {
                                 p2RoundStartScore={this.props.p2RoundStartScore}
                                 p2RoundScores={this.props.p2RoundScores}
                             />
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>

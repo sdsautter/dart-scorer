@@ -34,7 +34,7 @@ export default class ShotHistory extends Component {
 
         if (p1) {
             return (
-                <div className='col-12 text-center'>
+                <div className='col-12 shot-history text-center'>
                     <table className="table set-table text-center">
                         <tbody className='text-center'>
                             {this.shotRowLoop('p1')}
@@ -44,7 +44,7 @@ export default class ShotHistory extends Component {
             )
         } else {
             return (
-                <div className='col-12 text-center'>
+                <div className='col-12 shot-history text-center'>
                     <table className="table set-table text-center">
                         <tbody className='text-center'>
                             {this.shotRowLoop('p2')}
