@@ -4,8 +4,6 @@ import MobileGesture from './views/MobileGesture';
 import MobileModal from './views/MobileModal';
 import TabletInput from './views/TabletInput';
 import GestureToggle from './views/GestureToggle';
-import ShotHistory from './views/ShotHistory';
-
 
 export default class ScoreInput extends Component {
     constructor() {
