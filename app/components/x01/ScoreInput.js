@@ -5,7 +5,6 @@ import MobileModal from './views/MobileModal';
 import TabletInput from './views/TabletInput';
 import GestureToggle from './views/GestureToggle';
 
-
 export default class ScoreInput extends Component {
     constructor() {
         super();
@@ -71,6 +70,25 @@ export default class ScoreInput extends Component {
                             changeMobileGesture={this.changeMobileGesture}
                         >
                         </GestureToggle>
+                        <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="reloadModalLabel">Start Game Over</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="row">
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                            </div>
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.gameReset() }}>Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )
             }
@@ -89,6 +107,10 @@ export default class ScoreInput extends Component {
                     gameStateOver={this.props.gameStateOver}
                     gameOverModal={this.props.gameOverModal}
                     undoGameOver={this.props.undoGameOver}
+                    p1RoundStartScore={this.props.p1RoundStartScore}
+                    p1RoundScores={this.props.p1RoundScores}
+                    p2RoundStartScore={this.props.p2RoundStartScore}
+                    p2RoundScores={this.props.p2RoundScores}
                 />
             )
         } else {

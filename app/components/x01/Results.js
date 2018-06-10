@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SetTable from "../common/SetTable";
-
 export default class Results extends Component {
     constructor() {
         super();

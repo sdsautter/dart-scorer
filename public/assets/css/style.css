@@ -26,6 +26,9 @@
     .shot-history {
         padding: 0 !important;
     }
+    .modal-content {
+        background-color: rgb(73, 121, 89);
+    }
     .strike-out {
         text-decoration: line-through;
     }
