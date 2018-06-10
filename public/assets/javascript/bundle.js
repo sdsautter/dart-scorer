@@ -9102,8 +9102,8 @@ var SettingsMenu = function (_Component) {
         if (localStorage.getItem('sounds') !== 'off') {
             localStorage.setItem('sounds', 'on');
         }
-        if (localStorage.getItem('multiple') !== 'horizontal') {
-            localStorage.setItem('multiple', 'vertical');
+        if (localStorage.getItem('multiple') !== 'vertical') {
+            localStorage.setItem('multiple', 'horizontal');
         }
 
         if (localStorage.getItem('legs') == null) {
@@ -41303,10 +41303,6 @@ var _TabletInput2 = _interopRequireDefault(_TabletInput);
 var _GestureToggle = __webpack_require__(245);
 
 var _GestureToggle2 = _interopRequireDefault(_GestureToggle);
-
-var _ShotHistory = __webpack_require__(62);
-
-var _ShotHistory2 = _interopRequireDefault(_ShotHistory);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
