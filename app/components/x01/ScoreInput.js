@@ -4,6 +4,7 @@ import MobileGesture from './views/MobileGesture';
 import MobileModal from './views/MobileModal';
 import TabletInput from './views/TabletInput';
 import GestureToggle from './views/GestureToggle';
+import ShotHistory from './views/ShotHistory';
 
 
 export default class ScoreInput extends Component {
@@ -71,6 +72,25 @@ export default class ScoreInput extends Component {
                             changeMobileGesture={this.changeMobileGesture}
                         >
                         </GestureToggle>
+                        <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="reloadModalLabel">Start Game Over</h5>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="row">
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                            </div>
+                                            <div className="col text-center">
+                                                <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.gameReset() }}>Yes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 )
             }

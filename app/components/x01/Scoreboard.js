@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ScoreInput from "./ScoreInput.js";
 import Numpad from "./Numpad.js";
-import PlayerRender from '../common/PlayerRender'
+import PlayerRender from '../common/PlayerRender';
+import ShotHistory from './views/ShotHistory';
 export default class Scoreboard extends Component {
     constructor() {
         super();
@@ -102,17 +103,42 @@ export default class Scoreboard extends Component {
 
     render() {
         return (
-            <div className="container-fluid">
+            <div>
                 {this.playersRender()}
                 <div className="row">
-                    <div className="col-6 points-score text-center border-right">
+                    <div className="col-6 points-score text-center border-right" data-toggle="modal" data-target="#p1ShotModal">
                         {this.props.renderP1Score()}
                     </div>
-                    <div className="col-6 points-score text-center border-left">
+                    <div className="col-6 points-score text-center border-left" data-toggle="modal" data-target="#p2ShotModal">
                         {this.props.renderP2Score()}
                     </div>
                 </div>
                 {this.inputRender()}
+                <div className="modal fade" id="p1ShotModal" tabIndex="-1" role="dialog" aria-labelledby="p1ShotModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <ShotHistory
+                                p1RoundStartScore={this.props.p1RoundStartScore}
+                                p1RoundScores={this.props.p1RoundScores}
+                                p2RoundStartScore={this.props.p2RoundStartScore}
+                                p2RoundScores={this.props.p2RoundScores}
+                                p1='p1'
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="p2ShotModal" tabIndex="-1" role="dialog" aria-labelledby="p2ShotModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <ShotHistory
+                                p1RoundStartScore={this.props.p1RoundStartScore}
+                                p1RoundScores={this.props.p1RoundScores}
+                                p2RoundStartScore={this.props.p2RoundStartScore}
+                                p2RoundScores={this.props.p2RoundScores}
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
