@@ -106,10 +106,10 @@ export default class Scoreboard extends Component {
             <div>
                 {this.playersRender()}
                 <div className="row">
-                    <div className="col-6 points-score text-center border-right" data-toggle="modal" data-target="#p1ShotModal">
+                    <div className="col-6 points-score text-center border-right">
                         {this.props.renderP1Score()}
                     </div>
-                    <div className="col-6 points-score text-center border-left" data-toggle="modal" data-target="#p2ShotModal">
+                    <div className="col-6 points-score text-center border-left">
                         {this.props.renderP2Score()}
                     </div>
                 </div>

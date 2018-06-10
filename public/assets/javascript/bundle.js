@@ -41211,12 +41211,12 @@ var Scoreboard = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 points-score text-center border-right", "data-toggle": "modal", "data-target": "#p1ShotModal" },
+                        { className: "col-6 points-score text-center border-right" },
                         this.props.renderP1Score()
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 points-score text-center border-left", "data-toggle": "modal", "data-target": "#p2ShotModal" },
+                        { className: "col-6 points-score text-center border-left" },
                         this.props.renderP2Score()
                     )
                 ),
@@ -44441,8 +44441,8 @@ var MobileGesture = function (_Component) {
                         { className: "col-3 text-center start-over mobile-start-over" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#p1ShotModal" },
+                            "Shots"
                         )
                     ),
                     _react2.default.createElement(
@@ -44460,13 +44460,35 @@ var MobileGesture = function (_Component) {
                         { className: "col-3 text-center start-over mobile-start-over" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#p2ShotModal" },
+                            "Shots"
                         )
                     )
                 ),
                 this.playerButtonsRender(),
                 this.missUndoRow(),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row", id: "x01MobileThrow" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 text-center start-over mobile-start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 text-center start-over mobile-start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
+                        )
+                    )
+                ),
                 _react2.default.createElement(
                     "div",
                     { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
@@ -45318,8 +45340,8 @@ var MobileModal = function (_Component) {
                         { className: "col-3 text-center start-over mobile-start-over" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#p1ShotModal" },
+                            "Shots"
                         )
                     ),
                     _react2.default.createElement(
@@ -45337,13 +45359,35 @@ var MobileModal = function (_Component) {
                         { className: "col-3 text-center start-over mobile-start-over" },
                         _react2.default.createElement(
                             "button",
-                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
-                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#p2ShotModal" },
+                            "Shots"
                         )
                     )
                 ),
                 this.playerButtonsRender(),
                 this.missUndoRow(),
+                _react2.default.createElement(
+                    "div",
+                    { className: "row", id: "x01MobileThrow" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 text-center start-over mobile-start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/reload.svg", alt: "restart game" })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-6 text-center start-over mobile-start-over" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#exitModal" },
+                            _react2.default.createElement("img", { className: "icon", src: "/assets/images/svg/home.svg", alt: "home screen" })
+                        )
+                    )
+                ),
                 _react2.default.createElement(
                     "div",
                     { className: "modal fade", id: "twentyModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "twentyModalLabel", "aria-hidden": "true" },
