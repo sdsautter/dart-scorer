@@ -1,58 +1,75 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom'
 
 export default class BotDifficulty extends Component {
-    constructor() {
+    constructor({ match }) {
         super();
+        this.gameType = match.params.gameType;
+        this.url = match.url;
+        this.difficultyRender = this.difficultyRender.bind(this);
     }
 
-    render() {
-        if (this.props.game === 'cricket' || this.props.options === 'numpad') {
+    difficultyRender() {
+        if (this.gameType === 'cricket') {
             return (
-                <div className="container-fluid">
-                    <div className="row top-row">
-                        <div className="col title text-center">
-                            Bot Difficulty
-                    </div>
-                    </div>
+                <div>
                     <br />
                     <div className="row">
-                        <div className="col-md-3 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("easy") }}>Easy</button>
-                        </div>
-                        <div className="col-md-3 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("medium") }}>Medium</button>
-                        </div>
-                        <div className="col-md-3 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("hard") }}>Hard</button>
-                        </div>
-                        <div className="col-md-3 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("pro") }}>Pro</button>
-                        </div>
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-                <div className="container-fluid">
-                    <div className="row top-row">
-                        <div className="col title text-center">
-                            Bot Difficulty
-                    </div>
-                    </div>
-                    <br />
-                    <div className="row">
-                        <div className="col-md-4 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("easy") }}>Easy</button>
-                        </div>
-                        <div className="col-md-4 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("medium") }}>Medium</button>
-                        </div>
-                        <div className="col-md-4 col-sm-12 x01-option number text-center">
-                            <button type="button" className="btn btn-success" onClick={() => { this.props.setBotDifficulty("hard") }}>Hard</button>
+                        <div className="col-12 text-center main-menu">
+                            <Link to={{
+                                pathname: `${this.url}/pro`,
+                            }}><button className='main-menu'>Pro</button></Link>
                         </div>
                     </div>
                 </div>
             )
         }
+    }
+
+    render() {
+        return (
+            <div>
+                <div className="row top-row">
+                    <div className="col main-menu-title text-center">
+                        Difficulty
+                    </div>
+                </div>
+                <br />
+                <div className='row'>
+                    <div className="col-12 text-center main-menu">
+                        <Link to={{
+                            pathname: `${this.url}/easy`,
+                        }}><button className='main-menu'>Easy</button></Link>
+                    </div>
+                </div>
+                <br />
+                <div className="row">
+                    <div className="col-12 text-center main-menu">
+                        <Link to={{
+                            pathname: `${this.url}/medium`,
+                        }}><button className='main-menu'>Medium</button></Link>
+                    </div>
+                </div>
+                <br />
+                <div className="row">
+                    <div className="col-12 text-center main-menu">
+                        <Link to={{
+                            pathname: `${this.url}/hard`,
+                        }}><button className='main-menu'>Hard</button></Link>
+                    </div>
+                </div>
+                {this.difficultyRender()}
+                <br />
+                <div className="row">
+                    <div className="col-12 text-center main-menu">
+                        <Link to={{
+                            pathname: '/',
+                        }}>
+                            <button className='rules-menu'>Back</button>
+                        </Link>
+                    </div>
+                </div >
+            </div>
+        )
     }
 }

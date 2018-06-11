@@ -10,8 +10,6 @@ export default class SetTable extends Component {
     legNumberRender(set = 0, player = '') {
         let setHistory = this.props.setHistory;
         const playerLegs = eval(`this.props.${player}Legs`);
-        console.log(setHistory);
-        console.log(set);
         if (player === 'p1' && setHistory.length >= set) {
             return setHistory[set - 1].p1;
         } else if (player === 'p2' && setHistory.length >= set) {

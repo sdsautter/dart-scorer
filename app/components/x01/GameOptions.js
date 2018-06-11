@@ -1,31 +1,39 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 export default class GameOptions extends Component {
     constructor() {
         super();
     }
-      
+
     render() {
         return (
-            <div className="container-fluid">
-                <div className = "row top-row">
-                    <div className="col title text-center">
-                        Game Options
+            <div>
+                <div className="row">
+                    <div className="col settings-menu-title text-center">
+                        Input Options
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className="col-12 text-center x01-options-menu">
+                        <button className='x01-options-menu' onClick={() => { this.props.setGameOptions("dido") }}>Double In/Double Out</button>
                     </div>
                 </div>
                 <br />
-                <div className = "row">
-                    <div className = "col-md-6 col-sm-12 x01-option number text-center">
-                        <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("dido")}}>Double In/Double Out</button>
+                <div className='row'>
+                    <div className="col-12 text-center x01-options-menu">
+                        <button className='x01-options-menu' onClick={() => { this.props.setGameOptions("sido") }}>Any In/Double Out</button>
                     </div>
-                    <div className = "col-md-6 col-sm-12 x01-option number text-center">
-                        <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("sido")}}>Any In/Double Out</button>
-                    </div>                    
-                    <div className = "col-md-6 col-sm-12 x01-option number text-center">
-                        <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("siso")}}>Any In/Any Out</button>
+                </div>
+                <br />
+                <div className='row'>
+                    <div className="col-12 text-center x01-options-menu">
+                        <button className='x01-options-menu' onClick={() => { this.props.setGameOptions("siso") }}>Any In/Any Out</button>
                     </div>
-                    <div className = "col-md-6 col-sm-12 x01-option number text-center">
-                        <button type="button" className="btn btn-success" onClick={() => {this.props.setGameOptions("numpad")}}>Manual Numpad</button>
+                </div>
+                <br />
+                <div className='row'>
+                    <div className="col-12 text-center x01-options-menu">
+                        <button className='x01-options-menu' onClick={() => { this.props.setGameOptions("numpad") }}>Manual Numpad</button>
                     </div>
                 </div>
             </div>

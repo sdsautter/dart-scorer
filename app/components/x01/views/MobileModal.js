@@ -3,6 +3,7 @@ import React, { Component } from "react";
 export default class MobileModal extends Component {
     constructor() {
         super();
+        this.chooseGameUrl = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         this.nameRender = this.nameRender.bind(this);
         this.playerButtonsRender = this.playerButtonsRender.bind(this);
         this.missUndoRow = this.missUndoRow.bind(this);
@@ -937,11 +938,20 @@ export default class MobileModal extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    <div className="col-6 offset-3 text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">Cancel</button>
                                     </div>
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/') }}>Yes</button>
+                                </div>
+                                <br />
+                                <div className='row'>
+                                    <div className="col-6 offset-3 text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => window.location.href = this.chooseGameUrl}>Diff Game</button>
+                                    </div>
+                                </div>
+                                <br />
+                                <div className='row'>
+                                    <div className="col-6 offset-3 text-center modal-home">
+                                        <button type="button" className="btn" data-dismiss="modal" onClick={() => window.location.href = '/'}>Home</button>
                                     </div>
                                 </div>
                             </div>
