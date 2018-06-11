@@ -50476,7 +50476,7 @@ var Numpad = function (_Component) {
                                         { type: "button", className: "btn btn-success", onClick: function onClick() {
                                                 _this3.numberRemove();
                                             } },
-                                        _react2.default.createElement("img", { src: "./assets/images/left-arrow.png" })
+                                        _react2.default.createElement("img", { src: "../../assets/images/left-arrow.png" })
                                     )
                                 ),
                                 _react2.default.createElement(
