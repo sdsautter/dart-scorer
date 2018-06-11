@@ -3,13 +3,12 @@ import GamePick from "./GamePick.js";
 import GameOptions from "./GameOptions.js";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
-import VsOptions from './../common/VsOptions';
 import BotDifficulty from './../common/BotDifficulty';
 import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class X01 extends Component {
-    constructor() {
+    constructor({ match }) {
         super();
         this.state = {
             activeThrower: "p1",
@@ -23,8 +22,8 @@ export default class X01 extends Component {
             gameOverModal: false,
             firstWinner: '',
 
-            botGame: true,
-            botDifficulty: '',
+            botGame: match.path.includes('cpu') ? true : false,
+            botDifficulty: match.params.botDifficulty,
 
             p1DoubleIn: false,
             p1Score: 0,
@@ -45,7 +44,6 @@ export default class X01 extends Component {
             singleGesture: 'press',
             multipleGesture: 'horizontal'
         }
-
         //Binding functions to change the states       
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
         this.undoGameOver = this.undoGameOver.bind(this);
@@ -53,6 +51,7 @@ export default class X01 extends Component {
         this.continueSet = this.continueSet.bind(this);
         this.doubleInTrue = this.doubleInTrue.bind(this);
         this.gameX01Reset = this.gameX01Reset.bind(this);
+        this.setGameStatePick = this.setGameStatePick.bind(this);
         this.botDartShot = this.botDartShot.bind(this);
         this.setRoundScores = this.setRoundScores.bind(this);
         this.botDoubleChance = this.botDoubleChance.bind(this);
@@ -122,13 +121,13 @@ export default class X01 extends Component {
     soundLogic(multiplier) {
         Howler.volume(.4);
         const singleHitSound = new Howl({
-            src: ['assets/sounds/single_hit.mp3']
+            src: ['../../../assets/sounds/single_hit.mp3']
         });
         const doubleHitSound = new Howl({
-            src: ['assets/sounds/double_hit.mp3']
+            src: ['../../../assets/sounds/double_hit.mp3']
         });
         const tripleHitSound = new Howl({
-            src: ['assets/sounds/triple_hit.mp3']
+            src: ['../../../assets/sounds/triple_hit.mp3']
         });
 
         const thrower = this.state.activeThrower;
@@ -371,7 +370,7 @@ export default class X01 extends Component {
 
     setGameOptions(gameOptions) {
         this.setState({ gameOptions });
-        this.setState({ gameState: "opponent" });
+        this.setState({ gameState: "playing" });
     }
 
     setOriginalScore(score) {
@@ -459,8 +458,8 @@ export default class X01 extends Component {
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
         this.setState({ gameOverModal: false });
-        this.setState({ setHistory: []});
-        this.setState({ firstWinner: ''});
+        this.setState({ setHistory: [] });
+        this.setState({ firstWinner: '' });
 
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
@@ -516,16 +515,16 @@ export default class X01 extends Component {
     numpadScore(score) {
         Howler.volume(.4);
         const singleHitSound = new Howl({
-            src: ['assets/sounds/single_hit.mp3']
+            src: ['../../../assets/sounds/single_hit.mp3']
         });
         const doubleHitSound = new Howl({
-            src: ['assets/sounds/double_hit.mp3']
+            src: ['../../../assets/sounds/double_hit.mp3']
         });
         const tripleHitSound = new Howl({
-            src: ['assets/sounds/triple_hit.mp3']
+            src: ['../../../assets/sounds/triple_hit.mp3']
         });
         const missSound = new Howl({
-            src: ['assets/sounds/miss_hit.mp3']
+            src: ['../../../assets/sounds/miss_hit.mp3']
         });
 
 
@@ -623,7 +622,7 @@ export default class X01 extends Component {
         Howler.volume(.4);
 
         const missSound = new Howl({
-            src: ['assets/sounds/miss_hit.mp3']
+            src: ['../../../assets/sounds/miss_hit.mp3']
         });
 
         let thrower = this.state.activeThrower;
@@ -702,7 +701,7 @@ export default class X01 extends Component {
     miss() {
         Howler.volume(.2);
         const missSound = new Howl({
-            src: ['assets/sounds/miss_hit.mp3']
+            src: ['../../../assets/sounds/miss_hit.mp3']
         });
         this.addThrow();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
@@ -782,10 +781,15 @@ export default class X01 extends Component {
         }
     }
 
+    setGameStatePick() {
+        this.gameX01Reset();
+        this.setState({ gameState: 'pick ' });
+    }
+
     gameStateOver() {
         Howler.volume(.4);
         const gameOverSound = new Howl({
-            src: ['assets/sounds/game_over.mp3']
+            src: ['../../../assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
         if (this.state.firstWinner === '') {
@@ -807,7 +811,7 @@ export default class X01 extends Component {
     showGameOverModal(gameOverModal) {
         Howler.volume(.4);
         const doubleHitSound = new Howl({
-            src: ['assets/sounds/double_hit.mp3']
+            src: ['../../../assets/sounds/double_hit.mp3']
         });
         if (localStorage.getItem('sounds') === 'on') { doubleHitSound.play(); }
         this.setState({ gameOverModal });
@@ -858,16 +862,18 @@ export default class X01 extends Component {
     endTurn() {
         Howler.volume(.2);
         const missSound = new Howl({
-            src: ['assets/sounds/miss_hit.mp3']
+            src: ['../../../assets/sounds/miss_hit.mp3']
         });
         let thrower = this.state.activeThrower;
         let playerThrows = `${thrower}Throws`;
+        let playerRoundStartScore = `${thrower}RoundStartScore`;
         let playerThrowsState = eval("this.state." + playerThrows);
-        if (thrower === 'p1') {
-            this.setRoundScores('p1', 0);
-        } else {
-            this.setRoundScores('p2', 0);
-        }
+        let latestScores = eval(`this.state.${thrower}RoundStartScore`);
+        const scoreDifference = parseInt(latestScores[latestScores.length - 1]) - parseInt(eval(`this.state.${thrower}Score`));
+
+        latestScores.push(parseInt(eval(`this.state.${thrower}Score`)));
+        this.setState({ [playerRoundStartScore]: latestScores })
+        this.setRoundScores(thrower, scoreDifference);
 
         switch (this.state.activeThrows) {
             case 0:
@@ -885,6 +891,7 @@ export default class X01 extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
+
                 this.setThrowNumber(0);
                 break;
             case 1:
@@ -902,6 +909,7 @@ export default class X01 extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
+
                 this.setThrowNumber(0);
                 break;
             case 2:
@@ -1022,6 +1030,7 @@ export default class X01 extends Component {
                         p2Legs={this.state.p2Legs}
                         p2Sets={this.state.p2Sets}
                         setHistory={this.state.setHistory}
+                        setGameStatePick={this.setGameStatePick}
                     />
                 )
             }
@@ -1029,12 +1038,6 @@ export default class X01 extends Component {
             return (
                 <GameOptions
                     setGameOptions={this.setGameOptions}
-                />
-            )
-        } else if (this.state.gameState === "opponent") {
-            return (
-                <VsOptions
-                    setBotGame={this.setBotGame}
                 />
             )
         } else if (this.state.gameState === "difficulty") {

@@ -3,27 +3,26 @@ import { Howl, Howler } from 'howler';
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
-import VsOptions from './../common/VsOptions';
 import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+
 export default class Cricket extends Component {
-    constructor() {
+    constructor({ match }) {
         super();
         this.state = {
-
             activeThrower: "p1",
             activeThrows: 0,
             activeMarks: 0,
-            gameState: "opponent",
+            gameState: 'playing',
             gameWinner: {},
             throwLog: [],
             gameOverModal: false,
             setHistory: [],
             firstWinner: '',
 
-            botGame: false,
-            botDifficulty: "",
+            botGame: match.path.includes('cpu') ? true : false,
+            botDifficulty: match.params.botDifficulty,
 
             p120: 0,
             p119: 0,
@@ -173,9 +172,9 @@ export default class Cricket extends Component {
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
         this.setState({ gameOverModal: false });
-        this.setState({ firstWinner: ''});
-        this.setState({ throwLog: []});
-        this.setState({ setHistory: []});
+        this.setState({ firstWinner: '' });
+        this.setState({ throwLog: [] });
+        this.setState({ setHistory: [] });
 
         this.setState({ p120: 0 });
         this.setState({ p119: 0 });
@@ -649,13 +648,13 @@ export default class Cricket extends Component {
 
     soundLogic(multiplier) {
         const singleHitSound = new Howl({
-            src: ['assets/sounds/single_hit.mp3']
+            src: [`../../../assets/sounds/single_hit.mp3`]
         });
         const doubleHitSound = new Howl({
-            src: ['assets/sounds/double_hit.mp3']
+            src: [`../../../assets/sounds/double_hit.mp3`]
         });
         const tripleHitSound = new Howl({
-            src: ['assets/sounds/triple_hit.mp3']
+            src: [`../../../assets/sounds/triple_hit.mp3`]
         });
         Howler.volume(.4);
 
@@ -1053,7 +1052,7 @@ export default class Cricket extends Component {
 
     async miss() {
         const missSound = new Howl({
-            src: ['assets/sounds/miss_hit.mp3']
+            src: [`../../../assets/sounds/miss_hit.mp3`]
         });
         Howler.volume(.4);
         await this.addThrow();
@@ -1070,7 +1069,7 @@ export default class Cricket extends Component {
         let playerThrows = `${thrower}Throws`;
         let playerThrowsState = eval("this.state." + playerThrows);
         const missSound = new Howl({
-            src: ['assets/sounds/miss_hit.mp3']
+            src: [`../../../assets/sounds/miss_hit.mp3`]
         });
 
         if (localStorage.getItem('sounds') === 'on') {
@@ -1184,7 +1183,7 @@ export default class Cricket extends Component {
 
     gameStateOver() {
         const gameOverSound = new Howl({
-            src: ['assets/sounds/game_over.mp3']
+            src: [`../../../assets/sounds/game_over.mp3`]
         });
         Howler.volume(.4);
 
@@ -1301,11 +1300,11 @@ export default class Cricket extends Component {
     markProgress(playerNumber, cricketNumber) {
         const playerNumberState = eval(`this.state.p${playerNumber}${cricketNumber}`);
         if (playerNumberState === 1) {
-            return (<img className="mark" src="assets/images/1-mark.png" />)
+            return (<img className="mark" src='../../../assets/images/one_mark.png' />)
         } else if (playerNumberState === 2) {
-            return (<img className="mark" src="assets/images/2-mark.png" />)
+            return (<img className="mark" src={`../../../assets/images/two_mark.png`} />)
         } else if (playerNumberState >= 3) {
-            return (<img className="mark" src="assets/images/3-mark.png" />)
+            return (<img className="mark" src={`../../../assets/images/three_mark.png`} />)
         }
     }
 
@@ -1367,12 +1366,6 @@ export default class Cricket extends Component {
                     />
                 )
             }
-        } else if (this.state.gameState === "opponent") {
-            return (
-                <VsOptions
-                    setBotGame={this.setBotGame}
-                />
-            )
         } else if (this.state.gameState === "difficulty") {
             return (
                 <BotDifficulty

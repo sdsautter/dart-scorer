@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import SetTable from "../common/SetTable";
+import { Link } from 'react-router-dom'
+
 export default class Results extends Component {
     constructor() {
         super();
-
+        this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         this.state = {
             p160: 0,
             p1100: 0,
@@ -235,21 +237,27 @@ export default class Results extends Component {
                         </button>
                             </div>
                         </div>
-                        <div className='row'>
-                            <div className="col-sm-12 col-md-6 offset-md-3 text-center miss">
-                                <button type="button" className="btn" onClick={() => {
-                                    location.assign('/x01');
-                                }}>
-                                    Pick New x01
-                        </button>
-                            </div>
-                        </div>
                         <div className="row">
                             <br />
                             <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                                <button type="button" className="btn" onClick={() => { location.assign('/cricket') }}>
-                                    Play Cricket
+                                <Link to={{
+                                    pathname: `${this.url}/cricket`,
+                                }}>
+                                    <button type="button" className="btn">
+                                        Play Cricket
                         </button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                                <Link to={{
+                                    pathname: `/`,
+                                }}>
+                                    <button type="button" className="btn">
+                                        Home
+                        </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

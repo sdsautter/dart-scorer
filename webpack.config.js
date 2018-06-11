@@ -10,6 +10,7 @@ module.exports = {
   module: {
     loaders: [{
     include: /app/, 
+      
     //   exclude: /node_modules/,
       loader: 'babel-loader',
       query: {

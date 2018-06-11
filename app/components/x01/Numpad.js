@@ -102,7 +102,7 @@ export default class Numpad extends Component {
                                     <button type="button" className="btn btn-success" onClick={() => { this.numberInput(1) }}>1</button>
                                 </div>
                                 <div className="col-4 number p1-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="./assets/images/left-arrow.png" /></button>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="../../assets/images/left-arrow.png" /></button>
                                 </div>
                                 <div className="col-4 number p1-single">
                                     <button type="button" className="btn btn-success" onClick={() => { this.numberInput(0) }}>0</button>

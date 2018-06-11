@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import SetTable from '../common/SetTable';
-
+import { Link } from 'react-router-dom'
 export default class Results extends Component {
     constructor() {
         super();
-
+        this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp'
         this.renderWinner = this.renderWinner.bind(this);
         this.player1ThrowRender = this.player1ThrowRender.bind(this);
         this.player2ThrowRender = this.player2ThrowRender.bind(this);
@@ -77,9 +77,24 @@ export default class Results extends Component {
                         <div className="row">
                             <br />
                             <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                                <button type="button" className="btn" onClick={() => { location.assign('/x01'); }}>
-                                    Play x01
+                                <Link to={{
+                                    pathname: `${this.url}/x01`,
+                                }}>
+                                    <button type="button" className="btn">
+                                        Play x01
                         </button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                                <Link to={{
+                                    pathname: `/`,
+                                }}>
+                                    <button type="button" className="btn">
+                                        Home
+                        </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

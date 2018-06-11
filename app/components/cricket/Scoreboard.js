@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import DesktopView from './DesktopView';
-import TabletView from './TabletView';
 import MobileView from './MobileView';
-import MobileModalView from './MobileModal';
 
 export default class Scoreboard extends Component {
     constructor() {
