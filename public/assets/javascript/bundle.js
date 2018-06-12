@@ -9725,10 +9725,10 @@ var X01 = function (_Component) {
         value: function botDoubleChance() {
             switch (this.state.botDifficulty) {
                 case 'easy':
-                    return Math.random() < .50 ? 2 : 1;
+                    return Math.random() < .33 ? 2 : 1;
                     break;
                 case 'medium':
-                    return Math.random() < .75 ? 2 : 1;
+                    return Math.random() < .66 ? 2 : 1;
                     break;
                 case 'hard':
                     return Math.random() < .90 ? 2 : 1;
@@ -15107,7 +15107,8 @@ var Cricket = function (_Component) {
             var humanScore = parseInt(this.state.p1Score);
             var scoreDiff = botScore - humanScore;
             var randomMarks = void 0,
-                number = void 0;
+                number = void 0,
+                multiple = void 0;
 
             switch (this.state.botDifficulty) {
                 case 'easy':
@@ -15120,7 +15121,12 @@ var Cricket = function (_Component) {
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 _this5.miss();
@@ -15129,11 +15135,21 @@ var Cricket = function (_Component) {
                         case 2:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 _this5.miss();
@@ -15145,10 +15161,14 @@ var Cricket = function (_Component) {
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
                                 _this5.miss();
                             }, 4000);
                             break;
@@ -15161,11 +15181,25 @@ var Cricket = function (_Component) {
                         case 2:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 _this5.miss();
@@ -15174,26 +15208,47 @@ var Cricket = function (_Component) {
                         case 3:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
 
                         default:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
@@ -15204,62 +15259,179 @@ var Cricket = function (_Component) {
                     break;
                 case 'hard':
                     randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
+                    var randomNumber = Math.random();
+
+                    multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                     switch (randomMarks) {
                         case 3:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() >= .50 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() >= .50 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() >= .50 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                         case 4:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .10) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 2750);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3750);
                             break;
                         case 5:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                     }
@@ -15271,72 +15443,235 @@ var Cricket = function (_Component) {
                         case 5:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         case 6:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         case 7:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         case 8:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
 
                         case 9:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         default:
@@ -15360,6 +15695,34 @@ var Cricket = function (_Component) {
                     break;
 
             }
+        }
+    }, {
+        key: "newMethod",
+        value: function newMethod(number, randomMarks, randomNumber, multiple) {
+            if (number === 25) {
+                if (randomMarks === 4) {
+                    if (randomNumber <= .10) {
+                        multiple = 2;
+                    } else if (randomNumber <= .75) {
+                        multiple = 1;
+                    } else {
+                        multiple = 0;
+                    }
+                } else if (randomMarks === 5) {
+                    if (randomNumber <= .20) {
+                        multiple = 2;
+                    } else if (randomNumber <= .75) {
+                        multiple = 1;
+                    } else {
+                        multiple = 0;
+                    }
+                } else {
+                    multiple = Math.random() >= .75 ? 0 : 1;
+                }
+            } else {
+                multiple = 1;
+            }
+            return multiple;
         }
     }, {
         key: "botNumberHit",
@@ -52356,7 +52719,8 @@ var Cricket = function (_Component) {
             var humanScore = parseInt(this.state.p1Score);
             var scoreDiff = botScore - humanScore;
             var randomMarks = void 0,
-                number = void 0;
+                number = void 0,
+                multiple = void 0;
 
             switch (this.state.botDifficulty) {
                 case 'easy':
@@ -52369,7 +52733,12 @@ var Cricket = function (_Component) {
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 _this5.miss();
@@ -52378,11 +52747,21 @@ var Cricket = function (_Component) {
                         case 2:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 _this5.miss();
@@ -52394,10 +52773,14 @@ var Cricket = function (_Component) {
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
                                 _this5.miss();
                             }, 4000);
                             break;
@@ -52410,11 +52793,25 @@ var Cricket = function (_Component) {
                         case 2:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 _this5.miss();
@@ -52423,26 +52820,47 @@ var Cricket = function (_Component) {
                         case 3:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() > .66 ? 1 : 0;
+                                    console.log(number);
+                                    console.log(multiple);
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
 
                         default:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
@@ -52453,62 +52871,179 @@ var Cricket = function (_Component) {
                     break;
                 case 'hard':
                     randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
+                    var randomNumber = Math.random();
+
+                    multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                     switch (randomMarks) {
                         case 3:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() >= .50 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() >= .50 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    multiple = Math.random() >= .50 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                         case 4:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .10) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 2750);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 3750);
                             break;
                         case 5:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                     }
@@ -52520,72 +53055,235 @@ var Cricket = function (_Component) {
                         case 5:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 2500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 1);
+                                if (number === 25) {
+                                    if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         case 6:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         case 7:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         case 8:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 2);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
 
                         case 9:
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
                                 number = _this5.botNumberHit();
-                                _this5.score(number, 3);
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         default:
@@ -52609,6 +53307,34 @@ var Cricket = function (_Component) {
                     break;
 
             }
+        }
+    }, {
+        key: "newMethod",
+        value: function newMethod(number, randomMarks, randomNumber, multiple) {
+            if (number === 25) {
+                if (randomMarks === 4) {
+                    if (randomNumber <= .10) {
+                        multiple = 2;
+                    } else if (randomNumber <= .75) {
+                        multiple = 1;
+                    } else {
+                        multiple = 0;
+                    }
+                } else if (randomMarks === 5) {
+                    if (randomNumber <= .20) {
+                        multiple = 2;
+                    } else if (randomNumber <= .75) {
+                        multiple = 1;
+                    } else {
+                        multiple = 0;
+                    }
+                } else {
+                    multiple = Math.random() >= .75 ? 0 : 1;
+                }
+            } else {
+                multiple = 1;
+            }
+            return multiple;
         }
     }, {
         key: "botNumberHit",
