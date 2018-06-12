@@ -688,12 +688,22 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 1:
                         setTimeout(() => {
-                            this.miss();
+                            number = this.botNumberHit();
+                            if (number === 25) {
+                                multiple = Math.random() >= .75 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            } else {
+                                this.miss();
+                            }
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .75 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -704,14 +714,24 @@ export default class Cricket extends Component {
                             }
                         }, 3000);
                         setTimeout(() => {
-                            this.miss();
+                            number = this.botNumberHit();
+                            if (number === 25) {
+                                multiple = Math.random() >= .75 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            } else {
+                                this.miss();
+                            }
                         }, 4000);
                         break;
                     case 2:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .75 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -724,7 +744,7 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .75 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -735,12 +755,32 @@ export default class Cricket extends Component {
                             }
                         }, 2500);
                         setTimeout(() => {
-                            this.miss();
+                            number = this.botNumberHit();
+                            if (number === 25) {
+                                multiple = Math.random() >= .75 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            } else {
+                                this.miss();
+                            }
                         }, 3500);
                         break;
                     default:
                         setTimeout(() => {
-                            this.miss();
+                            number = this.botNumberHit();
+                            if (number === 25) {
+                                multiple = Math.random() >= .60 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            } else {
+                                this.miss();
+                            }
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
@@ -756,7 +796,17 @@ export default class Cricket extends Component {
                             }
                         }, 3000);
                         setTimeout(() => {
-                            this.miss();
+                            number = this.botNumberHit();
+                            if (number === 25) {
+                                multiple = Math.random() >= .60 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            } else {
+                                this.miss();
+                            }
                         }, 4000);
                         break;
                 }
@@ -769,7 +819,7 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .66 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -782,7 +832,7 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .66 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -793,14 +843,24 @@ export default class Cricket extends Component {
                             }
                         }, 2500);
                         setTimeout(() => {
-                            this.miss();
+                            number = this.botNumberHit();
+                            if (number === 25) {
+                                multiple = Math.random() >= .66 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            } else {
+                                this.miss();
+                            }
                         }, 3500);
                         break;
                     case 3:
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .66 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -813,7 +873,7 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .66 ? 1 : 0;
                             } else {
                                 multiple = 1;
                             }
@@ -826,14 +886,14 @@ export default class Cricket extends Component {
                         setTimeout(() => {
                             number = this.botNumberHit();
                             if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                                multiple = Math.random() >= .66 ? 1 : 0;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
                                 this.miss();
-                            } else {
-                                this.score(number, multiple);
                             }
                         }, 3500);
                         break;
