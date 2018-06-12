@@ -754,8 +754,6 @@ export default class Cricket extends Component {
                             number = this.botNumberHit();
                             if (number === 25) {
                                 multiple = Math.random() > .66 ? 1 : 0;
-                                console.log(number);
-                                console.log(multiple);
                             } else {
                                 multiple = 1;
                             }
@@ -765,8 +763,6 @@ export default class Cricket extends Component {
                             number = this.botNumberHit();
                             if (number === 25) {
                                 multiple = Math.random() > .66 ? 1 : 0;
-                                console.log(number);
-                                console.log(multiple);
                             } else {
                                 multiple = 1;
                             }
@@ -781,8 +777,6 @@ export default class Cricket extends Component {
                             number = this.botNumberHit();
                             if (number === 25) {
                                 multiple = Math.random() > .66 ? 1 : 0;
-                                console.log(number);
-                                console.log(multiple);
                             } else {
                                 multiple = 1;
                             }
@@ -792,8 +786,6 @@ export default class Cricket extends Component {
                             number = this.botNumberHit();
                             if (number === 25) {
                                 multiple = Math.random() > .66 ? 1 : 0;
-                                console.log(number);
-                                console.log(multiple);
                             } else {
                                 multiple = 1;
                             }
@@ -803,8 +795,6 @@ export default class Cricket extends Component {
                             number = this.botNumberHit();
                             if (number === 25) {
                                 multiple = Math.random() > .66 ? 1 : 0;
-                                console.log(number);
-                                console.log(multiple);
                             } else {
                                 multiple = 1;
                             }
