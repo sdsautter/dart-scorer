@@ -688,124 +688,142 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 1:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .75 ? 1 : 0;
-                                if (multiple === 0) {
-                                    this.miss();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
                                 } else {
-                                    this.score(number, multiple);
+                                    this.miss();
                                 }
-                            } else {
-                                this.miss();
                             }
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .75 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 3000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .75 ? 1 : 0;
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
                                 if (multiple === 0) {
                                     this.miss();
                                 } else {
                                     this.score(number, multiple);
                                 }
-                            } else {
-                                this.miss();
+                            }
+                        }, 3000);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
+                                } else {
+                                    this.miss();
+                                }
                             }
                         }, 4000);
                         break;
                     case 2:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .75 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .75 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 2500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .75 ? 1 : 0;
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
                                 if (multiple === 0) {
                                     this.miss();
                                 } else {
                                     this.score(number, multiple);
                                 }
-                            } else {
-                                this.miss();
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 2500);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
+                                } else {
+                                    this.miss();
+                                }
                             }
                         }, 3500);
                         break;
                     default:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
-                                if (multiple === 0) {
-                                    this.miss();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .60 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
                                 } else {
-                                    this.score(number, multiple);
+                                    this.miss();
                                 }
-                            } else {
-                                this.miss();
                             }
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 3000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .60 ? 1 : 0;
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .60 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
                                 if (multiple === 0) {
                                     this.miss();
                                 } else {
                                     this.score(number, multiple);
                                 }
-                            } else {
-                                this.miss();
+                            }
+                        }, 3000);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .60 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
+                                } else {
+                                    this.miss();
+                                }
                             }
                         }, 4000);
                         break;
@@ -817,310 +835,373 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 2:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .66 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .66 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 2500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .66 ? 1 : 0;
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
                                 if (multiple === 0) {
                                     this.miss();
                                 } else {
                                     this.score(number, multiple);
                                 }
-                            } else {
-                                this.miss();
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 2500);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
+                                } else {
+                                    this.miss();
+                                }
                             }
                         }, 3500);
                         break;
                     case 3:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .66 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .66 ? 1 : 0;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-                        }, 2500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .66 ? 1 : 0;
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
                                 if (multiple === 0) {
                                     this.miss();
                                 } else {
                                     this.score(number, multiple);
                                 }
-                            } else {
-                                this.miss();
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 2500);
+                        setTimeout(() => {
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                    if (multiple === 0) {
+                                        this.miss();
+                                    } else {
+                                        this.score(number, multiple);
+                                    }
+                                } else {
+                                    this.miss();
+                                }
                             }
                         }, 3500);
                         break;
 
                     default:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, multiple);
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                this.score(number, multiple);
+                            }
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.score(number, multiple);
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                this.score(number, multiple);
+                            }
                         }, 2500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            this.miss();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                this.miss();
+                            }
                         }, 3500);
                         break;
                 }
                 break;
             case 'hard':
                 randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
-                const randomNumber = Math.random();
+                let randomNumber = 0;
 
                 multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                 switch (randomMarks) {
                     case 3:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .50 ? 0 : 1;
-                            } else {
-                                multiple = 1;
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .45 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-
-
-                            } this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .50 ? 0 : 1;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .45 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
                         }, 2500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                multiple = Math.random() >= .50 ? 0 : 1;
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    multiple = Math.random() >= .45 ? 0 : 1;
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
                         }, 3500);
                         break;
                     case 4:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .10) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .10) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 2;
                                 }
-                            } else {
-                                multiple = 2;
-                            }
 
-                            this.score(number, multiple);
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 1;
                                 }
-                            } else {
-                                multiple = 1;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-
-
-                            } this.score(number, multiple);
                         }, 2750);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 1;
                                 }
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
                         }, 3750);
                         break;
                     case 5:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .15) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 3;
                                 }
-                            } else {
-                                multiple = 3;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .15) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 1;
                                 }
-                            } else {
-                                multiple = 1;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
                         }, 2500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 1;
                                 }
-                            } else {
-                                multiple = 1;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-
-
-                            } this.score(number, multiple);
                         }, 3500);
                         break;
                     default:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .15) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .45) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 1;
                                 }
-                            } else {
-                                multiple = 1;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-
-
-                            } this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .15) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 2;
                                 }
-                            } else {
-                                multiple = 2;
-                            }
 
-                            this.score(number, multiple);
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
                         }, 2500);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .15) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .50) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .15) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .50) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 2;
                                 }
-                            } else {
-                                multiple = 2;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            this.score(number, multiple);
                         }, 3500);
                         break;
                 }
@@ -1131,21 +1212,300 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 5:
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 2;
                                 }
-                            } else {
-                                multiple = 2;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 2500);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 1;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 4500);
+                        break;
+                    case 6:
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 3000);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 4500);
+                        break;
+                    case 7:
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 3000);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 4500);
+                        break;
+                    case 8:
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 3000);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 2;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 4500);
+                        break;
+
+                    case 9:
+                        setTimeout(() => {
+                            randomNumber = Math.random();
+                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
+                                } else {
+                                    multiple = 3;
+                                }
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
+                            }
+                        }, 1500);
+                        setTimeout(() => {
+                            randomNumber = Math.random();
                             number = this.botNumberHit();
                             if (number === 25) {
                                 if (randomNumber <= .25) {
@@ -1156,77 +1516,16 @@ export default class Cricket extends Component {
                                     multiple = 0;
                                 }
                             } else {
-                                multiple = 2;
-                            }
-                            this.score(number, multiple);
-                        }, 2500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 1;
+                                multiple = 3;
                             }
                             if (multiple === 0) {
                                 this.miss();
                             } else {
                                 this.score(number, multiple);
                             }
-                        }, 4500);
-                        break;
-                    case 6:
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 2;
-                            }
-                            this.score(number, multiple);
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 2;
-                            }
-                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 2;
-                            }
-                            this.score(number, multiple);
-                        }, 4500);
-                        break;
-                    case 7:
-                        setTimeout(() => {
+                            randomNumber = Math.random();
                             number = this.botNumberHit();
                             if (number === 25) {
                                 if (randomNumber <= .25) {
@@ -1239,132 +1538,12 @@ export default class Cricket extends Component {
                             } else {
                                 multiple = 3;
                             }
-                            this.score(number, multiple);
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
+                            if (multiple === 0) {
+                                this.miss();
                             } else {
-                                multiple = 2;
+                                this.score(number, multiple);
                             }
-                            this.score(number, multiple);
-                        }, 3000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 2;
-                            }
-                            this.score(number, multiple);
-                        }, 4500);
-                        break;
-                    case 8:
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 3;
-                            }
-                            this.score(number, multiple);
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 3;
-                            }
-                            this.score(number, multiple);
-                        }, 3000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 2;
-                            }
-                            this.score(number, multiple);
-                        }, 4500);
-                        break;
 
-                    case 9:
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 3;
-                            }
-                            this.score(number, multiple);
-                        }, 1500);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 3;
-                            }
-                            this.score(number, multiple);
-                        }, 3000);
-                        setTimeout(() => {
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
-                                } else {
-                                    multiple = 0;
-                                }
-                            } else {
-                                multiple = 3;
-                            }
-                            this.score(number, multiple);
                         }, 4500);
                         break;
                     default:

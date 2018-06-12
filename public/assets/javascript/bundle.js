@@ -15242,124 +15242,142 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 1:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                    if (multiple === 0) {
-                                        _this5.miss();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this5.miss();
                                     }
-                                } else {
-                                    _this5.miss();
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 4000);
                             break;
                         case 2:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .60 ? 1 : 0;
-                                    if (multiple === 0) {
-                                        _this5.miss();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .60 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this5.miss();
                                     }
-                                } else {
-                                    _this5.miss();
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .60 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .60 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .60 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .60 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 4000);
                             break;
@@ -15371,298 +15389,373 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 2:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 3500);
                             break;
                         case 3:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 3500);
                             break;
 
                         default:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    _this5.score(number, multiple);
+                                }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    _this5.score(number, multiple);
+                                }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                _this5.miss();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    _this5.miss();
+                                }
                             }, 3500);
                             break;
                     }
                     break;
                 case 'hard':
                     randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
-                    var randomNumber = Math.random();
+                    var randomNumber = 0;
 
                     multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                     switch (randomMarks) {
                         case 3:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .50 ? 0 : 1;
-                                } else {
-                                    multiple = 1;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .45 ? 0 : 1;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .50 ? 0 : 1;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .45 ? 0 : 1;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .50 ? 0 : 1;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .45 ? 0 : 1;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 3500);
                             break;
                         case 4:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .10) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .10) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
-                                }
 
-                                _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 2750);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 3750);
                             break;
                         case 5:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 3;
                                     }
-                                } else {
-                                    multiple = 3;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .50) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
-                                }
 
-                                _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .50) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                     }
@@ -15673,21 +15766,300 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 5:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+                        case 6:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+                        case 7:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+                        case 8:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+
+                        case 9:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -15698,77 +16070,16 @@ var Cricket = function (_Component) {
                                         multiple = 0;
                                     }
                                 } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 1;
+                                    multiple = 3;
                                 }
                                 if (multiple === 0) {
                                     _this5.miss();
                                 } else {
                                     _this5.score(number, multiple);
                                 }
-                            }, 4500);
-                            break;
-                        case 6:
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 4500);
-                            break;
-                        case 7:
-                            setTimeout(function () {
+                                randomNumber = Math.random();
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -15781,132 +16092,11 @@ var Cricket = function (_Component) {
                                 } else {
                                     multiple = 3;
                                 }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
+                                if (multiple === 0) {
+                                    _this5.miss();
                                 } else {
-                                    multiple = 2;
+                                    _this5.score(number, multiple);
                                 }
-                                _this5.score(number, multiple);
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 4500);
-                            break;
-                        case 8:
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 4500);
-                            break;
-
-                        case 9:
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         default:
@@ -53086,124 +53276,142 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 1:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                    if (multiple === 0) {
-                                        _this5.miss();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this5.miss();
                                     }
-                                } else {
-                                    _this5.miss();
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 4000);
                             break;
                         case 2:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .75 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .75 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .60 ? 1 : 0;
-                                    if (multiple === 0) {
-                                        _this5.miss();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .60 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this5.miss();
                                     }
-                                } else {
-                                    _this5.miss();
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .60 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .60 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .60 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .60 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 4000);
                             break;
@@ -53215,298 +53423,373 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 2:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 3500);
                             break;
                         case 3:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .66 ? 1 : 0;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
                                     if (multiple === 0) {
                                         _this5.miss();
                                     } else {
                                         _this5.score(number, multiple);
                                     }
-                                } else {
-                                    _this5.miss();
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .66 ? 1 : 0;
+                                        if (multiple === 0) {
+                                            _this5.miss();
+                                        } else {
+                                            _this5.score(number, multiple);
+                                        }
+                                    } else {
+                                        _this5.miss();
+                                    }
                                 }
                             }, 3500);
                             break;
 
                         default:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    _this5.score(number, multiple);
+                                }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    _this5.score(number, multiple);
+                                }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                _this5.miss();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    _this5.miss();
+                                }
                             }, 3500);
                             break;
                     }
                     break;
                 case 'hard':
                     randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
-                    var randomNumber = Math.random();
+                    var randomNumber = 0;
 
                     multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                     switch (randomMarks) {
                         case 3:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .50 ? 0 : 1;
-                                } else {
-                                    multiple = 1;
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .45 ? 0 : 1;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .50 ? 0 : 1;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .45 ? 0 : 1;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    multiple = Math.random() >= .50 ? 0 : 1;
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        multiple = Math.random() >= .45 ? 0 : 1;
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 3500);
                             break;
                         case 4:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .10) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .10) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
-                                }
 
-                                _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 2750);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 3750);
                             break;
                         case 5:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 3;
                                     }
-                                } else {
-                                    multiple = 3;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
-                                }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {
-                                    _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .45) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 1;
                                     }
-                                } else {
-                                    multiple = 1;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                if (multiple === 0) {
-                                    _this5.miss();
-                                } else {}_this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .50) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
-                                }
 
-                                _this5.score(number, multiple);
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
                             }, 2500);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .15) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .50) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .15) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .50) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                _this5.score(number, multiple);
                             }, 3500);
                             break;
                     }
@@ -53517,21 +53800,300 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 5:
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
                                     } else {
-                                        multiple = 0;
+                                        multiple = 2;
                                     }
-                                } else {
-                                    multiple = 2;
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
                                 }
-                                _this5.score(number, multiple);
                             }, 1500);
                             setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 2500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 1;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+                        case 6:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+                        case 7:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+                        case 8:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 3000);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 2;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 4500);
+                            break;
+
+                        case 9:
+                            setTimeout(function () {
+                                randomNumber = Math.random();
+                                if (_this5.state.gameWinner !== 'p1' || _this5.state.gameWinner !== 'p2') {
+                                    number = _this5.botNumberHit();
+                                    if (number === 25) {
+                                        if (randomNumber <= .25) {
+                                            multiple = 2;
+                                        } else if (randomNumber <= .75) {
+                                            multiple = 1;
+                                        } else {
+                                            multiple = 0;
+                                        }
+                                    } else {
+                                        multiple = 3;
+                                    }
+                                    if (multiple === 0) {
+                                        _this5.miss();
+                                    } else {
+                                        _this5.score(number, multiple);
+                                    }
+                                }
+                            }, 1500);
+                            setTimeout(function () {
+                                randomNumber = Math.random();
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -53542,77 +54104,16 @@ var Cricket = function (_Component) {
                                         multiple = 0;
                                     }
                                 } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 2500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 1;
+                                    multiple = 3;
                                 }
                                 if (multiple === 0) {
                                     _this5.miss();
                                 } else {
                                     _this5.score(number, multiple);
                                 }
-                            }, 4500);
-                            break;
-                        case 6:
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
                             }, 3000);
                             setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 4500);
-                            break;
-                        case 7:
-                            setTimeout(function () {
+                                randomNumber = Math.random();
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -53625,132 +54126,11 @@ var Cricket = function (_Component) {
                                 } else {
                                     multiple = 3;
                                 }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
+                                if (multiple === 0) {
+                                    _this5.miss();
                                 } else {
-                                    multiple = 2;
+                                    _this5.score(number, multiple);
                                 }
-                                _this5.score(number, multiple);
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 4500);
-                            break;
-                        case 8:
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 2;
-                                }
-                                _this5.score(number, multiple);
-                            }, 4500);
-                            break;
-
-                        case 9:
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 1500);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
-                            }, 3000);
-                            setTimeout(function () {
-                                number = _this5.botNumberHit();
-                                if (number === 25) {
-                                    if (randomNumber <= .25) {
-                                        multiple = 2;
-                                    } else if (randomNumber <= .75) {
-                                        multiple = 1;
-                                    } else {
-                                        multiple = 0;
-                                    }
-                                } else {
-                                    multiple = 3;
-                                }
-                                _this5.score(number, multiple);
                             }, 4500);
                             break;
                         default:
