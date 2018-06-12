@@ -265,10 +265,10 @@ export default class X01 extends Component {
     botDoubleChance() {
         switch (this.state.botDifficulty) {
             case 'easy':
-                return Math.random() < .50 ? 2 : 1;
+                return Math.random() < .33 ? 2 : 1;
                 break;
             case 'medium':
-                return Math.random() < .75 ? 2 : 1;
+                return Math.random() < .66 ? 2 : 1;
                 break;
             case 'hard':
                 return Math.random() < .90 ? 2 : 1;

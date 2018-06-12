@@ -678,11 +678,12 @@ export default class Cricket extends Component {
         const botScore = parseInt(this.state.p2Score);
         const humanScore = parseInt(this.state.p1Score);
         const scoreDiff = botScore - humanScore;
-        let randomMarks, number;
+        let randomMarks, number, multiple;
 
         switch (this.state.botDifficulty) {
             case 'easy':
                 randomMarks = Math.random() > .75 ? 2 : 1;
+
 
                 switch (randomMarks) {
                     case 1:
@@ -691,7 +692,12 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .75 ? 1 : 0;
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
                             this.miss();
@@ -700,11 +706,21 @@ export default class Cricket extends Component {
                     case 2:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .75 ? 1 : 0;
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .75 ? 1 : 0;
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             this.miss();
@@ -716,10 +732,14 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .75 ? 1 : 0;
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
-                            number = this.botNumberHit();
                             this.miss();
                         }, 4000);
                         break;
@@ -732,11 +752,25 @@ export default class Cricket extends Component {
                     case 2:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .66 ? 1 : 0;
+                                console.log(number);
+                                console.log(multiple);
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .66 ? 1 : 0;
+                                console.log(number);
+                                console.log(multiple);
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             this.miss();
@@ -745,26 +779,47 @@ export default class Cricket extends Component {
                     case 3:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .66 ? 1 : 0;
+                                console.log(number);
+                                console.log(multiple);
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .66 ? 1 : 0;
+                                console.log(number);
+                                console.log(multiple);
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() > .66 ? 1 : 0;
+                                console.log(number);
+                                console.log(multiple);
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 3500);
                         break;
 
                     default:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
@@ -775,62 +830,179 @@ export default class Cricket extends Component {
                 break;
             case 'hard':
                 randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
+                const randomNumber = Math.random();
+
+                multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                 switch (randomMarks) {
                     case 3:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() >= .50 ? 0 : 1;
+                            } else {
+                                multiple = 1;
+                            }
+
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() >= .50 ? 0 : 1;
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                multiple = Math.random() >= .50 ? 0 : 1;
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 3500);
                         break;
                     case 4:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .10) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 1;
+                            }
+
+                            this.score(number, multiple);
                         }, 2750);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 3750);
                         break;
                     case 5:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .15) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .15) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 1;
+                            }
+
+                            this.score(number, multiple);
                         }, 3500);
                         break;
                     default:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .15) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 1;
+                            }
+
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .15) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .15) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .50) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 3500);
                         break;
                 }
@@ -842,72 +1014,235 @@ export default class Cricket extends Component {
                     case 5:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 2500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 1);
+                            if (number === 25) {
+                                if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 1;
+                            }
+                            this.score(number, multiple);
                         }, 4500);
                         break;
                     case 6:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 4500);
                         break;
                     case 7:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 4500);
                         break;
                     case 8:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 2);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 2;
+                            }
+                            this.score(number, multiple);
                         }, 4500);
                         break;
 
                     case 9:
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 1500);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 3000);
                         setTimeout(() => {
                             number = this.botNumberHit();
-                            this.score(number, 3);
+                            if (number === 25) {
+                                if (randomNumber <= .25) {
+                                    multiple = 2;
+                                } else if (randomNumber <= .75) {
+                                    multiple = 1;
+                                } else {
+                                    multiple = 0;
+                                }
+                            } else {
+                                multiple = 3;
+                            }
+                            this.score(number, multiple);
                         }, 4500);
                         break;
                     default:
@@ -933,6 +1268,40 @@ export default class Cricket extends Component {
         }
     }
 
+
+    newMethod(number, randomMarks, randomNumber, multiple) {
+        if (number === 25) {
+            if (randomMarks === 4) {
+                if (randomNumber <= .10) {
+                    multiple = 2;
+                }
+                else if (randomNumber <= .75) {
+                    multiple = 1;
+                }
+                else {
+                    multiple = 0;
+                }
+            }
+            else if (randomMarks === 5) {
+                if (randomNumber <= .20) {
+                    multiple = 2;
+                }
+                else if (randomNumber <= .75) {
+                    multiple = 1;
+                }
+                else {
+                    multiple = 0;
+                }
+            }
+            else {
+                multiple = Math.random() >= .75 ? 0 : 1;
+            }
+        }
+        else {
+            multiple = 1;
+        }
+        return multiple;
+    }
 
     botNumberHit() {
         const botScore = parseInt(this.state.p2Score);
