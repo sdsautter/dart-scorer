@@ -197,25 +197,33 @@ export default class Results extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div className="row">
-                            <div className="col-sm-12 col-md-3 offset-md-3 text-center miss">
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center p1-multiple">
                                 <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
                                     Play Again
-                        </button>
-                            </div>
-                            <div className="col-sm-12 col-md-3 text-center miss">
-                                <button type="button" className="btn" onClick={() => {
-                                    location.assign('/x01');
-                                }}>
-                                    Pick New x01
                         </button>
                             </div>
                         </div>
                         <div className="row">
                             <br />
                             <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                                <button type="button" className="btn" onClick={() => { location.assign('/cricket') }}>
-                                    Play Cricket
+                            <Link to={{
+                                    pathname: `${this.url}/cricket`,
+                                }}>
+                                    <button type="button" className="btn">
+                                        Play Cricket
                         </button>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                                <Link to={{
+                                    pathname: `/`,
+                                }}>
+                                    <button type="button" className="btn">
+                                        Home
+                        </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -237,27 +245,12 @@ export default class Results extends Component {
                         </button>
                             </div>
                         </div>
-                        <div className="row">
                             <br />
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                                <Link to={{
-                                    pathname: `${this.url}/cricket`,
-                                }}>
-                                    <button type="button" className="btn">
-                                        Play Cricket
-                        </button>
-                                </Link>
-                            </div>
-                        </div>
                         <div className="row">
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
-                                <Link to={{
-                                    pathname: `/`,
-                                }}>
-                                    <button type="button" className="btn">
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">                       
+                                    <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
                                         Home
                         </button>
-                                </Link>
                             </div>
                         </div>
                     </div>
@@ -321,6 +314,25 @@ export default class Results extends Component {
                                     </div>
                                     <div className="col text-center">
                                         <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameX01Reset() }}>Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="homeModal" tabIndex="-1" role="dialog" aria-labelledby="homeModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="homeModalLabel">Exit Game</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/') }}>Yes</button>
                                     </div>
                                 </div>
                             </div>
