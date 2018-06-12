@@ -157,7 +157,7 @@ export default class Numpad extends Component {
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(1) }}>1</button>
                                     </div>
                                     <div className="col-4 number p2-multiple">
-                                        <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="./assets/images/left-arrow.png" /></button>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }}><img src="../../assets/images/left-arrow.png" /></button>
                                     </div>
                                     <div className="col-4 number p2-single">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(0) }}>0</button>
@@ -211,7 +211,7 @@ export default class Numpad extends Component {
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(1) }} disabled>1</button>
                                     </div>
                                     <div className="col-4 number p2-multiple">
-                                        <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }} disabled><img src="./assets/images/left-arrow.png" /></button>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.numberRemove() }} disabled><img src="../../assets/images/left-arrow.png" /></button>
                                     </div>
                                     <div className="col-4 number p2-single">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(0) }} disabled>0</button>

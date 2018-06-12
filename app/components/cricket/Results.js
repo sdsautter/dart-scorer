@@ -40,7 +40,7 @@ export default class Results extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div className="row">
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                        <div className="col-md-6 offset-md-3 col-sm-12 text-center p1-multiple">
                                 <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>
                                     Play Again
                         </button>
@@ -48,41 +48,12 @@ export default class Results extends Component {
                         </div>
                         <div className="row">
                             <br />
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                                <button type="button" className="btn" onClick={() => { location.assign('/x01'); }}>
-                                    Play x01
-                        </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-                <div className='row'>
-                    <div className='col-12'>
-                        <div className="row">
-                            <div className="col-md-3 col-sm-12 offset-md-3 text-center p2-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>
-                                    Reset Set
-                        </button>
-                            </div>
-                            <div className="col-md-3 col-sm-12 text-center p1-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
-                                    Continue Set
-                        </button>
-                            </div>
-
-                        </div>
-                        <div className="row">
-                            <br />
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                                <Link to={{
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">                                <Link to={{
                                     pathname: `${this.url}/x01`,
                                 }}>
                                     <button type="button" className="btn">
                                         Play x01
-                        </button>
+                                    </button>
                                 </Link>
                             </div>
                         </div>
@@ -95,6 +66,36 @@ export default class Results extends Component {
                                         Home
                         </button>
                                 </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div className='row'>
+                    <div className='col-12'>
+                        <div className="row">
+                            <div className="col-md-3 col-sm-12 offset-md-3 text-center p2-multiple">
+                                <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
+                                    Reset Set
+                        </button>
+                            </div>
+                            <div className="col-md-3 col-sm-12 text-center p1-multiple">
+                                <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
+                                    Continue Set
+                        </button>
+                            </div>
+
+                        </div>
+                            <br />
+                        <div className="row">
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                               
+                                    <button type="button" className="btn"
+                                    data-toggle="modal" data-target="#homeModal">
+                                        Home
+                        </button>
                             </div>
                         </div>
                     </div>
@@ -196,6 +197,44 @@ export default class Results extends Component {
                 </div>
                 <br />
                 {this.buttonsRender()}
+                <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="reloadModalLabel">Start Set Over</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameCricketReset() }}>Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="homeModal" tabIndex="-1" role="dialog" aria-labelledby="homeModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="homeModalLabel">Exit Game</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    </div>
+                                    <div className="col text-center">
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/') }}>Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
