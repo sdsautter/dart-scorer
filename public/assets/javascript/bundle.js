@@ -5217,7 +5217,7 @@ var BotDifficulty = function (_Component) {
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
-                                    pathname: '/'
+                                    pathname: '/cpu'
                                 } },
                             _react2.default.createElement(
                                 'button',
@@ -10485,6 +10485,11 @@ var X01 = function (_Component) {
                 return _react2.default.createElement(_GamePick2.default, {
                     setX01Game: this.setX01Game
                 });
+            } else if (this.state.gameState === "options") {
+                return _react2.default.createElement(_GameOptions2.default, {
+                    setGameOptions: this.setGameOptions,
+                    setGameStatePick: this.setGameStatePick
+                });
             } else if (this.state.gameState === "playing") {
                 return _react2.default.createElement(_Scoreboard2.default, {
                     score: this.score,
@@ -10536,10 +10541,6 @@ var X01 = function (_Component) {
                         setGameStatePick: this.setGameStatePick
                     });
                 }
-            } else if (this.state.gameState === "options") {
-                return _react2.default.createElement(_GameOptions2.default, {
-                    setGameOptions: this.setGameOptions
-                });
             } else if (this.state.gameState === "difficulty") {
                 return _react2.default.createElement(_BotDifficulty2.default, {
                     game: 'x01',
@@ -15183,8 +15184,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -15194,8 +15193,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -15210,8 +15207,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -15221,8 +15216,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -15232,8 +15225,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -42272,195 +42263,160 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var GamePicky = function (_Component) {
     _inherits(GamePicky, _Component);
 
-    function GamePicky() {
+    function GamePicky(obj) {
         _classCallCheck(this, GamePicky);
 
-        return _possibleConstructorReturn(this, (GamePicky.__proto__ || Object.getPrototypeOf(GamePicky)).call(this));
+        var _this = _possibleConstructorReturn(this, (GamePicky.__proto__ || Object.getPrototypeOf(GamePicky)).call(this));
+
+        _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
+
+        _this.state = {
+            customShow: false,
+            x01Game: 1
+        };
+
+        _this.customSwitch = _this.customSwitch.bind(_this);
+        _this.renderCustom = _this.renderCustom.bind(_this);
+        _this.customInput = _this.customInput.bind(_this);
+        _this.customGo = _this.customGo.bind(_this);
+        return _this;
     }
 
     _createClass(GamePicky, [{
-        key: "render",
+        key: 'customSwitch',
+        value: function customSwitch() {
+            this.setState({ customShow: this.state.customShow ? false : true });
+        }
+    }, {
+        key: 'customInput',
+        value: function customInput(event) {
+
+            this.setState({ x01Game: parseInt('' + event.target.value) });
+        }
+    }, {
+        key: 'customGo',
+        value: function customGo() {
+            if (parseInt(this.state.x01Game) > 0) {
+                var game = parseInt(this.state.x01Game + '01');
+                this.props.setX01Game(game);
+            }
+        }
+    }, {
+        key: 'renderCustom',
+        value: function renderCustom() {
+            if (this.state.customShow) {
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row custom-x01' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-3 offset-3' },
+                            _react2.default.createElement('input', { type: 'number', value: this.state.x01Game, name: 'x01Game', className: 'text-right', min: '1', onChange: this.customInput }),
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                '01'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-3 text-left x01-pick-menu' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', onClick: this.customGo },
+                                'Go'
+                            )
+                        )
+                    )
+                );
+            } else {
+                return null;
+            }
+        }
+    }, {
+        key: 'render',
         value: function render() {
             var _this2 = this;
 
             return _react2.default.createElement(
-                "div",
+                'div',
                 null,
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col settings-menu-title text-center" },
-                        "Pick X01 Game"
+                        'div',
+                        { className: 'col settings-menu-title text-center' },
+                        'Pick X01 Game'
                     )
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-6" },
+                        'div',
+                        { className: 'col-12 text-center x01-pick-menu' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(101);
-                                        } },
-                                    "101"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(301);
-                                        } },
-                                    "301"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(501);
-                                        } },
-                                    "501"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(701);
-                                        } },
-                                    "701"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(901);
-                                        } },
-                                    "901"
-                                )
-                            )
+                            'button',
+                            { className: 'x01-pick-menu', onClick: function onClick() {
+                                    _this2.props.setX01Game(301);
+                                } },
+                            '301'
                         )
-                    ),
+                    )
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-6" },
+                        'div',
+                        { className: 'col-12 text-center x01-pick-menu' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(201);
-                                        } },
-                                    "201"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
+                            'button',
+                            { className: 'x01-pick-menu', onClick: function onClick() {
+                                    _this2.props.setX01Game(501);
+                                } },
+                            '501'
+                        )
+                    )
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 text-center x01-pick-menu' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(401);
-                                        } },
-                                    "401"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
+                            'button',
+                            { className: 'x01-pick-menu', onClick: function onClick() {
+                                    _this2.customSwitch();
+                                } },
+                            'Custom'
+                        )
+                    )
+                ),
+                this.renderCustom(),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 text-center x01-pick-menu' },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
+                            _reactRouterDom.Link,
+                            { to: {
+                                    pathname: '' + this.url
+                                } },
                             _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(601);
-                                        } },
-                                    "601"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(801);
-                                        } },
-                                    "801"
-                                )
-                            )
-                        ),
-                        _react2.default.createElement("br", null),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-12 text-center x01-pick-menu" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "x01-pick-menu", onClick: function onClick() {
-                                            _this2.props.setX01Game(1001);
-                                        } },
-                                    "1001"
-                                )
+                                'button',
+                                { type: 'button' },
+                                'Back'
                             )
                         )
                     )
@@ -42491,6 +42447,8 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(11);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42502,89 +42460,112 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var GameOptions = function (_Component) {
     _inherits(GameOptions, _Component);
 
-    function GameOptions() {
+    function GameOptions(obj) {
         _classCallCheck(this, GameOptions);
 
-        return _possibleConstructorReturn(this, (GameOptions.__proto__ || Object.getPrototypeOf(GameOptions)).call(this));
+        var _this = _possibleConstructorReturn(this, (GameOptions.__proto__ || Object.getPrototypeOf(GameOptions)).call(this));
+
+        _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
+        return _this;
     }
 
     _createClass(GameOptions, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             var _this2 = this;
 
             return _react2.default.createElement(
-                "div",
+                'div',
                 null,
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col settings-menu-title text-center" },
-                        "Input Options"
+                        'div',
+                        { className: 'col settings-menu-title text-center' },
+                        'Input Options'
                     )
                 ),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center x01-options-menu" },
+                        'div',
+                        { className: 'col-12 text-center x01-options-menu' },
                         _react2.default.createElement(
-                            "button",
-                            { className: "x01-options-menu", onClick: function onClick() {
+                            'button',
+                            { className: 'x01-options-menu', onClick: function onClick() {
                                     _this2.props.setGameOptions("dido");
                                 } },
-                            "Double In/Double Out"
+                            'Double In/Double Out'
                         )
                     )
                 ),
-                _react2.default.createElement("br", null),
+                _react2.default.createElement('br', null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center x01-options-menu" },
+                        'div',
+                        { className: 'col-12 text-center x01-options-menu' },
                         _react2.default.createElement(
-                            "button",
-                            { className: "x01-options-menu", onClick: function onClick() {
+                            'button',
+                            { className: 'x01-options-menu', onClick: function onClick() {
                                     _this2.props.setGameOptions("sido");
                                 } },
-                            "Any In/Double Out"
+                            'Any In/Double Out'
                         )
                     )
                 ),
-                _react2.default.createElement("br", null),
+                _react2.default.createElement('br', null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center x01-options-menu" },
+                        'div',
+                        { className: 'col-12 text-center x01-options-menu' },
                         _react2.default.createElement(
-                            "button",
-                            { className: "x01-options-menu", onClick: function onClick() {
+                            'button',
+                            { className: 'x01-options-menu', onClick: function onClick() {
                                     _this2.props.setGameOptions("siso");
                                 } },
-                            "Any In/Any Out"
+                            'Any In/Any Out'
                         )
                     )
                 ),
-                _react2.default.createElement("br", null),
+                _react2.default.createElement('br', null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center x01-options-menu" },
+                        'div',
+                        { className: 'col-12 text-center x01-options-menu' },
                         _react2.default.createElement(
-                            "button",
-                            { className: "x01-options-menu", onClick: function onClick() {
+                            'button',
+                            { className: 'x01-options-menu', onClick: function onClick() {
                                     _this2.props.setGameOptions("numpad");
                                 } },
-                            "Manual Numpad"
+                            'Manual Numpad'
+                        )
+                    )
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 text-center x01-pick-menu' },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: {
+                                    pathname: '' + this.url
+                                } },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', onClick: this.props.setGameStatePick },
+                                'Back'
+                            )
                         )
                     )
                 )
@@ -52795,8 +52776,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -52806,8 +52785,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -52822,8 +52799,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -52833,8 +52808,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -52844,8 +52817,6 @@ var Cricket = function (_Component) {
                                 number = _this5.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() > .66 ? 1 : 0;
-                                    console.log(number);
-                                    console.log(multiple);
                                 } else {
                                     multiple = 1;
                                 }
@@ -57630,12 +57601,12 @@ var MainMenu = function (_Component) {
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
-                                    pathname: '/cpu'
+                                    pathname: '/pvp'
                                 } },
                             _react2.default.createElement(
                                 "button",
                                 { className: "main-menu" },
-                                "Single Player"
+                                "Multiplayer"
                             )
                         )
                     )
@@ -57650,12 +57621,12 @@ var MainMenu = function (_Component) {
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
-                                    pathname: '/pvp'
+                                    pathname: '/cpu'
                                 } },
                             _react2.default.createElement(
                                 "button",
                                 { className: "main-menu" },
-                                "Multiplayer"
+                                "Single Player"
                             )
                         )
                     )
