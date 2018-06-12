@@ -978,6 +978,13 @@ export default class X01 extends Component {
                 />
 
             )
+        } else if (this.state.gameState === "options") {
+            return (
+                <GameOptions
+                    setGameOptions={this.setGameOptions}
+                    setGameStatePick ={this.setGameStatePick}
+                />
+            )
         } else if (this.state.gameState === "playing") {
             return (
                 <Scoreboard
@@ -1034,12 +1041,6 @@ export default class X01 extends Component {
                     />
                 )
             }
-        } else if (this.state.gameState === "options") {
-            return (
-                <GameOptions
-                    setGameOptions={this.setGameOptions}
-                />
-            )
         } else if (this.state.gameState === "difficulty") {
             return (
                 <BotDifficulty

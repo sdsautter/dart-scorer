@@ -1,5 +1,6 @@
 :root {
     --nice-font: 'Cuprum', cursive;
+    --chalk-font: 'Permanent Marker', cursive;
     --p1-color: #F2DDC8;
     --p1-singe: #F2DDC8;
     --p1-multiple-hover: #689276;
@@ -1070,4 +1071,18 @@ img {
 .swipe-main-toggle,
 .sound-main-toggle {
     padding: 1%;
+}
+
+.custom-x01 {
+    padding-top: 1%;
+}
+
+.custom-x01 input {
+    width: 50%;
+    font-family: var(--chalk-font)
+}
+
+.custom-x01 button {
+    width: 100%;
+    padding: 0;
 }

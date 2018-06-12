@@ -16,20 +16,19 @@ export default class MainMenu extends Component {
                     </div>
                 </div>
                 <br />
-
-                <div className='row'>
-                    <div className="col-12 text-center main-menu">
-                        <Link to={{
-                            pathname: '/cpu',
-                        }}><button className='main-menu'>Single Player</button></Link>
-                    </div>
-                </div>
-                <br />
                 <div className="row">
                     <div className="col-12 text-center main-menu">
                         <Link to={{
                             pathname: '/pvp',
                         }}><button className='main-menu'>Multiplayer</button></Link>
+                    </div>
+                </div>
+                <br />
+                <div className='row'>
+                    <div className="col-12 text-center main-menu">
+                        <Link to={{
+                            pathname: '/cpu',
+                        }}><button className='main-menu'>Single Player</button></Link>
                     </div>
                 </div>
                 <br />

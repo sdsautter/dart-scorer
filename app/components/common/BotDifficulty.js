@@ -63,7 +63,7 @@ export default class BotDifficulty extends Component {
                 <div className="row">
                     <div className="col-12 text-center main-menu">
                         <Link to={{
-                            pathname: '/',
+                            pathname: '/cpu',
                         }}>
                             <button className='rules-menu'>Back</button>
                         </Link>

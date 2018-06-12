@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dart": "webpack && npm start"
+    "dart": "webpack && npm start",
+    "webpack": "webpack -w",
+    "nodemon": "nodemon server.js"
   },
   "repository": {
     "type": "git",

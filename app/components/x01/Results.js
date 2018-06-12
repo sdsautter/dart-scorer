@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SetTable from "../common/SetTable";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default class Results extends Component {
     constructor() {
