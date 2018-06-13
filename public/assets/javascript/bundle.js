@@ -9087,7 +9087,7 @@ var SettingsMenu = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.soundToggle })
+                        _react2.default.createElement('img', { className: 'sound-icon sound-modal-img', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.soundToggle })
                     ),
                     _react2.default.createElement(
                         'div',
@@ -9107,7 +9107,7 @@ var SettingsMenu = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.soundToggle })
+                        _react2.default.createElement('img', { className: 'sound-icon sound-modal-img', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.soundToggle })
                     ),
                     _react2.default.createElement(
                         'div',
@@ -9132,7 +9132,7 @@ var SettingsMenu = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.multipleToggle })
+                        _react2.default.createElement('img', { className: 'sound-icon swipe-modal-img', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.multipleToggle })
                     ),
                     _react2.default.createElement(
                         'div',
@@ -9152,7 +9152,7 @@ var SettingsMenu = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.multipleToggle })
+                        _react2.default.createElement('img', { className: 'sound-icon swipe-modal-img', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.multipleToggle })
                     ),
                     _react2.default.createElement(
                         'div',
