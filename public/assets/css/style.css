@@ -86,6 +86,17 @@
         font-size: 1rem;
         padding-top: 5%;
     }
+    .leg-options,
+    .set-option,
+    .swipe-main-toggle,
+    .swipe-option,
+    .sound-main-toggle,
+    .sound-modal-img,
+    .swipe-modal-img,
+    .settings-fade,
+    .settings-selected {
+        cursor: pointer;
+    }
     .leg-selected,
     .set-selected,
     .settings-selected {
@@ -447,7 +458,8 @@
         /* color: #c7ab8d; */
     }
     .p2-multiple button,
-    .modal-home button, .p2-multiple button:disabled {
+    .modal-home button,
+    .p2-multiple button:disabled {
         background-color: #881918 !important;
         /* color: #c7ab8d; */
     }
@@ -749,7 +761,9 @@
         background-color: black;
         /* color: #c7ab8d; */
     }
-    .p2-multiple button, .modal-home button, {
+    .p2-multiple button,
+    .modal-home button,
+        {
         background-color: #881918;
         /* color: #c7ab8d; */
     }
@@ -881,8 +895,8 @@ button:target {
     background-color: rgb(50, 50, 50);
 }
 
-.p2-multiple button:hover, .modal-home button:hover
-.end-turn button:hover {
+.p2-multiple button:hover,
+.modal-home button:hover .end-turn button:hover {
     background-color: rgb(197, 98, 98);
 }
 
