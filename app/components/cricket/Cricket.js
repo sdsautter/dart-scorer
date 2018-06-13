@@ -688,7 +688,7 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 1:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .75 ? 1 : 0;
@@ -703,7 +703,7 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .75 ? 1 : 0;
@@ -718,7 +718,7 @@ export default class Cricket extends Component {
                             }
                         }, 3000);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .75 ? 1 : 0;
@@ -735,7 +735,7 @@ export default class Cricket extends Component {
                         break;
                     case 2:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .75 ? 1 : 0;
@@ -750,7 +750,7 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .75 ? 1 : 0;
@@ -765,7 +765,7 @@ export default class Cricket extends Component {
                             }
                         }, 2500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .75 ? 1 : 0;
@@ -782,7 +782,7 @@ export default class Cricket extends Component {
                         break;
                     default:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .60 ? 1 : 0;
@@ -797,7 +797,7 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .60 ? 1 : 0;
@@ -812,7 +812,7 @@ export default class Cricket extends Component {
                             }
                         }, 3000);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .60 ? 1 : 0;
@@ -835,7 +835,7 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 2:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .66 ? 1 : 0;
@@ -850,7 +850,7 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .66 ? 1 : 0;
@@ -865,7 +865,7 @@ export default class Cricket extends Component {
                             }
                         }, 2500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .66 ? 1 : 0;
@@ -882,7 +882,7 @@ export default class Cricket extends Component {
                         break;
                     case 3:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .66 ? 1 : 0;
@@ -897,7 +897,7 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .66 ? 1 : 0;
@@ -912,7 +912,7 @@ export default class Cricket extends Component {
                             }
                         }, 2500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .66 ? 1 : 0;
@@ -930,19 +930,19 @@ export default class Cricket extends Component {
 
                     default:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 this.score(number, multiple);
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 this.score(number, multiple);
                             }
                         }, 2500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 this.miss();
                             }
@@ -959,7 +959,7 @@ export default class Cricket extends Component {
                 switch (randomMarks) {
                     case 3:
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .45 ? 0 : 1;
@@ -974,7 +974,7 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .45 ? 0 : 1;
@@ -989,7 +989,7 @@ export default class Cricket extends Component {
                             }
                         }, 2500);
                         setTimeout(() => {
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .45 ? 0 : 1;
@@ -1007,7 +1007,7 @@ export default class Cricket extends Component {
                     case 4:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .10) {
@@ -1030,7 +1030,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .45) {
@@ -1050,7 +1050,7 @@ export default class Cricket extends Component {
                         }, 2750);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .45) {
@@ -1072,7 +1072,7 @@ export default class Cricket extends Component {
                     case 5:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .15) {
@@ -1094,7 +1094,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .15) {
@@ -1116,7 +1116,7 @@ export default class Cricket extends Component {
                         }, 2500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .45) {
@@ -1138,7 +1138,7 @@ export default class Cricket extends Component {
                     default:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .15) {
@@ -1160,7 +1160,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .15) {
@@ -1183,7 +1183,7 @@ export default class Cricket extends Component {
                         }, 2500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .15) {
@@ -1213,7 +1213,7 @@ export default class Cricket extends Component {
                     case 5:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1235,7 +1235,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1257,7 +1257,7 @@ export default class Cricket extends Component {
                         }, 2500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .75) {
@@ -1279,7 +1279,7 @@ export default class Cricket extends Component {
                     case 6:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1301,7 +1301,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1323,7 +1323,7 @@ export default class Cricket extends Component {
                         }, 3000);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1347,7 +1347,7 @@ export default class Cricket extends Component {
                     case 7:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1369,7 +1369,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1391,7 +1391,7 @@ export default class Cricket extends Component {
                         }, 3000);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1415,7 +1415,7 @@ export default class Cricket extends Component {
                     case 8:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1437,7 +1437,7 @@ export default class Cricket extends Component {
                         }, 1500);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1459,7 +1459,7 @@ export default class Cricket extends Component {
                         }, 3000);
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
@@ -1484,7 +1484,7 @@ export default class Cricket extends Component {
                     case 9:
                         setTimeout(() => {
                             randomNumber = Math.random();
-                            if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {

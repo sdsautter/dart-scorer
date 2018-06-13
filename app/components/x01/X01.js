@@ -320,7 +320,7 @@ export default class X01 extends Component {
             const x01Game = parseInt(this.state.x01Game);
             let doubleChance, dartThrow;
             setTimeout(() => {
-                if (this.state.gameState !== 'over') {
+                if (this.state.gameState !== 'over' && this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                     if (!this.state.p2DoubleIn || botScore <= 40 && botScore % 2 === 0) {
                         doubleChance = this.botDoubleChance();
                     } else {
@@ -331,8 +331,7 @@ export default class X01 extends Component {
                 }
             }, 1500);
             setTimeout(() => {
-                if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
-
+                if (this.state.gameState !== 'over' && this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2' && this.state.activeThrower === 'p2') {
                     if (!this.state.p2DoubleIn || botScore <= 40) {
                         doubleChance = this.botDoubleChance();
                     } else {
@@ -344,7 +343,7 @@ export default class X01 extends Component {
                 }
             }, 2500);
             setTimeout(() => {
-                if (this.state.gameState !== 'over' && this.state.activeThrower === 'p2') {
+                if (this.state.gameState !== 'over' && this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2' && this.state.activeThrower === 'p2') {
                     if (!this.state.p2DoubleIn || botScore <= 40) {
                         doubleChance = this.botDoubleChance();
                     } else {
@@ -357,7 +356,9 @@ export default class X01 extends Component {
             }, 3500);
         } else {
             setTimeout(() => {
+                if (this.state.gameState !== 'over' && this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                 this.botNumpad();
+                }
             }, 1500);
         }
     }
@@ -463,14 +464,14 @@ export default class X01 extends Component {
 
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
-        this.setState({ p1RoundStartScore: [this.state.x01Game] });
+        this.setState({ p1RoundStartScore: [] });
         this.setState({ p1RoundScores: [] });
         this.setState({ p1Legs: 0 });
         this.setState({ p1Sets: 0 });
 
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
-        this.setState({ p2RoundStartScore: [this.state.x01Game] });
+        this.setState({ p2RoundStartScore: [] });
         this.setState({ p2RoundScores: [] });
         this.setState({ p2Legs: 0 });
         this.setState({ p2Sets: 0 });
