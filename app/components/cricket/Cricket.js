@@ -1971,22 +1971,24 @@ export default class Cricket extends Component {
         const playerNumberState = eval(`this.state.p${playerNumber}${cricketNumber}`);
         if (playerNumberState === 1) {
             return (
-                <div className='mark-container'> 
-                    <span className="mark" id='oneMark'> \ </span>
-                </div>        )
+                <div className='mark-container'>
+                    <span className="mark" id='oneMark'> &#47; </span>
+                </div>)
         } else if (playerNumberState === 2) {
             return (
                 <div className='mark-container'>
-                    <span className="mark" id='twoMark'> X </span>
+                    <span className="mark" id='oneMark'> &#47; </span>
+                    <span className="mark" id='twoMark'> &#47; </span>
                 </div>
             )
         } else if (playerNumberState >= 3) {
             return (
-            <div className='mark-container'>
-            <span className="mark" id='twoMark'> X </span>
-            <span className="mark" id='threeMark' />
-        </div>
-        )
+                <div className='mark-container'>
+                    <span className="mark" id='oneMark'> &#47; </span>
+                    <span className="mark" id='twoMark'> &#47; </span>
+                    <span className="mark" id='threeMark'></span>
+                </div>
+            )
         }
     }
 
