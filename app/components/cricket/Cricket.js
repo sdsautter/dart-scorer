@@ -1970,11 +1970,25 @@ export default class Cricket extends Component {
     markProgress(playerNumber, cricketNumber) {
         const playerNumberState = eval(`this.state.p${playerNumber}${cricketNumber}`);
         if (playerNumberState === 1) {
-            return (<img className="mark" src='../../../assets/images/one_mark.png' />)
+            return (
+                <div className='mark-container'> 
+                    <span className="mark"> \ </span>
+                </div>        )
         } else if (playerNumberState === 2) {
-            return (<img className="mark" src={`../../../assets/images/two_mark.png`} />)
+            return (
+                <div className='mark-container'>
+                    <span className="mark"> \ </span>
+                    <span className="mark"> / </span>
+                </div>
+            )
         } else if (playerNumberState >= 3) {
-            return (<img className="mark" src={`../../../assets/images/three_mark.png`} />)
+            return (
+            <div className='mark-container'>
+            <span className="mark"> \ </span>
+            <span className="mark"> / </span>
+            <span className="mark" id='circle' />
+        </div>
+        )
         }
     }
 

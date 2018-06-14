@@ -16413,11 +16413,46 @@ var Cricket = function (_Component) {
         value: function markProgress(playerNumber, cricketNumber) {
             var playerNumberState = eval("this.state.p" + playerNumber + cricketNumber);
             if (playerNumberState === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../../../assets/images/one_mark.png" });
+                return _react2.default.createElement(
+                    "div",
+                    { className: "mark-container" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " \\ "
+                    )
+                );
             } else if (playerNumberState === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../../../assets/images/two_mark.png" });
+                return _react2.default.createElement(
+                    "div",
+                    { className: "mark-container" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " \\ "
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " / "
+                    )
+                );
             } else if (playerNumberState >= 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../../../assets/images/three_mark.png" });
+                return _react2.default.createElement(
+                    "div",
+                    { className: "mark-container" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " \\ "
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " / "
+                    ),
+                    _react2.default.createElement("span", { className: "mark", id: "circle" })
+                );
             }
         }
     }, {
@@ -54315,11 +54350,46 @@ var Cricket = function (_Component) {
         value: function markProgress(playerNumber, cricketNumber) {
             var playerNumberState = eval("this.state.p" + playerNumber + cricketNumber);
             if (playerNumberState === 1) {
-                return _react2.default.createElement("img", { className: "mark", src: "../../../assets/images/one_mark.png" });
+                return _react2.default.createElement(
+                    "div",
+                    { className: "mark-container" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " \\ "
+                    )
+                );
             } else if (playerNumberState === 2) {
-                return _react2.default.createElement("img", { className: "mark", src: "../../../assets/images/two_mark.png" });
+                return _react2.default.createElement(
+                    "div",
+                    { className: "mark-container" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " \\ "
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " / "
+                    )
+                );
             } else if (playerNumberState >= 3) {
-                return _react2.default.createElement("img", { className: "mark", src: "../../../assets/images/three_mark.png" });
+                return _react2.default.createElement(
+                    "div",
+                    { className: "mark-container" },
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " \\ "
+                    ),
+                    _react2.default.createElement(
+                        "span",
+                        { className: "mark" },
+                        " / "
+                    ),
+                    _react2.default.createElement("span", { className: "mark", id: "circle" })
+                );
             }
         }
     }, {

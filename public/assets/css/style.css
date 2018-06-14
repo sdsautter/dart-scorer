@@ -1,6 +1,7 @@
 :root {
     --nice-font: 'Cuprum', cursive;
     --chalk-font: 'Permanent Marker', cursive;
+    --background-color: rgb(73, 121, 89);
     --p1-color: #F2DDC8;
     --p1-singe: #F2DDC8;
     --p1-multiple-hover: #689276;
@@ -151,19 +152,19 @@
     }
     .left-mark img {
         /* height: 50px; */
-        margin-left: 8px;
+        /* margin-left: 8px; */
     }
     .right-label {
-        margin-left: -13px;
+        /* margin-left: -13px; */
     }
     .right-mark,
     .left-mark {
-        padding-top: .5%;
-        padding-bottom: .5%;
-        height: 50px;
+        /* padding-top: .5%; */
+        /* padding-bottom: .5%; */
+        /* height: 50px; */
     }
     .right-mark img {
-        margin-left: -15px;
+        /* margin-left: -15px; */
     }
     .rules-header {
         font-size: 1.25rem;
@@ -424,9 +425,9 @@
         padding: 0;
     }
     .mark {
-        max-height: 50px;
-        padding: 0;
-        max-width: 100%;
+        /* max-height: 50px; */
+        /* padding: 0; */
+        /* max-width: 100%; */
     }
     .throw-number {
         color: #C7AB8D;
@@ -653,9 +654,9 @@
         font-size: 1.5rem;
     }
     .mark {
-        max-height: 50px;
-        padding: 0;
-        max-width: 100%;
+        /* max-height: 50px; */
+        /* padding: 0; */
+        /* max-width: 100%; */
     }
     .throw-number {
         color: #C7AB8D;
@@ -799,9 +800,9 @@
         font-size: 1.5rem;
     }
     .mark {
-        max-height: 50px;
-        padding: 0;
-        max-width: 100%;
+        /* max-height: 50px; */
+        /* padding: 0; */
+        /* max-width: 100%; */
     }
     .throw-number {
         color: #C7AB8D;
@@ -1099,4 +1100,22 @@ img {
 .custom-x01 button {
     width: 100%;
     padding: 0;
+}
+.mark-container {
+    position: relative !important;
+}
+.mark {
+    background-color: var(--background-color);
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+#circle {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rbg(242, 221, 200);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
 }
