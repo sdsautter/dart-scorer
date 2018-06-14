@@ -1,6 +1,7 @@
 :root {
     --nice-font: 'Cuprum', cursive;
     --chalk-font: 'Permanent Marker', cursive;
+    --background-color: rgb(73, 121, 89);
     --p1-color: #F2DDC8;
     --p1-singe: #F2DDC8;
     --p1-multiple-hover: #689276;
@@ -18,6 +19,33 @@
     }
     ul {
         padding-left: 5%;
+    }
+    .mark-container {
+        position: relative !important;
+        top: -2rem;
+    }
+    .mark {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute !important;
+        font-size: 2rem;
+    }
+    #twoMark {
+        background-color: rgba(0, 0, 0, 0);
+        -moz-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        -o-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+    }
+    #threeMark {
+        top: 1.25rem;
+        height: 1.5rem;
+        left: 50%;
+        width: 1.5rem;
+        border: 3px solid rgb(242, 221, 200);
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
     }
     .sound-main-header,
     .swipe-main-header {
@@ -151,19 +179,19 @@
     }
     .left-mark img {
         /* height: 50px; */
-        margin-left: 8px;
+        /* margin-left: 8px; */
     }
     .right-label {
-        margin-left: -13px;
+        /* margin-left: -13px; */
     }
     .right-mark,
     .left-mark {
-        padding-top: .5%;
-        padding-bottom: .5%;
-        height: 50px;
+        /* padding-top: .5%; */
+        /* padding-bottom: .5%; */
+        /* height: 50px; */
     }
     .right-mark img {
-        margin-left: -15px;
+        /* margin-left: -15px; */
     }
     .rules-header {
         font-size: 1.25rem;
@@ -424,9 +452,9 @@
         padding: 0;
     }
     .mark {
-        max-height: 50px;
-        padding: 0;
-        max-width: 100%;
+        /* max-height: 50px; */
+        /* padding: 0; */
+        /* max-width: 100%; */
     }
     .throw-number {
         color: #C7AB8D;
@@ -491,6 +519,33 @@
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
+    }
+    .mark-container {
+        position: relative !important;
+        top: -2.5rem;
+    }
+    .mark {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute !important;
+        font-size: 2.5rem;
+    }
+    #twoMark {
+        background-color: rgba(0, 0, 0, 0);
+        -moz-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        -o-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+    }
+    #threeMark {
+        top: 1.5rem;
+        height: 2rem;
+        left: 50%;
+        width: 2rem;
+        border: 4px solid rgb(242, 221, 200);
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
     }
     .sound-main {
         font-size: 1.75rem;
@@ -653,9 +708,9 @@
         font-size: 1.5rem;
     }
     .mark {
-        max-height: 50px;
-        padding: 0;
-        max-width: 100%;
+        /* max-height: 50px; */
+        /* padding: 0; */
+        /* max-width: 100%; */
     }
     .throw-number {
         color: #C7AB8D;
@@ -675,6 +730,33 @@
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
         overflow-x: hidden;
+    }
+    .mark-container {
+        position: relative !important;
+        top: -4rem;
+    }
+    .mark {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute !important;
+        font-size: 4rem;
+    }
+    #twoMark {
+        background-color: rgba(0, 0, 0, 0);
+        -moz-transform: scale(-1, 1);
+        -webkit-transform: scale(-1, 1);
+        -o-transform: scale(-1, 1);
+        -ms-transform: scale(-1, 1);
+        transform: scale(-1, 1);
+    }
+    #threeMark {
+        top: 2.5rem;
+        height: 2.8rem;
+        left: 51%;
+        width: 2.8rem;
+        border: 5px solid rgb(242, 221, 200);
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
     }
     .main-menu button,
     .rules-menu button {
@@ -799,9 +881,9 @@
         font-size: 1.5rem;
     }
     .mark {
-        max-height: 50px;
-        padding: 0;
-        max-width: 100%;
+        /* max-height: 50px; */
+        /* padding: 0; */
+        /* max-width: 100%; */
     }
     .throw-number {
         color: #C7AB8D;
@@ -1100,3 +1182,28 @@ img {
     width: 100%;
     padding: 0;
 }
+/* 
+.mark {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+#twoMark {
+    background-color: rgba(0, 0, 0, 0);
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+
+#threeMark {
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(242, 221, 200);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+} */
