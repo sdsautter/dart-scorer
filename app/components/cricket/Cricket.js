@@ -1972,21 +1972,19 @@ export default class Cricket extends Component {
         if (playerNumberState === 1) {
             return (
                 <div className='mark-container'> 
-                    <span className="mark"> \ </span>
+                    <span className="mark" id='oneMark'> \ </span>
                 </div>        )
         } else if (playerNumberState === 2) {
             return (
                 <div className='mark-container'>
-                    <span className="mark"> \ </span>
-                    <span className="mark"> / </span>
+                    <span className="mark" id='twoMark'> X </span>
                 </div>
             )
         } else if (playerNumberState >= 3) {
             return (
             <div className='mark-container'>
-            <span className="mark"> \ </span>
-            <span className="mark"> / </span>
-            <span className="mark" id='circle' />
+            <span className="mark" id='twoMark'> X </span>
+            <span className="mark" id='threeMark' />
         </div>
         )
         }

@@ -16418,7 +16418,7 @@ var Cricket = function (_Component) {
                     { className: "mark-container" },
                     _react2.default.createElement(
                         "span",
-                        { className: "mark" },
+                        { className: "mark", id: "oneMark" },
                         " \\ "
                     )
                 );
@@ -16428,13 +16428,8 @@ var Cricket = function (_Component) {
                     { className: "mark-container" },
                     _react2.default.createElement(
                         "span",
-                        { className: "mark" },
-                        " \\ "
-                    ),
-                    _react2.default.createElement(
-                        "span",
-                        { className: "mark" },
-                        " / "
+                        { className: "mark", id: "twoMark" },
+                        " X "
                     )
                 );
             } else if (playerNumberState >= 3) {
@@ -16443,15 +16438,10 @@ var Cricket = function (_Component) {
                     { className: "mark-container" },
                     _react2.default.createElement(
                         "span",
-                        { className: "mark" },
-                        " \\ "
+                        { className: "mark", id: "twoMark" },
+                        " X "
                     ),
-                    _react2.default.createElement(
-                        "span",
-                        { className: "mark" },
-                        " / "
-                    ),
-                    _react2.default.createElement("span", { className: "mark", id: "circle" })
+                    _react2.default.createElement("span", { className: "mark", id: "threeMark" })
                 );
             }
         }
@@ -34822,6 +34812,7 @@ var Scoreboard = function (_Component) {
                     renderP2Score: this.props.renderP2Score,
                     markProgress: this.props.markProgress,
                     undo: this.props.undo,
+                    gameCricketReset: this.props.gameCricketReset,
                     setGameWinner: this.props.setGameWinner,
                     gameStateOver: this.props.gameStateOver,
                     gameOverModal: this.props.gameOverModal,
@@ -41065,9 +41056,7 @@ var MobileModalView = function (_Component) {
                                         { className: 'col text-center' },
                                         _react2.default.createElement(
                                             'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    location.assign('/cricket');
-                                                } },
+                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: this.props.gameCricketReset },
                                             'Yes'
                                         )
                                     )
@@ -54355,7 +54344,7 @@ var Cricket = function (_Component) {
                     { className: "mark-container" },
                     _react2.default.createElement(
                         "span",
-                        { className: "mark" },
+                        { className: "mark", id: "oneMark" },
                         " \\ "
                     )
                 );
@@ -54365,13 +54354,8 @@ var Cricket = function (_Component) {
                     { className: "mark-container" },
                     _react2.default.createElement(
                         "span",
-                        { className: "mark" },
-                        " \\ "
-                    ),
-                    _react2.default.createElement(
-                        "span",
-                        { className: "mark" },
-                        " / "
+                        { className: "mark", id: "twoMark" },
+                        " X "
                     )
                 );
             } else if (playerNumberState >= 3) {
@@ -54380,15 +54364,10 @@ var Cricket = function (_Component) {
                     { className: "mark-container" },
                     _react2.default.createElement(
                         "span",
-                        { className: "mark" },
-                        " \\ "
+                        { className: "mark", id: "twoMark" },
+                        " X "
                     ),
-                    _react2.default.createElement(
-                        "span",
-                        { className: "mark" },
-                        " / "
-                    ),
-                    _react2.default.createElement("span", { className: "mark", id: "circle" })
+                    _react2.default.createElement("span", { className: "mark", id: "threeMark" })
                 );
             }
         }
@@ -54541,6 +54520,7 @@ var Scoreboard = function (_Component) {
                     renderP2Score: this.props.renderP2Score,
                     markProgress: this.props.markProgress,
                     undo: this.props.undo,
+                    gameCricketReset: this.props.gameCricketReset,
                     setGameWinner: this.props.setGameWinner,
                     gameStateOver: this.props.gameStateOver,
                     gameOverModal: this.props.gameOverModal,
@@ -57682,9 +57662,7 @@ var MobileModalView = function (_Component) {
                                         { className: 'col text-center' },
                                         _react2.default.createElement(
                                             'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    location.assign('/cricket');
-                                                } },
+                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: this.props.gameCricketReset },
                                             'Yes'
                                         )
                                     )

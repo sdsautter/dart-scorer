@@ -729,7 +729,7 @@ export default class MobileModalView extends Component {
                                         <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/cricket') }}>Yes</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={this.props.gameCricketReset}>Yes</button>
                                     </div>
                                 </div>
                             </div>

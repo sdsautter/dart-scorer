@@ -1101,17 +1101,26 @@ img {
     width: 100%;
     padding: 0;
 }
+
 .mark-container {
     position: relative !important;
 }
+
 .mark {
-    background-color: var(--background-color);
+    background-color: rgba(0, 0, 0, 0);
     position: absolute !important;
     top: 0;
     left: 0;
 }
+#twoMark {
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
 
-#circle {
+#threeMark {
     width: 100%;
     height: 100%;
     border: 1px solid rbg(242, 221, 200);
