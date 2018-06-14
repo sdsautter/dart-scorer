@@ -34787,6 +34787,7 @@ var Scoreboard = function (_Component) {
                     renderP2Score: this.props.renderP2Score,
                     markProgress: this.props.markProgress,
                     undo: this.props.undo,
+                    gameCricketReset: this.props.gameCricketReset,
                     setGameWinner: this.props.setGameWinner,
                     gameStateOver: this.props.gameStateOver,
                     gameOverModal: this.props.gameOverModal,
@@ -41030,9 +41031,7 @@ var MobileModalView = function (_Component) {
                                         { className: 'col text-center' },
                                         _react2.default.createElement(
                                             'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    location.assign('/cricket');
-                                                } },
+                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: this.props.gameCricketReset },
                                             'Yes'
                                         )
                                     )
@@ -46387,7 +46386,7 @@ var MobileGesture = function (_Component) {
                                         _react2.default.createElement(
                                             'button',
                                             { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    _this7.gameReset();
+                                                    _this7.props.gameX01Reset();
                                                 } },
                                             'Yes'
                                         )
@@ -50664,7 +50663,7 @@ var GestureToggle = function (_Component) {
                         _react2.default.createElement(
                             'span',
                             { className: 'help-img' },
-                            _react2.default.createElement('img', { className: 'help-img', src: 'assets/images/help2.jpg', alt: 'help', 'data-toggle': 'modal', 'data-target': '#gestureHelp' })
+                            _react2.default.createElement('img', { className: 'help-img', src: '../../assets/images/help2.jpg', alt: 'help', 'data-toggle': 'modal', 'data-target': '#gestureHelp' })
                         ),
                         _react2.default.createElement(
                             'span',
@@ -54471,6 +54470,7 @@ var Scoreboard = function (_Component) {
                     renderP2Score: this.props.renderP2Score,
                     markProgress: this.props.markProgress,
                     undo: this.props.undo,
+                    gameCricketReset: this.props.gameCricketReset,
                     setGameWinner: this.props.setGameWinner,
                     gameStateOver: this.props.gameStateOver,
                     gameOverModal: this.props.gameOverModal,
@@ -57612,9 +57612,7 @@ var MobileModalView = function (_Component) {
                                         { className: 'col text-center' },
                                         _react2.default.createElement(
                                             'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    location.assign('/cricket');
-                                                } },
+                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: this.props.gameCricketReset },
                                             'Yes'
                                         )
                                     )

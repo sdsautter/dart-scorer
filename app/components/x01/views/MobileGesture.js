@@ -398,7 +398,7 @@ export default class MobileGesture extends Component {
                                         <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.gameReset() }}>Yes</button>
+                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameX01Reset() }}>Yes</button>
                                     </div>
                                 </div>
                             </div>

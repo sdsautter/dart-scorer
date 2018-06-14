@@ -22,6 +22,7 @@ export default class Scoreboard extends Component {
                     renderP2Score={this.props.renderP2Score}
                     markProgress={this.props.markProgress}
                     undo={this.props.undo}
+                    gameCricketReset={this.props.gameCricketReset}
                     setGameWinner={this.props.setGameWinner}
                     gameStateOver={this.props.gameStateOver}
                     gameOverModal={this.props.gameOverModal}
