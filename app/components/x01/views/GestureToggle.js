@@ -16,7 +16,7 @@ export default class GestureToggle extends Component {
                 <div className='row align-items-center modal-toggle'>
                     <div className='col text-center align-self-center'>
                         <span className='help-img'>
-                            <img className='help-img' src="assets/images/help2.jpg" alt='help' data-toggle="modal" data-target="#gestureHelp">
+                            <img className='help-img' src="../../assets/images/help2.jpg" alt='help' data-toggle="modal" data-target="#gestureHelp">
 
                             </img>
                         </span>
