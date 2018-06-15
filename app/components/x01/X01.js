@@ -84,6 +84,7 @@ export default class X01 extends Component {
         this.setBotGame = this.setBotGame.bind(this);
         this.soundLogic = this.soundLogic.bind(this);
         this.popRoundScore = this.popRoundScore.bind(this);
+        this.popRoundStartScore = this.popRoundStartScore.bind(this);
         this.gestureSwitch = this.gestureSwitch.bind(this);
     }
 
@@ -306,7 +307,14 @@ export default class X01 extends Component {
         const scoreArray = eval(`this.state.${thrower}RoundScores`);
         scoreArray.pop();
         this.setState({ [`${thrower}RoundScores`]: scoreArray });
+    }
 
+    popRoundStartScore(thrower) {
+        const startScoreArray = eval(`this.state.${thrower}RoundStartScore`);
+        if (startScoreArray.length > 1) {
+            startScoreArray.pop();
+        }
+        this.setState({ [`${thrower}RoundStartScore`]: startScoreArray });
     }
 
     botNumpad() {
@@ -357,7 +365,7 @@ export default class X01 extends Component {
         } else {
             setTimeout(() => {
                 if (this.state.gameState !== 'over' && this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
-                this.botNumpad();
+                    this.botNumpad();
                 }
             }, 1500);
         }
@@ -837,11 +845,13 @@ export default class X01 extends Component {
             if (this.state.activeThrows === 0) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {
-                    this.popRoundScore('p1');
+                    this.popRoundScore('p2');
+                    this.popRoundStartScore('p2');
                     this.setActiveThrower("p2");
                     this.undoSwitch("p2");
                 } else {
-                    this.popRoundScore('p2');
+                    this.popRoundScore('p1');
+                    this.popRoundStartScore('p1');
                     this.setActiveThrower("p1");
                     this.undoSwitch("p1");
                 }
@@ -983,7 +993,7 @@ export default class X01 extends Component {
             return (
                 <GameOptions
                     setGameOptions={this.setGameOptions}
-                    setGameStatePick ={this.setGameStatePick}
+                    setGameStatePick={this.setGameStatePick}
                 />
             )
         } else if (this.state.gameState === "playing") {

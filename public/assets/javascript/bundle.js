@@ -9721,6 +9721,7 @@ var X01 = function (_Component) {
         _this.setBotGame = _this.setBotGame.bind(_this);
         _this.soundLogic = _this.soundLogic.bind(_this);
         _this.popRoundScore = _this.popRoundScore.bind(_this);
+        _this.popRoundStartScore = _this.popRoundStartScore.bind(_this);
         _this.gestureSwitch = _this.gestureSwitch.bind(_this);
         return _this;
     }
@@ -9953,6 +9954,15 @@ var X01 = function (_Component) {
             var scoreArray = eval("this.state." + thrower + "RoundScores");
             scoreArray.pop();
             this.setState(_defineProperty({}, thrower + "RoundScores", scoreArray));
+        }
+    }, {
+        key: "popRoundStartScore",
+        value: function popRoundStartScore(thrower) {
+            var startScoreArray = eval("this.state." + thrower + "RoundStartScore");
+            if (startScoreArray.length > 1) {
+                startScoreArray.pop();
+            }
+            this.setState(_defineProperty({}, thrower + "RoundStartScore", startScoreArray));
         }
     }, {
         key: "botNumpad",
@@ -10529,11 +10539,13 @@ var X01 = function (_Component) {
                 if (this.state.activeThrows === 0) {
                     this.setThrowNumber(2);
                     if (this.state.activeThrower === "p1") {
-                        this.popRoundScore('p1');
+                        this.popRoundScore('p2');
+                        this.popRoundStartScore('p2');
                         this.setActiveThrower("p2");
                         this.undoSwitch("p2");
                     } else {
-                        this.popRoundScore('p2');
+                        this.popRoundScore('p1');
+                        this.popRoundStartScore('p1');
                         this.setActiveThrower("p1");
                         this.undoSwitch("p1");
                     }
