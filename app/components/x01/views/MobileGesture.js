@@ -54,48 +54,38 @@ export default class MobileGesture extends Component {
         const singleOption = localStorage.getItem('single');
         const multipleOption = localStorage.getItem('multiple');
         if (multipleOption === 'horizontal') {
-            return (
-                <Hammer onPress={() => {
-                    (this.props.score(number, 1))
-                }}
-                    onTap={() => {
-                        (this.props.score(number, 1))
-                    }}
-                    direction='DIRECTION_HORIZONTAL'
-                    onSwipeLeft={() => (this.props.score(number, 2))}
-                    onSwipeRight={() => (this.props.score(number, 3))}>
-                    <button type="button" className="btn text-center" >
-                        {number}
-                    </button>
-                </Hammer>
-            )
-        } else if (multipleOption === 'vertical') {
-            return (
-                <Hammer
-                    onPress={() => {
-                        (this.props.score(number, 1))
-                    }}
-                    onTap={() => {
-                        (this.props.score(number, 1))
-                    }}
-                    direction='DIRECTION_VERTICAL'
-                    onSwipeUp={() => (this.props.score(number, 2))}
-                    onSwipeDown={() => (this.props.score(number, 3))}>
-                    <button type="button" className="btn text-center" >
-                        {number}
-                    </button>
-                </Hammer>
-            )
-        }
-    }
-
-    conditionalButtonRender(number) {
-        if (!this.props.botGame || this.props.activeThrower === 'p1') {
             if (number !== 25) {
-                { return this.gestureOptions(number) }
+                return (
+                    <Hammer
+                        onDoubleTap={(event) => {
+                            event.preventDefault();
+                        }}
+                        onPress={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        onTap={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        direction='DIRECTION_HORIZONTAL'
+                        onSwipeLeft={() => (this.props.score(number, 2))}
+                        onSwipeRight={() => (this.props.score(number, 3))}>
+                        <button type="button" className="btn text-center" >
+                            {number}
+                        </button>
+                    </Hammer>
+                )
             } else {
                 return (
-                    <Hammer onPress={() => (this.props.score(number, 1))}
+                    <Hammer
+                        onDoubleTap={(event) => {
+                            event.preventDefault();
+                        }}
+                        onPress={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        onTap={() => {
+                            (this.props.score(number, 1))
+                        }}
                         direction='DIRECTION_HORIZONTAL'
                         onSwipeLeft={() => (this.props.score(number, 2))}>
                         <button type="button" className="btn text-center" >
@@ -104,6 +94,53 @@ export default class MobileGesture extends Component {
                     </Hammer>
                 )
             }
+        } else if (multipleOption === 'vertical') {
+            if (number !== 25) {
+                return (
+                    <Hammer
+                        onDoubleTap={(event) => {
+                            event.preventDefault();
+                        }}
+                        onPress={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        onTap={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        direction='DIRECTION_VERTICAL'
+                        onSwipeUp={() => (this.props.score(number, 2))}
+                        onSwipeDown={() => (this.props.score(number, 3))}>
+                        <button type="button" className="btn text-center" >
+                            {number}
+                        </button>
+                    </Hammer>
+                )
+            } else {
+                return (
+                    <Hammer
+                        onDoubleTap={(event) => {
+                            event.preventDefault();
+                        }}
+                        onPress={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        onTap={() => {
+                            (this.props.score(number, 1))
+                        }}
+                        direction='DIRECTION_VERTICAL'
+                        onSwipeUp={() => (this.props.score(number, 2))}>
+                        <button type="button" className="btn text-center" >
+                            Bull
+                        </button>
+                    </Hammer>
+                )
+            }
+        }
+    }
+
+    conditionalButtonRender(number) {
+        if (!this.props.botGame || this.props.activeThrower === 'p1') {
+            return this.gestureOptions(number)
         } else {
             if (number !== 25) {
                 return (
