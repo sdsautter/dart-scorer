@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Hammer from 'react-hammerjs';
 import { Link } from 'react-router-dom'
 
 export default class MobileModalView extends Component {
@@ -92,13 +93,28 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 17)}
                             </div>
                             <div className="col-2 border-left text-center number p1-single">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>17</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>17</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 border-right number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>x3</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>x3</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 17)}
@@ -112,13 +128,28 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 16)}
                             </div>
                             <div className="col-2 border-left text-center number p1-single">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>16</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>16</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 border-right number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>x3</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>x3</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 16)}
@@ -135,13 +166,28 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 17)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>17</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}>17</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 17)}
@@ -155,13 +201,28 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 16)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>16</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}>16</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 16)}
@@ -180,13 +241,31 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 17)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }} disabled>17</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 1) }}
+                                            disabled>17</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }} disabled>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 2) }}
+                                            disabled>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }} disabled>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(17, 3) }}
+                                            disabled>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 17)}
@@ -200,13 +279,31 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 16)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }} disabled>16</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 1) }}
+                                            disabled>16</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }} disabled>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 2) }}
+                                            disabled>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }} disabled>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(16, 3) }}
+                                            disabled>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 16)}
@@ -240,9 +337,14 @@ export default class MobileModalView extends Component {
                             {this.props.markProgress(1, 16)}
                         </div>
                         <div className="col-6 text-center p2-multiple game-over">
-                            <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
-                                Undo
+                            <Hammer
+                                onDoubleTap={(event) => {
+                                    event.preventDefault();
+                                }}>
+                                <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
+                                    Undo
                         </button>
+                            </Hammer>
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
                             {this.props.markProgress(2, 16)}
@@ -269,13 +371,28 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 20)}
                             </div>
                             <div className="col-2 border-left text-center number p1-single">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 border-right number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>x3</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>x3</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 20)}
@@ -292,13 +409,28 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 19)}
                             </div>
                             <div className="col-2 border-left text-center number p1-single">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>19</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>19</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 border-right number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>x3</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>x3</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 19)}
@@ -312,13 +444,28 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 18)}
                             </div>
                             <div className="col-2 border-left text-center number p1-single">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>18</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>18</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 border-right number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>x3</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>x3</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 18)}
@@ -330,13 +477,28 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 15)}
                             </div>
                             <div className="col-2 border-left text-center number  p1-single">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>15</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>15</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 border-right number text-center p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>x3</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>x3</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 15)}
@@ -347,10 +509,20 @@ export default class MobileModalView extends Component {
                                 {this.props.markProgress(1, 25)}
                             </div>
                             <div className="col-3 border-left text-center number p1-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                                </Hammer>
                             </div>
                             <div className="col-3 border-right number text-center p2-multiple">
-                                <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>x2</button>
+                                <Hammer
+                                    onDoubleTap={(event) => {
+                                        event.preventDefault();
+                                    }}>
+                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>x2</button>
+                                </Hammer>
                             </div>
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 25)}
@@ -370,13 +542,28 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 20)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 3) }}>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 20)}
@@ -393,13 +580,28 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 19)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>19</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 1) }}>19</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(19, 3) }}>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 19)}
@@ -413,13 +615,28 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 18)}
                                 </div>
                                 <div className="col-2 border-left text-center number p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>18</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 1) }}>18</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(18, 3) }}>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 18)}
@@ -431,13 +648,28 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 15)}
                                 </div>
                                 <div className="col-2 border-left text-center number  p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>15</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 1) }}>15</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>x3</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(15, 3) }}>x3</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 15)}
@@ -448,10 +680,21 @@ export default class MobileModalView extends Component {
                                     {this.props.markProgress(1, 25)}
                                 </div>
                                 <div className="col-3 border-left text-center number p1-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}
+                                        >Bull</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-3 border-right number text-center p2-multiple">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>x2</button>
+                                    <Hammer
+                                        onDoubleTap={(event) => {
+                                            event.preventDefault();
+                                        }}>
+                                        <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>x2</button>
+                                    </Hammer>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 25)}
