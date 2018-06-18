@@ -41599,6 +41599,16 @@ var Results = function (_Component) {
         _this.ButtonsRender = _this.buttonsRender.bind(_this);
         _this.setStats = _this.setStats.bind(_this);
         _this.renderTable = _this.renderTable.bind(_this);
+        _this.fiveMarkRow = _this.fiveMarkRow.bind(_this);
+        _this.sixMarkRow = _this.sixMarkRow.bind(_this);
+        _this.sevenMarkRow = _this.sevenMarkRow.bind(_this);
+        _this.eightMarkRow = _this.eightMarkRow.bind(_this);
+        _this.nineMarkRow = _this.nineMarkRow.bind(_this);
+        _this.threeBullRow = _this.threeBullRow.bind(_this);
+        _this.fourBullRow = _this.fourBullRow.bind(_this);
+        _this.fiveBullRow = _this.fiveBullRow.bind(_this);
+        _this.sixBullRow = _this.sixBullRow.bind(_this);
+
         return _this;
     }
 
@@ -41740,6 +41750,231 @@ var Results = function (_Component) {
             this.setState({ p2mpd: p2mpd });
         }
     }, {
+        key: 'fiveMarkRow',
+        value: function fiveMarkRow() {
+            if (this.state.p15m > 0 || this.state.p25m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p15m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p25m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixMarkRow',
+        value: function sixMarkRow() {
+            if (this.state.p16m > 0 || this.state.p26m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p16m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p26m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sevenMarkRow',
+        value: function sevenMarkRow() {
+            if (this.state.p17m > 0 || this.state.p27m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p17m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '7 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p27m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'eightMarkRow',
+        value: function eightMarkRow() {
+            if (this.state.p18m > 0 || this.state.p28m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p18m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '8 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p28m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'nineMarkRow',
+        value: function nineMarkRow() {
+            if (this.state.p19m > 0 || this.state.p29m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p19m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '9 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p29m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'threeBullRow',
+        value: function threeBullRow() {
+            if (this.state.p13bull > 0 || this.state.p23bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p13bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '3 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p23bull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fourBullRow',
+        value: function fourBullRow() {
+            if (this.state.p14bull > 0 || this.state.p24bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p14bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '4 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p24bull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fiveBullRow',
+        value: function fiveBullRow() {
+            if (this.state.p15bull > 0 || this.state.p25bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p15bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p25bull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixBullRow',
+        value: function sixBullRow() {
+            if (this.state.p16bull > 0 || this.state.p26bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p16bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p26bull
+                    )
+                );
+            }
+        }
+    }, {
         key: 'renderTable',
         value: function renderTable() {
             return _react2.default.createElement(
@@ -41805,177 +42040,15 @@ var Results = function (_Component) {
                             parseFloat(this.state.p2mpd.toFixed(3))
                         )
                     ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p15m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '5m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p25m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p16m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '6m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p26m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p17m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '7m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p27m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p18m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '8m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p28m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p19m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '9m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p29m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p13bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '3 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p23bull
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p14bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '4 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p24bull
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p15bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '5 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p25bull
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p16bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '6 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p26bull
-                        )
-                    )
+                    this.fiveMarkRow(),
+                    this.sixMarkRow(),
+                    this.sevenMarkRow(),
+                    this.eightMarkRow(),
+                    this.nineMarkRow(),
+                    this.threeBullRow(),
+                    this.fourBullRow(),
+                    this.fiveBullRow(),
+                    this.sixBullRow()
                 )
             );
         }
@@ -58675,6 +58748,16 @@ var Results = function (_Component) {
         _this.ButtonsRender = _this.buttonsRender.bind(_this);
         _this.setStats = _this.setStats.bind(_this);
         _this.renderTable = _this.renderTable.bind(_this);
+        _this.fiveMarkRow = _this.fiveMarkRow.bind(_this);
+        _this.sixMarkRow = _this.sixMarkRow.bind(_this);
+        _this.sevenMarkRow = _this.sevenMarkRow.bind(_this);
+        _this.eightMarkRow = _this.eightMarkRow.bind(_this);
+        _this.nineMarkRow = _this.nineMarkRow.bind(_this);
+        _this.threeBullRow = _this.threeBullRow.bind(_this);
+        _this.fourBullRow = _this.fourBullRow.bind(_this);
+        _this.fiveBullRow = _this.fiveBullRow.bind(_this);
+        _this.sixBullRow = _this.sixBullRow.bind(_this);
+
         return _this;
     }
 
@@ -58816,6 +58899,231 @@ var Results = function (_Component) {
             this.setState({ p2mpd: p2mpd });
         }
     }, {
+        key: 'fiveMarkRow',
+        value: function fiveMarkRow() {
+            if (this.state.p15m > 0 || this.state.p25m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p15m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p25m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixMarkRow',
+        value: function sixMarkRow() {
+            if (this.state.p16m > 0 || this.state.p26m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p16m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p26m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sevenMarkRow',
+        value: function sevenMarkRow() {
+            if (this.state.p17m > 0 || this.state.p27m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p17m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '7 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p27m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'eightMarkRow',
+        value: function eightMarkRow() {
+            if (this.state.p18m > 0 || this.state.p28m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p18m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '8 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p28m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'nineMarkRow',
+        value: function nineMarkRow() {
+            if (this.state.p19m > 0 || this.state.p29m > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p19m
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '9 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p29m
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'threeBullRow',
+        value: function threeBullRow() {
+            if (this.state.p13bull > 0 || this.state.p23bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p13bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '3 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p23bull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fourBullRow',
+        value: function fourBullRow() {
+            if (this.state.p14bull > 0 || this.state.p24bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p14bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '4 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p24bull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fiveBullRow',
+        value: function fiveBullRow() {
+            if (this.state.p15bull > 0 || this.state.p25bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p15bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p25bull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixBullRow',
+        value: function sixBullRow() {
+            if (this.state.p16bull > 0 || this.state.p26bull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p16bull
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.p26bull
+                    )
+                );
+            }
+        }
+    }, {
         key: 'renderTable',
         value: function renderTable() {
             return _react2.default.createElement(
@@ -58881,177 +59189,15 @@ var Results = function (_Component) {
                             parseFloat(this.state.p2mpd.toFixed(3))
                         )
                     ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p15m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '5m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p25m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p16m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '6m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p26m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p17m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '7m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p27m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p18m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '8m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p28m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p19m
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '9m'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p29m
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p13bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '3 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p23bull
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p14bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '4 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p24bull
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p15bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '5 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p25bull
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'tr',
-                        null,
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p16bull
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            '6 Bull'
-                        ),
-                        _react2.default.createElement(
-                            'td',
-                            null,
-                            this.state.p26bull
-                        )
-                    )
+                    this.fiveMarkRow(),
+                    this.sixMarkRow(),
+                    this.sevenMarkRow(),
+                    this.eightMarkRow(),
+                    this.nineMarkRow(),
+                    this.threeBullRow(),
+                    this.fourBullRow(),
+                    this.fiveBullRow(),
+                    this.sixBullRow()
                 )
             );
         }
