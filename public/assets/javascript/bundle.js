@@ -14694,6 +14694,8 @@ var Cricket = function (_Component) {
         _this.undo = _this.undo.bind(_this);
         _this.undoSwitch = _this.undoSwitch.bind(_this);
         _this.scoringLogic = _this.scoringLogic.bind(_this);
+        _this.popLastMark = _this.popLastMark.bind(_this);
+        _this.reconfigureActiveMarks = _this.reconfigureActiveMarks.bind(_this);
         return _this;
     }
 
@@ -14809,6 +14811,16 @@ var Cricket = function (_Component) {
             this.setState({ p2Sets: 0 });
         }
     }, {
+        key: "popLastMark",
+        value: function popLastMark(player) {
+            var playerMarks = eval("this." + player + "Marks");
+            var playerBulls = eval("this." + player + "Bulls");
+            if (typeof playerMarks[playerMarks.length - 1] === "string") {
+                playerBulls.pop();
+            }
+            playerMarks.pop();
+        }
+    }, {
         key: "setBotGame",
         value: function setBotGame(botGame) {
             this.setState({ botGame: botGame });
@@ -14868,6 +14880,33 @@ var Cricket = function (_Component) {
             });
         }
     }, {
+        key: "reconfigureActiveMarks",
+        value: function reconfigureActiveMarks() {
+            var throwLog = this.state.throwLog;
+            var logLength = throwLog.length;
+            var number = 0,
+                multiplier = 0,
+                activeMarks = 0,
+                activeBulls = 0;
+            for (var i = 3; i > 0; i--) {
+                var lastThrow = throwLog[logLength - i];
+                if (lastThrow !== 'miss') {
+                    lastThrow = lastThrow.slice('');
+                    number = parseInt("" + lastThrow[0] + lastThrow[1]);
+                    multiplier = parseInt("" + lastThrow[2]);
+
+                    if (number === 25) {
+                        activeBulls += multiplier;
+                    } else {
+                        activeMarks += multiplier;
+                    }
+                }
+            }
+
+            this.activeMarks = activeMarks;
+            this.activeBulls = activeBulls;
+        }
+    }, {
         key: "undo",
         value: async function undo() {
             var playerThrows = this.state.activeThrower + "Throws";
@@ -14876,10 +14915,16 @@ var Cricket = function (_Component) {
                 if (this.state.activeThrows === 0) {
                     this.setThrowNumber(2);
                     if (this.state.activeThrower === "p1") {
+                        await this.setState({ p2Throws: this.state.p2Throws - 1 });
                         this.setActiveThrower("p2");
+                        this.popLastMark('p2');
+                        this.reconfigureActiveMarks();
                         await this.undoSwitch("p2");
                     } else {
+                        await this.setState({ p1Throws: this.state.p1Throws - 1 });
                         this.setActiveThrower("p1");
+                        this.popLastMark('p1');
+                        this.reconfigureActiveMarks();
                         await this.undoSwitch("p1");
                     }
                 } else {
@@ -14889,9 +14934,9 @@ var Cricket = function (_Component) {
                     } else {
                         await this.undoSwitch("p2");
                     }
+                    await this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
                 }
 
-                await this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
                 var loggedArray = this.state.throwLog;
                 await loggedArray.pop();
                 return this.setState({ throwLog: loggedArray });
@@ -14900,11 +14945,19 @@ var Cricket = function (_Component) {
     }, {
         key: "undoSwitch",
         value: function undoSwitch(player) {
-            var _this4 = this;
-
             var logLength = this.state.throwLog.length;
             var lastThrowNumber = logLength - 1;
             var lastThrow = this.state.throwLog[lastThrowNumber];
+            var number = 0,
+                multiplier = 0;
+            if (lastThrow !== 'miss') {
+                lastThrow = lastThrow.slice('');
+                number = parseInt("" + lastThrow[0] + lastThrow[1]);
+                multiplier = parseInt("" + lastThrow[2]);
+            } else {
+                return;
+            }
+
             var otherThrower = "";
 
             if (player === "p1") {
@@ -14913,334 +14966,52 @@ var Cricket = function (_Component) {
                 otherThrower = "p1";
             }
 
+            var playerNumberState = eval("this.state." + player + number);
+            var otherNumberState = eval("this.state." + otherThrower + number);
+            var playerNumber = "" + player + number;
             var playerScore = player + "Score";
             var playerScoreState = eval("this.state." + playerScore);
-            var playerThrows = player + "Throws";
-            var throwsState = eval("this.state." + player + "Throws");
 
-            var player20 = player + "20";
-            var player19 = player + "19";
-            var player18 = player + "18";
-            var player17 = player + "17";
-            var player16 = player + "16";
-            var player15 = player + "15";
-            var player25 = player + "25";
+            if (number === 25) {
+                this.activeBulls -= multiplier;
+            } else {
+                this.activeMarks -= multiplier;
+            }
 
-            var player20State = eval("this.state." + player20);
-            var player19State = eval("this.state." + player19);
-            var player18State = eval("this.state." + player18);
-            var player17State = eval("this.state." + player17);
-            var player16State = eval("this.state." + player16);
-            var player15State = eval("this.state." + player15);
-            var player25State = eval("this.state." + player25);
-
-            var other20State = eval("this.state." + otherThrower + "20");
-            var other19State = eval("this.state." + otherThrower + "19");
-            var other18State = eval("this.state." + otherThrower + "18");
-            var other17State = eval("this.state." + otherThrower + "17");
-            var other16State = eval("this.state." + otherThrower + "16");
-            var other15State = eval("this.state." + otherThrower + "15");
-            var other25State = eval("this.state." + otherThrower + "25");
-            if (throwsState > 0) {
-                new Promise(function () {
-                    switch (lastThrow) {
-                        case "203":
-                            if (player20State >= 6) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 60));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 3));
-                            } else if (player20State === 5) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 40));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, 2));
-                            } else if (player20State === 4) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, 1));
-                            } else if (player20State < 4) {
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 3));
-                            }
-                            break;
-                        case "202":
-                            if (player20State >= 5) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 40));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 2));
-                            } else if (player20State === 4) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
-                                }
-                                _this4.setState(_defineProperty({}, player20, 2));
-                            } else if (player20State < 4) {
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 2));
-                            }
-                            break;
-                        case "201":
-                            if (player20State === 4) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, 3));
-                            } else if (player20State < 4) {
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 1));
-                            }
-                            break;
-                        case "193":
-                            if (player19State >= 6) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 57));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 3));
-                            } else if (player19State === 5) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 38));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 2));
-                            } else if (player19State === 4) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 1));
-                            } else if (player19State < 4) {
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 3));
-                            }
-                            break;
-                        case "192":
-                            if (player19State >= 5) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 38));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 2));
-                            } else if (player19State === 4) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 2));
-                            } else if (player19State < 4) {
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 2));
-                            }
-                            break;
-                        case "191":
-                            if (player19State === 4) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 3));
-                            } else if (player19State < 4) {
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 1));
-                            }
-                            break;
-                        case "183":
-                            if (player18State >= 6) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 54));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 3));
-                            } else if (player18State === 5) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 36));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 2));
-                            } else if (player18State === 4) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 1));
-                            } else if (player18State < 4) {
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 3));
-                            }
-                            break;
-                        case "182":
-                            if (player18State >= 5) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 36));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 2));
-                            } else if (player18State === 4) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 2));
-                            } else if (player18State < 4) {
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 2));
-                            }
-                            break;
-                        case "181":
-                            if (player18State === 4) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 3));
-                            } else if (player18State < 4) {
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 1));
-                            }
-                            break;
-                        case "173":
-                            if (player17State >= 6) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 51));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 3));
-                            } else if (player17State === 5) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 34));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 2));
-                            } else if (player17State === 4) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 1));
-                            } else if (player17State < 4) {
-                                _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 3));
-                            }
-                            break;
-                        case "172":
-                            if (player17State >= 5) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 34));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 2));
-                            } else if (player17State === 4) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 2));
-                            } else if (player17State < 4) {
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 2));
-                            }
-                            break;
-                        case "171":
-                            if (player17State === 4) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 3));
-                            } else if (player17State < 4) {
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 1));
-                            }
-                            break;
-                        case "163":
-                            if (player16State >= 6) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 48));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 3));
-                            } else if (player16State === 5) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 32));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 2));
-                            } else if (player16State === 4) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 1));
-                            } else if (player16State < 4) {
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 3));
-                            }
-                            break;
-                        case "162":
-                            if (player16State >= 5) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 32));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 2));
-                            } else if (player16State === 4) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 2));
-                            } else if (player16State < 4) {
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 2));
-                            }
-                            break;
-                        case "161":
-                            if (player16State === 4) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 3));
-                            } else if (player16State < 4) {
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 1));
-                            }
-                            break;
-                        case "153":
-                            if (player15State >= 6) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 45));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 3));
-                            } else if (player15State === 5) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 30));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 2));
-                            } else if (player15State === 4) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 1));
-                            } else if (player15State < 4) {
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 3));
-                            }
-                            break;
-                        case "152":
-                            if (player15State >= 5) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 30));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 2));
-                            } else if (player15State === 4) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 2));
-                            } else if (player15State < 4) {
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 2));
-                            }
-                            break;
-                        case "151":
-                            if (player15State === 4) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 3));
-                            } else if (player15State < 4) {
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 1));
-                            }
-                            break;
-                        case "252":
-                            if (player25State >= 5) {
-                                if (other25State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 50));
-                                }
-                                return _this4.setState(_defineProperty({}, player25, parseInt(player25State) - 2));
-                            } else if (player25State === 4) {
-                                if (other25State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
-                                }
-                                return _this4.setState(_defineProperty({}, player25, 2));
-                            } else if (player25State < 4) {
-                                return _this4.setState(_defineProperty({}, player25, parseInt(player25State) - 2));
-                            }
-                            break;
-                        case "251":
-                            if (player25State === 4) {
-                                if (other25State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
-                                }
-                                return _this4.setState(_defineProperty({}, player25, 3));
-                            } else if (player25State < 4) {
-                                return _this4.setState(_defineProperty({}, player25, parseInt(player25State) - 1));
-                            }
-                            break;
+            switch (multiplier) {
+                case 1:
+                    if (playerNumberState >= 4) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number));
+                        }
                     }
-                });
+                    return this.setState(_defineProperty({}, playerNumber, parseInt(playerNumberState) - 1));
+                case 2:
+                    if (playerNumberState >= 5) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number * 2));
+                        }
+                    } else if (playerNumberState === 4) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number));
+                        }
+                    }
+                    return this.setState(_defineProperty({}, playerNumber, parseInt(playerNumberState) - 2));
+                case 3:
+                    if (playerNumberState >= 6) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number * 3));
+                        }
+                    } else if (playerNumberState === 5) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number * 2));
+                        }
+                    } else if (playerNumberState === 4) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number));
+                        }
+                    }
+                    return this.setState(_defineProperty({}, playerNumber, parseInt(playerNumberState) - 3));
             }
         }
     }, {
@@ -15289,7 +15060,7 @@ var Cricket = function (_Component) {
     }, {
         key: "botLogic",
         value: function botLogic() {
-            var _this5 = this;
+            var _this4 = this;
 
             var difficulty = this.state.botDifficulty;
             var botScore = parseInt(this.state.p2Score);
@@ -15306,141 +15077,141 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 1:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 4000);
                             break;
                         case 2:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .60 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .60 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .60 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 4000);
@@ -15453,94 +15224,94 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 2:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 3500);
                             break;
                         case 3:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 3500);
@@ -15548,21 +15319,21 @@ var Cricket = function (_Component) {
 
                         default:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
-                                    _this5.score(number, multiple);
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
+                                    _this4.score(number, multiple);
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
-                                    _this5.score(number, multiple);
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
+                                    _this4.score(number, multiple);
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
-                                    _this5.miss();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
+                                    _this4.miss();
                                 }
                             }, 3500);
                             break;
@@ -15577,47 +15348,47 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 3:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3500);
@@ -15625,8 +15396,8 @@ var Cricket = function (_Component) {
                         case 4:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .10) {
                                             multiple = 2;
@@ -15640,16 +15411,16 @@ var Cricket = function (_Component) {
                                     }
 
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .45) {
                                             multiple = 1;
@@ -15660,16 +15431,16 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2750);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .45) {
                                             multiple = 1;
@@ -15680,9 +15451,9 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3750);
@@ -15690,8 +15461,8 @@ var Cricket = function (_Component) {
                         case 5:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -15704,16 +15475,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -15726,16 +15497,16 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .45) {
                                             multiple = 1;
@@ -15746,9 +15517,9 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3500);
@@ -15756,8 +15527,8 @@ var Cricket = function (_Component) {
                         default:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -15770,16 +15541,16 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -15793,16 +15564,16 @@ var Cricket = function (_Component) {
                                     }
 
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -15815,9 +15586,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3500);
@@ -15831,8 +15602,8 @@ var Cricket = function (_Component) {
                         case 5:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -15845,16 +15616,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -15867,16 +15638,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .75) {
                                             multiple = 1;
@@ -15887,9 +15658,9 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -15897,8 +15668,8 @@ var Cricket = function (_Component) {
                         case 6:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -15911,16 +15682,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -15933,16 +15704,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -15955,9 +15726,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -15965,8 +15736,8 @@ var Cricket = function (_Component) {
                         case 7:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -15979,16 +15750,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -16001,16 +15772,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -16023,9 +15794,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -16033,8 +15804,8 @@ var Cricket = function (_Component) {
                         case 8:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -16047,16 +15818,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -16069,16 +15840,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -16091,9 +15862,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -16102,8 +15873,8 @@ var Cricket = function (_Component) {
                         case 9:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -16116,15 +15887,15 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                number = _this5.botNumberHit();
+                                number = _this4.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
                                         multiple = 2;
@@ -16137,14 +15908,14 @@ var Cricket = function (_Component) {
                                     multiple = 3;
                                 }
                                 if (multiple === 0) {
-                                    _this5.miss();
+                                    _this4.miss();
                                 } else {
-                                    _this5.score(number, multiple);
+                                    _this4.score(number, multiple);
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                number = _this5.botNumberHit();
+                                number = _this4.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
                                         multiple = 2;
@@ -16157,9 +15928,9 @@ var Cricket = function (_Component) {
                                     multiple = 3;
                                 }
                                 if (multiple === 0) {
-                                    _this5.miss();
+                                    _this4.miss();
                                 } else {
-                                    _this5.score(number, multiple);
+                                    _this4.score(number, multiple);
                                 }
                             }, 4500);
                             break;
@@ -16171,15 +15942,15 @@ var Cricket = function (_Component) {
 
                 default:
                     setTimeout(function () {
-                        number = _this5.botNumberHit();
-                        _this5.score(number, 1);
+                        number = _this4.botNumberHit();
+                        _this4.score(number, 1);
                     }, 1500);
                     setTimeout(function () {
-                        number = _this5.botNumberHit();
-                        _this5.score(number, 1);
+                        number = _this4.botNumberHit();
+                        _this4.score(number, 1);
                     }, 3000);
                     setTimeout(function () {
-                        _this5.miss();
+                        _this4.miss();
                     }, 4500);
                     break;
 
@@ -16255,7 +16026,7 @@ var Cricket = function (_Component) {
     }, {
         key: "scoringLogic",
         value: function scoringLogic(number, multiplier) {
-            var _this6 = this;
+            var _this5 = this;
 
             var thrower = this.state.activeThrower;
             var otherThrower = void 0;
@@ -16278,47 +16049,47 @@ var Cricket = function (_Component) {
 
                 switch (numberState) {
                     case 0:
-                        return _this6.setThrowerNumber(thrower, number, multiplier);
+                        return _this5.setThrowerNumber(thrower, number, multiplier);
                         break;
                     case 1:
                         if (multiplier === 1 || multiplier === 2) {
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         } else if (multiplier === 3) {
                             if (otherThrowerState < 3) {
-                                _this6.setPlayerScore(thrower, number, 1);
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                _this5.setPlayerScore(thrower, number, 1);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             } else {
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             }
                         }
 
                         break;
                     case 2:
                         if (multiplier === 1) {
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         } else if (multiplier === 2) {
                             if (otherThrowerState < 3) {
-                                _this6.setPlayerScore(thrower, number, 1);
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                _this5.setPlayerScore(thrower, number, 1);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             } else {
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             }
                         } else if (multiplier === 3) {
                             if (otherThrowerState < 3) {
-                                _this6.setPlayerScore(thrower, number, 2);
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                _this5.setPlayerScore(thrower, number, 2);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             } else {
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             }
                         }
 
                         break;
                     default:
                         if (otherThrowerState < 3) {
-                            _this6.setPlayerScore(thrower, number, multiplier);
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            _this5.setPlayerScore(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         } else {
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         }
 
                         break;
@@ -16404,24 +16175,24 @@ var Cricket = function (_Component) {
     }, {
         key: "checkThrower",
         value: function checkThrower() {
-            var _this7 = this;
+            var _this6 = this;
 
             var activeThrows = this.state.activeThrows;
             new Promise(function () {
                 if (activeThrows > 2) {
-                    _this7.allStarPoints(_this7.state.activeThrower);
-                    if (_this7.state.activeThrower === "p1") {
+                    _this6.allStarPoints(_this6.state.activeThrower);
+                    if (_this6.state.activeThrower === "p1") {
 
-                        _this7.setActiveThrower('p2');
-                        if (_this7.state.botGame) {
-                            _this7.botLogic();
+                        _this6.setActiveThrower('p2');
+                        if (_this6.state.botGame) {
+                            _this6.botLogic();
                         }
                     } else {
-                        _this7.setActiveThrower("p1");
+                        _this6.setActiveThrower("p1");
                     }
-                    _this7.resetMarks();
+                    _this6.resetMarks();
 
-                    return _this7.setThrowNumber(0);
+                    return _this6.setThrowNumber(0);
                 }
             });
         }
@@ -16466,7 +16237,7 @@ var Cricket = function (_Component) {
     }, {
         key: "gameStateOver",
         value: function gameStateOver() {
-            var _this8 = this;
+            var _this7 = this;
 
             this.allStarPoints(this.state.gameWinner);
             var gameOverSound = new _howler.Howl({
@@ -16476,7 +16247,7 @@ var Cricket = function (_Component) {
 
             if (this.state.firstWinner === '') {
                 this.setState({ firstWinner: this.state.gameWinner }, function () {
-                    _this8.addLeg();
+                    _this7.addLeg();
                 });
             } else {
                 this.addLeg();
@@ -16512,13 +16283,13 @@ var Cricket = function (_Component) {
     }, {
         key: "addThrow",
         value: function addThrow() {
-            var _this9 = this;
+            var _this8 = this;
 
             var thrower = this.state.activeThrower;
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
             new Promise(function () {
-                _this9.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
+                _this8.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
             });
         }
     }, {
@@ -16599,6 +16370,7 @@ var Cricket = function (_Component) {
             if (bulls < 3) {
                 marks = bulls + marks;
             } else {
+                marks = marks + "b";
                 bullsArray.push(bulls);
             }
             marksArray.push(marks);
@@ -41592,7 +41364,6 @@ var Results = function (_Component) {
             p2mpd: 0
         };
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
-        console.log(window.location);
         _this.renderWinner = _this.renderWinner.bind(_this);
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
@@ -41647,8 +41418,8 @@ var Results = function (_Component) {
                 p1Total = 0,
                 p2Total = 0;
             for (var i in p1Marks) {
-                p1Total += p1Marks[i];
-                switch (p1Marks[i]) {
+                p1Total += parseInt(p1Marks[i]);
+                switch (parseInt(p1Marks[i])) {
                     case 5:
                         p15m++;
                         break;
@@ -41668,8 +41439,8 @@ var Results = function (_Component) {
             }
 
             for (var i in p2Marks) {
-                p2Total += p2Marks[i];
-                switch (p2Marks[i]) {
+                p2Total += parseInt(p2Marks[i]);
+                switch (parseInt(p2Marks[i])) {
                     case 5:
                         p25m++;
                         break;
@@ -53163,6 +52934,8 @@ var Cricket = function (_Component) {
         _this.undo = _this.undo.bind(_this);
         _this.undoSwitch = _this.undoSwitch.bind(_this);
         _this.scoringLogic = _this.scoringLogic.bind(_this);
+        _this.popLastMark = _this.popLastMark.bind(_this);
+        _this.reconfigureActiveMarks = _this.reconfigureActiveMarks.bind(_this);
         return _this;
     }
 
@@ -53278,6 +53051,16 @@ var Cricket = function (_Component) {
             this.setState({ p2Sets: 0 });
         }
     }, {
+        key: "popLastMark",
+        value: function popLastMark(player) {
+            var playerMarks = eval("this." + player + "Marks");
+            var playerBulls = eval("this." + player + "Bulls");
+            if (typeof playerMarks[playerMarks.length - 1] === "string") {
+                playerBulls.pop();
+            }
+            playerMarks.pop();
+        }
+    }, {
         key: "setBotGame",
         value: function setBotGame(botGame) {
             this.setState({ botGame: botGame });
@@ -53337,6 +53120,33 @@ var Cricket = function (_Component) {
             });
         }
     }, {
+        key: "reconfigureActiveMarks",
+        value: function reconfigureActiveMarks() {
+            var throwLog = this.state.throwLog;
+            var logLength = throwLog.length;
+            var number = 0,
+                multiplier = 0,
+                activeMarks = 0,
+                activeBulls = 0;
+            for (var i = 3; i > 0; i--) {
+                var lastThrow = throwLog[logLength - i];
+                if (lastThrow !== 'miss') {
+                    lastThrow = lastThrow.slice('');
+                    number = parseInt("" + lastThrow[0] + lastThrow[1]);
+                    multiplier = parseInt("" + lastThrow[2]);
+
+                    if (number === 25) {
+                        activeBulls += multiplier;
+                    } else {
+                        activeMarks += multiplier;
+                    }
+                }
+            }
+
+            this.activeMarks = activeMarks;
+            this.activeBulls = activeBulls;
+        }
+    }, {
         key: "undo",
         value: async function undo() {
             var playerThrows = this.state.activeThrower + "Throws";
@@ -53345,10 +53155,16 @@ var Cricket = function (_Component) {
                 if (this.state.activeThrows === 0) {
                     this.setThrowNumber(2);
                     if (this.state.activeThrower === "p1") {
+                        await this.setState({ p2Throws: this.state.p2Throws - 1 });
                         this.setActiveThrower("p2");
+                        this.popLastMark('p2');
+                        this.reconfigureActiveMarks();
                         await this.undoSwitch("p2");
                     } else {
+                        await this.setState({ p1Throws: this.state.p1Throws - 1 });
                         this.setActiveThrower("p1");
+                        this.popLastMark('p1');
+                        this.reconfigureActiveMarks();
                         await this.undoSwitch("p1");
                     }
                 } else {
@@ -53358,9 +53174,9 @@ var Cricket = function (_Component) {
                     } else {
                         await this.undoSwitch("p2");
                     }
+                    await this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
                 }
 
-                await this.setState(_defineProperty({}, playerThrows, parseInt(throwsState) - 1));
                 var loggedArray = this.state.throwLog;
                 await loggedArray.pop();
                 return this.setState({ throwLog: loggedArray });
@@ -53369,11 +53185,19 @@ var Cricket = function (_Component) {
     }, {
         key: "undoSwitch",
         value: function undoSwitch(player) {
-            var _this4 = this;
-
             var logLength = this.state.throwLog.length;
             var lastThrowNumber = logLength - 1;
             var lastThrow = this.state.throwLog[lastThrowNumber];
+            var number = 0,
+                multiplier = 0;
+            if (lastThrow !== 'miss') {
+                lastThrow = lastThrow.slice('');
+                number = parseInt("" + lastThrow[0] + lastThrow[1]);
+                multiplier = parseInt("" + lastThrow[2]);
+            } else {
+                return;
+            }
+
             var otherThrower = "";
 
             if (player === "p1") {
@@ -53382,334 +53206,52 @@ var Cricket = function (_Component) {
                 otherThrower = "p1";
             }
 
+            var playerNumberState = eval("this.state." + player + number);
+            var otherNumberState = eval("this.state." + otherThrower + number);
+            var playerNumber = "" + player + number;
             var playerScore = player + "Score";
             var playerScoreState = eval("this.state." + playerScore);
-            var playerThrows = player + "Throws";
-            var throwsState = eval("this.state." + player + "Throws");
 
-            var player20 = player + "20";
-            var player19 = player + "19";
-            var player18 = player + "18";
-            var player17 = player + "17";
-            var player16 = player + "16";
-            var player15 = player + "15";
-            var player25 = player + "25";
+            if (number === 25) {
+                this.activeBulls -= multiplier;
+            } else {
+                this.activeMarks -= multiplier;
+            }
 
-            var player20State = eval("this.state." + player20);
-            var player19State = eval("this.state." + player19);
-            var player18State = eval("this.state." + player18);
-            var player17State = eval("this.state." + player17);
-            var player16State = eval("this.state." + player16);
-            var player15State = eval("this.state." + player15);
-            var player25State = eval("this.state." + player25);
-
-            var other20State = eval("this.state." + otherThrower + "20");
-            var other19State = eval("this.state." + otherThrower + "19");
-            var other18State = eval("this.state." + otherThrower + "18");
-            var other17State = eval("this.state." + otherThrower + "17");
-            var other16State = eval("this.state." + otherThrower + "16");
-            var other15State = eval("this.state." + otherThrower + "15");
-            var other25State = eval("this.state." + otherThrower + "25");
-            if (throwsState > 0) {
-                new Promise(function () {
-                    switch (lastThrow) {
-                        case "203":
-                            if (player20State >= 6) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 60));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 3));
-                            } else if (player20State === 5) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 40));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, 2));
-                            } else if (player20State === 4) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, 1));
-                            } else if (player20State < 4) {
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 3));
-                            }
-                            break;
-                        case "202":
-                            if (player20State >= 5) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 40));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 2));
-                            } else if (player20State === 4) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
-                                }
-                                _this4.setState(_defineProperty({}, player20, 2));
-                            } else if (player20State < 4) {
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 2));
-                            }
-                            break;
-                        case "201":
-                            if (player20State === 4) {
-                                if (other20State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 20));
-                                }
-                                return _this4.setState(_defineProperty({}, player20, 3));
-                            } else if (player20State < 4) {
-                                return _this4.setState(_defineProperty({}, player20, parseInt(player20State) - 1));
-                            }
-                            break;
-                        case "193":
-                            if (player19State >= 6) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 57));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 3));
-                            } else if (player19State === 5) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 38));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 2));
-                            } else if (player19State === 4) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 1));
-                            } else if (player19State < 4) {
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 3));
-                            }
-                            break;
-                        case "192":
-                            if (player19State >= 5) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 38));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 2));
-                            } else if (player19State === 4) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 2));
-                            } else if (player19State < 4) {
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 2));
-                            }
-                            break;
-                        case "191":
-                            if (player19State === 4) {
-                                if (other19State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 19));
-                                }
-                                return _this4.setState(_defineProperty({}, player19, 3));
-                            } else if (player19State < 4) {
-                                return _this4.setState(_defineProperty({}, player19, parseInt(player19State) - 1));
-                            }
-                            break;
-                        case "183":
-                            if (player18State >= 6) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 54));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 3));
-                            } else if (player18State === 5) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 36));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 2));
-                            } else if (player18State === 4) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 1));
-                            } else if (player18State < 4) {
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 3));
-                            }
-                            break;
-                        case "182":
-                            if (player18State >= 5) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 36));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 2));
-                            } else if (player18State === 4) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 2));
-                            } else if (player18State < 4) {
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 2));
-                            }
-                            break;
-                        case "181":
-                            if (player18State === 4) {
-                                if (other18State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 18));
-                                }
-                                return _this4.setState(_defineProperty({}, player18, 3));
-                            } else if (player18State < 4) {
-                                return _this4.setState(_defineProperty({}, player18, parseInt(player18State) - 1));
-                            }
-                            break;
-                        case "173":
-                            if (player17State >= 6) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 51));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 3));
-                            } else if (player17State === 5) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 34));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 2));
-                            } else if (player17State === 4) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 1));
-                            } else if (player17State < 4) {
-                                _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 3));
-                            }
-                            break;
-                        case "172":
-                            if (player17State >= 5) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 34));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 2));
-                            } else if (player17State === 4) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 2));
-                            } else if (player17State < 4) {
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 2));
-                            }
-                            break;
-                        case "171":
-                            if (player17State === 4) {
-                                if (other17State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 17));
-                                }
-                                return _this4.setState(_defineProperty({}, player17, 3));
-                            } else if (player17State < 4) {
-                                return _this4.setState(_defineProperty({}, player17, parseInt(player17State) - 1));
-                            }
-                            break;
-                        case "163":
-                            if (player16State >= 6) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 48));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 3));
-                            } else if (player16State === 5) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 32));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 2));
-                            } else if (player16State === 4) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 1));
-                            } else if (player16State < 4) {
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 3));
-                            }
-                            break;
-                        case "162":
-                            if (player16State >= 5) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 32));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 2));
-                            } else if (player16State === 4) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 2));
-                            } else if (player16State < 4) {
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 2));
-                            }
-                            break;
-                        case "161":
-                            if (player16State === 4) {
-                                if (other16State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 16));
-                                }
-                                return _this4.setState(_defineProperty({}, player16, 3));
-                            } else if (player16State < 4) {
-                                return _this4.setState(_defineProperty({}, player16, parseInt(player16State) - 1));
-                            }
-                            break;
-                        case "153":
-                            if (player15State >= 6) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 45));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 3));
-                            } else if (player15State === 5) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 30));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 2));
-                            } else if (player15State === 4) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 1));
-                            } else if (player15State < 4) {
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 3));
-                            }
-                            break;
-                        case "152":
-                            if (player15State >= 5) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 30));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 2));
-                            } else if (player15State === 4) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 2));
-                            } else if (player15State < 4) {
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 2));
-                            }
-                            break;
-                        case "151":
-                            if (player15State === 4) {
-                                if (other15State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 15));
-                                }
-                                return _this4.setState(_defineProperty({}, player15, 3));
-                            } else if (player15State < 4) {
-                                return _this4.setState(_defineProperty({}, player15, parseInt(player15State) - 1));
-                            }
-                            break;
-                        case "252":
-                            if (player25State >= 5) {
-                                if (other25State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 50));
-                                }
-                                return _this4.setState(_defineProperty({}, player25, parseInt(player25State) - 2));
-                            } else if (player25State === 4) {
-                                if (other25State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
-                                }
-                                return _this4.setState(_defineProperty({}, player25, 2));
-                            } else if (player25State < 4) {
-                                return _this4.setState(_defineProperty({}, player25, parseInt(player25State) - 2));
-                            }
-                            break;
-                        case "251":
-                            if (player25State === 4) {
-                                if (other25State < 3) {
-                                    _this4.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - 25));
-                                }
-                                return _this4.setState(_defineProperty({}, player25, 3));
-                            } else if (player25State < 4) {
-                                return _this4.setState(_defineProperty({}, player25, parseInt(player25State) - 1));
-                            }
-                            break;
+            switch (multiplier) {
+                case 1:
+                    if (playerNumberState >= 4) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number));
+                        }
                     }
-                });
+                    return this.setState(_defineProperty({}, playerNumber, parseInt(playerNumberState) - 1));
+                case 2:
+                    if (playerNumberState >= 5) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number * 2));
+                        }
+                    } else if (playerNumberState === 4) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number));
+                        }
+                    }
+                    return this.setState(_defineProperty({}, playerNumber, parseInt(playerNumberState) - 2));
+                case 3:
+                    if (playerNumberState >= 6) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number * 3));
+                        }
+                    } else if (playerNumberState === 5) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number * 2));
+                        }
+                    } else if (playerNumberState === 4) {
+                        if (otherNumberState < 3) {
+                            this.setState(_defineProperty({}, playerScore, parseInt(playerScoreState) - number));
+                        }
+                    }
+                    return this.setState(_defineProperty({}, playerNumber, parseInt(playerNumberState) - 3));
             }
         }
     }, {
@@ -53758,7 +53300,7 @@ var Cricket = function (_Component) {
     }, {
         key: "botLogic",
         value: function botLogic() {
-            var _this5 = this;
+            var _this4 = this;
 
             var difficulty = this.state.botDifficulty;
             var botScore = parseInt(this.state.p2Score);
@@ -53775,141 +53317,141 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 1:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 4000);
                             break;
                         case 2:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .75 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 3500);
                             break;
                         default:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .60 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .60 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .60 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 4000);
@@ -53922,94 +53464,94 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 2:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 3500);
                             break;
                         case 3:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .66 ? 1 : 0;
                                         if (multiple === 0) {
-                                            _this5.miss();
+                                            _this4.miss();
                                         } else {
-                                            _this5.score(number, multiple);
+                                            _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this5.miss();
+                                        _this4.miss();
                                     }
                                 }
                             }, 3500);
@@ -54017,21 +53559,21 @@ var Cricket = function (_Component) {
 
                         default:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
-                                    _this5.score(number, multiple);
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
+                                    _this4.score(number, multiple);
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
-                                    _this5.score(number, multiple);
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
+                                    _this4.score(number, multiple);
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
-                                    _this5.miss();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
+                                    _this4.miss();
                                 }
                             }, 3500);
                             break;
@@ -54046,47 +53588,47 @@ var Cricket = function (_Component) {
                     switch (randomMarks) {
                         case 3:
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
                                     } else {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3500);
@@ -54094,8 +53636,8 @@ var Cricket = function (_Component) {
                         case 4:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .10) {
                                             multiple = 2;
@@ -54109,16 +53651,16 @@ var Cricket = function (_Component) {
                                     }
 
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .45) {
                                             multiple = 1;
@@ -54129,16 +53671,16 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2750);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .45) {
                                             multiple = 1;
@@ -54149,9 +53691,9 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3750);
@@ -54159,8 +53701,8 @@ var Cricket = function (_Component) {
                         case 5:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -54173,16 +53715,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -54195,16 +53737,16 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .45) {
                                             multiple = 1;
@@ -54215,9 +53757,9 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3500);
@@ -54225,8 +53767,8 @@ var Cricket = function (_Component) {
                         default:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -54239,16 +53781,16 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -54262,16 +53804,16 @@ var Cricket = function (_Component) {
                                     }
 
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .15) {
                                             multiple = 2;
@@ -54284,9 +53826,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3500);
@@ -54300,8 +53842,8 @@ var Cricket = function (_Component) {
                         case 5:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54314,16 +53856,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54336,16 +53878,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 2500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .75) {
                                             multiple = 1;
@@ -54356,9 +53898,9 @@ var Cricket = function (_Component) {
                                         multiple = 1;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -54366,8 +53908,8 @@ var Cricket = function (_Component) {
                         case 6:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54380,16 +53922,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54402,16 +53944,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54424,9 +53966,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -54434,8 +53976,8 @@ var Cricket = function (_Component) {
                         case 7:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54448,16 +53990,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54470,16 +54012,16 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54492,9 +54034,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -54502,8 +54044,8 @@ var Cricket = function (_Component) {
                         case 8:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54516,16 +54058,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54538,16 +54080,16 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54560,9 +54102,9 @@ var Cricket = function (_Component) {
                                         multiple = 2;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 4500);
@@ -54571,8 +54113,8 @@ var Cricket = function (_Component) {
                         case 9:
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                if (_this5.state.gameWinner !== 'p1' && _this5.state.gameWinner !== 'p2') {
-                                    number = _this5.botNumberHit();
+                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
+                                    number = _this4.botNumberHit();
                                     if (number === 25) {
                                         if (randomNumber <= .25) {
                                             multiple = 2;
@@ -54585,15 +54127,15 @@ var Cricket = function (_Component) {
                                         multiple = 3;
                                     }
                                     if (multiple === 0) {
-                                        _this5.miss();
+                                        _this4.miss();
                                     } else {
-                                        _this5.score(number, multiple);
+                                        _this4.score(number, multiple);
                                     }
                                 }
                             }, 1500);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                number = _this5.botNumberHit();
+                                number = _this4.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
                                         multiple = 2;
@@ -54606,14 +54148,14 @@ var Cricket = function (_Component) {
                                     multiple = 3;
                                 }
                                 if (multiple === 0) {
-                                    _this5.miss();
+                                    _this4.miss();
                                 } else {
-                                    _this5.score(number, multiple);
+                                    _this4.score(number, multiple);
                                 }
                             }, 3000);
                             setTimeout(function () {
                                 randomNumber = Math.random();
-                                number = _this5.botNumberHit();
+                                number = _this4.botNumberHit();
                                 if (number === 25) {
                                     if (randomNumber <= .25) {
                                         multiple = 2;
@@ -54626,9 +54168,9 @@ var Cricket = function (_Component) {
                                     multiple = 3;
                                 }
                                 if (multiple === 0) {
-                                    _this5.miss();
+                                    _this4.miss();
                                 } else {
-                                    _this5.score(number, multiple);
+                                    _this4.score(number, multiple);
                                 }
                             }, 4500);
                             break;
@@ -54640,15 +54182,15 @@ var Cricket = function (_Component) {
 
                 default:
                     setTimeout(function () {
-                        number = _this5.botNumberHit();
-                        _this5.score(number, 1);
+                        number = _this4.botNumberHit();
+                        _this4.score(number, 1);
                     }, 1500);
                     setTimeout(function () {
-                        number = _this5.botNumberHit();
-                        _this5.score(number, 1);
+                        number = _this4.botNumberHit();
+                        _this4.score(number, 1);
                     }, 3000);
                     setTimeout(function () {
-                        _this5.miss();
+                        _this4.miss();
                     }, 4500);
                     break;
 
@@ -54724,7 +54266,7 @@ var Cricket = function (_Component) {
     }, {
         key: "scoringLogic",
         value: function scoringLogic(number, multiplier) {
-            var _this6 = this;
+            var _this5 = this;
 
             var thrower = this.state.activeThrower;
             var otherThrower = void 0;
@@ -54747,47 +54289,47 @@ var Cricket = function (_Component) {
 
                 switch (numberState) {
                     case 0:
-                        return _this6.setThrowerNumber(thrower, number, multiplier);
+                        return _this5.setThrowerNumber(thrower, number, multiplier);
                         break;
                     case 1:
                         if (multiplier === 1 || multiplier === 2) {
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         } else if (multiplier === 3) {
                             if (otherThrowerState < 3) {
-                                _this6.setPlayerScore(thrower, number, 1);
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                _this5.setPlayerScore(thrower, number, 1);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             } else {
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             }
                         }
 
                         break;
                     case 2:
                         if (multiplier === 1) {
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         } else if (multiplier === 2) {
                             if (otherThrowerState < 3) {
-                                _this6.setPlayerScore(thrower, number, 1);
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                _this5.setPlayerScore(thrower, number, 1);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             } else {
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             }
                         } else if (multiplier === 3) {
                             if (otherThrowerState < 3) {
-                                _this6.setPlayerScore(thrower, number, 2);
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                _this5.setPlayerScore(thrower, number, 2);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             } else {
-                                return _this6.setThrowerNumber(thrower, number, multiplier);
+                                return _this5.setThrowerNumber(thrower, number, multiplier);
                             }
                         }
 
                         break;
                     default:
                         if (otherThrowerState < 3) {
-                            _this6.setPlayerScore(thrower, number, multiplier);
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            _this5.setPlayerScore(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         } else {
-                            return _this6.setThrowerNumber(thrower, number, multiplier);
+                            return _this5.setThrowerNumber(thrower, number, multiplier);
                         }
 
                         break;
@@ -54873,24 +54415,24 @@ var Cricket = function (_Component) {
     }, {
         key: "checkThrower",
         value: function checkThrower() {
-            var _this7 = this;
+            var _this6 = this;
 
             var activeThrows = this.state.activeThrows;
             new Promise(function () {
                 if (activeThrows > 2) {
-                    _this7.allStarPoints(_this7.state.activeThrower);
-                    if (_this7.state.activeThrower === "p1") {
+                    _this6.allStarPoints(_this6.state.activeThrower);
+                    if (_this6.state.activeThrower === "p1") {
 
-                        _this7.setActiveThrower('p2');
-                        if (_this7.state.botGame) {
-                            _this7.botLogic();
+                        _this6.setActiveThrower('p2');
+                        if (_this6.state.botGame) {
+                            _this6.botLogic();
                         }
                     } else {
-                        _this7.setActiveThrower("p1");
+                        _this6.setActiveThrower("p1");
                     }
-                    _this7.resetMarks();
+                    _this6.resetMarks();
 
-                    return _this7.setThrowNumber(0);
+                    return _this6.setThrowNumber(0);
                 }
             });
         }
@@ -54935,7 +54477,7 @@ var Cricket = function (_Component) {
     }, {
         key: "gameStateOver",
         value: function gameStateOver() {
-            var _this8 = this;
+            var _this7 = this;
 
             this.allStarPoints(this.state.gameWinner);
             var gameOverSound = new _howler.Howl({
@@ -54945,7 +54487,7 @@ var Cricket = function (_Component) {
 
             if (this.state.firstWinner === '') {
                 this.setState({ firstWinner: this.state.gameWinner }, function () {
-                    _this8.addLeg();
+                    _this7.addLeg();
                 });
             } else {
                 this.addLeg();
@@ -54981,13 +54523,13 @@ var Cricket = function (_Component) {
     }, {
         key: "addThrow",
         value: function addThrow() {
-            var _this9 = this;
+            var _this8 = this;
 
             var thrower = this.state.activeThrower;
             var playerThrows = thrower + "Throws";
             var playerThrowsState = eval("this.state." + playerThrows);
             new Promise(function () {
-                _this9.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
+                _this8.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
             });
         }
     }, {
@@ -55068,6 +54610,7 @@ var Cricket = function (_Component) {
             if (bulls < 3) {
                 marks = bulls + marks;
             } else {
+                marks = marks + "b";
                 bullsArray.push(bulls);
             }
             marksArray.push(marks);
@@ -58741,7 +58284,6 @@ var Results = function (_Component) {
             p2mpd: 0
         };
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
-        console.log(window.location);
         _this.renderWinner = _this.renderWinner.bind(_this);
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
@@ -58796,8 +58338,8 @@ var Results = function (_Component) {
                 p1Total = 0,
                 p2Total = 0;
             for (var i in p1Marks) {
-                p1Total += p1Marks[i];
-                switch (p1Marks[i]) {
+                p1Total += parseInt(p1Marks[i]);
+                switch (parseInt(p1Marks[i])) {
                     case 5:
                         p15m++;
                         break;
@@ -58817,8 +58359,8 @@ var Results = function (_Component) {
             }
 
             for (var i in p2Marks) {
-                p2Total += p2Marks[i];
-                switch (p2Marks[i]) {
+                p2Total += parseInt(p2Marks[i]);
+                switch (parseInt(p2Marks[i])) {
                     case 5:
                         p25m++;
                         break;
