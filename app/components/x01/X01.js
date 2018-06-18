@@ -657,16 +657,16 @@ export default class X01 extends Component {
                 this.setState({ [playerScore]: newScore });
             } else if (newScore === 0 && multiplier === 2) {
                 this.setState({ [playerScore]: newScore });
-                this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
+                // this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
                 this.setGameWinner(thrower);
             } else if (newScore === 0 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
-                this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
+                // this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
                 this.setGameWinner(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
             } else if ((newScore === 0 && multiplier !== 2) || (newScore === 1 && this.state.gameOptions !== "siso") || (newScore < 0)) {
-                this.setRoundScores(thrower, 0)
+                // this.setRoundScores(thrower, 0)
                 if (thrower === "p1") {
                     this.setState({ activeThrower: "p2" });
                     if (this.state.botGame) {
@@ -834,7 +834,6 @@ export default class X01 extends Component {
     }
 
     undoGameOver() {
-        this.popRoundScore(this.state.activeThrower);
         this.undo();
         this.setGameWinner('');
         this.showGameOverModal(false);

@@ -7,6 +7,7 @@ export default class Results extends Component {
         super();
         this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         this.state = {
+            p1ppd: 0,
             p160: 0,
             p1100: 0,
             p1120: 0,
@@ -14,6 +15,7 @@ export default class Results extends Component {
             p1160: 0,
             p1180: 0,
 
+            p2ppd: 0,
             p260: 0,
             p2100: 0,
             p2120: 0,
@@ -28,10 +30,19 @@ export default class Results extends Component {
         this.setScores = this.setScores.bind(this);
         this.buttonsRender = this.buttonsRender.bind(this);
         this.scoresRender = this.scoresRender.bind(this);
+        this.renderTable = this.renderTable.bind(this);
+        this.sixtyRow = this.sixtyRow.bind(this);
+        this.oneHundredRow = this.oneHundredRow.bind(this);
+        this.oneTwentyRow = this.oneTwentyRow.bind(this);
+        this.oneFortyRow = this.oneFortyRow.bind(this);
+        this.oneSixtyRow = this.oneSixtyRow.bind(this);
+        this.oneEightyRow = this.oneEightyRow.bind(this);
+        this.setPpd = this.setPpd.bind(this);
     }
 
     componentWillMount() {
         this.setScores();
+        this.setPpd();
     }
 
     renderWinner() {
@@ -40,6 +51,27 @@ export default class Results extends Component {
         } else {
             return "Player 2"
         }
+    }
+
+    setPpd() {
+        const player1Scores = this.props.p1RoundScores;
+        const p1Throws = this.props.p1Throws;
+        const player2Scores = this.props.p2RoundScores;
+        const p2Throws = this.props.p2Throws;
+        let p1Total = 0, p2Total = 0, p1ppd = 0, p2ppd = 0;
+        for (const i in player1Scores) {
+            p1Total += player1Scores[i];
+        }
+        for (const i in player2Scores) {
+            p2Total += player2Scores[i];
+        }
+        p1ppd = p1Total / p1Throws;
+        p2ppd = p2Total / p2Throws;
+        if (p2ppd === NaN) {
+            p2ppd = 0;
+        }
+        this.setState({ p1ppd });
+        this.setState({ p2ppd });
     }
 
     setScores() {
@@ -51,12 +83,14 @@ export default class Results extends Component {
         let p1140 = 0;
         let p1160 = 0;
         let p1180 = 0;
+        let p1ppd = 0;
         let p260 = 0;
         let p2100 = 0;
         let p2120 = 0;
         let p2140 = 0;
         let p2160 = 0;
         let p2180 = 0;
+        let p2ppd = 0;
 
         for (var i in player1Scores) {
             if (player1Scores[i] >= 60 && player1Scores[i] < 100) {
@@ -103,6 +137,107 @@ export default class Results extends Component {
         this.setState({ p2140 });
         this.setState({ p2160 });
         this.setState({ p2180 });
+    }
+
+    sixtyRow() {
+        if (this.state.p160 > 0 || this.state.p260 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p160}</td>
+                    <td>60+</td>
+                    <td>{this.state.p260}</td>
+                </tr>
+            )
+        }
+    }
+
+    oneHundredRow() {
+        if (this.state.p1100 > 0 || this.state.p2100 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p1100}</td>
+                    <td>100+</td>
+                    <td>{this.state.p2100}</td>
+                </tr>
+            )
+        }
+    }
+
+    oneTwentyRow() {
+        if (this.state.p1120 > 0 || this.state.p2120 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p1120}</td>
+                    <td>120+</td>
+                    <td>{this.state.p2120}</td>
+                </tr>
+            )
+        }
+    }
+    oneFortyRow() {
+        if (this.state.p1140 > 0 || this.state.p2140 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p1140}</td>
+                    <td>140+</td>
+                    <td>{this.state.p2140}</td>
+                </tr>
+            )
+        }
+    }
+    oneSixtyRow() {
+        if (this.state.p1160 > 0 || this.state.p2160 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p1160}</td>
+                    <td>160+</td>
+                    <td>{this.state.p2160}</td>
+                </tr>
+            )
+        }
+    }
+    oneEightyRow() {
+        if (this.state.p1180 > 0 || this.state.p2180 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p1180}</td>
+                    <td>180+</td>
+                    <td>{this.state.p2180}</td>
+                </tr>
+            )
+        }
+    }
+
+    renderTable() {
+        return (
+            <table className='cricket-table text-center align-self-center'>
+                <thead>
+                    <tr>
+                        <th scope="col">Player 1</th>
+                        <th scope="col"></th>
+                        <th scope="col">Player 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{this.props.p1Throws}</td>
+                        <td>Throws</td>
+                        <td>{this.props.p2Throws}</td>
+                    </tr>
+                    <tr>
+                        <td>{parseFloat(this.state.p1ppd.toFixed(3))}</td>
+                        <td>Points Per Dart</td>
+                        <td>{parseFloat(this.state.p2ppd.toFixed(3))}</td>
+                    </tr>
+                    {this.sixtyRow()}
+                    {this.oneHundredRow()}
+                    {this.oneTwentyRow()}
+                    {this.oneFortyRow()}
+                    {this.oneSixtyRow()}
+                    {this.oneEightyRow()}
+                </tbody>
+            </table>
+        )
     }
 
     scoresRender() {
@@ -206,7 +341,7 @@ export default class Results extends Component {
                         <div className="row">
                             <br />
                             <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
-                            <Link to={{
+                                <Link to={{
                                     pathname: `${this.url}/cricket`,
                                 }}>
                                     <button type="button" className="btn">
@@ -245,11 +380,11 @@ export default class Results extends Component {
                         </button>
                             </div>
                         </div>
-                            <br />
+                        <br />
                         <div className="row">
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">                       
-                                    <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
-                                        Home
+                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                                <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
+                                    Home
                         </button>
                             </div>
                         </div>
@@ -275,28 +410,8 @@ export default class Results extends Component {
                     p2Sets={this.props.p2Sets}
                 />
                 <div className="row">
-                    <div className='col-3'>
-                        <div className="row">
-                            <div className="col-12 player1-results text-center">
-                                Player 1
-                    </div>
-                            <div className="col-12 throws text-center">
-                                Throws: {this.player1ThrowRender()}
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-6 x01-stats'>
-                        {this.scoresRender()}
-                    </div>
-                    <div className='col-3'>
-                        <div className="row">
-                            <div className="col-12 player1-results text-center">
-                                Player 2
-                    </div>
-                            <div className="col-12 throws text-center">
-                                Throws: {this.player2ThrowRender()}
-                            </div>
-                        </div>
+                    <div className='col-6 offset-3 x01-stats'>
+                        {this.renderTable()}
                     </div>
                 </div>
                 <br />
