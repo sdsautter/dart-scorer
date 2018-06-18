@@ -225,9 +225,9 @@ export default class Results extends Component {
                         <td>{this.props.p2Throws}</td>
                     </tr>
                     <tr>
-                        <td>{parseFloat(this.state.p1ppd.toFixed(3))}</td>
+                        <td>{parseFloat(this.state.p1ppd.toFixed(2))}</td>
                         <td>Points Per Dart</td>
-                        <td>{parseFloat(this.state.p2ppd.toFixed(3))}</td>
+                        <td>{parseFloat(this.state.p2ppd.toFixed(2))}</td>
                     </tr>
                     {this.sixtyRow()}
                     {this.oneHundredRow()}
