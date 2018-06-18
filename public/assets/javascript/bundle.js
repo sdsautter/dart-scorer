@@ -52679,7 +52679,6 @@ var Results = function (_Component) {
                         this.renderTable()
                     )
                 ),
-                _react2.default.createElement("br", null),
                 this.buttonsRender(),
                 _react2.default.createElement(
                     "div",
