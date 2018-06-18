@@ -414,7 +414,6 @@ export default class Results extends Component {
                         {this.renderTable()}
                     </div>
                 </div>
-                <br />
                 {this.buttonsRender()}
                 <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
