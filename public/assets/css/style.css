@@ -190,8 +190,8 @@
         /* padding-bottom: .5%; */
         /* height: 50px; */
     }
-    .right-mark img {
-        /* margin-left: -15px; */
+    .right-mark {
+        margin-left: -15px;
     }
     .rules-header {
         font-size: 1.25rem;
@@ -1182,6 +1182,34 @@ img {
     width: 100%;
     padding: 0;
 }
+
+.cricket-table {
+    font-family: var(--nice-font);
+    text-align: center;
+    width: 100%;
+}
+
+.cricket-table th {
+    text-align: center;
+    font-family: var(--chalk-font)
+}
+
+.continue-set button {
+    background-color: var(--p1-multiple);
+    color: white;
+    font-family: var(--nice-font);
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.reset-set button {
+    margin-bottom: 3%;
+    background-color: var(--p2-multiple);
+    width: 100%;
+    color: white;
+    font-family: var(--nice-font);
+}
+
 /* 
 .mark {
     background-color: rgba(0, 0, 0, 0);

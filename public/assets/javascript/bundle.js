@@ -14543,10 +14543,16 @@ var Cricket = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Cricket.__proto__ || Object.getPrototypeOf(Cricket)).call(this));
 
+        _this.activeMarks = 0;
+        _this.activeBulls = 0;
+        _this.p1Marks = [];
+        _this.p1Bulls = [];
+        _this.p2Marks = [];
+        _this.p2Bulls = [];
+
         _this.state = {
             activeThrower: "p1",
             activeThrows: 0,
-            activeMarks: 0,
             gameState: 'playing',
             gameWinner: {},
             throwLog: [],
@@ -14566,11 +14572,6 @@ var Cricket = function (_Component) {
             p125: 0,
             p1Score: 0,
             p1Throws: 0,
-            p15m: 0,
-            p16m: 0,
-            p17m: 0,
-            p18m: 0,
-            p19m: 0,
             p1Legs: 0,
             p1Sets: 0,
 
@@ -14583,11 +14584,6 @@ var Cricket = function (_Component) {
             p225: 0,
             p2Score: 0,
             p2Throws: 0,
-            p25m: 0,
-            p26m: 0,
-            p27m: 0,
-            p28m: 0,
-            p29m: 0,
             p2Legs: 0,
             p2Sets: 0
 
@@ -14659,10 +14655,11 @@ var Cricket = function (_Component) {
 
             this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
-            this.setState({ activeMarks: 0 });
-            this.setState({ gameState: "playing" });
+            this.activeMarks = 0;
+            this.activeBulls = 0;
             this.setState({ gameWinner: {} });
             this.setState({ gameOverModal: false });
+            this.setState({ gameState: 'playing' });
 
             this.setState({ p120: 0 });
             this.setState({ p119: 0 });
@@ -14673,11 +14670,8 @@ var Cricket = function (_Component) {
             this.setState({ p125: 0 });
             this.setState({ p1Score: 0 });
             this.setState({ p1Throws: 0 });
-            this.setState({ p15m: 0 });
-            this.setState({ p16m: 0 });
-            this.setState({ p17m: 0 });
-            this.setState({ p18m: 0 });
-            this.setState({ p19m: 0 });
+            this.p1Marks = [];
+            this.p1Bulls = [];
 
             this.setState({ p220: 0 });
             this.setState({ p219: 0 });
@@ -14688,11 +14682,8 @@ var Cricket = function (_Component) {
             this.setState({ p225: 0 });
             this.setState({ p2Score: 0 });
             this.setState({ p2Throws: 0 });
-            this.setState({ p25m: 0 });
-            this.setState({ p26m: 0 });
-            this.setState({ p27m: 0 });
-            this.setState({ p28m: 0 });
-            this.setState({ p29m: 0 });
+            this.p2Marks = [];
+            this.p2Bulls = [];
 
             if (this.state.botGame && activeThrower === 'p2') {
                 this.botLogic();
@@ -14703,13 +14694,13 @@ var Cricket = function (_Component) {
         value: function gameCricketReset() {
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
-            this.setState({ activeMarks: 0 });
-            this.setState({ gameState: "playing" });
-            this.setState({ gameWinner: {} });
+            this.activeMarks = 0;
             this.setState({ gameOverModal: false });
             this.setState({ firstWinner: '' });
             this.setState({ throwLog: [] });
             this.setState({ setHistory: [] });
+            this.setState({ gameState: 'playing' });
+            this.setState({ gameWinner: '' });
 
             this.setState({ p120: 0 });
             this.setState({ p119: 0 });
@@ -16346,7 +16337,7 @@ var Cricket = function (_Component) {
             var activeThrows = this.state.activeThrows;
             new Promise(function () {
                 if (activeThrows > 2) {
-                    _this7.allStarPoints(_this7.state.activeThrower, _this7.state.activeMarks);
+                    _this7.allStarPoints(_this7.state.activeThrower);
                     if (_this7.state.activeThrower === "p1") {
 
                         _this7.setActiveThrower('p2');
@@ -16405,6 +16396,7 @@ var Cricket = function (_Component) {
         value: function gameStateOver() {
             var _this8 = this;
 
+            this.allStarPoints(this.state.gameWinner);
             var gameOverSound = new _howler.Howl({
                 src: ["../../../assets/sounds/game_over.mp3"]
             });
@@ -16460,13 +16452,16 @@ var Cricket = function (_Component) {
     }, {
         key: "addMarks",
         value: function addMarks(number, multiplier) {
-            var _this10 = this;
-
             var otherThrower = this.state.activeThrower === 'p1' ? 'p2' : 'p1';
             var playerMarks = eval("this.state." + this.state.activeThrower + number);
             var otherMarks = eval("this.state." + otherThrower + number);
-            var marks = parseInt(this.state.activeMarks);
-            var newMark = void 0;
+            var newMark = void 0,
+                marks = void 0;
+            if (number === 25) {
+                marks = parseInt(this.activeBulls);
+            } else {
+                marks = parseInt(this.activeMarks);
+            }
 
             switch (multiplier) {
                 case 1:
@@ -16509,28 +16504,32 @@ var Cricket = function (_Component) {
                     }
                     break;
             }
-            var activeMarks = marks + newMark;
-            new Promise(function () {
-                return _this10.setState({ activeMarks: activeMarks });
-            });
+            newMark = marks + newMark;
+            if (number === 25) {
+                this.activeBulls = newMark;
+            } else {
+                this.activeMarks = newMark;
+            }
         }
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this11 = this;
-
-            setTimeout(function () {
-                _this11.setState({ activeMarks: 0 });
-            }, 1000);
+            this.activeMarks = 0;
+            this.activeBulls = 0;
         }
     }, {
         key: "allStarPoints",
-        value: function allStarPoints(thrower, marks) {
-            if (marks >= 5) {
-                var playerMark = "" + thrower + marks + "m";
-                var playerMarkState = eval("this.state." + playerMark);
-                this.setState(_defineProperty({}, playerMark, playerMarkState + 1));
+        value: function allStarPoints(thrower) {
+            var bulls = parseInt(this.activeBulls);
+            var marks = parseInt(this.activeMarks);
+            var marksArray = eval("this." + thrower + "Marks");
+            var bullsArray = eval("this." + thrower + "Bulls");
+            if (bulls < 3) {
+                marks = bulls + marks;
+            } else {
+                bullsArray.push(bulls);
             }
+            marksArray.push(marks);
         }
     }, {
         key: "markProgress",
@@ -16619,16 +16618,10 @@ var Cricket = function (_Component) {
                         gameCricketReset: this.gameCricketReset,
                         p1Throws: this.state.p1Throws,
                         p2Throws: this.state.p2Throws,
-                        p15m: this.state.p15m,
-                        p16m: this.state.p16m,
-                        p17m: this.state.p17m,
-                        p18m: this.state.p18m,
-                        p19m: this.state.p19m,
-                        p25m: this.state.p25m,
-                        p26m: this.state.p26m,
-                        p27m: this.state.p27m,
-                        p28m: this.state.p28m,
-                        p29m: this.state.p29m,
+                        p1Marks: this.p1Marks,
+                        p1Bulls: this.p1Bulls,
+                        p2Marks: this.p2Marks,
+                        p2Bulls: this.p2Bulls,
                         p1Legs: this.state.p1Legs,
                         p1Sets: this.state.p1Sets,
                         p2Legs: this.state.p2Legs,
@@ -36306,109 +36299,27 @@ var DesktopView = function (_Component) {
             } else {
                 return _react2.default.createElement(
                     "div",
-                    { className: "col-8" },
+                    { className: "col text-center" },
                     _react2.default.createElement(
                         "div",
-                        { className: "row" },
+                        { className: "row text-center" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 20)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-single border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 20)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 19)
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-6 text-center p1-single border-left border-right" },
+                            { className: "col text-center p1-single" },
                             _react2.default.createElement(
                                 "h1",
                                 null,
-                                "Game"
+                                "Game Over?"
                             )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 19)
                         )
                     ),
+                    _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "div",
-                        { className: "row" },
+                        { className: "row text-center" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 18)
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-6 text-center p1-single border-left border-right" },
-                            _react2.default.createElement(
-                                "h1",
-                                null,
-                                "Over?"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 18)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 17)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-single border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 17)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 16)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-single border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 16)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 15)
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center p2-multiple border-left" },
+                            { className: "col-6 offset-3 text-center p2-multiple" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", onClick: function onClick() {
@@ -36416,10 +36327,15 @@ var DesktopView = function (_Component) {
                                     } },
                                 "Undo"
                             )
-                        ),
+                        )
+                    ),
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row text-center" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center p1-multiple border-right" },
+                            { className: "col-6 offset-3 text-center p1-multiple" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", onClick: function onClick() {
@@ -36427,26 +36343,6 @@ var DesktopView = function (_Component) {
                                     } },
                                 "Confirm"
                             )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 15)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 25)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-multiple border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 25)
                         )
                     )
                 );
@@ -40181,27 +40077,15 @@ var MobileModalView = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 17)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-6 text-center number p2-single' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 17)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-1 right-label text-center align-self-center points-label' })
                     ),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 16)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center p2-multiple game-over' },
@@ -40213,11 +40097,7 @@ var MobileModalView = function (_Component) {
                                 'Undo'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 16)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-1 right-label text-center align-self-start points-score' })
                     )
                 );
@@ -41006,11 +40886,7 @@ var MobileModalView = function (_Component) {
                             { className: 'col-1 text-center align-self-center points-label' },
                             'Points:'
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark text-center align-self-center' },
-                            this.props.markProgress(1, 20)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6  text-center number p1-single' },
@@ -41020,11 +40896,7 @@ var MobileModalView = function (_Component) {
                                 'Game'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 20)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-1 text-center align-self-center points-label' },
@@ -41043,11 +40915,7 @@ var MobileModalView = function (_Component) {
                             { className: 'col-1 text-center align-self-start points-score' },
                             this.props.renderP1Score()
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark text-center align-self-center' },
-                            this.props.markProgress(1, 19)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6  text-center number p1-single' },
@@ -41057,11 +40925,7 @@ var MobileModalView = function (_Component) {
                                 'Over?'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 19)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-1 text-center align-self-start points-score' },
@@ -41071,42 +40935,22 @@ var MobileModalView = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 18)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-6  text-center number p1-single' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 18)
-                        )
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' })
                     ),
                     this.throwRowRender(),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 15)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-6 text-center p2-multiple game-over' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 15)
-                        )
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' })
                     ),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 25)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center p1-multiple game-over' },
@@ -41118,11 +40962,7 @@ var MobileModalView = function (_Component) {
                                 'Confirm'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 25)
-                        )
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' })
                     )
                 );
             }
@@ -41449,15 +41289,417 @@ var Results = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this));
 
+        _this.state = {
+            p13bull: 0,
+            p14bull: 0,
+            p15bull: 0,
+            p16bull: 0,
+            p15m: 0,
+            p16m: 0,
+            p17m: 0,
+            p18m: 0,
+            p19m: 0,
+            p1mpd: 0,
+            p23bull: 0,
+            p24bull: 0,
+            p25bull: 0,
+            p26bull: 0,
+            p25m: 0,
+            p26m: 0,
+            p27m: 0,
+            p28m: 0,
+            p29m: 0,
+            p2mpd: 0
+        };
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
+        console.log(window.location);
         _this.renderWinner = _this.renderWinner.bind(_this);
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
-        _this.buttonsRender = _this.buttonsRender.bind(_this);
+        _this.ButtonsRender = _this.buttonsRender.bind(_this);
+        _this.setStats = _this.setStats.bind(_this);
+        _this.renderTable = _this.renderTable.bind(_this);
         return _this;
     }
 
     _createClass(Results, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setStats();
+        }
+    }, {
+        key: 'setStats',
+        value: function setStats() {
+            var p1Marks = this.props.p1Marks;
+            var p2Marks = this.props.p2Marks;
+            var p1Bulls = this.props.p1Bulls;
+            var p2Bulls = this.props.p2Bulls;
+            var p13bull = 0,
+                p14bull = 0,
+                p15bull = 0,
+                p16bull = 0,
+                p15m = 0,
+                p16m = 0,
+                p17m = 0,
+                p18m = 0,
+                p19m = 0,
+                p1mpd = 0,
+                p23bull = 0,
+                p24bull = 0,
+                p25bull = 0,
+                p26bull = 0,
+                p25m = 0,
+                p26m = 0,
+                p27m = 0,
+                p28m = 0,
+                p29m = 0,
+                p2mpd = 0,
+                p1Total = 0,
+                p2Total = 0;
+            for (var i in p1Marks) {
+                p1Total += p1Marks[i];
+                switch (p1Marks[i]) {
+                    case 5:
+                        p15m++;
+                        break;
+                    case 6:
+                        p16m++;
+                        break;
+                    case 7:
+                        p17m++;
+                        break;
+                    case 8:
+                        p18m++;
+                        break;
+                    case 9:
+                        p19m++;
+                        break;
+                }
+            }
+
+            for (var i in p2Marks) {
+                p2Total += p2Marks[i];
+                switch (p2Marks[i]) {
+                    case 5:
+                        p25m++;
+                        break;
+                    case 6:
+                        p26m++;
+                        break;
+                    case 7:
+                        p27m++;
+                        break;
+                    case 8:
+                        p28m++;
+                        break;
+                    case 9:
+                        p29m++;
+                        break;
+                }
+            }
+
+            for (var i in p1Bulls) {
+                p1Total += p1Bulls[i];
+                switch (p1Bulls[i]) {
+                    case 3:
+                        p13bull++;
+                        break;
+                    case 4:
+                        p14bull++;
+                        break;
+                    case 5:
+                        p15bull++;
+                        break;
+                    case 6:
+                        p16bull++;
+                        break;
+                }
+            }
+
+            for (var i in p2Bulls) {
+                p2Total += p2Bulls[i];
+                switch (p2Bulls[i]) {
+                    case 3:
+                        p23bull++;
+                        break;
+                    case 4:
+                        p24bull++;
+                        break;
+                    case 5:
+                        p25bull++;
+                        break;
+                    case 6:
+                        p26bull++;
+                        break;
+                }
+            }
+
+            p1mpd = p1Total / parseInt(this.props.p1Throws);
+            p2mpd = p2Total / parseInt(this.props.p2Throws);
+
+            this.setState({ p13bull: p13bull });
+            this.setState({ p14bull: p14bull });
+            this.setState({ p15bull: p15bull });
+            this.setState({ p16bull: p16bull });
+            this.setState({ p15m: p15m });
+            this.setState({ p16m: p16m });
+            this.setState({ p17m: p17m });
+            this.setState({ p18m: p18m });
+            this.setState({ p19m: p19m });
+            this.setState({ p1mpd: p1mpd });
+
+            this.setState({ p23bull: p23bull });
+            this.setState({ p24bull: p24bull });
+            this.setState({ p25bull: p25bull });
+            this.setState({ p26bull: p26bull });
+            this.setState({ p25m: p25m });
+            this.setState({ p26m: p26m });
+            this.setState({ p27m: p27m });
+            this.setState({ p28m: p28m });
+            this.setState({ p29m: p29m });
+            this.setState({ p2mpd: p2mpd });
+        }
+    }, {
+        key: 'renderTable',
+        value: function renderTable() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement(
+                    'thead',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            { scope: 'col' },
+                            'Player 1'
+                        ),
+                        _react2.default.createElement('th', { scope: 'col' }),
+                        _react2.default.createElement(
+                            'th',
+                            { scope: 'col' },
+                            'Player 2'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.props.p1Throws
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Throws'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.props.p2Throws
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseFloat(this.state.p1mpd.toFixed(3))
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Marks Per Dart'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseFloat(this.state.p2mpd.toFixed(3))
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p15m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '5m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p25m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p16m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '6m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p26m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p17m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '7m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p27m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p18m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '8m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p28m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p19m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '9m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p29m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p13bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '3 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p23bull
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p14bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '4 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p24bull
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p15bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '5 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p25bull
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p16bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '6 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p26bull
+                        )
+                    )
+                )
+            );
+        }
+    }, {
         key: 'renderWinner',
         value: function renderWinner() {
             if (this.props.gameWinner === "p1") {
@@ -41489,19 +41731,18 @@ var Results = function (_Component) {
             var setSettings = parseInt(localStorage.getItem('sets'));
             setSettings = Math.ceil(setSettings / 2);
 
-            if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
+            var viewWidth = window.innerWidth;
+            if (viewWidth >= 720) {
+                if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'col-12' },
+                        null,
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center p1-multiple' },
+                                { className: 'col-8 offset-2 text-center p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
                                     { type: 'button', className: 'btn', onClick: function onClick() {
@@ -41511,70 +41752,54 @@ var Results = function (_Component) {
                                 )
                             )
                         ),
+                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
-                            _react2.default.createElement('br', null),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center undo' },
-                                '                                ',
+                                { className: 'col-12' },
                                 _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { to: {
-                                            pathname: this.url + '/x01'
-                                        } },
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement('br', null),
                                     _react2.default.createElement(
-                                        'button',
-                                        { type: 'button', className: 'btn' },
-                                        'Play x01'
+                                        'div',
+                                        { className: 'col-6 col-md-8 offset-md-2 text-center undo' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                            'Choose Game'
+                                        )
                                     )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center miss' },
+                                ),
+                                _react2.default.createElement('br', null),
                                 _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { to: {
-                                            pathname: '/'
-                                        } },
+                                    'div',
+                                    { className: 'row' },
                                     _react2.default.createElement(
-                                        'button',
-                                        { type: 'button', className: 'btn' },
-                                        'Home'
+                                        'div',
+                                        { className: 'col-6 col-8 offset-2 text-center miss' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                            'Home'
+                                        )
                                     )
                                 )
                             )
                         )
-                    )
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'col-12' },
+                        null,
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-3 col-sm-12 offset-md-3 text-center p2-multiple' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                                    'Reset Set'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-3 col-sm-12 text-center p1-multiple' },
+                                { className: 'col-6 col-md-8 offset-md-2 text-center p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
                                     { type: 'button', className: 'btn', onClick: function onClick() {
@@ -41590,17 +41815,132 @@ var Results = function (_Component) {
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center miss' },
+                                { className: 'col-6 col-md-8 offset-md-2 text-center p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn',
-                                        'data-toggle': 'modal', 'data-target': '#homeModal' },
-                                    'Home'
+                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
+                                    'Reset Set'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement('br', null),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-6 col-md-8 offset-md-2 text-center undo' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                            'Choose Game'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-6 col-8 offset-2 text-center miss' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                            'Home'
+                                        )
+                                    )
                                 )
                             )
                         )
-                    )
-                );
+                    );
+                }
+            } else {
+                if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-4 text-center p1-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this2.props.gameCricketReset();
+                                    } },
+                                'Play Again'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-4 text-center undo' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                'Choose Game'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-4 text-center miss' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                'Home'
+                            )
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center continue-set' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this2.props.continueSet();
+                                    } },
+                                'Continue Set'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center reset-set' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
+                                'Reset Set'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center undo' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                'Choose Game'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center miss' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                'Home'
+                            )
+                        )
+                    );
+                }
             }
         }
     }, {
@@ -41629,139 +41969,19 @@ var Results = function (_Component) {
                 }),
                 _react2.default.createElement(
                     'div',
-                    { className: 'row' },
+                    { className: 'row text-center' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col player1-results text-center' },
-                        'Player 1'
+                        { className: 'col-12 col-md-8 offset-md-1 text-center align-self-center' },
+                        this.renderTable()
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col player-2 results text-center' },
-                        'Player 2'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col throws text-center' },
-                        'Throws: ',
-                        this.player1ThrowRender()
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col throws text-center' },
-                        'Throws: ',
-                        this.player2ThrowRender()
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row cricket-results' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-12' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 5)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '5 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 5)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 6)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '6 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 6)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 7)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '7 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 7)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 8)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '8 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 8)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 9)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '9 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 9)
-                            )
-                        )
+                        { className: 'col-12 col-md-3' },
+                        this.buttonsRender()
                     )
                 ),
                 _react2.default.createElement('br', null),
-                this.buttonsRender(),
                 _react2.default.createElement(
                     'div',
                     { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
@@ -41802,6 +42022,55 @@ var Results = function (_Component) {
                                             'button',
                                             { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
                                                     _this3.props.gameCricketReset();
+                                                } },
+                                            'Yes'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'x01Modal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'x01ModalLabel', 'aria-hidden': 'true' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-dialog', role: 'document' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-content' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-header' },
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'modal-title', id: 'x01ModalLabel' },
+                                    'Choose Game Screen'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col text-center' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
+                                            'Cancel'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col text-center' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
+                                                    window.location.href = _this3.url;
                                                 } },
                                             'Yes'
                                         )
@@ -52611,10 +52880,16 @@ var Cricket = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Cricket.__proto__ || Object.getPrototypeOf(Cricket)).call(this));
 
+        _this.activeMarks = 0;
+        _this.activeBulls = 0;
+        _this.p1Marks = [];
+        _this.p1Bulls = [];
+        _this.p2Marks = [];
+        _this.p2Bulls = [];
+
         _this.state = {
             activeThrower: "p1",
             activeThrows: 0,
-            activeMarks: 0,
             gameState: 'playing',
             gameWinner: {},
             throwLog: [],
@@ -52634,11 +52909,6 @@ var Cricket = function (_Component) {
             p125: 0,
             p1Score: 0,
             p1Throws: 0,
-            p15m: 0,
-            p16m: 0,
-            p17m: 0,
-            p18m: 0,
-            p19m: 0,
             p1Legs: 0,
             p1Sets: 0,
 
@@ -52651,11 +52921,6 @@ var Cricket = function (_Component) {
             p225: 0,
             p2Score: 0,
             p2Throws: 0,
-            p25m: 0,
-            p26m: 0,
-            p27m: 0,
-            p28m: 0,
-            p29m: 0,
             p2Legs: 0,
             p2Sets: 0
 
@@ -52727,10 +52992,11 @@ var Cricket = function (_Component) {
 
             this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
-            this.setState({ activeMarks: 0 });
-            this.setState({ gameState: "playing" });
+            this.activeMarks = 0;
+            this.activeBulls = 0;
             this.setState({ gameWinner: {} });
             this.setState({ gameOverModal: false });
+            this.setState({ gameState: 'playing' });
 
             this.setState({ p120: 0 });
             this.setState({ p119: 0 });
@@ -52741,11 +53007,8 @@ var Cricket = function (_Component) {
             this.setState({ p125: 0 });
             this.setState({ p1Score: 0 });
             this.setState({ p1Throws: 0 });
-            this.setState({ p15m: 0 });
-            this.setState({ p16m: 0 });
-            this.setState({ p17m: 0 });
-            this.setState({ p18m: 0 });
-            this.setState({ p19m: 0 });
+            this.p1Marks = [];
+            this.p1Bulls = [];
 
             this.setState({ p220: 0 });
             this.setState({ p219: 0 });
@@ -52756,11 +53019,8 @@ var Cricket = function (_Component) {
             this.setState({ p225: 0 });
             this.setState({ p2Score: 0 });
             this.setState({ p2Throws: 0 });
-            this.setState({ p25m: 0 });
-            this.setState({ p26m: 0 });
-            this.setState({ p27m: 0 });
-            this.setState({ p28m: 0 });
-            this.setState({ p29m: 0 });
+            this.p2Marks = [];
+            this.p2Bulls = [];
 
             if (this.state.botGame && activeThrower === 'p2') {
                 this.botLogic();
@@ -52771,13 +53031,13 @@ var Cricket = function (_Component) {
         value: function gameCricketReset() {
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
-            this.setState({ activeMarks: 0 });
-            this.setState({ gameState: "playing" });
-            this.setState({ gameWinner: {} });
+            this.activeMarks = 0;
             this.setState({ gameOverModal: false });
             this.setState({ firstWinner: '' });
             this.setState({ throwLog: [] });
             this.setState({ setHistory: [] });
+            this.setState({ gameState: 'playing' });
+            this.setState({ gameWinner: '' });
 
             this.setState({ p120: 0 });
             this.setState({ p119: 0 });
@@ -54414,7 +54674,7 @@ var Cricket = function (_Component) {
             var activeThrows = this.state.activeThrows;
             new Promise(function () {
                 if (activeThrows > 2) {
-                    _this7.allStarPoints(_this7.state.activeThrower, _this7.state.activeMarks);
+                    _this7.allStarPoints(_this7.state.activeThrower);
                     if (_this7.state.activeThrower === "p1") {
 
                         _this7.setActiveThrower('p2');
@@ -54473,6 +54733,7 @@ var Cricket = function (_Component) {
         value: function gameStateOver() {
             var _this8 = this;
 
+            this.allStarPoints(this.state.gameWinner);
             var gameOverSound = new _howler.Howl({
                 src: ["../../../assets/sounds/game_over.mp3"]
             });
@@ -54528,13 +54789,16 @@ var Cricket = function (_Component) {
     }, {
         key: "addMarks",
         value: function addMarks(number, multiplier) {
-            var _this10 = this;
-
             var otherThrower = this.state.activeThrower === 'p1' ? 'p2' : 'p1';
             var playerMarks = eval("this.state." + this.state.activeThrower + number);
             var otherMarks = eval("this.state." + otherThrower + number);
-            var marks = parseInt(this.state.activeMarks);
-            var newMark = void 0;
+            var newMark = void 0,
+                marks = void 0;
+            if (number === 25) {
+                marks = parseInt(this.activeBulls);
+            } else {
+                marks = parseInt(this.activeMarks);
+            }
 
             switch (multiplier) {
                 case 1:
@@ -54577,28 +54841,32 @@ var Cricket = function (_Component) {
                     }
                     break;
             }
-            var activeMarks = marks + newMark;
-            new Promise(function () {
-                return _this10.setState({ activeMarks: activeMarks });
-            });
+            newMark = marks + newMark;
+            if (number === 25) {
+                this.activeBulls = newMark;
+            } else {
+                this.activeMarks = newMark;
+            }
         }
     }, {
         key: "resetMarks",
         value: function resetMarks() {
-            var _this11 = this;
-
-            setTimeout(function () {
-                _this11.setState({ activeMarks: 0 });
-            }, 1000);
+            this.activeMarks = 0;
+            this.activeBulls = 0;
         }
     }, {
         key: "allStarPoints",
-        value: function allStarPoints(thrower, marks) {
-            if (marks >= 5) {
-                var playerMark = "" + thrower + marks + "m";
-                var playerMarkState = eval("this.state." + playerMark);
-                this.setState(_defineProperty({}, playerMark, playerMarkState + 1));
+        value: function allStarPoints(thrower) {
+            var bulls = parseInt(this.activeBulls);
+            var marks = parseInt(this.activeMarks);
+            var marksArray = eval("this." + thrower + "Marks");
+            var bullsArray = eval("this." + thrower + "Bulls");
+            if (bulls < 3) {
+                marks = bulls + marks;
+            } else {
+                bullsArray.push(bulls);
             }
+            marksArray.push(marks);
         }
     }, {
         key: "markProgress",
@@ -54687,16 +54955,10 @@ var Cricket = function (_Component) {
                         gameCricketReset: this.gameCricketReset,
                         p1Throws: this.state.p1Throws,
                         p2Throws: this.state.p2Throws,
-                        p15m: this.state.p15m,
-                        p16m: this.state.p16m,
-                        p17m: this.state.p17m,
-                        p18m: this.state.p18m,
-                        p19m: this.state.p19m,
-                        p25m: this.state.p25m,
-                        p26m: this.state.p26m,
-                        p27m: this.state.p27m,
-                        p28m: this.state.p28m,
-                        p29m: this.state.p29m,
+                        p1Marks: this.p1Marks,
+                        p1Bulls: this.p1Bulls,
+                        p2Marks: this.p2Marks,
+                        p2Bulls: this.p2Bulls,
                         p1Legs: this.state.p1Legs,
                         p1Sets: this.state.p1Sets,
                         p2Legs: this.state.p2Legs,
@@ -56019,109 +56281,27 @@ var DesktopView = function (_Component) {
             } else {
                 return _react2.default.createElement(
                     "div",
-                    { className: "col-8" },
+                    { className: "col text-center" },
                     _react2.default.createElement(
                         "div",
-                        { className: "row" },
+                        { className: "row text-center" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 20)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-single border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 20)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 19)
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-6 text-center p1-single border-left border-right" },
+                            { className: "col text-center p1-single" },
                             _react2.default.createElement(
                                 "h1",
                                 null,
-                                "Game"
+                                "Game Over?"
                             )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 19)
                         )
                     ),
+                    _react2.default.createElement("br", null),
                     _react2.default.createElement(
                         "div",
-                        { className: "row" },
+                        { className: "row text-center" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 18)
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-6 text-center p1-single border-left border-right" },
-                            _react2.default.createElement(
-                                "h1",
-                                null,
-                                "Over?"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 18)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 17)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-single border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 17)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 16)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-single border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 16)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 15)
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center p2-multiple border-left" },
+                            { className: "col-6 offset-3 text-center p2-multiple" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", onClick: function onClick() {
@@ -56129,10 +56309,15 @@ var DesktopView = function (_Component) {
                                     } },
                                 "Undo"
                             )
-                        ),
+                        )
+                    ),
+                    _react2.default.createElement("br", null),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row text-center" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-3 text-center p1-multiple border-right" },
+                            { className: "col-6 offset-3 text-center p1-multiple" },
                             _react2.default.createElement(
                                 "button",
                                 { type: "button", className: "btn", onClick: function onClick() {
@@ -56140,26 +56325,6 @@ var DesktopView = function (_Component) {
                                     } },
                                 "Confirm"
                             )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 15)
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(1, 25)
-                        ),
-                        _react2.default.createElement("div", { className: "col-6 text-center p1-multiple border-left border-right" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-3 text-center align-self-center" },
-                            this.props.markProgress(2, 25)
                         )
                     )
                 );
@@ -56797,27 +56962,15 @@ var MobileModalView = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 17)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-6 text-center number p2-single' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 17)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-1 right-label text-center align-self-center points-label' })
                     ),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 16)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center p2-multiple game-over' },
@@ -56829,11 +56982,7 @@ var MobileModalView = function (_Component) {
                                 'Undo'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 16)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-1 right-label text-center align-self-start points-score' })
                     )
                 );
@@ -57622,11 +57771,7 @@ var MobileModalView = function (_Component) {
                             { className: 'col-1 text-center align-self-center points-label' },
                             'Points:'
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark text-center align-self-center' },
-                            this.props.markProgress(1, 20)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6  text-center number p1-single' },
@@ -57636,11 +57781,7 @@ var MobileModalView = function (_Component) {
                                 'Game'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 20)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-1 text-center align-self-center points-label' },
@@ -57659,11 +57800,7 @@ var MobileModalView = function (_Component) {
                             { className: 'col-1 text-center align-self-start points-score' },
                             this.props.renderP1Score()
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark text-center align-self-center' },
-                            this.props.markProgress(1, 19)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6  text-center number p1-single' },
@@ -57673,11 +57810,7 @@ var MobileModalView = function (_Component) {
                                 'Over?'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 19)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-1 text-center align-self-start points-score' },
@@ -57687,42 +57820,22 @@ var MobileModalView = function (_Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 18)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-6  text-center number p1-single' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 18)
-                        )
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' })
                     ),
                     this.throwRowRender(),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 15)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement('div', { className: 'col-6 text-center p2-multiple game-over' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 15)
-                        )
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' })
                     ),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 left-mark offset-1 text-center align-self-center' },
-                            this.props.markProgress(1, 25)
-                        ),
+                        _react2.default.createElement('div', { className: 'col-2 left-mark offset-1 text-center align-self-center' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center p1-multiple game-over' },
@@ -57734,11 +57847,7 @@ var MobileModalView = function (_Component) {
                                 'Confirm'
                             )
                         ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-2 right-mark text-center align-self-center' },
-                            this.props.markProgress(2, 25)
-                        )
+                        _react2.default.createElement('div', { className: 'col-2 right-mark text-center align-self-center' })
                     )
                 );
             }
@@ -58065,15 +58174,417 @@ var Results = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this));
 
+        _this.state = {
+            p13bull: 0,
+            p14bull: 0,
+            p15bull: 0,
+            p16bull: 0,
+            p15m: 0,
+            p16m: 0,
+            p17m: 0,
+            p18m: 0,
+            p19m: 0,
+            p1mpd: 0,
+            p23bull: 0,
+            p24bull: 0,
+            p25bull: 0,
+            p26bull: 0,
+            p25m: 0,
+            p26m: 0,
+            p27m: 0,
+            p28m: 0,
+            p29m: 0,
+            p2mpd: 0
+        };
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
+        console.log(window.location);
         _this.renderWinner = _this.renderWinner.bind(_this);
         _this.player1ThrowRender = _this.player1ThrowRender.bind(_this);
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
-        _this.buttonsRender = _this.buttonsRender.bind(_this);
+        _this.ButtonsRender = _this.buttonsRender.bind(_this);
+        _this.setStats = _this.setStats.bind(_this);
+        _this.renderTable = _this.renderTable.bind(_this);
         return _this;
     }
 
     _createClass(Results, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setStats();
+        }
+    }, {
+        key: 'setStats',
+        value: function setStats() {
+            var p1Marks = this.props.p1Marks;
+            var p2Marks = this.props.p2Marks;
+            var p1Bulls = this.props.p1Bulls;
+            var p2Bulls = this.props.p2Bulls;
+            var p13bull = 0,
+                p14bull = 0,
+                p15bull = 0,
+                p16bull = 0,
+                p15m = 0,
+                p16m = 0,
+                p17m = 0,
+                p18m = 0,
+                p19m = 0,
+                p1mpd = 0,
+                p23bull = 0,
+                p24bull = 0,
+                p25bull = 0,
+                p26bull = 0,
+                p25m = 0,
+                p26m = 0,
+                p27m = 0,
+                p28m = 0,
+                p29m = 0,
+                p2mpd = 0,
+                p1Total = 0,
+                p2Total = 0;
+            for (var i in p1Marks) {
+                p1Total += p1Marks[i];
+                switch (p1Marks[i]) {
+                    case 5:
+                        p15m++;
+                        break;
+                    case 6:
+                        p16m++;
+                        break;
+                    case 7:
+                        p17m++;
+                        break;
+                    case 8:
+                        p18m++;
+                        break;
+                    case 9:
+                        p19m++;
+                        break;
+                }
+            }
+
+            for (var i in p2Marks) {
+                p2Total += p2Marks[i];
+                switch (p2Marks[i]) {
+                    case 5:
+                        p25m++;
+                        break;
+                    case 6:
+                        p26m++;
+                        break;
+                    case 7:
+                        p27m++;
+                        break;
+                    case 8:
+                        p28m++;
+                        break;
+                    case 9:
+                        p29m++;
+                        break;
+                }
+            }
+
+            for (var i in p1Bulls) {
+                p1Total += p1Bulls[i];
+                switch (p1Bulls[i]) {
+                    case 3:
+                        p13bull++;
+                        break;
+                    case 4:
+                        p14bull++;
+                        break;
+                    case 5:
+                        p15bull++;
+                        break;
+                    case 6:
+                        p16bull++;
+                        break;
+                }
+            }
+
+            for (var i in p2Bulls) {
+                p2Total += p2Bulls[i];
+                switch (p2Bulls[i]) {
+                    case 3:
+                        p23bull++;
+                        break;
+                    case 4:
+                        p24bull++;
+                        break;
+                    case 5:
+                        p25bull++;
+                        break;
+                    case 6:
+                        p26bull++;
+                        break;
+                }
+            }
+
+            p1mpd = p1Total / parseInt(this.props.p1Throws);
+            p2mpd = p2Total / parseInt(this.props.p2Throws);
+
+            this.setState({ p13bull: p13bull });
+            this.setState({ p14bull: p14bull });
+            this.setState({ p15bull: p15bull });
+            this.setState({ p16bull: p16bull });
+            this.setState({ p15m: p15m });
+            this.setState({ p16m: p16m });
+            this.setState({ p17m: p17m });
+            this.setState({ p18m: p18m });
+            this.setState({ p19m: p19m });
+            this.setState({ p1mpd: p1mpd });
+
+            this.setState({ p23bull: p23bull });
+            this.setState({ p24bull: p24bull });
+            this.setState({ p25bull: p25bull });
+            this.setState({ p26bull: p26bull });
+            this.setState({ p25m: p25m });
+            this.setState({ p26m: p26m });
+            this.setState({ p27m: p27m });
+            this.setState({ p28m: p28m });
+            this.setState({ p29m: p29m });
+            this.setState({ p2mpd: p2mpd });
+        }
+    }, {
+        key: 'renderTable',
+        value: function renderTable() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement(
+                    'thead',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'th',
+                            { scope: 'col' },
+                            'Player 1'
+                        ),
+                        _react2.default.createElement('th', { scope: 'col' }),
+                        _react2.default.createElement(
+                            'th',
+                            { scope: 'col' },
+                            'Player 2'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.props.p1Throws
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Throws'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.props.p2Throws
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseFloat(this.state.p1mpd.toFixed(3))
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Marks Per Dart'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseFloat(this.state.p2mpd.toFixed(3))
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p15m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '5m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p25m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p16m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '6m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p26m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p17m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '7m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p27m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p18m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '8m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p28m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p19m
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '9m'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p29m
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p13bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '3 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p23bull
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p14bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '4 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p24bull
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p15bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '5 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p25bull
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p16bull
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            '6 Bull'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.p26bull
+                        )
+                    )
+                )
+            );
+        }
+    }, {
         key: 'renderWinner',
         value: function renderWinner() {
             if (this.props.gameWinner === "p1") {
@@ -58105,19 +58616,18 @@ var Results = function (_Component) {
             var setSettings = parseInt(localStorage.getItem('sets'));
             setSettings = Math.ceil(setSettings / 2);
 
-            if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
+            var viewWidth = window.innerWidth;
+            if (viewWidth >= 720) {
+                if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'col-12' },
+                        null,
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center p1-multiple' },
+                                { className: 'col-8 offset-2 text-center p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
                                     { type: 'button', className: 'btn', onClick: function onClick() {
@@ -58127,70 +58637,54 @@ var Results = function (_Component) {
                                 )
                             )
                         ),
+                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
-                            _react2.default.createElement('br', null),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center undo' },
-                                '                                ',
+                                { className: 'col-12' },
                                 _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { to: {
-                                            pathname: this.url + '/x01'
-                                        } },
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement('br', null),
                                     _react2.default.createElement(
-                                        'button',
-                                        { type: 'button', className: 'btn' },
-                                        'Play x01'
+                                        'div',
+                                        { className: 'col-6 col-md-8 offset-md-2 text-center undo' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                            'Choose Game'
+                                        )
                                     )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center miss' },
+                                ),
+                                _react2.default.createElement('br', null),
                                 _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { to: {
-                                            pathname: '/'
-                                        } },
+                                    'div',
+                                    { className: 'row' },
                                     _react2.default.createElement(
-                                        'button',
-                                        { type: 'button', className: 'btn' },
-                                        'Home'
+                                        'div',
+                                        { className: 'col-6 col-8 offset-2 text-center miss' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                            'Home'
+                                        )
                                     )
                                 )
                             )
                         )
-                    )
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'col-12' },
+                        null,
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-3 col-sm-12 offset-md-3 text-center p2-multiple' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                                    'Reset Set'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-3 col-sm-12 text-center p1-multiple' },
+                                { className: 'col-6 col-md-8 offset-md-2 text-center p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
                                     { type: 'button', className: 'btn', onClick: function onClick() {
@@ -58206,17 +58700,132 @@ var Results = function (_Component) {
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-6 offset-md-3 col-sm-12 text-center miss' },
+                                { className: 'col-6 col-md-8 offset-md-2 text-center p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn',
-                                        'data-toggle': 'modal', 'data-target': '#homeModal' },
-                                    'Home'
+                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
+                                    'Reset Set'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement('br', null),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-6 col-md-8 offset-md-2 text-center undo' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                            'Choose Game'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-6 col-8 offset-2 text-center miss' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                            'Home'
+                                        )
+                                    )
                                 )
                             )
                         )
-                    )
-                );
+                    );
+                }
+            } else {
+                if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-4 text-center p1-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this2.props.gameCricketReset();
+                                    } },
+                                'Play Again'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-4 text-center undo' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                'Choose Game'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-4 text-center miss' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                'Home'
+                            )
+                        )
+                    );
+                } else {
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center continue-set' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this2.props.continueSet();
+                                    } },
+                                'Continue Set'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center reset-set' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
+                                'Reset Set'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center undo' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#x01Modal' },
+                                'Choose Game'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 text-center miss' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#homeModal' },
+                                'Home'
+                            )
+                        )
+                    );
+                }
             }
         }
     }, {
@@ -58245,139 +58854,19 @@ var Results = function (_Component) {
                 }),
                 _react2.default.createElement(
                     'div',
-                    { className: 'row' },
+                    { className: 'row text-center' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col player1-results text-center' },
-                        'Player 1'
+                        { className: 'col-12 col-md-8 offset-md-1 text-center align-self-center' },
+                        this.renderTable()
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col player-2 results text-center' },
-                        'Player 2'
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col throws text-center' },
-                        'Throws: ',
-                        this.player1ThrowRender()
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col throws text-center' },
-                        'Throws: ',
-                        this.player2ThrowRender()
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row cricket-results' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-12' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 5)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '5 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 5)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 6)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '6 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 6)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 7)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '7 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 7)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 8)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '8 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 8)
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-right' },
-                                this.renderMarks('p1', 9)
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-center' },
-                                '9 marks'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-4 text-left' },
-                                this.renderMarks('p2', 9)
-                            )
-                        )
+                        { className: 'col-12 col-md-3' },
+                        this.buttonsRender()
                     )
                 ),
                 _react2.default.createElement('br', null),
-                this.buttonsRender(),
                 _react2.default.createElement(
                     'div',
                     { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
@@ -58418,6 +58907,55 @@ var Results = function (_Component) {
                                             'button',
                                             { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
                                                     _this3.props.gameCricketReset();
+                                                } },
+                                            'Yes'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'x01Modal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'x01ModalLabel', 'aria-hidden': 'true' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-dialog', role: 'document' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-content' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-header' },
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'modal-title', id: 'x01ModalLabel' },
+                                    'Choose Game Screen'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'modal-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col text-center' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
+                                            'Cancel'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col text-center' },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
+                                                    window.location.href = _this3.url;
                                                 } },
                                             'Yes'
                                         )

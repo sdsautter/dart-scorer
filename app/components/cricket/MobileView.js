@@ -224,12 +224,10 @@ export default class MobileModalView extends Component {
                 <div>
                     <div className="row">
                         <div className="col-2 left-mark offset-1 text-center align-self-center">
-                            {this.props.markProgress(1, 17)}
                         </div>
                         <div className="col-6 text-center number p2-single">
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 17)}
                         </div>
                         <div className="col-1 right-label text-center align-self-center points-label">
 
@@ -237,7 +235,6 @@ export default class MobileModalView extends Component {
                     </div>
                     <div className="row">
                         <div className="col-2 left-mark offset-1 text-center align-self-center">
-                            {this.props.markProgress(1, 16)}
                         </div>
                         <div className="col-6 text-center p2-multiple game-over">
                             <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
@@ -245,10 +242,8 @@ export default class MobileModalView extends Component {
                         </button>
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 16)}
                         </div>
                         <div className="col-1 right-label text-center align-self-start points-score">
-
                         </div>
                     </div>
                 </div>
@@ -569,13 +564,11 @@ export default class MobileModalView extends Component {
                             Points:
                 </div>
                         <div className="col-2 left-mark text-center align-self-center">
-                            {this.props.markProgress(1, 20)}
                         </div>
                         <div className="col-6  text-center number p1-single">
                             <h3>Game</h3>
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 20)}
                         </div>
                         <div className="col-1 text-center align-self-center points-label">
                             <span className='right-label'>Points:</span>
@@ -586,13 +579,11 @@ export default class MobileModalView extends Component {
                             {this.props.renderP1Score()}
                         </div>
                         <div className="col-2 left-mark text-center align-self-center">
-                            {this.props.markProgress(1, 19)}
                         </div>
                         <div className="col-6  text-center number p1-single">
                             <h3>Over?</h3>
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 19)}
                         </div>
                         <div className="col-1 text-center align-self-start points-score">
                             {this.props.renderP2Score()}
@@ -600,29 +591,24 @@ export default class MobileModalView extends Component {
                     </div>
                     <div className="row">
                         <div className="col-2 left-mark offset-1 text-center align-self-center">
-                            {this.props.markProgress(1, 18)}
                         </div>
                         <div className="col-6  text-center number p1-single">
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 18)}
                         </div>
                     </div>
                     {this.throwRowRender()}
                     <div className="row">
                         <div className="col-2 left-mark offset-1 text-center align-self-center">
-                            {this.props.markProgress(1, 15)}
                         </div>
                         <div className="col-6 text-center p2-multiple game-over">
 
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 15)}
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-2 left-mark offset-1 text-center align-self-center">
-                            {this.props.markProgress(1, 25)}
                         </div>
                         <div className="col-6 text-center p1-multiple game-over">
                             <button type="button" className="btn" onClick={() => { this.props.gameStateOver() }}>
@@ -630,7 +616,6 @@ export default class MobileModalView extends Component {
                         </button>
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
-                            {this.props.markProgress(2, 25)}
                         </div>
                     </div>
                 </div>

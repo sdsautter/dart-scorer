@@ -491,86 +491,26 @@ export default class DesktopView extends Component {
         }
         else {
             return (
-                <div className='col-8'>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 20)}
-                        </div>
-
-                        <div className="col-6 text-center p1-single border-left border-right">
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 20)}
+                <div className='col text-center'>
+                    <div className='row text-center'>
+                        <div className="col text-center p1-single">
+                            <h1>Game Over?</h1>
                         </div>
                     </div>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 19)}
-                        </div>
-                        <div className="col-6 text-center p1-single border-left border-right">
-                            <h1>Game</h1>
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 19)}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 18)}
-                        </div>
-                        <div className="col-6 text-center p1-single border-left border-right">
-                            <h1>Over?</h1>
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 18)}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 17)}
-                        </div>
-                        <div className="col-6 text-center p1-single border-left border-right">
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 17)}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 16)}
-                        </div>
-                        <div className="col-6 text-center p1-single border-left border-right">
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 16)}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 15)}
-                        </div>
-                        <div className="col-3 text-center p2-multiple border-left">
+                    <br />
+                    <div className='row text-center'>
+                        <div className="col-6 offset-3 text-center p2-multiple">
                             <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
                                 Undo
                         </button>
                         </div>
-                        <div className="col-3 text-center p1-multiple border-right">
+                    </div>
+                    <br />
+                    <div className='row text-center'>
+                        <div className="col-6 offset-3 text-center p1-multiple">
                             <button type="button" className="btn" onClick={() => { this.props.gameStateOver() }}>
                                 Confirm
                         </button>
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 15)}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(1, 25)}
-                        </div>
-                        <div className="col-6 text-center p1-multiple border-left border-right">
-                        </div>
-                        <div className="col-3 text-center align-self-center">
-                            {this.props.markProgress(2, 25)}
                         </div>
                     </div>
                 </div>

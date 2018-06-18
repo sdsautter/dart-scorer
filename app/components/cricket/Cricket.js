@@ -10,10 +10,17 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export default class Cricket extends Component {
     constructor({ match }) {
         super();
+
+        this.activeMarks = 0;
+        this.activeBulls = 0;
+        this.p1Marks = [];
+        this.p1Bulls = [];
+        this.p2Marks = [];
+        this.p2Bulls = [];
+
         this.state = {
             activeThrower: "p1",
             activeThrows: 0,
-            activeMarks: 0,
             gameState: 'playing',
             gameWinner: {},
             throwLog: [],
@@ -33,11 +40,6 @@ export default class Cricket extends Component {
             p125: 0,
             p1Score: 0,
             p1Throws: 0,
-            p15m: 0,
-            p16m: 0,
-            p17m: 0,
-            p18m: 0,
-            p19m: 0,
             p1Legs: 0,
             p1Sets: 0,
 
@@ -50,11 +52,6 @@ export default class Cricket extends Component {
             p225: 0,
             p2Score: 0,
             p2Throws: 0,
-            p25m: 0,
-            p26m: 0,
-            p27m: 0,
-            p28m: 0,
-            p29m: 0,
             p2Legs: 0,
             p2Sets: 0
         }
@@ -125,10 +122,11 @@ export default class Cricket extends Component {
 
         this.setState({ activeThrower });
         this.setState({ activeThrows: 0 });
-        this.setState({ activeMarks: 0 });
-        this.setState({ gameState: "playing" });
+        this.activeMarks = 0;
+        this.activeBulls = 0;
         this.setState({ gameWinner: {} });
         this.setState({ gameOverModal: false });
+        this.setState({ gameState: 'playing' })
 
         this.setState({ p120: 0 });
         this.setState({ p119: 0 });
@@ -139,11 +137,8 @@ export default class Cricket extends Component {
         this.setState({ p125: 0 });
         this.setState({ p1Score: 0 });
         this.setState({ p1Throws: 0 });
-        this.setState({ p15m: 0 });
-        this.setState({ p16m: 0 });
-        this.setState({ p17m: 0 });
-        this.setState({ p18m: 0 });
-        this.setState({ p19m: 0 });
+        this.p1Marks = [];
+        this.p1Bulls = [];
 
         this.setState({ p220: 0 });
         this.setState({ p219: 0 });
@@ -154,11 +149,8 @@ export default class Cricket extends Component {
         this.setState({ p225: 0 });
         this.setState({ p2Score: 0 });
         this.setState({ p2Throws: 0 });
-        this.setState({ p25m: 0 });
-        this.setState({ p26m: 0 });
-        this.setState({ p27m: 0 });
-        this.setState({ p28m: 0 });
-        this.setState({ p29m: 0 });
+        this.p2Marks = [];
+        this.p2Bulls = [];
 
         if (this.state.botGame && activeThrower === 'p2') {
             this.botLogic();
@@ -168,13 +160,13 @@ export default class Cricket extends Component {
     gameCricketReset() {
         this.setState({ activeThrower: "p1" });
         this.setState({ activeThrows: 0 });
-        this.setState({ activeMarks: 0 });
-        this.setState({ gameState: "playing" });
-        this.setState({ gameWinner: {} });
+        this.activeMarks = 0;
         this.setState({ gameOverModal: false });
         this.setState({ firstWinner: '' });
         this.setState({ throwLog: [] });
         this.setState({ setHistory: [] });
+        this.setState({ gameState: 'playing' });
+        this.setState({ gameWinner: '' });
 
         this.setState({ p120: 0 });
         this.setState({ p119: 0 });
@@ -1798,7 +1790,7 @@ export default class Cricket extends Component {
         let activeThrows = this.state.activeThrows;
         new Promise(() => {
             if (activeThrows > 2) {
-                this.allStarPoints(this.state.activeThrower, this.state.activeMarks);
+                this.allStarPoints(this.state.activeThrower);
                 if (this.state.activeThrower === "p1") {
 
                     this.setActiveThrower('p2');
@@ -1852,6 +1844,7 @@ export default class Cricket extends Component {
     }
 
     gameStateOver() {
+        this.allStarPoints(this.state.gameWinner);
         const gameOverSound = new Howl({
             src: [`../../../assets/sounds/game_over.mp3`]
         });
@@ -1903,8 +1896,12 @@ export default class Cricket extends Component {
         const otherThrower = this.state.activeThrower === 'p1' ? 'p2' : 'p1';
         const playerMarks = eval(`this.state.${this.state.activeThrower}${number}`);
         const otherMarks = eval(`this.state.${otherThrower}${number}`);
-        const marks = parseInt(this.state.activeMarks);
-        let newMark;
+        let newMark, marks;
+        if (number === 25) {
+            marks = parseInt(this.activeBulls);
+        } else {
+            marks = parseInt(this.activeMarks);
+        }
 
         switch (multiplier) {
             case 1:
@@ -1947,24 +1944,30 @@ export default class Cricket extends Component {
                 }
                 break;
         }
-        const activeMarks = marks + newMark;
-        new Promise(() => {
-            return this.setState({ activeMarks })
-        })
+        newMark = marks + newMark;
+        if (number === 25) {
+            this.activeBulls = newMark;
+        } else {
+            this.activeMarks = newMark;
+        }
     }
 
     resetMarks() {
-        setTimeout(() => {
-            this.setState({ activeMarks: 0 })
-        }, 1000);
+        this.activeMarks = 0;
+        this.activeBulls = 0;
     }
 
-    allStarPoints(thrower, marks) {
-        if (marks >= 5) {
-            const playerMark = `${thrower}${marks}m`;
-            const playerMarkState = eval(`this.state.${playerMark}`);
-            this.setState({ [playerMark]: playerMarkState + 1 });
+    allStarPoints(thrower) {
+        const bulls = parseInt(this.activeBulls);
+        let marks = parseInt(this.activeMarks);
+        const marksArray = eval(`this.${thrower}Marks`);
+        const bullsArray = eval(`this.${thrower}Bulls`);
+        if (bulls < 3) {
+            marks = bulls + marks;
+        } else {
+            bullsArray.push(bulls);
         }
+        marksArray.push(marks);
     }
 
     markProgress(playerNumber, cricketNumber) {
@@ -2031,16 +2034,10 @@ export default class Cricket extends Component {
                         gameCricketReset={this.gameCricketReset}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
-                        p15m={this.state.p15m}
-                        p16m={this.state.p16m}
-                        p17m={this.state.p17m}
-                        p18m={this.state.p18m}
-                        p19m={this.state.p19m}
-                        p25m={this.state.p25m}
-                        p26m={this.state.p26m}
-                        p27m={this.state.p27m}
-                        p28m={this.state.p28m}
-                        p29m={this.state.p29m}
+                        p1Marks={this.p1Marks}
+                        p1Bulls={this.p1Bulls}
+                        p2Marks={this.p2Marks}
+                        p2Bulls={this.p2Bulls}
                         p1Legs={this.state.p1Legs}
                         p1Sets={this.state.p1Sets}
                         p2Legs={this.state.p2Legs}
