@@ -27,7 +27,6 @@ export default class Results extends Component {
             p2mpd: 0,
         }
         this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
-        console.log(window.location);
         this.renderWinner = this.renderWinner.bind(this);
         this.player1ThrowRender = this.player1ThrowRender.bind(this);
         this.player2ThrowRender = this.player2ThrowRender.bind(this);
@@ -57,8 +56,8 @@ export default class Results extends Component {
         const p2Bulls = this.props.p2Bulls;
         let p13bull = 0, p14bull = 0, p15bull = 0, p16bull = 0, p15m = 0, p16m = 0, p17m = 0, p18m = 0, p19m = 0, p1mpd = 0, p23bull = 0, p24bull = 0, p25bull = 0, p26bull = 0, p25m = 0, p26m = 0, p27m = 0, p28m = 0, p29m = 0, p2mpd = 0, p1Total = 0, p2Total = 0;
         for (var i in p1Marks) {
-            p1Total += p1Marks[i];
-            switch (p1Marks[i]) {
+            p1Total += parseInt(p1Marks[i]);
+            switch (parseInt(p1Marks[i])) {
                 case 5:
                     p15m++;
                     break;
@@ -78,8 +77,8 @@ export default class Results extends Component {
         }
 
         for (var i in p2Marks) {
-            p2Total += p2Marks[i];
-            switch (p2Marks[i]) {
+            p2Total += parseInt(p2Marks[i]);
+            switch (parseInt(p2Marks[i])) {
                 case 5:
                     p25m++;
                     break;
