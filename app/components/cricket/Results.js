@@ -34,6 +34,16 @@ export default class Results extends Component {
         this.ButtonsRender = this.buttonsRender.bind(this);
         this.setStats = this.setStats.bind(this);
         this.renderTable = this.renderTable.bind(this);
+        this.fiveMarkRow = this.fiveMarkRow.bind(this);
+        this.sixMarkRow = this.sixMarkRow.bind(this);
+        this.sevenMarkRow = this.sevenMarkRow.bind(this);
+        this.eightMarkRow = this.eightMarkRow.bind(this);
+        this.nineMarkRow = this.nineMarkRow.bind(this);
+        this.threeBullRow = this.threeBullRow.bind(this);
+        this.fourBullRow = this.fourBullRow.bind(this);
+        this.fiveBullRow = this.fiveBullRow.bind(this);
+        this.sixBullRow = this.sixBullRow.bind(this);
+
     }
 
     componentWillMount() {
@@ -150,6 +160,107 @@ export default class Results extends Component {
         this.setState({ p2mpd });
     }
 
+    fiveMarkRow() {
+        if (this.state.p15m > 0 || this.state.p25m > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p15m}</td>
+                    <td>5 Mark</td>
+                    <td>{this.state.p25m}</td>
+                </tr>
+            )
+        }
+    }
+    sixMarkRow() {
+        if (this.state.p16m > 0 || this.state.p26m > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p16m}</td>
+                    <td>6 Mark</td>
+                    <td>{this.state.p26m}</td>
+                </tr>
+            )
+        }
+    }
+    sevenMarkRow() {
+        if (this.state.p17m > 0 || this.state.p27m > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p17m}</td>
+                    <td>7 Mark</td>
+                    <td>{this.state.p27m}</td>
+                </tr>
+            )
+        }
+    }
+    eightMarkRow() {
+        if (this.state.p18m > 0 || this.state.p28m > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p18m}</td>
+                    <td>8 Mark</td>
+                    <td>{this.state.p28m}</td>
+                </tr>
+            )
+        }
+    }
+    nineMarkRow() {
+        if (this.state.p19m > 0 || this.state.p29m > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p19m}</td>
+                    <td>9 Mark</td>
+                    <td>{this.state.p29m}</td>
+                </tr>
+            )
+        }
+    }
+    threeBullRow() {
+        if (this.state.p13bull > 0 || this.state.p23bull > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p13bull}</td>
+                    <td>3 Bull</td>
+                    <td>{this.state.p23bull}</td>
+                </tr>
+            )
+        }
+    }
+    fourBullRow() {
+        if (this.state.p14bull > 0 || this.state.p24bull > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p14bull}</td>
+                    <td>4 Bull</td>
+                    <td>{this.state.p24bull}</td>
+                </tr>
+            )
+        }
+    }
+    fiveBullRow() {
+        if (this.state.p15bull > 0 || this.state.p25bull > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p15bull}</td>
+                    <td>5 Bull</td>
+                    <td>{this.state.p25bull}</td>
+                </tr>
+            )
+        }
+    }
+    sixBullRow() {
+        if (this.state.p16bull > 0 || this.state.p26bull > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p16bull}</td>
+                    <td>6 Bull</td>
+                    <td>{this.state.p26bull}</td>
+                </tr>
+            )
+        }
+    }
+
+
     renderTable() {
         return (
             <table className='cricket-table text-center align-self-center'>
@@ -171,51 +282,15 @@ export default class Results extends Component {
                         <td>Marks Per Dart</td>
                         <td>{parseFloat(this.state.p2mpd.toFixed(3))}</td>
                     </tr>
-                    <tr>
-                        <td>{this.state.p15m}</td>
-                        <td>5m</td>
-                        <td>{this.state.p25m}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p16m}</td>
-                        <td>6m</td>
-                        <td>{this.state.p26m}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p17m}</td>
-                        <td>7m</td>
-                        <td>{this.state.p27m}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p18m}</td>
-                        <td>8m</td>
-                        <td>{this.state.p28m}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p19m}</td>
-                        <td>9m</td>
-                        <td>{this.state.p29m}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p13bull}</td>
-                        <td>3 Bull</td>
-                        <td>{this.state.p23bull}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p14bull}</td>
-                        <td>4 Bull</td>
-                        <td>{this.state.p24bull}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p15bull}</td>
-                        <td>5 Bull</td>
-                        <td>{this.state.p25bull}</td>
-                    </tr>
-                    <tr>
-                        <td>{this.state.p16bull}</td>
-                        <td>6 Bull</td>
-                        <td>{this.state.p26bull}</td>
-                    </tr>
+                    {this.fiveMarkRow()}
+                    {this.sixMarkRow()}
+                    {this.sevenMarkRow()}
+                    {this.eightMarkRow()}
+                    {this.nineMarkRow()}
+                    {this.threeBullRow()}
+                    {this.fourBullRow()}
+                    {this.fiveBullRow()}
+                    {this.sixBullRow()}
                 </tbody>
             </table>
         )
