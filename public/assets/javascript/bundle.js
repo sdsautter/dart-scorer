@@ -52368,7 +52368,7 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             "td",
                             null,
-                            parseFloat(this.state.p1ppd.toFixed(3))
+                            parseFloat(this.state.p1ppd.toFixed(2))
                         ),
                         _react2.default.createElement(
                             "td",
@@ -52378,7 +52378,7 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             "td",
                             null,
-                            parseFloat(this.state.p2ppd.toFixed(3))
+                            parseFloat(this.state.p2ppd.toFixed(2))
                         )
                     ),
                     this.sixtyRow(),
