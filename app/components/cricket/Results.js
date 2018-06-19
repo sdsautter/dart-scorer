@@ -277,9 +277,9 @@ export default class Results extends Component {
                         <td>{this.props.p2Throws}</td>
                     </tr>
                     <tr>
-                        <td>{parseFloat(this.state.p1mpr.toFixed(3))}</td>
+                        <td>{parseFloat(this.state.p1mpr.toFixed(2))}</td>
                         <td>Marks Per Round</td>
-                        <td>{parseFloat(this.state.p2mpr.toFixed(3))}</td>
+                        <td>{parseFloat(this.state.p2mpr.toFixed(2))}</td>
                     </tr>
                     {this.fiveMarkRow()}
                     {this.sixMarkRow()}

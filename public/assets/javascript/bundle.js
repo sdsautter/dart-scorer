@@ -41902,7 +41902,7 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p1mpr.toFixed(3))
+                            parseFloat(this.state.p1mpr.toFixed(2))
                         ),
                         _react2.default.createElement(
                             'td',
@@ -41912,7 +41912,7 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p2mpr.toFixed(3))
+                            parseFloat(this.state.p2mpr.toFixed(2))
                         )
                     ),
                     this.fiveMarkRow(),
@@ -58972,7 +58972,7 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p1mpr.toFixed(3))
+                            parseFloat(this.state.p1mpr.toFixed(2))
                         ),
                         _react2.default.createElement(
                             'td',
@@ -58982,7 +58982,7 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p2mpr.toFixed(3))
+                            parseFloat(this.state.p2mpr.toFixed(2))
                         )
                     ),
                     this.fiveMarkRow(),
