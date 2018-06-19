@@ -10,6 +10,7 @@ export default class Results extends Component {
             p1ppd: 0,
             p1CheckoutShots: 0,
             p1CheckoutPercent: 0,
+            p126: 0,
             p160: 0,
             p1100: 0,
             p1120: 0,
@@ -20,6 +21,7 @@ export default class Results extends Component {
             p2ppd: 0,
             p2CheckoutShots: 0,
             p2CheckoutPercent: 0,
+            p226: 0,
             p260: 0,
             p2100: 0,
             p2120: 0,
@@ -34,6 +36,7 @@ export default class Results extends Component {
         this.setScores = this.setScores.bind(this);
         this.buttonsRender = this.buttonsRender.bind(this);
         this.renderTable = this.renderTable.bind(this);
+        this.twentySixRow = this.twentySixRow.bind(this);
         this.sixtyRow = this.sixtyRow.bind(this);
         this.oneHundredRow = this.oneHundredRow.bind(this);
         this.oneTwentyRow = this.oneTwentyRow.bind(this);
@@ -97,20 +100,20 @@ export default class Results extends Component {
     setScores() {
         const player1Scores = this.props.p1RoundScores;
         const player2Scores = this.props.p2RoundScores;
+        let p126 = 0;
         let p160 = 0;
         let p1100 = 0;
         let p1120 = 0;
         let p1140 = 0;
         let p1160 = 0;
         let p1180 = 0;
-        let p1ppd = 0;
+        let p226 = 0;
         let p260 = 0;
         let p2100 = 0;
         let p2120 = 0;
         let p2140 = 0;
         let p2160 = 0;
         let p2180 = 0;
-        let p2ppd = 0;
 
         for (var i in player1Scores) {
             if (player1Scores[i] >= 60 && player1Scores[i] < 100) {
@@ -125,6 +128,8 @@ export default class Results extends Component {
                 p1160++;
             } else if (player1Scores[i] === 180) {
                 p1180++;
+            } else if (player1Scores[i] === 26) {
+                p126++;
             }
         }
 
@@ -141,9 +146,12 @@ export default class Results extends Component {
                 p2160++;
             } else if (player2Scores[i] === 180) {
                 p2180++;
+            } else if (player2Scores[i] === 26) {
+                p226++;
             }
         }
 
+        this.setState({ p126 });
         this.setState({ p160 });
         this.setState({ p1100 });
         this.setState({ p1120 });
@@ -151,12 +159,25 @@ export default class Results extends Component {
         this.setState({ p1160 });
         this.setState({ p1180 });
 
+        this.setState({ p226 });
         this.setState({ p260 });
         this.setState({ p2100 });
         this.setState({ p2120 });
         this.setState({ p2140 });
         this.setState({ p2160 });
         this.setState({ p2180 });
+    }
+
+    twentySixRow() {
+        if (this.state.p126 > 0 || this.state.p226 > 0) {
+            return (
+                <tr>
+                    <td>{this.state.p126}</td>
+                    <td>26</td>
+                    <td>{this.state.p226}</td>
+                </tr>
+            )
+        }
     }
 
     sixtyRow() {
@@ -221,7 +242,7 @@ export default class Results extends Component {
             return (
                 <tr>
                     <td>{this.state.p1180}</td>
-                    <td>180+</td>
+                    <td>180!</td>
                     <td>{this.state.p2180}</td>
                 </tr>
             )
@@ -259,6 +280,7 @@ export default class Results extends Component {
                         <td>Checkout Percent</td>
                         <td>{`${parseFloat(this.state.p2CheckoutPercent.toFixed(2))}%`}</td>
                     </tr>
+                    {this.twentySixRow()}
                     {this.sixtyRow()}
                     {this.oneHundredRow()}
                     {this.oneTwentyRow()}

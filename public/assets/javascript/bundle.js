@@ -52133,6 +52133,7 @@ var Results = function (_Component) {
             p1ppd: 0,
             p1CheckoutShots: 0,
             p1CheckoutPercent: 0,
+            p126: 0,
             p160: 0,
             p1100: 0,
             p1120: 0,
@@ -52143,6 +52144,7 @@ var Results = function (_Component) {
             p2ppd: 0,
             p2CheckoutShots: 0,
             p2CheckoutPercent: 0,
+            p226: 0,
             p260: 0,
             p2100: 0,
             p2120: 0,
@@ -52157,6 +52159,7 @@ var Results = function (_Component) {
         _this.setScores = _this.setScores.bind(_this);
         _this.buttonsRender = _this.buttonsRender.bind(_this);
         _this.renderTable = _this.renderTable.bind(_this);
+        _this.twentySixRow = _this.twentySixRow.bind(_this);
         _this.sixtyRow = _this.sixtyRow.bind(_this);
         _this.oneHundredRow = _this.oneHundredRow.bind(_this);
         _this.oneTwentyRow = _this.oneTwentyRow.bind(_this);
@@ -52231,20 +52234,20 @@ var Results = function (_Component) {
         value: function setScores() {
             var player1Scores = this.props.p1RoundScores;
             var player2Scores = this.props.p2RoundScores;
+            var p126 = 0;
             var p160 = 0;
             var p1100 = 0;
             var p1120 = 0;
             var p1140 = 0;
             var p1160 = 0;
             var p1180 = 0;
-            var p1ppd = 0;
+            var p226 = 0;
             var p260 = 0;
             var p2100 = 0;
             var p2120 = 0;
             var p2140 = 0;
             var p2160 = 0;
             var p2180 = 0;
-            var p2ppd = 0;
 
             for (var i in player1Scores) {
                 if (player1Scores[i] >= 60 && player1Scores[i] < 100) {
@@ -52259,6 +52262,8 @@ var Results = function (_Component) {
                     p1160++;
                 } else if (player1Scores[i] === 180) {
                     p1180++;
+                } else if (player1Scores[i] === 26) {
+                    p126++;
                 }
             }
 
@@ -52275,9 +52280,12 @@ var Results = function (_Component) {
                     p2160++;
                 } else if (player2Scores[i] === 180) {
                     p2180++;
+                } else if (player2Scores[i] === 26) {
+                    p226++;
                 }
             }
 
+            this.setState({ p126: p126 });
             this.setState({ p160: p160 });
             this.setState({ p1100: p1100 });
             this.setState({ p1120: p1120 });
@@ -52285,12 +52293,38 @@ var Results = function (_Component) {
             this.setState({ p1160: p1160 });
             this.setState({ p1180: p1180 });
 
+            this.setState({ p226: p226 });
             this.setState({ p260: p260 });
             this.setState({ p2100: p2100 });
             this.setState({ p2120: p2120 });
             this.setState({ p2140: p2140 });
             this.setState({ p2160: p2160 });
             this.setState({ p2180: p2180 });
+        }
+    }, {
+        key: "twentySixRow",
+        value: function twentySixRow() {
+            if (this.state.p126 > 0 || this.state.p226 > 0) {
+                return _react2.default.createElement(
+                    "tr",
+                    null,
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.state.p126
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        "26"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.state.p226
+                    )
+                );
+            }
         }
     }, {
         key: "sixtyRow",
@@ -52432,7 +52466,7 @@ var Results = function (_Component) {
                     _react2.default.createElement(
                         "td",
                         null,
-                        "180+"
+                        "180!"
                     ),
                     _react2.default.createElement(
                         "td",
@@ -52546,6 +52580,7 @@ var Results = function (_Component) {
                             parseFloat(this.state.p2CheckoutPercent.toFixed(2)) + "%"
                         )
                     ),
+                    this.twentySixRow(),
                     this.sixtyRow(),
                     this.oneHundredRow(),
                     this.oneTwentyRow(),
