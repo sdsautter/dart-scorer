@@ -16123,6 +16123,7 @@ var Cricket = function (_Component) {
             if (localStorage.getItem('sounds') === 'on') {
                 missSound.play();
             }
+            this.allStarPoints(thrower);
             switch (this.state.activeThrows) {
                 case 0:
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 3));
@@ -54587,6 +54588,7 @@ var Cricket = function (_Component) {
             if (localStorage.getItem('sounds') === 'on') {
                 missSound.play();
             }
+            this.allStarPoints(thrower);
             switch (this.state.activeThrows) {
                 case 0:
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 3));

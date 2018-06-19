@@ -1503,6 +1503,7 @@ export default class Cricket extends Component {
         if (localStorage.getItem('sounds') === 'on') {
             missSound.play();
         }
+        this.allStarPoints(thrower);
         switch (this.state.activeThrows) {
             case 0:
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 3 });
