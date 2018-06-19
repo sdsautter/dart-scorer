@@ -41350,7 +41350,7 @@ var Results = function (_Component) {
             p17m: 0,
             p18m: 0,
             p19m: 0,
-            p1mpd: 0,
+            p1mpr: 0,
             p23bull: 0,
             p24bull: 0,
             p25bull: 0,
@@ -41360,7 +41360,7 @@ var Results = function (_Component) {
             p27m: 0,
             p28m: 0,
             p29m: 0,
-            p2mpd: 0
+            p2mpr: 0
         };
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         _this.renderWinner = _this.renderWinner.bind(_this);
@@ -41403,7 +41403,7 @@ var Results = function (_Component) {
                 p17m = 0,
                 p18m = 0,
                 p19m = 0,
-                p1mpd = 0,
+                p1mpr = 0,
                 p23bull = 0,
                 p24bull = 0,
                 p25bull = 0,
@@ -41413,7 +41413,7 @@ var Results = function (_Component) {
                 p27m = 0,
                 p28m = 0,
                 p29m = 0,
-                p2mpd = 0,
+                p2mpr = 0,
                 p1Total = 0,
                 p2Total = 0;
             for (var i in p1Marks) {
@@ -41494,8 +41494,8 @@ var Results = function (_Component) {
                 }
             }
 
-            p1mpd = p1Total / parseInt(this.props.p1Throws);
-            p2mpd = p2Total / parseInt(this.props.p2Throws);
+            p1mpr = p1Total / p1Marks.length;
+            p2mpr = p2Total / p2Marks.length;
 
             this.setState({ p13bull: p13bull });
             this.setState({ p14bull: p14bull });
@@ -41506,7 +41506,7 @@ var Results = function (_Component) {
             this.setState({ p17m: p17m });
             this.setState({ p18m: p18m });
             this.setState({ p19m: p19m });
-            this.setState({ p1mpd: p1mpd });
+            this.setState({ p1mpr: p1mpr });
 
             this.setState({ p23bull: p23bull });
             this.setState({ p24bull: p24bull });
@@ -41517,7 +41517,7 @@ var Results = function (_Component) {
             this.setState({ p27m: p27m });
             this.setState({ p28m: p28m });
             this.setState({ p29m: p29m });
-            this.setState({ p2mpd: p2mpd });
+            this.setState({ p2mpr: p2mpr });
         }
     }, {
         key: 'fiveMarkRow',
@@ -41797,17 +41797,17 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p1mpd.toFixed(3))
+                            parseFloat(this.state.p1mpr.toFixed(3))
                         ),
                         _react2.default.createElement(
                             'td',
                             null,
-                            'Marks Per Dart'
+                            'Marks Per Round'
                         ),
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p2mpd.toFixed(3))
+                            parseFloat(this.state.p2mpr.toFixed(3))
                         )
                     ),
                     this.fiveMarkRow(),
@@ -58494,7 +58494,7 @@ var Results = function (_Component) {
             p17m: 0,
             p18m: 0,
             p19m: 0,
-            p1mpd: 0,
+            p1mpr: 0,
             p23bull: 0,
             p24bull: 0,
             p25bull: 0,
@@ -58504,7 +58504,7 @@ var Results = function (_Component) {
             p27m: 0,
             p28m: 0,
             p29m: 0,
-            p2mpd: 0
+            p2mpr: 0
         };
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         _this.renderWinner = _this.renderWinner.bind(_this);
@@ -58547,7 +58547,7 @@ var Results = function (_Component) {
                 p17m = 0,
                 p18m = 0,
                 p19m = 0,
-                p1mpd = 0,
+                p1mpr = 0,
                 p23bull = 0,
                 p24bull = 0,
                 p25bull = 0,
@@ -58557,7 +58557,7 @@ var Results = function (_Component) {
                 p27m = 0,
                 p28m = 0,
                 p29m = 0,
-                p2mpd = 0,
+                p2mpr = 0,
                 p1Total = 0,
                 p2Total = 0;
             for (var i in p1Marks) {
@@ -58638,8 +58638,8 @@ var Results = function (_Component) {
                 }
             }
 
-            p1mpd = p1Total / parseInt(this.props.p1Throws);
-            p2mpd = p2Total / parseInt(this.props.p2Throws);
+            p1mpr = p1Total / p1Marks.length;
+            p2mpr = p2Total / p2Marks.length;
 
             this.setState({ p13bull: p13bull });
             this.setState({ p14bull: p14bull });
@@ -58650,7 +58650,7 @@ var Results = function (_Component) {
             this.setState({ p17m: p17m });
             this.setState({ p18m: p18m });
             this.setState({ p19m: p19m });
-            this.setState({ p1mpd: p1mpd });
+            this.setState({ p1mpr: p1mpr });
 
             this.setState({ p23bull: p23bull });
             this.setState({ p24bull: p24bull });
@@ -58661,7 +58661,7 @@ var Results = function (_Component) {
             this.setState({ p27m: p27m });
             this.setState({ p28m: p28m });
             this.setState({ p29m: p29m });
-            this.setState({ p2mpd: p2mpd });
+            this.setState({ p2mpr: p2mpr });
         }
     }, {
         key: 'fiveMarkRow',
@@ -58941,17 +58941,17 @@ var Results = function (_Component) {
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p1mpd.toFixed(3))
+                            parseFloat(this.state.p1mpr.toFixed(3))
                         ),
                         _react2.default.createElement(
                             'td',
                             null,
-                            'Marks Per Dart'
+                            'Marks Per Round'
                         ),
                         _react2.default.createElement(
                             'td',
                             null,
-                            parseFloat(this.state.p2mpd.toFixed(3))
+                            parseFloat(this.state.p2mpr.toFixed(3))
                         )
                     ),
                     this.fiveMarkRow(),

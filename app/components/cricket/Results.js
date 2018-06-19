@@ -14,7 +14,7 @@ export default class Results extends Component {
             p17m: 0,
             p18m: 0,
             p19m: 0,
-            p1mpd: 0,
+            p1mpr: 0,
             p23bull: 0,
             p24bull: 0,
             p25bull: 0,
@@ -24,7 +24,7 @@ export default class Results extends Component {
             p27m: 0,
             p28m: 0,
             p29m: 0,
-            p2mpd: 0,
+            p2mpr: 0,
         }
         this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         this.renderWinner = this.renderWinner.bind(this);
@@ -54,7 +54,7 @@ export default class Results extends Component {
         const p2Marks = this.props.p2Marks;
         const p1Bulls = this.props.p1Bulls;
         const p2Bulls = this.props.p2Bulls;
-        let p13bull = 0, p14bull = 0, p15bull = 0, p16bull = 0, p15m = 0, p16m = 0, p17m = 0, p18m = 0, p19m = 0, p1mpd = 0, p23bull = 0, p24bull = 0, p25bull = 0, p26bull = 0, p25m = 0, p26m = 0, p27m = 0, p28m = 0, p29m = 0, p2mpd = 0, p1Total = 0, p2Total = 0;
+        let p13bull = 0, p14bull = 0, p15bull = 0, p16bull = 0, p15m = 0, p16m = 0, p17m = 0, p18m = 0, p19m = 0, p1mpr = 0, p23bull = 0, p24bull = 0, p25bull = 0, p26bull = 0, p25m = 0, p26m = 0, p27m = 0, p28m = 0, p29m = 0, p2mpr = 0, p1Total = 0, p2Total = 0;
         for (var i in p1Marks) {
             p1Total += parseInt(p1Marks[i]);
             switch (parseInt(p1Marks[i])) {
@@ -133,8 +133,8 @@ export default class Results extends Component {
             }
         }
 
-        p1mpd = p1Total / parseInt(this.props.p1Throws);
-        p2mpd = p2Total / parseInt(this.props.p2Throws);
+        p1mpr = p1Total / p1Marks.length;
+        p2mpr = p2Total / p2Marks.length;
 
         this.setState({ p13bull });
         this.setState({ p14bull });
@@ -145,7 +145,7 @@ export default class Results extends Component {
         this.setState({ p17m });
         this.setState({ p18m });
         this.setState({ p19m });
-        this.setState({ p1mpd });
+        this.setState({ p1mpr });
 
         this.setState({ p23bull });
         this.setState({ p24bull });
@@ -156,7 +156,7 @@ export default class Results extends Component {
         this.setState({ p27m });
         this.setState({ p28m });
         this.setState({ p29m });
-        this.setState({ p2mpd });
+        this.setState({ p2mpr });
     }
 
     fiveMarkRow() {
@@ -277,9 +277,9 @@ export default class Results extends Component {
                         <td>{this.props.p2Throws}</td>
                     </tr>
                     <tr>
-                        <td>{parseFloat(this.state.p1mpd.toFixed(3))}</td>
-                        <td>Marks Per Dart</td>
-                        <td>{parseFloat(this.state.p2mpd.toFixed(3))}</td>
+                        <td>{parseFloat(this.state.p1mpr.toFixed(3))}</td>
+                        <td>Marks Per Round</td>
+                        <td>{parseFloat(this.state.p2mpr.toFixed(3))}</td>
                     </tr>
                     {this.fiveMarkRow()}
                     {this.sixMarkRow()}
