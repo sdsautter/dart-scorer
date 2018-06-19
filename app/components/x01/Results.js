@@ -8,6 +8,8 @@ export default class Results extends Component {
         this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         this.state = {
             p1ppd: 0,
+            p1CheckoutShots: 0,
+            p1CheckoutPercent: 0,
             p160: 0,
             p1100: 0,
             p1120: 0,
@@ -16,6 +18,8 @@ export default class Results extends Component {
             p1180: 0,
 
             p2ppd: 0,
+            p2CheckoutShots: 0,
+            p2CheckoutPercent: 0,
             p260: 0,
             p2100: 0,
             p2120: 0,
@@ -29,7 +33,6 @@ export default class Results extends Component {
         this.player2ThrowRender = this.player2ThrowRender.bind(this);
         this.setScores = this.setScores.bind(this);
         this.buttonsRender = this.buttonsRender.bind(this);
-        this.scoresRender = this.scoresRender.bind(this);
         this.renderTable = this.renderTable.bind(this);
         this.sixtyRow = this.sixtyRow.bind(this);
         this.oneHundredRow = this.oneHundredRow.bind(this);
@@ -38,11 +41,13 @@ export default class Results extends Component {
         this.oneSixtyRow = this.oneSixtyRow.bind(this);
         this.oneEightyRow = this.oneEightyRow.bind(this);
         this.setPpd = this.setPpd.bind(this);
+        this.setCheckout = this.setCheckout.bind(this);
     }
 
     componentWillMount() {
         this.setScores();
         this.setPpd();
+        this.setCheckout();
     }
 
     renderWinner() {
@@ -51,6 +56,23 @@ export default class Results extends Component {
         } else {
             return "Player 2"
         }
+    }
+
+    setCheckout() {
+        const p1CheckoutShots = this.props.p1CheckoutShots;
+        const p2CheckoutShots = this.props.p2CheckoutShots;
+        let p1CheckoutPercent, p2CheckoutPercent;
+        if (this.props.gameWinner === 'p1') {
+            p1CheckoutPercent = (1 / p1CheckoutShots) * 100;
+            p2CheckoutPercent = 0;
+        } else {
+            p2CheckoutPercent = (1 / p2CheckoutShots) * 100;
+            p1CheckoutPercent = 0;
+        }
+        this.setState({ p1CheckoutShots });
+        this.setState({ p1CheckoutPercent });
+        this.setState({ p2CheckoutShots });
+        this.setState({ p2CheckoutPercent });
     }
 
     setPpd() {
@@ -66,10 +88,8 @@ export default class Results extends Component {
             p2Total += player2Scores[i];
         }
         p1ppd = p1Total / p1Throws;
-        p2ppd = p2Total / p2Throws;
-        if (p2ppd === NaN) {
-            p2ppd = 0;
-        }
+        p2ppd = p2Throws === 0 ? 0 : p2Total / p2Throws;
+
         this.setState({ p1ppd });
         this.setState({ p2ppd });
     }
@@ -229,6 +249,16 @@ export default class Results extends Component {
                         <td>Points Per Dart</td>
                         <td>{parseFloat(this.state.p2ppd.toFixed(2))}</td>
                     </tr>
+                    <tr>
+                        <td>{parseFloat(this.state.p1CheckoutShots)}</td>
+                        <td>Checkout Chances</td>
+                        <td>{parseFloat(this.state.p2CheckoutShots)}</td>
+                    </tr>
+                    <tr>
+                        <td>{`${parseFloat(this.state.p1CheckoutPercent.toFixed(2))}%`}</td>
+                        <td>Checkout Percent</td>
+                        <td>{`${parseFloat(this.state.p2CheckoutPercent.toFixed(2))}%`}</td>
+                    </tr>
                     {this.sixtyRow()}
                     {this.oneHundredRow()}
                     {this.oneTwentyRow()}
@@ -237,81 +267,6 @@ export default class Results extends Component {
                     {this.oneEightyRow()}
                 </tbody>
             </table>
-        )
-    }
-
-    scoresRender() {
-        return (
-            <div className='row'>
-                <div className='col-12'>
-                    <div className='row'>
-                        <div className='col-4 text-center'>
-                            {this.state.p160}
-                        </div>
-                        <div className='col-4 text-center'>
-                            60+
-                    </div>
-                        <div className='col-4 text-center'>
-                            {this.state.p260}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-4 text-center'>
-                            {this.state.p1100}
-                        </div>
-                        <div className='col-4 text-center'>
-                            100+
-                    </div>
-                        <div className='col-4 text-center'>
-                            {this.state.p2100}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-4 text-center'>
-                            {this.state.p1120}
-                        </div>
-                        <div className='col-4 text-center'>
-                            120+
-                    </div>
-                        <div className='col-4 text-center'>
-                            {this.state.p2120}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-4 text-center'>
-                            {this.state.p1140}
-                        </div>
-                        <div className='col-4 text-center'>
-                            140+
-                    </div>
-                        <div className='col-4 text-center'>
-                            {this.state.p2140}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-4 text-center'>
-                            {this.state.p1160}
-                        </div>
-                        <div className='col-4 text-center'>
-                            160+
-                    </div>
-                        <div className='col-4 text-center'>
-                            {this.state.p2160}
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-4 text-center'>
-                            {this.state.p1180}
-                        </div>
-                        <div className='col-4 text-center'>
-                            180
-                    </div>
-                        <div className='col-4 text-center'>
-                            {this.state.p2180}
-                        </div>
-                    </div>
-                </div>
-            </div>
         )
     }
 
@@ -380,7 +335,6 @@ export default class Results extends Component {
                         </button>
                             </div>
                         </div>
-                        <br />
                         <div className="row">
                             <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
                                 <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
