@@ -287,7 +287,7 @@ export default class Results extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div className="row">
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center p1-multiple">
+                            <div className="col-12 text-center p1-multiple">
                                 <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
                                     Play Again
                         </button>
@@ -295,7 +295,7 @@ export default class Results extends Component {
                         </div>
                         <div className="row">
                             <br />
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center undo">
+                            <div className="col-12 text-center undo">
                                 <Link to={{
                                     pathname: `${this.url}/cricket`,
                                 }}>
@@ -306,7 +306,7 @@ export default class Results extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
+                            <div className="col-12 text-center miss">
                                 <Link to={{
                                     pathname: `/`,
                                 }}>
@@ -321,27 +321,21 @@ export default class Results extends Component {
             )
         } else {
             return (
-                <div className='row'>
-                    <div className='col-12'>
-                        <div className="row">
-                            <div className="col-6 col-md-3 offset-md-3 text-center number p2-multiple">
-                                <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                                    Reset Set
+                <div className="row">
+                    <div className="col-4 col-md-10 offset-md-1 text-center number p1-multiple">
+                        <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
+                            Continue Set
                         </button>
-                            </div>
-                            <div className="col-6 col-md-3 text-center number p1-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
-                                    Continue Set
+                    </div>
+                    <div className="col-4 col-md-10 offset-md-1 text-center number p2-multiple">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
+                            Reset Set
                         </button>
-                            </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-6 offset-md-3 col-sm-12 text-center miss">
-                                <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
-                                    Home
+                    </div>
+                    <div className="col-4 col-md-10 offset-md-1 text-center miss">
+                        <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
+                            Home
                         </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             )
@@ -364,11 +358,13 @@ export default class Results extends Component {
                     p2Sets={this.props.p2Sets}
                 />
                 <div className="row">
-                    <div className='col-6 offset-3 x01-stats'>
+                    <div className='col=12 col-md-7 offset-md-1 x01-stats'>
                         {this.renderTable()}
                     </div>
+                    <div className='col-12 col-md-4'>
+                        {this.buttonsRender()}
+                    </div>
                 </div>
-                {this.buttonsRender()}
                 <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">

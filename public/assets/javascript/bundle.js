@@ -52585,7 +52585,7 @@ var Results = function (_Component) {
                             { className: "row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-md-6 offset-md-3 col-sm-12 text-center p1-multiple" },
+                                { className: "col-12 text-center p1-multiple" },
                                 _react2.default.createElement(
                                     "button",
                                     { type: "button", className: "btn", onClick: function onClick() {
@@ -52601,7 +52601,7 @@ var Results = function (_Component) {
                             _react2.default.createElement("br", null),
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-md-6 offset-md-3 col-sm-12 text-center undo" },
+                                { className: "col-12 text-center undo" },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
                                     { to: {
@@ -52620,7 +52620,7 @@ var Results = function (_Component) {
                             { className: "row" },
                             _react2.default.createElement(
                                 "div",
-                                { className: "col-md-6 offset-md-3 col-sm-12 text-center miss" },
+                                { className: "col-12 text-center miss" },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
                                     { to: {
@@ -52642,43 +52642,31 @@ var Results = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-12" },
+                        { className: "col-4 col-md-10 offset-md-1 text-center number p1-multiple" },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-6 col-md-3 offset-md-3 text-center number p2-multiple" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
-                                    "Reset Set"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-6 col-md-3 text-center number p1-multiple" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
-                                            _this2.props.continueSet();
-                                        } },
-                                    "Continue Set"
-                                )
-                            )
-                        ),
+                            "button",
+                            { type: "button", className: "btn", onClick: function onClick() {
+                                    _this2.props.continueSet();
+                                } },
+                            "Continue Set"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-4 col-md-10 offset-md-1 text-center number p2-multiple" },
                         _react2.default.createElement(
-                            "div",
-                            { className: "row" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "col-md-6 offset-md-3 col-sm-12 text-center miss" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#homeModal" },
-                                    "Home"
-                                )
-                            )
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#reloadModal" },
+                            "Reset Set"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-4 col-md-10 offset-md-1 text-center miss" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "button", className: "btn", "data-toggle": "modal", "data-target": "#homeModal" },
+                            "Home"
                         )
                     )
                 );
@@ -52713,11 +52701,15 @@ var Results = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-6 offset-3 x01-stats" },
+                        { className: "col=12 col-md-7 offset-md-1 x01-stats" },
                         this.renderTable()
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-12 col-md-4" },
+                        this.buttonsRender()
                     )
                 ),
-                this.buttonsRender(),
                 _react2.default.createElement(
                     "div",
                     { className: "modal fade", id: "reloadModal", tabIndex: "-1", role: "dialog", "aria-labelledby": "reloadModalLabel", "aria-hidden": "true" },
