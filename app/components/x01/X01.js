@@ -10,6 +10,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 export default class X01 extends Component {
     constructor({ match }) {
         super();
+
+        this.p1CheckoutShots = 0;
+        this.p2CheckoutShots = 0;
+
         this.state = {
             activeThrower: "p1",
             activeThrows: 0,
@@ -433,18 +437,17 @@ export default class X01 extends Component {
                 break;
         }
 
+        this.p1CheckoutShots = 0;
+        this.p2CheckoutShots = 0;
         this.setState({ activeThrower });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
         this.setState({ gameWinner: {} });
         this.setState({ gameOverModal: false });
-
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
         this.setState({ p1RoundStartScore: [] });
         this.setState({ p1RoundScores: [] });
-
-
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
         this.setState({ p2RoundStartScore: [] })
@@ -462,6 +465,8 @@ export default class X01 extends Component {
     }
 
     gameX01Reset() {
+        this.p1CheckoutShots = 0;
+        this.p2CheckoutShots = 0;
         this.setState({ activeThrower: "p1" });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
@@ -651,6 +656,25 @@ export default class X01 extends Component {
         let scoresArray = roundStartScoreState;
         let startScore = scoresArray[scoresArray.length - 1];
 
+        if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+            if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                if (thrower === 'p1') {
+                    this.p1CheckoutShots++;
+                } else {
+                    this.p2CheckoutShots++;
+                }
+            }
+        } else if (this.state.gameOptions === 'siso') {
+            const impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+            if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                if (thrower === 'p1') {
+                    this.p1CheckoutShots++;
+                } else {
+                    this.p2CheckoutShots++;
+                }
+            }
+        }
+
         if (doubleInBoolean || multiplier === 2) {
             let newScore = playerScoreNumber - (parseInt(number) * parseInt(multiplier));
             if (newScore > 1) {
@@ -712,9 +736,31 @@ export default class X01 extends Component {
         const missSound = new Howl({
             src: ['../../../assets/sounds/miss_hit.mp3']
         });
+        let playerScoreNumber = eval(`this.state.${this.state.activeThrower}Score`);
+
+        if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+            if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                if (this.state.activeThrower === 'p1') {
+                    this.p1CheckoutShots++;
+                } else {
+                    this.p2CheckoutShots++;
+                }
+            }
+        } else if (this.state.gameOptions === 'siso') {
+            const impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+            if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                if (this.state.activeThrower === 'p1') {
+                    this.p1CheckoutShots++;
+                } else {
+                    this.p2CheckoutShots++;
+                }
+            }
+        }
+
         this.addThrow();
         this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         this.addToLog("mi", "ss");
+
         this.checkThrower();
         if (localStorage.getItem('sounds') === 'on') {
             missSound.play();
@@ -875,6 +921,7 @@ export default class X01 extends Component {
             src: ['../../../assets/sounds/miss_hit.mp3']
         });
         let thrower = this.state.activeThrower;
+        let playerScoreNumber = eval(`this.state.${thrower}Score`);
         let playerThrows = `${thrower}Throws`;
         let playerRoundStartScore = `${thrower}RoundStartScore`;
         let playerThrowsState = eval("this.state." + playerThrows);
@@ -887,6 +934,25 @@ export default class X01 extends Component {
 
         switch (this.state.activeThrows) {
             case 0:
+                if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                    if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                        if (this.state.activeThrower === 'p1') {
+                            this.p1CheckoutShots += 3;
+                        } else {
+                            this.p2CheckoutShots += 3;
+                        }
+                    }
+                } else if (this.state.gameOptions === 'siso') {
+                    const impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                    if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                        if (this.state.activeThrower === 'p1') {
+                            this.p1CheckoutShots += 3;
+                        } else {
+                            this.p2CheckoutShots += 3;
+                        }
+                    }
+                }
+
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 3 });
                 for (var i = 0; i < 3; i++) {
                     this.addToLog("mi", "ss");
@@ -905,6 +971,24 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
                 break;
             case 1:
+                if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                    if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                        if (this.state.activeThrower === 'p1') {
+                            this.p1CheckoutShots += 2;
+                        } else {
+                            this.p2CheckoutShots += 2;
+                        }
+                    }
+                } else if (this.state.gameOptions === 'siso') {
+                    const impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                    if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                        if (this.state.activeThrower === 'p1') {
+                            this.p1CheckoutShots += 2;
+                        } else {
+                            this.p2CheckoutShots += 2;
+                        }
+                    }
+                }
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 2 });
                 this.addToLog("mi", "ss");
                 this.addToLog("mi", "ss");
@@ -923,6 +1007,24 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
                 break;
             case 2:
+                if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                    if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                        if (this.state.activeThrower === 'p1') {
+                            this.p1CheckoutShots++;
+                        } else {
+                            this.p2CheckoutShots++;
+                        }
+                    }
+                } else if (this.state.gameOptions === 'siso') {
+                    const impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                    if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                        if (this.state.activeThrower === 'p1') {
+                            this.p1CheckoutShots++;
+                        } else {
+                            this.p2CheckoutShots++;
+                        }
+                    }
+                }
                 this.setState({ [playerThrows]: parseInt([playerThrowsState]) + 1 });
                 this.addToLog("mi", "ss");
                 if (this.state.activeThrower === "p1") {
@@ -1048,6 +1150,8 @@ export default class X01 extends Component {
                         p2Sets={this.state.p2Sets}
                         setHistory={this.state.setHistory}
                         setGameStatePick={this.setGameStatePick}
+                        p1CheckoutShots={this.p1CheckoutShots}
+                        p2CheckoutShots={this.p2CheckoutShots}
                     />
                 )
             }

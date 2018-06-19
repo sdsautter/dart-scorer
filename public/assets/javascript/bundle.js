@@ -9648,6 +9648,9 @@ var X01 = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (X01.__proto__ || Object.getPrototypeOf(X01)).call(this));
 
+        _this.p1CheckoutShots = 0;
+        _this.p2CheckoutShots = 0;
+
         _this.state = {
             activeThrower: "p1",
             activeThrows: 0,
@@ -10091,17 +10094,17 @@ var X01 = function (_Component) {
                     break;
             }
 
+            this.p1CheckoutShots = 0;
+            this.p2CheckoutShots = 0;
             this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
             this.setState({ gameWinner: {} });
             this.setState({ gameOverModal: false });
-
             this.setState({ p1Score: this.state.x01Game });
             this.setState({ p1Throws: 0 });
             this.setState({ p1RoundStartScore: [] });
             this.setState({ p1RoundScores: [] });
-
             this.setState({ p2Score: this.state.x01Game });
             this.setState({ p2Throws: 0 });
             this.setState({ p2RoundStartScore: [] });
@@ -10120,6 +10123,8 @@ var X01 = function (_Component) {
     }, {
         key: "gameX01Reset",
         value: function gameX01Reset() {
+            this.p1CheckoutShots = 0;
+            this.p2CheckoutShots = 0;
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
@@ -10325,6 +10330,25 @@ var X01 = function (_Component) {
             var scoresArray = roundStartScoreState;
             var startScore = scoresArray[scoresArray.length - 1];
 
+            if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                    if (thrower === 'p1') {
+                        this.p1CheckoutShots++;
+                    } else {
+                        this.p2CheckoutShots++;
+                    }
+                }
+            } else if (this.state.gameOptions === 'siso') {
+                var impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                    if (thrower === 'p1') {
+                        this.p1CheckoutShots++;
+                    } else {
+                        this.p2CheckoutShots++;
+                    }
+                }
+            }
+
             if (doubleInBoolean || multiplier === 2) {
                 var newScore = playerScoreNumber - parseInt(number) * parseInt(multiplier);
                 if (newScore > 1) {
@@ -10387,9 +10411,31 @@ var X01 = function (_Component) {
             var missSound = new Howl({
                 src: ['../../../assets/sounds/miss_hit.mp3']
             });
+            var playerScoreNumber = eval("this.state." + this.state.activeThrower + "Score");
+
+            if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                    if (this.state.activeThrower === 'p1') {
+                        this.p1CheckoutShots++;
+                    } else {
+                        this.p2CheckoutShots++;
+                    }
+                }
+            } else if (this.state.gameOptions === 'siso') {
+                var impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                    if (this.state.activeThrower === 'p1') {
+                        this.p1CheckoutShots++;
+                    } else {
+                        this.p2CheckoutShots++;
+                    }
+                }
+            }
+
             this.addThrow();
             this.setThrowNumber(parseInt(this.state.activeThrows + 1));
             this.addToLog("mi", "ss");
+
             this.checkThrower();
             if (localStorage.getItem('sounds') === 'on') {
                 missSound.play();
@@ -10570,6 +10616,7 @@ var X01 = function (_Component) {
                 src: ['../../../assets/sounds/miss_hit.mp3']
             });
             var thrower = this.state.activeThrower;
+            var playerScoreNumber = eval("this.state." + thrower + "Score");
             var playerThrows = thrower + "Throws";
             var playerRoundStartScore = thrower + "RoundStartScore";
             var playerThrowsState = eval("this.state." + playerThrows);
@@ -10582,6 +10629,25 @@ var X01 = function (_Component) {
 
             switch (this.state.activeThrows) {
                 case 0:
+                    if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                        if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                            if (this.state.activeThrower === 'p1') {
+                                this.p1CheckoutShots += 3;
+                            } else {
+                                this.p2CheckoutShots += 3;
+                            }
+                        }
+                    } else if (this.state.gameOptions === 'siso') {
+                        var impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                        if (playerScoreNumber <= 60 && !impossibleOuts.includes(playerScoreNumber)) {
+                            if (this.state.activeThrower === 'p1') {
+                                this.p1CheckoutShots += 3;
+                            } else {
+                                this.p2CheckoutShots += 3;
+                            }
+                        }
+                    }
+
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 3));
                     for (var i = 0; i < 3; i++) {
                         this.addToLog("mi", "ss");
@@ -10600,6 +10666,24 @@ var X01 = function (_Component) {
                     this.setThrowNumber(0);
                     break;
                 case 1:
+                    if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                        if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                            if (this.state.activeThrower === 'p1') {
+                                this.p1CheckoutShots += 2;
+                            } else {
+                                this.p2CheckoutShots += 2;
+                            }
+                        }
+                    } else if (this.state.gameOptions === 'siso') {
+                        var _impossibleOuts = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                        if (playerScoreNumber <= 60 && !_impossibleOuts.includes(playerScoreNumber)) {
+                            if (this.state.activeThrower === 'p1') {
+                                this.p1CheckoutShots += 2;
+                            } else {
+                                this.p2CheckoutShots += 2;
+                            }
+                        }
+                    }
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 2));
                     this.addToLog("mi", "ss");
                     this.addToLog("mi", "ss");
@@ -10618,6 +10702,24 @@ var X01 = function (_Component) {
                     this.setThrowNumber(0);
                     break;
                 case 2:
+                    if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
+                        if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
+                            if (this.state.activeThrower === 'p1') {
+                                this.p1CheckoutShots++;
+                            } else {
+                                this.p2CheckoutShots++;
+                            }
+                        }
+                    } else if (this.state.gameOptions === 'siso') {
+                        var _impossibleOuts2 = [59, 58, 56, 55, 53, 52, 49, 47, 46, 43, 41];
+                        if (playerScoreNumber <= 60 && !_impossibleOuts2.includes(playerScoreNumber)) {
+                            if (this.state.activeThrower === 'p1') {
+                                this.p1CheckoutShots++;
+                            } else {
+                                this.p2CheckoutShots++;
+                            }
+                        }
+                    }
                     this.setState(_defineProperty({}, playerThrows, parseInt([playerThrowsState]) + 1));
                     this.addToLog("mi", "ss");
                     if (this.state.activeThrower === "p1") {
@@ -10734,7 +10836,9 @@ var X01 = function (_Component) {
                         p2Legs: this.state.p2Legs,
                         p2Sets: this.state.p2Sets,
                         setHistory: this.state.setHistory,
-                        setGameStatePick: this.setGameStatePick
+                        setGameStatePick: this.setGameStatePick,
+                        p1CheckoutShots: this.p1CheckoutShots,
+                        p2CheckoutShots: this.p2CheckoutShots
                     });
                 }
             } else if (this.state.gameState === "difficulty") {
@@ -52027,6 +52131,8 @@ var Results = function (_Component) {
         _this.url = window.location.href.includes('cpu') ? '/cpu' : '/pvp';
         _this.state = {
             p1ppd: 0,
+            p1CheckoutShots: 0,
+            p1CheckoutPercent: 0,
             p160: 0,
             p1100: 0,
             p1120: 0,
@@ -52035,6 +52141,8 @@ var Results = function (_Component) {
             p1180: 0,
 
             p2ppd: 0,
+            p2CheckoutShots: 0,
+            p2CheckoutPercent: 0,
             p260: 0,
             p2100: 0,
             p2120: 0,
@@ -52048,7 +52156,6 @@ var Results = function (_Component) {
         _this.player2ThrowRender = _this.player2ThrowRender.bind(_this);
         _this.setScores = _this.setScores.bind(_this);
         _this.buttonsRender = _this.buttonsRender.bind(_this);
-        _this.scoresRender = _this.scoresRender.bind(_this);
         _this.renderTable = _this.renderTable.bind(_this);
         _this.sixtyRow = _this.sixtyRow.bind(_this);
         _this.oneHundredRow = _this.oneHundredRow.bind(_this);
@@ -52057,6 +52164,7 @@ var Results = function (_Component) {
         _this.oneSixtyRow = _this.oneSixtyRow.bind(_this);
         _this.oneEightyRow = _this.oneEightyRow.bind(_this);
         _this.setPpd = _this.setPpd.bind(_this);
+        _this.setCheckout = _this.setCheckout.bind(_this);
         return _this;
     }
 
@@ -52065,6 +52173,7 @@ var Results = function (_Component) {
         value: function componentWillMount() {
             this.setScores();
             this.setPpd();
+            this.setCheckout();
         }
     }, {
         key: "renderWinner",
@@ -52074,6 +52183,25 @@ var Results = function (_Component) {
             } else {
                 return "Player 2";
             }
+        }
+    }, {
+        key: "setCheckout",
+        value: function setCheckout() {
+            var p1CheckoutShots = this.props.p1CheckoutShots;
+            var p2CheckoutShots = this.props.p2CheckoutShots;
+            var p1CheckoutPercent = void 0,
+                p2CheckoutPercent = void 0;
+            if (this.props.gameWinner === 'p1') {
+                p1CheckoutPercent = 1 / p1CheckoutShots * 100;
+                p2CheckoutPercent = 0;
+            } else {
+                p2CheckoutPercent = 1 / p2CheckoutShots * 100;
+                p1CheckoutPercent = 0;
+            }
+            this.setState({ p1CheckoutShots: p1CheckoutShots });
+            this.setState({ p1CheckoutPercent: p1CheckoutPercent });
+            this.setState({ p2CheckoutShots: p2CheckoutShots });
+            this.setState({ p2CheckoutPercent: p2CheckoutPercent });
         }
     }, {
         key: "setPpd",
@@ -52093,10 +52221,8 @@ var Results = function (_Component) {
                 p2Total += player2Scores[_i];
             }
             p1ppd = p1Total / p1Throws;
-            p2ppd = p2Total / p2Throws;
-            if (p2ppd === NaN) {
-                p2ppd = 0;
-            }
+            p2ppd = p2Throws === 0 ? 0 : p2Total / p2Throws;
+
             this.setState({ p1ppd: p1ppd });
             this.setState({ p2ppd: p2ppd });
         }
@@ -52382,138 +52508,50 @@ var Results = function (_Component) {
                             parseFloat(this.state.p2ppd.toFixed(2))
                         )
                     ),
+                    _react2.default.createElement(
+                        "tr",
+                        null,
+                        _react2.default.createElement(
+                            "td",
+                            null,
+                            parseFloat(this.state.p1CheckoutShots)
+                        ),
+                        _react2.default.createElement(
+                            "td",
+                            null,
+                            "Checkout Chances"
+                        ),
+                        _react2.default.createElement(
+                            "td",
+                            null,
+                            parseFloat(this.state.p2CheckoutShots)
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "tr",
+                        null,
+                        _react2.default.createElement(
+                            "td",
+                            null,
+                            parseFloat(this.state.p1CheckoutPercent.toFixed(2)) + "%"
+                        ),
+                        _react2.default.createElement(
+                            "td",
+                            null,
+                            "Checkout Percent"
+                        ),
+                        _react2.default.createElement(
+                            "td",
+                            null,
+                            parseFloat(this.state.p2CheckoutPercent.toFixed(2)) + "%"
+                        )
+                    ),
                     this.sixtyRow(),
                     this.oneHundredRow(),
                     this.oneTwentyRow(),
                     this.oneFortyRow(),
                     this.oneSixtyRow(),
                     this.oneEightyRow()
-                )
-            );
-        }
-    }, {
-        key: "scoresRender",
-        value: function scoresRender() {
-            return _react2.default.createElement(
-                "div",
-                { className: "row" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "col-12" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p160
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            "60+"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p260
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p1100
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            "100+"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p2100
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p1120
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            "120+"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p2120
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p1140
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            "140+"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p2140
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p1160
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            "160+"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p2160
-                        )
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "row" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p1180
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            "180"
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-4 text-center" },
-                            this.state.p2180
-                        )
-                    )
                 )
             );
         }
@@ -52629,7 +52667,6 @@ var Results = function (_Component) {
                                 )
                             )
                         ),
-                        _react2.default.createElement("br", null),
                         _react2.default.createElement(
                             "div",
                             { className: "row" },
