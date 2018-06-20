@@ -1191,7 +1191,10 @@ img {
 
 .cricket-table th {
     text-align: center;
-    font-family: var(--chalk-font)
+}
+
+.player-name {
+    font-family: var(--chalk-font);
 }
 
 .continue-set button {

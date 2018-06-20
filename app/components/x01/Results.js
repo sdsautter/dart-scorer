@@ -17,6 +17,16 @@ export default class Results extends Component {
             p1140: 0,
             p1160: 0,
             p1180: 0,
+            p1ppdSet: 0,
+            p1CheckoutShotsSet: 0,
+            p1CheckoutPercentSet: 0,
+            p126Set: 0,
+            p160Set: 0,
+            p1100Set: 0,
+            p1120Set: 0,
+            p1140Set: 0,
+            p1160Set: 0,
+            p1180Set: 0,
 
             p2ppd: 0,
             p2CheckoutShots: 0,
@@ -28,12 +38,23 @@ export default class Results extends Component {
             p2140: 0,
             p2160: 0,
             p2180: 0,
+            p2ppdSet: 0,
+            p2CheckoutShotsSet: 0,
+            p2CheckoutPercentSet: 0,
+            p226Set: 0,
+            p260Set: 0,
+            p2100Set: 0,
+            p2120Set: 0,
+            p2140Set: 0,
+            p2160Set: 0,
+            p2180Set: 0,
         }
 
         this.renderWinner = this.renderWinner.bind(this);
         this.player1ThrowRender = this.player1ThrowRender.bind(this);
         this.player2ThrowRender = this.player2ThrowRender.bind(this);
-        this.setScores = this.setScores.bind(this);
+        this.setLegScores = this.setLegScores.bind(this);
+        this.setSetScores = this.setSetScores.bind(this);
         this.buttonsRender = this.buttonsRender.bind(this);
         this.renderTable = this.renderTable.bind(this);
         this.twentySixRow = this.twentySixRow.bind(this);
@@ -43,14 +64,23 @@ export default class Results extends Component {
         this.oneFortyRow = this.oneFortyRow.bind(this);
         this.oneSixtyRow = this.oneSixtyRow.bind(this);
         this.oneEightyRow = this.oneEightyRow.bind(this);
-        this.setPpd = this.setPpd.bind(this);
-        this.setCheckout = this.setCheckout.bind(this);
+        this.setLegPpd = this.setLegPpd.bind(this);
+        this.setSetPpd = this.setSetPpd.bind(this);
+        this.setLegCheckout = this.setLegCheckout.bind(this);
+        this.setSetCheckout = this.setSetCheckout.bind(this);
+        this.throwRow = this.throwRow.bind(this)
+        this.ppdRow = this.ppdRow.bind(this)
+        this.checkoutChancesRow = this.checkoutChancesRow.bind(this)
+        this.checkoutPercentRow = this.checkoutPercentRow.bind(this)
     }
 
-    componentWillMount() {
-        this.setScores();
-        this.setPpd();
-        this.setCheckout();
+    componentDidMount() {
+        this.setLegScores();
+        this.setLegPpd();
+        this.setLegCheckout();
+        this.setSetScores();
+        this.setSetPpd();
+        this.setSetCheckout();
     }
 
     renderWinner() {
@@ -61,10 +91,11 @@ export default class Results extends Component {
         }
     }
 
-    setCheckout() {
+    setLegCheckout() {
         const p1CheckoutShots = this.props.p1CheckoutShots;
         const p2CheckoutShots = this.props.p2CheckoutShots;
         let p1CheckoutPercent, p2CheckoutPercent;
+
         if (this.props.gameWinner === 'p1') {
             p1CheckoutPercent = (1 / p1CheckoutShots) * 100;
             p2CheckoutPercent = 0;
@@ -78,7 +109,38 @@ export default class Results extends Component {
         this.setState({ p2CheckoutPercent });
     }
 
-    setPpd() {
+    setSetCheckout() {
+        const p1CheckoutShotsSet = this.props.p1CheckoutShotsHistory;
+        const p2CheckoutShotsSet = this.props.p2CheckoutShotsHistory;
+        const setHistory = this.props.setHistory;
+        let p1Wins = this.props.p1Legs;
+        let p2Wins = this.props.p2Legs;
+        
+        if (p1Wins === 0 && p2Wins === 0) {
+            if (this.props.gameWinner === 'p1') {
+                p1Wins = 1;
+            } else {
+                p2Wins = 1;
+            }
+        }
+
+        for (var i in setHistory) {
+            p1Wins += setHistory[i].p1;
+            p2Wins += setHistory[i].p2;
+        }
+        let p1CheckoutPercentSet = 0, p2CheckoutPercentSet = 0;
+        p1CheckoutPercentSet = (p1Wins / p1CheckoutShotsSet) * 100;
+        p2CheckoutPercentSet = (p2Wins / p2CheckoutShotsSet) * 100;
+        p1CheckoutPercentSet = isNaN(p1CheckoutPercentSet) ? 0 : p1CheckoutPercentSet;
+        p2CheckoutPercentSet = isNaN(p2CheckoutPercentSet) ? 0 : p2CheckoutPercentSet;
+
+        this.setState({ p1CheckoutShotsSet });
+        this.setState({ p1CheckoutPercentSet });
+        this.setState({ p2CheckoutShotsSet });
+        this.setState({ p2CheckoutPercentSet });
+    }
+
+    setLegPpd() {
         const player1Scores = this.props.p1RoundScores;
         const p1Throws = this.props.p1Throws;
         const player2Scores = this.props.p2RoundScores;
@@ -90,14 +152,34 @@ export default class Results extends Component {
         for (const i in player2Scores) {
             p2Total += player2Scores[i];
         }
-        p1ppd = p1Total / p1Throws;
+        p1ppd = p1Throws === 0 ? 0 : p1Total / p1Throws;
         p2ppd = p2Throws === 0 ? 0 : p2Total / p2Throws;
 
         this.setState({ p1ppd });
         this.setState({ p2ppd });
     }
 
-    setScores() {
+    setSetPpd() {
+        const player1Scores = this.props.p1RoundScoresHistory;
+        const p1Throws = this.props.p1ThrowsHistory;
+        const player2Scores = this.props.p2RoundScoresHistory;
+        const p2Throws = this.props.p2ThrowsHistory;
+        let p1Total = 0, p2Total = 0, p1ppdSet = 0, p2ppdSet = 0;
+
+        for (const i in player1Scores) {
+            p1Total += player1Scores[i];
+        }
+        for (const i in player2Scores) {
+            p2Total += player2Scores[i];
+        }
+        p1ppdSet = p1Throws === 0 ? 0 : p1Total / p1Throws;
+        p2ppdSet = p2Throws === 0 ? 0 : p2Total / p2Throws;
+
+        this.setState({ p1ppdSet });
+        this.setState({ p2ppdSet });
+    }
+
+    setLegScores() {
         const player1Scores = this.props.p1RoundScores;
         const player2Scores = this.props.p2RoundScores;
         let p126 = 0;
@@ -166,87 +248,221 @@ export default class Results extends Component {
         this.setState({ p2140 });
         this.setState({ p2160 });
         this.setState({ p2180 });
+
+    }
+
+    setSetScores() {
+        const player1Scores = this.props.p1RoundScoresHistory;
+        const player2Scores = this.props.p2RoundScoresHistory;
+        let p126Set = 0;
+        let p160Set = 0;
+        let p1100Set = 0;
+        let p1120Set = 0;
+        let p1140Set = 0;
+        let p1160Set = 0;
+        let p1180Set = 0;
+        let p226Set = 0;
+        let p260Set = 0;
+        let p2100Set = 0;
+        let p2120Set = 0;
+        let p2140Set = 0;
+        let p2160Set = 0;
+        let p2180Set = 0;
+
+        for (var i in player1Scores) {
+            if (player1Scores[i] >= 60 && player1Scores[i] < 100) {
+                p160Set++;
+            } else if (player1Scores[i] >= 100 && player1Scores[i] < 120) {
+                p1100Set++;
+            } else if (player1Scores[i] >= 120 && player1Scores[i] < 140) {
+                p1120Set++;
+            } else if (player1Scores[i] >= 140 && player1Scores[i] < 160) {
+                p1140Set++;
+            } else if (player1Scores[i] >= 160 && player1Scores[i] < 180) {
+                p1160Set++;
+            } else if (player1Scores[i] === 180) {
+                p1180Set++;
+            } else if (player1Scores[i] === 26) {
+                p126Set++;
+            }
+        }
+
+        for (var i in player2Scores) {
+            if (player2Scores[i] >= 60 && player2Scores[i] < 100) {
+                p260Set++;
+            } else if (player2Scores[i] >= 100 && player2Scores[i] < 120) {
+                p2100Set++;
+            } else if (player2Scores[i] >= 120 && player2Scores[i] < 140) {
+                p2120Set++;
+            } else if (player2Scores[i] >= 140 && player2Scores[i] < 160) {
+                p2140Set++;
+            } else if (player2Scores[i] >= 160 && player2Scores[i] < 180) {
+                p2160Set++;
+            } else if (player2Scores[i] === 180) {
+                p2180Set++;
+            } else if (player2Scores[i] === 26) {
+                p226Set++;
+            }
+        }
+
+        this.setState({ p126Set });
+        this.setState({ p160Set });
+        this.setState({ p1100Set });
+        this.setState({ p1120Set });
+        this.setState({ p1140Set });
+        this.setState({ p1160Set });
+        this.setState({ p1180Set });
+
+        this.setState({ p226Set });
+        this.setState({ p260Set });
+        this.setState({ p2100Set });
+        this.setState({ p2120Set });
+        this.setState({ p2140Set });
+        this.setState({ p2160Set });
+        this.setState({ p2180Set });
     }
 
     twentySixRow() {
-        if (this.state.p126 > 0 || this.state.p226 > 0) {
+        if (this.state.p126 > 0 || this.state.p126Set > 0 || this.state.p226 > 0 || this.state.p226Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p126}</td>
+                    <td>{this.state.p126Set}</td>
                     <td>26</td>
                     <td>{this.state.p226}</td>
+                    <td>{this.state.p226Set}</td>
                 </tr>
             )
         }
     }
 
     sixtyRow() {
-        if (this.state.p160 > 0 || this.state.p260 > 0) {
+        if (this.state.p160 > 0 || this.state.p160Set > 0 || this.state.p260 > 0 || this.state.p260Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p160}</td>
+                    <td>{this.state.p160Set}</td>
                     <td>60+</td>
                     <td>{this.state.p260}</td>
+                    <td>{this.state.p260Set}</td>
                 </tr>
             )
         }
     }
 
     oneHundredRow() {
-        if (this.state.p1100 > 0 || this.state.p2100 > 0) {
+        if (this.state.p1100 > 0 || this.state.p1100Set > 0 || this.state.p2100 > 0 || this.state.p2100Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p1100}</td>
+                    <td>{this.state.p1100Set}</td>
                     <td>100+</td>
                     <td>{this.state.p2100}</td>
+                    <td>{this.state.p2100Set}</td>
                 </tr>
             )
         }
     }
 
     oneTwentyRow() {
-        if (this.state.p1120 > 0 || this.state.p2120 > 0) {
+        if (this.state.p1120 > 0 || this.state.p1120Set > 0 || this.state.p2120 > 0 || this.state.p2120Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p1120}</td>
+                    <td>{this.state.p1120Set}</td>
                     <td>120+</td>
                     <td>{this.state.p2120}</td>
+                    <td>{this.state.p2120Set}</td>
                 </tr>
             )
         }
     }
     oneFortyRow() {
-        if (this.state.p1140 > 0 || this.state.p2140 > 0) {
+        if (this.state.p1140 > 0 || this.state.p1140Set > 0 || this.state.p2140 > 0 || this.state.p2140Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p1140}</td>
+                    <td>{this.state.p1140Set}</td>
                     <td>140+</td>
                     <td>{this.state.p2140}</td>
+                    <td>{this.state.p2140Set}</td>
                 </tr>
             )
         }
     }
     oneSixtyRow() {
-        if (this.state.p1160 > 0 || this.state.p2160 > 0) {
+        if (this.state.p1160 > 0 || this.state.p1160Set > 0 || this.state.p2160 > 0 || this.state.p2160Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p1160}</td>
+                    <td>{this.state.p1160Set}</td>
                     <td>160+</td>
                     <td>{this.state.p2160}</td>
+                    <td>{this.state.p2160Set}</td>
                 </tr>
             )
         }
     }
     oneEightyRow() {
-        if (this.state.p1180 > 0 || this.state.p2180 > 0) {
+        if (this.state.p1180 > 0 || this.state.p1180Set > 0 || this.state.p2180 > 0 || this.state.p2180Set > 0) {
             return (
                 <tr>
                     <td>{this.state.p1180}</td>
+                    <td>{this.state.p1180Set}</td>
                     <td>180!</td>
                     <td>{this.state.p2180}</td>
+                    <td>{this.state.p2180Set}</td>
                 </tr>
             )
         }
+    }
+
+    throwRow() {
+        return (
+            <tr>
+                <td>{this.props.p1Throws}</td>
+                <td>{this.props.p1ThrowsHistory}</td>
+                <td>Throws</td>
+                <td>{this.props.p2Throws}</td>
+                <td>{this.props.p2ThrowsHistory}</td>
+            </tr>
+        )
+    }
+
+    ppdRow() {
+        return (
+            <tr>
+                <td>{parseFloat(this.state.p1ppd.toFixed(2))}</td>
+                <td>{parseFloat(this.state.p1ppdSet.toFixed(2))}</td>
+                <td>Points Per Dart</td>
+                <td>{parseFloat(this.state.p2ppd.toFixed(2))}</td>
+                <td>{parseFloat(this.state.p2ppdSet.toFixed(2))}</td>
+            </tr>
+        )
+    }
+
+    checkoutChancesRow() {
+        return (
+            <tr>
+                <td>{this.state.p1CheckoutShots}</td>
+                <td>{this.state.p1CheckoutShotsSet}</td>
+                <td>Checkout Chances</td>
+                <td>{this.state.p2CheckoutShots}</td>
+                <td>{this.state.p2CheckoutShotsSet}</td>
+            </tr>
+        )
+    }
+
+    checkoutPercentRow() {
+        return (
+            <tr>
+                <td>{`${parseFloat(this.state.p1CheckoutPercent.toFixed(2))}%`}</td>
+                <td>{`${parseFloat(this.state.p1CheckoutPercentSet.toFixed(2))}%`}</td>
+                <td>Checkout Percent</td>
+                <td>{`${parseFloat(this.state.p2CheckoutPercent.toFixed(2))}%`}</td>
+                <td>{`${parseFloat(this.state.p2CheckoutPercentSet.toFixed(2))}%`}</td>
+            </tr>
+        )
     }
 
     renderTable() {
@@ -254,32 +470,18 @@ export default class Results extends Component {
             <table className='cricket-table text-center align-self-center'>
                 <thead>
                     <tr>
-                        <th scope="col">Player 1</th>
+                        <th scope="col">Leg</th>
+                        <th scope="col">Set</th>
                         <th scope="col"></th>
-                        <th scope="col">Player 2</th>
+                        <th scope="col">Leg</th>
+                        <th scope="col">Set</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{this.props.p1Throws}</td>
-                        <td>Throws</td>
-                        <td>{this.props.p2Throws}</td>
-                    </tr>
-                    <tr>
-                        <td>{parseFloat(this.state.p1ppd.toFixed(2))}</td>
-                        <td>Points Per Dart</td>
-                        <td>{parseFloat(this.state.p2ppd.toFixed(2))}</td>
-                    </tr>
-                    <tr>
-                        <td>{parseFloat(this.state.p1CheckoutShots)}</td>
-                        <td>Checkout Chances</td>
-                        <td>{parseFloat(this.state.p2CheckoutShots)}</td>
-                    </tr>
-                    <tr>
-                        <td>{`${parseFloat(this.state.p1CheckoutPercent.toFixed(2))}%`}</td>
-                        <td>Checkout Percent</td>
-                        <td>{`${parseFloat(this.state.p2CheckoutPercent.toFixed(2))}%`}</td>
-                    </tr>
+                    {this.throwRow()}
+                    {this.ppdRow()}
+                    {this.checkoutChancesRow()}
+                    {this.checkoutPercentRow()}
                     {this.twentySixRow()}
                     {this.sixtyRow()}
                     {this.oneHundredRow()}
@@ -380,8 +582,16 @@ export default class Results extends Component {
                     p2Sets={this.props.p2Sets}
                 />
                 <div className="row">
-                    <div className='col=12 col-md-7 offset-md-1 x01-stats'>
-                        {this.renderTable()}
+                    <div className='col-12 col-md-7 offset-md-1 x01-stats'>
+                        <div className='row'>
+                            <div className='col player-name text-center'>
+                            Player 1
+                            </div>
+                            <div className='col offset-6 player-name text-center'>
+                            Player 2
+                            </div>
+                            {this.renderTable()}
+                        </div>
                     </div>
                     <div className='col-12 col-md-4'>
                         {this.buttonsRender()}
