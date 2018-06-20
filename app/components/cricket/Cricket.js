@@ -17,6 +17,12 @@ export default class Cricket extends Component {
         this.p1Bulls = [];
         this.p2Marks = [];
         this.p2Bulls = [];
+        this.p1ThrowsHistory = 0;
+        this.p1MarksHistory = [];
+        this.p2MarksHistory = [];
+        this.p1BullsHistory = [];
+        this.p2BullsHistory = [];
+        this.p2ThrowsHistory = 0;
 
         this.state = {
             activeThrower: "p1",
@@ -76,6 +82,7 @@ export default class Cricket extends Component {
         this.setThrowNumber = this.setThrowNumber.bind(this);
         this.setPlayerScore = this.setPlayerScore.bind(this);
         this.addThrow = this.addThrow.bind(this);
+        this.fillHistoryData = this.fillHistoryData.bind(this);
         this.markProgress = this.markProgress.bind(this);
         this.gameStateOver = this.gameStateOver.bind(this);
         this.gameOverCheck = this.gameOverCheck.bind(this);
@@ -298,7 +305,7 @@ export default class Cricket extends Component {
                     this.reconfigureActiveMarks();
                     await this.undoSwitch("p2");
                 } else {
-                    await this.setState({ p1Throws:this.state.p1Throws - 1 })
+                    await this.setState({ p1Throws: this.state.p1Throws - 1 })
                     this.setActiveThrower("p1");
                     this.popLastMark('p1');
                     this.reconfigureActiveMarks();
@@ -1610,13 +1617,45 @@ export default class Cricket extends Component {
         }
     }
 
+    fillHistoryData() {
+        const p1Marks = this.p1Marks;
+        const p1Bulls = this.p1Bulls;
+        const p2Marks = this.p2Marks;
+        const p2Bulls = this.p2Bulls;
+
+        let p1MarksHistory = this.p1MarksHistory;
+        let p1BullsHistory = this.p1BullsHistory
+        let p2MarksHistory = this.p2MarksHistory;
+        let p2BullsHistory = this.p2BullsHistory
+
+        this.p1ThrowsHistory += this.state.p1Throws;
+        this.p2ThrowsHistory += this.state.p2Throws;
+
+        for (var i in p1Marks) {
+            p1MarksHistory.push(p1Marks[i]);
+            this.p1MarksHistory = p1MarksHistory;
+        }
+        for (var i in p1Bulls) {
+            p1BullsHistory.push(p1Bulls[i]);
+            this.p1BullsHistory = p1BullsHistory;
+        }
+        for (var i in p2Marks) {
+            p2MarksHistory.push(p2Marks[i]);
+            this.p2MarksHistory = p2MarksHistory;
+        }
+        for (var i in p2Bulls) {
+            p2BullsHistory.push(p2Bulls[i]);
+            this.p2BullsHistory = p2BullsHistory;
+        }
+    }
+
     gameStateOver() {
         this.allStarPoints(this.state.gameWinner);
         const gameOverSound = new Howl({
             src: [`../../../assets/sounds/game_over.mp3`]
         });
         Howler.volume(.4);
-
+        this.fillHistoryData();
         if (this.state.firstWinner === '') {
             this.setState({ firstWinner: this.state.gameWinner }, () => {
                 this.addLeg();
@@ -1812,6 +1851,12 @@ export default class Cricket extends Component {
                         p2Sets={this.state.p2Sets}
                         continueSet={this.continueSet}
                         setHistory={this.state.setHistory}
+                        p1ThrowsHistory={this.p1ThrowsHistory}
+                        p1MarksHistory={this.p1MarksHistory}
+                        p2MarksHistory={this.p2MarksHistory}
+                        p1BullsHistory={this.p1BullsHistory}
+                        p2BullsHistory={this.p2BullsHistory}
+                        p2ThrowsHistory={this.p2ThrowsHistory}
                     />
                 )
             }
