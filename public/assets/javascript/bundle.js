@@ -14922,6 +14922,12 @@ var Cricket = function (_Component) {
     }, {
         key: "gameCricketReset",
         value: function gameCricketReset() {
+            this.p1ThrowsHistory = 0;
+            this.p1MarksHistory = [];
+            this.p2MarksHistory = [];
+            this.p1BullsHistory = [];
+            this.p2BullsHistory = [];
+            this.p2ThrowsHistory = 0;
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
             this.activeMarks = 0;
@@ -53999,6 +54005,12 @@ var Cricket = function (_Component) {
     }, {
         key: "gameCricketReset",
         value: function gameCricketReset() {
+            this.p1ThrowsHistory = 0;
+            this.p1MarksHistory = [];
+            this.p2MarksHistory = [];
+            this.p1BullsHistory = [];
+            this.p2BullsHistory = [];
+            this.p2ThrowsHistory = 0;
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
             this.activeMarks = 0;
