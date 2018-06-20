@@ -11,6 +11,13 @@ export default class X01 extends Component {
     constructor({ match }) {
         super();
 
+        this.p1RoundScoresHistory = [];
+        this.p1CheckoutShotsHistory = 0;
+        this.p1ThrowsHistory = 0;
+        this.p2RoundScoresHistory = [];
+        this.p2CheckoutShotsHistory = 0;
+        this.p2ThrowsHistory = 0;
+
         this.p1CheckoutShots = 0;
         this.p2CheckoutShots = 0;
 
@@ -76,6 +83,7 @@ export default class X01 extends Component {
         this.setX01Game = this.setX01Game.bind(this);
         this.showGameOverModal = this.showGameOverModal.bind(this);
         this.gameStateOver = this.gameStateOver.bind(this);
+        this.fillHistoryData = this.fillHistoryData.bind(this);
         this.setGameOptions = this.setGameOptions.bind(this);
         this.setOriginalScore = this.setOriginalScore.bind(this);
         this.resetThrowLog = this.resetThrowLog.bind(this);
@@ -465,6 +473,12 @@ export default class X01 extends Component {
     }
 
     gameX01Reset() {
+        this.p1RoundScoresHistory = [];
+        this.p1CheckoutShotsHistory = 0;
+        this.p1ThrowsHistory = 0;
+        this.p2RoundScoresHistory = [];
+        this.p2CheckoutShotsHistory = 0;
+        this.p2ThrowsHistory = 0;
         this.p1CheckoutShots = 0;
         this.p2CheckoutShots = 0;
         this.setState({ activeThrower: "p1" });
@@ -681,11 +695,11 @@ export default class X01 extends Component {
                 this.setState({ [playerScore]: newScore });
             } else if (newScore === 0 && multiplier === 2) {
                 this.setState({ [playerScore]: newScore });
-                // this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
+                this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
                 this.setGameWinner(thrower);
             } else if (newScore === 0 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
-                // this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
+                this.setRoundScores(thrower, roundStartScoreState[roundStartScoreState.length - 1])
                 this.setGameWinner(thrower);
             } else if (newScore === 1 && this.state.gameOptions === "siso") {
                 this.setState({ [playerScore]: newScore });
@@ -780,18 +794,22 @@ export default class X01 extends Component {
         setTimeout(() => {
             if (this.state.activeThrows > 2) {
                 if (this.state.activeThrower === "p1") {
-                    scoreDifference = startScore - this.state.p1Score;
                     this.addToRoundStartScore("p1", this.state.p1Score);
-                    this.setRoundScores('p1', scoreDifference);
+                    if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                        scoreDifference = startScore - this.state.p1Score;
+                        this.setRoundScores('p1', scoreDifference);
+                    }
                     this.setActiveThrower("p2");
                     this.setThrowNumber(0);
                     if (this.state.botGame) {
                         this.botLogic();
                     }
                 } else {
-                    scoreDifference = startScore - this.state.p2Score;
                     this.addToRoundStartScore("p2", this.state.p2Score);
-                    this.setRoundScores('p2', scoreDifference);
+                    if (this.state.gameWinner !== 'p1' || this.state.gameWinner !== 'p2') {
+                        scoreDifference = startScore - this.state.p2Score;
+                        this.setRoundScores('p2', scoreDifference);
+                    }
                     this.setActiveThrower("p1");
                     this.setThrowNumber(0);
                 }
@@ -841,12 +859,33 @@ export default class X01 extends Component {
         this.setState({ gameState: 'pick ' });
     }
 
+    fillHistoryData() {
+        const p1RoundScores = this.state.p1RoundScores;
+        const p2RoundScores = this.state.p2RoundScores;
+        let p1RoundScoresHistory = this.p1RoundScoresHistory;
+        let p2RoundScoresHistory = this.p2RoundScoresHistory;
+        this.p1ThrowsHistory += this.state.p1Throws;
+        this.p2ThrowsHistory += this.state.p2Throws;
+        this.p1CheckoutShotsHistory += this.p1CheckoutShots;
+        this.p2CheckoutShotsHistory += this.p2CheckoutShots;
+
+        for (var i in p1RoundScores) {
+            p1RoundScoresHistory.push(p1RoundScores[i]);
+            this.p1RoundScoresHistory = p1RoundScoresHistory;
+        }
+        for (var i in p2RoundScores) {
+            p2RoundScoresHistory.push(p2RoundScores[i]);
+            this.p2RoundScoresHistory = p2RoundScoresHistory;
+        }
+    }
+
     gameStateOver() {
         Howler.volume(.4);
         const gameOverSound = new Howl({
             src: ['../../../assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
+        this.fillHistoryData();
         if (this.state.firstWinner === '') {
             this.setState({ firstWinner: this.state.gameWinner }, () => {
                 this.addLeg();
@@ -1152,6 +1191,12 @@ export default class X01 extends Component {
                         setGameStatePick={this.setGameStatePick}
                         p1CheckoutShots={this.p1CheckoutShots}
                         p2CheckoutShots={this.p2CheckoutShots}
+                        p1RoundScoresHistory={this.p1RoundScoresHistory}
+                        p1CheckoutShotsHistory={this.p1CheckoutShotsHistory}
+                        p1ThrowsHistory={this.p1ThrowsHistory}
+                        p2RoundScoresHistory={this.p2RoundScoresHistory}
+                        p2CheckoutShotsHistory={this.p2CheckoutShotsHistory}
+                        p2ThrowsHistory={this.p2ThrowsHistory}
                     />
                 )
             }
