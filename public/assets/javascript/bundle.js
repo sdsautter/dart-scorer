@@ -35574,7 +35574,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "btn btn-success upmod", onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             } },
                                         "20"
@@ -56439,7 +56439,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "btn btn-success upmod", onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             } },
                                         "20"
