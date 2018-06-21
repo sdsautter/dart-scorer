@@ -15381,7 +15381,7 @@ var Cricket = function (_Component) {
                     }
                     break;
                 case 'medium':
-                    randomMarks = Math.random() > .75 ? 3 : 2;
+                    randomMarks = Math.random() >= .75 ? 3 : 2;
 
                     switch (randomMarks) {
                         case 2:
@@ -15473,29 +15473,8 @@ var Cricket = function (_Component) {
                                             _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this4.miss();
+                                        _this4.score(number, multiple);
                                     }
-                                }
-                            }, 3500);
-                            break;
-
-                        default:
-                            setTimeout(function () {
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    _this4.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    _this4.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    _this4.miss();
                                 }
                             }, 3500);
                             break;
@@ -15504,8 +15483,6 @@ var Cricket = function (_Component) {
                 case 'hard':
                     randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
                     var randomNumber = 0;
-
-                    multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                     switch (randomMarks) {
                         case 3:
@@ -15686,77 +15663,7 @@ var Cricket = function (_Component) {
                                 }
                             }, 3500);
                             break;
-                        default:
-                            setTimeout(function () {
-                                randomNumber = Math.random();
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    if (number === 25) {
-                                        if (randomNumber <= .15) {
-                                            multiple = 2;
-                                        } else if (randomNumber <= .45) {
-                                            multiple = 1;
-                                        } else {
-                                            multiple = 0;
-                                        }
-                                    } else {
-                                        multiple = 1;
-                                    }
-                                    if (multiple === 0) {
-                                        _this4.miss();
-                                    } else {
-                                        _this4.score(number, multiple);
-                                    }
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                randomNumber = Math.random();
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    if (number === 25) {
-                                        if (randomNumber <= .15) {
-                                            multiple = 2;
-                                        } else if (randomNumber <= .50) {
-                                            multiple = 1;
-                                        } else {
-                                            multiple = 0;
-                                        }
-                                    } else {
-                                        multiple = 2;
-                                    }
-
-                                    if (multiple === 0) {
-                                        _this4.miss();
-                                    } else {
-                                        _this4.score(number, multiple);
-                                    }
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                randomNumber = Math.random();
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    if (number === 25) {
-                                        if (randomNumber <= .15) {
-                                            multiple = 2;
-                                        } else if (randomNumber <= .50) {
-                                            multiple = 1;
-                                        } else {
-                                            multiple = 0;
-                                        }
-                                    } else {
-                                        multiple = 2;
-                                    }
-                                    if (multiple === 0) {
-                                        _this4.miss();
-                                    } else {
-                                        _this4.score(number, multiple);
-                                    }
-                                }
-                            }, 3500);
-                            break;
                     }
-
                     break;
                 case 'pro':
                     randomMarks = Math.floor(Math.random() * Math.floor(10 - 5)) + 5;
@@ -54464,7 +54371,7 @@ var Cricket = function (_Component) {
                     }
                     break;
                 case 'medium':
-                    randomMarks = Math.random() > .75 ? 3 : 2;
+                    randomMarks = Math.random() >= .75 ? 3 : 2;
 
                     switch (randomMarks) {
                         case 2:
@@ -54556,29 +54463,8 @@ var Cricket = function (_Component) {
                                             _this4.score(number, multiple);
                                         }
                                     } else {
-                                        _this4.miss();
+                                        _this4.score(number, multiple);
                                     }
-                                }
-                            }, 3500);
-                            break;
-
-                        default:
-                            setTimeout(function () {
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    _this4.score(number, multiple);
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    _this4.score(number, multiple);
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    _this4.miss();
                                 }
                             }, 3500);
                             break;
@@ -54587,8 +54473,6 @@ var Cricket = function (_Component) {
                 case 'hard':
                     randomMarks = Math.floor(Math.random() * Math.floor(6 - 3)) + 3;
                     var randomNumber = 0;
-
-                    multiple = this.newMethod(number, randomMarks, randomNumber, multiple);
 
                     switch (randomMarks) {
                         case 3:
@@ -54769,77 +54653,7 @@ var Cricket = function (_Component) {
                                 }
                             }, 3500);
                             break;
-                        default:
-                            setTimeout(function () {
-                                randomNumber = Math.random();
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    if (number === 25) {
-                                        if (randomNumber <= .15) {
-                                            multiple = 2;
-                                        } else if (randomNumber <= .45) {
-                                            multiple = 1;
-                                        } else {
-                                            multiple = 0;
-                                        }
-                                    } else {
-                                        multiple = 1;
-                                    }
-                                    if (multiple === 0) {
-                                        _this4.miss();
-                                    } else {
-                                        _this4.score(number, multiple);
-                                    }
-                                }
-                            }, 1500);
-                            setTimeout(function () {
-                                randomNumber = Math.random();
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    if (number === 25) {
-                                        if (randomNumber <= .15) {
-                                            multiple = 2;
-                                        } else if (randomNumber <= .50) {
-                                            multiple = 1;
-                                        } else {
-                                            multiple = 0;
-                                        }
-                                    } else {
-                                        multiple = 2;
-                                    }
-
-                                    if (multiple === 0) {
-                                        _this4.miss();
-                                    } else {
-                                        _this4.score(number, multiple);
-                                    }
-                                }
-                            }, 2500);
-                            setTimeout(function () {
-                                randomNumber = Math.random();
-                                if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
-                                    number = _this4.botNumberHit();
-                                    if (number === 25) {
-                                        if (randomNumber <= .15) {
-                                            multiple = 2;
-                                        } else if (randomNumber <= .50) {
-                                            multiple = 1;
-                                        } else {
-                                            multiple = 0;
-                                        }
-                                    } else {
-                                        multiple = 2;
-                                    }
-                                    if (multiple === 0) {
-                                        _this4.miss();
-                                    } else {
-                                        _this4.score(number, multiple);
-                                    }
-                                }
-                            }, 3500);
-                            break;
                     }
-
                     break;
                 case 'pro':
                     randomMarks = Math.floor(Math.random() * Math.floor(10 - 5)) + 5;
