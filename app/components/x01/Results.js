@@ -116,7 +116,7 @@ export default class Results extends Component {
         let p1Wins = this.props.p1Legs;
         let p2Wins = this.props.p2Legs;
         
-        if (p1Wins === 0 && p2Wins === 0) {
+        if (p1Wins === 0 && p2Wins === 0 && setHistory.length < 1) {
             if (this.props.gameWinner === 'p1') {
                 p1Wins = 1;
             } else {
