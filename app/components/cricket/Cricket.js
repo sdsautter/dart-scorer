@@ -643,6 +643,7 @@ export default class Cricket extends Component {
                                     if (multiple === 0) {
                                         this.miss();
                                     } else {
+                                        number = this.botFindOpenNumber()
                                         this.score(number, multiple);
                                     }
                                 } else {
@@ -690,6 +691,7 @@ export default class Cricket extends Component {
                                     if (multiple === 0) {
                                         this.miss();
                                     } else {
+                                        number = this.botFindOpenNumber();
                                         this.score(number, multiple);
                                     }
                                 } else {
@@ -741,6 +743,7 @@ export default class Cricket extends Component {
                                 number = this.botNumberHit();
                                 if (number === 25) {
                                     multiple = Math.random() >= .45 ? 0 : 1;
+                                    number = this.botFindOpenNumber();
                                 } else {
                                     multiple = 1;
                                 }
@@ -801,6 +804,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .45) {
                                         multiple = 1;
                                     } else {
@@ -867,6 +871,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .45) {
                                         multiple = 1;
                                     } else {
@@ -938,6 +943,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .75) {
                                         multiple = 1;
                                     } else {
@@ -1004,6 +1010,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .25) {
                                         multiple = 2;
                                     } else if (randomNumber <= .75) {
@@ -1072,6 +1079,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .25) {
                                         multiple = 2;
                                     } else if (randomNumber <= .75) {
@@ -1140,6 +1148,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .25) {
                                         multiple = 2;
                                     } else if (randomNumber <= .75) {
@@ -1165,6 +1174,7 @@ export default class Cricket extends Component {
                             if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
                                 number = this.botNumberHit();
                                 if (number === 25) {
+                                    number = this.botFindOpenNumber();
                                     if (randomNumber <= .25) {
                                         multiple = 2;
                                     } else if (randomNumber <= .75) {

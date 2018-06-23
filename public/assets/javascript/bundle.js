@@ -15547,6 +15547,7 @@ var Cricket = function (_Component) {
                                         if (multiple === 0) {
                                             _this4.miss();
                                         } else {
+                                            number = _this4.botFindOpenNumber();
                                             _this4.score(number, multiple);
                                         }
                                     } else {
@@ -15594,6 +15595,7 @@ var Cricket = function (_Component) {
                                         if (multiple === 0) {
                                             _this4.miss();
                                         } else {
+                                            number = _this4.botFindOpenNumber();
                                             _this4.score(number, multiple);
                                         }
                                     } else {
@@ -15645,6 +15647,7 @@ var Cricket = function (_Component) {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
+                                        number = _this4.botFindOpenNumber();
                                     } else {
                                         multiple = 1;
                                     }
@@ -15705,6 +15708,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .45) {
                                             multiple = 1;
                                         } else {
@@ -15771,6 +15775,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .45) {
                                             multiple = 1;
                                         } else {
@@ -15842,6 +15847,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .75) {
                                             multiple = 1;
                                         } else {
@@ -15908,6 +15914,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -15976,6 +15983,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -16044,6 +16052,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -16069,6 +16078,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -54669,6 +54679,7 @@ var Cricket = function (_Component) {
                                         if (multiple === 0) {
                                             _this4.miss();
                                         } else {
+                                            number = _this4.botFindOpenNumber();
                                             _this4.score(number, multiple);
                                         }
                                     } else {
@@ -54716,6 +54727,7 @@ var Cricket = function (_Component) {
                                         if (multiple === 0) {
                                             _this4.miss();
                                         } else {
+                                            number = _this4.botFindOpenNumber();
                                             _this4.score(number, multiple);
                                         }
                                     } else {
@@ -54767,6 +54779,7 @@ var Cricket = function (_Component) {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
                                         multiple = Math.random() >= .45 ? 0 : 1;
+                                        number = _this4.botFindOpenNumber();
                                     } else {
                                         multiple = 1;
                                     }
@@ -54827,6 +54840,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .45) {
                                             multiple = 1;
                                         } else {
@@ -54893,6 +54907,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .45) {
                                             multiple = 1;
                                         } else {
@@ -54964,6 +54979,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .75) {
                                             multiple = 1;
                                         } else {
@@ -55030,6 +55046,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -55098,6 +55115,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -55166,6 +55184,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
@@ -55191,6 +55210,7 @@ var Cricket = function (_Component) {
                                 if (_this4.state.gameWinner !== 'p1' && _this4.state.gameWinner !== 'p2') {
                                     number = _this4.botNumberHit();
                                     if (number === 25) {
+                                        number = _this4.botFindOpenNumber();
                                         if (randomNumber <= .25) {
                                             multiple = 2;
                                         } else if (randomNumber <= .75) {
