@@ -5,6 +5,8 @@ const express = require('express');
 const logger = require('morgan');
 const methodOverride = require('method-override');
 const path = require('path');
+const db = require("./models");
+var passport = require("passport");
 
 // Create Express server
 const app = express();
@@ -16,10 +18,15 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routes
 require('./routes.js')(app);
 
-app.listen(PORT, () => {
-    console.log(`Localhost:${PORT}`);
+db.sequelize.sync({ force: false }).then(function() {
+  app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
   });
+});
