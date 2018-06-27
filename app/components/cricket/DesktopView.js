@@ -252,7 +252,7 @@ export default class DesktopView extends Component {
                                     {this.props.markProgress(1, 20)}
                                 </div>
                                 <div className="col-2 text-center border-left border-left p2-single">
-                                    <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                    <button type="button" className="btn btn-success upmod" onClick={() => { this.props.score(20, 1) }}>20</button>
                                 </div>
                                 <div className="col-2 p2-multiple text-center">
                                     <button type="button" className="btn btn-success" onClick={() => { this.props.score(20, 2) }}>x2</button>

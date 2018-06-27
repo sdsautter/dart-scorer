@@ -30,6 +30,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.15.4",
     "howler": "^2.0.12",
+    "lodash": "^4.17.10",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",

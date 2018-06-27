@@ -1238,3 +1238,15 @@ img {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 } */
+
+.upmod:active {
+content: "+1";
+font-size: 14px;
+margin-left: 1px;
+position: relative;
+color: #C2185B;
+bottom: 18px;
+opacity: 0.0;
+z-index: 102;
+-webkit-animation-name: exAn; -webkit-animation-duration: 3.0s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -moz-animation-name: exAn; -moz-animation-duration: 3.0s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; animation-name: exAn; animation-duration: 3.0s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-play-state: running;
+}
