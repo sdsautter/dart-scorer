@@ -3,6 +3,7 @@ import Cricket from "./cricket/Cricket.js";
 import X01 from "./x01/X01.js";
 import ChooseGame from './common/ChooseGame';
 import MainMenu from './common/MainMenu';
+import UserStats from './stats/UserStats';
 import BotDifficulty from './common/BotDifficulty';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import RulesPage from "./common/RulesPage.js";
@@ -28,6 +29,7 @@ export default class Master extends Component {
                     <Route exact path='/cpu/cricket/:botDifficulty' component={Cricket} />
                     <Route path='/pvp/x01' component={X01} />
                     <Route path='/pvp/cricket' component={Cricket} />
+                    <Route exact path='/user/:username' component={UserStats} />
                 </div>
             </BrowserRouter>
         )

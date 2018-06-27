@@ -5,6 +5,7 @@ import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import axios from 'axios';
 
 
 export default class Cricket extends Component {
@@ -100,6 +101,23 @@ export default class Cricket extends Component {
         this.scoringLogic = this.scoringLogic.bind(this);
         this.popLastMark = this.popLastMark.bind(this);
         this.reconfigureActiveMarks = this.reconfigureActiveMarks.bind(this);
+        this.putGameStats = this.putGameStats.bind(this);
+    }
+
+    putGameStats() {
+        const win = this.state.gameWinner === 'p1' ? true : false;
+
+        const game = {
+            win,
+            throws: this.state.p1Throws,
+            marks: this.p1Marks,
+            bulls: this.p1Bulls,
+            botGame: this.state.botGame,
+            date: new Date()
+        }
+
+        axios.put(`/user/cricket`, game)
+            .catch(err => console.log(err));
     }
 
     continueSet() {
@@ -1573,12 +1591,15 @@ export default class Cricket extends Component {
     }
 
     gameStateOver() {
-        this.allStarPoints(this.state.gameWinner);
+        if (this.activeBulls !== 0 && this.activeMarks !== 0) {
+            this.allStarPoints(this.state.gameWinner);
+        }
         const gameOverSound = new Howl({
             src: [`../../../assets/sounds/game_over.mp3`]
         });
         Howler.volume(.4);
         this.fillHistoryData();
+        this.putGameStats();
         if (this.state.firstWinner === '') {
             this.setState({ firstWinner: this.state.gameWinner }, () => {
                 this.addLeg();

@@ -6,6 +6,7 @@ import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import axios from 'axios';
 
 export default class X01 extends Component {
     constructor({ match }) {
@@ -13,13 +14,17 @@ export default class X01 extends Component {
 
         this.p1RoundScoresHistory = [];
         this.p1CheckoutShotsHistory = 0;
+        this.p1CheckInShotsHistory = 0;
         this.p1ThrowsHistory = 0;
         this.p2RoundScoresHistory = [];
         this.p2CheckoutShotsHistory = 0;
+        this.p2CheckInShotsHistory = 0;
         this.p2ThrowsHistory = 0;
 
         this.p1CheckoutShots = 0;
         this.p2CheckoutShots = 0;
+        this.p1CheckInShots = 0;
+        this.p2CheckInShots = 0;
 
         this.state = {
             activeThrower: "p1",
@@ -56,6 +61,7 @@ export default class X01 extends Component {
             multipleGesture: 'horizontal'
         }
         //Binding functions to change the states       
+        this.putGameStats = this.putGameStats.bind(this);
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
         this.undoGameOver = this.undoGameOver.bind(this);
         this.addLeg = this.addLeg.bind(this);
@@ -879,12 +885,38 @@ export default class X01 extends Component {
         }
     }
 
+    putGameStats() {
+        const win = this.state.gameWinner === 'p1' ? true : false;
+        const checkIns = this.p1CheckInShots;
+
+        const game = {
+            win,
+            x01Game: this.state.x01Game,
+            throws: this.state.p1Throws,
+            roundScores: this.state.p1RoundScores,
+            botGame: this.state.botGame,
+            checkouts: this.p1CheckInShots,
+            date: new Date()
+        }
+
+        if (checkIns > 0) {
+            game.checkIns = checkIns;
+        }
+        if (checkouts > 0) {
+            game.checkouts = checkouts;
+        }
+
+        axios.put(`/user/x01`, game)
+            .catch(err => console.log(err));
+    }
+
     gameStateOver() {
         Howler.volume(.4);
         const gameOverSound = new Howl({
             src: ['../../../assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
+        this.putGameStats();
         this.fillHistoryData();
         if (this.state.firstWinner === '') {
             this.setState({ firstWinner: this.state.gameWinner }, () => {

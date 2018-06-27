@@ -3,10 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const db = require("../models");
 class UserController {
     createUser(user, res) {
-        console.log(db);
-        console.log('in createUser');
-        console.log(user);
-        db.User.create({
+        return db.User.create({
             username: user.username,
             password: user.password,
             cricket: [],
@@ -17,6 +14,14 @@ class UserController {
             setTotal: 0
         })
             .then(() => res.status(200).send('User created.'));
+    }
+    getCricketStats(username) {
+        return db.User.findOne({ where: { username } })
+            .then((data) => data.cricket);
+    }
+    getX01Stats(username) {
+        return db.User.findOne({ where: { username } })
+            .then((data) => data.x01);
     }
     addCricketGame(id, game) {
         return db.User.findOne({ where: { id } })

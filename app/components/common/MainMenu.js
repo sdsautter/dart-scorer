@@ -43,6 +43,14 @@ export default class MainMenu extends Component {
                 <div className="row">
                     <div className="col-12 text-center main-menu">
                         <Link to={{
+                            pathname: '/user/scott',
+                        }}><button className='main-menu'>Stats</button></Link>
+                    </div>
+                </div>
+                <br />
+                <div className="row">
+                    <div className="col-12 text-center main-menu">
+                        <Link to={{
                             pathname: '/settings',
                         }}><button className='main-menu'>Settings</button></Link>
                     </div>

@@ -2,10 +2,7 @@ const db = require("../models");
 
 export default class UserController {
     public createUser(user, res) {
-        console.log(db);
-        console.log('in createUser');
-        console.log(user);
-        db.User.create({
+        return db.User.create({
             username: user.username,
             password: user.password,
             cricket: [],
@@ -16,6 +13,16 @@ export default class UserController {
             setTotal: 0
         })
             .then(() => res.status(200).send('User created.'));
+    }
+
+    public getCricketStats(username): Promise<any> {
+        return db.User.findOne({ where: { username } })
+            .then((data) => data.cricket)
+    }
+
+    public getX01Stats(username): Promise<any> {
+        return db.User.findOne({ where: { username } })
+            .then((data) => data.x01)
     }
 
     public addCricketGame(id, game): Promise<any> {
