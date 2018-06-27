@@ -1573,7 +1573,9 @@ export default class Cricket extends Component {
     }
 
     gameStateOver() {
-        this.allStarPoints(this.state.gameWinner);
+        if (this.activeBulls !== 0 && this.activeMarks !== 0) {
+            this.allStarPoints(this.state.gameWinner);
+        }
         const gameOverSound = new Howl({
             src: [`../../../assets/sounds/game_over.mp3`]
         });
