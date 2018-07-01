@@ -10075,10 +10075,12 @@ var X01 = function (_Component) {
         _this.p1RoundScoresHistory = [];
         _this.p1CheckoutShotsHistory = 0;
         _this.p1CheckInShotsHistory = 0;
+        _this.p1CheckInHistory = [];
         _this.p1ThrowsHistory = 0;
         _this.p2RoundScoresHistory = [];
         _this.p2CheckoutShotsHistory = 0;
         _this.p2CheckInShotsHistory = 0;
+        _this.p2CheckInHistory = [];
         _this.p2ThrowsHistory = 0;
 
         _this.p1CheckoutShots = 0;
@@ -10533,6 +10535,8 @@ var X01 = function (_Component) {
 
             this.p1CheckoutShots = 0;
             this.p2CheckoutShots = 0;
+            this.p1CheckInShots = 0;
+            this.p2CheckInShots = 0;
             this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
@@ -10561,13 +10565,19 @@ var X01 = function (_Component) {
         key: "gameX01Reset",
         value: function gameX01Reset() {
             this.p1RoundScoresHistory = [];
+            this.p1CheckInHistory = [];
             this.p1CheckoutShotsHistory = 0;
+            this.p1CheckInShotsHistory = 0;
             this.p1ThrowsHistory = 0;
             this.p2RoundScoresHistory = [];
+            this.p2CheckInHistory = [];
             this.p2CheckoutShotsHistory = 0;
+            this.p2CheckInShotsHistory = 0;
             this.p2ThrowsHistory = 0;
             this.p1CheckoutShots = 0;
             this.p2CheckoutShots = 0;
+            this.p1CheckInShots = 0;
+            this.p2CheckInShots = 0;
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
@@ -10757,6 +10767,17 @@ var X01 = function (_Component) {
             });
 
             var thrower = this.state.activeThrower;
+
+            if (thrower === 'p1') {
+                if (!this.state.p1DoubleIn) {
+                    this.p1CheckInShots++;
+                }
+            } else if (thrower === 'p2') {
+                if (!this.state.p2DoubleIn) {
+                    this.p2CheckInShots++;
+                }
+            }
+
             if (multiplier === 2) {
                 this.doubleInTrue(thrower);
             }
@@ -10855,6 +10876,15 @@ var X01 = function (_Component) {
                 src: ['../../../assets/sounds/miss_hit.mp3']
             });
             var playerScoreNumber = eval("this.state." + this.state.activeThrower + "Score");
+            if (this.state.activeThrower === 'p1') {
+                if (!this.p1DoubleIn) {
+                    this.p1CheckInShots++;
+                }
+            } else if (this.state.activeThrower === 'p2') {
+                if (!this.p2DoubleIn) {
+                    this.p2CheckInShots++;
+                }
+            }
 
             if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                 if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
@@ -10979,7 +11009,9 @@ var X01 = function (_Component) {
             this.p1ThrowsHistory += this.state.p1Throws;
             this.p2ThrowsHistory += this.state.p2Throws;
             this.p1CheckoutShotsHistory += this.p1CheckoutShots;
+            this.p1CheckInShotsHistory += this.p1CheckInShots;
             this.p2CheckoutShotsHistory += this.p2CheckoutShots;
+            this.p2CheckInShotsHistory += this.p2CheckInShots;
 
             for (var i in p1RoundScores) {
                 p1RoundScoresHistory.push(p1RoundScores[i]);
@@ -10989,20 +11021,35 @@ var X01 = function (_Component) {
                 p2RoundScoresHistory.push(p2RoundScores[i]);
                 this.p2RoundScoresHistory = p2RoundScoresHistory;
             }
+
+            if (this.state.p1DoubleIn) {
+                this.p1CheckInHistory.push(true);
+            } else {
+                this.p1CheckInHistory.push(false);
+            }
+
+            if (this.state.p2DoubleIn) {
+                this.p2CheckInHistory.push(true);
+            } else {
+                this.p2CheckInHistory.push(false);
+            }
         }
     }, {
         key: "putGameStats",
         value: function putGameStats() {
             var win = this.state.gameWinner === 'p1' ? true : false;
+            var botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
             var checkIns = this.p1CheckInShots;
+            var checkouts = this.p1CheckoutShots;
 
             var game = {
                 win: win,
                 x01Game: this.state.x01Game,
+                gameOptions: this.state.gameOptions,
                 throws: this.state.p1Throws,
                 roundScores: this.state.p1RoundScores,
                 botGame: this.state.botGame,
-                checkouts: this.p1CheckInShots,
+                botDifficulty: botDifficulty,
                 date: new Date()
             };
 
@@ -11126,6 +11173,15 @@ var X01 = function (_Component) {
 
             switch (this.state.activeThrows) {
                 case 0:
+                    if (thrower === 'p1') {
+                        if (!this.p1DoubleIn) {
+                            this.p1CheckInShots += 3;
+                        }
+                    } else if (thrower === 'p2') {
+                        if (!this.p2DoubleIn) {
+                            this.p2CheckInShots += 3;
+                        }
+                    }
                     if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                         if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                             if (this.state.activeThrower === 'p1') {
@@ -11163,6 +11219,15 @@ var X01 = function (_Component) {
                     this.setThrowNumber(0);
                     break;
                 case 1:
+                    if (thrower === 'p1') {
+                        if (!this.p1DoubleIn) {
+                            this.p1CheckInShots += 2;
+                        }
+                    } else if (thrower === 'p2') {
+                        if (!this.p2DoubleIn) {
+                            this.p2CheckInShots += 2;
+                        }
+                    }
                     if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                         if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                             if (this.state.activeThrower === 'p1') {
@@ -11199,6 +11264,15 @@ var X01 = function (_Component) {
                     this.setThrowNumber(0);
                     break;
                 case 2:
+                    if (thrower === 'p1') {
+                        if (!this.p1DoubleIn) {
+                            this.p1CheckInShots++;
+                        }
+                    } else if (thrower === 'p2') {
+                        if (!this.p2DoubleIn) {
+                            this.p2CheckInShots++;
+                        }
+                    }
                     if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                         if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                             if (this.state.activeThrower === 'p1') {
@@ -11335,13 +11409,19 @@ var X01 = function (_Component) {
                         setHistory: this.state.setHistory,
                         setGameStatePick: this.setGameStatePick,
                         p1CheckoutShots: this.p1CheckoutShots,
+                        p1CheckInShots: this.p1CheckInShots,
                         p2CheckoutShots: this.p2CheckoutShots,
+                        p2CheckInShots: this.p2CheckInShots,
                         p1RoundScoresHistory: this.p1RoundScoresHistory,
                         p1CheckoutShotsHistory: this.p1CheckoutShotsHistory,
+                        p1CheckInShotsHistory: this.p1CheckInShotsHistory,
                         p1ThrowsHistory: this.p1ThrowsHistory,
                         p2RoundScoresHistory: this.p2RoundScoresHistory,
                         p2CheckoutShotsHistory: this.p2CheckoutShotsHistory,
-                        p2ThrowsHistory: this.p2ThrowsHistory
+                        p2CheckInShotsHistory: this.p2CheckInShotsHistory,
+                        p2ThrowsHistory: this.p2ThrowsHistory,
+                        p1CheckInHistory: this.p1CheckInHistory,
+                        p2CheckInHistory: this.p2CheckInHistory
                     });
                 }
             } else if (this.state.gameState === "difficulty") {
@@ -15321,6 +15401,7 @@ var Cricket = function (_Component) {
         key: "putGameStats",
         value: function putGameStats() {
             var win = this.state.gameWinner === 'p1' ? true : false;
+            var botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
 
             var game = {
                 win: win,
@@ -15328,6 +15409,7 @@ var Cricket = function (_Component) {
                 marks: this.p1Marks,
                 bulls: this.p1Bulls,
                 botGame: this.state.botGame,
+                botDifficulty: botDifficulty,
                 date: new Date()
             };
 
@@ -54074,6 +54156,8 @@ var Results = function (_Component) {
             p1ppd: 0,
             p1CheckoutShots: 0,
             p1CheckoutPercent: 0,
+            p1CheckInShots: 0,
+            p1CheckInPercent: 0,
             p126: 0,
             p160: 0,
             p1100: 0,
@@ -54084,6 +54168,8 @@ var Results = function (_Component) {
             p1ppdSet: 0,
             p1CheckoutShotsSet: 0,
             p1CheckoutPercentSet: 0,
+            p1CheckInShotsSet: 0,
+            p1CheckInPercentSet: 0,
             p126Set: 0,
             p160Set: 0,
             p1100Set: 0,
@@ -54095,6 +54181,8 @@ var Results = function (_Component) {
             p2ppd: 0,
             p2CheckoutShots: 0,
             p2CheckoutPercent: 0,
+            p2CheckInShots: 0,
+            p2CheckInPercent: 0,
             p226: 0,
             p260: 0,
             p2100: 0,
@@ -54105,6 +54193,8 @@ var Results = function (_Component) {
             p2ppdSet: 0,
             p2CheckoutShotsSet: 0,
             p2CheckoutPercentSet: 0,
+            p2CheckInShotsSet: 0,
+            p2CheckInPercentSet: 0,
             p226Set: 0,
             p260Set: 0,
             p2100Set: 0,
@@ -54132,8 +54222,12 @@ var Results = function (_Component) {
         _this.setSetPpd = _this.setSetPpd.bind(_this);
         _this.setLegCheckout = _this.setLegCheckout.bind(_this);
         _this.setSetCheckout = _this.setSetCheckout.bind(_this);
+        _this.setLegCheckIn = _this.setLegCheckIn.bind(_this);
+        _this.setSetCheckIn = _this.setSetCheckIn.bind(_this);
         _this.throwRow = _this.throwRow.bind(_this);
         _this.ppdRow = _this.ppdRow.bind(_this);
+        _this.checkInChancesRow = _this.checkInChancesRow.bind(_this);
+        _this.checkInPercentRow = _this.checkInPercentRow.bind(_this);
         _this.checkoutChancesRow = _this.checkoutChancesRow.bind(_this);
         _this.checkoutPercentRow = _this.checkoutPercentRow.bind(_this);
         return _this;
@@ -54145,9 +54239,11 @@ var Results = function (_Component) {
             this.setLegScores();
             this.setLegPpd();
             this.setLegCheckout();
+            this.setLegCheckIn();
             this.setSetScores();
             this.setSetPpd();
             this.setSetCheckout();
+            this.setSetCheckIn();
         }
     }, {
         key: "renderWinner",
@@ -54177,6 +54273,37 @@ var Results = function (_Component) {
             this.setState({ p1CheckoutPercent: p1CheckoutPercent });
             this.setState({ p2CheckoutShots: p2CheckoutShots });
             this.setState({ p2CheckoutPercent: p2CheckoutPercent });
+        }
+    }, {
+        key: "setLegCheckIn",
+        value: function setLegCheckIn() {
+            var p1CheckInShots = this.props.p1CheckInShots;
+            var p2CheckInShots = this.props.p2CheckInShots;
+            var player1Scores = this.props.p1RoundScores;
+            var player2Scores = this.props.p2RoundScores;
+            var p1CheckInPercent = 0,
+                p2CheckInPercent = 0,
+                p1InShot = 0,
+                p2InShot = 0;
+
+            for (var i in player1Scores) {
+                if (parseInt(player1Scores[i]) > 0) {
+                    p1InShot = 1;
+                }
+            }
+            for (var i in player2Scores) {
+                if (parseInt(player2Scores[i]) > 0) {
+                    p2InShot = 1;
+                }
+            }
+
+            p1CheckInPercent = p1InShot / p1CheckInShots * 100;
+            p2CheckInPercent = p2InShot / p2CheckInShots * 100;
+
+            this.setState({ p1CheckInShots: p1CheckInShots });
+            this.setState({ p1CheckInPercent: p1CheckInPercent });
+            this.setState({ p2CheckInShots: p2CheckInShots });
+            this.setState({ p2CheckInPercent: p2CheckInPercent });
         }
     }, {
         key: "setSetCheckout",
@@ -54210,6 +54337,34 @@ var Results = function (_Component) {
             this.setState({ p1CheckoutPercentSet: p1CheckoutPercentSet });
             this.setState({ p2CheckoutShotsSet: p2CheckoutShotsSet });
             this.setState({ p2CheckoutPercentSet: p2CheckoutPercentSet });
+        }
+    }, {
+        key: "setSetCheckIn",
+        value: function setSetCheckIn() {
+            var p1CheckInShotsSet = this.props.p1CheckInShotsHistory;
+            var p2CheckInShotsSet = this.props.p2CheckInShotsHistory;
+            var p1CheckInHistory = this.props.p1CheckInHistory;
+            var p2CheckInHistory = this.props.p2CheckInHistory;
+            var p1Ins = 0,
+                p2Ins = 0,
+                p1CheckInPercentSet = 0,
+                p2CheckInPercentSet = 0;
+            for (var i in p1CheckInHistory) {
+                if (p1CheckInHistory[i]) p1Ins++;
+            }
+            for (var i in p2CheckInHistory) {
+                if (p2CheckInHistory[i]) p2Ins++;
+            }
+
+            p1CheckInPercentSet = p1Ins / p1CheckInShotsSet * 100;
+            p2CheckInPercentSet = p2Ins / p2CheckInShotsSet * 100;
+            p1CheckInPercentSet = isNaN(p1CheckInPercentSet) ? 0 : p1CheckInPercentSet;
+            p2CheckInPercentSet = isNaN(p2CheckInPercentSet) ? 0 : p2CheckInPercentSet;
+
+            this.setState({ p1CheckInShotsSet: p1CheckInShotsSet });
+            this.setState({ p1CheckInPercentSet: p1CheckInPercentSet });
+            this.setState({ p2CheckInShotsSet: p2CheckInShotsSet });
+            this.setState({ p2CheckInPercentSet: p2CheckInPercentSet });
         }
     }, {
         key: "setLegPpd",
@@ -54780,6 +54935,76 @@ var Results = function (_Component) {
             );
         }
     }, {
+        key: "checkInChancesRow",
+        value: function checkInChancesRow() {
+            if (parseInt(this.props.p1CheckInShots) > 0 || parseInt(this.props.p2CheckInShots) > 0) {
+                return _react2.default.createElement(
+                    "tr",
+                    null,
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p1CheckInShots
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p1CheckInShotsHistory
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        "Check-In Chances"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p2CheckInShots
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p2CheckInShotsHistory
+                    )
+                );
+            }
+        }
+    }, {
+        key: "checkInPercentRow",
+        value: function checkInPercentRow() {
+            if (parseInt(this.props.p1CheckInShots) > 0 || parseInt(this.props.p2CheckInShots) > 0) {
+                return _react2.default.createElement(
+                    "tr",
+                    null,
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p1CheckInPercent.toFixed(2)) + "%"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p1CheckInPercentSet.toFixed(2)) + "%"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        "Check-In Percent"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p2CheckInPercent.toFixed(2)) + "%"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p2CheckInPercentSet.toFixed(2)) + "%"
+                    )
+                );
+            }
+        }
+    }, {
         key: "renderTable",
         value: function renderTable() {
             return _react2.default.createElement(
@@ -54819,6 +55044,8 @@ var Results = function (_Component) {
                     null,
                     this.throwRow(),
                     this.ppdRow(),
+                    this.checkInChancesRow(),
+                    this.checkInPercentRow(),
                     this.checkoutChancesRow(),
                     this.checkoutPercentRow(),
                     this.twentySixRow(),
@@ -55150,11 +55377,11 @@ var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _RulesPage = __webpack_require__(306);
+var _RulesPage = __webpack_require__(308);
 
 var _RulesPage2 = _interopRequireDefault(_RulesPage);
 
-var _SettingsMainMenu = __webpack_require__(307);
+var _SettingsMainMenu = __webpack_require__(309);
 
 var _SettingsMainMenu2 = _interopRequireDefault(_SettingsMainMenu);
 
@@ -55503,6 +55730,7 @@ var Cricket = function (_Component) {
         key: "putGameStats",
         value: function putGameStats() {
             var win = this.state.gameWinner === 'p1' ? true : false;
+            var botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
 
             var game = {
                 win: win,
@@ -55510,6 +55738,7 @@ var Cricket = function (_Component) {
                 marks: this.p1Marks,
                 bulls: this.p1Bulls,
                 botGame: this.state.botGame,
+                botDifficulty: botDifficulty,
                 date: new Date()
             };
 
@@ -62201,6 +62430,14 @@ var _axios = __webpack_require__(42);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _CricketStats = __webpack_require__(306);
+
+var _CricketStats2 = _interopRequireDefault(_CricketStats);
+
+var _X01Stats = __webpack_require__(307);
+
+var _X01Stats2 = _interopRequireDefault(_X01Stats);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62220,54 +62457,15 @@ var UserStats = function (_Component) {
         var _this = _possibleConstructorReturn(this, (UserStats.__proto__ || Object.getPrototypeOf(UserStats)).call(this));
 
         _this.user = match.params.username;
+        _this.cricket = [];
+        _this.x01 = [];
         _this.state = {
-            game: '',
-            cricket: {
-                wins: 0,
-                totalGames: 0,
-                throws: 0,
-                bestLeg: 0,
-                mpr: 0,
-                fiveMark: 0,
-                sixMark: 0,
-                sevenMark: 0,
-                eightMark: 0,
-                nineMark: 0,
-                threeBull: 0,
-                fourBull: 0,
-                fiveBull: 0,
-                sixBull: 0
-            },
-            x01: {
-                wins: 0,
-                totalGames: 0,
-                throws: 0,
-                bestLeg: 0,
-                ppd: 0,
-                twentySix: 0,
-                sixty: 0,
-                ton: 0,
-                tonTwenty: 0,
-                tonForty: 0,
-                tonSixy: 0,
-                tonEighty: 0,
-                checkoutPercent: 0,
-                checkInPercent: 0,
-                highestCheckout: 0
-            }
+            game: 'Stats'
         };
 
         _this.setGame = _this.setGame.bind(_this);
         _this.getCricketStats = _this.getCricketStats.bind(_this);
         _this.getX01Stats = _this.getX01Stats.bind(_this);
-        _this.setCricketStats = _this.setCricketStats.bind(_this);
-        _this.setX01Stats = _this.setX01Stats.bind(_this);
-        _this.setX01Scores = _this.setX01Scores.bind(_this);
-        _this.setX01Ppd = _this.setX01Ppd.bind(_this);
-        _this.setX01BestLeg = _this.setX01BestLeg.bind(_this);
-        _this.setHighestCheckout = _this.setHighestCheckout.bind(_this);
-        _this.setX01Checkout = _this.setX01Checkout.bind(_this);
-        _this.setX01CheckIn = _this.setX01CheckIn.bind(_this);
         _this.statsRender = _this.statsRender.bind(_this);
         return _this;
     }
@@ -62284,7 +62482,7 @@ var UserStats = function (_Component) {
             var _this2 = this;
 
             _axios2.default.get('/user/' + this.user + '/cricket').then(function (games) {
-                _this2.setCricketStats(games.data);
+                return _this2.cricket = games.data;
             });
         }
     }, {
@@ -62293,14 +62491,208 @@ var UserStats = function (_Component) {
             var _this3 = this;
 
             _axios2.default.get('/user/' + this.user + '/x01').then(function (games) {
-                return _this3.setX01Stats(games.data);
+                return _this3.x01 = games.data;
             });
+        }
+    }, {
+        key: 'statsRender',
+        value: function statsRender() {
+            if (this.state.game === 'cricket') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row rules' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col rules-borders stats' },
+                        _react2.default.createElement(_CricketStats2.default, {
+                            cricket: this.cricket
+                        })
+                    )
+                );
+            } else if (this.state.game === 'x01') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row rules' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col rules-borders stats' },
+                        _react2.default.createElement(_X01Stats2.default, {
+                            x01: this.x01
+                        })
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'setGame',
+        value: function setGame(game) {
+            this.setState({ game: game });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this4 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row top-row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col rules-menu-title text-center' },
+                        this.state.game
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center rules-menu' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'rules-menu', onClick: function onClick() {
+                                            _this4.setGame('cricket');
+                                        } },
+                                    'Cricket'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center rules-menu' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'rules-menu', onClick: function onClick() {
+                                            _this4.setGame('x01');
+                                        } },
+                                    'X01'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center rules-menu' },
+                                _react2.default.createElement(
+                                    _reactRouterDom.Link,
+                                    { to: {
+                                            pathname: '/'
+                                        } },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: 'rules-menu' },
+                                        'Back'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-8', id: 'rules' },
+                        this.statsRender()
+                    )
+                )
+            );
+        }
+    }]);
+
+    return UserStats;
+}(_react.Component);
+
+exports.default = UserStats;
+
+/***/ }),
+/* 306 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CricketStats = function (_Component) {
+    _inherits(CricketStats, _Component);
+
+    function CricketStats(_ref) {
+        var match = _ref.match;
+
+        _classCallCheck(this, CricketStats);
+
+        var _this = _possibleConstructorReturn(this, (CricketStats.__proto__ || Object.getPrototypeOf(CricketStats)).call(this));
+
+        _this.state = {
+            wins: 0,
+            totalGames: 0,
+            throws: 0,
+            bestLeg: 0,
+            mpr: 0,
+            fiveMark: 0,
+            sixMark: 0,
+            sevenMark: 0,
+            eightMark: 0,
+            nineMark: 0,
+            threeBull: 0,
+            fourBull: 0,
+            fiveBull: 0,
+            sixBull: 0
+        };
+
+        _this.setCricketStats = _this.setCricketStats.bind(_this);
+        _this.fiveMarkRow = _this.fiveMarkRow.bind(_this);
+        _this.sixMarkRow = _this.sixMarkRow.bind(_this);
+        _this.sevenMarkRow = _this.sevenMarkRow.bind(_this);
+        _this.eightMarkRow = _this.eightMarkRow.bind(_this);
+        _this.nineMarkRow = _this.nineMarkRow.bind(_this);
+        _this.threeBullRow = _this.threeBullRow.bind(_this);
+        _this.fourBullRow = _this.fourBullRow.bind(_this);
+        _this.fiveBullRow = _this.fiveBullRow.bind(_this);
+        _this.sixBullRow = _this.sixBullRow.bind(_this);
+        _this.allStarPointsRender = _this.allStarPointsRender.bind(_this);
+        _this.gameStatsRender = _this.gameStatsRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(CricketStats, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setCricketStats(this.props.cricket);
         }
     }, {
         key: 'setCricketStats',
         value: function setCricketStats(games) {
-            console.log(games);
-
             var wins = 0;
             var totalGames = 0;
             var throws = 0;
@@ -62382,24 +62774,426 @@ var UserStats = function (_Component) {
 
             mpr = totalMarks / marks.length;
 
-            var cricket = {
-                wins: wins,
-                totalGames: totalGames,
-                throws: throws,
-                bestLeg: bestLeg,
-                mpr: mpr,
-                fiveMark: fiveMark,
-                sixMark: sixMark,
-                sevenMark: sevenMark,
-                eightMark: eightMark,
-                nineMark: nineMark,
-                threeBull: threeBull,
-                fourBull: fourBull,
-                fiveBull: fiveBull,
-                sixBull: sixBull
-            };
+            this.setState({ wins: wins });
+            this.setState({ totalGames: totalGames });
+            this.setState({ throws: throws });
+            this.setState({ bestLeg: bestLeg });
+            this.setState({ mpr: mpr });
+            this.setState({ fiveMark: fiveMark });
+            this.setState({ sixMark: sixMark });
+            this.setState({ sevenMark: sevenMark });
+            this.setState({ eightMark: eightMark });
+            this.setState({ nineMark: nineMark });
+            this.setState({ threeBull: threeBull });
+            this.setState({ fourBull: fourBull });
+            this.setState({ fiveBull: fiveBull });
+            this.setState({ sixBull: sixBull });
+        }
+    }, {
+        key: 'fiveMarkRow',
+        value: function fiveMarkRow() {
+            if (this.state.fiveMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.fiveMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixMarkRow',
+        value: function sixMarkRow() {
+            if (this.state.sixMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sixMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sevenMarkRow',
+        value: function sevenMarkRow() {
+            if (this.state.sevenMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '7 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sevenMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'eightMarkRow',
+        value: function eightMarkRow() {
+            if (this.state.eightMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '8 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.eightMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'nineMarkRow',
+        value: function nineMarkRow() {
+            if (this.state.nineMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '9 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.nineMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'threeBullRow',
+        value: function threeBullRow() {
+            if (this.state.threeBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '3 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.threeBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fourBullRow',
+        value: function fourBullRow() {
+            if (this.state.fourBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '4 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.fourBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fiveBullRow',
+        value: function fiveBullRow() {
+            if (this.state.fiveBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.fiveBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixBullRow',
+        value: function sixBullRow() {
+            if (this.state.sixBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sixBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'gameStatsRender',
+        value: function gameStatsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Best Leg'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.bestLeg
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Wins'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.wins
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Total Legs'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.totalGames
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Win Percent'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseInt(this.state.wins / this.state.totalGames * 100) + '%'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Throws'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.throws
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Marks Per Round'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseFloat(this.state.mpr.toFixed(2))
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'allStarPointsRender',
+        value: function allStarPointsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    this.fiveMarkRow(),
+                    this.sixMarkRow(),
+                    this.sevenMarkRow(),
+                    this.eightMarkRow(),
+                    this.nineMarkRow(),
+                    this.threeBullRow(),
+                    this.fourBullRow(),
+                    this.fiveBullRow(),
+                    this.sixBullRow()
+                )
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'row text-center' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-6' },
+                    this.gameStatsRender()
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-6' },
+                    this.allStarPointsRender()
+                )
+            );
+        }
+    }]);
 
-            this.setState({ cricket: cricket });
+    return CricketStats;
+}(_react.Component);
+
+exports.default = CricketStats;
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var X01Stats = function (_Component) {
+    _inherits(X01Stats, _Component);
+
+    function X01Stats() {
+        _classCallCheck(this, X01Stats);
+
+        var _this = _possibleConstructorReturn(this, (X01Stats.__proto__ || Object.getPrototypeOf(X01Stats)).call(this));
+
+        _this.state = {
+            wins: 0,
+            totalGames: 0,
+            throws: 0,
+            bestLeg: 0,
+            ppd: 0,
+            twentySix: 0,
+            sixty: 0,
+            ton: 0,
+            tonTwenty: 0,
+            tonForty: 0,
+            tonSixy: 0,
+            tonEighty: 0,
+            checkoutPercent: 0,
+            checkInPercent: 0,
+            highestCheckout: 0
+        };
+
+        _this.setX01Stats = _this.setX01Stats.bind(_this);
+        _this.setX01Scores = _this.setX01Scores.bind(_this);
+        _this.setX01Ppd = _this.setX01Ppd.bind(_this);
+        _this.setX01BestLeg = _this.setX01BestLeg.bind(_this);
+        _this.setHighestCheckout = _this.setHighestCheckout.bind(_this);
+        _this.setX01Checkout = _this.setX01Checkout.bind(_this);
+        _this.setX01CheckIn = _this.setX01CheckIn.bind(_this);
+        _this.winsRow = _this.winsRow.bind(_this);
+        _this.totalGamesRow = _this.totalGamesRow.bind(_this);
+        _this.winPercentRow = _this.winPercentRow.bind(_this);
+        _this.twentySixRow = _this.twentySixRow.bind(_this);
+        _this.sixtyRow = _this.sixtyRow.bind(_this);
+        _this.tonRow = _this.tonRow.bind(_this);
+        _this.tonTwentyRow = _this.tonTwentyRow.bind(_this);
+        _this.tonFortyRow = _this.tonFortyRow.bind(_this);
+        _this.tonSixtyRow = _this.tonSixtyRow.bind(_this);
+        _this.tonEightyRow = _this.tonEightyRow.bind(_this);
+        _this.throwRow = _this.throwRow.bind(_this);
+        _this.ppdRow = _this.ppdRow.bind(_this);
+        _this.bestLegRow = _this.bestLegRow.bind(_this);
+        _this.checkoutPercentRow = _this.checkoutPercentRow.bind(_this);
+        _this.checkInPercentRow = _this.checkInPercentRow.bind(_this);
+        _this.highestCheckoutRow = _this.highestCheckoutRow.bind(_this);
+        _this.gameStatsRender = _this.gameStatsRender.bind(_this);
+        _this.allStarPointsRender = _this.allStarPointsRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(X01Stats, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setX01Stats(this.props.x01);
         }
     }, {
         key: 'setX01Stats',
@@ -62411,33 +63205,35 @@ var UserStats = function (_Component) {
             var checkouts = 0;
             games.forEach(function (game) {
                 if (game.win) wins++;
-                checkouts += game.checkouts;
+                if (game.checkouts !== undefined) {
+                    checkouts += parseInt(game.checkouts);
+                }
                 throws += game.throws;
                 totalGames++;
                 game.roundScores.forEach(function (score) {
                     roundScores.push(score);
                 });
             });
+
+            this.setState({ wins: wins });
+            this.setState({ totalGames: totalGames });
+            this.setState({ throws: throws });
+
             this.setX01Scores(roundScores);
             this.setX01Ppd(roundScores, throws);
             this.setX01BestLeg(games);
             this.setHighestCheckout(games);
             this.setX01Checkout(checkouts, wins);
             this.setX01CheckIn(games);
-
-            this.setState({
-                x01: {
-                    wins: wins,
-                    totalGames: totalGames,
-                    throws: throws
-                }
-            });
         }
     }, {
         key: 'setX01Checkout',
         value: function setX01Checkout(checkouts, wins) {
-            var checkoutPercent = wins / checkouts * 100;
-            this.setState({ x01: { checkoutPercent: checkoutPercent } });
+            var checkoutPercent = void 0;
+            if (checkouts !== 0) {
+                checkoutPercent = wins / checkouts * 100;
+            }
+            this.setState({ checkoutPercent: checkoutPercent });
         }
     }, {
         key: 'setX01CheckIn',
@@ -62456,8 +63252,10 @@ var UserStats = function (_Component) {
                     }
                 }
             });
-            checkInPercent = checkInSuccess / checkInShots * 100;
-            this.setState({ x01: { checkInPercent: checkInPercent } });
+            if (checkInShots !== 0) {
+                checkInPercent = checkInSuccess / checkInShots * 100;
+            }
+            this.setState({ checkInPercent: checkInPercent });
         }
     }, {
         key: 'setX01Scores',
@@ -62488,15 +63286,13 @@ var UserStats = function (_Component) {
                 }
             }
 
-            return {
-                twentySix: twentySix,
-                sixty: sixty,
-                ton: ton,
-                tonTwenty: tonTwenty,
-                tonForty: tonForty,
-                tonSixty: tonSixty,
-                tonEighty: tonEighty
-            };
+            this.setState({ twentySix: twentySix });
+            this.setState({ sixty: sixty });
+            this.setState({ ton: ton });
+            this.setState({ tonTwenty: tonTwenty });
+            this.setState({ tonForty: tonForty });
+            this.setState({ tonSixty: tonSixty });
+            this.setState({ tonEighty: tonEighty });
         }
     }, {
         key: 'setX01BestLeg',
@@ -62512,7 +63308,7 @@ var UserStats = function (_Component) {
                 }
             });
 
-            this.setState({ x01: { bestLeg: bestLeg } });
+            this.setState({ bestLeg: bestLeg });
         }
     }, {
         key: 'setHighestCheckout',
@@ -62540,138 +63336,378 @@ var UserStats = function (_Component) {
                 total += roundScores[i];
             }
             ppd = throws === 0 ? 0 : total / throws;
-            this.setState({ x01: { ppd: ppd } });
+            this.setState({ ppd: ppd });
         }
     }, {
-        key: 'statsRender',
-        value: function statsRender() {
-            if (this.state.game === 'cricket') {
+        key: 'winsRow',
+        value: function winsRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Wins'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.wins
+                )
+            );
+        }
+    }, {
+        key: 'totalGamesRow',
+        value: function totalGamesRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Total Games'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.totalGames
+                )
+            );
+        }
+    }, {
+        key: 'winPercentRow',
+        value: function winPercentRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Win Percent'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseInt(this.state.wins / this.state.totalGames * 100) + '%'
+                )
+            );
+        }
+    }, {
+        key: 'twentySixRow',
+        value: function twentySixRow() {
+            if (this.state.twentySix > 0) {
                 return _react2.default.createElement(
-                    'div',
-                    { className: 'row rules' },
+                    'tr',
+                    null,
                     _react2.default.createElement(
-                        'div',
-                        { className: 'col rules-borders' },
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'text-center rules-header' },
-                            'Cricket:'
-                        )
-                    )
-                );
-            } else if (this.state.game === 'x01') {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row rules' },
+                        'td',
+                        null,
+                        '26'
+                    ),
                     _react2.default.createElement(
-                        'div',
-                        { className: 'col rules-borders' },
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'text-center rules-header' },
-                            'x01:'
-                        )
+                        'td',
+                        null,
+                        this.state.twentySix
                     )
                 );
             }
         }
     }, {
-        key: 'setGame',
-        value: function setGame(game) {
-            this.setState({ game: game });
+        key: 'sixtyRow',
+        value: function sixtyRow() {
+            if (this.state.sixty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '60+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sixty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonRow',
+        value: function tonRow() {
+            if (this.state.ton > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '100+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.ton
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonTwentyRow',
+        value: function tonTwentyRow() {
+            if (this.state.tonTwenty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '120+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonTwenty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonFortyRow',
+        value: function tonFortyRow() {
+            if (this.state.tonForty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '140+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonForty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonSixtyRow',
+        value: function tonSixtyRow() {
+            if (this.state.tonSixty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '160+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonSixty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonEightyRow',
+        value: function tonEightyRow() {
+            if (this.state.tonEighty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '180'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonEighty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'throwRow',
+        value: function throwRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Throws'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.throws
+                )
+            );
+        }
+    }, {
+        key: 'ppdRow',
+        value: function ppdRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Points Per Dart'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseFloat(this.state.ppd.toFixed(2))
+                )
+            );
+        }
+    }, {
+        key: 'bestLegRow',
+        value: function bestLegRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Best Leg'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.bestLeg
+                )
+            );
+        }
+    }, {
+        key: 'checkoutPercentRow',
+        value: function checkoutPercentRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Checkout Percent'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseFloat(this.state.checkoutPercent.toFixed(2)) + '%'
+                )
+            );
+        }
+    }, {
+        key: 'checkInPercentRow',
+        value: function checkInPercentRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Check In Percent'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseFloat(this.state.checkInPercent.toFixed(2)) + '%'
+                )
+            );
+        }
+    }, {
+        key: 'highestCheckoutRow',
+        value: function highestCheckoutRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Highest Checkout'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.highestCheckout
+                )
+            );
+        }
+    }, {
+        key: 'gameStatsRender',
+        value: function gameStatsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement('thead', null),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    this.bestLegRow(),
+                    this.winsRow(),
+                    this.totalGamesRow(),
+                    this.winPercentRow(),
+                    this.throwRow(),
+                    this.ppdRow(),
+                    this.checkoutPercentRow(),
+                    this.checkInPercentRow()
+                )
+            );
+        }
+    }, {
+        key: 'allStarPointsRender',
+        value: function allStarPointsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement('thead', null),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    this.twentySixRow(),
+                    this.sixtyRow(),
+                    this.tonRow(),
+                    this.tonTwentyRow(),
+                    this.tonFortyRow(),
+                    this.tonSixtyRow(),
+                    this.tonEightyRow()
+                )
+            );
         }
     }, {
         key: 'render',
         value: function render() {
-            var _this4 = this;
-
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'row text-center' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'row top-row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col rules-menu-title text-center' },
-                        'Stats'
-                    )
+                    { className: 'col-6' },
+                    this.gameStatsRender()
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-12 text-center rules-menu' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { className: 'rules-menu', onClick: function onClick() {
-                                            _this4.setGame('cricket');
-                                        } },
-                                    'Cricket'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-12 text-center rules-menu' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { className: 'rules-menu', onClick: function onClick() {
-                                            _this4.setGame('x01');
-                                        } },
-                                    'X01'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement('br', null),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-12 text-center rules-menu' },
-                                _react2.default.createElement(
-                                    _reactRouterDom.Link,
-                                    { to: {
-                                            pathname: '/'
-                                        } },
-                                    _react2.default.createElement(
-                                        'button',
-                                        { className: 'rules-menu' },
-                                        'Back'
-                                    )
-                                )
-                            )
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-8', id: 'rules' },
-                        this.statsRender()
-                    )
+                    { className: 'col-6' },
+                    this.allStarPointsRender()
                 )
             );
         }
     }]);
 
-    return UserStats;
+    return X01Stats;
 }(_react.Component);
 
-exports.default = UserStats;
+exports.default = X01Stats;
 
 /***/ }),
-/* 306 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -62911,7 +63947,7 @@ var RulesPage = function (_Component) {
 exports.default = RulesPage;
 
 /***/ }),
-/* 307 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
