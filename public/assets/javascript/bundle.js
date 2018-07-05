@@ -2193,7 +2193,7 @@ var NavMenu = function (_Component) {
                                     'button',
                                     { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _axios2.default.post('/logout').then(function () {
-                                                $("#menu").modal("hide");
+                                                _this4.setMenuState('menu');
                                                 _this4.loggedInSwitch(false);
                                                 _this4.props.setUsername('guest');
                                             });
@@ -2230,7 +2230,7 @@ var NavMenu = function (_Component) {
                                     'button',
                                     { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _axios2.default.post('/logout').then(function () {
-                                                $("#menu").modal("hide");
+                                                _this4.setMenuState('menu');
                                                 _this4.loggedInSwitch(false);
                                                 _this4.props.setUsername('guest');
                                             });
@@ -2460,7 +2460,7 @@ var NavMenu = function (_Component) {
                                 'button',
                                 { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _axios2.default.post('/logout').then(function () {
-                                            $("#menu").modal("hide");
+                                            _this5.setMenuState('menu');
                                             _this5.loggedInSwitch(false);
                                             _this5.props.setUsername('guest');
                                         });
@@ -2515,7 +2515,7 @@ var NavMenu = function (_Component) {
                                 { className: 'row' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'col-6 offset-3 text-center' },
+                                    { className: 'col-6 offset-3 text-center p1-multiple' },
                                     _react2.default.createElement(
                                         'button',
                                         { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
@@ -2531,10 +2531,10 @@ var NavMenu = function (_Component) {
                                 { className: 'row' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'col-6 offset-3 text-center modal-home' },
+                                    { className: 'col-6 offset-3 text-center p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this5.gameReset();
                                                 $("#menu").modal("hide");
                                             } },
@@ -2565,7 +2565,7 @@ var NavMenu = function (_Component) {
                                 { className: 'row' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'col-6 offset-3 text-center' },
+                                    { className: 'col-6 offset-3 text-center p1-multiple' },
                                     _react2.default.createElement(
                                         'button',
                                         { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
@@ -2581,7 +2581,7 @@ var NavMenu = function (_Component) {
                                 { className: 'row' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'col-6 offset-3 text-center modal-home' },
+                                    { className: 'col-6 offset-3 text-center p2-multiple' },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: {
@@ -2589,7 +2589,7 @@ var NavMenu = function (_Component) {
                                             } },
                                         _react2.default.createElement(
                                             'button',
-                                            { type: 'button', className: 'btn', onClick: function onClick() {
+                                            { type: 'button', className: 'bttn-float btt-lg', onClick: function onClick() {
                                                     $("#menu").modal("hide");
                                                 } },
                                             'Yes'
@@ -17213,7 +17213,8 @@ var Cricket = function (_Component) {
                         p2MarksHistory: this.p2MarksHistory,
                         p1BullsHistory: this.p1BullsHistory,
                         p2BullsHistory: this.p2BullsHistory,
-                        p2ThrowsHistory: this.p2ThrowsHistory
+                        p2ThrowsHistory: this.p2ThrowsHistory,
+                        username: this.props.username
                     });
                 }
             } else if (this.state.gameState === "difficulty") {
@@ -42982,7 +42983,7 @@ var Results = function (_Component) {
         key: 'renderWinner',
         value: function renderWinner() {
             if (this.props.gameWinner === "p1") {
-                return "Player 1";
+                return this.props.username;
             } else {
                 return "Player 2";
             }
@@ -43258,7 +43259,7 @@ var Results = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'col player-name text-center' },
-                                'Player 1'
+                                this.props.username
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -54211,7 +54212,7 @@ var Results = function (_Component) {
         key: "renderWinner",
         value: function renderWinner() {
             if (this.props.gameWinner === "p1") {
-                return "Player 1";
+                return this.props.username;
             } else {
                 return "Player 2";
             }
@@ -55173,7 +55174,7 @@ var Results = function (_Component) {
                             _react2.default.createElement(
                                 "div",
                                 { className: "col player-name text-center" },
-                                "Player 1"
+                                this.props.username
                             ),
                             _react2.default.createElement(
                                 "div",
@@ -57579,7 +57580,8 @@ var Cricket = function (_Component) {
                         p2MarksHistory: this.p2MarksHistory,
                         p1BullsHistory: this.p1BullsHistory,
                         p2BullsHistory: this.p2BullsHistory,
-                        p2ThrowsHistory: this.p2ThrowsHistory
+                        p2ThrowsHistory: this.p2ThrowsHistory,
+                        username: this.props.username
                     });
                 }
             } else if (this.state.gameState === "difficulty") {
@@ -61759,7 +61761,7 @@ var Results = function (_Component) {
         key: 'renderWinner',
         value: function renderWinner() {
             if (this.props.gameWinner === "p1") {
-                return "Player 1";
+                return this.props.username;
             } else {
                 return "Player 2";
             }
@@ -62035,7 +62037,7 @@ var Results = function (_Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'col player-name text-center' },
-                                'Player 1'
+                                this.props.username
                             ),
                             _react2.default.createElement(
                                 'div',

@@ -76,7 +76,7 @@ export default class NavMenu extends Component {
                                 <button type="button" className="bttn-float bttn-lg" onClick={() => {
                                     axios.post('/logout')
                                         .then(() => {
-                                            $("#menu").modal("hide");
+                                            this.setMenuState('menu');
                                             this.loggedInSwitch(false);
                                             this.props.setUsername('guest');
                                         })
@@ -98,7 +98,7 @@ export default class NavMenu extends Component {
                                 <button type="button" className="bttn-float bttn-lg" onClick={() => {
                                     axios.post('/logout')
                                         .then(() => {
-                                            $("#menu").modal("hide");
+                                            this.setMenuState('menu');
                                             this.loggedInSwitch(false);
                                             this.props.setUsername('guest');
                                         })
@@ -225,7 +225,7 @@ export default class NavMenu extends Component {
                             <button type="button" className="bttn-float bttn-lg" onClick={() => {
                                 axios.post('/logout')
                                     .then(() => {
-                                        $("#menu").modal("hide");
+                                        this.setMenuState('menu');
                                         this.loggedInSwitch(false);
                                         this.props.setUsername('guest');
                                     })
@@ -259,7 +259,7 @@ export default class NavMenu extends Component {
                         </div>
                         <div className="modal-body">
                             <div className="row">
-                                <div className="col-6 offset-3 text-center">
+                                <div className="col-6 offset-3 text-center p1-multiple">
                                     <button type="button" className="bttn-float bttn-lg" onClick={() => {
                                         this.setMenuState('menu');
                                     }}>No</button>
@@ -267,8 +267,8 @@ export default class NavMenu extends Component {
                             </div>
                             <br />
                             <div className='row'>
-                                <div className="col-6 offset-3 text-center modal-home">
-                                    <button type="button" className="btn" onClick={() => {
+                                <div className="col-6 offset-3 text-center p2-multiple">
+                                    <button type="button" className="bttn-float bttn-lg" onClick={() => {
                                         this.gameReset();
                                         $("#menu").modal("hide");
                                     }}>Yes</button>
@@ -284,7 +284,7 @@ export default class NavMenu extends Component {
                         </div>
                         <div className="modal-body">
                             <div className="row">
-                                <div className="col-6 offset-3 text-center">
+                                <div className="col-6 offset-3 text-center p1-multiple">
                                     <button type="button" className="bttn-float bttn-lg" onClick={() => {
                                         this.setMenuState('menu');
                                     }}>No</button>
@@ -292,11 +292,11 @@ export default class NavMenu extends Component {
                             </div>
                             <br />
                             <div className='row'>
-                                <div className="col-6 offset-3 text-center modal-home">
+                                <div className="col-6 offset-3 text-center p2-multiple">
                                     <Link to={{
                                         pathname: '/',
                                     }}>
-                                        <button type="button" className="btn" onClick={() => {
+                                        <button type="button" className="bttn-float btt-lg" onClick={() => {
                                             $("#menu").modal("hide");
                                         }}>Yes</button></Link>
                                 </div>
