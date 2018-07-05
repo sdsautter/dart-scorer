@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc -p ./ && node server",
-    "dart": "webpack && npm start",
+    "start": "node server",
+    "dart": "webpack && tsc -p ./ && npm start",
     "webpack": "webpack -w",
     "nodemon": "nodemon server.js"
   },
