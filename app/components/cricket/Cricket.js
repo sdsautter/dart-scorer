@@ -27,6 +27,7 @@ export default class Cricket extends Component {
         this.p2ThrowsHistory = 0;
 
         this.state = {
+            diddle: false,
             activeThrower: "p1",
             activeThrows: 0,
             gameState: 'playing',
@@ -103,6 +104,17 @@ export default class Cricket extends Component {
         this.popLastMark = this.popLastMark.bind(this);
         this.reconfigureActiveMarks = this.reconfigureActiveMarks.bind(this);
         this.putGameStats = this.putGameStats.bind(this);
+        this.setDiddleTrue = this.setDiddleTrue.bind(this);
+    }
+
+    componentWillMount() {
+        if (this.state.botGame) {
+            this.setDiddleTrue();
+        }
+    }
+
+    setDiddleTrue() {
+        this.setState({ diddle: true });
     }
 
     putGameStats() {
@@ -188,6 +200,7 @@ export default class Cricket extends Component {
     }
 
     gameCricketReset() {
+        this.setState({ diddle: false });
         this.p1ThrowsHistory = 0;
         this.p1MarksHistory = [];
         this.p2MarksHistory = [];
@@ -1760,7 +1773,10 @@ export default class Cricket extends Component {
             return (
                 <div>
                     <Scoreboard
+                        diddle={this.state.diddle}
                         username={this.props.username}
+                        setDiddleTrue={this.setDiddleTrue}
+                        setActiveThrower={this.setActiveThrower}
                         score={this.score}
                         miss={this.miss}
                         endTurn={this.endTurn}

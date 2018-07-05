@@ -12,6 +12,9 @@ export default class Scoreboard extends Component {
         if (viewWidth < 720) {
             return (
                 <MobileView
+                    diddle={this.props.diddle}
+                    setDiddleTrue={this.props.setDiddleTrue}
+                    setActiveThrower={this.props.setActiveThrower}
                     username={this.props.username}
                     score={this.props.score}
                     miss={this.props.miss}
@@ -33,6 +36,9 @@ export default class Scoreboard extends Component {
         } else {
             return (
                 <DesktopView
+                    diddle={this.props.diddle}
+                    setDiddleTrue={this.props.setDiddleTrue}
+                    setActiveThrower={this.props.setActiveThrower}
                     username={this.props.username}
                     score={this.props.score}
                     miss={this.props.miss}
