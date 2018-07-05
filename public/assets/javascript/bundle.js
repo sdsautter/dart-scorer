@@ -10622,7 +10622,11 @@ var X01 = function (_Component) {
     }, {
         key: "gameX01Reset",
         value: function gameX01Reset() {
-            this.setState({ diddle: this.botGame ? true : false });
+            var p1RoundStartScore = [];
+            var p2RoundStartScore = [];
+            p1RoundStartScore.push(this.state.x01Game);
+            p2RoundStartScore.push(this.state.x01Game);
+            this.setState({ diddle: this.state.botGame ? true : false });
             this.p1RoundScoresHistory = [];
             this.p1CheckInHistory = [];
             this.p1CheckoutShotsHistory = 0;
@@ -10647,14 +10651,14 @@ var X01 = function (_Component) {
 
             this.setState({ p1Score: this.state.x01Game });
             this.setState({ p1Throws: 0 });
-            this.setState({ p1RoundStartScore: [] });
+            this.setState({ p1RoundStartScore: p1RoundStartScore });
             this.setState({ p1RoundScores: [] });
             this.setState({ p1Legs: 0 });
             this.setState({ p1Sets: 0 });
 
             this.setState({ p2Score: this.state.x01Game });
             this.setState({ p2Throws: 0 });
-            this.setState({ p2RoundStartScore: [] });
+            this.setState({ p2RoundStartScore: p2RoundStartScore });
             this.setState({ p2RoundScores: [] });
             this.setState({ p2Legs: 0 });
             this.setState({ p2Sets: 0 });
@@ -15569,7 +15573,7 @@ var Cricket = function (_Component) {
     }, {
         key: "gameCricketReset",
         value: function gameCricketReset() {
-            this.setState({ diddle: this.botGame ? true : false });
+            this.setState({ diddle: this.state.botGame ? true : false });
             this.p1ThrowsHistory = 0;
             this.p1MarksHistory = [];
             this.p2MarksHistory = [];
@@ -56304,7 +56308,7 @@ var Cricket = function (_Component) {
     }, {
         key: "gameCricketReset",
         value: function gameCricketReset() {
-            this.setState({ diddle: this.botGame ? true : false });
+            this.setState({ diddle: this.state.botGame ? true : false });
             this.p1ThrowsHistory = 0;
             this.p1MarksHistory = [];
             this.p2MarksHistory = [];

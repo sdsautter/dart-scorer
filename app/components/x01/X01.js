@@ -492,7 +492,11 @@ export default class X01 extends Component {
     }
 
     gameX01Reset() {
-        this.setState({ diddle: this.botGame ? true : false });
+        let p1RoundStartScore = [];
+        let p2RoundStartScore = [];
+        p1RoundStartScore.push(this.state.x01Game);
+        p2RoundStartScore.push(this.state.x01Game);
+        this.setState({ diddle: this.state.botGame ? true : false });
         this.p1RoundScoresHistory = [];
         this.p1CheckInHistory = [];
         this.p1CheckoutShotsHistory = 0;
@@ -517,14 +521,14 @@ export default class X01 extends Component {
 
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
-        this.setState({ p1RoundStartScore: [] });
+        this.setState({ p1RoundStartScore });
         this.setState({ p1RoundScores: [] });
         this.setState({ p1Legs: 0 });
         this.setState({ p1Sets: 0 });
 
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
-        this.setState({ p2RoundStartScore: [] });
+        this.setState({ p2RoundStartScore });
         this.setState({ p2RoundScores: [] });
         this.setState({ p2Legs: 0 });
         this.setState({ p2Sets: 0 });
