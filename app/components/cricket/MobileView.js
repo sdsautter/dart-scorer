@@ -354,7 +354,7 @@ export default class MobileModalView extends Component {
     }
 
     playerButtonsRender() {
-        if (!this.props.gameOverModal) {
+        if (!this.props.gameOverModal && this.props.diddle) {
             if (this.props.activeThrower === 'p1') {
                 return (
                     <div>
@@ -799,6 +799,38 @@ export default class MobileModalView extends Component {
                     )
                 }
             }
+        }  else if (!this.props.gameOverModal && !this.props.diddle) { 
+            return (
+                <div className='col text-center'>
+                    <div className='row text-center'>
+                        <div className="col text-center p1-single">
+                            <h1>Diddle Winner?</h1>
+                        </div>
+                    </div>
+                    <br />
+                    <div className='row text-center'>
+                        <div className="col-6 offset-3 text-center p2-multiple">
+                            <button type="button" className="bttn-float bttn-lg" onClick={() => { 
+                                this.props.setActiveThrower('p1') 
+                                this.props.setDiddleTrue();
+                                }}>
+                                {this.props.username}
+                        </button>
+                        </div>
+                    </div>
+                    <br />
+                    <div className='row text-center'>
+                        <div className="col-6 offset-3 text-center p1-multiple">
+                            <button type="button" className="bttn-float bttn-lg" onClick={() => { 
+                                this.props.setActiveThrower('p2') 
+                                this.props.setDiddleTrue();
+                            }}>
+                                Player 2
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            )
         } else {
             return (
                 <div>
@@ -867,7 +899,7 @@ export default class MobileModalView extends Component {
     }
 
     missRowRender() {
-        if (!this.props.gameOverModal) {
+        if (!this.props.gameOverModal && this.props.diddle) {
             if (!this.props.botGame || this.props.activeThrower === 'p1') {
                 return (<div className="row miss-undo-row">
                     <div className="col-4 text-center end-turn">
@@ -906,23 +938,7 @@ export default class MobileModalView extends Component {
                 </div>)
             }
         } else {
-            return (<div className="row miss-undo-row">
-                <div className="col-4 text-center end-turn">
-                    <button type="button" className="btn" onClick={() => { this.props.endTurn() }} disabled>
-                        End Turn
-                </button>
-                </div>
-                <div className="col-4 text-center miss">
-                    <button type="button" className="btn" onClick={() => { this.props.miss() }} disabled>
-                        Miss
-                </button>
-                </div>
-                <div className="col-4 text-center undo">
-                    <button type="button" className="btn" onClick={() => { this.props.undo() }} disabled>
-                        Undo
-                </button>
-                </div>
-            </div>)
+            return null;
         }
     }
 
