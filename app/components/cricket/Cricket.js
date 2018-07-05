@@ -1805,6 +1805,7 @@ export default class Cricket extends Component {
                         p1BullsHistory={this.p1BullsHistory}
                         p2BullsHistory={this.p2BullsHistory}
                         p2ThrowsHistory={this.p2ThrowsHistory}
+                        username={this.props.username}
                     />
                 )
             }
