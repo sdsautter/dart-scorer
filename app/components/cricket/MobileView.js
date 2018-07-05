@@ -21,7 +21,7 @@ export default class MobileModalView extends Component {
 
     nameRender() {
         if (this.props.activeThrower === "p1") {
-            return "Player 1";
+            return this.props.username
         } else {
             return "Player 2";
         }
@@ -33,7 +33,7 @@ export default class MobileModalView extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-6 text-center player border-right p1-active">
-                            Player 1
+                            {this.props.username}
                         </div>
                         <div className="col-6 text-center player border-left inactive-thrower">
                             Player 2
@@ -44,7 +44,7 @@ export default class MobileModalView extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-6 text-center player border-right inactive-thrower">
-                            Player 1
+                            {this.props.username}
                     </div>
                         <div className="col-6 text-center player border-left p2-active">
                             Player 2
@@ -933,65 +933,6 @@ export default class MobileModalView extends Component {
                 {this.playersRender()}
                 {this.playerButtonsRender()}
                 {this.missRowRender()}
-                <div className="row">
-                    <div className="col-6 text-center start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
-                        </button>
-                    </div>
-                    <div className="col-6 text-center start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
-                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
-                        </button>
-                    </div>
-                </div>
-                <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="reloadModalLabel">Start Game Over</h5>
-                            </div>
-                            <div className="modal-body">
-                                <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
-                                    </div>
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={this.props.gameCricketReset}>Yes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="exitModal" tabIndex="-1" role="dialog" aria-labelledby="exitModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exitModalLabel">Exit Game</h5>
-                            </div>
-                            <div className="modal-body">
-                                <div className="row">
-                                    <div className="col-6 offset-3 text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                                <br />
-                                <div className='row'>
-                                    <div className="col-6 offset-3 text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => window.location.href = this.chooseGameUrl}>Diff Game</button>
-                                    </div>
-                                </div>
-                                <br />
-                                <div className='row'>
-                                    <div className="col-6 offset-3 text-center modal-home">
-                                        <button type="button" className="btn" data-dismiss="modal" onClick={() => window.location.href = '/'}>Home</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         )
     }

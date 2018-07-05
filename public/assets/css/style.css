@@ -20,6 +20,28 @@
     ul {
         padding-left: 5%;
     }
+    #loginButton, #loginBack, #loginButton button, #loginBack button, #signupButton, #signupBack, #signupButton button, #signupBack button {
+        width: 15rem !important;
+        padding: 1% 0 !important;
+        margin: 0 auto;
+    }
+    .main-menu-button button {
+        background-color: var(--p1-color);
+        margin-top: 3%;
+        color: black;
+        font-family: var(--nice-font) !important;
+        width: 50%;
+    }
+    .menu-dots {
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+    .modal-menu button {
+        margin-bottom: 3%;
+    }
+    .stats td {
+        font-size: 1rem;
+    }
     .mark-container {
         position: relative !important;
         top: -2rem;
@@ -384,6 +406,7 @@
     .p2-number,
     .p2-single,
     .p2-multiple {
+        font-family: var(--nice-font) !important;
         padding-top: .5%;
         padding-bottom: .5%;
         padding-left: .5%;
@@ -392,6 +415,7 @@
     .miss,
     .undo,
     .end-turn {
+        font-family: var(--nice-font) !important;
         padding-top: .5%;
         padding-bottom: .5%;
         padding-left: 1%;
@@ -430,6 +454,7 @@
         font-family: 'Cuprum', cursive;
         font-size: 1.3rem;
         font-weight: bold;
+        color: black;
     }
     .mobile-start-over button {
         height: 30px;
@@ -519,6 +544,12 @@
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
+    }
+    .main-menu-button button {
+        font-size: 2.5rem !important;
+    }
+    .stats td {
+        font-size: 2rem;
     }
     .mark-container {
         position: relative !important;
@@ -729,7 +760,14 @@
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
-        overflow-x: hidden;
+    }
+    .main-menu-button button {
+        font-size: 2rem !important;
+        width: 33%;
+        margin-top: 1%;
+    }
+    .stats td {
+        font-size: 2rem;
     }
     .mark-container {
         position: relative !important;
@@ -898,8 +936,14 @@
     #undo-x01 button,
     #end-turn-x01 button {
         margin-bottom: 10%;
-        margin-left: 3%;
+        width: 90%;
     }
+
+    /* #miss-x01,
+    #undo-x01, 
+    #end-turn-x01 {
+        margin-right: 50% !important;
+    } */
 }
 
 .modal-header {
@@ -978,7 +1022,7 @@ button:target {
 }
 
 .p2-multiple button:hover,
-.modal-home button:hover .end-turn button:hover {
+.modal-home button:hover, .end-turn button:hover {
     background-color: rgb(197, 98, 98);
 }
 
@@ -1012,7 +1056,9 @@ img {
     z-index: 99;
     position: fixed;
     top: 0;
+    text-align: right;
     right: .5%;
+    width: 100%;
 }
 
 .sound-toggle img {
@@ -1213,40 +1259,13 @@ img {
     font-family: var(--nice-font);
 }
 
-/* 
-.mark {
-    background-color: rgba(0, 0, 0, 0);
-    position: absolute !important;
-    top: 0;
-    left: 0;
+.form-group {
+    font-family: var(--nice-font);
+    padding: 0;
+    margin: 0;
 }
 
-#twoMark {
-    background-color: rgba(0, 0, 0, 0);
-    -moz-transform: scale(-1, 1);
-    -webkit-transform: scale(-1, 1);
-    -o-transform: scale(-1, 1);
-    -ms-transform: scale(-1, 1);
-    transform: scale(-1, 1);
-}
-
-#threeMark {
-    width: 100%;
-    height: 100%;
-    border: 4px solid rgb(242, 221, 200);
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-} */
-
-.upmod:active {
-content: "+1";
-font-size: 14px;
-margin-left: 1px;
-position: relative;
-color: #C2185B;
-bottom: 18px;
-opacity: 0.0;
-z-index: 102;
--webkit-animation-name: exAn; -webkit-animation-duration: 3.0s; -webkit-animation-timing-function: ease-out; -webkit-animation-iteration-count: 1; -moz-animation-name: exAn; -moz-animation-duration: 3.0s; -moz-animation-timing-function: ease-out; -moz-animation-iteration-count: 1; animation-name: exAn; animation-duration: 3.0s; animation-timing-function: ease-out; animation-iteration-count: 1; animation-play-state: running;
+.menu-dots, #navName {
+    cursor: pointer;
+    font-family: var(--nice-font);
 }

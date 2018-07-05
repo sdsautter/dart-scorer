@@ -7,12 +7,16 @@ const methodOverride = require('method-override');
 const path = require('path');
 const db = require("./models");
 var passport = require("passport");
+var flash = require('connect-flash');
+var session = require('express-session');
 
 // Create Express server
 const app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 const PORT = process.env.PORT || 4012;
+
+
 // Define public directory
 app.use(express.static(path.join(__dirname, 'public')));
 // Define BodyParser
@@ -23,11 +27,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
+app.use(session({
+  secret: 'nevergonnagiveyouup'
+}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
-//Routes
-require('./routes.js')(app);
+// Passport
+require('./config/passport')(passport);
+
+// Routes
+require('./routes.js')(app, passport);
+
 
 db.sequelize.sync({
   force: false

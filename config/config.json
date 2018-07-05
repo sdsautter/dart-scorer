@@ -4,20 +4,24 @@
     "password": "sautter",
     "database": "darts",
     "host": "localhost",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   },
   "test": {
     "username": "postgres",
     "password": "sautter",
     "database": "database_test",
     "host": "localhost",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
+
   },
   "production": {
     "username": "postgres",
     "password": "sautter",
     "database": "database_production",
     "host": "localhost",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "logging": false
   }
 }

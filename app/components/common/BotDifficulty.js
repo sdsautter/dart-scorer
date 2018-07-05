@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
+import NavMenu from '../navMenu/NavMenu';
 
 export default class BotDifficulty extends Component {
     constructor({ match }) {
@@ -13,12 +14,12 @@ export default class BotDifficulty extends Component {
         if (this.gameType === 'cricket') {
             return (
                 <div>
-                    <br />
+
                     <div className="row">
-                        <div className="col-12 text-center main-menu">
+                        <div className="col-12 text-center main-menu-button">
                             <Link to={{
                                 pathname: `${this.url}/pro`,
-                            }}><button className='main-menu'>Pro</button></Link>
+                            }}><button className='bttn-float bttn-lg'>Pro</button></Link>
                         </div>
                     </div>
                 </div>
@@ -29,39 +30,39 @@ export default class BotDifficulty extends Component {
     render() {
         return (
             <div>
+                <NavMenu setUsername={this.props.setUsername}
+                    username={this.props.username}
+                    setUsername={this.props.setUsername}
+                />
                 <div className="row top-row">
                     <div className="col main-menu-title text-center">
                         Difficulty
                     </div>
                 </div>
-                <br />
                 <div className='row'>
-                    <div className="col-12 text-center main-menu">
+                    <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}/easy`,
-                        }}><button className='main-menu'>Easy</button></Link>
+                        }}><button className='bttn-float bttn-lg'>Easy</button></Link>
                     </div>
                 </div>
-                <br />
                 <div className="row">
-                    <div className="col-12 text-center main-menu">
+                    <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}/medium`,
-                        }}><button className='main-menu'>Medium</button></Link>
+                        }}><button className='bttn-float bttn-lg'>Medium</button></Link>
                     </div>
                 </div>
-                <br />
                 <div className="row">
-                    <div className="col-12 text-center main-menu">
+                    <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}/hard`,
-                        }}><button className='main-menu'>Hard</button></Link>
+                        }}><button className='bttn-float bttn-lg'>Hard</button></Link>
                     </div>
                 </div>
                 {this.difficultyRender()}
-                <br />
                 <div className="row">
-                    <div className="col-12 text-center main-menu">
+                    <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: '/cpu',
                         }}>

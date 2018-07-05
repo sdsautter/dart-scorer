@@ -10,6 +10,8 @@ export default class Results extends Component {
             p1ppd: 0,
             p1CheckoutShots: 0,
             p1CheckoutPercent: 0,
+            p1CheckInShots: 0,
+            p1CheckInPercent: 0,
             p126: 0,
             p160: 0,
             p1100: 0,
@@ -20,6 +22,8 @@ export default class Results extends Component {
             p1ppdSet: 0,
             p1CheckoutShotsSet: 0,
             p1CheckoutPercentSet: 0,
+            p1CheckInShotsSet: 0,
+            p1CheckInPercentSet: 0,
             p126Set: 0,
             p160Set: 0,
             p1100Set: 0,
@@ -31,6 +35,8 @@ export default class Results extends Component {
             p2ppd: 0,
             p2CheckoutShots: 0,
             p2CheckoutPercent: 0,
+            p2CheckInShots: 0,
+            p2CheckInPercent: 0,
             p226: 0,
             p260: 0,
             p2100: 0,
@@ -41,6 +47,8 @@ export default class Results extends Component {
             p2ppdSet: 0,
             p2CheckoutShotsSet: 0,
             p2CheckoutPercentSet: 0,
+            p2CheckInShotsSet: 0,
+            p2CheckInPercentSet: 0,
             p226Set: 0,
             p260Set: 0,
             p2100Set: 0,
@@ -68,19 +76,25 @@ export default class Results extends Component {
         this.setSetPpd = this.setSetPpd.bind(this);
         this.setLegCheckout = this.setLegCheckout.bind(this);
         this.setSetCheckout = this.setSetCheckout.bind(this);
-        this.throwRow = this.throwRow.bind(this)
-        this.ppdRow = this.ppdRow.bind(this)
-        this.checkoutChancesRow = this.checkoutChancesRow.bind(this)
-        this.checkoutPercentRow = this.checkoutPercentRow.bind(this)
+        this.setLegCheckIn = this.setLegCheckIn.bind(this);
+        this.setSetCheckIn = this.setSetCheckIn.bind(this);
+        this.throwRow = this.throwRow.bind(this);
+        this.ppdRow = this.ppdRow.bind(this);
+        this.checkInChancesRow = this.checkInChancesRow.bind(this);
+        this.checkInPercentRow = this.checkInPercentRow.bind(this);
+        this.checkoutChancesRow = this.checkoutChancesRow.bind(this);
+        this.checkoutPercentRow = this.checkoutPercentRow.bind(this);
     }
 
     componentDidMount() {
         this.setLegScores();
         this.setLegPpd();
         this.setLegCheckout();
+        this.setLegCheckIn();
         this.setSetScores();
         this.setSetPpd();
         this.setSetCheckout();
+        this.setSetCheckIn();
     }
 
     renderWinner() {
@@ -109,13 +123,40 @@ export default class Results extends Component {
         this.setState({ p2CheckoutPercent });
     }
 
+    setLegCheckIn() {
+        const p1CheckInShots = this.props.p1CheckInShots;
+        const p2CheckInShots = this.props.p2CheckInShots;
+        const player1Scores = this.props.p1RoundScores;
+        const player2Scores = this.props.p2RoundScores;
+        let p1CheckInPercent = 0, p2CheckInPercent = 0, p1InShot = 0, p2InShot = 0;
+
+        for (var i in player1Scores) {
+            if (parseInt(player1Scores[i]) > 0) {
+                p1InShot = 1;
+            }
+        }
+        for (var i in player2Scores) {
+            if (parseInt(player2Scores[i]) > 0) {
+                p2InShot = 1;
+            }
+        }
+
+        p1CheckInPercent = (p1InShot / p1CheckInShots) * 100;
+        p2CheckInPercent = (p2InShot / p2CheckInShots) * 100;
+
+        this.setState({ p1CheckInShots });
+        this.setState({ p1CheckInPercent });
+        this.setState({ p2CheckInShots });
+        this.setState({ p2CheckInPercent });
+    }
+
     setSetCheckout() {
         const p1CheckoutShotsSet = this.props.p1CheckoutShotsHistory;
         const p2CheckoutShotsSet = this.props.p2CheckoutShotsHistory;
         const setHistory = this.props.setHistory;
         let p1Wins = this.props.p1Legs;
         let p2Wins = this.props.p2Legs;
-        
+
         if (p1Wins === 0 && p2Wins === 0 && setHistory.length < 1) {
             if (this.props.gameWinner === 'p1') {
                 p1Wins = 1;
@@ -138,6 +179,30 @@ export default class Results extends Component {
         this.setState({ p1CheckoutPercentSet });
         this.setState({ p2CheckoutShotsSet });
         this.setState({ p2CheckoutPercentSet });
+    }
+
+    setSetCheckIn() {
+        const p1CheckInShotsSet = this.props.p1CheckInShotsHistory;
+        const p2CheckInShotsSet = this.props.p2CheckInShotsHistory;
+        const p1CheckInHistory = this.props.p1CheckInHistory;
+        const p2CheckInHistory = this.props.p2CheckInHistory;
+        let p1Ins = 0, p2Ins = 0, p1CheckInPercentSet = 0, p2CheckInPercentSet = 0;
+        for (var i in p1CheckInHistory) {
+            if (p1CheckInHistory[i]) p1Ins++
+        }
+        for (var i in p2CheckInHistory) {
+            if (p2CheckInHistory[i]) p2Ins++
+        }
+
+        p1CheckInPercentSet = (p1Ins / p1CheckInShotsSet) * 100;
+        p2CheckInPercentSet = (p2Ins / p2CheckInShotsSet) * 100;
+        p1CheckInPercentSet = isNaN(p1CheckInPercentSet) ? 0 : p1CheckInPercentSet;
+        p2CheckInPercentSet = isNaN(p2CheckInPercentSet) ? 0 : p2CheckInPercentSet;
+
+        this.setState({ p1CheckInShotsSet });
+        this.setState({ p1CheckInPercentSet });
+        this.setState({ p2CheckInShotsSet });
+        this.setState({ p2CheckInPercentSet });
     }
 
     setLegPpd() {
@@ -465,6 +530,34 @@ export default class Results extends Component {
         )
     }
 
+    checkInChancesRow() {
+        if (parseInt(this.props.p1CheckInShots) > 0 || parseInt(this.props.p2CheckInShots) > 0) {
+            return (
+                <tr>
+                    <td>{this.props.p1CheckInShots}</td>
+                    <td>{this.props.p1CheckInShotsHistory}</td>
+                    <td>Check-In Chances</td>
+                    <td>{this.props.p2CheckInShots}</td>
+                    <td>{this.props.p2CheckInShotsHistory}</td>
+                </tr>
+            )
+        }
+    }
+
+    checkInPercentRow() {
+        if (parseInt(this.props.p1CheckInShots) > 0 || parseInt(this.props.p2CheckInShots) > 0) {
+            return (
+                <tr>
+                    <td>{`${parseFloat(this.state.p1CheckInPercent.toFixed(2))}%`}</td>
+                    <td>{`${parseFloat(this.state.p1CheckInPercentSet.toFixed(2))}%`}</td>
+                    <td>Check-In Percent</td>
+                    <td>{`${parseFloat(this.state.p2CheckInPercent.toFixed(2))}%`}</td>
+                    <td>{`${parseFloat(this.state.p2CheckInPercentSet.toFixed(2))}%`}</td>
+                </tr>
+            )
+        }
+    }
+
     renderTable() {
         return (
             <table className='cricket-table text-center align-self-center'>
@@ -480,6 +573,8 @@ export default class Results extends Component {
                 <tbody>
                     {this.throwRow()}
                     {this.ppdRow()}
+                    {this.checkInChancesRow()}
+                    {this.checkInPercentRow()}
                     {this.checkoutChancesRow()}
                     {this.checkoutPercentRow()}
                     {this.twentySixRow()}
@@ -585,10 +680,10 @@ export default class Results extends Component {
                     <div className='col-12 col-md-7 offset-md-1 x01-stats'>
                         <div className='row'>
                             <div className='col player-name text-center'>
-                            Player 1
+                                Player 1
                             </div>
                             <div className='col offset-6 player-name text-center'>
-                            Player 2
+                                Player 2
                             </div>
                             {this.renderTable()}
                         </div>

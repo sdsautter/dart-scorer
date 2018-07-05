@@ -12,6 +12,7 @@ export default class Scoreboard extends Component {
         if (viewWidth < 720) {
             return (
                 <MobileView
+                    username={this.props.username}
                     score={this.props.score}
                     miss={this.props.miss}
                     botGame={this.props.botGame}
@@ -32,6 +33,7 @@ export default class Scoreboard extends Component {
         } else {
             return (
                 <DesktopView
+                    username={this.props.username}
                     score={this.props.score}
                     miss={this.props.miss}
                     endTurn={this.props.endTurn}

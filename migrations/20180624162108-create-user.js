@@ -8,11 +8,13 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            username: {
-                type: Sequelize.STRING
-            },
-            password: {
-                type: Sequelize.STRING
+            local: {
+                username: {
+                    type: Sequelize.STRING
+                },
+                password: {
+                    type: Sequelize.STRING
+                }
             },
             cricket: {
                 type: Sequelize.ARRAY(Sequelize.JSONB)

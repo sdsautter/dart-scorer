@@ -1,9 +1,29 @@
+var LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 import UserController from './controllers/user';
 
 const userController = new UserController;
 
-module.exports = (app) => {
+module.exports = (app, passport) => {
+    app.post('/login',
+        passport.authenticate('local-login', { failureRedirect: '/' }),
+        function (req, res) {
+            if (req.user) {
+                return res.send(req.user.username);
+            } else {
+                return res.send('No user found');
+            }
+        });
+    app.post('/logout', function (req, res) {
+        req.logout();
+        res.send("logged out");
+    });
+    app.post('/signup', passport.authenticate('local-signup', { failureFlash: true }),
+        function (req, res) {
+            res.send('Signed up');
+        }
+    );
+
     app.get('/settings',
         (req, res) => {
             res.sendFile(path.join(__dirname, './public/index.html'));
@@ -35,10 +55,12 @@ module.exports = (app) => {
      * USER ROUTES
      * 
      */
-    app.get('/user/:username', (req, res) => {
-        res.sendFile(path.join(__dirname, './public/index.html'));
-        return;
-    });
+
+    app.get('/username', (req, res) => {
+        if (req.user) {
+            return res.send(req.user.username);
+        }
+    })
     app.get('/user/:username/cricket', (req, res) => {
         const username = req.params.username;
         userController.getCricketStats(username)
@@ -55,8 +77,12 @@ module.exports = (app) => {
             });
         return;
     });
+    app.get('/user/:username',
+        (req, res) => {
+            res.sendFile(path.join(__dirname, './public/index.html'));
+        });
     app.post('/user', (req, res) => {
-        userController.createUser(req.body, res)
+        userController.createUser(req.body)
             .then(() => {
                 return res.status(200).send("User added.")
             });
@@ -64,23 +90,45 @@ module.exports = (app) => {
     });
     app.put('/user/cricket/', (req, res) => {
         const game = req.body;
-        userController.addCricketGame(1, game)
-            .then(() => {
-                return res.status(200).send("Cricket game added.")
-            });
+        if (req.user) {
+            return userController.addCricketGame(req.user.id, game)
+                .then(() => {
+                    return res.status(200).send("Cricket game added.")
+                });
+        } else {
+            return res.send('No user logged in');
+        }
     });
     app.put('/user/x01/', (req, res) => {
         const game = req.body;
-        userController.addX01Game(1, game)
-            .then(() => {
-                return res.status(200).send("X01 game added.")
-            });
+        if (req.user) {
+            return userController.addX01Game(req.user.id, game)
+                .then(() => {
+                    return res.status(200).send("X01 game added.")
+                });
+        } else {
+            return res.send('No user logged in');
+        }
     })
 
+    app.get('/',
+        (req, res) => {
+            res.sendFile(path.join(__dirname, './public/index.html'));
+        });
 
     //The 404 Route (ALWAYS Keep this as the last route)
     app.get('*', function (req, res) {
         res.redirect('/');
     });
 
-};
+    function isLoggedIn(req, res, next) {
+
+        // if user is authenticated in the session, carry on 
+        if (req.isAuthenticated())
+            return next();
+
+        // if they aren't redirect them to the home page
+        res.redirect('/');
+    }
+
+}

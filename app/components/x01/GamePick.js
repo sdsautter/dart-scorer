@@ -41,7 +41,7 @@ export default class GamePicky extends Component {
                         <div className='col-3 offset-3'>
                             <input type='number' value={this.state.x01Game} name='x01Game' className='text-right' min='1' onChange={this.customInput} /><span>01</span>
                         </div>
-                        <div className='col-3 text-left x01-pick-menu'>
+                        <div className='col-3 text-left main-menu-button'>
                             <button type='button' onClick={this.customGo}>Go</button>
                         </div>
                     </div>
@@ -61,30 +61,27 @@ export default class GamePicky extends Component {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className="col-12 text-center x01-pick-menu">
-                        <button className='x01-pick-menu' onClick={() => { this.props.setX01Game(301) }}>301</button>
+                    <div className="col-12 text-center main-menu-button">
+                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.setX01Game(301) }}>301</button>
                     </div>
                 </div>
-                <br />
                 <div className='row'>
-                    <div className="col-12 text-center x01-pick-menu">
-                        <button className='x01-pick-menu' onClick={() => { this.props.setX01Game(501) }}>501</button>
+                    <div className="col-12 text-center main-menu-button">
+                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.setX01Game(501) }}>501</button>
                     </div>
                 </div>
-                <br />
                 <div className='row'>
-                    <div className="col-12 text-center x01-pick-menu">
-                        <button className='x01-pick-menu' onClick={() => { this.customSwitch() }}>Custom</button>
+                    <div className="col-12 text-center main-menu-button">
+                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.customSwitch() }}>Custom</button>
                     </div>
                 </div>
                 {this.renderCustom()}
-                <br />
                 <div className='row'>
-                    <div className="col-12 text-center x01-pick-menu">
+                    <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}`,
                         }}>
-                            <button type="button">Back</button>
+                            <button type='button' className='bttn-float bttn-lg'>Back</button>
                         </Link>
                     </div>
                 </div>

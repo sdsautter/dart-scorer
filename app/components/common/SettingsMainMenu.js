@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
+import NavMenu from '../navMenu/NavMenu';
 
 export default class SettingsMainMenu extends Component {
     constructor() {
@@ -140,6 +141,10 @@ export default class SettingsMainMenu extends Component {
     render() {
         return (
             <div>
+                 <NavMenu setUsername={this.props.setUsername}
+                        username={this.props.username}
+                        setUsername={this.props.setUsername}
+                    />
                 <div className="row">
                     <div className="col settings-menu-title text-center">
                         Settings
@@ -223,13 +228,12 @@ export default class SettingsMainMenu extends Component {
                         </div>
                     </div>
                 </div>
-                <br />
                 <div className="row">
-                    <div className="col-12 text-center rules-menu">
+                    <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: '/',
                         }}>
-                            <button className='rules-menu'>Back</button>
+                            <button className='bttn-float bttn-lg'>Back</button>
                         </Link>
                     </div>
                 </div >
