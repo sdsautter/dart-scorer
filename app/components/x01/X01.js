@@ -30,6 +30,7 @@ export default class X01 extends Component {
         this.p2CheckInShots = 0;
 
         this.state = {
+            diddle: false,
             activeThrower: "p1",
             activeThrows: 0,
             x01Game: {},
@@ -107,12 +108,19 @@ export default class X01 extends Component {
         this.popRoundScore = this.popRoundScore.bind(this);
         this.popRoundStartScore = this.popRoundStartScore.bind(this);
         this.gestureSwitch = this.gestureSwitch.bind(this);
+        this.setDiddleTrue = this.setDiddleTrue.bind(this);
     }
 
     componentWillMount() {
+        if (this.state.botGame) {
+            this.setDiddleTrue();
+        }
         this.setState({ singleGesture: localStorage.getItem('single') });
         this.setState({ multipleGesture: localStorage.getItem('multiple') });
+    }
 
+    setDiddleTrue() {
+        this.setState({ diddle: true });
     }
 
     gestureSwitch(multiple) {
@@ -484,6 +492,7 @@ export default class X01 extends Component {
     }
 
     gameX01Reset() {
+        this.setState({ diddle: this.botGame ? true : false });
         this.p1RoundScoresHistory = [];
         this.p1CheckInHistory = [];
         this.p1CheckoutShotsHistory = 0;
@@ -1246,6 +1255,9 @@ export default class X01 extends Component {
         } else if (this.state.gameState === "playing") {
             return (
                 <Scoreboard
+                    diddle={this.state.diddle}
+                    setDiddleTrue={this.setDiddleTrue}
+                    setActiveThrower={this.setActiveThrower}
                     username={this.props.username}
                     score={this.score}
                     miss={this.miss}

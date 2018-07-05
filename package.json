@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
+    "compile": "tsc -p ./",
+    "go": "tsc -p ./ && npm start",
     "dart": "webpack && tsc -p ./ && npm start",
     "webpack": "webpack -w",
     "nodemon": "nodemon server.js"

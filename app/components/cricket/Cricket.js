@@ -200,7 +200,7 @@ export default class Cricket extends Component {
     }
 
     gameCricketReset() {
-        this.setState({ diddle: false });
+        this.setState({ diddle: this.botGame ? true : false });
         this.p1ThrowsHistory = 0;
         this.p1MarksHistory = [];
         this.p2MarksHistory = [];
