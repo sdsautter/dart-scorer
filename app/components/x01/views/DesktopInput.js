@@ -9,7 +9,7 @@ export default class DesktopInput extends Component {
     }
 
     playerButtonsRender() {
-        if (!this.props.gameOverModal) {
+        if (!this.props.gameOverModal && this.props.diddle) {
             if (this.props.activeThrower === 'p1') {
                 return (
                     <div>
@@ -591,6 +591,39 @@ export default class DesktopInput extends Component {
                 }
             }
         }
+        else if (!this.props.gameOverModal && !this.props.diddle) {
+            return (
+                <div className='col text-center'>
+                    <div className='row text-center'>
+                        <div className="col text-center p1-single">
+                            <h1>Diddle Winner?</h1>
+                        </div>
+                    </div>
+                    <br />
+                    <div className='row text-center'>
+                        <div className="col-6 offset-3 text-center p2-multiple">
+                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                this.props.setActiveThrower('p1')
+                                this.props.setDiddleTrue();
+                            }}>
+                                {this.props.username}
+                            </button>
+                        </div>
+                    </div>
+                    <br />
+                    <div className='row text-center'>
+                        <div className="col-6 offset-3 text-center p1-multiple">
+                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                this.props.setActiveThrower('p2')
+                                this.props.setDiddleTrue();
+                            }}>
+                                Player 2
+                        </button>
+                        </div>
+                    </div>
+                </div>
+            )
+        }
         else {
             return (
                 <div>
@@ -617,41 +650,77 @@ export default class DesktopInput extends Component {
     }
 
     throwColRender() {
-        if (!this.props.gameOverModal) {
-            if (!this.props.botGame || this.props.activeThrower === 'p1') {
-                return (
-                    <div className="row">
-                        <div className="col-12 text-center">
-                            <div className="row">
-                                <div className="col-10 offset-1 throw-borders" id='desktop01border'>
-                                    <div className="col-12 text-center">
-                                        Throw:
+        if (this.props.diddle) {
+            if (!this.props.gameOverModal) {
+                if (!this.props.botGame || this.props.activeThrower === 'p1') {
+                    return (
+                        <div className="row">
+                            <div className="col-12 text-center">
+                                <div className="row">
+                                    <div className="col-10 offset-1 throw-borders" id='desktop01border'>
+                                        <div className="col-12 text-center">
+                                            Throw:
                             </div>
-                                    <div className="col-12 text-center">
-                                        {this.props.activeThrows + 1}
+                                        <div className="col-12 text-center">
+                                            {this.props.activeThrows + 1}
+                                        </div>
                                     </div>
                                 </div>
+                                <br />
                             </div>
-                            <br />
-                        </div>
-                        <div className="col-12 miss text-center" id="miss-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }}>
-                                Miss
+                            <div className="col-12 miss text-center" id="miss-x01">
+                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }}>
+                                    Miss
                                 </button>
-                        </div>
-                        <div className="col-12 end-turn text-center" id="end-turn-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }}>
-                                End Turn
+                            </div>
+                            <div className="col-12 end-turn text-center" id="end-turn-x01">
+                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }}>
+                                    End Turn
                                 </button>
-                        </div>
-                        <div className="col-12 text-center undo" id="undo-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }}>
-                                Undo
+                            </div>
+                            <div className="col-12 text-center undo" id="undo-x01">
+                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }}>
+                                    Undo
                                 </button>
+                            </div>
                         </div>
-                    </div>
-                )
-            } else {
+                    )
+                } else {
+                    return (
+                        <div className="row">
+                            <div className="col-12 text-center">
+                                <div className="row">
+                                    <div className="col-10 offset-1 throw-borders" id='desktop01border'>
+                                        <div className="col-12 text-center">
+                                            Throw:
+                            </div>
+                                        <div className="col-12 text-center">
+                                            {this.props.activeThrows + 1}
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+                            <div className="col-12 miss text-center" id="miss-x01">
+                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }} disabled>
+                                    Miss
+                                </button>
+                            </div>
+                            <div className="col-12 end-turn text-center" id="end-turn-x01">
+                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
+                                    End Turn
+                                </button>
+                            </div>
+                            <div className="col-12 text-center undo" id="undo-x01">
+                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }}>
+                                    Undo
+                                </button>
+                            </div>
+                        </div>
+                    )
+                }
+            }
+            else {
                 return (
                     <div className="row">
                         <div className="col-12 text-center">
@@ -659,7 +728,7 @@ export default class DesktopInput extends Component {
                                 <div className="col-10 offset-1 throw-borders" id='desktop01border'>
                                     <div className="col-12 text-center">
                                         Throw:
-                            </div>
+                        </div>
                                     <div className="col-12 text-center">
                                         {this.props.activeThrows + 1}
                                     </div>
@@ -670,55 +739,23 @@ export default class DesktopInput extends Component {
                         <div className="col-12 miss text-center" id="miss-x01">
                             <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }} disabled>
                                 Miss
-                                </button>
+                            </button>
                         </div>
                         <div className="col-12 end-turn text-center" id="end-turn-x01">
                             <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
                                 End Turn
-                                </button>
+                            </button>
                         </div>
                         <div className="col-12 text-center undo" id="undo-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }}>
+                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }} disabled>
                                 Undo
-                                </button>
+                            </button>
                         </div>
                     </div>
                 )
             }
-        }
-        else {
-            return (
-                <div className="row">
-                    <div className="col-12 text-center">
-                        <div className="row">
-                            <div className="col-10 offset-1 throw-borders" id='desktop01border'>
-                                <div className="col-12 text-center">
-                                    Throw:
-                        </div>
-                                <div className="col-12 text-center">
-                                    {this.props.activeThrows + 1}
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-                    </div>
-                    <div className="col-12 miss text-center" id="miss-x01">
-                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }} disabled>
-                            Miss
-                            </button>
-                    </div>
-                    <div className="col-12 end-turn text-center" id="end-turn-x01">
-                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
-                            End Turn
-                            </button>
-                    </div>
-                    <div className="col-12 text-center undo" id="undo-x01">
-                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }} disabled>
-                            Undo
-                            </button>
-                    </div>
-                </div>
-            )
+        } else { 
+            return null;
         }
     }
 

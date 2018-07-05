@@ -28,6 +28,10 @@ export default class ScoreInput extends Component {
                 return (
                     <div>
                         <MobileGesture
+                            username={this.props.username}
+                            diddle={this.props.diddle}
+                            setDiddleTrue={this.props.setDiddleTrue}
+                            setActiveThrower={this.props.setActiveThrower}
                             activeThrower={this.props.activeThrower}
                             score={this.props.score}
                             endTurn={this.props.endTurn}
@@ -53,6 +57,10 @@ export default class ScoreInput extends Component {
                 return (
                     <div>
                         <MobileModal
+                            username={this.props.username}
+                            diddle={this.props.diddle}
+                            setDiddleTrue={this.props.setDiddleTrue}
+                            setActiveThrower={this.props.setActiveThrower}
                             activeThrower={this.props.activeThrower}
                             score={this.props.score}
                             endTurn={this.props.endTurn}
@@ -96,6 +104,10 @@ export default class ScoreInput extends Component {
             return (
 
                 <TabletInput
+                    username={this.props.username}
+                    diddle={this.props.diddle}
+                    setDiddleTrue={this.props.setDiddleTrue}
+                    setActiveThrower={this.props.setActiveThrower}
                     activeThrower={this.props.activeThrower}
                     botGame={this.props.botGame}
                     score={this.props.score}
@@ -116,6 +128,10 @@ export default class ScoreInput extends Component {
         } else {
             return (
                 <DesktopInput
+                    username={this.props.username}
+                    diddle={this.props.diddle}
+                    setDiddleTrue={this.props.setDiddleTrue}
+                    setActiveThrower={this.props.setActiveThrower}
                     activeThrower={this.props.activeThrower}
                     botGame={this.props.botGame}
                     score={this.props.score}

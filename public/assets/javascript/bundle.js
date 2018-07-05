@@ -10137,6 +10137,7 @@ var X01 = function (_Component) {
         _this.p2CheckInShots = 0;
 
         _this.state = {
+            diddle: false,
             activeThrower: "p1",
             activeThrows: 0,
             x01Game: {},
@@ -10213,14 +10214,23 @@ var X01 = function (_Component) {
         _this.popRoundScore = _this.popRoundScore.bind(_this);
         _this.popRoundStartScore = _this.popRoundStartScore.bind(_this);
         _this.gestureSwitch = _this.gestureSwitch.bind(_this);
+        _this.setDiddleTrue = _this.setDiddleTrue.bind(_this);
         return _this;
     }
 
     _createClass(X01, [{
         key: "componentWillMount",
         value: function componentWillMount() {
+            if (this.state.botGame) {
+                this.setDiddleTrue();
+            }
             this.setState({ singleGesture: localStorage.getItem('single') });
             this.setState({ multipleGesture: localStorage.getItem('multiple') });
+        }
+    }, {
+        key: "setDiddleTrue",
+        value: function setDiddleTrue() {
+            this.setState({ diddle: true });
         }
     }, {
         key: "gestureSwitch",
@@ -10612,6 +10622,7 @@ var X01 = function (_Component) {
     }, {
         key: "gameX01Reset",
         value: function gameX01Reset() {
+            this.setState({ diddle: this.botGame ? true : false });
             this.p1RoundScoresHistory = [];
             this.p1CheckInHistory = [];
             this.p1CheckoutShotsHistory = 0;
@@ -11409,6 +11420,9 @@ var X01 = function (_Component) {
                 });
             } else if (this.state.gameState === "playing") {
                 return _react2.default.createElement(_Scoreboard2.default, {
+                    diddle: this.state.diddle,
+                    setDiddleTrue: this.setDiddleTrue,
+                    setActiveThrower: this.setActiveThrower,
                     username: this.props.username,
                     score: this.score,
                     miss: this.miss,
@@ -15555,7 +15569,7 @@ var Cricket = function (_Component) {
     }, {
         key: "gameCricketReset",
         value: function gameCricketReset() {
-            this.setState({ diddle: false });
+            this.setState({ diddle: this.botGame ? true : false });
             this.p1ThrowsHistory = 0;
             this.p1MarksHistory = [];
             this.p2MarksHistory = [];
@@ -46151,6 +46165,10 @@ var Scoreboard = function (_Component) {
         value: function inputRender() {
             if (this.props.gameOptions === "numpad") {
                 return _react2.default.createElement(_Numpad2.default, {
+                    username: this.props.username,
+                    diddle: this.props.diddle,
+                    setDiddleTrue: this.props.setDiddleTrue,
+                    setActiveThrower: this.props.setActiveThrower,
                     activeThrower: this.props.activeThrower,
                     numpadScore: this.props.numpadScore,
                     numpadUndo: this.props.numpadUndo,
@@ -46166,6 +46184,10 @@ var Scoreboard = function (_Component) {
                     "div",
                     null,
                     _react2.default.createElement(_ScoreInput2.default, {
+                        username: this.props.username,
+                        diddle: this.props.diddle,
+                        setDiddleTrue: this.props.setDiddleTrue,
+                        setActiveThrower: this.props.setActiveThrower,
                         activeThrower: this.props.activeThrower,
                         endTurn: this.props.endTurn,
                         botGame: this.props.botGame,
@@ -46353,6 +46375,10 @@ var ScoreInput = function (_Component) {
                         'div',
                         null,
                         _react2.default.createElement(_MobileGesture2.default, {
+                            username: this.props.username,
+                            diddle: this.props.diddle,
+                            setDiddleTrue: this.props.setDiddleTrue,
+                            setActiveThrower: this.props.setActiveThrower,
                             activeThrower: this.props.activeThrower,
                             score: this.props.score,
                             endTurn: this.props.endTurn,
@@ -46377,6 +46403,10 @@ var ScoreInput = function (_Component) {
                         'div',
                         null,
                         _react2.default.createElement(_MobileModal2.default, {
+                            username: this.props.username,
+                            diddle: this.props.diddle,
+                            setDiddleTrue: this.props.setDiddleTrue,
+                            setActiveThrower: this.props.setActiveThrower,
                             activeThrower: this.props.activeThrower,
                             score: this.props.score,
                             endTurn: this.props.endTurn,
@@ -46446,6 +46476,10 @@ var ScoreInput = function (_Component) {
                 }
             } else if (intViewportWidth < 900) {
                 return _react2.default.createElement(_TabletInput2.default, {
+                    username: this.props.username,
+                    diddle: this.props.diddle,
+                    setDiddleTrue: this.props.setDiddleTrue,
+                    setActiveThrower: this.props.setActiveThrower,
                     activeThrower: this.props.activeThrower,
                     botGame: this.props.botGame,
                     score: this.props.score,
@@ -46464,6 +46498,10 @@ var ScoreInput = function (_Component) {
                 });
             } else {
                 return _react2.default.createElement(_DesktopInput2.default, {
+                    username: this.props.username,
+                    diddle: this.props.diddle,
+                    setDiddleTrue: this.props.setDiddleTrue,
+                    setActiveThrower: this.props.setActiveThrower,
                     activeThrower: this.props.activeThrower,
                     botGame: this.props.botGame,
                     score: this.props.score,
@@ -46536,7 +46574,7 @@ var DesktopInput = function (_Component) {
         value: function playerButtonsRender() {
             var _this2 = this;
 
-            if (!this.props.gameOverModal) {
+            if (!this.props.gameOverModal && this.props.diddle) {
                 if (this.props.activeThrower === 'p1') {
                     return _react2.default.createElement(
                         'div',
@@ -48609,6 +48647,58 @@ var DesktopInput = function (_Component) {
                         );
                     }
                 }
+            } else if (!this.props.gameOverModal && !this.props.diddle) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col text-center p1-single' },
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Diddle Winner?'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p2-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this2.props.setActiveThrower('p1');
+                                        _this2.props.setDiddleTrue();
+                                    } },
+                                this.props.username
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p1-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this2.props.setActiveThrower('p2');
+                                        _this2.props.setDiddleTrue();
+                                    } },
+                                'Player 2'
+                            )
+                        )
+                    )
+                );
             } else {
                 return _react2.default.createElement(
                     'div',
@@ -48660,68 +48750,131 @@ var DesktopInput = function (_Component) {
         value: function throwColRender() {
             var _this3 = this;
 
-            if (!this.props.gameOverModal) {
-                if (!this.props.botGame || this.props.activeThrower === 'p1') {
-                    return _react2.default.createElement(
-                        'div',
-                        { className: 'row' },
-                        _react2.default.createElement(
+            if (this.props.diddle) {
+                if (!this.props.gameOverModal) {
+                    if (!this.props.botGame || this.props.activeThrower === 'p1') {
+                        return _react2.default.createElement(
                             'div',
-                            { className: 'col-12 text-center' },
+                            { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'row' },
+                                { className: 'col-12 text-center' },
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'col-10 offset-1 throw-borders', id: 'desktop01border' },
+                                    { className: 'row' },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'col-12 text-center' },
-                                        'Throw:'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-12 text-center' },
-                                        this.props.activeThrows + 1
+                                        { className: 'col-10 offset-1 throw-borders', id: 'desktop01border' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'col-12 text-center' },
+                                            'Throw:'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'col-12 text-center' },
+                                            this.props.activeThrows + 1
+                                        )
                                     )
+                                ),
+                                _react2.default.createElement('br', null)
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 miss text-center', id: 'miss-x01' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this3.props.miss();
+                                        } },
+                                    'Miss'
                                 )
                             ),
-                            _react2.default.createElement('br', null)
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-12 miss text-center', id: 'miss-x01' },
                             _react2.default.createElement(
-                                'button',
-                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
-                                        _this3.props.miss();
-                                    } },
-                                'Miss'
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
+                                'div',
+                                { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this3.props.endTurn();
+                                        } },
+                                    'End Turn'
+                                )
+                            ),
                             _react2.default.createElement(
-                                'button',
-                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
-                                        _this3.props.endTurn();
-                                    } },
-                                'End Turn'
+                                'div',
+                                { className: 'col-12 text-center undo', id: 'undo-x01' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this3.props.undo();
+                                        } },
+                                    'Undo'
+                                )
                             )
-                        ),
-                        _react2.default.createElement(
+                        );
+                    } else {
+                        return _react2.default.createElement(
                             'div',
-                            { className: 'col-12 text-center undo', id: 'undo-x01' },
+                            { className: 'row' },
                             _react2.default.createElement(
-                                'button',
-                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
-                                        _this3.props.undo();
-                                    } },
-                                'Undo'
+                                'div',
+                                { className: 'col-12 text-center' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-10 offset-1 throw-borders', id: 'desktop01border' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'col-12 text-center' },
+                                            'Throw:'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'col-12 text-center' },
+                                            this.props.activeThrows + 1
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement('br', null)
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 miss text-center', id: 'miss-x01' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this3.props.miss();
+                                        }, disabled: true },
+                                    'Miss'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this3.props.endTurn();
+                                        }, disabled: true },
+                                    'End Turn'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center undo', id: 'undo-x01' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this3.props.undo();
+                                        } },
+                                    'Undo'
+                                )
                             )
-                        )
-                    );
+                        );
+                    }
                 } else {
                     return _react2.default.createElement(
                         'div',
@@ -48778,73 +48931,14 @@ var DesktopInput = function (_Component) {
                                 'button',
                                 { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.undo();
-                                    } },
+                                    }, disabled: true },
                                 'Undo'
                             )
                         )
                     );
                 }
             } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-12 text-center' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-10 offset-1 throw-borders', id: 'desktop01border' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'col-12 text-center' },
-                                    'Throw:'
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'col-12 text-center' },
-                                    this.props.activeThrows + 1
-                                )
-                            )
-                        ),
-                        _react2.default.createElement('br', null)
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-12 miss text-center', id: 'miss-x01' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
-                                    _this3.props.miss();
-                                }, disabled: true },
-                            'Miss'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
-                                    _this3.props.endTurn();
-                                }, disabled: true },
-                            'End Turn'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-12 text-center undo', id: 'undo-x01' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
-                                    _this3.props.undo();
-                                }, disabled: true },
-                            'Undo'
-                        )
-                    )
-                );
+                return null;
             }
         }
     }, {
@@ -49145,7 +49239,7 @@ var MobileGesture = function (_Component) {
             var doubleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'left' : 'up';
             var tripleGesture = localStorage.getItem('multiple') === 'horizontal' ? 'right' : 'down';
 
-            if (!this.props.gameOverModal) {
+            if (!this.props.gameOverModal && this.props.diddle) {
                 if (this.state.showHelp) {
                     return _react2.default.createElement(
                         'div',
@@ -49329,6 +49423,58 @@ var MobileGesture = function (_Component) {
                         )
                     );
                 }
+            } else if (!this.props.gameOverModal && !this.props.diddle) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col text-center p1-single' },
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Diddle Winner?'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p2-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this4.props.setActiveThrower('p1');
+                                        _this4.props.setDiddleTrue();
+                                    } },
+                                this.props.username
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p1-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this4.props.setActiveThrower('p2');
+                                        _this4.props.setDiddleTrue();
+                                    } },
+                                'Player 2'
+                            )
+                        )
+                    )
+                );
             } else {
                 return _react2.default.createElement(
                     'div',
@@ -49386,7 +49532,7 @@ var MobileGesture = function (_Component) {
         value: function missUndoRow() {
             var _this5 = this;
 
-            if (!this.props.gameOverModal && !this.state.showHelp) {
+            if (!this.props.gameOverModal && !this.state.showHelp && this.props.diddle) {
                 if (!this.props.botGame || this.props.activeThrower === 'p1') {
                     return _react2.default.createElement(
                         'div',
@@ -49571,7 +49717,7 @@ var MobileModal = function (_Component) {
         value: function playerButtonsRender() {
             var _this2 = this;
 
-            if (!this.props.gameOverModal) {
+            if (!this.props.gameOverModal && this.props.diddle) {
                 if (this.props.activeThrower === 'p1') {
                     return _react2.default.createElement(
                         'div',
@@ -49963,6 +50109,58 @@ var MobileModal = function (_Component) {
                         )
                     );
                 }
+            } else if (!this.props.gameOverModal && !this.props.diddle) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col text-center p1-single' },
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Diddle Winner?'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p2-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this2.props.setActiveThrower('p1');
+                                        _this2.props.setDiddleTrue();
+                                    } },
+                                this.props.username
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p1-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this2.props.setActiveThrower('p2');
+                                        _this2.props.setDiddleTrue();
+                                    } },
+                                'Player 2'
+                            )
+                        )
+                    )
+                );
             } else {
                 return _react2.default.createElement(
                     'div',
@@ -50020,7 +50218,7 @@ var MobileModal = function (_Component) {
         value: function missUndoRow() {
             var _this3 = this;
 
-            if (!this.props.gameOverModal) {
+            if (!this.props.gameOverModal && this.props.diddle) {
                 return _react2.default.createElement(
                     'div',
                     { className: 'row miss-undo-row', id: 'x01MobileUndoRow' },
@@ -51745,7 +51943,7 @@ var TabletInput = function (_Component) {
         value: function playerButtonsRender() {
             var _this2 = this;
 
-            if (!this.props.gameOverModal) {
+            if (!this.props.gameOverModal && this.props.diddle) {
                 if (this.props.activeThrower === 'p1') {
                     return _react2.default.createElement(
                         'div',
@@ -53217,6 +53415,58 @@ var TabletInput = function (_Component) {
                         )
                     );
                 }
+            } else if (!this.props.gameOverModal && !this.props.diddle) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'col text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col text-center p1-single' },
+                            _react2.default.createElement(
+                                'h1',
+                                null,
+                                'Diddle Winner?'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p2-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this2.props.setActiveThrower('p1');
+                                        _this2.props.setDiddleTrue();
+                                    } },
+                                this.props.username
+                            )
+                        )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 offset-3 text-center p1-multiple' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _this2.props.setActiveThrower('p2');
+                                        _this2.props.setDiddleTrue();
+                                    } },
+                                'Player 2'
+                            )
+                        )
+                    )
+                );
             } else {
                 return _react2.default.createElement(
                     'div',
@@ -53268,44 +53518,84 @@ var TabletInput = function (_Component) {
         value: function bottomButtonRow() {
             var _this3 = this;
 
-            if (!this.props.gameOverModal) {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
+            if (!this.props.gameOverModal && this.props.diddle) {
+                if (!this.props.botGame || this.props.activeThrower === 'p1') {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'col-3 end-turn text-center' },
+                        { className: 'row' },
                         _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', onClick: function onClick() {
-                                    _this3.props.endTurn();
-                                } },
-                            'End Turn'
+                            'div',
+                            { className: 'col-3 end-turn text-center' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this3.props.endTurn();
+                                    } },
+                                'End Turn'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6 miss text-center' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this3.props.miss();
+                                    } },
+                                'Miss'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-3 undo text-center' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this3.props.undo();
+                                    } },
+                                'Undo'
+                            )
                         )
-                    ),
-                    _react2.default.createElement(
+                    );
+                } else {
+                    return _react2.default.createElement(
                         'div',
-                        { className: 'col-6 miss text-center' },
+                        { className: 'row' },
                         _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', onClick: function onClick() {
-                                    _this3.props.miss();
-                                } },
-                            'Miss'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-3 undo text-center' },
+                            'div',
+                            { className: 'col-3 end-turn text-center' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this3.props.endTurn();
+                                    }, disabled: true },
+                                'End Turn'
+                            )
+                        ),
                         _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', onClick: function onClick() {
-                                    _this3.props.undo();
-                                } },
-                            'Undo'
+                            'div',
+                            { className: 'col-6 miss text-center' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this3.props.miss();
+                                    }, disabled: true },
+                                'Miss'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-3 undo text-center' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                        _this3.props.undo();
+                                    }, disabled: true },
+                                'Undo'
+                            )
                         )
-                    )
-                );
+                    );
+                }
             } else {
                 return null;
             }
@@ -56014,7 +56304,7 @@ var Cricket = function (_Component) {
     }, {
         key: "gameCricketReset",
         value: function gameCricketReset() {
-            this.setState({ diddle: false });
+            this.setState({ diddle: this.botGame ? true : false });
             this.p1ThrowsHistory = 0;
             this.p1MarksHistory = [];
             this.p2MarksHistory = [];

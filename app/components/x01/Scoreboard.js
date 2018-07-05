@@ -28,7 +28,7 @@ export default class Scoreboard extends Component {
                     <div className="row">
                         <div className="col-6 text-center padding-top player border-right p1-active">
                             {this.props.username}
-                            </div>
+                        </div>
                         <div className="col-6 text-center padding-top player border-left inactive-thrower">
                             Player 2
                             </div>
@@ -39,7 +39,7 @@ export default class Scoreboard extends Component {
                     <div className="row">
                         <div className="col-6 text-center padding-top player border-right inactive-thrower">
                             {this.props.username}
-                            </div>
+                        </div>
                         <div className="col-6 text-center padding-top player border-left p2-active">
                             Player 2
                             </div>
@@ -63,6 +63,10 @@ export default class Scoreboard extends Component {
         if (this.props.gameOptions === "numpad") {
             return (
                 <Numpad
+                    username={this.props.username}
+                    diddle={this.props.diddle}
+                    setDiddleTrue={this.props.setDiddleTrue}
+                    setActiveThrower={this.props.setActiveThrower}
                     activeThrower={this.props.activeThrower}
                     numpadScore={this.props.numpadScore}
                     numpadUndo={this.props.numpadUndo}
@@ -78,6 +82,10 @@ export default class Scoreboard extends Component {
             return (
                 <div>
                     <ScoreInput
+                        username={this.props.username}
+                        diddle={this.props.diddle}
+                        setDiddleTrue={this.props.setDiddleTrue}
+                        setActiveThrower={this.props.setActiveThrower}
                         activeThrower={this.props.activeThrower}
                         endTurn={this.props.endTurn}
                         botGame={this.props.botGame}
