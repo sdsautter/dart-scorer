@@ -5,6 +5,8 @@ import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import axios from 'axios';
+import NavMenu from "../navMenu/NavMenu";
 
 
 export default class Cricket extends Component {
@@ -100,6 +102,25 @@ export default class Cricket extends Component {
         this.scoringLogic = this.scoringLogic.bind(this);
         this.popLastMark = this.popLastMark.bind(this);
         this.reconfigureActiveMarks = this.reconfigureActiveMarks.bind(this);
+        this.putGameStats = this.putGameStats.bind(this);
+    }
+
+    putGameStats() {
+        const win = this.state.gameWinner === 'p1' ? true : false;
+        const botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
+
+        const game = {
+            win,
+            throws: this.state.p1Throws,
+            marks: this.p1Marks,
+            bulls: this.p1Bulls,
+            botGame: this.state.botGame,
+            botDifficulty,
+            date: new Date()
+        }
+
+        axios.put(`/user/cricket`, game)
+            .catch(err => console.log(err));
     }
 
     continueSet() {
@@ -1581,6 +1602,7 @@ export default class Cricket extends Component {
         });
         Howler.volume(.4);
         this.fillHistoryData();
+        this.putGameStats();
         if (this.state.firstWinner === '') {
             this.setState({ firstWinner: this.state.gameWinner }, () => {
                 this.addLeg();
@@ -1738,6 +1760,7 @@ export default class Cricket extends Component {
             return (
                 <div>
                     <Scoreboard
+                        username={this.props.username}
                         score={this.score}
                         miss={this.miss}
                         endTurn={this.endTurn}
@@ -1804,7 +1827,12 @@ export default class Cricket extends Component {
                 transitionEnter={false}
                 transitionLeave={false}>
                 <div>
-                    <SettingsMenu></SettingsMenu>
+                    <NavMenu setUsername={this.props.setUsername}
+                        username={this.props.username}
+                        setUsername={this.props.setUsername}
+                        gameState={this.state.gameState}
+                        gameCricketReset={this.gameCricketReset}
+                    />
                     {this.conditionalRender()}
                 </div>
             </ReactCSSTransitionGroup>

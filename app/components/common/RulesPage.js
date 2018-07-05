@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
+import NavMenu from '../navMenu/NavMenu';
 
 export default class RulesPage extends Component {
     constructor() {
@@ -55,6 +56,10 @@ export default class RulesPage extends Component {
     render() {
         return (
             <div>
+                 <NavMenu setUsername={this.props.setUsername}
+                        username={this.props.username}
+                        setUsername={this.props.setUsername}
+                    />
                 <div className="row top-row">
                     <div className="col rules-menu-title text-center">
                         Rules
@@ -63,23 +68,21 @@ export default class RulesPage extends Component {
                 <div className='row'>
                     <div className='col-4'>
                         <div className='row'>
-                            <div className="col-12 text-center rules-menu">
-                                <button className='rules-menu' onClick={() => { this.setRules('cricket') }}>Cricket</button>
+                            <div className="col-12 text-center main-menu-button">
+                                <button className='bttn-float bttn-lg' onClick={() => { this.setRules('cricket') }}>Cricket</button>
                             </div>
                         </div>
-                        <br />
                         <div className="row">
-                            <div className="col-12 text-center rules-menu">
-                                <button className='rules-menu' onClick={() => { this.setRules('x01') }}>X01</button>
+                            <div className="col-12 text-center main-menu-button">
+                                <button className='bttn-float bttn-lg' onClick={() => { this.setRules('x01') }}>X01</button>
                             </div>
                         </div>
-                        <br />
                         <div className="row">
-                            <div className="col-12 text-center rules-menu">
+                            <div className="col-12 text-center main-menu-button">
                                 <Link to={{
                                     pathname: '/',
                                 }}>
-                                    <button className='rules-menu'>Back</button>
+                                    <button className='bttn-float bttn-lg'>Back</button>
                                 </Link>
                             </div>
                         </div>

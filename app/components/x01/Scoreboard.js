@@ -27,7 +27,7 @@ export default class Scoreboard extends Component {
                 return (
                     <div className="row">
                         <div className="col-6 text-center padding-top player border-right p1-active">
-                            Player 1
+                            {this.props.username}
                             </div>
                         <div className="col-6 text-center padding-top player border-left inactive-thrower">
                             Player 2
@@ -38,7 +38,7 @@ export default class Scoreboard extends Component {
                 return (
                     <div className="row">
                         <div className="col-6 text-center padding-top player border-right inactive-thrower">
-                            Player 1
+                            {this.props.username}
                             </div>
                         <div className="col-6 text-center padding-top player border-left p2-active">
                             Player 2
@@ -53,6 +53,7 @@ export default class Scoreboard extends Component {
                     activeThrower={this.props.activeThrower}
                     gameX01Reset={this.props.gameX01Reset}
                     botGame={this.props.botGame}
+                    username={this.props.username}
                 />
             )
         }

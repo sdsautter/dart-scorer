@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./public/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 117);
+/******/ 	return __webpack_require__(__webpack_require__.s = 126);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -260,7 +260,7 @@ process.umask = function() { return 0; };
 "use strict";
 
 
-module.exports = __webpack_require__(21);
+module.exports = __webpack_require__(24);
 
 
 /***/ }),
@@ -548,8 +548,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMProperty = __webpack_require__(18);
-var ReactDOMComponentFlags = __webpack_require__(80);
+var DOMProperty = __webpack_require__(21);
+var ReactDOMComponentFlags = __webpack_require__(84);
 
 var invariant = __webpack_require__(2);
 
@@ -863,11 +863,11 @@ if (process.env.NODE_ENV !== 'production') {
   // By explicitly using `prop-types` you are opting into new development behavior.
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(78)(isValidElement, throwOnDirectAccess);
+  module.exports = __webpack_require__(82)(isValidElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(222)();
+  module.exports = __webpack_require__(231)();
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -878,31 +878,31 @@ if (process.env.NODE_ENV !== 'production') {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(230);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "BrowserRouter", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(233);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "HashRouter", function() { return __WEBPACK_IMPORTED_MODULE_1__HashRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(114);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(235);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "MemoryRouter", function() { return __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(229);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(238);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "NavLink", function() { return __WEBPACK_IMPORTED_MODULE_4__NavLink__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(241);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Prompt", function() { return __WEBPACK_IMPORTED_MODULE_5__Prompt__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(243);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Redirect", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(115);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Route", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(66);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Router", function() { return __WEBPACK_IMPORTED_MODULE_8__Router__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(249);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "StaticRouter", function() { return __WEBPACK_IMPORTED_MODULE_9__StaticRouter__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(242);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__Switch__ = __webpack_require__(251);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Switch", function() { return __WEBPACK_IMPORTED_MODULE_10__Switch__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(244);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__matchPath__ = __webpack_require__(253);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "matchPath", function() { return __WEBPACK_IMPORTED_MODULE_11__matchPath__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(245);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__withRouter__ = __webpack_require__(254);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "withRouter", function() { return __WEBPACK_IMPORTED_MODULE_12__withRouter__["a"]; });
 
 
@@ -947,9 +947,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var _prodInvariant = __webpack_require__(22);
+var _prodInvariant = __webpack_require__(25);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -1377,7 +1377,7 @@ module.exports = emptyFunction;
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactDebugTool = __webpack_require__(143);
+  var ReactDebugTool = __webpack_require__(152);
   debugTool = ReactDebugTool;
 }
 
@@ -1386,6 +1386,316 @@ module.exports = { debugTool: debugTool };
 
 /***/ }),
 /* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__(119);
+var isBuffer = __webpack_require__(261);
+
+/*global toString:true*/
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */
+function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
+
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
+  } else {
+    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+  }
+  return result;
+}
+
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
+
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
+
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
+
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
+
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
+
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
+
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
+
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
+
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+    return false;
+  }
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
+
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
+
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
+      }
+    }
+  }
+}
+
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = merge(result[key], val);
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind(val, thisArg);
+    } else {
+      a[key] = val;
+    }
+  });
+  return a;
+}
+
+module.exports = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  extend: extend,
+  trim: trim
+};
+
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1442,7 +1752,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1474,7 +1784,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1491,11 +1801,11 @@ module.exports = ReactCurrentOwner;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(84);
-var PooledClass = __webpack_require__(20);
-var ReactFeatureFlags = __webpack_require__(85);
-var ReactReconciler = __webpack_require__(23);
-var Transaction = __webpack_require__(34);
+var CallbackQueue = __webpack_require__(88);
+var PooledClass = __webpack_require__(23);
+var ReactFeatureFlags = __webpack_require__(89);
+var ReactReconciler = __webpack_require__(26);
+var Transaction = __webpack_require__(37);
 
 var invariant = __webpack_require__(2);
 
@@ -1729,7 +2039,624 @@ module.exports = ReactUpdates;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Login = __webpack_require__(259);
+
+var _Login2 = _interopRequireDefault(_Login);
+
+var _reactRouterDom = __webpack_require__(10);
+
+var _Signup = __webpack_require__(278);
+
+var _Signup2 = _interopRequireDefault(_Signup);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _SettingsMenu = __webpack_require__(44);
+
+var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var NavMenu = function (_Component) {
+    _inherits(NavMenu, _Component);
+
+    function NavMenu() {
+        _classCallCheck(this, NavMenu);
+
+        var _this = _possibleConstructorReturn(this, (NavMenu.__proto__ || Object.getPrototypeOf(NavMenu)).call(this));
+
+        _this.state = {
+            menu: 'menu',
+            loggedIn: false
+        };
+        _this.menuNavButton = _this.menuNavButton.bind(_this);
+        _this.setMenuState = _this.setMenuState.bind(_this);
+        _this.conditionalModalRender = _this.conditionalModalRender.bind(_this);
+        _this.loggedInSwitch = _this.loggedInSwitch.bind(_this);
+        _this.conditionalMenuRender = _this.conditionalMenuRender.bind(_this);
+        _this.gameReset = _this.gameReset.bind(_this);
+        _this.nameRender = _this.nameRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(NavMenu, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                if (_this2.props.username !== 'guest') {
+                    _this2.loggedInSwitch(true);
+                }
+            }, 500);
+        }
+    }, {
+        key: 'loggedInSwitch',
+        value: function loggedInSwitch(loggedIn) {
+            this.setState({ loggedIn: loggedIn });
+        }
+    }, {
+        key: 'nameRender',
+        value: function nameRender() {
+            if (this.props.gameState === 'playing') {
+                return;
+            } else {
+                return this.props.username;
+            }
+        }
+    }, {
+        key: 'menuNavButton',
+        value: function menuNavButton() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'sound-toggle', 'data-toggle': 'modal', 'data-target': '#menu', onClick: function onClick() {
+                        _this3.setMenuState('menu');
+                    } },
+                _react2.default.createElement(
+                    'span',
+                    { id: 'navName' },
+                    this.nameRender()
+                ),
+                _react2.default.createElement(
+                    'span',
+                    null,
+                    _react2.default.createElement('img', { src: '/assets/images/menu-dots3.png', className: 'menu-dots' })
+                )
+            );
+        }
+    }, {
+        key: 'gameReset',
+        value: function gameReset() {
+            if (this.props.gameX01Reset) {
+                this.props.gameX01Reset();
+            } else if (this.props.gameCricketReset) {
+                this.props.gameCricketReset();
+            }
+        }
+    }, {
+        key: 'conditionalMenuRender',
+        value: function conditionalMenuRender() {
+            var _this4 = this;
+
+            var newGamePath = window.location.href.includes('pvp') ? '/pvp' : '/cpu';
+            if (this.state.loggedIn && this.props.gameState !== 'playing') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'modal-content' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-header' },
+                        _react2.default.createElement(
+                            'h5',
+                            { className: 'modal-title', id: 'menuLabel' },
+                            'Menu'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-body' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _axios2.default.post('/logout').then(function () {
+                                                $("#menu").modal("hide");
+                                                _this4.loggedInSwitch(false);
+                                                _this4.props.setUsername('guest');
+                                            });
+                                        } },
+                                    'Logout'
+                                )
+                            )
+                        )
+                    )
+                );
+            } else if (this.state.loggedIn && this.props.gameState === 'playing') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'modal-content' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-header' },
+                        _react2.default.createElement(
+                            'h5',
+                            { className: 'modal-title', id: 'menuLabel' },
+                            'Menu'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-body' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p2-single' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _axios2.default.post('/logout').then(function () {
+                                                $("#menu").modal("hide");
+                                                _this4.loggedInSwitch(false);
+                                                _this4.props.setUsername('guest');
+                                            });
+                                        } },
+                                    'Logout'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('hr', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p1-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('settings');
+                                        } },
+                                    'Settings'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p1-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('reset');
+                                        } },
+                                    'Reset Set'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p2-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('home');
+                                        } },
+                                    'Home'
+                                )
+                            )
+                        )
+                    )
+                );
+            } else if (!this.state.loggedIn && this.props.gameState !== 'playing') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'modal-content' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-header' },
+                        _react2.default.createElement(
+                            'h5',
+                            { className: 'modal-title', id: 'menuLabel' },
+                            'Menu'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-body' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-4 offset-1 p1-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('login');
+                                        } },
+                                    'Login'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-4 offset-2 p1-single' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('signup');
+                                        } },
+                                    'Sign Up'
+                                )
+                            )
+                        )
+                    )
+                );
+            } else if (!this.state.LoggedIn && this.props.gameState === 'playing') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'modal-content' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-header' },
+                        _react2.default.createElement(
+                            'h5',
+                            { className: 'modal-title', id: 'menuLabel' },
+                            'Menu'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-body' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col p1-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('login');
+                                        } },
+                                    'Login'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col p2-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('signup');
+                                        } },
+                                    'Sign Up'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('hr', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p1-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('settings');
+                                        } },
+                                    'Settings'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p1-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('reset');
+                                        } },
+                                    'Reset Set'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-8 offset-2 modal-menu p2-multiple' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setMenuState('home');
+                                        } },
+                                    'Home'
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'conditionalModalRender',
+        value: function conditionalModalRender() {
+            var _this5 = this;
+
+            switch (this.state.menu) {
+                case 'menu':
+                    return this.conditionalMenuRender();
+                case 'login':
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-header' },
+                            _react2.default.createElement(
+                                'h5',
+                                { className: 'modal-title', id: 'menuLabel' },
+                                'Login'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-body' },
+                            _react2.default.createElement(_Login2.default, {
+                                setUsername: this.props.setUsername,
+                                setMenuState: this.setMenuState,
+                                username: this.props.username,
+                                loggedIn: this.state.loggedIn,
+                                loggedInSwitch: this.loggedInSwitch
+                            })
+                        )
+                    );
+                case 'logout':
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-header' },
+                            _react2.default.createElement(
+                                'h5',
+                                { className: 'modal-title', id: 'menuLabel' },
+                                'Logout'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-body' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                        _axios2.default.post('/logout').then(function () {
+                                            $("#menu").modal("hide");
+                                            _this5.loggedInSwitch(false);
+                                            _this5.props.setUsername('guest');
+                                        });
+                                    } },
+                                'Logout'
+                            )
+                        )
+                    );
+                case 'signup':
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-header' },
+                            _react2.default.createElement(
+                                'h5',
+                                { className: 'modal-title', id: 'menuLabel' },
+                                'Sign Up'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-body' },
+                            _react2.default.createElement(_Signup2.default, _defineProperty({
+                                setUsername: this.props.setUsername,
+                                setMenuState: this.setMenuState,
+                                username: this.props.username,
+                                loggedIn: this.state.loggedIn,
+                                loggedInSwitch: this.loggedInSwitch
+                            }, 'setMenuState', this.setMenuState))
+                        )
+                    );
+                case 'reset':
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-header' },
+                            _react2.default.createElement(
+                                'h5',
+                                { className: 'modal-title', id: 'reloadModalLabel' },
+                                'Start Set Over'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-body' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'col-6 offset-3 text-center' },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                                _this5.setMenuState('menu');
+                                            } },
+                                        'No'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement('br', null),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'col-6 offset-3 text-center modal-home' },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { type: 'button', className: 'btn', onClick: function onClick() {
+                                                _this5.gameReset();
+                                                $("#menu").modal("hide");
+                                            } },
+                                        'Yes'
+                                    )
+                                )
+                            )
+                        )
+                    );
+                case 'home':
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-header' },
+                            _react2.default.createElement(
+                                'h5',
+                                { className: 'modal-title', id: 'exitModalLabel' },
+                                'Exit Game'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-body' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'col-6 offset-3 text-center' },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                                _this5.setMenuState('menu');
+                                            } },
+                                        'No'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement('br', null),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'col-6 offset-3 text-center modal-home' },
+                                    _react2.default.createElement(
+                                        _reactRouterDom.Link,
+                                        { to: {
+                                                pathname: '/'
+                                            } },
+                                        _react2.default.createElement(
+                                            'button',
+                                            { type: 'button', className: 'btn', onClick: function onClick() {
+                                                    $("#menu").modal("hide");
+                                                } },
+                                            'Yes'
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    );
+                case 'settings':
+                    return _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-header' },
+                            _react2.default.createElement(
+                                'h5',
+                                { className: 'modal-title', id: 'menuLabel' },
+                                'Settings'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'modal-body' },
+                            _react2.default.createElement(_SettingsMenu2.default, {
+                                setMenuState: this.setMenuState,
+                                gestureSwitch: this.props.gestureSwitch
+                            })
+                        )
+                    );
+                default:
+                    break;
+            }
+        }
+    }, {
+        key: 'setMenuState',
+        value: function setMenuState(menu) {
+            this.setState({ menu: menu });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                this.menuNavButton(),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'menu', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'menuLabel', 'aria-hidden': 'true' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'modal-dialog', role: 'document' },
+                        this.conditionalModalRender()
+                    )
+                )
+            );
+        }
+    }]);
+
+    return NavMenu;
+}(_react.Component);
+
+exports.default = NavMenu;
+
+/***/ }),
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1745,7 +2672,7 @@ module.exports = ReactUpdates;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(20);
+var PooledClass = __webpack_require__(23);
 
 var emptyFunction = __webpack_require__(12);
 var warning = __webpack_require__(3);
@@ -2004,7 +2931,13 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(260);
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2217,7 +3150,7 @@ module.exports = DOMProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2233,13 +3166,13 @@ module.exports = DOMProperty;
 
 var _assign = __webpack_require__(5);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 
 var warning = __webpack_require__(3);
-var canDefineProperty = __webpack_require__(31);
+var canDefineProperty = __webpack_require__(34);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-var REACT_ELEMENT_TYPE = __webpack_require__(74);
+var REACT_ELEMENT_TYPE = __webpack_require__(78);
 
 var RESERVED_PROPS = {
   key: true,
@@ -2562,7 +3495,7 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2678,7 +3611,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2694,24 +3627,24 @@ module.exports = PooledClass;
 
 var _assign = __webpack_require__(5);
 
-var ReactBaseClasses = __webpack_require__(72);
-var ReactChildren = __webpack_require__(119);
-var ReactDOMFactories = __webpack_require__(123);
-var ReactElement = __webpack_require__(19);
-var ReactPropTypes = __webpack_require__(127);
-var ReactVersion = __webpack_require__(129);
+var ReactBaseClasses = __webpack_require__(76);
+var ReactChildren = __webpack_require__(128);
+var ReactDOMFactories = __webpack_require__(132);
+var ReactElement = __webpack_require__(22);
+var ReactPropTypes = __webpack_require__(136);
+var ReactVersion = __webpack_require__(138);
 
-var createReactClass = __webpack_require__(130);
-var onlyChild = __webpack_require__(132);
+var createReactClass = __webpack_require__(139);
+var onlyChild = __webpack_require__(141);
 
 var createElement = ReactElement.createElement;
 var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var lowPriorityWarning = __webpack_require__(41);
-  var canDefineProperty = __webpack_require__(31);
-  var ReactElementValidator = __webpack_require__(76);
+  var lowPriorityWarning = __webpack_require__(45);
+  var canDefineProperty = __webpack_require__(34);
+  var ReactElementValidator = __webpack_require__(80);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
@@ -2814,7 +3747,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2856,7 +3789,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 23 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2870,7 +3803,7 @@ module.exports = reactProdInvariant;
 
 
 
-var ReactRef = __webpack_require__(141);
+var ReactRef = __webpack_require__(150);
 var ReactInstrumentation = __webpack_require__(13);
 
 var warning = __webpack_require__(3);
@@ -3026,7 +3959,7 @@ module.exports = ReactReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 24 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3040,11 +3973,11 @@ module.exports = ReactReconciler;
 
 
 
-var DOMNamespaces = __webpack_require__(49);
-var setInnerHTML = __webpack_require__(36);
+var DOMNamespaces = __webpack_require__(53);
+var setInnerHTML = __webpack_require__(39);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(50);
-var setTextContent = __webpack_require__(89);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
+var setTextContent = __webpack_require__(93);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3147,7 +4080,7 @@ DOMLazyTree.queueText = queueText;
 module.exports = DOMLazyTree;
 
 /***/ }),
-/* 25 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3161,11 +4094,11 @@ module.exports = DOMLazyTree;
 
 
 
-var EventPluginHub = __webpack_require__(26);
-var EventPluginUtils = __webpack_require__(43);
+var EventPluginHub = __webpack_require__(29);
+var EventPluginUtils = __webpack_require__(47);
 
-var accumulateInto = __webpack_require__(81);
-var forEachAccumulated = __webpack_require__(82);
+var accumulateInto = __webpack_require__(85);
+var forEachAccumulated = __webpack_require__(86);
 var warning = __webpack_require__(3);
 
 var getListener = EventPluginHub.getListener;
@@ -3285,7 +4218,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3301,12 +4234,12 @@ module.exports = EventPropagators;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventPluginRegistry = __webpack_require__(33);
-var EventPluginUtils = __webpack_require__(43);
-var ReactErrorUtils = __webpack_require__(44);
+var EventPluginRegistry = __webpack_require__(36);
+var EventPluginUtils = __webpack_require__(47);
+var ReactErrorUtils = __webpack_require__(48);
 
-var accumulateInto = __webpack_require__(81);
-var forEachAccumulated = __webpack_require__(82);
+var accumulateInto = __webpack_require__(85);
+var forEachAccumulated = __webpack_require__(86);
 var invariant = __webpack_require__(2);
 
 /**
@@ -3563,7 +4496,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3577,9 +4510,9 @@ module.exports = EventPluginHub;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
-var getEventTarget = __webpack_require__(45);
+var getEventTarget = __webpack_require__(49);
 
 /**
  * @interface UIEvent
@@ -3625,7 +4558,7 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 module.exports = SyntheticUIEvent;
 
 /***/ }),
-/* 28 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3674,7 +4607,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 29 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3741,7 +4674,7 @@ var createPath = exports.createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3812,7 +4745,7 @@ var createPath = function createPath(location) {
 };
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3842,7 +4775,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3866,7 +4799,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4123,7 +5056,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 34 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4355,7 +5288,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 35 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4369,10 +5302,10 @@ module.exports = TransactionImpl;
 
 
 
-var SyntheticUIEvent = __webpack_require__(27);
-var ViewportMetrics = __webpack_require__(88);
+var SyntheticUIEvent = __webpack_require__(30);
+var ViewportMetrics = __webpack_require__(92);
 
-var getEventModifierState = __webpack_require__(47);
+var getEventModifierState = __webpack_require__(51);
 
 /**
  * @interface MouseEvent
@@ -4430,7 +5363,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 36 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4445,12 +5378,12 @@ module.exports = SyntheticMouseEvent;
 
 
 var ExecutionEnvironment = __webpack_require__(7);
-var DOMNamespaces = __webpack_require__(49);
+var DOMNamespaces = __webpack_require__(53);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(50);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -4531,7 +5464,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 37 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4656,7 +5589,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 38 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4672,12 +5605,12 @@ module.exports = escapeTextContentForBrowser;
 
 var _assign = __webpack_require__(5);
 
-var EventPluginRegistry = __webpack_require__(33);
-var ReactEventEmitterMixin = __webpack_require__(167);
-var ViewportMetrics = __webpack_require__(88);
+var EventPluginRegistry = __webpack_require__(36);
+var ReactEventEmitterMixin = __webpack_require__(176);
+var ViewportMetrics = __webpack_require__(92);
 
-var getVendorPrefixedEventName = __webpack_require__(168);
-var isEventSupported = __webpack_require__(46);
+var getVendorPrefixedEventName = __webpack_require__(177);
+var isEventSupported = __webpack_require__(50);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -4983,15 +5916,15 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 39 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocation; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return locationsAreEqual; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_resolve_pathname__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_value_equal__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PathUtils__ = __webpack_require__(33);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -5059,7 +5992,7 @@ var locationsAreEqual = function locationsAreEqual(a, b) {
 };
 
 /***/ }),
-/* 40 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5077,7 +6010,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -5108,13 +6047,12 @@ var BotDifficulty = function (_Component) {
                 return _react2.default.createElement(
                     'div',
                     null,
-                    _react2.default.createElement('br', null),
                     _react2.default.createElement(
                         'div',
                         { className: 'row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-12 text-center main-menu' },
+                            { className: 'col-12 text-center main-menu-button' },
                             _react2.default.createElement(
                                 _reactRouterDom.Link,
                                 { to: {
@@ -5122,7 +6060,7 @@ var BotDifficulty = function (_Component) {
                                     } },
                                 _react2.default.createElement(
                                     'button',
-                                    { className: 'main-menu' },
+                                    { className: 'bttn-float bttn-lg' },
                                     'Pro'
                                 )
                             )
@@ -5137,6 +6075,9 @@ var BotDifficulty = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(_NavMenu2.default, _defineProperty({ setUsername: this.props.setUsername,
+                    username: this.props.username
+                }, 'setUsername', this.props.setUsername)),
                 _react2.default.createElement(
                     'div',
                     { className: 'row top-row' },
@@ -5146,13 +6087,12 @@ var BotDifficulty = function (_Component) {
                         'Difficulty'
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -5160,19 +6100,18 @@ var BotDifficulty = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'main-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'Easy'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -5180,19 +6119,18 @@ var BotDifficulty = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'main-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'Medium'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -5200,20 +6138,19 @@ var BotDifficulty = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'main-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'Hard'
                             )
                         )
                     )
                 ),
                 this.difficultyRender(),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -5237,7 +6174,416 @@ var BotDifficulty = function (_Component) {
 exports.default = BotDifficulty;
 
 /***/ }),
-/* 41 */
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _hammerjs = __webpack_require__(118);
+
+var _hammerjs2 = _interopRequireDefault(_hammerjs);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SettingsMenu = function (_Component) {
+    _inherits(SettingsMenu, _Component);
+
+    function SettingsMenu() {
+        _classCallCheck(this, SettingsMenu);
+
+        var _this = _possibleConstructorReturn(this, (SettingsMenu.__proto__ || Object.getPrototypeOf(SettingsMenu)).call(this));
+
+        _this.assetElipses = window.location.href.includes('cpu') ? '../..' : '..';
+
+        _this.state = {
+            legs: 1,
+            sets: 3
+        };
+
+        if (localStorage.getItem('sounds') !== 'off') {
+            localStorage.setItem('sounds', 'on');
+        }
+        if (localStorage.getItem('multiple') !== 'vertical') {
+            localStorage.setItem('multiple', 'horizontal');
+        }
+
+        if (localStorage.getItem('legs') == null) {
+            localStorage.setItem('legs', 1);
+        }
+
+        if (localStorage.getItem('sets') == null) {
+            localStorage.setItem('sets', 3);
+        }
+
+        _this.soundToggle = _this.soundToggle.bind(_this);
+        _this.settingsMenuRender = _this.settingsMenuRender.bind(_this);
+        _this.multipleToggle = _this.multipleToggle.bind(_this);
+        _this.soundToggleRender = _this.soundToggleRender.bind(_this);
+        _this.multipleToggleRender = _this.multipleToggleRender.bind(_this);
+        _this.legRender = _this.legRender.bind(_this);
+        _this.setRender = _this.setRender.bind(_this);
+        _this.setSetNumber = _this.setSetNumber.bind(_this);
+        _this.setLegNumber = _this.setLegNumber.bind(_this);
+        return _this;
+    }
+
+    _createClass(SettingsMenu, [{
+        key: 'multipleToggle',
+        value: function multipleToggle() {
+            var storageMultiple = localStorage.getItem('multiple');
+            var multipleTouch = void 0;
+            if (storageMultiple === 'horizontal') {
+                multipleTouch = 'vertical';
+            } else {
+                multipleTouch = 'horizontal';
+            }
+            localStorage.setItem('multiple', multipleTouch);
+            if (this.props.gestureSwitch) {
+                this.props.gestureSwitch('multiple');
+            }
+            this.forceUpdate();
+        }
+    }, {
+        key: 'soundToggle',
+        value: function soundToggle() {
+
+            var storageSound = localStorage.getItem('sounds');
+            var soundBool = void 0;
+            if (storageSound === 'on') {
+                soundBool = 'off';
+            } else {
+                soundBool = 'on';
+            }
+            localStorage.setItem('sounds', soundBool);
+            this.forceUpdate();
+        }
+    }, {
+        key: 'settingsMenuRender',
+        value: function settingsMenuRender() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'sound-toggle' },
+                _react2.default.createElement('img', { className: 'sound-icon', src: this.assetElipses + '/assets/images/dart_settings.png', 'data-toggle': 'modal', 'data-target': '#settings' })
+            );
+        }
+    }, {
+        key: 'soundToggleRender',
+        value: function soundToggleRender() {
+            if (localStorage.getItem('sounds') === 'on') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-right settings-selected', onClick: this.soundToggle },
+                        'On'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon sound-modal-img', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.soundToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-left settings-fade', onClick: this.soundToggle },
+                        'Off'
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-right settings-fade', onClick: this.soundToggle },
+                        'On'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon sound-modal-img', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.soundToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-left settings-selected', onClick: this.soundToggle },
+                        'Off'
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'multipleToggleRender',
+        value: function multipleToggleRender() {
+            if (localStorage.getItem('multiple') === 'horizontal') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-selected', onClick: this.multipleToggle },
+                        'Horizontal'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon swipe-modal-img', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.multipleToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-fade', onClick: this.multipleToggle },
+                        'Vertical'
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-fade', onClick: this.multipleToggle },
+                        'Horizontal'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 text-center' },
+                        _react2.default.createElement('img', { className: 'sound-icon swipe-modal-img', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.multipleToggle })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-4 swipe-option text-center settings-selected', onClick: this.multipleToggle },
+                        'Vertical'
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'legRender',
+        value: function legRender(number) {
+            if (parseInt(localStorage.getItem('legs')) === number) {
+                return 'col-6 col-md-3 leg-options leg-selected';
+            } else {
+                return 'col-6 col-md-3 leg-options leg-faded';
+            }
+        }
+    }, {
+        key: 'setLegNumber',
+        value: function setLegNumber(legs) {
+            this.setState({ legs: legs });
+            localStorage.setItem('legs', legs);
+        }
+    }, {
+        key: 'setRender',
+        value: function setRender(number) {
+            if (parseInt(localStorage.getItem('sets')) === number) {
+                return 'col-4 set-option set-selected';
+            } else {
+                return 'col-4 set-option set-faded';
+            }
+        }
+    }, {
+        key: 'setSetNumber',
+        value: function setSetNumber(sets) {
+            this.setState({ sets: sets });
+            localStorage.setItem('sets', sets);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this2 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col text-center' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row sound-options' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 sound-header' },
+                                'Sounds'
+                            ),
+                            this.soundToggleRender()
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row gesture-options' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 swipe-header' },
+                                'Swipe Direction'
+                            ),
+                            this.multipleToggleRender()
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row set-options' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-5' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-12 set-header' },
+                                        'Legs'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.legRender(1), onClick: function onClick() {
+                                                _this2.setLegNumber(1);
+                                            } },
+                                        '1'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.legRender(3), onClick: function onClick() {
+                                                _this2.setLegNumber(3);
+                                            } },
+                                        '3'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.legRender(5), onClick: function onClick() {
+                                                _this2.setLegNumber(5);
+                                            } },
+                                        '5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.legRender(7), onClick: function onClick() {
+                                                _this2.setLegNumber(7);
+                                            } },
+                                        '7'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-2 best-of text-center' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-12' },
+                                        'Best Of'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-5' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'col-12 set-header' },
+                                        'Sets'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        {
+                                            className: this.setRender(3),
+                                            onClick: function onClick() {
+                                                _this2.setSetNumber(3);
+                                            }
+                                        },
+                                        '3'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        {
+                                            className: this.setRender(5),
+                                            onClick: function onClick() {
+                                                _this2.setSetNumber(5);
+                                            }
+                                        },
+                                        '5'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.setRender(7), onClick: function onClick() {
+                                                _this2.setSetNumber(7);
+                                            } },
+                                        '7'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.setRender(9), onClick: function onClick() {
+                                                _this2.setSetNumber(9);
+                                            } },
+                                        '9'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.setRender(11), onClick: function onClick() {
+                                                _this2.setSetNumber(11);
+                                            } },
+                                        '11'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: this.setRender(13), onClick: function onClick() {
+                                                _this2.setSetNumber(13);
+                                            } },
+                                        '13'
+                                    )
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6 offset-3 text-center p2-multiple' },
+                        _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                    _this2.props.setMenuState('menu');
+                                } },
+                            'Back'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SettingsMenu;
+}(_react.Component);
+
+exports.default = SettingsMenu;
+
+/***/ }),
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5306,7 +6652,7 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5325,7 +6671,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 43 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5341,7 +6687,7 @@ module.exports = ReactPropTypesSecret;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactErrorUtils = __webpack_require__(44);
+var ReactErrorUtils = __webpack_require__(48);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -5555,7 +6901,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5637,7 +6983,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 45 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5675,7 +7021,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 46 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5738,7 +7084,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 47 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5784,7 +7130,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 48 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5798,14 +7144,14 @@ module.exports = getEventModifierState;
 
 
 
-var DOMLazyTree = __webpack_require__(24);
-var Danger = __webpack_require__(152);
+var DOMLazyTree = __webpack_require__(27);
+var Danger = __webpack_require__(161);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(13);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(50);
-var setInnerHTML = __webpack_require__(36);
-var setTextContent = __webpack_require__(89);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
+var setInnerHTML = __webpack_require__(39);
+var setTextContent = __webpack_require__(93);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -6014,7 +7360,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 49 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6037,7 +7383,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 50 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6072,7 +7418,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 51 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6088,10 +7434,10 @@ module.exports = createMicrosoftUnsafeLocalFunction;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypesSecret = __webpack_require__(93);
-var propTypesFactory = __webpack_require__(77);
+var ReactPropTypesSecret = __webpack_require__(97);
+var propTypesFactory = __webpack_require__(81);
 
-var React = __webpack_require__(21);
+var React = __webpack_require__(24);
 var PropTypes = propTypesFactory(React.isValidElement);
 
 var invariant = __webpack_require__(2);
@@ -6214,7 +7560,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 52 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6262,7 +7608,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 53 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6333,7 +7679,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 54 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6378,7 +7724,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 55 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6440,7 +7786,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 56 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6456,10 +7802,10 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactCurrentOwner = __webpack_require__(16);
+var ReactInstanceMap = __webpack_require__(31);
 var ReactInstrumentation = __webpack_require__(13);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -6678,7 +8024,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7053,7 +8399,7 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 58 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7106,7 +8452,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7161,319 +8507,35 @@ var PlayerRender = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this2 = this;
-
             if (!this.props.botGame) {
                 if (this.props.activeThrower === "p1") {
                     return _react2.default.createElement(
                         'div',
-                        null,
+                        { className: 'row top-row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'row top-row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-2 col-lg-1 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-4 col-lg-5 text-center player border-right active-thrower p1-active' },
-                                'Player 1'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-4 col-lg-5 text-center player border-left inactive-thrower' },
-                                'Player 2'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-1 col-md-2 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'restart game' })
-                                )
-                            )
+                            { className: 'col-md-4 col-lg-5 offset-md-2 offset-lg-1 text-center player border-right active-thrower p1-active' },
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'reloadModalLabel' },
-                                            'Start Game Over'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'No'
-                                                )
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            _this2.gameReset();
-                                                        } },
-                                                    'Yes'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'exitModalLabel' },
-                                            'Exit Game'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'Cancel'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = _this2.chooseGameUrl;
-                                                        } },
-                                                    'Diff Game'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center modal-home' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn ', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = '/';
-                                                        } },
-                                                    'Home'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
+                            { className: 'col-md-4 col-lg-5 text-center player border-left inactive-thrower' },
+                            'Player 2'
                         )
                     );
                 } else {
                     return _react2.default.createElement(
                         'div',
-                        null,
+                        { className: 'row top-row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'row top-row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-1 col-md-2 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-5 col-md-4 text-center player border-right inactive-thrower' },
-                                'Player 1'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-5 col-md-4 text-center player border-left active-thrower p2-active' },
-                                'Player 2'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-1 col-md-2 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'restart game' })
-                                )
-                            )
+                            { className: 'col-lg-5 col-md-4 offset-md-2 offset-lg-1 text-center player border-right inactive-thrower' },
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'reloadModalLabel' },
-                                            'Start Game Over'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'No'
-                                                )
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            _this2.gameReset();
-                                                        } },
-                                                    'Yes'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'exitModalLabel' },
-                                            'Exit Game'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'Cancel'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = _this2.chooseGameUrl;
-                                                        } },
-                                                    'Diff Game'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center modal-home' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = '/';
-                                                        } },
-                                                    'Home'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
+                            { className: 'col-lg-5 col-md-4 text-center player border-left active-thrower p2-active' },
+                            'Player 2'
                         )
                     );
                 }
@@ -7481,313 +8543,31 @@ var PlayerRender = function (_Component) {
                 if (this.props.activeThrower === "p1") {
                     return _react2.default.createElement(
                         'div',
-                        null,
+                        { className: 'row top-row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'row top-row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-2 col-lg-1 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-4 col-lg-5 text-center player border-right active-thrower p1-active' },
-                                'Human'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-md-4 col-lg-5 text-center player border-left inactive-thrower' },
-                                'Bot'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-1 col-md-2 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'restart game' })
-                                )
-                            )
+                            { className: 'col-md-4 col-lg-5 offset-md-2 offset-lg-1 text-center player border-right active-thrower p1-active' },
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'reloadModalLabel' },
-                                            'Start Game Over'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'No'
-                                                )
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            _this2.gameReset();
-                                                        } },
-                                                    'Yes'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'exitModalLabel' },
-                                            'Exit Game'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'Cancel'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = _this2.chooseGameUrl;
-                                                        } },
-                                                    'Diff Game'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center modal-home' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn ', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = '/';
-                                                        } },
-                                                    'Home'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
+                            { className: 'col-md-4 col-lg-5 text-center player border-left inactive-thrower' },
+                            'Bot'
                         )
                     );
                 } else {
                     return _react2.default.createElement(
                         'div',
-                        null,
+                        { className: 'row top-row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'row top-row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-1 col-md-2 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-5 col-md-4 text-center player border-right inactive-thrower' },
-                                'Human'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-5 col-md-4 text-center player border-left active-thrower p2-active' },
-                                'Bot'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-1 col-md-2 start-over' },
-                                _react2.default.createElement(
-                                    'button',
-                                    { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                                    _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'restart game' })
-                                )
-                            )
+                            { className: 'col-lg-5 col-md-4 offset-md-2 offset-lg-1 text-center player border-right inactive-thrower' },
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'reloadModalLabel' },
-                                            'Start Game Over'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'No'
-                                                )
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            _this2.gameReset();
-                                                        } },
-                                                    'Yes'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-dialog', role: 'document' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'modal-content' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-header' },
-                                        _react2.default.createElement(
-                                            'h5',
-                                            { className: 'modal-title', id: 'exitModalLabel' },
-                                            'Exit Game'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'modal-body' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                                    'Cancel'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = _this2.chooseGameUrl;
-                                                        } },
-                                                    'Diff Game'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('br', null),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-6 offset-3 text-center modal-home' },
-                                                _react2.default.createElement(
-                                                    'button',
-                                                    { type: 'button', className: 'btn ', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                            return window.location.href = '/';
-                                                        } },
-                                                    'Home'
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
+                            { className: 'col-lg-5 col-md-4 text-center player border-left active-thrower p2-active' },
+                            'Bot'
                         )
                     );
                 }
@@ -7801,7 +8581,7 @@ var PlayerRender = function (_Component) {
 exports.default = PlayerRender;
 
 /***/ }),
-/* 60 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7812,15 +8592,15 @@ exports.locationsAreEqual = exports.createLocation = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _resolvePathname = __webpack_require__(107);
+var _resolvePathname = __webpack_require__(111);
 
 var _resolvePathname2 = _interopRequireDefault(_resolvePathname);
 
-var _valueEqual = __webpack_require__(108);
+var _valueEqual = __webpack_require__(112);
 
 var _valueEqual2 = _interopRequireDefault(_valueEqual);
 
-var _PathUtils = __webpack_require__(29);
+var _PathUtils = __webpack_require__(32);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7885,7 +8665,7 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 };
 
 /***/ }),
-/* 61 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7976,24 +8756,24 @@ var createTransitionManager = function createTransitionManager() {
 exports.default = createTransitionManager;
 
 /***/ }),
-/* 62 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__ = __webpack_require__(67);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Router__["a" /* default */]);
 
 /***/ }),
-/* 63 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -8106,11 +8886,11 @@ Router.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Router);
 
 /***/ }),
-/* 64 */
+/* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp__ = __webpack_require__(239);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_path_to_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_path_to_regexp__);
 
 
@@ -8183,7 +8963,7 @@ var matchPath = function matchPath(pathname) {
 /* harmony default export */ __webpack_exports__["a"] = (matchPath);
 
 /***/ }),
-/* 65 */
+/* 69 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8268,7 +9048,7 @@ var createTransitionManager = function createTransitionManager() {
 /* harmony default export */ __webpack_exports__["a"] = (createTransitionManager);
 
 /***/ }),
-/* 66 */
+/* 70 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8290,7 +9070,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // require('hammerjs') when in a browser. This is safe because Hammer is only
 // invoked in componentDidMount, which is not executed on the server.
-var Hammer = typeof window !== 'undefined' ? __webpack_require__(114) : undefined;
+var Hammer = typeof window !== 'undefined' ? __webpack_require__(118) : undefined;
 
 var privateProps = {
 	children: true,
@@ -8452,7 +9232,7 @@ HammerComponent.propTypes = {
 
 
 /***/ }),
-/* 67 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9147,427 +9927,111 @@ var SetTable = function (_Component) {
 exports.default = SetTable;
 
 /***/ }),
-/* 68 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
 
+var utils = __webpack_require__(14);
+var normalizeHeaderName = __webpack_require__(263);
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(120);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(120);
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
 
-var _react = __webpack_require__(1);
+module.exports = defaults;
 
-var _react2 = _interopRequireDefault(_react);
-
-var _hammerjs = __webpack_require__(114);
-
-var _hammerjs2 = _interopRequireDefault(_hammerjs);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SettingsMenu = function (_Component) {
-    _inherits(SettingsMenu, _Component);
-
-    function SettingsMenu() {
-        _classCallCheck(this, SettingsMenu);
-
-        var _this = _possibleConstructorReturn(this, (SettingsMenu.__proto__ || Object.getPrototypeOf(SettingsMenu)).call(this));
-
-        _this.assetElipses = window.location.href.includes('cpu') ? '../..' : '..';
-
-        _this.state = {
-            legs: 1,
-            sets: 3
-        };
-
-        if (localStorage.getItem('sounds') !== 'off') {
-            localStorage.setItem('sounds', 'on');
-        }
-        if (localStorage.getItem('multiple') !== 'vertical') {
-            localStorage.setItem('multiple', 'horizontal');
-        }
-
-        if (localStorage.getItem('legs') == null) {
-            localStorage.setItem('legs', 1);
-        }
-
-        if (localStorage.getItem('sets') == null) {
-            localStorage.setItem('sets', 3);
-        }
-
-        _this.soundToggle = _this.soundToggle.bind(_this);
-        _this.settingsMenuRender = _this.settingsMenuRender.bind(_this);
-        _this.multipleToggle = _this.multipleToggle.bind(_this);
-        _this.soundToggleRender = _this.soundToggleRender.bind(_this);
-        _this.multipleToggleRender = _this.multipleToggleRender.bind(_this);
-        _this.legRender = _this.legRender.bind(_this);
-        _this.setRender = _this.setRender.bind(_this);
-        _this.setSetNumber = _this.setSetNumber.bind(_this);
-        _this.setLegNumber = _this.setLegNumber.bind(_this);
-        return _this;
-    }
-
-    _createClass(SettingsMenu, [{
-        key: 'multipleToggle',
-        value: function multipleToggle() {
-            var storageMultiple = localStorage.getItem('multiple');
-            var multipleTouch = void 0;
-            if (storageMultiple === 'horizontal') {
-                multipleTouch = 'vertical';
-            } else {
-                multipleTouch = 'horizontal';
-            }
-            localStorage.setItem('multiple', multipleTouch);
-            if (this.props.gestureSwitch) {
-                this.props.gestureSwitch('multiple');
-            }
-            this.forceUpdate();
-        }
-    }, {
-        key: 'soundToggle',
-        value: function soundToggle() {
-
-            var storageSound = localStorage.getItem('sounds');
-            var soundBool = void 0;
-            if (storageSound === 'on') {
-                soundBool = 'off';
-            } else {
-                soundBool = 'on';
-            }
-            localStorage.setItem('sounds', soundBool);
-            this.forceUpdate();
-        }
-    }, {
-        key: 'settingsMenuRender',
-        value: function settingsMenuRender() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'sound-toggle' },
-                _react2.default.createElement('img', { className: 'sound-icon', src: this.assetElipses + '/assets/images/dart_settings.png', 'data-toggle': 'modal', 'data-target': '#settings' })
-            );
-        }
-    }, {
-        key: 'soundToggleRender',
-        value: function soundToggleRender() {
-            if (localStorage.getItem('sounds') === 'on') {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-right settings-selected', onClick: this.soundToggle },
-                        'On'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon sound-modal-img', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.soundToggle })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-left settings-fade', onClick: this.soundToggle },
-                        'Off'
-                    )
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-right settings-fade', onClick: this.soundToggle },
-                        'On'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon sound-modal-img', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.soundToggle })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-left settings-selected', onClick: this.soundToggle },
-                        'Off'
-                    )
-                );
-            }
-        }
-    }, {
-        key: 'multipleToggleRender',
-        value: function multipleToggleRender() {
-            if (localStorage.getItem('multiple') === 'horizontal') {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 swipe-option text-center settings-selected', onClick: this.multipleToggle },
-                        'Horizontal'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon swipe-modal-img', src: this.assetElipses + '/assets/images/dart_left.png', onClick: this.multipleToggle })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 swipe-option text-center settings-fade', onClick: this.multipleToggle },
-                        'Vertical'
-                    )
-                );
-            } else {
-                return _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 swipe-option text-center settings-fade', onClick: this.multipleToggle },
-                        'Horizontal'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 text-center' },
-                        _react2.default.createElement('img', { className: 'sound-icon swipe-modal-img', src: this.assetElipses + '/assets/images/dart_right.png', onClick: this.multipleToggle })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-4 swipe-option text-center settings-selected', onClick: this.multipleToggle },
-                        'Vertical'
-                    )
-                );
-            }
-        }
-    }, {
-        key: 'legRender',
-        value: function legRender(number) {
-            if (parseInt(localStorage.getItem('legs')) === number) {
-                return 'col-6 col-md-3 leg-options leg-selected';
-            } else {
-                return 'col-6 col-md-3 leg-options leg-faded';
-            }
-        }
-    }, {
-        key: 'setLegNumber',
-        value: function setLegNumber(legs) {
-            this.setState({ legs: legs });
-            localStorage.setItem('legs', legs);
-        }
-    }, {
-        key: 'setRender',
-        value: function setRender(number) {
-            if (parseInt(localStorage.getItem('sets')) === number) {
-                return 'col-4 set-option set-selected';
-            } else {
-                return 'col-4 set-option set-faded';
-            }
-        }
-    }, {
-        key: 'setSetNumber',
-        value: function setSetNumber(sets) {
-            this.setState({ sets: sets });
-            localStorage.setItem('sets', sets);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _this2 = this;
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                this.settingsMenuRender(),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'settings', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'settingsLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'settingsLabel' },
-                                    'Settings'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row sound-options' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-12 sound-header' },
-                                                'Sounds'
-                                            ),
-                                            this.soundToggleRender()
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row gesture-options' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-12 swipe-header' },
-                                                'Swipe Direction'
-                                            ),
-                                            this.multipleToggleRender()
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'row set-options' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-5' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'row' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'col-12 set-header' },
-                                                        'Legs'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.legRender(1), onClick: function onClick() {
-                                                                _this2.setLegNumber(1);
-                                                            } },
-                                                        '1'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.legRender(3), onClick: function onClick() {
-                                                                _this2.setLegNumber(3);
-                                                            } },
-                                                        '3'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.legRender(5), onClick: function onClick() {
-                                                                _this2.setLegNumber(5);
-                                                            } },
-                                                        '5'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.legRender(7), onClick: function onClick() {
-                                                                _this2.setLegNumber(7);
-                                                            } },
-                                                        '7'
-                                                    )
-                                                )
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-2 best-of text-center' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'row' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'col-12' },
-                                                        'Best Of'
-                                                    )
-                                                )
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'col-5' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'row' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'col-12 set-header' },
-                                                        'Sets'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        {
-                                                            className: this.setRender(3),
-                                                            onClick: function onClick() {
-                                                                _this2.setSetNumber(3);
-                                                            }
-                                                        },
-                                                        '3'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        {
-                                                            className: this.setRender(5),
-                                                            onClick: function onClick() {
-                                                                _this2.setSetNumber(5);
-                                                            }
-                                                        },
-                                                        '5'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.setRender(7), onClick: function onClick() {
-                                                                _this2.setSetNumber(7);
-                                                            } },
-                                                        '7'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.setRender(9), onClick: function onClick() {
-                                                                _this2.setSetNumber(9);
-                                                            } },
-                                                        '9'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.setRender(11), onClick: function onClick() {
-                                                                _this2.setSetNumber(11);
-                                                            } },
-                                                        '11'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: this.setRender(13), onClick: function onClick() {
-                                                                _this2.setSetNumber(13);
-                                                            } },
-                                                        '13'
-                                                    )
-                                                )
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return SettingsMenu;
-}(_react.Component);
-
-exports.default = SettingsMenu;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 69 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9580,11 +10044,11 @@ exports.default = SettingsMenu;
 
 
 
-module.exports = __webpack_require__(250);
+module.exports = __webpack_require__(279);
 
 
 /***/ }),
-/* 70 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9600,33 +10064,41 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _GamePick = __webpack_require__(260);
+var _GamePick = __webpack_require__(289);
 
 var _GamePick2 = _interopRequireDefault(_GamePick);
 
-var _GameOptions = __webpack_require__(261);
+var _GameOptions = __webpack_require__(290);
 
 var _GameOptions2 = _interopRequireDefault(_GameOptions);
 
-var _Scoreboard = __webpack_require__(262);
+var _Scoreboard = __webpack_require__(291);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(270);
+var _Results = __webpack_require__(299);
 
 var _Results2 = _interopRequireDefault(_Results);
 
-var _BotDifficulty = __webpack_require__(40);
+var _BotDifficulty = __webpack_require__(43);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
-var _SettingsMenu = __webpack_require__(68);
+var _SettingsMenu = __webpack_require__(44);
 
 var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(69);
+var _reactAddonsCssTransitionGroup = __webpack_require__(73);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9650,13 +10122,19 @@ var X01 = function (_Component) {
 
         _this.p1RoundScoresHistory = [];
         _this.p1CheckoutShotsHistory = 0;
+        _this.p1CheckInShotsHistory = 0;
+        _this.p1CheckInHistory = [];
         _this.p1ThrowsHistory = 0;
         _this.p2RoundScoresHistory = [];
         _this.p2CheckoutShotsHistory = 0;
+        _this.p2CheckInShotsHistory = 0;
+        _this.p2CheckInHistory = [];
         _this.p2ThrowsHistory = 0;
 
         _this.p1CheckoutShots = 0;
         _this.p2CheckoutShots = 0;
+        _this.p1CheckInShots = 0;
+        _this.p2CheckInShots = 0;
 
         _this.state = {
             activeThrower: "p1",
@@ -9692,7 +10170,8 @@ var X01 = function (_Component) {
             singleGesture: 'press',
             multipleGesture: 'horizontal'
             //Binding functions to change the states       
-        };_this.doubleInOptionsCheck = _this.doubleInOptionsCheck.bind(_this);
+        };_this.putGameStats = _this.putGameStats.bind(_this);
+        _this.doubleInOptionsCheck = _this.doubleInOptionsCheck.bind(_this);
         _this.undoGameOver = _this.undoGameOver.bind(_this);
         _this.addLeg = _this.addLeg.bind(_this);
         _this.continueSet = _this.continueSet.bind(_this);
@@ -10104,6 +10583,8 @@ var X01 = function (_Component) {
 
             this.p1CheckoutShots = 0;
             this.p2CheckoutShots = 0;
+            this.p1CheckInShots = 0;
+            this.p2CheckInShots = 0;
             this.setState({ activeThrower: activeThrower });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
@@ -10132,13 +10613,19 @@ var X01 = function (_Component) {
         key: "gameX01Reset",
         value: function gameX01Reset() {
             this.p1RoundScoresHistory = [];
+            this.p1CheckInHistory = [];
             this.p1CheckoutShotsHistory = 0;
+            this.p1CheckInShotsHistory = 0;
             this.p1ThrowsHistory = 0;
             this.p2RoundScoresHistory = [];
+            this.p2CheckInHistory = [];
             this.p2CheckoutShotsHistory = 0;
+            this.p2CheckInShotsHistory = 0;
             this.p2ThrowsHistory = 0;
             this.p1CheckoutShots = 0;
             this.p2CheckoutShots = 0;
+            this.p1CheckInShots = 0;
+            this.p2CheckInShots = 0;
             this.setState({ activeThrower: "p1" });
             this.setState({ activeThrows: 0 });
             this.setState({ gameState: "playing" });
@@ -10328,6 +10815,17 @@ var X01 = function (_Component) {
             });
 
             var thrower = this.state.activeThrower;
+
+            if (thrower === 'p1') {
+                if (!this.state.p1DoubleIn) {
+                    this.p1CheckInShots++;
+                }
+            } else if (thrower === 'p2') {
+                if (!this.state.p2DoubleIn) {
+                    this.p2CheckInShots++;
+                }
+            }
+
             if (multiplier === 2) {
                 this.doubleInTrue(thrower);
             }
@@ -10426,6 +10924,15 @@ var X01 = function (_Component) {
                 src: ['../../../assets/sounds/miss_hit.mp3']
             });
             var playerScoreNumber = eval("this.state." + this.state.activeThrower + "Score");
+            if (this.state.activeThrower === 'p1') {
+                if (!this.p1DoubleIn) {
+                    this.p1CheckInShots++;
+                }
+            } else if (this.state.activeThrower === 'p2') {
+                if (!this.p2DoubleIn) {
+                    this.p2CheckInShots++;
+                }
+            }
 
             if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                 if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
@@ -10550,7 +11057,9 @@ var X01 = function (_Component) {
             this.p1ThrowsHistory += this.state.p1Throws;
             this.p2ThrowsHistory += this.state.p2Throws;
             this.p1CheckoutShotsHistory += this.p1CheckoutShots;
+            this.p1CheckInShotsHistory += this.p1CheckInShots;
             this.p2CheckoutShotsHistory += this.p2CheckoutShots;
+            this.p2CheckInShotsHistory += this.p2CheckInShots;
 
             for (var i in p1RoundScores) {
                 p1RoundScoresHistory.push(p1RoundScores[i]);
@@ -10560,6 +11069,48 @@ var X01 = function (_Component) {
                 p2RoundScoresHistory.push(p2RoundScores[i]);
                 this.p2RoundScoresHistory = p2RoundScoresHistory;
             }
+
+            if (this.state.p1DoubleIn) {
+                this.p1CheckInHistory.push(true);
+            } else {
+                this.p1CheckInHistory.push(false);
+            }
+
+            if (this.state.p2DoubleIn) {
+                this.p2CheckInHistory.push(true);
+            } else {
+                this.p2CheckInHistory.push(false);
+            }
+        }
+    }, {
+        key: "putGameStats",
+        value: function putGameStats() {
+            var win = this.state.gameWinner === 'p1' ? true : false;
+            var botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
+            var checkIns = this.p1CheckInShots;
+            var checkouts = this.p1CheckoutShots;
+
+            var game = {
+                win: win,
+                x01Game: this.state.x01Game,
+                gameOptions: this.state.gameOptions,
+                throws: this.state.p1Throws,
+                roundScores: this.state.p1RoundScores,
+                botGame: this.state.botGame,
+                botDifficulty: botDifficulty,
+                date: new Date()
+            };
+
+            if (checkIns > 0) {
+                game.checkIns = checkIns;
+            }
+            if (checkouts > 0) {
+                game.checkouts = checkouts;
+            }
+
+            _axios2.default.put("/user/x01", game).catch(function (err) {
+                return console.log(err);
+            });
         }
     }, {
         key: "gameStateOver",
@@ -10571,6 +11122,7 @@ var X01 = function (_Component) {
                 src: ['../../../assets/sounds/game_over.mp3']
             });
             this.showGameOverModal(false);
+            this.putGameStats();
             this.fillHistoryData();
             if (this.state.firstWinner === '') {
                 this.setState({ firstWinner: this.state.gameWinner }, function () {
@@ -10669,6 +11221,15 @@ var X01 = function (_Component) {
 
             switch (this.state.activeThrows) {
                 case 0:
+                    if (thrower === 'p1') {
+                        if (!this.p1DoubleIn) {
+                            this.p1CheckInShots += 3;
+                        }
+                    } else if (thrower === 'p2') {
+                        if (!this.p2DoubleIn) {
+                            this.p2CheckInShots += 3;
+                        }
+                    }
                     if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                         if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                             if (this.state.activeThrower === 'p1') {
@@ -10706,6 +11267,15 @@ var X01 = function (_Component) {
                     this.setThrowNumber(0);
                     break;
                 case 1:
+                    if (thrower === 'p1') {
+                        if (!this.p1DoubleIn) {
+                            this.p1CheckInShots += 2;
+                        }
+                    } else if (thrower === 'p2') {
+                        if (!this.p2DoubleIn) {
+                            this.p2CheckInShots += 2;
+                        }
+                    }
                     if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                         if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                             if (this.state.activeThrower === 'p1') {
@@ -10742,6 +11312,15 @@ var X01 = function (_Component) {
                     this.setThrowNumber(0);
                     break;
                 case 2:
+                    if (thrower === 'p1') {
+                        if (!this.p1DoubleIn) {
+                            this.p1CheckInShots++;
+                        }
+                    } else if (thrower === 'p2') {
+                        if (!this.p2DoubleIn) {
+                            this.p2CheckInShots++;
+                        }
+                    }
                     if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                         if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                             if (this.state.activeThrower === 'p1') {
@@ -10830,6 +11409,7 @@ var X01 = function (_Component) {
                 });
             } else if (this.state.gameState === "playing") {
                 return _react2.default.createElement(_Scoreboard2.default, {
+                    username: this.props.username,
                     score: this.score,
                     miss: this.miss,
                     botGame: this.state.botGame,
@@ -10864,6 +11444,7 @@ var X01 = function (_Component) {
             } else if (this.state.gameState === "over") {
                 if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
                     return _react2.default.createElement(_Results2.default, {
+                        username: this.props.username,
                         gameWinner: this.state.gameWinner,
                         gameX01Reset: this.gameX01Reset,
                         p1Throws: this.state.p1Throws,
@@ -10878,13 +11459,19 @@ var X01 = function (_Component) {
                         setHistory: this.state.setHistory,
                         setGameStatePick: this.setGameStatePick,
                         p1CheckoutShots: this.p1CheckoutShots,
+                        p1CheckInShots: this.p1CheckInShots,
                         p2CheckoutShots: this.p2CheckoutShots,
+                        p2CheckInShots: this.p2CheckInShots,
                         p1RoundScoresHistory: this.p1RoundScoresHistory,
                         p1CheckoutShotsHistory: this.p1CheckoutShotsHistory,
+                        p1CheckInShotsHistory: this.p1CheckInShotsHistory,
                         p1ThrowsHistory: this.p1ThrowsHistory,
                         p2RoundScoresHistory: this.p2RoundScoresHistory,
                         p2CheckoutShotsHistory: this.p2CheckoutShotsHistory,
-                        p2ThrowsHistory: this.p2ThrowsHistory
+                        p2CheckInShotsHistory: this.p2CheckInShotsHistory,
+                        p2ThrowsHistory: this.p2ThrowsHistory,
+                        p1CheckInHistory: this.p1CheckInHistory,
+                        p2CheckInHistory: this.p2CheckInHistory
                     });
                 }
             } else if (this.state.gameState === "difficulty") {
@@ -10898,6 +11485,8 @@ var X01 = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var _React$createElement;
+
             return _react2.default.createElement(
                 _reactAddonsCssTransitionGroup2.default,
                 {
@@ -10909,9 +11498,10 @@ var X01 = function (_Component) {
                 _react2.default.createElement(
                     "div",
                     null,
-                    _react2.default.createElement(_SettingsMenu2.default, {
-                        gestureSwitch: this.gestureSwitch
-                    }),
+                    _react2.default.createElement(_NavMenu2.default, (_React$createElement = {
+                        setUsername: this.props.setUsername,
+                        username: this.props.username
+                    }, _defineProperty(_React$createElement, "setUsername", this.props.setUsername), _defineProperty(_React$createElement, "gameState", this.state.gameState), _defineProperty(_React$createElement, "gameX01Reset", this.gameX01Reset), _defineProperty(_React$createElement, "gestureSwitch", this.gestureSwitch), _React$createElement)),
                     this.conditionalRender()
                 )
             );
@@ -10924,7 +11514,7 @@ var X01 = function (_Component) {
 exports.default = X01;
 
 /***/ }),
-/* 71 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11047,7 +11637,7 @@ var ShotHistory = function (_Component) {
 exports.default = ShotHistory;
 
 /***/ }),
-/* 72 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11061,15 +11651,15 @@ exports.default = ShotHistory;
 
 
 
-var _prodInvariant = __webpack_require__(22),
+var _prodInvariant = __webpack_require__(25),
     _assign = __webpack_require__(5);
 
-var ReactNoopUpdateQueue = __webpack_require__(73);
+var ReactNoopUpdateQueue = __webpack_require__(77);
 
-var canDefineProperty = __webpack_require__(31);
-var emptyObject = __webpack_require__(32);
+var canDefineProperty = __webpack_require__(34);
+var emptyObject = __webpack_require__(35);
 var invariant = __webpack_require__(2);
-var lowPriorityWarning = __webpack_require__(41);
+var lowPriorityWarning = __webpack_require__(45);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -11194,7 +11784,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 73 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11293,7 +11883,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11316,7 +11906,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 75 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11360,7 +11950,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 76 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11381,16 +11971,16 @@ module.exports = getIteratorFn;
 
 
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactComponentTreeHook = __webpack_require__(11);
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(22);
 
-var checkReactTypeSpec = __webpack_require__(124);
+var checkReactTypeSpec = __webpack_require__(133);
 
-var canDefineProperty = __webpack_require__(31);
-var getIteratorFn = __webpack_require__(75);
+var canDefineProperty = __webpack_require__(34);
+var getIteratorFn = __webpack_require__(79);
 var warning = __webpack_require__(3);
-var lowPriorityWarning = __webpack_require__(41);
+var lowPriorityWarning = __webpack_require__(45);
 
 function getDeclarationErrorAddendum() {
   if (ReactCurrentOwner.current) {
@@ -11619,7 +12209,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 77 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11636,7 +12226,7 @@ module.exports = ReactElementValidator;
 // Therefore we re-export development-only version with all the PropTypes checks here.
 // However if one is migrating to the `prop-types` npm library, they will go through the
 // `index.js` entry point, and it will branch depending on the environment.
-var factory = __webpack_require__(78);
+var factory = __webpack_require__(82);
 module.exports = function(isValidElement) {
   // It is still allowed in 15.5.
   var throwOnDirectAccess = false;
@@ -11645,7 +12235,7 @@ module.exports = function(isValidElement) {
 
 
 /***/ }),
-/* 78 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11663,8 +12253,8 @@ var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 var assign = __webpack_require__(5);
 
-var ReactPropTypesSecret = __webpack_require__(42);
-var checkPropTypes = __webpack_require__(128);
+var ReactPropTypesSecret = __webpack_require__(46);
+var checkPropTypes = __webpack_require__(137);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -12195,17 +12785,17 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 79 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(133);
+module.exports = __webpack_require__(142);
 
 
 /***/ }),
-/* 80 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12226,7 +12816,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 81 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12288,7 +12878,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 82 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12322,7 +12912,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 83 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12358,7 +12948,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 84 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12377,7 +12967,7 @@ var _prodInvariant = __webpack_require__(4);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PooledClass = __webpack_require__(20);
+var PooledClass = __webpack_require__(23);
 
 var invariant = __webpack_require__(2);
 
@@ -12481,7 +13071,7 @@ module.exports = PooledClass.addPoolingTo(CallbackQueue);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 85 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12506,7 +13096,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 86 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12632,7 +13222,7 @@ var inputValueTracking = {
 module.exports = inputValueTracking;
 
 /***/ }),
-/* 87 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12686,7 +13276,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 88 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12714,7 +13304,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 89 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12729,8 +13319,8 @@ module.exports = ViewportMetrics;
 
 
 var ExecutionEnvironment = __webpack_require__(7);
-var escapeTextContentForBrowser = __webpack_require__(37);
-var setInnerHTML = __webpack_require__(36);
+var escapeTextContentForBrowser = __webpack_require__(40);
+var setInnerHTML = __webpack_require__(39);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -12769,7 +13359,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 90 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12799,7 +13389,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 91 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12957,7 +13547,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 92 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12971,11 +13561,11 @@ module.exports = CSSProperty;
 
 
 
-var DOMProperty = __webpack_require__(18);
+var DOMProperty = __webpack_require__(21);
 var ReactDOMComponentTree = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(13);
 
-var quoteAttributeValueForBrowser = __webpack_require__(166);
+var quoteAttributeValueForBrowser = __webpack_require__(175);
 var warning = __webpack_require__(3);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -13196,7 +13786,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 93 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13216,7 +13806,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 94 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13232,9 +13822,9 @@ module.exports = ReactPropTypesSecret;
 
 var _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(51);
+var LinkedValueUtils = __webpack_require__(55);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var warning = __webpack_require__(3);
 
@@ -13420,7 +14010,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 95 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13437,11 +14027,11 @@ module.exports = ReactDOMSelect;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var ReactCompositeComponent = __webpack_require__(174);
-var ReactEmptyComponent = __webpack_require__(97);
-var ReactHostComponent = __webpack_require__(98);
+var ReactCompositeComponent = __webpack_require__(183);
+var ReactEmptyComponent = __webpack_require__(101);
+var ReactHostComponent = __webpack_require__(102);
 
-var getNextDebugID = __webpack_require__(177);
+var getNextDebugID = __webpack_require__(186);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
@@ -13553,7 +14143,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 96 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13570,7 +14160,7 @@ module.exports = instantiateReactComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var React = __webpack_require__(21);
+var React = __webpack_require__(24);
 
 var invariant = __webpack_require__(2);
 
@@ -13597,7 +14187,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 97 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13630,7 +14220,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 98 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13702,7 +14292,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 99 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13718,12 +14308,12 @@ module.exports = ReactHostComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var REACT_ELEMENT_TYPE = __webpack_require__(178);
+var ReactCurrentOwner = __webpack_require__(16);
+var REACT_ELEMENT_TYPE = __webpack_require__(187);
 
-var getIteratorFn = __webpack_require__(179);
+var getIteratorFn = __webpack_require__(188);
 var invariant = __webpack_require__(2);
-var KeyEscapeUtils = __webpack_require__(55);
+var KeyEscapeUtils = __webpack_require__(59);
 var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
@@ -13882,7 +14472,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 100 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13963,7 +14553,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 101 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13977,11 +14567,11 @@ module.exports = EventListener;
 
 
 
-var ReactDOMSelection = __webpack_require__(191);
+var ReactDOMSelection = __webpack_require__(200);
 
-var containsNode = __webpack_require__(193);
-var focusNode = __webpack_require__(90);
-var getActiveElement = __webpack_require__(102);
+var containsNode = __webpack_require__(202);
+var focusNode = __webpack_require__(94);
+var getActiveElement = __webpack_require__(106);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -14089,7 +14679,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 102 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14131,7 +14721,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 103 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14147,27 +14737,27 @@ module.exports = getActiveElement;
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(24);
-var DOMProperty = __webpack_require__(18);
-var React = __webpack_require__(21);
-var ReactBrowserEventEmitter = __webpack_require__(38);
-var ReactCurrentOwner = __webpack_require__(15);
+var DOMLazyTree = __webpack_require__(27);
+var DOMProperty = __webpack_require__(21);
+var React = __webpack_require__(24);
+var ReactBrowserEventEmitter = __webpack_require__(41);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMContainerInfo = __webpack_require__(208);
-var ReactDOMFeatureFlags = __webpack_require__(209);
-var ReactFeatureFlags = __webpack_require__(85);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactDOMContainerInfo = __webpack_require__(217);
+var ReactDOMFeatureFlags = __webpack_require__(218);
+var ReactFeatureFlags = __webpack_require__(89);
+var ReactInstanceMap = __webpack_require__(31);
 var ReactInstrumentation = __webpack_require__(13);
-var ReactMarkupChecksum = __webpack_require__(210);
-var ReactReconciler = __webpack_require__(23);
-var ReactUpdateQueue = __webpack_require__(56);
-var ReactUpdates = __webpack_require__(16);
+var ReactMarkupChecksum = __webpack_require__(219);
+var ReactReconciler = __webpack_require__(26);
+var ReactUpdateQueue = __webpack_require__(60);
+var ReactUpdates = __webpack_require__(17);
 
-var emptyObject = __webpack_require__(32);
-var instantiateReactComponent = __webpack_require__(95);
+var emptyObject = __webpack_require__(35);
+var instantiateReactComponent = __webpack_require__(99);
 var invariant = __webpack_require__(2);
-var setInnerHTML = __webpack_require__(36);
-var shouldUpdateReactComponent = __webpack_require__(54);
+var setInnerHTML = __webpack_require__(39);
+var shouldUpdateReactComponent = __webpack_require__(58);
 var warning = __webpack_require__(3);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -14673,7 +15263,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 104 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14687,7 +15277,7 @@ module.exports = ReactMount;
 
 
 
-var ReactNodeTypes = __webpack_require__(96);
+var ReactNodeTypes = __webpack_require__(100);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -14706,7 +15296,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 105 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14722,27 +15312,35 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _howler = __webpack_require__(106);
+var _howler = __webpack_require__(110);
 
-var _Scoreboard = __webpack_require__(219);
+var _Scoreboard = __webpack_require__(228);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(249);
+var _Results = __webpack_require__(258);
 
 var _Results2 = _interopRequireDefault(_Results);
 
-var _BotDifficulty = __webpack_require__(40);
+var _BotDifficulty = __webpack_require__(43);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
-var _SettingsMenu = __webpack_require__(68);
+var _SettingsMenu = __webpack_require__(44);
 
 var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(69);
+var _reactAddonsCssTransitionGroup = __webpack_require__(73);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14852,10 +15450,31 @@ var Cricket = function (_Component) {
         _this.scoringLogic = _this.scoringLogic.bind(_this);
         _this.popLastMark = _this.popLastMark.bind(_this);
         _this.reconfigureActiveMarks = _this.reconfigureActiveMarks.bind(_this);
+        _this.putGameStats = _this.putGameStats.bind(_this);
         return _this;
     }
 
     _createClass(Cricket, [{
+        key: "putGameStats",
+        value: function putGameStats() {
+            var win = this.state.gameWinner === 'p1' ? true : false;
+            var botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
+
+            var game = {
+                win: win,
+                throws: this.state.p1Throws,
+                marks: this.p1Marks,
+                bulls: this.p1Bulls,
+                botGame: this.state.botGame,
+                botDifficulty: botDifficulty,
+                date: new Date()
+            };
+
+            _axios2.default.put("/user/cricket", game).catch(function (err) {
+                return console.log(err);
+            });
+        }
+    }, {
         key: "continueSet",
         value: function continueSet() {
             var activeThrower = void 0;
@@ -16360,6 +16979,7 @@ var Cricket = function (_Component) {
             });
             _howler.Howler.volume(.4);
             this.fillHistoryData();
+            this.putGameStats();
             if (this.state.firstWinner === '') {
                 this.setState({ firstWinner: this.state.gameWinner }, function () {
                     _this7.addLeg();
@@ -16552,6 +17172,7 @@ var Cricket = function (_Component) {
                     "div",
                     null,
                     _react2.default.createElement(_Scoreboard2.default, {
+                        username: this.props.username,
                         score: this.score,
                         miss: this.miss,
                         endTurn: this.endTurn,
@@ -16605,6 +17226,8 @@ var Cricket = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var _React$createElement;
+
             return _react2.default.createElement(
                 _reactAddonsCssTransitionGroup2.default,
                 {
@@ -16616,7 +17239,9 @@ var Cricket = function (_Component) {
                 _react2.default.createElement(
                     "div",
                     null,
-                    _react2.default.createElement(_SettingsMenu2.default, null),
+                    _react2.default.createElement(_NavMenu2.default, (_React$createElement = { setUsername: this.props.setUsername,
+                        username: this.props.username
+                    }, _defineProperty(_React$createElement, "setUsername", this.props.setUsername), _defineProperty(_React$createElement, "gameState", this.state.gameState), _defineProperty(_React$createElement, "gameCricketReset", this.gameCricketReset), _React$createElement)),
                     this.conditionalRender()
                 )
             );
@@ -16629,7 +17254,7 @@ var Cricket = function (_Component) {
 exports.default = Cricket;
 
 /***/ }),
-/* 106 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -19585,10 +20210,10 @@ exports.default = Cricket;
   };
 })();
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(218)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(227)))
 
 /***/ }),
-/* 107 */
+/* 111 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19665,7 +20290,7 @@ function resolvePathname(to) {
 /* harmony default export */ __webpack_exports__["default"] = (resolvePathname);
 
 /***/ }),
-/* 108 */
+/* 112 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19710,7 +20335,7 @@ function valueEqual(a, b) {
 /* harmony default export */ __webpack_exports__["default"] = (valueEqual);
 
 /***/ }),
-/* 109 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19771,7 +20396,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 };
 
 /***/ }),
-/* 110 */
+/* 114 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -19779,7 +20404,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -19881,30 +20506,30 @@ Link.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Link);
 
 /***/ }),
-/* 111 */
+/* 115 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__ = __webpack_require__(116);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Route__["a" /* default */]);
 
 /***/ }),
-/* 112 */
+/* 116 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(68);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20041,7 +20666,7 @@ Route.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Route);
 
 /***/ }),
-/* 113 */
+/* 117 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -20107,7 +20732,7 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 };
 
 /***/ }),
-/* 114 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -22757,7 +23382,276 @@ if (true) {
 
 
 /***/ }),
-/* 115 */
+/* 119 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(14);
+var settle = __webpack_require__(264);
+var buildURL = __webpack_require__(266);
+var parseHeaders = __webpack_require__(267);
+var isURLSameOrigin = __webpack_require__(268);
+var createError = __webpack_require__(121);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(269);
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+    var loadEvent = 'onreadystatechange';
+    var xDomain = false;
+
+    // For IE 8/9 CORS support
+    // Only supports POST and GET calls and doesn't returns the response headers.
+    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+    if (process.env.NODE_ENV !== 'test' &&
+        typeof window !== 'undefined' &&
+        window.XDomainRequest && !('withCredentials' in request) &&
+        !isURLSameOrigin(config.url)) {
+      request = new window.XDomainRequest();
+      loadEvent = 'onload';
+      xDomain = true;
+      request.onprogress = function handleProgress() {};
+      request.ontimeout = function handleTimeout() {};
+    }
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request[loadEvent] = function handleLoad() {
+      if (!request || (request.readyState !== 4 && !xDomain)) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+        status: request.status === 1223 ? 204 : request.status,
+        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(270);
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+          cookies.read(config.xsrfCookieName) :
+          undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (config.withCredentials) {
+      request.withCredentials = true;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(265);
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+/* 122 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel(message) {
+  this.message = message;
+}
+
+Cancel.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+
+Cancel.prototype.__CANCEL__ = true;
+
+module.exports = Cancel;
+
+
+/***/ }),
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22770,7 +23664,7 @@ exports.default = !!(typeof window !== 'undefined' && window.document && window.
 module.exports = exports['default'];
 
 /***/ }),
-/* 116 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22825,14 +23719,14 @@ var nameShape = exports.nameShape = _propTypes2.default.oneOfType([_propTypes2.d
 })]);
 
 /***/ }),
-/* 117 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(118);
+module.exports = __webpack_require__(127);
 
 
 /***/ }),
-/* 118 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22842,17 +23736,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(79);
+var _reactDom = __webpack_require__(83);
 
-var _Cricket = __webpack_require__(105);
+var _Cricket = __webpack_require__(109);
 
 var _Cricket2 = _interopRequireDefault(_Cricket);
 
-var _X = __webpack_require__(70);
+var _X = __webpack_require__(74);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Master = __webpack_require__(271);
+var _Master = __webpack_require__(300);
 
 var _Master2 = _interopRequireDefault(_Master);
 
@@ -22861,7 +23755,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _reactDom.render)(_react2.default.createElement(_Master2.default, null), document.querySelector('#app'));
 
 /***/ }),
-/* 119 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22875,11 +23769,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 
-var PooledClass = __webpack_require__(120);
-var ReactElement = __webpack_require__(19);
+var PooledClass = __webpack_require__(129);
+var ReactElement = __webpack_require__(22);
 
 var emptyFunction = __webpack_require__(12);
-var traverseAllChildren = __webpack_require__(121);
+var traverseAllChildren = __webpack_require__(130);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -23055,7 +23949,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 /***/ }),
-/* 120 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23070,7 +23964,7 @@ module.exports = ReactChildren;
 
 
 
-var _prodInvariant = __webpack_require__(22);
+var _prodInvariant = __webpack_require__(25);
 
 var invariant = __webpack_require__(2);
 
@@ -23171,7 +24065,7 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23185,14 +24079,14 @@ module.exports = PooledClass;
 
 
 
-var _prodInvariant = __webpack_require__(22);
+var _prodInvariant = __webpack_require__(25);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var REACT_ELEMENT_TYPE = __webpack_require__(74);
+var ReactCurrentOwner = __webpack_require__(16);
+var REACT_ELEMENT_TYPE = __webpack_require__(78);
 
-var getIteratorFn = __webpack_require__(75);
+var getIteratorFn = __webpack_require__(79);
 var invariant = __webpack_require__(2);
-var KeyEscapeUtils = __webpack_require__(122);
+var KeyEscapeUtils = __webpack_require__(131);
 var warning = __webpack_require__(3);
 
 var SEPARATOR = '.';
@@ -23351,7 +24245,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23413,7 +24307,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 123 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23427,7 +24321,7 @@ module.exports = KeyEscapeUtils;
 
 
 
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(22);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -23436,7 +24330,7 @@ var ReactElement = __webpack_require__(19);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(76);
+  var ReactElementValidator = __webpack_require__(80);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -23586,7 +24480,7 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 124 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23600,10 +24494,10 @@ module.exports = ReactDOMFactories;
 
 
 
-var _prodInvariant = __webpack_require__(22);
+var _prodInvariant = __webpack_require__(25);
 
-var ReactPropTypeLocationNames = __webpack_require__(125);
-var ReactPropTypesSecret = __webpack_require__(126);
+var ReactPropTypeLocationNames = __webpack_require__(134);
+var ReactPropTypesSecret = __webpack_require__(135);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -23677,7 +24571,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 125 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23706,7 +24600,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 126 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23726,7 +24620,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 127 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23740,15 +24634,15 @@ module.exports = ReactPropTypesSecret;
 
 
 
-var _require = __webpack_require__(19),
+var _require = __webpack_require__(22),
     isValidElement = _require.isValidElement;
 
-var factory = __webpack_require__(77);
+var factory = __webpack_require__(81);
 
 module.exports = factory(isValidElement);
 
 /***/ }),
-/* 128 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23764,7 +24658,7 @@ module.exports = factory(isValidElement);
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(2);
   var warning = __webpack_require__(3);
-  var ReactPropTypesSecret = __webpack_require__(42);
+  var ReactPropTypesSecret = __webpack_require__(46);
   var loggedTypeFailures = {};
 }
 
@@ -23815,7 +24709,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 129 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23832,7 +24726,7 @@ module.exports = checkPropTypes;
 module.exports = '15.6.2';
 
 /***/ }),
-/* 130 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23846,19 +24740,19 @@ module.exports = '15.6.2';
 
 
 
-var _require = __webpack_require__(72),
+var _require = __webpack_require__(76),
     Component = _require.Component;
 
-var _require2 = __webpack_require__(19),
+var _require2 = __webpack_require__(22),
     isValidElement = _require2.isValidElement;
 
-var ReactNoopUpdateQueue = __webpack_require__(73);
-var factory = __webpack_require__(131);
+var ReactNoopUpdateQueue = __webpack_require__(77);
+var factory = __webpack_require__(140);
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 /***/ }),
-/* 131 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23874,7 +24768,7 @@ module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
 
 var _assign = __webpack_require__(5);
 
-var emptyObject = __webpack_require__(32);
+var emptyObject = __webpack_require__(35);
 var _invariant = __webpack_require__(2);
 
 if (process.env.NODE_ENV !== 'production') {
@@ -24792,7 +25686,7 @@ module.exports = factory;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 132 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24805,9 +25699,9 @@ module.exports = factory;
  */
 
 
-var _prodInvariant = __webpack_require__(22);
+var _prodInvariant = __webpack_require__(25);
 
-var ReactElement = __webpack_require__(19);
+var ReactElement = __webpack_require__(22);
 
 var invariant = __webpack_require__(2);
 
@@ -24834,7 +25728,7 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 133 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24851,15 +25745,15 @@ module.exports = onlyChild;
 
 
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDefaultInjection = __webpack_require__(134);
-var ReactMount = __webpack_require__(103);
-var ReactReconciler = __webpack_require__(23);
-var ReactUpdates = __webpack_require__(16);
-var ReactVersion = __webpack_require__(212);
+var ReactDefaultInjection = __webpack_require__(143);
+var ReactMount = __webpack_require__(107);
+var ReactReconciler = __webpack_require__(26);
+var ReactUpdates = __webpack_require__(17);
+var ReactVersion = __webpack_require__(221);
 
-var findDOMNode = __webpack_require__(213);
-var getHostComponentFromComposite = __webpack_require__(104);
-var renderSubtreeIntoContainer = __webpack_require__(214);
+var findDOMNode = __webpack_require__(222);
+var getHostComponentFromComposite = __webpack_require__(108);
+var renderSubtreeIntoContainer = __webpack_require__(223);
 var warning = __webpack_require__(3);
 
 ReactDefaultInjection.inject();
@@ -24936,9 +25830,9 @@ if (process.env.NODE_ENV !== 'production') {
 
 if (process.env.NODE_ENV !== 'production') {
   var ReactInstrumentation = __webpack_require__(13);
-  var ReactDOMUnknownPropertyHook = __webpack_require__(215);
-  var ReactDOMNullInputValuePropHook = __webpack_require__(216);
-  var ReactDOMInvalidARIAHook = __webpack_require__(217);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(224);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(225);
+  var ReactDOMInvalidARIAHook = __webpack_require__(226);
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -24949,7 +25843,7 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 134 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24963,25 +25857,25 @@ module.exports = ReactDOM;
 
 
 
-var ARIADOMPropertyConfig = __webpack_require__(135);
-var BeforeInputEventPlugin = __webpack_require__(136);
-var ChangeEventPlugin = __webpack_require__(140);
-var DefaultEventPluginOrder = __webpack_require__(148);
-var EnterLeaveEventPlugin = __webpack_require__(149);
-var HTMLDOMPropertyConfig = __webpack_require__(150);
-var ReactComponentBrowserEnvironment = __webpack_require__(151);
-var ReactDOMComponent = __webpack_require__(157);
+var ARIADOMPropertyConfig = __webpack_require__(144);
+var BeforeInputEventPlugin = __webpack_require__(145);
+var ChangeEventPlugin = __webpack_require__(149);
+var DefaultEventPluginOrder = __webpack_require__(157);
+var EnterLeaveEventPlugin = __webpack_require__(158);
+var HTMLDOMPropertyConfig = __webpack_require__(159);
+var ReactComponentBrowserEnvironment = __webpack_require__(160);
+var ReactDOMComponent = __webpack_require__(166);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMEmptyComponent = __webpack_require__(183);
-var ReactDOMTreeTraversal = __webpack_require__(184);
-var ReactDOMTextComponent = __webpack_require__(185);
-var ReactDefaultBatchingStrategy = __webpack_require__(186);
-var ReactEventListener = __webpack_require__(187);
-var ReactInjection = __webpack_require__(189);
-var ReactReconcileTransaction = __webpack_require__(190);
-var SVGDOMPropertyConfig = __webpack_require__(196);
-var SelectEventPlugin = __webpack_require__(197);
-var SimpleEventPlugin = __webpack_require__(198);
+var ReactDOMEmptyComponent = __webpack_require__(192);
+var ReactDOMTreeTraversal = __webpack_require__(193);
+var ReactDOMTextComponent = __webpack_require__(194);
+var ReactDefaultBatchingStrategy = __webpack_require__(195);
+var ReactEventListener = __webpack_require__(196);
+var ReactInjection = __webpack_require__(198);
+var ReactReconcileTransaction = __webpack_require__(199);
+var SVGDOMPropertyConfig = __webpack_require__(205);
+var SelectEventPlugin = __webpack_require__(206);
+var SimpleEventPlugin = __webpack_require__(207);
 
 var alreadyInjected = false;
 
@@ -25038,7 +25932,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 135 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25115,7 +26009,7 @@ var ARIADOMPropertyConfig = {
 module.exports = ARIADOMPropertyConfig;
 
 /***/ }),
-/* 136 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25129,11 +26023,11 @@ module.exports = ARIADOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(25);
+var EventPropagators = __webpack_require__(28);
 var ExecutionEnvironment = __webpack_require__(7);
-var FallbackCompositionState = __webpack_require__(137);
-var SyntheticCompositionEvent = __webpack_require__(138);
-var SyntheticInputEvent = __webpack_require__(139);
+var FallbackCompositionState = __webpack_require__(146);
+var SyntheticCompositionEvent = __webpack_require__(147);
+var SyntheticInputEvent = __webpack_require__(148);
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -25502,7 +26396,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 137 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25518,9 +26412,9 @@ module.exports = BeforeInputEventPlugin;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(20);
+var PooledClass = __webpack_require__(23);
 
-var getTextContentAccessor = __webpack_require__(83);
+var getTextContentAccessor = __webpack_require__(87);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -25600,7 +26494,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 138 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25614,7 +26508,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
 /**
  * @interface Event
@@ -25639,7 +26533,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 139 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25653,7 +26547,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
 /**
  * @interface Event
@@ -25679,7 +26573,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 140 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25693,17 +26587,17 @@ module.exports = SyntheticInputEvent;
 
 
 
-var EventPluginHub = __webpack_require__(26);
-var EventPropagators = __webpack_require__(25);
+var EventPluginHub = __webpack_require__(29);
+var EventPropagators = __webpack_require__(28);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
-var SyntheticEvent = __webpack_require__(17);
+var ReactUpdates = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
-var inputValueTracking = __webpack_require__(86);
-var getEventTarget = __webpack_require__(45);
-var isEventSupported = __webpack_require__(46);
-var isTextInputElement = __webpack_require__(87);
+var inputValueTracking = __webpack_require__(90);
+var getEventTarget = __webpack_require__(49);
+var isEventSupported = __webpack_require__(50);
+var isTextInputElement = __webpack_require__(91);
 
 var eventTypes = {
   change: {
@@ -25994,7 +26888,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 141 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26009,7 +26903,7 @@ module.exports = ChangeEventPlugin;
 
 
 
-var ReactOwner = __webpack_require__(142);
+var ReactOwner = __webpack_require__(151);
 
 var ReactRef = {};
 
@@ -26086,7 +26980,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 142 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26183,7 +27077,7 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 143 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26198,12 +27092,12 @@ module.exports = ReactOwner;
 
 
 
-var ReactInvalidSetStateWarningHook = __webpack_require__(144);
-var ReactHostOperationHistoryHook = __webpack_require__(145);
+var ReactInvalidSetStateWarningHook = __webpack_require__(153);
+var ReactHostOperationHistoryHook = __webpack_require__(154);
 var ReactComponentTreeHook = __webpack_require__(11);
 var ExecutionEnvironment = __webpack_require__(7);
 
-var performanceNow = __webpack_require__(146);
+var performanceNow = __webpack_require__(155);
 var warning = __webpack_require__(3);
 
 var hooks = [];
@@ -26548,7 +27442,7 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 144 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26589,7 +27483,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 145 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26626,7 +27520,7 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
-/* 146 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26641,7 +27535,7 @@ module.exports = ReactHostOperationHistoryHook;
  * @typechecks
  */
 
-var performance = __webpack_require__(147);
+var performance = __webpack_require__(156);
 
 var performanceNow;
 
@@ -26663,7 +27557,7 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 147 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26689,7 +27583,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 148 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26718,7 +27612,7 @@ var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'Tap
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 149 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26732,9 +27626,9 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventPropagators = __webpack_require__(25);
+var EventPropagators = __webpack_require__(28);
 var ReactDOMComponentTree = __webpack_require__(6);
-var SyntheticMouseEvent = __webpack_require__(35);
+var SyntheticMouseEvent = __webpack_require__(38);
 
 var eventTypes = {
   mouseEnter: {
@@ -26819,7 +27713,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 150 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26833,7 +27727,7 @@ module.exports = EnterLeaveEventPlugin;
 
 
 
-var DOMProperty = __webpack_require__(18);
+var DOMProperty = __webpack_require__(21);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -27059,7 +27953,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 151 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27073,8 +27967,8 @@ module.exports = HTMLDOMPropertyConfig;
 
 
 
-var DOMChildrenOperations = __webpack_require__(48);
-var ReactDOMIDOperations = __webpack_require__(156);
+var DOMChildrenOperations = __webpack_require__(52);
+var ReactDOMIDOperations = __webpack_require__(165);
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -27090,7 +27984,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 152 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27106,10 +28000,10 @@ module.exports = ReactComponentBrowserEnvironment;
 
 var _prodInvariant = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(24);
+var DOMLazyTree = __webpack_require__(27);
 var ExecutionEnvironment = __webpack_require__(7);
 
-var createNodesFromMarkup = __webpack_require__(153);
+var createNodesFromMarkup = __webpack_require__(162);
 var emptyFunction = __webpack_require__(12);
 var invariant = __webpack_require__(2);
 
@@ -27140,7 +28034,7 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 153 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27159,8 +28053,8 @@ module.exports = Danger;
 
 var ExecutionEnvironment = __webpack_require__(7);
 
-var createArrayFromMixed = __webpack_require__(154);
-var getMarkupWrap = __webpack_require__(155);
+var createArrayFromMixed = __webpack_require__(163);
+var getMarkupWrap = __webpack_require__(164);
 var invariant = __webpack_require__(2);
 
 /**
@@ -27228,7 +28122,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 154 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27359,7 +28253,7 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 155 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27458,7 +28352,7 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 156 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27472,7 +28366,7 @@ module.exports = getMarkupWrap;
 
 
 
-var DOMChildrenOperations = __webpack_require__(48);
+var DOMChildrenOperations = __webpack_require__(52);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 /**
@@ -27494,7 +28388,7 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
-/* 157 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27513,32 +28407,32 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var AutoFocusUtils = __webpack_require__(158);
-var CSSPropertyOperations = __webpack_require__(159);
-var DOMLazyTree = __webpack_require__(24);
-var DOMNamespaces = __webpack_require__(49);
-var DOMProperty = __webpack_require__(18);
-var DOMPropertyOperations = __webpack_require__(92);
-var EventPluginHub = __webpack_require__(26);
-var EventPluginRegistry = __webpack_require__(33);
-var ReactBrowserEventEmitter = __webpack_require__(38);
-var ReactDOMComponentFlags = __webpack_require__(80);
+var AutoFocusUtils = __webpack_require__(167);
+var CSSPropertyOperations = __webpack_require__(168);
+var DOMLazyTree = __webpack_require__(27);
+var DOMNamespaces = __webpack_require__(53);
+var DOMProperty = __webpack_require__(21);
+var DOMPropertyOperations = __webpack_require__(96);
+var EventPluginHub = __webpack_require__(29);
+var EventPluginRegistry = __webpack_require__(36);
+var ReactBrowserEventEmitter = __webpack_require__(41);
+var ReactDOMComponentFlags = __webpack_require__(84);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMInput = __webpack_require__(169);
-var ReactDOMOption = __webpack_require__(170);
-var ReactDOMSelect = __webpack_require__(94);
-var ReactDOMTextarea = __webpack_require__(171);
+var ReactDOMInput = __webpack_require__(178);
+var ReactDOMOption = __webpack_require__(179);
+var ReactDOMSelect = __webpack_require__(98);
+var ReactDOMTextarea = __webpack_require__(180);
 var ReactInstrumentation = __webpack_require__(13);
-var ReactMultiChild = __webpack_require__(172);
-var ReactServerRenderingTransaction = __webpack_require__(181);
+var ReactMultiChild = __webpack_require__(181);
+var ReactServerRenderingTransaction = __webpack_require__(190);
 
 var emptyFunction = __webpack_require__(12);
-var escapeTextContentForBrowser = __webpack_require__(37);
+var escapeTextContentForBrowser = __webpack_require__(40);
 var invariant = __webpack_require__(2);
-var isEventSupported = __webpack_require__(46);
-var shallowEqual = __webpack_require__(53);
-var inputValueTracking = __webpack_require__(86);
-var validateDOMNesting = __webpack_require__(57);
+var isEventSupported = __webpack_require__(50);
+var shallowEqual = __webpack_require__(57);
+var inputValueTracking = __webpack_require__(90);
+var validateDOMNesting = __webpack_require__(61);
 var warning = __webpack_require__(3);
 
 var Flags = ReactDOMComponentFlags;
@@ -28512,7 +29406,7 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 158 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28528,7 +29422,7 @@ module.exports = ReactDOMComponent;
 
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var focusNode = __webpack_require__(90);
+var focusNode = __webpack_require__(94);
 
 var AutoFocusUtils = {
   focusDOMComponent: function () {
@@ -28539,7 +29433,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 159 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28553,14 +29447,14 @@ module.exports = AutoFocusUtils;
 
 
 
-var CSSProperty = __webpack_require__(91);
+var CSSProperty = __webpack_require__(95);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactInstrumentation = __webpack_require__(13);
 
-var camelizeStyleName = __webpack_require__(160);
-var dangerousStyleValue = __webpack_require__(162);
-var hyphenateStyleName = __webpack_require__(163);
-var memoizeStringOnly = __webpack_require__(165);
+var camelizeStyleName = __webpack_require__(169);
+var dangerousStyleValue = __webpack_require__(171);
+var hyphenateStyleName = __webpack_require__(172);
+var memoizeStringOnly = __webpack_require__(174);
 var warning = __webpack_require__(3);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -28758,7 +29652,7 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 160 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28773,7 +29667,7 @@ module.exports = CSSPropertyOperations;
 
 
 
-var camelize = __webpack_require__(161);
+var camelize = __webpack_require__(170);
 
 var msPattern = /^-ms-/;
 
@@ -28801,7 +29695,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 161 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28836,7 +29730,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 162 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28850,7 +29744,7 @@ module.exports = camelize;
 
 
 
-var CSSProperty = __webpack_require__(91);
+var CSSProperty = __webpack_require__(95);
 var warning = __webpack_require__(3);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -28919,7 +29813,7 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 163 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28934,7 +29828,7 @@ module.exports = dangerousStyleValue;
 
 
 
-var hyphenate = __webpack_require__(164);
+var hyphenate = __webpack_require__(173);
 
 var msPattern = /^ms-/;
 
@@ -28961,7 +29855,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 164 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28997,7 +29891,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 165 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29030,7 +29924,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 166 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29044,7 +29938,7 @@ module.exports = memoizeStringOnly;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(37);
+var escapeTextContentForBrowser = __webpack_require__(40);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -29059,7 +29953,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 167 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29073,7 +29967,7 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var EventPluginHub = __webpack_require__(26);
+var EventPluginHub = __webpack_require__(29);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -29094,7 +29988,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 168 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29198,7 +30092,7 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
-/* 169 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29215,10 +30109,10 @@ module.exports = getVendorPrefixedEventName;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMPropertyOperations = __webpack_require__(92);
-var LinkedValueUtils = __webpack_require__(51);
+var DOMPropertyOperations = __webpack_require__(96);
+var LinkedValueUtils = __webpack_require__(55);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -29489,7 +30383,7 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 170 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29505,9 +30399,9 @@ module.exports = ReactDOMInput;
 
 var _assign = __webpack_require__(5);
 
-var React = __webpack_require__(21);
+var React = __webpack_require__(24);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactDOMSelect = __webpack_require__(94);
+var ReactDOMSelect = __webpack_require__(98);
 
 var warning = __webpack_require__(3);
 var didWarnInvalidOptionChildren = false;
@@ -29615,7 +30509,7 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 171 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29632,9 +30526,9 @@ module.exports = ReactDOMOption;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var LinkedValueUtils = __webpack_require__(51);
+var LinkedValueUtils = __webpack_require__(55);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -29779,7 +30673,7 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 172 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29795,16 +30689,16 @@ module.exports = ReactDOMTextarea;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactComponentEnvironment = __webpack_require__(52);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactComponentEnvironment = __webpack_require__(56);
+var ReactInstanceMap = __webpack_require__(31);
 var ReactInstrumentation = __webpack_require__(13);
 
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactReconciler = __webpack_require__(23);
-var ReactChildReconciler = __webpack_require__(173);
+var ReactCurrentOwner = __webpack_require__(16);
+var ReactReconciler = __webpack_require__(26);
+var ReactChildReconciler = __webpack_require__(182);
 
 var emptyFunction = __webpack_require__(12);
-var flattenChildren = __webpack_require__(180);
+var flattenChildren = __webpack_require__(189);
 var invariant = __webpack_require__(2);
 
 /**
@@ -30229,7 +31123,7 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 173 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30243,12 +31137,12 @@ module.exports = ReactMultiChild;
 
 
 
-var ReactReconciler = __webpack_require__(23);
+var ReactReconciler = __webpack_require__(26);
 
-var instantiateReactComponent = __webpack_require__(95);
-var KeyEscapeUtils = __webpack_require__(55);
-var shouldUpdateReactComponent = __webpack_require__(54);
-var traverseAllChildren = __webpack_require__(99);
+var instantiateReactComponent = __webpack_require__(99);
+var KeyEscapeUtils = __webpack_require__(59);
+var shouldUpdateReactComponent = __webpack_require__(58);
+var traverseAllChildren = __webpack_require__(103);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -30386,7 +31280,7 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 174 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30403,23 +31297,23 @@ module.exports = ReactChildReconciler;
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var React = __webpack_require__(21);
-var ReactComponentEnvironment = __webpack_require__(52);
-var ReactCurrentOwner = __webpack_require__(15);
-var ReactErrorUtils = __webpack_require__(44);
-var ReactInstanceMap = __webpack_require__(28);
+var React = __webpack_require__(24);
+var ReactComponentEnvironment = __webpack_require__(56);
+var ReactCurrentOwner = __webpack_require__(16);
+var ReactErrorUtils = __webpack_require__(48);
+var ReactInstanceMap = __webpack_require__(31);
 var ReactInstrumentation = __webpack_require__(13);
-var ReactNodeTypes = __webpack_require__(96);
-var ReactReconciler = __webpack_require__(23);
+var ReactNodeTypes = __webpack_require__(100);
+var ReactReconciler = __webpack_require__(26);
 
 if (process.env.NODE_ENV !== 'production') {
-  var checkReactTypeSpec = __webpack_require__(175);
+  var checkReactTypeSpec = __webpack_require__(184);
 }
 
-var emptyObject = __webpack_require__(32);
+var emptyObject = __webpack_require__(35);
 var invariant = __webpack_require__(2);
-var shallowEqual = __webpack_require__(53);
-var shouldUpdateReactComponent = __webpack_require__(54);
+var shallowEqual = __webpack_require__(57);
+var shouldUpdateReactComponent = __webpack_require__(58);
 var warning = __webpack_require__(3);
 
 var CompositeTypes = {
@@ -31290,7 +32184,7 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 175 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31306,8 +32200,8 @@ module.exports = ReactCompositeComponent;
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactPropTypeLocationNames = __webpack_require__(176);
-var ReactPropTypesSecret = __webpack_require__(93);
+var ReactPropTypeLocationNames = __webpack_require__(185);
+var ReactPropTypesSecret = __webpack_require__(97);
 
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
@@ -31381,7 +32275,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 176 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31410,7 +32304,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 177 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31434,7 +32328,7 @@ function getNextDebugID() {
 module.exports = getNextDebugID;
 
 /***/ }),
-/* 178 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31457,7 +32351,7 @@ var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol
 module.exports = REACT_ELEMENT_TYPE;
 
 /***/ }),
-/* 179 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31501,7 +32395,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 180 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31516,8 +32410,8 @@ module.exports = getIteratorFn;
 
 
 
-var KeyEscapeUtils = __webpack_require__(55);
-var traverseAllChildren = __webpack_require__(99);
+var KeyEscapeUtils = __webpack_require__(59);
+var traverseAllChildren = __webpack_require__(103);
 var warning = __webpack_require__(3);
 
 var ReactComponentTreeHook;
@@ -31581,7 +32475,7 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 181 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31597,10 +32491,10 @@ module.exports = flattenChildren;
 
 var _assign = __webpack_require__(5);
 
-var PooledClass = __webpack_require__(20);
-var Transaction = __webpack_require__(34);
+var PooledClass = __webpack_require__(23);
+var Transaction = __webpack_require__(37);
 var ReactInstrumentation = __webpack_require__(13);
-var ReactServerUpdateQueue = __webpack_require__(182);
+var ReactServerUpdateQueue = __webpack_require__(191);
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -31675,7 +32569,7 @@ module.exports = ReactServerRenderingTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 182 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31692,7 +32586,7 @@ module.exports = ReactServerRenderingTransaction;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ReactUpdateQueue = __webpack_require__(56);
+var ReactUpdateQueue = __webpack_require__(60);
 
 var warning = __webpack_require__(3);
 
@@ -31818,7 +32712,7 @@ module.exports = ReactServerUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 183 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31834,7 +32728,7 @@ module.exports = ReactServerUpdateQueue;
 
 var _assign = __webpack_require__(5);
 
-var DOMLazyTree = __webpack_require__(24);
+var DOMLazyTree = __webpack_require__(27);
 var ReactDOMComponentTree = __webpack_require__(6);
 
 var ReactDOMEmptyComponent = function (instantiate) {
@@ -31881,7 +32775,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
-/* 184 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32021,7 +32915,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 185 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32038,13 +32932,13 @@ module.exports = {
 var _prodInvariant = __webpack_require__(4),
     _assign = __webpack_require__(5);
 
-var DOMChildrenOperations = __webpack_require__(48);
-var DOMLazyTree = __webpack_require__(24);
+var DOMChildrenOperations = __webpack_require__(52);
+var DOMLazyTree = __webpack_require__(27);
 var ReactDOMComponentTree = __webpack_require__(6);
 
-var escapeTextContentForBrowser = __webpack_require__(37);
+var escapeTextContentForBrowser = __webpack_require__(40);
 var invariant = __webpack_require__(2);
-var validateDOMNesting = __webpack_require__(57);
+var validateDOMNesting = __webpack_require__(61);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -32187,7 +33081,7 @@ module.exports = ReactDOMTextComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 186 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32203,8 +33097,8 @@ module.exports = ReactDOMTextComponent;
 
 var _assign = __webpack_require__(5);
 
-var ReactUpdates = __webpack_require__(16);
-var Transaction = __webpack_require__(34);
+var ReactUpdates = __webpack_require__(17);
+var Transaction = __webpack_require__(37);
 
 var emptyFunction = __webpack_require__(12);
 
@@ -32258,7 +33152,7 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
-/* 187 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32274,14 +33168,14 @@ module.exports = ReactDefaultBatchingStrategy;
 
 var _assign = __webpack_require__(5);
 
-var EventListener = __webpack_require__(100);
+var EventListener = __webpack_require__(104);
 var ExecutionEnvironment = __webpack_require__(7);
-var PooledClass = __webpack_require__(20);
+var PooledClass = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactUpdates = __webpack_require__(16);
+var ReactUpdates = __webpack_require__(17);
 
-var getEventTarget = __webpack_require__(45);
-var getUnboundedScrollPosition = __webpack_require__(188);
+var getEventTarget = __webpack_require__(49);
+var getUnboundedScrollPosition = __webpack_require__(197);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -32416,7 +33310,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 188 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32458,7 +33352,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 189 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32472,14 +33366,14 @@ module.exports = getUnboundedScrollPosition;
 
 
 
-var DOMProperty = __webpack_require__(18);
-var EventPluginHub = __webpack_require__(26);
-var EventPluginUtils = __webpack_require__(43);
-var ReactComponentEnvironment = __webpack_require__(52);
-var ReactEmptyComponent = __webpack_require__(97);
-var ReactBrowserEventEmitter = __webpack_require__(38);
-var ReactHostComponent = __webpack_require__(98);
-var ReactUpdates = __webpack_require__(16);
+var DOMProperty = __webpack_require__(21);
+var EventPluginHub = __webpack_require__(29);
+var EventPluginUtils = __webpack_require__(47);
+var ReactComponentEnvironment = __webpack_require__(56);
+var ReactEmptyComponent = __webpack_require__(101);
+var ReactBrowserEventEmitter = __webpack_require__(41);
+var ReactHostComponent = __webpack_require__(102);
+var ReactUpdates = __webpack_require__(17);
 
 var ReactInjection = {
   Component: ReactComponentEnvironment.injection,
@@ -32495,7 +33389,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 190 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32511,13 +33405,13 @@ module.exports = ReactInjection;
 
 var _assign = __webpack_require__(5);
 
-var CallbackQueue = __webpack_require__(84);
-var PooledClass = __webpack_require__(20);
-var ReactBrowserEventEmitter = __webpack_require__(38);
-var ReactInputSelection = __webpack_require__(101);
+var CallbackQueue = __webpack_require__(88);
+var PooledClass = __webpack_require__(23);
+var ReactBrowserEventEmitter = __webpack_require__(41);
+var ReactInputSelection = __webpack_require__(105);
 var ReactInstrumentation = __webpack_require__(13);
-var Transaction = __webpack_require__(34);
-var ReactUpdateQueue = __webpack_require__(56);
+var Transaction = __webpack_require__(37);
+var ReactUpdateQueue = __webpack_require__(60);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -32677,7 +33571,7 @@ module.exports = ReactReconcileTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 191 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32693,8 +33587,8 @@ module.exports = ReactReconcileTransaction;
 
 var ExecutionEnvironment = __webpack_require__(7);
 
-var getNodeForCharacterOffset = __webpack_require__(192);
-var getTextContentAccessor = __webpack_require__(83);
+var getNodeForCharacterOffset = __webpack_require__(201);
+var getTextContentAccessor = __webpack_require__(87);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -32892,7 +33786,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 192 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32969,7 +33863,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 193 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32984,7 +33878,7 @@ module.exports = getNodeForCharacterOffset;
  * 
  */
 
-var isTextNode = __webpack_require__(194);
+var isTextNode = __webpack_require__(203);
 
 /*eslint-disable no-bitwise */
 
@@ -33012,7 +33906,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 194 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33027,7 +33921,7 @@ module.exports = containsNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(195);
+var isNode = __webpack_require__(204);
 
 /**
  * @param {*} object The object to check.
@@ -33040,7 +33934,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 195 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33068,7 +33962,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 196 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33373,7 +34267,7 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 197 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33387,15 +34281,15 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventPropagators = __webpack_require__(25);
+var EventPropagators = __webpack_require__(28);
 var ExecutionEnvironment = __webpack_require__(7);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInputSelection = __webpack_require__(101);
-var SyntheticEvent = __webpack_require__(17);
+var ReactInputSelection = __webpack_require__(105);
+var SyntheticEvent = __webpack_require__(19);
 
-var getActiveElement = __webpack_require__(102);
-var isTextInputElement = __webpack_require__(87);
-var shallowEqual = __webpack_require__(53);
+var getActiveElement = __webpack_require__(106);
+var isTextInputElement = __webpack_require__(91);
+var shallowEqual = __webpack_require__(57);
 
 var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 
@@ -33564,7 +34458,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 198 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33581,23 +34475,23 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(4);
 
-var EventListener = __webpack_require__(100);
-var EventPropagators = __webpack_require__(25);
+var EventListener = __webpack_require__(104);
+var EventPropagators = __webpack_require__(28);
 var ReactDOMComponentTree = __webpack_require__(6);
-var SyntheticAnimationEvent = __webpack_require__(199);
-var SyntheticClipboardEvent = __webpack_require__(200);
-var SyntheticEvent = __webpack_require__(17);
-var SyntheticFocusEvent = __webpack_require__(201);
-var SyntheticKeyboardEvent = __webpack_require__(202);
-var SyntheticMouseEvent = __webpack_require__(35);
-var SyntheticDragEvent = __webpack_require__(204);
-var SyntheticTouchEvent = __webpack_require__(205);
-var SyntheticTransitionEvent = __webpack_require__(206);
-var SyntheticUIEvent = __webpack_require__(27);
-var SyntheticWheelEvent = __webpack_require__(207);
+var SyntheticAnimationEvent = __webpack_require__(208);
+var SyntheticClipboardEvent = __webpack_require__(209);
+var SyntheticEvent = __webpack_require__(19);
+var SyntheticFocusEvent = __webpack_require__(210);
+var SyntheticKeyboardEvent = __webpack_require__(211);
+var SyntheticMouseEvent = __webpack_require__(38);
+var SyntheticDragEvent = __webpack_require__(213);
+var SyntheticTouchEvent = __webpack_require__(214);
+var SyntheticTransitionEvent = __webpack_require__(215);
+var SyntheticUIEvent = __webpack_require__(30);
+var SyntheticWheelEvent = __webpack_require__(216);
 
 var emptyFunction = __webpack_require__(12);
-var getEventCharCode = __webpack_require__(58);
+var getEventCharCode = __webpack_require__(62);
 var invariant = __webpack_require__(2);
 
 /**
@@ -33794,7 +34688,7 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 199 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33808,7 +34702,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
 /**
  * @interface Event
@@ -33836,7 +34730,7 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
-/* 200 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33850,7 +34744,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
 /**
  * @interface Event
@@ -33877,7 +34771,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 201 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33891,7 +34785,7 @@ module.exports = SyntheticClipboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(27);
+var SyntheticUIEvent = __webpack_require__(30);
 
 /**
  * @interface FocusEvent
@@ -33916,7 +34810,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 202 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33930,11 +34824,11 @@ module.exports = SyntheticFocusEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(27);
+var SyntheticUIEvent = __webpack_require__(30);
 
-var getEventCharCode = __webpack_require__(58);
-var getEventKey = __webpack_require__(203);
-var getEventModifierState = __webpack_require__(47);
+var getEventCharCode = __webpack_require__(62);
+var getEventKey = __webpack_require__(212);
+var getEventModifierState = __webpack_require__(51);
 
 /**
  * @interface KeyboardEvent
@@ -34003,7 +34897,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 203 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34017,7 +34911,7 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var getEventCharCode = __webpack_require__(58);
+var getEventCharCode = __webpack_require__(62);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -34118,7 +35012,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 204 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34132,7 +35026,7 @@ module.exports = getEventKey;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(35);
+var SyntheticMouseEvent = __webpack_require__(38);
 
 /**
  * @interface DragEvent
@@ -34157,7 +35051,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 205 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34171,9 +35065,9 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(27);
+var SyntheticUIEvent = __webpack_require__(30);
 
-var getEventModifierState = __webpack_require__(47);
+var getEventModifierState = __webpack_require__(51);
 
 /**
  * @interface TouchEvent
@@ -34205,7 +35099,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 206 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34219,7 +35113,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(17);
+var SyntheticEvent = __webpack_require__(19);
 
 /**
  * @interface Event
@@ -34247,7 +35141,7 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
-/* 207 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34261,7 +35155,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(35);
+var SyntheticMouseEvent = __webpack_require__(38);
 
 /**
  * @interface WheelEvent
@@ -34301,7 +35195,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 208 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34315,7 +35209,7 @@ module.exports = SyntheticWheelEvent;
 
 
 
-var validateDOMNesting = __webpack_require__(57);
+var validateDOMNesting = __webpack_require__(61);
 
 var DOC_NODE_TYPE = 9;
 
@@ -34338,7 +35232,7 @@ module.exports = ReactDOMContainerInfo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 209 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34360,7 +35254,7 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
-/* 210 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34374,7 +35268,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var adler32 = __webpack_require__(211);
+var adler32 = __webpack_require__(220);
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -34413,7 +35307,7 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
-/* 211 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34460,7 +35354,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 212 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34477,7 +35371,7 @@ module.exports = adler32;
 module.exports = '15.6.2';
 
 /***/ }),
-/* 213 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34493,11 +35387,11 @@ module.exports = '15.6.2';
 
 var _prodInvariant = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(15);
+var ReactCurrentOwner = __webpack_require__(16);
 var ReactDOMComponentTree = __webpack_require__(6);
-var ReactInstanceMap = __webpack_require__(28);
+var ReactInstanceMap = __webpack_require__(31);
 
-var getHostComponentFromComposite = __webpack_require__(104);
+var getHostComponentFromComposite = __webpack_require__(108);
 var invariant = __webpack_require__(2);
 var warning = __webpack_require__(3);
 
@@ -34541,7 +35435,7 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 214 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34555,12 +35449,12 @@ module.exports = findDOMNode;
 
 
 
-var ReactMount = __webpack_require__(103);
+var ReactMount = __webpack_require__(107);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 215 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34574,8 +35468,8 @@ module.exports = ReactMount.renderSubtreeIntoContainer;
 
 
 
-var DOMProperty = __webpack_require__(18);
-var EventPluginRegistry = __webpack_require__(33);
+var DOMProperty = __webpack_require__(21);
+var EventPluginRegistry = __webpack_require__(36);
 var ReactComponentTreeHook = __webpack_require__(11);
 
 var warning = __webpack_require__(3);
@@ -34676,7 +35570,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 216 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34723,7 +35617,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 217 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34737,7 +35631,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 
 
-var DOMProperty = __webpack_require__(18);
+var DOMProperty = __webpack_require__(21);
 var ReactComponentTreeHook = __webpack_require__(11);
 
 var warning = __webpack_require__(3);
@@ -34820,7 +35714,7 @@ module.exports = ReactDOMInvalidARIAHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 218 */
+/* 227 */
 /***/ (function(module, exports) {
 
 var g;
@@ -34847,7 +35741,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 219 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34863,11 +35757,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopView = __webpack_require__(220);
+var _DesktopView = __webpack_require__(229);
 
 var _DesktopView2 = _interopRequireDefault(_DesktopView);
 
-var _MobileView = __webpack_require__(248);
+var _MobileView = __webpack_require__(257);
 
 var _MobileView2 = _interopRequireDefault(_MobileView);
 
@@ -34894,6 +35788,7 @@ var Scoreboard = function (_Component) {
             var viewWidth = window.innerWidth;
             if (viewWidth < 720) {
                 return _react2.default.createElement(_MobileView2.default, {
+                    username: this.props.username,
                     score: this.props.score,
                     miss: this.props.miss,
                     botGame: this.props.botGame,
@@ -34912,6 +35807,7 @@ var Scoreboard = function (_Component) {
                 });
             } else {
                 return _react2.default.createElement(_DesktopView2.default, {
+                    username: this.props.username,
                     score: this.props.score,
                     miss: this.props.miss,
                     endTurn: this.props.endTurn,
@@ -34938,7 +35834,7 @@ var Scoreboard = function (_Component) {
 exports.default = Scoreboard;
 
 /***/ }),
-/* 220 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34954,7 +35850,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PlayerRender = __webpack_require__(59);
+var _PlayerRender = __webpack_require__(63);
 
 var _PlayerRender2 = _interopRequireDefault(_PlayerRender);
 
@@ -34988,7 +35884,8 @@ var DesktopView = function (_Component) {
             return _react2.default.createElement(_PlayerRender2.default, {
                 botGame: this.props.botGame,
                 activeThrower: this.props.activeThrower,
-                gameCricketReset: this.props.gameCricketReset
+                gameCricketReset: this.props.gameCricketReset,
+                username: this.props.username
             });
         }
     }, {
@@ -35169,7 +36066,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(20, 1);
                                         } },
                                     "20"
@@ -35180,7 +36077,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(20, 2);
                                         } },
                                     "x2"
@@ -35191,7 +36088,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(20, 3);
                                         } },
                                     "x3"
@@ -35216,7 +36113,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(19, 1);
                                         } },
                                     "19"
@@ -35227,7 +36124,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(19, 2);
                                         } },
                                     "x2"
@@ -35238,7 +36135,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(19, 3);
                                         } },
                                     "x3"
@@ -35263,7 +36160,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(18, 1);
                                         } },
                                     "18"
@@ -35274,7 +36171,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(18, 2);
                                         } },
                                     "x2"
@@ -35285,7 +36182,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(18, 3);
                                         } },
                                     "x3"
@@ -35310,7 +36207,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(17, 1);
                                         } },
                                     "17"
@@ -35321,7 +36218,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(17, 2);
                                         } },
                                     "x2"
@@ -35332,7 +36229,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(17, 3);
                                         } },
                                     "x3"
@@ -35357,7 +36254,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(16, 1);
                                         } },
                                     "16"
@@ -35368,7 +36265,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(16, 2);
                                         } },
                                     "x2"
@@ -35379,7 +36276,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(16, 3);
                                         } },
                                     "x3"
@@ -35404,7 +36301,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(15, 1);
                                         } },
                                     "15"
@@ -35415,7 +36312,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(15, 2);
                                         } },
                                     "x2"
@@ -35426,7 +36323,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(15, 3);
                                         } },
                                     "x3"
@@ -35451,7 +36348,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center p1-multiple border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(25, 1);
                                         } },
                                     "Bull"
@@ -35462,7 +36359,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 border-right p2-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(25, 2);
                                         } },
                                     "x2"
@@ -35493,7 +36390,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg upmod", onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             } },
                                         "20"
@@ -35504,7 +36401,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 2);
                                             } },
                                         "x2"
@@ -35515,7 +36412,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 3);
                                             } },
                                         "x3"
@@ -35540,7 +36437,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 1);
                                             } },
                                         "19"
@@ -35551,7 +36448,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 2);
                                             } },
                                         "x2"
@@ -35562,7 +36459,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 3);
                                             } },
                                         "x3"
@@ -35587,7 +36484,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 1);
                                             } },
                                         "18"
@@ -35598,7 +36495,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 2);
                                             } },
                                         "x2"
@@ -35609,7 +36506,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 3);
                                             } },
                                         "x3"
@@ -35634,7 +36531,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 1);
                                             } },
                                         "17"
@@ -35645,7 +36542,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 2);
                                             } },
                                         "x2"
@@ -35656,7 +36553,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 3);
                                             } },
                                         "x3"
@@ -35681,7 +36578,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 1);
                                             } },
                                         "16"
@@ -35692,7 +36589,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 2);
                                             } },
                                         "x2"
@@ -35703,7 +36600,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 3);
                                             } },
                                         "x3"
@@ -35728,7 +36625,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 1);
                                             } },
                                         "15"
@@ -35739,7 +36636,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 2);
                                             } },
                                         "x2"
@@ -35750,7 +36647,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 3);
                                             } },
                                         "x3"
@@ -35775,7 +36672,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 text-center border-left p1-multiple" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 1);
                                             } },
                                         "Bull"
@@ -35786,7 +36683,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 2);
                                             } },
                                         "x2"
@@ -35816,7 +36713,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             }, disabled: true },
                                         "20"
@@ -35827,7 +36724,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 2);
                                             }, disabled: true },
                                         "x2"
@@ -35838,7 +36735,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 3);
                                             }, disabled: true },
                                         "x3"
@@ -35863,7 +36760,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 1);
                                             }, disabled: true },
                                         "19"
@@ -35874,7 +36771,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 2);
                                             }, disabled: true },
                                         "x2"
@@ -35885,7 +36782,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 3);
                                             }, disabled: true },
                                         "x3"
@@ -35910,7 +36807,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 1);
                                             }, disabled: true },
                                         "18"
@@ -35921,7 +36818,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 2);
                                             }, disabled: true },
                                         "x2"
@@ -35932,7 +36829,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 3);
                                             }, disabled: true },
                                         "x3"
@@ -35957,7 +36854,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 1);
                                             }, disabled: true },
                                         "17"
@@ -35968,7 +36865,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 2);
                                             }, disabled: true },
                                         "x2"
@@ -35979,7 +36876,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 3);
                                             }, disabled: true },
                                         "x3"
@@ -36004,7 +36901,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 1);
                                             }, disabled: true },
                                         "16"
@@ -36015,7 +36912,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 2);
                                             }, disabled: true },
                                         "x2"
@@ -36026,7 +36923,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 3);
                                             }, disabled: true },
                                         "x3"
@@ -36051,7 +36948,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 1);
                                             }, disabled: true },
                                         "15"
@@ -36062,7 +36959,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 2);
                                             }, disabled: true },
                                         "x2"
@@ -36073,7 +36970,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 3);
                                             }, disabled: true },
                                         "x3"
@@ -36098,7 +36995,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 text-center border-left p1-multiple" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 1);
                                             }, disabled: true },
                                         "Bull"
@@ -36109,7 +37006,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 2);
                                             }, disabled: true },
                                         "x2"
@@ -36191,7 +37088,7 @@ var DesktopView = function (_Component) {
                             { className: "col-3 text-center end-turn" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                         _this3.props.endTurn();
                                     } },
                                 "End Turn"
@@ -36202,7 +37099,7 @@ var DesktopView = function (_Component) {
                             { className: "col-6 text-center miss" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                         _this3.props.miss();
                                     } },
                                 "Miss"
@@ -36213,7 +37110,7 @@ var DesktopView = function (_Component) {
                             { className: "col-3 text-center undo" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                         _this3.props.undo();
                                     } },
                                 "Undo"
@@ -36230,7 +37127,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center end-turn" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.endTurn();
                                         }, disabled: true },
                                     "End Turn"
@@ -36241,7 +37138,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-6 text-center miss" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.miss();
                                         }, disabled: true },
                                     "Miss"
@@ -36252,7 +37149,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center undo" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.undo();
                                         } },
                                     "Undo"
@@ -36268,7 +37165,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center end-turn" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.endTurn();
                                         } },
                                     "End Turn"
@@ -36279,7 +37176,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-6 text-center miss" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.miss();
                                         } },
                                     "Miss"
@@ -36290,7 +37187,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center undo" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.undo();
                                         } },
                                     "Undo"
@@ -36337,7 +37234,7 @@ var DesktopView = function (_Component) {
 exports.default = DesktopView;
 
 /***/ }),
-/* 221 */
+/* 230 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36347,9 +37244,9 @@ exports.default = DesktopView;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createBrowserHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(66);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -36404,7 +37301,7 @@ BrowserRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (BrowserRouter);
 
 /***/ }),
-/* 222 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36419,7 +37316,7 @@ BrowserRouter.propTypes = {
 
 var emptyFunction = __webpack_require__(12);
 var invariant = __webpack_require__(2);
-var ReactPropTypesSecret = __webpack_require__(42);
+var ReactPropTypesSecret = __webpack_require__(46);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -36469,7 +37366,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 223 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36485,19 +37382,19 @@ var _warning = __webpack_require__(8);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(14);
+var _invariant = __webpack_require__(15);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(60);
+var _LocationUtils = __webpack_require__(64);
 
-var _PathUtils = __webpack_require__(29);
+var _PathUtils = __webpack_require__(32);
 
-var _createTransitionManager = __webpack_require__(61);
+var _createTransitionManager = __webpack_require__(65);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(109);
+var _DOMUtils = __webpack_require__(113);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36782,7 +37679,7 @@ var createBrowserHistory = function createBrowserHistory() {
 exports.default = createBrowserHistory;
 
 /***/ }),
-/* 224 */
+/* 233 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -36792,9 +37689,9 @@ exports.default = createBrowserHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createHashHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createHashHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(66);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -36848,7 +37745,7 @@ HashRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (HashRouter);
 
 /***/ }),
-/* 225 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -36862,19 +37759,19 @@ var _warning = __webpack_require__(8);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(14);
+var _invariant = __webpack_require__(15);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(60);
+var _LocationUtils = __webpack_require__(64);
 
-var _PathUtils = __webpack_require__(29);
+var _PathUtils = __webpack_require__(32);
 
-var _createTransitionManager = __webpack_require__(61);
+var _createTransitionManager = __webpack_require__(65);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
-var _DOMUtils = __webpack_require__(109);
+var _DOMUtils = __webpack_require__(113);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37178,18 +38075,18 @@ var createHashHistory = function createHashHistory() {
 exports.default = createHashHistory;
 
 /***/ }),
-/* 226 */
+/* 235 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__ = __webpack_require__(236);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_MemoryRouter__["a" /* default */]);
 
 /***/ }),
-/* 227 */
+/* 236 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37199,9 +38096,9 @@ exports.default = createHashHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(228);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__ = __webpack_require__(237);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_history_createMemoryHistory__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(67);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -37256,7 +38153,7 @@ MemoryRouter.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (MemoryRouter);
 
 /***/ }),
-/* 228 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -37272,11 +38169,11 @@ var _warning = __webpack_require__(8);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _PathUtils = __webpack_require__(29);
+var _PathUtils = __webpack_require__(32);
 
-var _LocationUtils = __webpack_require__(60);
+var _LocationUtils = __webpack_require__(64);
 
-var _createTransitionManager = __webpack_require__(61);
+var _createTransitionManager = __webpack_require__(65);
 
 var _createTransitionManager2 = _interopRequireDefault(_createTransitionManager);
 
@@ -37432,7 +38329,7 @@ var createMemoryHistory = function createMemoryHistory() {
 exports.default = createMemoryHistory;
 
 /***/ }),
-/* 229 */
+/* 238 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37440,8 +38337,8 @@ exports.default = createMemoryHistory;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Route__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Route__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Link__ = __webpack_require__(114);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -37513,10 +38410,10 @@ NavLink.defaultProps = {
 /* harmony default export */ __webpack_exports__["a"] = (NavLink);
 
 /***/ }),
-/* 230 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isarray = __webpack_require__(231)
+var isarray = __webpack_require__(240)
 
 /**
  * Expose `pathToRegexp`.
@@ -37945,7 +38842,7 @@ function pathToRegexp (path, keys, options) {
 
 
 /***/ }),
-/* 231 */
+/* 240 */
 /***/ (function(module, exports) {
 
 module.exports = Array.isArray || function (arr) {
@@ -37954,18 +38851,18 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 232 */
+/* 241 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(233);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__ = __webpack_require__(242);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Prompt__["a" /* default */]);
 
 /***/ }),
-/* 233 */
+/* 242 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -37973,7 +38870,7 @@ module.exports = Array.isArray || function (arr) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -38056,18 +38953,18 @@ Prompt.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Prompt);
 
 /***/ }),
-/* 234 */
+/* 243 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__ = __webpack_require__(244);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Redirect__["a" /* default */]);
 
 /***/ }),
-/* 235 */
+/* 244 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -38077,9 +38974,9 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(245);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -38175,20 +39072,20 @@ Redirect.contextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Redirect);
 
 /***/ }),
-/* 236 */
+/* 245 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(237);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(246);
 /* unused harmony reexport createBrowserHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(238);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(247);
 /* unused harmony reexport createHashHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(239);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(248);
 /* unused harmony reexport createMemoryHistory */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(42);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(33);
 /* unused harmony reexport parsePath */
 /* unused harmony reexport createPath */
 
@@ -38202,18 +39099,18 @@ Redirect.contextTypes = {
 
 
 /***/ }),
-/* 237 */
+/* 246 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(117);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -38506,18 +39403,18 @@ var createBrowserHistory = function createBrowserHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createBrowserHistory);
 
 /***/ }),
-/* 238 */
+/* 247 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__createTransitionManager__ = __webpack_require__(69);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__DOMUtils__ = __webpack_require__(117);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -38827,15 +39724,15 @@ var createHashHistory = function createHashHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createHashHistory);
 
 /***/ }),
-/* 239 */
+/* 248 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__PathUtils__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__createTransitionManager__ = __webpack_require__(69);
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -38995,32 +39892,32 @@ var createMemoryHistory = function createMemoryHistory() {
 /* unused harmony default export */ var _unused_webpack_default_export = (createMemoryHistory);
 
 /***/ }),
-/* 240 */
+/* 249 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(241);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__ = __webpack_require__(250);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_StaticRouter__["a" /* default */]);
 
 /***/ }),
-/* 241 */
+/* 250 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history_PathUtils___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_history_PathUtils__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(67);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -39189,18 +40086,18 @@ StaticRouter.childContextTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (StaticRouter);
 
 /***/ }),
-/* 242 */
+/* 251 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__ = __webpack_require__(252);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_Switch__["a" /* default */]);
 
 /***/ }),
-/* 243 */
+/* 252 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39210,9 +40107,9 @@ StaticRouter.childContextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(68);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -39294,29 +40191,29 @@ Switch.propTypes = {
 /* harmony default export */ __webpack_exports__["a"] = (Switch);
 
 /***/ }),
-/* 244 */
+/* 253 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__ = __webpack_require__(68);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_matchPath__["a" /* default */]);
 
 /***/ }),
-/* 245 */
+/* 254 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__ = __webpack_require__(255);
 // Written in this round about way for babel-transform-imports
 
 
 /* harmony default export */ __webpack_exports__["a"] = (__WEBPACK_IMPORTED_MODULE_0_react_router_es_withRouter__["a" /* default */]);
 
 /***/ }),
-/* 246 */
+/* 255 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -39324,9 +40221,9 @@ Switch.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Route__ = __webpack_require__(116);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -39361,7 +40258,7 @@ var withRouter = function withRouter(Component) {
 /* harmony default export */ __webpack_exports__["a"] = (withRouter);
 
 /***/ }),
-/* 247 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -39439,7 +40336,7 @@ var withRouter = function withRouter(Component) {
 
 
 /***/ }),
-/* 248 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -39455,7 +40352,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactHammerjs = __webpack_require__(66);
+var _reactHammerjs = __webpack_require__(70);
 
 var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
 
@@ -39496,7 +40393,7 @@ var MobileModalView = function (_Component) {
         key: 'nameRender',
         value: function nameRender() {
             if (this.props.activeThrower === "p1") {
-                return "Player 1";
+                return this.props.username;
             } else {
                 return "Player 2";
             }
@@ -39512,7 +40409,7 @@ var MobileModalView = function (_Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center player border-right p1-active' },
-                            'Player 1'
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
@@ -39527,7 +40424,7 @@ var MobileModalView = function (_Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center player border-right inactive-thrower' },
-                            'Player 1'
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
@@ -41266,154 +42163,13 @@ var MobileModalView = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this5 = this;
-
             //Renders either an input or a text area depending on the screen width
             return _react2.default.createElement(
                 'div',
                 { className: 'container-fluid' },
                 this.playersRender(),
                 this.playerButtonsRender(),
-                this.missRowRender(),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'home screen' })
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'reloadModalLabel' },
-                                    'Start Game Over'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'No'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: this.props.gameCricketReset },
-                                            'Yes'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'exitModalLabel' },
-                                    'Exit Game'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'Cancel'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = _this5.chooseGameUrl;
-                                                } },
-                                            'Diff Game'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center modal-home' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = '/';
-                                                } },
-                                            'Home'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
+                this.missRowRender()
             );
         }
     }]);
@@ -41424,7 +42180,7 @@ var MobileModalView = function (_Component) {
 exports.default = MobileModalView;
 
 /***/ }),
-/* 249 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -41440,7 +42196,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SetTable = __webpack_require__(67);
+var _SetTable = __webpack_require__(71);
 
 var _SetTable2 = _interopRequireDefault(_SetTable);
 
@@ -42676,7 +43432,1217 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 250 */
+/* 259 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Login = function (_Component) {
+    _inherits(Login, _Component);
+
+    function Login() {
+        _classCallCheck(this, Login);
+
+        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this));
+
+        _this.state = {
+            loginUsername: '',
+            loginPassword: ''
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.loginButton = _this.loginButton.bind(_this);
+        return _this;
+    }
+
+    _createClass(Login, [{
+        key: "handleChange",
+        value: function handleChange(event) {
+            this.setState(_defineProperty({}, event.target.id, event.target.value));
+        }
+    }, {
+        key: "loginButton",
+        value: function loginButton(event) {
+            var _this2 = this;
+
+            event.preventDefault();
+            return _axios2.default.post('/login', {
+                username: this.state.loginUsername,
+                password: this.state.loginPassword
+            }).then(function (res) {
+                if (res.data.toLowerCase() === _this2.state.loginUsername.toLowerCase()) {
+                    _this2.props.loggedInSwitch(true);
+                    return _this2.props.setUsername(_this2.state.loginUsername);
+                } else {
+                    return null;
+                }
+            }).catch(function (error) {
+                console.log("Error logging in");
+                console.log(error);
+            });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                "div",
+                { className: "row" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "col-12 login-container" },
+                    _react2.default.createElement(
+                        "form",
+                        { id: "idForm", onSubmit: this.loginButton },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "form-group text-center" },
+                            _react2.default.createElement(
+                                "label",
+                                { className: "email-label" },
+                                "Username",
+                                _react2.default.createElement("br", null),
+                                _react2.default.createElement("input", { value: this.state.loginEmail, name: "username", type: "text", id: "loginUsername", className: "validate form-control", onChange: this.handleChange })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "form-group text-center" },
+                            _react2.default.createElement(
+                                "label",
+                                { className: "password-label" },
+                                "Password",
+                                _react2.default.createElement("br", null),
+                                _react2.default.createElement("input", { value: this.state.loginPassword, name: "password", id: "loginPassword", type: "password", className: "validate form-control", onChange: this.handleChange })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "p1-multiple", id: "loginButton" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "submit", className: "bttn-float bttn-lg", onClick: function onClick() {
+                                        setTimeout(function () {
+                                            if (_this3.props.username === _this3.state.loginUsername) {
+                                                $("#menu").modal("hide");
+                                            }
+                                        }, 500);
+                                    } },
+                                "Log In"
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-12 text-center p2-multiple", id: "loginBack" },
+                            _react2.default.createElement(
+                                "button",
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
+                                        _this3.props.setMenuState('menu');
+                                    } },
+                                "Back"
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Login;
+}(_react.Component);
+
+exports.default = Login;
+
+/***/ }),
+/* 260 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+var bind = __webpack_require__(119);
+var Axios = __webpack_require__(262);
+var defaults = __webpack_require__(72);
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(utils.merge(defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(123);
+axios.CancelToken = __webpack_require__(276);
+axios.isCancel = __webpack_require__(122);
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(277);
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+
+/***/ }),
+/* 261 */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+}
+
+function isBuffer (obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer (obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+}
+
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defaults = __webpack_require__(72);
+var utils = __webpack_require__(14);
+var InterceptorManager = __webpack_require__(271);
+var dispatchRequest = __webpack_require__(272);
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
+  }
+
+  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+  config.method = config.method.toLowerCase();
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+
+/***/ }),
+/* 263 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+
+/***/ }),
+/* 264 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__(121);
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+
+/***/ }),
+/* 265 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+  error.request = request;
+  error.response = response;
+  return error;
+};
+
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%40/gi, '@').
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+  (function standardBrowserEnv() {
+    var msie = /(msie|trident)/i.test(navigator.userAgent);
+    var urlParsingNode = document.createElement('a');
+    var originURL;
+
+    /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+    function resolveURL(url) {
+      var href = url;
+
+      if (msie) {
+        // IE needs attribute set twice to normalize properties
+        urlParsingNode.setAttribute('href', href);
+        href = urlParsingNode.href;
+      }
+
+      urlParsingNode.setAttribute('href', href);
+
+      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+      return {
+        href: urlParsingNode.href,
+        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+        host: urlParsingNode.host,
+        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+        hostname: urlParsingNode.hostname,
+        port: urlParsingNode.port,
+        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+                  urlParsingNode.pathname :
+                  '/' + urlParsingNode.pathname
+      };
+    }
+
+    originURL = resolveURL(window.location.href);
+
+    /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+    return function isURLSameOrigin(requestURL) {
+      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+      return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+    };
+  })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return function isURLSameOrigin() {
+      return true;
+    };
+  })()
+);
+
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+function E() {
+  this.message = 'String contains an invalid character';
+}
+E.prototype = new Error;
+E.prototype.code = 5;
+E.prototype.name = 'InvalidCharacterError';
+
+function btoa(input) {
+  var str = String(input);
+  var output = '';
+  for (
+    // initialize result and counter
+    var block, charCode, idx = 0, map = chars;
+    // if the next str index does not exist:
+    //   change the mapping table to "="
+    //   check if d has no fractional digits
+    str.charAt(idx | 0) || (map = '=', idx % 1);
+    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+  ) {
+    charCode = str.charCodeAt(idx += 3 / 4);
+    if (charCode > 0xFF) {
+      throw new E();
+    }
+    block = block << 8 | charCode;
+  }
+  return output;
+}
+
+module.exports = btoa;
+
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+  (function standardBrowserEnv() {
+    return {
+      write: function write(name, value, expires, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + '=' + encodeURIComponent(value));
+
+        if (utils.isNumber(expires)) {
+          cookie.push('expires=' + new Date(expires).toGMTString());
+        }
+
+        if (utils.isString(path)) {
+          cookie.push('path=' + path);
+        }
+
+        if (utils.isString(domain)) {
+          cookie.push('domain=' + domain);
+        }
+
+        if (secure === true) {
+          cookie.push('secure');
+        }
+
+        document.cookie = cookie.join('; ');
+      },
+
+      read: function read(name) {
+        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+        return (match ? decodeURIComponent(match[3]) : null);
+      },
+
+      remove: function remove(name) {
+        this.write(name, '', Date.now() - 86400000);
+      }
+    };
+  })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return {
+      write: function write() {},
+      read: function read() { return null; },
+      remove: function remove() {}
+    };
+  })()
+);
+
+
+/***/ }),
+/* 271 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+var transformData = __webpack_require__(273);
+var isCancel = __webpack_require__(122);
+var defaults = __webpack_require__(72);
+var isAbsoluteURL = __webpack_require__(274);
+var combineURLs = __webpack_require__(275);
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Support baseURL config
+  if (config.baseURL && !isAbsoluteURL(config.url)) {
+    config.url = combineURLs(config.baseURL, config.url);
+  }
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers || {}
+  );
+
+  utils.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(14);
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+/* 275 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+/* 276 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(123);
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+
+/***/ }),
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Signup = function (_Component) {
+    _inherits(Signup, _Component);
+
+    function Signup() {
+        _classCallCheck(this, Signup);
+
+        var _this = _possibleConstructorReturn(this, (Signup.__proto__ || Object.getPrototypeOf(Signup)).call(this));
+
+        _this.state = {
+            signUpUsername: '',
+            signUpPassword: '',
+            confirmPassword: '',
+            warning: ''
+        };
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.signUpButton = _this.signUpButton.bind(_this);
+        return _this;
+    }
+
+    _createClass(Signup, [{
+        key: "handleChange",
+        value: function handleChange(event) {
+            this.setState(_defineProperty({}, event.target.id, event.target.value));
+        }
+    }, {
+        key: "signUpButton",
+        value: function signUpButton(event) {
+            var _this2 = this;
+
+            event.preventDefault();
+            if (this.state.signUpPassword === this.state.confirmPassword) {
+                return _axios2.default.post('/signup', {
+                    password: this.state.signUpPassword,
+                    username: this.state.signUpUsername
+                }).catch(function (error) {
+                    setTimeout(function () {
+                        return _axios2.default.post('/login', {
+                            username: _this2.state.signUpUsername,
+                            password: _this2.state.signUpPassword
+                        }).then(function () {
+                            _this2.props.loggedInSwitch(true);
+                            return _this2.props.setUsername(_this2.state.signUpUsername);
+                        });
+                    }, 500);
+                });
+            } else {
+                this.setState({ warning: 'Passwords Don\'t Match' });
+            }
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var _this3 = this;
+
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    "div",
+                    { className: "container-fluid z-index-2" },
+                    _react2.default.createElement(
+                        "p",
+                        { className: "form-warning" },
+                        this.state.warning
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "row" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "col-12 text-center login-container" },
+                            _react2.default.createElement(
+                                "form",
+                                { onSubmit: this.signUpButton },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "form-group" },
+                                    _react2.default.createElement(
+                                        "label",
+                                        { className: "username-label" },
+                                        "Username",
+                                        _react2.default.createElement("br", null),
+                                        _react2.default.createElement("input", { value: this.state.username, name: "username", id: "signUpUsername", type: "text", className: "validate form-control", onChange: this.handleChange })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "form-group" },
+                                    _react2.default.createElement(
+                                        "label",
+                                        { className: "password-label" },
+                                        "Password",
+                                        _react2.default.createElement("br", null),
+                                        _react2.default.createElement("input", { value: this.state.password, onChange: this.handleChange, name: "password", id: "signUpPassword", type: "password", className: "validate form-control" })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "form-group" },
+                                    _react2.default.createElement(
+                                        "label",
+                                        { className: "password-label" },
+                                        "Confirm Password",
+                                        _react2.default.createElement("br", null),
+                                        _react2.default.createElement("input", { value: this.state.confirmPassword, onChange: this.handleChange, name: "confirmPassword", id: "confirmPassword", type: "password", className: "validate form-control" })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "p1-multiple" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "submit", className: "bttn-float bttn-lg", id: "signupButton", onClick: function onClick() {
+                                                $("#menu").modal("hide");
+                                            } },
+                                        "Sign Up"
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "row" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "col-12 text-center p2-multiple", id: "signupBack" },
+                                    _react2.default.createElement(
+                                        "button",
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
+                                                _this3.props.setMenuState('menu');
+                                            } },
+                                        "Back"
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Signup;
+}(_react.Component);
+
+exports.default = Signup;
+
+/***/ }),
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42694,15 +44660,15 @@ var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TransitionGroup = __webpack_require__(251);
+var _TransitionGroup = __webpack_require__(280);
 
 var _TransitionGroup2 = _interopRequireDefault(_TransitionGroup);
 
-var _CSSTransitionGroupChild = __webpack_require__(254);
+var _CSSTransitionGroupChild = __webpack_require__(283);
 
 var _CSSTransitionGroupChild2 = _interopRequireDefault(_CSSTransitionGroupChild);
 
-var _PropTypes = __webpack_require__(116);
+var _PropTypes = __webpack_require__(125);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42777,7 +44743,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 251 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42787,7 +44753,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _chainFunction = __webpack_require__(252);
+var _chainFunction = __webpack_require__(281);
 
 var _chainFunction2 = _interopRequireDefault(_chainFunction);
 
@@ -42803,7 +44769,7 @@ var _warning = __webpack_require__(8);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _ChildMapping = __webpack_require__(253);
+var _ChildMapping = __webpack_require__(282);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43053,7 +45019,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 252 */
+/* 281 */
 /***/ (function(module, exports) {
 
 
@@ -43079,7 +45045,7 @@ module.exports = function chain(){
 
 
 /***/ }),
-/* 253 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43176,7 +45142,7 @@ function mergeChildMappings(prev, next) {
 }
 
 /***/ }),
-/* 254 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43186,19 +45152,19 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _addClass = __webpack_require__(255);
+var _addClass = __webpack_require__(284);
 
 var _addClass2 = _interopRequireDefault(_addClass);
 
-var _removeClass = __webpack_require__(257);
+var _removeClass = __webpack_require__(286);
 
 var _removeClass2 = _interopRequireDefault(_removeClass);
 
-var _requestAnimationFrame = __webpack_require__(258);
+var _requestAnimationFrame = __webpack_require__(287);
 
 var _requestAnimationFrame2 = _interopRequireDefault(_requestAnimationFrame);
 
-var _properties = __webpack_require__(259);
+var _properties = __webpack_require__(288);
 
 var _react = __webpack_require__(1);
 
@@ -43208,9 +45174,9 @@ var _propTypes = __webpack_require__(9);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactDom = __webpack_require__(79);
+var _reactDom = __webpack_require__(83);
 
-var _PropTypes = __webpack_require__(116);
+var _PropTypes = __webpack_require__(125);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -43412,7 +45378,7 @@ module.exports = exports['default'];
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 255 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43423,7 +45389,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = addClass;
 
-var _hasClass = __webpack_require__(256);
+var _hasClass = __webpack_require__(285);
 
 var _hasClass2 = _interopRequireDefault(_hasClass);
 
@@ -43435,7 +45401,7 @@ function addClass(element, className) {
 module.exports = exports['default'];
 
 /***/ }),
-/* 256 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43451,7 +45417,7 @@ function hasClass(element, className) {
 module.exports = exports["default"];
 
 /***/ }),
-/* 257 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43466,7 +45432,7 @@ module.exports = function removeClass(element, className) {
 };
 
 /***/ }),
-/* 258 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43476,7 +45442,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _inDOM = __webpack_require__(115);
+var _inDOM = __webpack_require__(124);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -43525,7 +45491,7 @@ exports.default = compatRaf;
 module.exports = exports['default'];
 
 /***/ }),
-/* 259 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43536,7 +45502,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.animationEnd = exports.animationDelay = exports.animationTiming = exports.animationDuration = exports.animationName = exports.transitionEnd = exports.transitionDuration = exports.transitionDelay = exports.transitionTiming = exports.transitionProperty = exports.transform = undefined;
 
-var _inDOM = __webpack_require__(115);
+var _inDOM = __webpack_require__(124);
 
 var _inDOM2 = _interopRequireDefault(_inDOM);
 
@@ -43641,7 +45607,7 @@ function getTransitionProperties() {
 }
 
 /***/ }),
-/* 260 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43730,7 +45696,7 @@ var GamePicky = function (_Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-3 text-left x01-pick-menu' },
+                            { className: 'col-3 text-left main-menu-button' },
                             _react2.default.createElement(
                                 'button',
                                 { type: 'button', onClick: this.customGo },
@@ -43765,42 +45731,40 @@ var GamePicky = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-pick-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-pick-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.props.setX01Game(301);
                                 } },
                             '301'
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-pick-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-pick-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.props.setX01Game(501);
                                 } },
                             '501'
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-pick-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-pick-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.customSwitch();
                                 } },
                             'Custom'
@@ -43808,13 +45772,12 @@ var GamePicky = function (_Component) {
                     )
                 ),
                 this.renderCustom(),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-pick-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -43822,7 +45785,7 @@ var GamePicky = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button' },
+                                { type: 'button', className: 'bttn-float bttn-lg' },
                                 'Back'
                             )
                         )
@@ -43838,7 +45801,7 @@ var GamePicky = function (_Component) {
 exports.default = GamePicky;
 
 /***/ }),
-/* 261 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43898,71 +45861,67 @@ var GameOptions = function (_Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-options-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-options-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.props.setGameOptions("dido");
                                 } },
                             'Double In/Double Out'
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-options-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-options-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.props.setGameOptions("sido");
                                 } },
                             'Any In/Double Out'
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-options-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-options-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.props.setGameOptions("siso");
                                 } },
                             'Any In/Any Out'
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-options-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             'button',
-                            { className: 'x01-options-menu', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this2.props.setGameOptions("numpad");
                                 } },
                             'Manual Numpad'
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center x01-pick-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -43970,7 +45929,7 @@ var GameOptions = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', onClick: this.props.setGameStatePick },
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: this.props.setGameStatePick },
                                 'Back'
                             )
                         )
@@ -43986,7 +45945,7 @@ var GameOptions = function (_Component) {
 exports.default = GameOptions;
 
 /***/ }),
-/* 262 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44002,19 +45961,19 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ScoreInput = __webpack_require__(263);
+var _ScoreInput = __webpack_require__(292);
 
 var _ScoreInput2 = _interopRequireDefault(_ScoreInput);
 
-var _Numpad = __webpack_require__(269);
+var _Numpad = __webpack_require__(298);
 
 var _Numpad2 = _interopRequireDefault(_Numpad);
 
-var _PlayerRender = __webpack_require__(59);
+var _PlayerRender = __webpack_require__(63);
 
 var _PlayerRender2 = _interopRequireDefault(_PlayerRender);
 
-var _ShotHistory = __webpack_require__(71);
+var _ShotHistory = __webpack_require__(75);
 
 var _ShotHistory2 = _interopRequireDefault(_ShotHistory);
 
@@ -44061,7 +46020,7 @@ var Scoreboard = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "col-6 text-center padding-top player border-right p1-active" },
-                            "Player 1"
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             "div",
@@ -44076,7 +46035,7 @@ var Scoreboard = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "col-6 text-center padding-top player border-right inactive-thrower" },
-                            "Player 1"
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             "div",
@@ -44089,7 +46048,8 @@ var Scoreboard = function (_Component) {
                 return _react2.default.createElement(_PlayerRender2.default, {
                     activeThrower: this.props.activeThrower,
                     gameX01Reset: this.props.gameX01Reset,
-                    botGame: this.props.botGame
+                    botGame: this.props.botGame,
+                    username: this.props.username
                 });
             }
         }
@@ -44222,7 +46182,7 @@ var Scoreboard = function (_Component) {
 exports.default = Scoreboard;
 
 /***/ }),
-/* 263 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44238,23 +46198,23 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopInput = __webpack_require__(264);
+var _DesktopInput = __webpack_require__(293);
 
 var _DesktopInput2 = _interopRequireDefault(_DesktopInput);
 
-var _MobileGesture = __webpack_require__(265);
+var _MobileGesture = __webpack_require__(294);
 
 var _MobileGesture2 = _interopRequireDefault(_MobileGesture);
 
-var _MobileModal = __webpack_require__(266);
+var _MobileModal = __webpack_require__(295);
 
 var _MobileModal2 = _interopRequireDefault(_MobileModal);
 
-var _TabletInput = __webpack_require__(267);
+var _TabletInput = __webpack_require__(296);
 
 var _TabletInput2 = _interopRequireDefault(_TabletInput);
 
-var _GestureToggle = __webpack_require__(268);
+var _GestureToggle = __webpack_require__(297);
 
 var _GestureToggle2 = _interopRequireDefault(_GestureToggle);
 
@@ -44437,7 +46397,7 @@ var ScoreInput = function (_Component) {
 exports.default = ScoreInput;
 
 /***/ }),
-/* 264 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44453,7 +46413,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShotHistory = __webpack_require__(71);
+var _ShotHistory = __webpack_require__(75);
 
 var _ShotHistory2 = _interopRequireDefault(_ShotHistory);
 
@@ -44496,7 +46456,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left  border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(20, 1);
                                         } },
                                     '20'
@@ -44507,7 +46467,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(20, 2);
                                         } },
                                     'x2'
@@ -44518,7 +46478,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(20, 3);
                                         } },
                                     'x3'
@@ -44529,7 +46489,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(19, 1);
                                         } },
                                     '19'
@@ -44540,7 +46500,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(19, 2);
                                         } },
                                     'x2'
@@ -44551,7 +46511,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(19, 3);
                                         } },
                                     'x3'
@@ -44562,7 +46522,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(18, 1);
                                         } },
                                     '18'
@@ -44573,7 +46533,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(18, 2);
                                         } },
                                     'x2'
@@ -44584,7 +46544,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(18, 3);
                                         } },
                                     'x3'
@@ -44595,7 +46555,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(17, 1);
                                         } },
                                     '17'
@@ -44606,7 +46566,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(17, 2);
                                         } },
                                     'x2'
@@ -44617,7 +46577,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-right border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(17, 3);
                                         } },
                                     'x3'
@@ -44628,7 +46588,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(16, 1);
                                         } },
                                     '16'
@@ -44639,7 +46599,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(16, 2);
                                         } },
                                     'x2'
@@ -44650,7 +46610,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(16, 3);
                                         } },
                                     'x3'
@@ -44661,7 +46621,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(15, 1);
                                         } },
                                     '15'
@@ -44672,7 +46632,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(15, 2);
                                         } },
                                     'x2'
@@ -44683,7 +46643,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(15, 3);
                                         } },
                                     'x3'
@@ -44694,7 +46654,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(14, 1);
                                         } },
                                     '14'
@@ -44705,7 +46665,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(14, 2);
                                         } },
                                     'x2'
@@ -44716,7 +46676,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(14, 3);
                                         } },
                                     'x3'
@@ -44727,7 +46687,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(13, 1);
                                         } },
                                     '13'
@@ -44738,7 +46698,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(13, 2);
                                         } },
                                     'x2'
@@ -44749,7 +46709,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(13, 3);
                                         } },
                                     'x3'
@@ -44760,7 +46720,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(12, 1);
                                         } },
                                     '12'
@@ -44771,7 +46731,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(12, 2);
                                         } },
                                     'x2'
@@ -44782,7 +46742,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(12, 3);
                                         } },
                                     'x3'
@@ -44793,7 +46753,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(11, 1);
                                         } },
                                     '11'
@@ -44804,7 +46764,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(11, 2);
                                         } },
                                     'x2'
@@ -44815,7 +46775,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(11, 3);
                                         } },
                                     'x3'
@@ -44826,7 +46786,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(10, 1);
                                         } },
                                     '10'
@@ -44837,7 +46797,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(10, 2);
                                         } },
                                     'x2'
@@ -44848,7 +46808,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(10, 3);
                                         } },
                                     'x3'
@@ -44859,7 +46819,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(9, 1);
                                         } },
                                     '9'
@@ -44870,7 +46830,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(9, 2);
                                         } },
                                     'x2'
@@ -44881,7 +46841,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(9, 3);
                                         } },
                                     'x3'
@@ -44892,7 +46852,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(8, 1);
                                         } },
                                     '8'
@@ -44903,7 +46863,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(8, 2);
                                         } },
                                     'x2'
@@ -44914,7 +46874,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(8, 3);
                                         } },
                                     'x3'
@@ -44925,7 +46885,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(7, 1);
                                         } },
                                     '7'
@@ -44936,7 +46896,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(7, 2);
                                         } },
                                     'x2'
@@ -44947,7 +46907,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(7, 3);
                                         } },
                                     'x3'
@@ -44958,7 +46918,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(6, 1);
                                         } },
                                     '6'
@@ -44969,7 +46929,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(6, 2);
                                         } },
                                     'x2'
@@ -44980,7 +46940,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(6, 3);
                                         } },
                                     'x3'
@@ -44991,7 +46951,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(5, 1);
                                         } },
                                     '5'
@@ -45002,7 +46962,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(5, 2);
                                         } },
                                     'x2'
@@ -45013,7 +46973,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(5, 3);
                                         } },
                                     'x3'
@@ -45024,7 +46984,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(4, 1);
                                         } },
                                     '4'
@@ -45035,7 +46995,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(4, 2);
                                         } },
                                     'x2'
@@ -45046,7 +47006,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(4, 3);
                                         } },
                                     'x3'
@@ -45057,7 +47017,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(3, 1);
                                         } },
                                     '3'
@@ -45068,7 +47028,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(3, 2);
                                         } },
                                     'x2'
@@ -45079,7 +47039,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(3, 3);
                                         } },
                                     'x3'
@@ -45090,7 +47050,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(2, 1);
                                         } },
                                     '2'
@@ -45101,7 +47061,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(2, 2);
                                         } },
                                     'x2'
@@ -45112,7 +47072,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(2, 3);
                                         } },
                                     'x3'
@@ -45123,7 +47083,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(1, 1);
                                         } },
                                     '1'
@@ -45134,7 +47094,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(1, 2);
                                         } },
                                     'x2'
@@ -45145,7 +47105,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p1-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(1, 3);
                                         } },
                                     'x3'
@@ -45156,7 +47116,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col text-center number p1-multiple border-left border-bottom' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(25, 1);
                                         } },
                                     'Bull'
@@ -45167,7 +47127,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col text-center number p2-multiple border-bottom border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(25, 2);
                                         } },
                                     'Double-Bull'
@@ -45185,7 +47145,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(20, 1);
                                         } },
                                     '20'
@@ -45196,7 +47156,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(20, 2);
                                         } },
                                     'x2'
@@ -45207,7 +47167,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(20, 3);
                                         } },
                                     'x3'
@@ -45218,7 +47178,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(19, 1);
                                         } },
                                     '19'
@@ -45229,7 +47189,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(19, 2);
                                         } },
                                     'x2'
@@ -45240,7 +47200,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(19, 3);
                                         } },
                                     '3'
@@ -45251,7 +47211,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(18, 1);
                                         } },
                                     '18'
@@ -45262,7 +47222,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(18, 2);
                                         } },
                                     'x2'
@@ -45273,7 +47233,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(18, 3);
                                         } },
                                     'x3'
@@ -45284,7 +47244,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(17, 1);
                                         } },
                                     '17'
@@ -45295,7 +47255,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(17, 2);
                                         } },
                                     'x2'
@@ -45306,7 +47266,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-right border-top' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(17, 3);
                                         } },
                                     'x3'
@@ -45317,7 +47277,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(16, 1);
                                         } },
                                     '16'
@@ -45328,7 +47288,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(16, 2);
                                         } },
                                     'x2'
@@ -45339,7 +47299,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(16, 3);
                                         } },
                                     'x3'
@@ -45350,7 +47310,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(15, 1);
                                         } },
                                     '15'
@@ -45361,7 +47321,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(15, 2);
                                         } },
                                     'x2'
@@ -45372,7 +47332,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(15, 3);
                                         } },
                                     'x3'
@@ -45383,7 +47343,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(14, 1);
                                         } },
                                     '14'
@@ -45394,7 +47354,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(14, 2);
                                         } },
                                     'x2'
@@ -45405,7 +47365,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(14, 3);
                                         } },
                                     'x3'
@@ -45416,7 +47376,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(13, 1);
                                         } },
                                     '13'
@@ -45427,7 +47387,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(13, 2);
                                         } },
                                     'x2'
@@ -45438,7 +47398,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(13, 3);
                                         } },
                                     'x3'
@@ -45449,7 +47409,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(12, 1);
                                         } },
                                     '12'
@@ -45460,7 +47420,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(12, 2);
                                         } },
                                     'x2'
@@ -45471,7 +47431,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(12, 3);
                                         } },
                                     'x3'
@@ -45482,7 +47442,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(11, 1);
                                         } },
                                     '11'
@@ -45493,7 +47453,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(11, 2);
                                         } },
                                     'x2'
@@ -45504,7 +47464,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(11, 3);
                                         } },
                                     'x3'
@@ -45515,7 +47475,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(10, 1);
                                         } },
                                     '10'
@@ -45526,7 +47486,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(10, 2);
                                         } },
                                     'x2'
@@ -45537,7 +47497,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(10, 3);
                                         } },
                                     'x3'
@@ -45548,7 +47508,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(9, 1);
                                         } },
                                     '9'
@@ -45559,7 +47519,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(9, 2);
                                         } },
                                     'x2'
@@ -45570,7 +47530,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(9, 3);
                                         } },
                                     'x3'
@@ -45581,7 +47541,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(8, 1);
                                         } },
                                     '8'
@@ -45592,7 +47552,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(8, 2);
                                         } },
                                     'x2'
@@ -45603,7 +47563,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(8, 3);
                                         } },
                                     'x3'
@@ -45614,7 +47574,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(7, 1);
                                         } },
                                     '7'
@@ -45625,7 +47585,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(7, 2);
                                         } },
                                     'x2'
@@ -45636,7 +47596,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(7, 3);
                                         } },
                                     'x3'
@@ -45647,7 +47607,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(6, 1);
                                         } },
                                     '6'
@@ -45658,7 +47618,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(6, 2);
                                         } },
                                     'x2'
@@ -45669,7 +47629,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(6, 3);
                                         } },
                                     'x3'
@@ -45680,7 +47640,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(5, 1);
                                         } },
                                     '5'
@@ -45691,7 +47651,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(5, 2);
                                         } },
                                     'x2'
@@ -45702,7 +47662,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(5, 3);
                                         } },
                                     'x3'
@@ -45713,7 +47673,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(4, 1);
                                         } },
                                     '4'
@@ -45724,7 +47684,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(4, 2);
                                         } },
                                     'x2'
@@ -45735,7 +47695,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(4, 3);
                                         } },
                                     'x3'
@@ -45746,7 +47706,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(3, 1);
                                         } },
                                     '3'
@@ -45757,7 +47717,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(3, 2);
                                         } },
                                     'x2'
@@ -45768,7 +47728,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(3, 3);
                                         } },
                                     'x3'
@@ -45779,7 +47739,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(2, 1);
                                         } },
                                     '2'
@@ -45790,7 +47750,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(2, 2);
                                         } },
                                     'x2'
@@ -45801,7 +47761,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(2, 3);
                                         } },
                                     'x3'
@@ -45812,7 +47772,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(1, 1);
                                         } },
                                     '1'
@@ -45823,7 +47783,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(1, 2);
                                         } },
                                     'x2'
@@ -45834,7 +47794,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(1, 3);
                                         } },
                                     'x3'
@@ -45845,7 +47805,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col text-center number p1-multiple border-left border-bottom' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(25, 1);
                                         } },
                                     'Bull'
@@ -45856,7 +47816,7 @@ var DesktopInput = function (_Component) {
                                 { className: 'col text-center number p2-multiple border-bottom border-right' },
                                 _react2.default.createElement(
                                     'button',
-                                    { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                    { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.props.score(25, 2);
                                         } },
                                     'Double-Bull'
@@ -45875,7 +47835,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             }, disabled: true },
                                         '20'
@@ -45886,7 +47846,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(20, 2);
                                             }, disabled: true },
                                         'x2'
@@ -45897,7 +47857,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(20, 3);
                                             }, disabled: true },
                                         'x3'
@@ -45908,7 +47868,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(19, 1);
                                             }, disabled: true },
                                         '19'
@@ -45919,7 +47879,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(19, 2);
                                             }, disabled: true },
                                         'x2'
@@ -45930,7 +47890,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(19, 3);
                                             }, disabled: true },
                                         '3'
@@ -45941,7 +47901,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(18, 1);
                                             }, disabled: true },
                                         '18'
@@ -45952,7 +47912,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(18, 2);
                                             }, disabled: true },
                                         'x2'
@@ -45963,7 +47923,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(18, 3);
                                             }, disabled: true },
                                         'x3'
@@ -45974,7 +47934,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(17, 1);
                                             }, disabled: true },
                                         '17'
@@ -45985,7 +47945,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(17, 2);
                                             }, disabled: true },
                                         'x2'
@@ -45996,7 +47956,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-right border-top' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(17, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46007,7 +47967,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(16, 1);
                                             }, disabled: true },
                                         '16'
@@ -46018,7 +47978,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(16, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46029,7 +47989,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(16, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46040,7 +48000,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(15, 1);
                                             }, disabled: true },
                                         '15'
@@ -46051,7 +48011,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(15, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46062,7 +48022,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(15, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46073,7 +48033,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(14, 1);
                                             }, disabled: true },
                                         '14'
@@ -46084,7 +48044,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(14, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46095,7 +48055,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(14, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46106,7 +48066,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(13, 1);
                                             }, disabled: true },
                                         '13'
@@ -46117,7 +48077,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(13, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46128,7 +48088,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(13, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46139,7 +48099,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(12, 1);
                                             }, disabled: true },
                                         '12'
@@ -46150,7 +48110,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(12, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46161,7 +48121,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(12, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46172,7 +48132,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(11, 1);
                                             }, disabled: true },
                                         '11'
@@ -46183,7 +48143,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(11, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46194,7 +48154,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(11, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46205,7 +48165,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(10, 1);
                                             }, disabled: true },
                                         '10'
@@ -46216,7 +48176,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(10, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46227,7 +48187,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(10, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46238,7 +48198,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(9, 1);
                                             }, disabled: true },
                                         '9'
@@ -46249,7 +48209,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(9, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46260,7 +48220,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(9, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46271,7 +48231,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(8, 1);
                                             }, disabled: true },
                                         '8'
@@ -46282,7 +48242,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(8, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46293,7 +48253,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(8, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46304,7 +48264,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(7, 1);
                                             }, disabled: true },
                                         '7'
@@ -46315,7 +48275,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(7, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46326,7 +48286,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(7, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46337,7 +48297,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(6, 1);
                                             }, disabled: true },
                                         '6'
@@ -46348,7 +48308,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(6, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46359,7 +48319,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(6, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46370,7 +48330,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(5, 1);
                                             }, disabled: true },
                                         '5'
@@ -46381,7 +48341,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(5, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46392,7 +48352,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(5, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46403,7 +48363,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(4, 1);
                                             }, disabled: true },
                                         '4'
@@ -46414,7 +48374,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(4, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46425,7 +48385,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(4, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46436,7 +48396,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(3, 1);
                                             }, disabled: true },
                                         '3'
@@ -46447,7 +48407,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(3, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46458,7 +48418,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(3, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46469,7 +48429,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(2, 1);
                                             }, disabled: true },
                                         '2'
@@ -46480,7 +48440,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(2, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46491,7 +48451,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(2, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46502,7 +48462,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-single border-left' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(1, 1);
                                             }, disabled: true },
                                         '1'
@@ -46513,7 +48473,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(1, 2);
                                             }, disabled: true },
                                         'x2'
@@ -46524,7 +48484,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col-1 text-center number border-bottom p2-multiple border-right' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(1, 3);
                                             }, disabled: true },
                                         'x3'
@@ -46535,7 +48495,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col text-center number p1-multiple border-left border-bottom' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(25, 1);
                                             }, disabled: true },
                                         'Bull'
@@ -46546,7 +48506,7 @@ var DesktopInput = function (_Component) {
                                     { className: 'col text-center number p2-multiple border-bottom border-right' },
                                     _react2.default.createElement(
                                         'button',
-                                        { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                        { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                                 _this2.props.score(25, 2);
                                             }, disabled: true },
                                         'Double-Bull'
@@ -46581,7 +48541,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-4 offset-1 text-center p2-multiple' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this2.props.undoGameOver();
                                     } },
                                 'Undo'
@@ -46592,7 +48552,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-4 offset-2 text-center p1-multiple' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this2.props.gameStateOver();
                                     } },
                                 'Confirm'
@@ -46640,7 +48600,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-12 miss text-center', id: 'miss-x01' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.miss();
                                     } },
                                 'Miss'
@@ -46651,7 +48611,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.endTurn();
                                     } },
                                 'End Turn'
@@ -46662,7 +48622,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-12 text-center undo', id: 'undo-x01' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.undo();
                                     } },
                                 'Undo'
@@ -46701,7 +48661,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-12 miss text-center', id: 'miss-x01' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.miss();
                                     }, disabled: true },
                                 'Miss'
@@ -46712,7 +48672,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.endTurn();
                                     }, disabled: true },
                                 'End Turn'
@@ -46723,7 +48683,7 @@ var DesktopInput = function (_Component) {
                             { className: 'col-12 text-center undo', id: 'undo-x01' },
                             _react2.default.createElement(
                                 'button',
-                                { type: 'button', className: 'btn', onClick: function onClick() {
+                                { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                         _this3.props.undo();
                                     } },
                                 'Undo'
@@ -46763,7 +48723,7 @@ var DesktopInput = function (_Component) {
                         { className: 'col-12 miss text-center', id: 'miss-x01' },
                         _react2.default.createElement(
                             'button',
-                            { type: 'button', className: 'btn', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this3.props.miss();
                                 }, disabled: true },
                             'Miss'
@@ -46774,7 +48734,7 @@ var DesktopInput = function (_Component) {
                         { className: 'col-12 end-turn text-center', id: 'end-turn-x01' },
                         _react2.default.createElement(
                             'button',
-                            { type: 'button', className: 'btn', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this3.props.endTurn();
                                 }, disabled: true },
                             'End Turn'
@@ -46785,7 +48745,7 @@ var DesktopInput = function (_Component) {
                         { className: 'col-12 text-center undo', id: 'undo-x01' },
                         _react2.default.createElement(
                             'button',
-                            { type: 'button', className: 'btn', onClick: function onClick() {
+                            { type: 'button', className: 'bttn-float bttn-lg', onClick: function onClick() {
                                     _this3.props.undo();
                                 }, disabled: true },
                             'Undo'
@@ -46845,7 +48805,7 @@ var DesktopInput = function (_Component) {
 exports.default = DesktopInput;
 
 /***/ }),
-/* 265 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46861,7 +48821,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactHammerjs = __webpack_require__(66);
+var _reactHammerjs = __webpack_require__(70);
 
 var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
 
@@ -47418,8 +49378,6 @@ var MobileGesture = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this6 = this;
-
             return _react2.default.createElement(
                 'div',
                 null,
@@ -47456,148 +49414,7 @@ var MobileGesture = function (_Component) {
                     )
                 ),
                 this.playerButtonsRender(),
-                this.missUndoRow(),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row', id: 'x01MobileThrow' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over mobile-start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over mobile-start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'home screen' })
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'reloadModalLabel' },
-                                    'Start Game Over'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'No'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    _this6.props.gameX01Reset();
-                                                } },
-                                            'Yes'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'exitModalLabel' },
-                                    'Exit Game'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'Cancel'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = _this6.chooseGameUrl;
-                                                } },
-                                            'Diff Game'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center modal-home' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = '/';
-                                                } },
-                                            'Home'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
+                this.missUndoRow()
             );
         }
     }]);
@@ -47608,7 +49425,7 @@ var MobileGesture = function (_Component) {
 exports.default = MobileGesture;
 
 /***/ }),
-/* 266 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -48194,28 +50011,6 @@ var MobileModal = function (_Component) {
                 ),
                 this.playerButtonsRender(),
                 this.missUndoRow(),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row', id: 'x01MobileThrow' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over mobile-start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over mobile-start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'home screen' })
-                        )
-                    )
-                ),
                 _react2.default.createElement(
                     'div',
                     { className: 'modal fade', id: 'twentyModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'twentyModalLabel', 'aria-hidden': 'true' },
@@ -49800,125 +51595,6 @@ var MobileModal = function (_Component) {
                             )
                         )
                     )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'reloadModalLabel' },
-                                    'Start Game Over'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'No'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    _this4.props.gameX01Reset();
-                                                } },
-                                            'Yes'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'exitModalLabel' },
-                                    'Exit Game'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'Cancel'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = _this4.chooseGameUrl;
-                                                } },
-                                            'Diff Game'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center modal-home' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = '/';
-                                                } },
-                                            'Home'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
                 )
             );
         }
@@ -49930,7 +51606,7 @@ var MobileModal = function (_Component) {
 exports.default = MobileModal;
 
 /***/ }),
-/* 267 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -49946,7 +51622,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ShotHistory = __webpack_require__(71);
+var _ShotHistory = __webpack_require__(75);
 
 var _ShotHistory2 = _interopRequireDefault(_ShotHistory);
 
@@ -51560,7 +53236,7 @@ var TabletInput = function (_Component) {
 exports.default = TabletInput;
 
 /***/ }),
-/* 268 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -51691,7 +53367,7 @@ var GestureToggle = function (_Component) {
 exports.default = GestureToggle;
 
 /***/ }),
-/* 269 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52399,7 +54075,7 @@ var Numpad = function (_Component) {
 exports.default = Numpad;
 
 /***/ }),
-/* 270 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -52415,7 +54091,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SetTable = __webpack_require__(67);
+var _SetTable = __webpack_require__(71);
 
 var _SetTable2 = _interopRequireDefault(_SetTable);
 
@@ -52442,6 +54118,8 @@ var Results = function (_Component) {
             p1ppd: 0,
             p1CheckoutShots: 0,
             p1CheckoutPercent: 0,
+            p1CheckInShots: 0,
+            p1CheckInPercent: 0,
             p126: 0,
             p160: 0,
             p1100: 0,
@@ -52452,6 +54130,8 @@ var Results = function (_Component) {
             p1ppdSet: 0,
             p1CheckoutShotsSet: 0,
             p1CheckoutPercentSet: 0,
+            p1CheckInShotsSet: 0,
+            p1CheckInPercentSet: 0,
             p126Set: 0,
             p160Set: 0,
             p1100Set: 0,
@@ -52463,6 +54143,8 @@ var Results = function (_Component) {
             p2ppd: 0,
             p2CheckoutShots: 0,
             p2CheckoutPercent: 0,
+            p2CheckInShots: 0,
+            p2CheckInPercent: 0,
             p226: 0,
             p260: 0,
             p2100: 0,
@@ -52473,6 +54155,8 @@ var Results = function (_Component) {
             p2ppdSet: 0,
             p2CheckoutShotsSet: 0,
             p2CheckoutPercentSet: 0,
+            p2CheckInShotsSet: 0,
+            p2CheckInPercentSet: 0,
             p226Set: 0,
             p260Set: 0,
             p2100Set: 0,
@@ -52500,8 +54184,12 @@ var Results = function (_Component) {
         _this.setSetPpd = _this.setSetPpd.bind(_this);
         _this.setLegCheckout = _this.setLegCheckout.bind(_this);
         _this.setSetCheckout = _this.setSetCheckout.bind(_this);
+        _this.setLegCheckIn = _this.setLegCheckIn.bind(_this);
+        _this.setSetCheckIn = _this.setSetCheckIn.bind(_this);
         _this.throwRow = _this.throwRow.bind(_this);
         _this.ppdRow = _this.ppdRow.bind(_this);
+        _this.checkInChancesRow = _this.checkInChancesRow.bind(_this);
+        _this.checkInPercentRow = _this.checkInPercentRow.bind(_this);
         _this.checkoutChancesRow = _this.checkoutChancesRow.bind(_this);
         _this.checkoutPercentRow = _this.checkoutPercentRow.bind(_this);
         return _this;
@@ -52513,9 +54201,11 @@ var Results = function (_Component) {
             this.setLegScores();
             this.setLegPpd();
             this.setLegCheckout();
+            this.setLegCheckIn();
             this.setSetScores();
             this.setSetPpd();
             this.setSetCheckout();
+            this.setSetCheckIn();
         }
     }, {
         key: "renderWinner",
@@ -52545,6 +54235,37 @@ var Results = function (_Component) {
             this.setState({ p1CheckoutPercent: p1CheckoutPercent });
             this.setState({ p2CheckoutShots: p2CheckoutShots });
             this.setState({ p2CheckoutPercent: p2CheckoutPercent });
+        }
+    }, {
+        key: "setLegCheckIn",
+        value: function setLegCheckIn() {
+            var p1CheckInShots = this.props.p1CheckInShots;
+            var p2CheckInShots = this.props.p2CheckInShots;
+            var player1Scores = this.props.p1RoundScores;
+            var player2Scores = this.props.p2RoundScores;
+            var p1CheckInPercent = 0,
+                p2CheckInPercent = 0,
+                p1InShot = 0,
+                p2InShot = 0;
+
+            for (var i in player1Scores) {
+                if (parseInt(player1Scores[i]) > 0) {
+                    p1InShot = 1;
+                }
+            }
+            for (var i in player2Scores) {
+                if (parseInt(player2Scores[i]) > 0) {
+                    p2InShot = 1;
+                }
+            }
+
+            p1CheckInPercent = p1InShot / p1CheckInShots * 100;
+            p2CheckInPercent = p2InShot / p2CheckInShots * 100;
+
+            this.setState({ p1CheckInShots: p1CheckInShots });
+            this.setState({ p1CheckInPercent: p1CheckInPercent });
+            this.setState({ p2CheckInShots: p2CheckInShots });
+            this.setState({ p2CheckInPercent: p2CheckInPercent });
         }
     }, {
         key: "setSetCheckout",
@@ -52578,6 +54299,34 @@ var Results = function (_Component) {
             this.setState({ p1CheckoutPercentSet: p1CheckoutPercentSet });
             this.setState({ p2CheckoutShotsSet: p2CheckoutShotsSet });
             this.setState({ p2CheckoutPercentSet: p2CheckoutPercentSet });
+        }
+    }, {
+        key: "setSetCheckIn",
+        value: function setSetCheckIn() {
+            var p1CheckInShotsSet = this.props.p1CheckInShotsHistory;
+            var p2CheckInShotsSet = this.props.p2CheckInShotsHistory;
+            var p1CheckInHistory = this.props.p1CheckInHistory;
+            var p2CheckInHistory = this.props.p2CheckInHistory;
+            var p1Ins = 0,
+                p2Ins = 0,
+                p1CheckInPercentSet = 0,
+                p2CheckInPercentSet = 0;
+            for (var i in p1CheckInHistory) {
+                if (p1CheckInHistory[i]) p1Ins++;
+            }
+            for (var i in p2CheckInHistory) {
+                if (p2CheckInHistory[i]) p2Ins++;
+            }
+
+            p1CheckInPercentSet = p1Ins / p1CheckInShotsSet * 100;
+            p2CheckInPercentSet = p2Ins / p2CheckInShotsSet * 100;
+            p1CheckInPercentSet = isNaN(p1CheckInPercentSet) ? 0 : p1CheckInPercentSet;
+            p2CheckInPercentSet = isNaN(p2CheckInPercentSet) ? 0 : p2CheckInPercentSet;
+
+            this.setState({ p1CheckInShotsSet: p1CheckInShotsSet });
+            this.setState({ p1CheckInPercentSet: p1CheckInPercentSet });
+            this.setState({ p2CheckInShotsSet: p2CheckInShotsSet });
+            this.setState({ p2CheckInPercentSet: p2CheckInPercentSet });
         }
     }, {
         key: "setLegPpd",
@@ -53148,6 +54897,76 @@ var Results = function (_Component) {
             );
         }
     }, {
+        key: "checkInChancesRow",
+        value: function checkInChancesRow() {
+            if (parseInt(this.props.p1CheckInShots) > 0 || parseInt(this.props.p2CheckInShots) > 0) {
+                return _react2.default.createElement(
+                    "tr",
+                    null,
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p1CheckInShots
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p1CheckInShotsHistory
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        "Check-In Chances"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p2CheckInShots
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        this.props.p2CheckInShotsHistory
+                    )
+                );
+            }
+        }
+    }, {
+        key: "checkInPercentRow",
+        value: function checkInPercentRow() {
+            if (parseInt(this.props.p1CheckInShots) > 0 || parseInt(this.props.p2CheckInShots) > 0) {
+                return _react2.default.createElement(
+                    "tr",
+                    null,
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p1CheckInPercent.toFixed(2)) + "%"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p1CheckInPercentSet.toFixed(2)) + "%"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        "Check-In Percent"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p2CheckInPercent.toFixed(2)) + "%"
+                    ),
+                    _react2.default.createElement(
+                        "td",
+                        null,
+                        parseFloat(this.state.p2CheckInPercentSet.toFixed(2)) + "%"
+                    )
+                );
+            }
+        }
+    }, {
         key: "renderTable",
         value: function renderTable() {
             return _react2.default.createElement(
@@ -53187,6 +55006,8 @@ var Results = function (_Component) {
                     null,
                     this.throwRow(),
                     this.ppdRow(),
+                    this.checkInChancesRow(),
+                    this.checkInPercentRow(),
                     this.checkoutChancesRow(),
                     this.checkoutPercentRow(),
                     this.twentySixRow(),
@@ -53476,7 +55297,7 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 271 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53492,35 +55313,47 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Cricket = __webpack_require__(105);
+var _Cricket = __webpack_require__(109);
 
 var _Cricket2 = _interopRequireDefault(_Cricket);
 
-var _X = __webpack_require__(70);
+var _X = __webpack_require__(74);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _ChooseGame = __webpack_require__(272);
+var _ChooseGame = __webpack_require__(301);
 
 var _ChooseGame2 = _interopRequireDefault(_ChooseGame);
 
-var _MainMenu = __webpack_require__(278);
+var _MainMenu = __webpack_require__(307);
 
 var _MainMenu2 = _interopRequireDefault(_MainMenu);
 
-var _BotDifficulty = __webpack_require__(40);
+var _UserStats = __webpack_require__(308);
+
+var _UserStats2 = _interopRequireDefault(_UserStats);
+
+var _BotDifficulty = __webpack_require__(43);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _RulesPage = __webpack_require__(279);
+var _RulesPage = __webpack_require__(311);
 
 var _RulesPage2 = _interopRequireDefault(_RulesPage);
 
-var _SettingsMainMenu = __webpack_require__(280);
+var _SettingsMainMenu = __webpack_require__(312);
 
 var _SettingsMainMenu2 = _interopRequireDefault(_SettingsMainMenu);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53536,28 +55369,143 @@ var Master = function (_Component) {
     function Master() {
         _classCallCheck(this, Master);
 
-        return _possibleConstructorReturn(this, (Master.__proto__ || Object.getPrototypeOf(Master)).call(this));
+        var _this = _possibleConstructorReturn(this, (Master.__proto__ || Object.getPrototypeOf(Master)).call(this));
+
+        _this.state = {
+            username: ''
+        };
+
+        _this.setUsername = _this.setUsername.bind(_this);
+        return _this;
     }
 
     _createClass(Master, [{
+        key: "componentWillMount",
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            _axios2.default.get('/username').then(function (username) {
+                _this2.setUsername(username.data);
+            });
+            if (this.state.username === '') {
+                this.setUsername('guest');
+            }
+        }
+    }, {
+        key: "setUsername",
+        value: function setUsername(username) {
+            this.setState({ username: username });
+        }
+    }, {
         key: "render",
         value: function render() {
+            var _this3 = this;
+
             return _react2.default.createElement(
                 _reactRouterDom.BrowserRouter,
                 null,
                 _react2.default.createElement(
                     "div",
                     { className: "container-fluid z-index-2" },
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _MainMenu2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/pvp", component: _ChooseGame2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu", component: _ChooseGame2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: "/settings", component: _SettingsMainMenu2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: "/rules", component: _RulesPage2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu/:gameType", component: _BotDifficulty2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu/x01/:botDifficulty", component: _X2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu/cricket/:botDifficulty", component: _Cricket2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: "/pvp/x01", component: _X2.default }),
-                    _react2.default.createElement(_reactRouterDom.Route, { path: "/pvp/cricket", component: _Cricket2.default })
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", render: function render(_ref) {
+                            var match = _ref.match;
+
+                            return _react2.default.createElement(_MainMenu2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/pvp", render: function render(_ref2) {
+                            var match = _ref2.match;
+
+                            return _react2.default.createElement(_ChooseGame2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu", render: function render(_ref3) {
+                            var match = _ref3.match;
+
+                            return _react2.default.createElement(_ChooseGame2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: "/settings", render: function render(_ref4) {
+                            var match = _ref4.match;
+
+                            return _react2.default.createElement(_SettingsMainMenu2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: "/rules", render: function render(_ref5) {
+                            var match = _ref5.match;
+
+                            return _react2.default.createElement(_RulesPage2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu/:gameType", render: function render(_ref6) {
+                            var match = _ref6.match;
+
+                            return _react2.default.createElement(_BotDifficulty2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu/x01/:botDifficulty", render: function render(_ref7) {
+                            var match = _ref7.match;
+
+                            return _react2.default.createElement(_X2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/cpu/cricket/:botDifficulty", render: function render(_ref8) {
+                            var match = _ref8.match;
+
+                            return _react2.default.createElement(_Cricket2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: "/pvp/x01", render: function render(_ref9) {
+                            var match = _ref9.match;
+
+                            return _react2.default.createElement(_X2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { path: "/pvp/cricket", render: function render(_ref10) {
+                            var match = _ref10.match;
+
+                            return _react2.default.createElement(_Cricket2.default, {
+                                match: match,
+                                username: _this3.state.username,
+                                setUsername: _this3.setUsername
+                            });
+                        } }),
+                    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/user/:username", render: function render(_ref11) {
+                            var match = _ref11.match;
+
+                            return _react2.default.createElement(_UserStats2.default, {
+                                match: match,
+                                setUsername: _this3.setUsername,
+                                username: _this3.state.username
+                            });
+                        } })
                 )
             );
         }
@@ -53569,7 +55517,7 @@ var Master = function (_Component) {
 exports.default = Master;
 
 /***/ }),
-/* 272 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53587,15 +55535,21 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
-var _X = __webpack_require__(70);
+var _X = __webpack_require__(74);
 
 var _X2 = _interopRequireDefault(_X);
 
-var _Cricket = __webpack_require__(273);
+var _Cricket = __webpack_require__(302);
 
 var _Cricket2 = _interopRequireDefault(_Cricket);
 
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -53623,6 +55577,9 @@ var ChooseGame = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(_NavMenu2.default, _defineProperty({ setUsername: this.props.setUsername,
+                    username: this.props.username
+                }, 'setUsername', this.props.setUsername)),
                 _react2.default.createElement(
                     'div',
                     { className: 'row top-row' },
@@ -53632,13 +55589,12 @@ var ChooseGame = function (_Component) {
                         'Choose Game'
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -53649,19 +55605,18 @@ var ChooseGame = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'main-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'Cricket'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -53672,19 +55627,18 @@ var ChooseGame = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'main-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'x01'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center main-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -53692,7 +55646,7 @@ var ChooseGame = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'rules-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'Back'
                             )
                         )
@@ -53708,7 +55662,7 @@ var ChooseGame = function (_Component) {
 exports.default = ChooseGame;
 
 /***/ }),
-/* 273 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -53724,27 +55678,35 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _howler = __webpack_require__(106);
+var _howler = __webpack_require__(110);
 
-var _Scoreboard = __webpack_require__(274);
+var _Scoreboard = __webpack_require__(303);
 
 var _Scoreboard2 = _interopRequireDefault(_Scoreboard);
 
-var _Results = __webpack_require__(277);
+var _Results = __webpack_require__(306);
 
 var _Results2 = _interopRequireDefault(_Results);
 
-var _BotDifficulty = __webpack_require__(40);
+var _BotDifficulty = __webpack_require__(43);
 
 var _BotDifficulty2 = _interopRequireDefault(_BotDifficulty);
 
-var _SettingsMenu = __webpack_require__(68);
+var _SettingsMenu = __webpack_require__(44);
 
 var _SettingsMenu2 = _interopRequireDefault(_SettingsMenu);
 
-var _reactAddonsCssTransitionGroup = __webpack_require__(69);
+var _reactAddonsCssTransitionGroup = __webpack_require__(73);
 
 var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -53854,10 +55816,31 @@ var Cricket = function (_Component) {
         _this.scoringLogic = _this.scoringLogic.bind(_this);
         _this.popLastMark = _this.popLastMark.bind(_this);
         _this.reconfigureActiveMarks = _this.reconfigureActiveMarks.bind(_this);
+        _this.putGameStats = _this.putGameStats.bind(_this);
         return _this;
     }
 
     _createClass(Cricket, [{
+        key: "putGameStats",
+        value: function putGameStats() {
+            var win = this.state.gameWinner === 'p1' ? true : false;
+            var botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
+
+            var game = {
+                win: win,
+                throws: this.state.p1Throws,
+                marks: this.p1Marks,
+                bulls: this.p1Bulls,
+                botGame: this.state.botGame,
+                botDifficulty: botDifficulty,
+                date: new Date()
+            };
+
+            _axios2.default.put("/user/cricket", game).catch(function (err) {
+                return console.log(err);
+            });
+        }
+    }, {
         key: "continueSet",
         value: function continueSet() {
             var activeThrower = void 0;
@@ -55362,6 +57345,7 @@ var Cricket = function (_Component) {
             });
             _howler.Howler.volume(.4);
             this.fillHistoryData();
+            this.putGameStats();
             if (this.state.firstWinner === '') {
                 this.setState({ firstWinner: this.state.gameWinner }, function () {
                     _this7.addLeg();
@@ -55554,6 +57538,7 @@ var Cricket = function (_Component) {
                     "div",
                     null,
                     _react2.default.createElement(_Scoreboard2.default, {
+                        username: this.props.username,
                         score: this.score,
                         miss: this.miss,
                         endTurn: this.endTurn,
@@ -55607,6 +57592,8 @@ var Cricket = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var _React$createElement;
+
             return _react2.default.createElement(
                 _reactAddonsCssTransitionGroup2.default,
                 {
@@ -55618,7 +57605,9 @@ var Cricket = function (_Component) {
                 _react2.default.createElement(
                     "div",
                     null,
-                    _react2.default.createElement(_SettingsMenu2.default, null),
+                    _react2.default.createElement(_NavMenu2.default, (_React$createElement = { setUsername: this.props.setUsername,
+                        username: this.props.username
+                    }, _defineProperty(_React$createElement, "setUsername", this.props.setUsername), _defineProperty(_React$createElement, "gameState", this.state.gameState), _defineProperty(_React$createElement, "gameCricketReset", this.gameCricketReset), _React$createElement)),
                     this.conditionalRender()
                 )
             );
@@ -55631,7 +57620,7 @@ var Cricket = function (_Component) {
 exports.default = Cricket;
 
 /***/ }),
-/* 274 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55647,11 +57636,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _DesktopView = __webpack_require__(275);
+var _DesktopView = __webpack_require__(304);
 
 var _DesktopView2 = _interopRequireDefault(_DesktopView);
 
-var _MobileView = __webpack_require__(276);
+var _MobileView = __webpack_require__(305);
 
 var _MobileView2 = _interopRequireDefault(_MobileView);
 
@@ -55678,6 +57667,7 @@ var Scoreboard = function (_Component) {
             var viewWidth = window.innerWidth;
             if (viewWidth < 720) {
                 return _react2.default.createElement(_MobileView2.default, {
+                    username: this.props.username,
                     score: this.props.score,
                     miss: this.props.miss,
                     botGame: this.props.botGame,
@@ -55696,6 +57686,7 @@ var Scoreboard = function (_Component) {
                 });
             } else {
                 return _react2.default.createElement(_DesktopView2.default, {
+                    username: this.props.username,
                     score: this.props.score,
                     miss: this.props.miss,
                     endTurn: this.props.endTurn,
@@ -55722,7 +57713,7 @@ var Scoreboard = function (_Component) {
 exports.default = Scoreboard;
 
 /***/ }),
-/* 275 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -55738,7 +57729,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PlayerRender = __webpack_require__(59);
+var _PlayerRender = __webpack_require__(63);
 
 var _PlayerRender2 = _interopRequireDefault(_PlayerRender);
 
@@ -55772,7 +57763,8 @@ var DesktopView = function (_Component) {
             return _react2.default.createElement(_PlayerRender2.default, {
                 botGame: this.props.botGame,
                 activeThrower: this.props.activeThrower,
-                gameCricketReset: this.props.gameCricketReset
+                gameCricketReset: this.props.gameCricketReset,
+                username: this.props.username
             });
         }
     }, {
@@ -55953,7 +57945,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(20, 1);
                                         } },
                                     "20"
@@ -55964,7 +57956,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(20, 2);
                                         } },
                                     "x2"
@@ -55975,7 +57967,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(20, 3);
                                         } },
                                     "x3"
@@ -56000,7 +57992,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(19, 1);
                                         } },
                                     "19"
@@ -56011,7 +58003,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(19, 2);
                                         } },
                                     "x2"
@@ -56022,7 +58014,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(19, 3);
                                         } },
                                     "x3"
@@ -56047,7 +58039,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(18, 1);
                                         } },
                                     "18"
@@ -56058,7 +58050,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(18, 2);
                                         } },
                                     "x2"
@@ -56069,7 +58061,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(18, 3);
                                         } },
                                     "x3"
@@ -56094,7 +58086,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(17, 1);
                                         } },
                                     "17"
@@ -56105,7 +58097,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(17, 2);
                                         } },
                                     "x2"
@@ -56116,7 +58108,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(17, 3);
                                         } },
                                     "x3"
@@ -56141,7 +58133,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(16, 1);
                                         } },
                                     "16"
@@ -56152,7 +58144,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(16, 2);
                                         } },
                                     "x2"
@@ -56163,7 +58155,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(16, 3);
                                         } },
                                     "x3"
@@ -56188,7 +58180,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 text-center p1-single border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(15, 1);
                                         } },
                                     "15"
@@ -56199,7 +58191,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(15, 2);
                                         } },
                                     "x2"
@@ -56210,7 +58202,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-2 border-right p1-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(15, 3);
                                         } },
                                     "x3"
@@ -56235,7 +58227,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center p1-multiple border-left" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(25, 1);
                                         } },
                                     "Bull"
@@ -56246,7 +58238,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 border-right p2-multiple text-center" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this2.props.score(25, 2);
                                         } },
                                     "x2"
@@ -56277,7 +58269,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg upmod", onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             } },
                                         "20"
@@ -56288,7 +58280,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 2);
                                             } },
                                         "x2"
@@ -56299,7 +58291,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 3);
                                             } },
                                         "x3"
@@ -56324,7 +58316,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 1);
                                             } },
                                         "19"
@@ -56335,7 +58327,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 2);
                                             } },
                                         "x2"
@@ -56346,7 +58338,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 3);
                                             } },
                                         "x3"
@@ -56371,7 +58363,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 1);
                                             } },
                                         "18"
@@ -56382,7 +58374,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 2);
                                             } },
                                         "x2"
@@ -56393,7 +58385,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 3);
                                             } },
                                         "x3"
@@ -56418,7 +58410,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 1);
                                             } },
                                         "17"
@@ -56429,7 +58421,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 2);
                                             } },
                                         "x2"
@@ -56440,7 +58432,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 3);
                                             } },
                                         "x3"
@@ -56465,7 +58457,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 1);
                                             } },
                                         "16"
@@ -56476,7 +58468,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 2);
                                             } },
                                         "x2"
@@ -56487,7 +58479,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 3);
                                             } },
                                         "x3"
@@ -56512,7 +58504,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 1);
                                             } },
                                         "15"
@@ -56523,7 +58515,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 2);
                                             } },
                                         "x2"
@@ -56534,7 +58526,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 3);
                                             } },
                                         "x3"
@@ -56559,7 +58551,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 text-center border-left p1-multiple" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 1);
                                             } },
                                         "Bull"
@@ -56570,7 +58562,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 2);
                                             } },
                                         "x2"
@@ -56600,7 +58592,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 1);
                                             }, disabled: true },
                                         "20"
@@ -56611,7 +58603,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56622,7 +58614,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(20, 3);
                                             }, disabled: true },
                                         "x3"
@@ -56647,7 +58639,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 1);
                                             }, disabled: true },
                                         "19"
@@ -56658,7 +58650,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56669,7 +58661,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(19, 3);
                                             }, disabled: true },
                                         "x3"
@@ -56694,7 +58686,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 1);
                                             }, disabled: true },
                                         "18"
@@ -56705,7 +58697,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56716,7 +58708,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(18, 3);
                                             }, disabled: true },
                                         "x3"
@@ -56741,7 +58733,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 1);
                                             }, disabled: true },
                                         "17"
@@ -56752,7 +58744,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56763,7 +58755,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(17, 3);
                                             }, disabled: true },
                                         "x3"
@@ -56788,7 +58780,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 1);
                                             }, disabled: true },
                                         "16"
@@ -56799,7 +58791,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56810,7 +58802,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(16, 3);
                                             }, disabled: true },
                                         "x3"
@@ -56835,7 +58827,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 text-center border-left p2-single" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 1);
                                             }, disabled: true },
                                         "15"
@@ -56846,7 +58838,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56857,7 +58849,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-2 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(15, 3);
                                             }, disabled: true },
                                         "x3"
@@ -56882,7 +58874,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 text-center border-left p1-multiple" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 1);
                                             }, disabled: true },
                                         "Bull"
@@ -56893,7 +58885,7 @@ var DesktopView = function (_Component) {
                                     { className: "col-3 border-right p2-multiple text-center" },
                                     _react2.default.createElement(
                                         "button",
-                                        { type: "button", className: "btn btn-success", onClick: function onClick() {
+                                        { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                                 _this2.props.score(25, 2);
                                             }, disabled: true },
                                         "x2"
@@ -56975,7 +58967,7 @@ var DesktopView = function (_Component) {
                             { className: "col-3 text-center end-turn" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                         _this3.props.endTurn();
                                     } },
                                 "End Turn"
@@ -56986,7 +58978,7 @@ var DesktopView = function (_Component) {
                             { className: "col-6 text-center miss" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                         _this3.props.miss();
                                     } },
                                 "Miss"
@@ -56997,7 +58989,7 @@ var DesktopView = function (_Component) {
                             { className: "col-3 text-center undo" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "btn", onClick: function onClick() {
+                                { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                         _this3.props.undo();
                                     } },
                                 "Undo"
@@ -57014,7 +59006,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center end-turn" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.endTurn();
                                         }, disabled: true },
                                     "End Turn"
@@ -57025,7 +59017,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-6 text-center miss" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.miss();
                                         }, disabled: true },
                                     "Miss"
@@ -57036,7 +59028,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center undo" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.undo();
                                         } },
                                     "Undo"
@@ -57052,7 +59044,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center end-turn" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.endTurn();
                                         } },
                                     "End Turn"
@@ -57063,7 +59055,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-6 text-center miss" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.miss();
                                         } },
                                     "Miss"
@@ -57074,7 +59066,7 @@ var DesktopView = function (_Component) {
                                 { className: "col-3 text-center undo" },
                                 _react2.default.createElement(
                                     "button",
-                                    { type: "button", className: "btn", onClick: function onClick() {
+                                    { type: "button", className: "bttn-float bttn-lg", onClick: function onClick() {
                                             _this3.props.undo();
                                         } },
                                     "Undo"
@@ -57121,7 +59113,7 @@ var DesktopView = function (_Component) {
 exports.default = DesktopView;
 
 /***/ }),
-/* 276 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -57137,7 +59129,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactHammerjs = __webpack_require__(66);
+var _reactHammerjs = __webpack_require__(70);
 
 var _reactHammerjs2 = _interopRequireDefault(_reactHammerjs);
 
@@ -57178,7 +59170,7 @@ var MobileModalView = function (_Component) {
         key: 'nameRender',
         value: function nameRender() {
             if (this.props.activeThrower === "p1") {
-                return "Player 1";
+                return this.props.username;
             } else {
                 return "Player 2";
             }
@@ -57194,7 +59186,7 @@ var MobileModalView = function (_Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center player border-right p1-active' },
-                            'Player 1'
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
@@ -57209,7 +59201,7 @@ var MobileModalView = function (_Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'col-6 text-center player border-right inactive-thrower' },
-                            'Player 1'
+                            this.props.username
                         ),
                         _react2.default.createElement(
                             'div',
@@ -58948,154 +60940,13 @@ var MobileModalView = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            var _this5 = this;
-
             //Renders either an input or a text area depending on the screen width
             return _react2.default.createElement(
                 'div',
                 { className: 'container-fluid' },
                 this.playersRender(),
                 this.playerButtonsRender(),
-                this.missRowRender(),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#reloadModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/reload.svg', alt: 'restart game' })
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-6 text-center start-over' },
-                        _react2.default.createElement(
-                            'button',
-                            { type: 'button', className: 'btn', 'data-toggle': 'modal', 'data-target': '#exitModal' },
-                            _react2.default.createElement('img', { className: 'icon', src: '/assets/images/svg/home.svg', alt: 'home screen' })
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'reloadModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'reloadModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'reloadModalLabel' },
-                                    'Start Game Over'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'No'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: this.props.gameCricketReset },
-                                            'Yes'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'modal fade', id: 'exitModal', tabIndex: '-1', role: 'dialog', 'aria-labelledby': 'exitModalLabel', 'aria-hidden': 'true' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'modal-dialog', role: 'document' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'modal-content' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-header' },
-                                _react2.default.createElement(
-                                    'h5',
-                                    { className: 'modal-title', id: 'exitModalLabel' },
-                                    'Exit Game'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'modal-body' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal' },
-                                            'Cancel'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn btn-success', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = _this5.chooseGameUrl;
-                                                } },
-                                            'Diff Game'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement('br', null),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'col-6 offset-3 text-center modal-home' },
-                                        _react2.default.createElement(
-                                            'button',
-                                            { type: 'button', className: 'btn', 'data-dismiss': 'modal', onClick: function onClick() {
-                                                    return window.location.href = '/';
-                                                } },
-                                            'Home'
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
+                this.missRowRender()
             );
         }
     }]);
@@ -59106,7 +60957,7 @@ var MobileModalView = function (_Component) {
 exports.default = MobileModalView;
 
 /***/ }),
-/* 277 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59122,7 +60973,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _SetTable = __webpack_require__(67);
+var _SetTable = __webpack_require__(71);
 
 var _SetTable2 = _interopRequireDefault(_SetTable);
 
@@ -60358,7 +62209,7 @@ var Results = function (_Component) {
 exports.default = Results;
 
 /***/ }),
-/* 278 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60376,7 +62227,17 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60390,100 +62251,141 @@ var MainMenu = function (_Component) {
     function MainMenu() {
         _classCallCheck(this, MainMenu);
 
-        return _possibleConstructorReturn(this, (MainMenu.__proto__ || Object.getPrototypeOf(MainMenu)).call(this));
+        var _this = _possibleConstructorReturn(this, (MainMenu.__proto__ || Object.getPrototypeOf(MainMenu)).call(this));
+
+        _this.state = {
+            username: ''
+        };
+
+        _this.setUsername = _this.setUsername.bind(_this);
+        return _this;
     }
 
     _createClass(MainMenu, [{
-        key: "render",
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setUsername();
+        }
+    }, {
+        key: 'setUsername',
+        value: function setUsername() {
+            var _this2 = this;
+
+            _axios2.default.get('/username').then(function (username) {
+                if (username) {
+                    _this2.setState({ username: username.data });
+                }
+            });
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
+                'div',
                 null,
+                _react2.default.createElement(_NavMenu2.default, _defineProperty({ setUsername: this.props.setUsername,
+                    username: this.props.username
+                }, 'setUsername', this.props.setUsername)),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row top-row" },
+                    'div',
+                    { className: 'row top-row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col main-menu-title text-center" },
-                        "Dart Score Fun!"
+                        'div',
+                        { className: 'col main-menu-title text-center' },
+                        'Dart Score Fun!'
                     )
                 ),
-                _react2.default.createElement("br", null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center main-menu" },
+                        'div',
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
                                     pathname: '/pvp'
                                 } },
                             _react2.default.createElement(
-                                "button",
-                                { className: "main-menu" },
-                                "Multiplayer"
+                                'button',
+                                { className: 'bttn-float bttn-lg' },
+                                'Multiplayer'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement("br", null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center main-menu" },
+                        'div',
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
                                     pathname: '/cpu'
                                 } },
                             _react2.default.createElement(
-                                "button",
-                                { className: "main-menu" },
-                                "Single Player"
+                                'button',
+                                { className: 'bttn-float bttn-lg' },
+                                'Single Player'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement("br", null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center main-menu" },
+                        'div',
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
                                     pathname: '/rules'
                                 } },
                             _react2.default.createElement(
-                                "button",
-                                { className: "main-menu" },
-                                "Rules"
+                                'button',
+                                { className: 'bttn-float bttn-lg' },
+                                'Rules'
                             )
                         )
                     )
                 ),
-                _react2.default.createElement("br", null),
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-12 text-center main-menu" },
+                        'div',
+                        { className: 'col-12 text-center main-menu-button' },
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { to: {
+                                    pathname: '/user/' + this.props.username
+                                } },
+                            _react2.default.createElement(
+                                'button',
+                                { className: 'bttn-float bttn-lg' },
+                                'Stats'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
                                     pathname: '/settings'
                                 } },
                             _react2.default.createElement(
-                                "button",
-                                { className: "main-menu" },
-                                "Settings"
+                                'button',
+                                { className: 'bttn-float bttn-lg' },
+                                'Settings'
                             )
                         )
                     )
@@ -60498,7 +62400,7 @@ var MainMenu = function (_Component) {
 exports.default = MainMenu;
 
 /***/ }),
-/* 279 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60516,7 +62418,1382 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
+var _axios = __webpack_require__(20);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _CricketStats = __webpack_require__(309);
+
+var _CricketStats2 = _interopRequireDefault(_CricketStats);
+
+var _X01Stats = __webpack_require__(310);
+
+var _X01Stats2 = _interopRequireDefault(_X01Stats);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserStats = function (_Component) {
+    _inherits(UserStats, _Component);
+
+    function UserStats(_ref) {
+        var match = _ref.match;
+
+        _classCallCheck(this, UserStats);
+
+        var _this = _possibleConstructorReturn(this, (UserStats.__proto__ || Object.getPrototypeOf(UserStats)).call(this));
+
+        _this.username = match.params.username;
+        _this.cricket = [];
+        _this.x01 = [];
+        _this.state = {
+            game: 'Stats'
+        };
+
+        _this.setGame = _this.setGame.bind(_this);
+        _this.getCricketStats = _this.getCricketStats.bind(_this);
+        _this.getX01Stats = _this.getX01Stats.bind(_this);
+        _this.statsRender = _this.statsRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(UserStats, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.getCricketStats();
+            this.getX01Stats();
+        }
+    }, {
+        key: 'getCricketStats',
+        value: function getCricketStats() {
+            var _this2 = this;
+
+            _axios2.default.get('/user/' + this.username + '/cricket').then(function (games) {
+                return _this2.cricket = games.data;
+            });
+        }
+    }, {
+        key: 'getX01Stats',
+        value: function getX01Stats() {
+            var _this3 = this;
+
+            _axios2.default.get('/user/' + this.username + '/x01').then(function (games) {
+                return _this3.x01 = games.data;
+            });
+        }
+    }, {
+        key: 'statsRender',
+        value: function statsRender() {
+            if (this.state.game === 'cricket') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row rules' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col rules-borders stats' },
+                        _react2.default.createElement(_CricketStats2.default, {
+                            username: this.username,
+                            cricket: this.cricket
+                        })
+                    )
+                );
+            } else if (this.state.game === 'x01') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row rules' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col rules-borders stats' },
+                        _react2.default.createElement(_X01Stats2.default, {
+                            username: this.username,
+                            x01: this.x01
+                        })
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'setGame',
+        value: function setGame(game) {
+            this.setState({ game: game });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this4 = this;
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_NavMenu2.default, {
+                    username: this.props.username,
+                    setUsername: this.props.setUsername
+                }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row top-row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col rules-menu-title text-center' },
+                        this.state.game
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-5' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center main-menu-button' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setGame('cricket');
+                                        } },
+                                    'Cricket'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center main-menu-button' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'bttn-float bttn-lg', onClick: function onClick() {
+                                            _this4.setGame('x01');
+                                        } },
+                                    'X01'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'row' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'col-12 text-center main-menu-button' },
+                                _react2.default.createElement(
+                                    _reactRouterDom.Link,
+                                    { to: {
+                                            pathname: '/'
+                                        } },
+                                    _react2.default.createElement(
+                                        'button',
+                                        { className: 'bttn-float bttn-lg' },
+                                        'Back'
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-7', id: 'rules' },
+                        this.statsRender()
+                    )
+                )
+            );
+        }
+    }]);
+
+    return UserStats;
+}(_react.Component);
+
+exports.default = UserStats;
+
+/***/ }),
+/* 309 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CricketStats = function (_Component) {
+    _inherits(CricketStats, _Component);
+
+    function CricketStats(_ref) {
+        var match = _ref.match;
+
+        _classCallCheck(this, CricketStats);
+
+        var _this = _possibleConstructorReturn(this, (CricketStats.__proto__ || Object.getPrototypeOf(CricketStats)).call(this));
+
+        _this.state = {
+            wins: 0,
+            totalGames: 0,
+            throws: 0,
+            bestLeg: 0,
+            mpr: 0,
+            fiveMark: 0,
+            sixMark: 0,
+            sevenMark: 0,
+            eightMark: 0,
+            nineMark: 0,
+            threeBull: 0,
+            fourBull: 0,
+            fiveBull: 0,
+            sixBull: 0
+        };
+
+        _this.setCricketStats = _this.setCricketStats.bind(_this);
+        _this.fiveMarkRow = _this.fiveMarkRow.bind(_this);
+        _this.sixMarkRow = _this.sixMarkRow.bind(_this);
+        _this.sevenMarkRow = _this.sevenMarkRow.bind(_this);
+        _this.eightMarkRow = _this.eightMarkRow.bind(_this);
+        _this.nineMarkRow = _this.nineMarkRow.bind(_this);
+        _this.threeBullRow = _this.threeBullRow.bind(_this);
+        _this.fourBullRow = _this.fourBullRow.bind(_this);
+        _this.fiveBullRow = _this.fiveBullRow.bind(_this);
+        _this.sixBullRow = _this.sixBullRow.bind(_this);
+        _this.allStarPointsRender = _this.allStarPointsRender.bind(_this);
+        _this.gameStatsRender = _this.gameStatsRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(CricketStats, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setCricketStats(this.props.cricket);
+        }
+    }, {
+        key: 'setCricketStats',
+        value: function setCricketStats(games) {
+            var wins = 0;
+            var totalGames = 0;
+            var throws = 0;
+            var bestLeg = 0;
+            var marks = [];
+            var bulls = [];
+            var totalMarks = 0;
+            var mpr = 0;
+            var fiveMark = 0;
+            var sixMark = 0;
+            var sevenMark = 0;
+            var eightMark = 0;
+            var nineMark = 0;
+            var threeBull = 0;
+            var fourBull = 0;
+            var fiveBull = 0;
+            var sixBull = 0;
+            games.forEach(function (game) {
+                var gameMarks = game.marks;
+                var gameBulls = game.bulls;
+                if (game.win) {
+                    wins++;
+                    if (bestLeg === 0) {
+                        bestLeg = game.throws;
+                    } else if (game.throws < bestLeg) {
+                        bestLeg = game.throws;
+                    }
+                }
+                totalGames++;
+                throws += game.throws;
+                gameMarks.forEach(function (mark) {
+                    marks.push(mark);
+                });
+                if (gameBulls.length > 0) {
+                    gameBulls.forEach(function (bull) {
+                        bulls.push(bull);
+                    });
+                }
+            });
+
+            for (var i in marks) {
+                totalMarks += parseInt(marks[i]);
+                switch (parseInt(marks[i])) {
+                    case 5:
+                        fiveMark++;
+                        break;
+                    case 6:
+                        sixMark++;
+                        break;
+                    case 7:
+                        sevenMark++;
+                        break;
+                    case 8:
+                        eightMark++;
+                        break;
+                    case 9:
+                        nineMark++;
+                        break;
+                }
+            }
+
+            for (var i in bulls) {
+                totalMarks += bulls[i];
+                switch (bulls[i]) {
+                    case 3:
+                        threeBull++;
+                        break;
+                    case 4:
+                        fourBull++;
+                        break;
+                    case 5:
+                        fiveBull++;
+                        break;
+                    case 6:
+                        sixBull++;
+                        break;
+                }
+            }
+
+            mpr = totalMarks / marks.length;
+
+            this.setState({ wins: wins });
+            this.setState({ totalGames: totalGames });
+            this.setState({ throws: throws });
+            this.setState({ bestLeg: bestLeg });
+            this.setState({ mpr: mpr });
+            this.setState({ fiveMark: fiveMark });
+            this.setState({ sixMark: sixMark });
+            this.setState({ sevenMark: sevenMark });
+            this.setState({ eightMark: eightMark });
+            this.setState({ nineMark: nineMark });
+            this.setState({ threeBull: threeBull });
+            this.setState({ fourBull: fourBull });
+            this.setState({ fiveBull: fiveBull });
+            this.setState({ sixBull: sixBull });
+        }
+    }, {
+        key: 'fiveMarkRow',
+        value: function fiveMarkRow() {
+            if (this.state.fiveMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.fiveMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixMarkRow',
+        value: function sixMarkRow() {
+            if (this.state.sixMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sixMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sevenMarkRow',
+        value: function sevenMarkRow() {
+            if (this.state.sevenMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '7 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sevenMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'eightMarkRow',
+        value: function eightMarkRow() {
+            if (this.state.eightMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '8 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.eightMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'nineMarkRow',
+        value: function nineMarkRow() {
+            if (this.state.nineMark > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '9 Mark'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.nineMark
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'threeBullRow',
+        value: function threeBullRow() {
+            if (this.state.threeBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '3 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.threeBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fourBullRow',
+        value: function fourBullRow() {
+            if (this.state.fourBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '4 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.fourBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'fiveBullRow',
+        value: function fiveBullRow() {
+            if (this.state.fiveBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '5 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.fiveBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixBullRow',
+        value: function sixBullRow() {
+            if (this.state.sixBull > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '6 Bull'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sixBull
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'gameStatsRender',
+        value: function gameStatsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Best Leg'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.bestLeg
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Wins'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.wins
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Total Legs'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.totalGames
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Win Percent'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseInt(this.state.wins / this.state.totalGames * 100) + '%'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Throws'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            this.state.throws
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            'Marks Per Round'
+                        ),
+                        _react2.default.createElement(
+                            'td',
+                            null,
+                            parseFloat(this.state.mpr.toFixed(2))
+                        )
+                    )
+                )
+            );
+        }
+    }, {
+        key: 'allStarPointsRender',
+        value: function allStarPointsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    this.fiveMarkRow(),
+                    this.sixMarkRow(),
+                    this.sevenMarkRow(),
+                    this.eightMarkRow(),
+                    this.nineMarkRow(),
+                    this.threeBullRow(),
+                    this.fourBullRow(),
+                    this.fiveBullRow(),
+                    this.sixBullRow()
+                )
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (this.props.username === 'guest') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 guest-stat' },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'Guest stats are not tracked'
+                        )
+                    )
+                );
+            } else if (this.state.totalGames === 0) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 guest-stat' },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'No cricket games played'
+                        )
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6' },
+                        this.gameStatsRender()
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6' },
+                        this.allStarPointsRender()
+                    )
+                );
+            }
+        }
+    }]);
+
+    return CricketStats;
+}(_react.Component);
+
+exports.default = CricketStats;
+
+/***/ }),
+/* 310 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var X01Stats = function (_Component) {
+    _inherits(X01Stats, _Component);
+
+    function X01Stats() {
+        _classCallCheck(this, X01Stats);
+
+        var _this = _possibleConstructorReturn(this, (X01Stats.__proto__ || Object.getPrototypeOf(X01Stats)).call(this));
+
+        _this.state = {
+            wins: 0,
+            totalGames: 0,
+            throws: 0,
+            bestLeg: 0,
+            ppd: 0,
+            twentySix: 0,
+            sixty: 0,
+            ton: 0,
+            tonTwenty: 0,
+            tonForty: 0,
+            tonSixy: 0,
+            tonEighty: 0,
+            checkoutPercent: 0,
+            checkInPercent: 0,
+            highestCheckout: 0
+        };
+
+        _this.setX01Stats = _this.setX01Stats.bind(_this);
+        _this.setX01Scores = _this.setX01Scores.bind(_this);
+        _this.setX01Ppd = _this.setX01Ppd.bind(_this);
+        _this.setX01BestLeg = _this.setX01BestLeg.bind(_this);
+        _this.setHighestCheckout = _this.setHighestCheckout.bind(_this);
+        _this.setX01Checkout = _this.setX01Checkout.bind(_this);
+        _this.setX01CheckIn = _this.setX01CheckIn.bind(_this);
+        _this.winsRow = _this.winsRow.bind(_this);
+        _this.totalGamesRow = _this.totalGamesRow.bind(_this);
+        _this.winPercentRow = _this.winPercentRow.bind(_this);
+        _this.twentySixRow = _this.twentySixRow.bind(_this);
+        _this.sixtyRow = _this.sixtyRow.bind(_this);
+        _this.tonRow = _this.tonRow.bind(_this);
+        _this.tonTwentyRow = _this.tonTwentyRow.bind(_this);
+        _this.tonFortyRow = _this.tonFortyRow.bind(_this);
+        _this.tonSixtyRow = _this.tonSixtyRow.bind(_this);
+        _this.tonEightyRow = _this.tonEightyRow.bind(_this);
+        _this.throwRow = _this.throwRow.bind(_this);
+        _this.ppdRow = _this.ppdRow.bind(_this);
+        _this.bestLegRow = _this.bestLegRow.bind(_this);
+        _this.checkoutPercentRow = _this.checkoutPercentRow.bind(_this);
+        _this.checkInPercentRow = _this.checkInPercentRow.bind(_this);
+        _this.highestCheckoutRow = _this.highestCheckoutRow.bind(_this);
+        _this.gameStatsRender = _this.gameStatsRender.bind(_this);
+        _this.allStarPointsRender = _this.allStarPointsRender.bind(_this);
+        return _this;
+    }
+
+    _createClass(X01Stats, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setX01Stats(this.props.x01);
+        }
+    }, {
+        key: 'setX01Stats',
+        value: function setX01Stats(games) {
+            var roundScores = [];
+            var throws = 0;
+            var wins = 0;
+            var totalGames = 0;
+            var checkouts = 0;
+            games.forEach(function (game) {
+                if (game.win) wins++;
+                if (game.checkouts !== undefined) {
+                    checkouts += parseInt(game.checkouts);
+                }
+                throws += game.throws;
+                totalGames++;
+                game.roundScores.forEach(function (score) {
+                    roundScores.push(score);
+                });
+            });
+
+            this.setState({ wins: wins });
+            this.setState({ totalGames: totalGames });
+            this.setState({ throws: throws });
+
+            this.setX01Scores(roundScores);
+            this.setX01Ppd(roundScores, throws);
+            this.setX01BestLeg(games);
+            this.setHighestCheckout(games);
+            this.setX01Checkout(checkouts, wins);
+            this.setX01CheckIn(games);
+        }
+    }, {
+        key: 'setX01Checkout',
+        value: function setX01Checkout(checkouts, wins) {
+            var checkoutPercent = void 0;
+            if (checkouts !== 0) {
+                checkoutPercent = wins / checkouts * 100;
+            }
+            this.setState({ checkoutPercent: checkoutPercent });
+        }
+    }, {
+        key: 'setX01CheckIn',
+        value: function setX01CheckIn(games) {
+            var checkInShots = 0,
+                checkInSuccess = 0,
+                checkInPercent = void 0;
+            games.forEach(function (game) {
+                var roundScores = game.roundScores;
+                if (game.checkIns > 0) {
+                    checkInShots += game.checkIns;
+                };
+                for (var i in roundScores) {
+                    if (roundScores[i] > 0) {
+                        return checkInSuccess++;
+                    }
+                }
+            });
+            if (checkInShots !== 0) {
+                checkInPercent = checkInSuccess / checkInShots * 100;
+            }
+            this.setState({ checkInPercent: checkInPercent });
+        }
+    }, {
+        key: 'setX01Scores',
+        value: function setX01Scores(roundScores) {
+            var twentySix = 0;
+            var sixty = 0;
+            var ton = 0;
+            var tonTwenty = 0;
+            var tonForty = 0;
+            var tonSixty = 0;
+            var tonEighty = 0;
+
+            for (var i in roundScores) {
+                if (roundScores[i] >= 60 && roundScores[i] < 100) {
+                    sixty++;
+                } else if (roundScores[i] >= 100 && roundScores[i] < 120) {
+                    ton++;
+                } else if (roundScores[i] >= 120 && roundScores[i] < 140) {
+                    tonTwenty++;
+                } else if (roundScores[i] >= 140 && roundScores[i] < 160) {
+                    tonForty++;
+                } else if (roundScores[i] >= 160 && roundScores[i] < 180) {
+                    tonSixty++;
+                } else if (roundScores[i] === 180) {
+                    tonEighty++;
+                } else if (roundScores[i] === 26) {
+                    twentySix++;
+                }
+            }
+
+            this.setState({ twentySix: twentySix });
+            this.setState({ sixty: sixty });
+            this.setState({ ton: ton });
+            this.setState({ tonTwenty: tonTwenty });
+            this.setState({ tonForty: tonForty });
+            this.setState({ tonSixty: tonSixty });
+            this.setState({ tonEighty: tonEighty });
+        }
+    }, {
+        key: 'setX01BestLeg',
+        value: function setX01BestLeg(games) {
+            var bestLeg = 0;
+            games.forEach(function (game) {
+                if (game.win) {
+                    if (bestLeg === 0) {
+                        bestLeg = game.throws;
+                    } else if (game.throws < bestLeg) {
+                        bestLeg = game.throws;
+                    }
+                }
+            });
+
+            this.setState({ bestLeg: bestLeg });
+        }
+    }, {
+        key: 'setHighestCheckout',
+        value: function setHighestCheckout(games) {
+            var highestCheckout = 0;
+            games.forEach(function (game) {
+                var roundScores = game.roundScores;
+                if (game.win) {
+                    if (highestCheckout === 0) {
+                        highestCheckout = roundScores[roundScores.length - 1];
+                    } else if (roundScores[roundScores.length - 1] > highestCheckout) {
+                        highestCheckout = roundScores[roundScores.length - 1];
+                    }
+                }
+            });
+
+            this.setState({ x01: { highestCheckout: highestCheckout } });
+        }
+    }, {
+        key: 'setX01Ppd',
+        value: function setX01Ppd(roundScores, throws) {
+            var total = 0,
+                ppd = 0;
+            for (var i in roundScores) {
+                total += roundScores[i];
+            }
+            ppd = throws === 0 ? 0 : total / throws;
+            this.setState({ ppd: ppd });
+        }
+    }, {
+        key: 'winsRow',
+        value: function winsRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Wins'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.wins
+                )
+            );
+        }
+    }, {
+        key: 'totalGamesRow',
+        value: function totalGamesRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Total Games'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.totalGames
+                )
+            );
+        }
+    }, {
+        key: 'winPercentRow',
+        value: function winPercentRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Win Percent'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseInt(this.state.wins / this.state.totalGames * 100) + '%'
+                )
+            );
+        }
+    }, {
+        key: 'twentySixRow',
+        value: function twentySixRow() {
+            if (this.state.twentySix > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '26'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.twentySix
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'sixtyRow',
+        value: function sixtyRow() {
+            if (this.state.sixty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '60+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.sixty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonRow',
+        value: function tonRow() {
+            if (this.state.ton > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '100+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.ton
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonTwentyRow',
+        value: function tonTwentyRow() {
+            if (this.state.tonTwenty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '120+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonTwenty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonFortyRow',
+        value: function tonFortyRow() {
+            if (this.state.tonForty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '140+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonForty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonSixtyRow',
+        value: function tonSixtyRow() {
+            if (this.state.tonSixty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '160+'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonSixty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'tonEightyRow',
+        value: function tonEightyRow() {
+            if (this.state.tonEighty > 0) {
+                return _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        '180'
+                    ),
+                    _react2.default.createElement(
+                        'td',
+                        null,
+                        this.state.tonEighty
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'throwRow',
+        value: function throwRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Throws'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.throws
+                )
+            );
+        }
+    }, {
+        key: 'ppdRow',
+        value: function ppdRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Points Per Dart'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseFloat(this.state.ppd.toFixed(2))
+                )
+            );
+        }
+    }, {
+        key: 'bestLegRow',
+        value: function bestLegRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Best Leg'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.bestLeg
+                )
+            );
+        }
+    }, {
+        key: 'checkoutPercentRow',
+        value: function checkoutPercentRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Checkout Percent'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseFloat(this.state.checkoutPercent.toFixed(2)) + '%'
+                )
+            );
+        }
+    }, {
+        key: 'checkInPercentRow',
+        value: function checkInPercentRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Check In Percent'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    parseFloat(this.state.checkInPercent.toFixed(2)) + '%'
+                )
+            );
+        }
+    }, {
+        key: 'highestCheckoutRow',
+        value: function highestCheckoutRow() {
+            return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    'Highest Checkout'
+                ),
+                _react2.default.createElement(
+                    'td',
+                    null,
+                    this.state.highestCheckout
+                )
+            );
+        }
+    }, {
+        key: 'gameStatsRender',
+        value: function gameStatsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement('thead', null),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    this.bestLegRow(),
+                    this.winsRow(),
+                    this.totalGamesRow(),
+                    this.winPercentRow(),
+                    this.throwRow(),
+                    this.ppdRow(),
+                    this.checkoutPercentRow(),
+                    this.checkInPercentRow()
+                )
+            );
+        }
+    }, {
+        key: 'allStarPointsRender',
+        value: function allStarPointsRender() {
+            return _react2.default.createElement(
+                'table',
+                { className: 'cricket-table text-center align-self-center' },
+                _react2.default.createElement('thead', null),
+                _react2.default.createElement(
+                    'tbody',
+                    null,
+                    this.twentySixRow(),
+                    this.sixtyRow(),
+                    this.tonRow(),
+                    this.tonTwentyRow(),
+                    this.tonFortyRow(),
+                    this.tonSixtyRow(),
+                    this.tonEightyRow()
+                )
+            );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            if (this.props.username === 'guest') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 guest-stat' },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'Guest stats are not tracked'
+                        )
+                    )
+                );
+            } else if (this.state.totalGames === 0) {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-12 guest-stat' },
+                        _react2.default.createElement(
+                            'h3',
+                            null,
+                            'No X01 games played'
+                        )
+                    )
+                );
+            } else {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'row text-center' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6' },
+                        this.gameStatsRender()
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-6' },
+                        this.allStarPointsRender()
+                    )
+                );
+            }
+        }
+    }]);
+
+    return X01Stats;
+}(_react.Component);
+
+exports.default = X01Stats;
+
+/***/ }),
+/* 311 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(10);
+
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60655,6 +63932,9 @@ var RulesPage = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(_NavMenu2.default, _defineProperty({ setUsername: this.props.setUsername,
+                    username: this.props.username
+                }, 'setUsername', this.props.setUsername)),
                 _react2.default.createElement(
                     'div',
                     { className: 'row top-row' },
@@ -60675,39 +63955,37 @@ var RulesPage = function (_Component) {
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-12 text-center rules-menu' },
+                                { className: 'col-12 text-center main-menu-button' },
                                 _react2.default.createElement(
                                     'button',
-                                    { className: 'rules-menu', onClick: function onClick() {
+                                    { className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.setRules('cricket');
                                         } },
                                     'Cricket'
                                 )
                             )
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-12 text-center rules-menu' },
+                                { className: 'col-12 text-center main-menu-button' },
                                 _react2.default.createElement(
                                     'button',
-                                    { className: 'rules-menu', onClick: function onClick() {
+                                    { className: 'bttn-float bttn-lg', onClick: function onClick() {
                                             _this2.setRules('x01');
                                         } },
                                     'X01'
                                 )
                             )
                         ),
-                        _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'col-12 text-center rules-menu' },
+                                { className: 'col-12 text-center main-menu-button' },
                                 _react2.default.createElement(
                                     _reactRouterDom.Link,
                                     { to: {
@@ -60715,7 +63993,7 @@ var RulesPage = function (_Component) {
                                         } },
                                     _react2.default.createElement(
                                         'button',
-                                        { className: 'rules-menu' },
+                                        { className: 'bttn-float bttn-lg' },
                                         'Back'
                                     )
                                 )
@@ -60738,7 +64016,7 @@ var RulesPage = function (_Component) {
 exports.default = RulesPage;
 
 /***/ }),
-/* 280 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60756,7 +64034,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(10);
 
+var _NavMenu = __webpack_require__(18);
+
+var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -60961,6 +64245,9 @@ var SettingsMainMenu = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(_NavMenu2.default, _defineProperty({ setUsername: this.props.setUsername,
+                    username: this.props.username
+                }, 'setUsername', this.props.setUsername)),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
@@ -61118,13 +64405,12 @@ var SettingsMainMenu = function (_Component) {
                         )
                     )
                 ),
-                _react2.default.createElement('br', null),
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-12 text-center rules-menu' },
+                        { className: 'col-12 text-center main-menu-button' },
                         _react2.default.createElement(
                             _reactRouterDom.Link,
                             { to: {
@@ -61132,7 +64418,7 @@ var SettingsMainMenu = function (_Component) {
                                 } },
                             _react2.default.createElement(
                                 'button',
-                                { className: 'rules-menu' },
+                                { className: 'bttn-float bttn-lg' },
                                 'Back'
                             )
                         )

@@ -6,6 +6,8 @@ import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
 import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import axios from 'axios';
+import NavMenu from "../navMenu/NavMenu";
 
 export default class X01 extends Component {
     constructor({ match }) {
@@ -13,13 +15,19 @@ export default class X01 extends Component {
 
         this.p1RoundScoresHistory = [];
         this.p1CheckoutShotsHistory = 0;
+        this.p1CheckInShotsHistory = 0;
+        this.p1CheckInHistory = [];
         this.p1ThrowsHistory = 0;
         this.p2RoundScoresHistory = [];
         this.p2CheckoutShotsHistory = 0;
+        this.p2CheckInShotsHistory = 0;
+        this.p2CheckInHistory = [];
         this.p2ThrowsHistory = 0;
 
         this.p1CheckoutShots = 0;
         this.p2CheckoutShots = 0;
+        this.p1CheckInShots = 0;
+        this.p2CheckInShots = 0;
 
         this.state = {
             activeThrower: "p1",
@@ -56,6 +64,7 @@ export default class X01 extends Component {
             multipleGesture: 'horizontal'
         }
         //Binding functions to change the states       
+        this.putGameStats = this.putGameStats.bind(this);
         this.doubleInOptionsCheck = this.doubleInOptionsCheck.bind(this);
         this.undoGameOver = this.undoGameOver.bind(this);
         this.addLeg = this.addLeg.bind(this);
@@ -447,6 +456,8 @@ export default class X01 extends Component {
 
         this.p1CheckoutShots = 0;
         this.p2CheckoutShots = 0;
+        this.p1CheckInShots = 0;
+        this.p2CheckInShots = 0;
         this.setState({ activeThrower });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
@@ -474,13 +485,19 @@ export default class X01 extends Component {
 
     gameX01Reset() {
         this.p1RoundScoresHistory = [];
+        this.p1CheckInHistory = [];
         this.p1CheckoutShotsHistory = 0;
+        this.p1CheckInShotsHistory = 0;
         this.p1ThrowsHistory = 0;
         this.p2RoundScoresHistory = [];
+        this.p2CheckInHistory = [];
         this.p2CheckoutShotsHistory = 0;
+        this.p2CheckInShotsHistory = 0;
         this.p2ThrowsHistory = 0;
         this.p1CheckoutShots = 0;
         this.p2CheckoutShots = 0;
+        this.p1CheckInShots = 0;
+        this.p2CheckInShots = 0;
         this.setState({ activeThrower: "p1" });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
@@ -654,6 +671,17 @@ export default class X01 extends Component {
         });
 
         let thrower = this.state.activeThrower;
+
+        if (thrower === 'p1') {
+            if (!this.state.p1DoubleIn) {
+                this.p1CheckInShots++;
+            }
+        } else if (thrower === 'p2') {
+            if (!this.state.p2DoubleIn) {
+                this.p2CheckInShots++;
+            }
+        }
+
         if (multiplier === 2) {
             this.doubleInTrue(thrower);
         }
@@ -751,6 +779,15 @@ export default class X01 extends Component {
             src: ['../../../assets/sounds/miss_hit.mp3']
         });
         let playerScoreNumber = eval(`this.state.${this.state.activeThrower}Score`);
+        if (this.state.activeThrower === 'p1') {
+            if (!this.p1DoubleIn) {
+                this.p1CheckInShots++;
+            }
+        } else if (this.state.activeThrower === 'p2') {
+            if (!this.p2DoubleIn) {
+                this.p2CheckInShots++;
+            }
+        }
 
         if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
             if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
@@ -867,7 +904,9 @@ export default class X01 extends Component {
         this.p1ThrowsHistory += this.state.p1Throws;
         this.p2ThrowsHistory += this.state.p2Throws;
         this.p1CheckoutShotsHistory += this.p1CheckoutShots;
+        this.p1CheckInShotsHistory += this.p1CheckInShots;
         this.p2CheckoutShotsHistory += this.p2CheckoutShots;
+        this.p2CheckInShotsHistory += this.p2CheckInShots;
 
         for (var i in p1RoundScores) {
             p1RoundScoresHistory.push(p1RoundScores[i]);
@@ -877,6 +916,46 @@ export default class X01 extends Component {
             p2RoundScoresHistory.push(p2RoundScores[i]);
             this.p2RoundScoresHistory = p2RoundScoresHistory;
         }
+
+        if (this.state.p1DoubleIn) {
+            this.p1CheckInHistory.push(true)
+        } else {
+            this.p1CheckInHistory.push(false)
+        }
+
+        if (this.state.p2DoubleIn) {
+            this.p2CheckInHistory.push(true)
+        } else {
+            this.p2CheckInHistory.push(false)
+        }
+    }
+
+    putGameStats() {
+        const win = this.state.gameWinner === 'p1' ? true : false;
+        const botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
+        const checkIns = this.p1CheckInShots;
+        const checkouts = this.p1CheckoutShots
+
+        const game = {
+            win,
+            x01Game: this.state.x01Game,
+            gameOptions: this.state.gameOptions,
+            throws: this.state.p1Throws,
+            roundScores: this.state.p1RoundScores,
+            botGame: this.state.botGame,
+            botDifficulty,
+            date: new Date()
+        }
+
+        if (checkIns > 0) {
+            game.checkIns = checkIns;
+        }
+        if (checkouts > 0) {
+            game.checkouts = checkouts;
+        }
+
+        axios.put(`/user/x01`, game)
+            .catch(err => console.log(err));
     }
 
     gameStateOver() {
@@ -885,6 +964,7 @@ export default class X01 extends Component {
             src: ['../../../assets/sounds/game_over.mp3']
         });
         this.showGameOverModal(false);
+        this.putGameStats();
         this.fillHistoryData();
         if (this.state.firstWinner === '') {
             this.setState({ firstWinner: this.state.gameWinner }, () => {
@@ -973,6 +1053,15 @@ export default class X01 extends Component {
 
         switch (this.state.activeThrows) {
             case 0:
+                if (thrower === 'p1') {
+                    if (!this.p1DoubleIn) {
+                        this.p1CheckInShots += 3;
+                    }
+                } else if (thrower === 'p2') {
+                    if (!this.p2DoubleIn) {
+                        this.p2CheckInShots += 3;
+                    }
+                }
                 if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                     if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                         if (this.state.activeThrower === 'p1') {
@@ -1010,6 +1099,15 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
                 break;
             case 1:
+                if (thrower === 'p1') {
+                    if (!this.p1DoubleIn) {
+                        this.p1CheckInShots += 2;
+                    }
+                } else if (thrower === 'p2') {
+                    if (!this.p2DoubleIn) {
+                        this.p2CheckInShots += 2;
+                    }
+                }
                 if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                     if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                         if (this.state.activeThrower === 'p1') {
@@ -1046,6 +1144,15 @@ export default class X01 extends Component {
                 this.setThrowNumber(0);
                 break;
             case 2:
+                if (thrower === 'p1') {
+                    if (!this.p1DoubleIn) {
+                        this.p1CheckInShots++;
+                    }
+                } else if (thrower === 'p2') {
+                    if (!this.p2DoubleIn) {
+                        this.p2CheckInShots++;
+                    }
+                }
                 if (this.state.gameOptions === 'dido' || this.state.gameOptions === 'sido') {
                     if ((playerScoreNumber <= 40 || playerScoreNumber === 50) && playerScoreNumber % 2 === 0) {
                         if (this.state.activeThrower === 'p1') {
@@ -1139,6 +1246,7 @@ export default class X01 extends Component {
         } else if (this.state.gameState === "playing") {
             return (
                 <Scoreboard
+                    username={this.props.username}
                     score={this.score}
                     miss={this.miss}
                     botGame={this.state.botGame}
@@ -1176,6 +1284,7 @@ export default class X01 extends Component {
             if (this.state.gameWinner === "p1" || this.state.gameWinner === "p2") {
                 return (
                     <Results
+                        username={this.props.username}
                         gameWinner={this.state.gameWinner}
                         gameX01Reset={this.gameX01Reset}
                         p1Throws={this.state.p1Throws}
@@ -1190,13 +1299,19 @@ export default class X01 extends Component {
                         setHistory={this.state.setHistory}
                         setGameStatePick={this.setGameStatePick}
                         p1CheckoutShots={this.p1CheckoutShots}
+                        p1CheckInShots={this.p1CheckInShots}
                         p2CheckoutShots={this.p2CheckoutShots}
+                        p2CheckInShots={this.p2CheckInShots}
                         p1RoundScoresHistory={this.p1RoundScoresHistory}
                         p1CheckoutShotsHistory={this.p1CheckoutShotsHistory}
+                        p1CheckInShotsHistory={this.p1CheckInShotsHistory}
                         p1ThrowsHistory={this.p1ThrowsHistory}
                         p2RoundScoresHistory={this.p2RoundScoresHistory}
                         p2CheckoutShotsHistory={this.p2CheckoutShotsHistory}
+                        p2CheckInShotsHistory={this.p2CheckInShotsHistory}
                         p2ThrowsHistory={this.p2ThrowsHistory}
+                        p1CheckInHistory={this.p1CheckInHistory}
+                        p2CheckInHistory={this.p2CheckInHistory}
                     />
                 )
             }
@@ -1220,10 +1335,14 @@ export default class X01 extends Component {
                 transitionEnter={false}
                 transitionLeave={false}>
                 <div>
-                    <SettingsMenu
+                    <NavMenu
+                        setUsername={this.props.setUsername}
+                        username={this.props.username}
+                        setUsername={this.props.setUsername}
+                        gameState={this.state.gameState}
+                        gameX01Reset={this.gameX01Reset}
                         gestureSwitch={this.gestureSwitch}
-                    >
-                    </SettingsMenu>
+                    />
                     {this.conditionalRender()}
                 </div>
             </ReactCSSTransitionGroup>

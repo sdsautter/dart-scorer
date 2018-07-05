@@ -411,65 +411,6 @@ export default class MobileGesture extends Component {
                 </div>
                 {this.playerButtonsRender()}
                 {this.missUndoRow()}
-                <div className='row' id='x01MobileThrow'>
-                    <div className="col-6 text-center start-over mobile-start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                            <img className="icon" src="/assets/images/svg/reload.svg" alt="restart game"></img>
-                        </button>
-                    </div>
-                    <div className="col-6 text-center start-over mobile-start-over">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#exitModal">
-                            <img className="icon" src="/assets/images/svg/home.svg" alt="home screen"></img>
-                        </button>
-                    </div>
-                </div>
-                <div className="modal fade" id="reloadModal" tabIndex="-1" role="dialog" aria-labelledby="reloadModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="reloadModalLabel">Start Game Over</h5>
-                            </div>
-                            <div className="modal-body">
-                                <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
-                                    </div>
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameX01Reset() }}>Yes</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="modal fade" id="exitModal" tabIndex="-1" role="dialog" aria-labelledby="exitModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exitModalLabel">Exit Game</h5>
-                            </div>
-                            <div className="modal-body">
-                                <div className="row">
-                                    <div className="col-6 offset-3 text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                                <br />
-                                <div className='row'>
-                                    <div className="col-6 offset-3 text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => window.location.href = this.chooseGameUrl}>Diff Game</button>
-                                    </div>
-                                </div>
-                                <br />
-                                <div className='row'>
-                                    <div className="col-6 offset-3 text-center modal-home">
-                                        <button type="button" className="btn" data-dismiss="modal" onClick={() => window.location.href = '/'}>Home</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div >
         )
 
