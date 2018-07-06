@@ -210,6 +210,7 @@ export default class Cricket extends Component {
         this.setState({ activeThrower: "p1" });
         this.setState({ activeThrows: 0 });
         this.activeMarks = 0;
+        this.activeBulls = 0;
         this.setState({ gameOverModal: false });
         this.setState({ firstWinner: '' });
         this.setState({ throwLog: [] });
