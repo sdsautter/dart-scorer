@@ -446,7 +446,7 @@ export default class Cricket extends Component {
         await this.scoringLogic(number, multiplier);
         await this.addThrow();
         await this.addToLog(number, multiplier);
-        await this.gameOverCheck();
+        await this.gameOverCheck(this.state.activeThrower, number, multiplier);
         await this.setThrowNumber(parseInt(this.state.activeThrows + 1));
         await this.checkThrower();
     }
@@ -1518,24 +1518,25 @@ export default class Cricket extends Component {
     }
 
     checkThrower() {
-        let activeThrows = this.state.activeThrows;
-        new Promise(() => {
-            if (activeThrows > 2) {
-                this.allStarPoints(this.state.activeThrower);
-                if (this.state.activeThrower === "p1") {
+        if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
+            let activeThrows = this.state.activeThrows;
+            new Promise(() => {
+                if (activeThrows > 2) {
+                    this.allStarPoints(this.state.activeThrower);
+                    if (this.state.activeThrower === "p1") {
 
-                    this.setActiveThrower('p2');
-                    if (this.state.botGame) {
-                        this.botLogic();
+                        this.setActiveThrower('p2');
+                        if (this.state.botGame) {
+                            this.botLogic();
+                        }
+                    } else {
+                        this.setActiveThrower("p1");
                     }
-                } else {
-                    this.setActiveThrower("p1");
-                }
-                this.resetMarks();
 
-                return this.setThrowNumber(0);
-            }
-        });
+                    return this.setThrowNumber(0);
+                }
+            });
+        } 
     }
 
     renderP1Score() {
@@ -1607,9 +1608,8 @@ export default class Cricket extends Component {
     }
 
     gameStateOver() {
-        if (this.activeBulls !== 0 && this.activeMarks !== 0) {
-            this.allStarPoints(this.state.gameWinner);
-        }
+        this.allStarPoints(this.state.gameWinner);
+
         const gameOverSound = new Howl({
             src: [`../../../assets/sounds/game_over.mp3`]
         });
@@ -1639,13 +1639,1062 @@ export default class Cricket extends Component {
         this.setState({ gameOverModal });
     }
 
-    gameOverCheck() {
+    gameOverCheck(player, number, multiplier) {
+        const otherPlayer = player === 'p1' ? 'p2' : 'p1';
+        const playerNumber = eval(`this.state.${player}${number}`);
+        const otherNumber = eval(`this.state.${otherPlayer}${number}`);
+
         if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
-            if (this.state.gameWinner !== 'p1') {
-                this.setGameWinner("p1");
+            switch (multiplier) {
+                case 1:
+                    if (this.state.gameWinner !== 'p1') {
+                        return this.setGameWinner("p1");
+                    }
+                    break;
+                case 2:
+                    if (otherNumber >= 3) {
+                        const newScore = this.state.p1Score - number;
+                        if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                            if (number !== 25) {
+                                this.activeMarks--;
+                            } else {
+                                this.activeBulls--;
+                            }
+                            if (this.state.gameWinner !== 'p1') {
+                                return this.setGameWinner("p1");
+                            }
+                        } else {
+                            if (this.state.gameWinner !== 'p1') {
+                                return this.setGameWinner("p1");
+                            }
+                        }
+                    } else {
+                        const newNumber = playerNumber - 1;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p120 >= 3 && newNumber >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && newNumber >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && newNumber >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && newNumber >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && newNumber >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && newNumber >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                    }
+
+                    break;
+                case 3:
+                    if (otherNumber > 3) {
+                        const newScore = this.state.p1Score - (number * 2);
+                        if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                            if (number !== 25) {
+                                this.activeMarks -= 2;
+                            } else {
+                                this.activeBulls -= 2;
+                            }
+                            if (this.state.gameWinner !== 'p1') {
+                                return this.setGameWinner("p1");
+                            }
+                        } else {
+                            if (this.state.gameWinner !== 'p1') {
+                                return this.setGameWinner("p1");
+                            }
+                        }
+                    } else if (otherNumber === 3) {
+                        const newScore = this.state.p1Score - number;
+                        const newNumber = playerNumber - 1;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p120 >= 3 && newNumber >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && newNumber >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && newNumber >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && newNumber >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && newNumber >= 3 && this.state.p125 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && newNumber >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+                    } else {
+                        let newNumber = playerNumber - 1;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p120 >= 3 && newNumber >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && newNumber >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && newNumber >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && newNumber >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && newNumber >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && newNumber >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                        }
+
+                        newNumber = playerNumber - 2;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p120 >= 3 && newNumber >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && newNumber >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && newNumber >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && newNumber >= 3 && this.state.p115 >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && newNumber >= 3 && this.state.p125 >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p120 >= 3 && this.state.p119 >= 3 && this.state.p118 >= 3 && this.state.p117 >= 3 && this.state.p116 >= 3 && this.state.p115 >= 3 && newNumber >= 3 && this.state.p1Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p1') {
+                                        return this.setGameWinner("p1");
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                    }
+                    break;
+                default:
+                    break;
             }
+
         } else if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p1Score) {
-            this.setGameWinner("p2");
+            switch (multiplier) {
+                case 1:
+                    if (this.state.gameWinner !== 'p2') {
+                        return this.setGameWinner("p2");
+                    }
+                    break;
+                case 2:
+                    if (otherNumber >= 3) {
+                        const newScore = this.state.p2Score - number;
+                        if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                            if (number !== 25) {
+                                this.activeMarks--;
+                            } else {
+                                this.activeBulls--;
+                            }
+                            if (this.state.gameWinner !== 'p2') {
+                                return this.setGameWinner("p2");
+                            }
+                        } else {
+                            if (this.state.gameWinner !== 'p2') {
+                                return this.setGameWinner("p2");
+                            }
+                        }
+                    } else {
+                        const newNumber = playerNumber - 1;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p220 >= 3 && newNumber >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && newNumber >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && newNumber >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && newNumber >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && newNumber >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && newNumber >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                    }
+
+                    break;
+                case 3:
+                    if (otherNumber > 3) {
+                        const newScore = this.state.p2Score - (number * 2);
+                        if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                            if (number !== 25) {
+                                this.activeMarks -= 2;
+                            } else {
+                                this.activeBulls -= 2;
+                            }
+                            if (this.state.gameWinner !== 'p2') {
+                                return this.setGameWinner("p2");
+                            }
+                        } else {
+                            if (this.state.gameWinner !== 'p2') {
+                                return this.setGameWinner("p2");
+                            }
+                        }
+                    } else if (otherNumber === 3) {
+                        const newScore = this.state.p2Score - number;
+                        const newNumber = playerNumber - 1;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p220 >= 3 && newNumber >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && newNumber >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && newNumber >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && newNumber >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && newNumber >= 3 && this.state.p225 >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && newNumber >= 3 && newScore >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+                    } else {
+                        let newNumber = playerNumber - 1;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p220 >= 3 && newNumber >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && newNumber >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && newNumber >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && newNumber >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && newNumber >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && newNumber >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks--;
+                                    } else {
+                                        this.activeBulls--;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                        }
+
+                        newNumber = playerNumber - 2;
+                        switch (number) {
+                            case 20:
+                                if (newNumber >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 19:
+                                if (this.state.p220 >= 3 && newNumber >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 18:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && newNumber >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 17:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && newNumber >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 16:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && newNumber >= 3 && this.state.p215 >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 15:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && newNumber >= 3 && this.state.p225 >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+                            case 25:
+                                if (this.state.p220 >= 3 && this.state.p219 >= 3 && this.state.p218 >= 3 && this.state.p217 >= 3 && this.state.p216 >= 3 && this.state.p215 >= 3 && newNumber >= 3 && this.state.p2Score >= this.state.p2Score) {
+                                    if (number !== 25) {
+                                        this.activeMarks -= 2;
+                                    } else {
+                                        this.activeBulls -= 2;
+                                    }
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                } else {
+                                    if (this.state.gameWinner !== 'p2') {
+                                        return this.setGameWinner("p2");
+                                    }
+                                }
+                                break;
+
+                            default:
+                                break;
+                        }
+console
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
