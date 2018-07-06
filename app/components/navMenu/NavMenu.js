@@ -73,7 +73,7 @@ export default class NavMenu extends Component {
                     <div className="modal-body">
                         <div className='row'>
                             <div className='col-8 offset-2'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     axios.post('/logout')
                                         .then(() => {
                                             this.setMenuState('menu');
@@ -95,7 +95,7 @@ export default class NavMenu extends Component {
                     <div className="modal-body">
                         <div className='row'>
                             <div className='col-8 offset-2 modal-menu p2-single'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     axios.post('/logout')
                                         .then(() => {
                                             this.setMenuState('menu');
@@ -108,19 +108,19 @@ export default class NavMenu extends Component {
                         <hr />
                         <div className='row'>
                             <div className='col-8 offset-2 modal-menu p1-multiple'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     this.setMenuState('settings');
                                 }}>Settings</button>
                             </div>
                             <div className='col-8 offset-2 modal-menu p1-multiple'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     this.setMenuState('reset');
                                 }}>
                                     Reset Set
                                 </button>
                             </div>
                             <div className='col-8 offset-2 modal-menu p2-multiple'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     this.setMenuState('home');
                                 }}>Home</button>
                             </div>
@@ -137,12 +137,12 @@ export default class NavMenu extends Component {
                     <div className="modal-body">
                         <div className='row'>
                             <div className='col-4 offset-1 p1-multiple'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     this.setMenuState('login')
                                 }}>Login</button>
                             </div>
                             <div className='col-4 offset-2 p1-single'>
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                <button type="button" className="bttn-lg" onClick={() => {
                                     this.setMenuState('signup');
                                 }}>Sign Up</button>
                             </div>
@@ -158,12 +158,12 @@ export default class NavMenu extends Component {
                 <div className="modal-body">
                     <div className='row'>
                         <div className='col p1-multiple'>
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.setMenuState('login')
                             }}>Login</button>
                         </div>
                         <div className='col p2-multiple'>
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.setMenuState('signup');
                             }}>Sign Up</button>
                         </div>
@@ -171,19 +171,19 @@ export default class NavMenu extends Component {
                     <hr />
                     <div className='row'>
                         <div className='col-8 offset-2 modal-menu p1-multiple'>
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.setMenuState('settings');
                             }}>Settings</button>
                         </div>
                         <div className='col-8 offset-2 modal-menu p1-multiple'>
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.setMenuState('reset');
                             }}>
                                 Reset Set
                                 </button>
                         </div>
                         <div className='col-8 offset-2 modal-menu p2-multiple'>
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.setMenuState('home');
                             }}>Home</button>
                         </div>
@@ -222,7 +222,7 @@ export default class NavMenu extends Component {
                             <h5 className="modal-title" id="menuLabel">Logout</h5>
                         </div>
                         <div className="modal-body">
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 axios.post('/logout')
                                     .then(() => {
                                         this.setMenuState('menu');
@@ -260,7 +260,7 @@ export default class NavMenu extends Component {
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-6 offset-3 text-center p1-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                    <button type="button" className="bttn-lg" onClick={() => {
                                         this.setMenuState('menu');
                                     }}>No</button>
                                 </div>
@@ -268,7 +268,7 @@ export default class NavMenu extends Component {
                             <br />
                             <div className='row'>
                                 <div className="col-6 offset-3 text-center p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                    <button type="button" className="bttn-lg" onClick={() => {
                                         this.gameReset();
                                         $("#menu").modal("hide");
                                     }}>Yes</button>
@@ -285,7 +285,7 @@ export default class NavMenu extends Component {
                         <div className="modal-body">
                             <div className="row">
                                 <div className="col-6 offset-3 text-center p1-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                    <button type="button" className="bttn-lg" onClick={() => {
                                         this.setMenuState('menu');
                                     }}>No</button>
                                 </div>
@@ -296,7 +296,7 @@ export default class NavMenu extends Component {
                                     <Link to={{
                                         pathname: '/',
                                     }}>
-                                        <button type="button" className="bttn-float btt-lg" onClick={() => {
+                                        <button type="button" className="btt-lg" onClick={() => {
                                             $("#menu").modal("hide");
                                         }}>Yes</button></Link>
                                 </div>
