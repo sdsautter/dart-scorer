@@ -78,14 +78,14 @@ export default class Signup extends Component {
                                     </label>
                                 </div>
                                 <div className='p1-multiple'>
-                                    <button type="submit" className='bttn-float bttn-lg' id='signupButton' onClick={() => {
+                                    <button type="submit" className='bttn-lg' id='signupButton' onClick={() => {
                                         $("#menu").modal("hide");
                                     }}>Sign Up</button>
                                 </div>
                             </form>
                             <div className="row">
                                 <div className="col-12 text-center p2-multiple" id='signupBack'>
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                                    <button type="button" className="bttn-lg" onClick={() => {
                                         this.props.setMenuState('menu');
                                     }}>Back</button>
                                 </div>

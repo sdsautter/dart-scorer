@@ -15,190 +15,190 @@ export default class DesktopInput extends Component {
                     <div>
                         <div className="row">
                             <div className="col-1 text-center number border-bottom p1-single border-left  border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 1) }}>20</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 1) }}>19</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 1) }}>19</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 1) }}>18</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 1) }}>18</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 1) }}>17</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 1) }}>17</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-right border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 1) }}>16</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 1) }}>16</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 1) }}>15</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 1) }}>15</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 1) }}>14</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 1) }}>14</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 1) }}>13</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 1) }}>13</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 1) }}>12</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 1) }}>12</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 1) }}>11</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 1) }}>11</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 1) }}>10</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 1) }}>10</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 1) }}>9</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 1) }}>9</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 1) }}>8</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 1) }}>8</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 1) }}>7</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 1) }}>7</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 1) }}>6</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 1) }}>6</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 1) }}>5</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 1) }}>5</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 1) }}>4</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 1) }}>4</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 1) }}>3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 1) }}>3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 1) }}>2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 1) }}>2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 1) }}>1</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 1) }}>1</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p1-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 3) }}>x3</button>
                             </div>
                             <div className="col text-center number p1-multiple border-left border-bottom">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                             </div>
                             <div className="col text-center number p2-multiple border-bottom border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
                             </div>
                         </div>
                     </div>
@@ -208,190 +208,190 @@ export default class DesktopInput extends Component {
                     return (
                         <div className="row">
                             <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 1) }}>20</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 1) }}>20</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 1) }}>19</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 1) }}>19</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 3) }}>3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }}>3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 1) }}>18</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 1) }}>18</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 1) }}>17</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 1) }}>17</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-right border-top">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 1) }}>16</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 1) }}>16</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 1) }}>15</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 1) }}>15</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 1) }}>14</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 1) }}>14</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 1) }}>13</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 1) }}>13</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 1) }}>12</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 1) }}>12</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 1) }}>11</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 1) }}>11</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 1) }}>10</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 1) }}>10</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 1) }}>9</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 1) }}>9</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 1) }}>8</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 1) }}>8</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 1) }}>7</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 1) }}>7</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 1) }}>6</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 1) }}>6</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 1) }}>5</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 1) }}>5</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 1) }}>4</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 1) }}>4</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 1) }}>3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 1) }}>3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 1) }}>2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 1) }}>2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 1) }}>1</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 1) }}>1</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 2) }}>x2</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 3) }}>x3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 3) }}>x3</button>
                             </div>
                             <div className="col text-center number p1-multiple border-left border-bottom">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                             </div>
                             <div className="col text-center number p2-multiple border-bottom border-right">
-                                <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
                             </div>
                         </div>
                     )
@@ -400,190 +400,190 @@ export default class DesktopInput extends Component {
                         <div>
                             <div className="row">
                                 <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 1) }} disabled>20</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 1) }} disabled>20</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(20, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(20, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 1) }} disabled>19</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 1) }} disabled>19</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(19, 3) }} disabled>3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }} disabled>3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 1) }} disabled>18</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 1) }} disabled>18</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(18, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 1) }} disabled>17</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 1) }} disabled>17</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-right border-top">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(17, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(17, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 1) }} disabled>16</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 1) }} disabled>16</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(16, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(16, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 1) }} disabled>15</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 1) }} disabled>15</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(15, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(15, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 1) }} disabled>14</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 1) }} disabled>14</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(14, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(14, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 1) }} disabled>13</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 1) }} disabled>13</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(13, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(13, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 1) }} disabled>12</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 1) }} disabled>12</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(12, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(12, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 1) }} disabled>11</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 1) }} disabled>11</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(11, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(11, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 1) }} disabled>10</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 1) }} disabled>10</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(10, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(10, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 1) }} disabled>9</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 1) }} disabled>9</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(9, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(9, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 1) }} disabled>8</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 1) }} disabled>8</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(8, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(8, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 1) }} disabled>7</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 1) }} disabled>7</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(7, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(7, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 1) }} disabled>6</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 1) }} disabled>6</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(6, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(6, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 1) }} disabled>5</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 1) }} disabled>5</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(5, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(5, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 1) }} disabled>4</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 1) }} disabled>4</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(4, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(4, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 1) }} disabled>3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 1) }} disabled>3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(3, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(3, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 1) }} disabled>2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 1) }} disabled>2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(2, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(2, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 1) }} disabled>1</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 1) }} disabled>1</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 2) }} disabled>x2</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-right">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(1, 3) }} disabled>x3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col text-center number p1-multiple border-left border-bottom">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(25, 1) }} disabled>Bull</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }} disabled>Bull</button>
                                 </div>
                                 <div className="col text-center number p2-multiple border-bottom border-right">
-                                    <button type="button" className="bttn-float bttn-lg" onClick={() => { this.props.score(25, 2) }} disabled>Double-Bull</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }} disabled>Double-Bull</button>
                                 </div>
                             </div>
                         </div>
@@ -602,7 +602,7 @@ export default class DesktopInput extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p2-multiple">
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.props.setActiveThrower('p1')
                                 this.props.setDiddleTrue();
                             }}>
@@ -613,7 +613,7 @@ export default class DesktopInput extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p1-multiple">
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.props.setActiveThrower('p2')
                                 this.props.setDiddleTrue();
                             }}>
@@ -634,12 +634,12 @@ export default class DesktopInput extends Component {
                     </div>
                     <div className='row'>
                         <div className="col-4 offset-1 text-center p2-multiple">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undoGameOver() }}>
+                            <button type='button' className='bttn-lg' onClick={() => { this.props.undoGameOver() }}>
                                 Undo
                         </button>
                         </div>
                         <div className="col-4 offset-2 text-center p1-multiple">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.gameStateOver() }}>
+                            <button type='button' className='bttn-lg' onClick={() => { this.props.gameStateOver() }}>
                                 Confirm
                         </button>
                         </div>
@@ -669,17 +669,17 @@ export default class DesktopInput extends Component {
                                 <br />
                             </div>
                             <div className="col-12 miss text-center" id="miss-x01">
-                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }}>
+                                <button type='button' className='bttn-lg' onClick={() => { this.props.miss() }}>
                                     Miss
                                 </button>
                             </div>
                             <div className="col-12 end-turn text-center" id="end-turn-x01">
-                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }}>
+                                <button type='button' className='bttn-lg' onClick={() => { this.props.endTurn() }}>
                                     End Turn
                                 </button>
                             </div>
                             <div className="col-12 text-center undo" id="undo-x01">
-                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }}>
+                                <button type='button' className='bttn-lg' onClick={() => { this.props.undo() }}>
                                     Undo
                                 </button>
                             </div>
@@ -702,17 +702,17 @@ export default class DesktopInput extends Component {
                                 <br />
                             </div>
                             <div className="col-12 miss text-center" id="miss-x01">
-                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }} disabled>
+                                <button type='button' className='bttn-lg' onClick={() => { this.props.miss() }} disabled>
                                     Miss
                                 </button>
                             </div>
                             <div className="col-12 end-turn text-center" id="end-turn-x01">
-                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
+                                <button type='button' className='bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
                                     End Turn
                                 </button>
                             </div>
                             <div className="col-12 text-center undo" id="undo-x01">
-                                <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }}>
+                                <button type='button' className='bttn-lg' onClick={() => { this.props.undo() }}>
                                     Undo
                                 </button>
                             </div>
@@ -737,17 +737,17 @@ export default class DesktopInput extends Component {
                             <br />
                         </div>
                         <div className="col-12 miss text-center" id="miss-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.miss() }} disabled>
+                            <button type='button' className='bttn-lg' onClick={() => { this.props.miss() }} disabled>
                                 Miss
                             </button>
                         </div>
                         <div className="col-12 end-turn text-center" id="end-turn-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
+                            <button type='button' className='bttn-lg' onClick={() => { this.props.endTurn() }} disabled>
                                 End Turn
                             </button>
                         </div>
                         <div className="col-12 text-center undo" id="undo-x01">
-                            <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.undo() }} disabled>
+                            <button type='button' className='bttn-lg' onClick={() => { this.props.undo() }} disabled>
                                 Undo
                             </button>
                         </div>

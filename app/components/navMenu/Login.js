@@ -58,7 +58,7 @@ export default class Login extends Component {
                             </label>
                         </div>
                         <div className='p1-multiple' id='loginButton'>
-                        <button type="submit" className="bttn-float bttn-lg" onClick={() => {
+                        <button type="submit" className="bttn-lg" onClick={() => {
                             setTimeout(() => {
                                 if (this.props.username === this.state.loginUsername) {
                                     $("#menu").modal("hide");
@@ -70,7 +70,7 @@ export default class Login extends Component {
                     </form>
                     <div className="row">
                         <div className="col-12 text-center p2-multiple" id='loginBack'>
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-lg" onClick={() => {
                                 this.props.setMenuState('menu');
                             }}>Back</button>
                         </div>
