@@ -1,12 +1,16 @@
 const db = require("../models");
 
 export default class UserController {
+
     public createUser(user) {
-        return db.User.findOne({ where: { 'username': user.username.toLowerCase() } })
+        const username = user.username.toLowerCase().trim()
+        .toLowerCase().trim();
+        if (username.length >= 3 && username.length <=15 ) {
+        return db.User.findOne({ where: { username } })
             .then((data) => {
-                if (data === null || user.username.toLowerCase() !== 'guest') {
+                if (data === null ||username !== 'guest') {
                     return db.User.create({
-                        username: user.username.toLowerCase().trim(),
+                        username: username,
                         password: db.User.generateHash(user.password),
                         cricket: [],
                         x01: [],
@@ -19,6 +23,9 @@ export default class UserController {
                     return "User already exists."
                 }
             })
+        } else {
+            return "Username has incorrect amount of characters."
+        }
     }
 
 

@@ -23,25 +23,31 @@ export default class Signup extends Component {
 
     signUpButton(event) {
         event.preventDefault();
-        if (this.state.signUpPassword === this.state.confirmPassword) {
-            return axios.post('/signup', {
-                password: this.state.signUpPassword,
-                username: this.state.signUpUsername
-            })
-                .catch((error) => {
-                    setTimeout(() => {
-                        return axios.post('/login', {
-                            username: this.state.signUpUsername,
-                            password: this.state.signUpPassword
-                        })
-                            .then(() => {
-                                this.props.loggedInSwitch(true);
-                                return this.props.setUsername(this.state.signUpUsername);
+        const username = this.state.signUpUsername.trim();
+        if (username.length >= 3 && username.length <= 15) {
+            if (this.state.signUpPassword === this.state.confirmPassword) {
+                return axios.post('/signup', {
+                    password: this.state.signUpPassword,
+                    username: username.toLowerCase()
+                })
+                    .catch((error) => {
+                        setTimeout(() => {
+                            return axios.post('/login', {
+                                username: username,
+                                password: this.state.signUpPassword
                             })
-                    }, 500)
-                });
+                                .then(() => {
+                                    this.props.loggedInSwitch(true);
+                                    return this.props.setUsername(username);
+                                })
+                        }, 500)
+                    });
+            } else {
+                this.setState({ warning: 'Passwords Don\'t Match' });
+            }
         } else {
-            this.setState({ warning: 'Passwords Don\'t Match' });
+            this.setState({ warning: 'Username is not the right amount of characters' });
+
         }
     }
 

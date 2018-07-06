@@ -44636,23 +44636,28 @@ var Signup = function (_Component) {
             var _this2 = this;
 
             event.preventDefault();
-            if (this.state.signUpPassword === this.state.confirmPassword) {
-                return _axios2.default.post('/signup', {
-                    password: this.state.signUpPassword,
-                    username: this.state.signUpUsername
-                }).catch(function (error) {
-                    setTimeout(function () {
-                        return _axios2.default.post('/login', {
-                            username: _this2.state.signUpUsername,
-                            password: _this2.state.signUpPassword
-                        }).then(function () {
-                            _this2.props.loggedInSwitch(true);
-                            return _this2.props.setUsername(_this2.state.signUpUsername);
-                        });
-                    }, 500);
-                });
+            var username = this.state.signUpUsername.trim();
+            if (username.length >= 3 && username.length <= 15) {
+                if (this.state.signUpPassword === this.state.confirmPassword) {
+                    return _axios2.default.post('/signup', {
+                        password: this.state.signUpPassword,
+                        username: username.toLowerCase()
+                    }).catch(function (error) {
+                        setTimeout(function () {
+                            return _axios2.default.post('/login', {
+                                username: username,
+                                password: _this2.state.signUpPassword
+                            }).then(function () {
+                                _this2.props.loggedInSwitch(true);
+                                return _this2.props.setUsername(username);
+                            });
+                        }, 500);
+                    });
+                } else {
+                    this.setState({ warning: 'Passwords Don\'t Match' });
+                }
             } else {
-                this.setState({ warning: 'Passwords Don\'t Match' });
+                this.setState({ warning: 'Username is not the right amount of characters' });
             }
         }
     }, {

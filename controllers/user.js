@@ -3,24 +3,32 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const db = require("../models");
 class UserController {
     createUser(user) {
-        return db.User.findOne({ where: { 'username': user.username.toLowerCase() } })
-            .then((data) => {
-            if (data === null || user.username.toLowerCase() !== 'guest') {
-                return db.User.create({
-                    username: user.username.toLowerCase().trim(),
-                    password: db.User.generateHash(user.password),
-                    cricket: [],
-                    x01: [],
-                    legWins: 0,
-                    legTotal: 0,
-                    setWins: 0,
-                    setTotal: 0
-                });
-            }
-            else {
-                return "User already exists.";
-            }
-        });
+        const username = user.username.toLowerCase().trim()
+            .toLowerCase().trim();
+        console.log(username);
+        if (username.length >= 3 && username.length <= 15) {
+            return db.User.findOne({ where: { username } })
+                .then((data) => {
+                if (data === null || username !== 'guest') {
+                    return db.User.create({
+                        username: username,
+                        password: db.User.generateHash(user.password),
+                        cricket: [],
+                        x01: [],
+                        legWins: 0,
+                        legTotal: 0,
+                        setWins: 0,
+                        setTotal: 0
+                    });
+                }
+                else {
+                    return "User already exists.";
+                }
+            });
+        }
+        else {
+            return "Username has incorrect amount of characters.";
+        }
     }
     getCricketStats(username) {
         return db.User.findOne({ where: { username: username.toLowerCase() } })
