@@ -5,7 +5,6 @@ class UserController {
     createUser(user) {
         const username = user.username.toLowerCase().trim()
             .toLowerCase().trim();
-        console.log(username);
         if (username.length >= 3 && username.length <= 15) {
             return db.User.findOne({ where: { username } })
                 .then((data) => {
