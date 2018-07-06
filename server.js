@@ -41,6 +41,10 @@ require('./config/passport')(passport);
 // Routes
 require('./routes.js')(app, passport);
 
+var http = require("http");
+setInterval(function() {
+    http.get("http://dart-scoring.herokuapp.com");
+}, 300000);
 
 db.sequelize.sync({
   force: false
