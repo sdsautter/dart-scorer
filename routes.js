@@ -5,6 +5,12 @@ const path = require('path');
 const user_1 = require("./controllers/user");
 const userController = new user_1.default;
 module.exports = (app, passport) => {
+    app.get('/login', (req, res) => {
+        res.sendFile(path.join(__dirname, './public/index.html'));
+    });
+    app.get('/signup', (req, res) => {
+        res.sendFile(path.join(__dirname, './public/index.html'));
+    });
     app.post('/login', passport.authenticate('local-login', { failureRedirect: '/' }), function (req, res) {
         if (req.user) {
             return res.send(req.user.username);
@@ -99,6 +105,9 @@ module.exports = (app, passport) => {
         }
     });
     app.get('/', (req, res) => {
+        res.sendFile(path.join(__dirname, './public/index.html'));
+    });
+    app.get('/home', (req, res) => {
         res.sendFile(path.join(__dirname, './public/index.html'));
     });
     //The 404 Route (ALWAYS Keep this as the last route)

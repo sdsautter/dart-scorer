@@ -343,5 +343,5 @@
 //     }
 //     return stat.isFile();
 //   }
-// } 
+// }
 //# sourceMappingURL=config.js.map

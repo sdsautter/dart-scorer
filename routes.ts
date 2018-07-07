@@ -5,6 +5,14 @@ import UserController from './controllers/user';
 const userController = new UserController;
 
 module.exports = (app, passport) => {
+    app.get('/login',
+        (req, res) => {
+            res.sendFile(path.join(__dirname, './public/index.html'));
+        });
+    app.get('/signup',
+        (req, res) => {
+            res.sendFile(path.join(__dirname, './public/index.html'));
+        });
     app.post('/login',
         passport.authenticate('local-login', { failureRedirect: '/' }),
         function (req, res) {
@@ -112,6 +120,11 @@ module.exports = (app, passport) => {
     })
 
     app.get('/',
+        (req, res) => {
+            res.sendFile(path.join(__dirname, './public/index.html'));
+        });
+
+    app.get('/home',
         (req, res) => {
             res.sendFile(path.join(__dirname, './public/index.html'));
         });

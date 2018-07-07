@@ -62,6 +62,8 @@ export default class Login extends Component {
                             setTimeout(() => {
                                 if (this.props.username === this.state.loginUsername) {
                                     $("#menu").modal("hide");
+                                    $('body').removeClass('modal-open');
+                                    $('.modal-backdrop').remove();
                                 }
                             }, 500)
 
