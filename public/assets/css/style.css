@@ -20,10 +20,11 @@
     ul {
         padding-left: 5%;
     }
-    #loginButton, #loginBack, #loginButton button, #loginBack button, #signupButton, #signupBack, #signupButton button, #signupBack button {
+    #loginButton, #loginBack, #loginSignup, #loginButton button, #loginSignup button, #loginBack button, #signupButton, #signupBack, #signupButton button, #signupBack button {
         width: 15rem !important;
-        padding: 1% 0 !important;
+        padding: 1% auto !important;
         margin: 0 auto;
+        align-self: center !important;
     }
     .main-menu-button button {
         background-color: var(--p1-color);

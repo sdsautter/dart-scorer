@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SetTable from "../common/SetTable";
 import { Link } from 'react-router-dom';
-
 export default class Results extends Component {
     constructor() {
         super();
@@ -723,7 +722,14 @@ export default class Results extends Component {
                                         <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
                                     </div>
                                     <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { location.assign('/') }}>Yes</button>
+                                        <Link to={{
+                                            pathname: '/home',
+                                        }}>
+                                            <button type="button" className="btn btn-success" onClick={() => {
+                                                $("#menu").modal("hide");
+                                                $('body').removeClass('modal-open');
+                                                $('.modal-backdrop').remove();
+                                            }}>Yes</button></Link>
                                     </div>
                                 </div>
                             </div>

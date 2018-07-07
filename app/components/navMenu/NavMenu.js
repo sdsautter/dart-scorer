@@ -271,6 +271,8 @@ export default class NavMenu extends Component {
                                     <button type="button" className="bttn-lg" onClick={() => {
                                         this.gameReset();
                                         $("#menu").modal("hide");
+                                        $('body').removeClass('modal-open');
+                                        $('.modal-backdrop').remove();
                                     }}>Yes</button>
                                 </div>
                             </div>
@@ -294,10 +296,12 @@ export default class NavMenu extends Component {
                             <div className='row'>
                                 <div className="col-6 offset-3 text-center p2-multiple">
                                     <Link to={{
-                                        pathname: '/',
+                                        pathname: '/home',
                                     }}>
                                         <button type="button" className="btt-lg" onClick={() => {
                                             $("#menu").modal("hide");
+                                            $('body').removeClass('modal-open');
+                                            $('.modal-backdrop').remove();
                                         }}>Yes</button></Link>
                                 </div>
                             </div>

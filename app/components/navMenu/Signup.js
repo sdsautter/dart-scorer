@@ -80,6 +80,8 @@ export default class Signup extends Component {
                                 <div className='p1-multiple'>
                                     <button type="submit" className='bttn-lg' id='signupButton' onClick={() => {
                                         $("#menu").modal("hide");
+                                        $('body').removeClass('modal-open');
+                                        $('.modal-backdrop').remove();
                                     }}>Sign Up</button>
                                 </div>
                             </form>

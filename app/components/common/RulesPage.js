@@ -80,7 +80,7 @@ export default class RulesPage extends Component {
                         <div className="row">
                             <div className="col-12 text-center main-menu-button">
                                 <Link to={{
-                                    pathname: '/',
+                                    pathname: '/home',
                                 }}>
                                     <button className='bttn-float bttn-lg'>Back</button>
                                 </Link>
