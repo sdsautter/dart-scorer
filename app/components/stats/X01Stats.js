@@ -179,8 +179,7 @@ export default class X01Stats extends Component {
                 }
             }
         })
-
-        this.setState({ x01: { highestCheckout } });
+        this.setState({ highestCheckout });
     }
 
     setX01Ppd(roundScores, throws) {
@@ -326,7 +325,7 @@ export default class X01Stats extends Component {
     }
 
     checkoutPercentRow() {
-        if (this.checkOutPercent > 0 ) {
+        if (this.state.checkoutPercent > 0 ) {
         return (
             <tr>
                 <td>Checkout Percent</td>
@@ -337,7 +336,7 @@ export default class X01Stats extends Component {
     }
 
     checkInPercentRow() {
-        if (this.checkInPercent > 0 ) {
+        if (this.state.checkInPercent > 0 ) {
         return (
             <tr>
                 <td>Check In Percent</td>
@@ -365,6 +364,7 @@ export default class X01Stats extends Component {
                     {this.winsRow()}
                     {this.totalGamesRow()}
                     {this.winPercentRow()}
+                    {this.highestCheckoutRow()}
                     {this.throwRow()}
                     {this.ppdRow()}
                     {this.checkoutPercentRow()}
