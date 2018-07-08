@@ -88,12 +88,15 @@ export default class Results extends Component {
     componentDidMount() {
         this.setLegScores();
         this.setLegPpd();
-        this.setLegCheckout();
         this.setLegCheckIn();
         this.setSetScores();
         this.setSetPpd();
         this.setSetCheckout();
-        this.setSetCheckIn();
+
+        if (this.props.gameOptions === 'dido') {
+            this.setLegCheckout();
+            this.setSetCheckIn();
+        }
     }
 
     renderWinner() {
@@ -140,8 +143,16 @@ export default class Results extends Component {
             }
         }
 
+        if (p1CheckInShots > 0 ) {
         p1CheckInPercent = (p1InShot / p1CheckInShots) * 100;
+        } else {
+            p1CheckInPercent = 0;
+        }
+        if (p2CheckInShots > 0 ) {
         p2CheckInPercent = (p2InShot / p2CheckInShots) * 100;
+        } else {
+            p2CheckInPercent = 0;
+        }
 
         this.setState({ p1CheckInShots });
         this.setState({ p1CheckInPercent });
