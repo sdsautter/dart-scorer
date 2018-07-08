@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ShotHistory from "./views/ShotHistory";
 
 export default class Numpad extends Component {
     constructor() {
@@ -13,6 +14,8 @@ export default class Numpad extends Component {
         this.numberInput = this.numberInput.bind(this);
         this.numberRemove = this.numberRemove.bind(this);
         this.scoreEntry = this.scoreEntry.bind(this);
+        this.p1ShotsRender = this.p1ShotsRender.bind(this);
+        this.p2ShotsRender = this.p2ShotsRender.bind(this);
     }
 
     numberInput(number) {
@@ -61,26 +64,84 @@ export default class Numpad extends Component {
         }
     }
 
+    p1ShotsRender() {
+        var intViewportWidth = window.innerWidth;
+        //Renders either an input or a text area depending on the screen width
+        if (intViewportWidth < 900) {
+            return (
+                <div className='undo numpad-shots'>
+                    <button type="button" className="bttn-jelly numpad-shots" data-toggle="modal" data-target="#p1ShotModal">
+                        Shots
+                        </button>
+                </div>
+            )
+        } else {
+            return <ShotHistory
+                p1RoundStartScore={this.props.p1RoundStartScore}
+                p1RoundScores={this.props.p1RoundScores}
+                p1='p1'
+            />
+        }
+    }
+
+    p2ShotsRender() {
+        var intViewportWidth = window.innerWidth;
+
+        if (intViewportWidth < 900) {
+            return (
+                <div className='undo numpad-shots'>
+                    <button type="button" className="bttn-jelly numpad-shots" data-toggle="modal" data-target="#p2ShotModal">
+                        Shots
+                        </button>
+                </div>
+            )
+        } else {
+            return <ShotHistory
+                p2RoundStartScore={this.props.p2RoundStartScore}
+                p2RoundScores={this.props.p2RoundScores}
+            />
+        }
+    }
+    
+    topRender() {
+        if (intViewportWidth < 900) {
+            return (
+                <div className='undo numpad-shots'>
+                    <button type="button" className="bttn-jelly numpad-shots" data-toggle="modal" data-target="#p2ShotModal">
+                        Shots
+                        </button>
+                </div>
+            )
+        } else {
+            return <ShotHistory
+                p2RoundStartScore={this.props.p2RoundStartScore}
+                p2RoundScores={this.props.p2RoundScores}
+            />
+        }
+    }
+
     numpadRender() {
         if (!this.props.gameOverModal) {
             if (this.props.activeThrower === 'p1') {
                 return (
                     <div className="row">
-                        <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-                            <br />
+                        <div className='col-3 numpad-shots'>
+                            {this.p1ShotsRender()}
+                        </div>
+                        <div className="col numpad-buttons">
                             <div className="row">
                                 <div className="col-12 text-center points-score">
                                     {this.renderNumberEntry()}
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-4 number p1-single">
+                                <div className="col-4 number p1-single numpad-top-row">
                                     <button type="button" className="btn btn-success" onClick={() => { this.numberInput(9) }}>9</button>
                                 </div>
-                                <div className="col-4 number p1-single">
+                                <div className="col-4 number p1-single numpad-top-row">
                                     <button type="button" className="btn btn-success" onClick={() => { this.numberInput(8) }}>8</button>
                                 </div>
-                                <div className="col-4 number p1-single">
+                                <div className="col-4 number p1-single numpad-top-row">
                                     <button type="button" className="btn btn-success" onClick={() => { this.numberInput(7) }}>7</button>
                                 </div>
                                 <div className="col-4 number p1-single">
@@ -115,27 +176,32 @@ export default class Numpad extends Component {
                                 </div>
                             </div>
                         </div>
+                        <div className='col-3 numpad-shots'>
+                            {this.p2ShotsRender()}
+                        </div>
                     </div>
                 )
             } else if (this.props.activeThrower === 'p2')
                 if (!this.props.botGame) {
                     return (
                         <div className="row">
-                            <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-                                <br />
+                            <div className='col-3 numpad-shots'>
+                                {this.p1ShotsRender()}
+                            </div>
+                            <div className="col-6 numpad-buttons">
                                 <div className="row">
                                     <div className="col-12 text-center points-score">
                                         {this.renderNumberEntry()}
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-4 number p2-single">
+                                    <div className="col-4 number p2-single numpad-top-row">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(9) }}>9</button>
                                     </div>
-                                    <div className="col-4 number p2-single">
+                                    <div className="col-4 number p2-single numpad-top-row">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(8) }}>8</button>
                                     </div>
-                                    <div className="col-4 number p2-single">
+                                    <div className="col-4 number p2-single numpad-top-row">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(7) }}>7</button>
                                     </div>
                                     <div className="col-4 number p2-single">
@@ -170,26 +236,31 @@ export default class Numpad extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <div className='col-3 numpad-shots'>
+                                {this.p2ShotsRender()}
+                            </div>
                         </div>
                     )
                 } else {
                     return (
                         <div className="row">
-                            <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-                                <br />
+                            <div className='col-3 numpad-shots'>
+                                {this.p1ShotsRender()}
+                            </div>
+                            <div className="col-6 numpad-buttons">
                                 <div className="row">
                                     <div className="col-12 text-center points-score">
                                         {this.renderNumberEntry()}
                                     </div>
                                 </div>
                                 <div className="row">
-                                    <div className="col-4 number p2-single">
+                                    <div className="col-4 number p2-single numpad-top-row">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(9) }} disabled>9</button>
                                     </div>
-                                    <div className="col-4 number p2-single">
+                                    <div className="col-4 number p2-single numpad-top-row">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(8) }} disabled>8</button>
                                     </div>
-                                    <div className="col-4 number p2-single">
+                                    <div className="col-4 number p2-single numpad-top-row">
                                         <button type="button" className="btn btn-success" onClick={() => { this.numberInput(7) }} disabled>7</button>
                                     </div>
                                     <div className="col-4 number p2-single">
@@ -223,6 +294,9 @@ export default class Numpad extends Component {
                                         <button type="button" className="btn btn-success" onClick={() => { this.props.numpadUndo() }}>Undo</button>
                                     </div>
                                 </div>
+                            </div>
+                            <div className='col-3 numpad-shots'>
+                                {this.p2ShotsRender()}
                             </div>
                         </div>
                     )

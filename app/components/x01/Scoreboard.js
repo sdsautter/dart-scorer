@@ -76,6 +76,10 @@ export default class Scoreboard extends Component {
                     gameOverModal={this.props.gameOverModal}
                     undoGameOver={this.props.undoGameOver}
                     botGame={this.props.botGame}
+                    p1RoundStartScore={this.props.p1RoundStartScore}
+                    p1RoundScores={this.props.p1RoundScores}
+                    p2RoundStartScore={this.props.p2RoundStartScore}
+                    p2RoundScores={this.props.p2RoundScores}
                 />
             )
         } else {
