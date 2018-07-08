@@ -81,7 +81,7 @@ export default class X01Stats extends Component {
         this.setX01BestLeg(games);
         this.setHighestCheckout(games);
         this.setX01Checkout(checkouts, wins);
-        this.setX01CheckIn(games);
+        // this.setX01CheckIn(games);
 
     }
 
@@ -89,6 +89,8 @@ export default class X01Stats extends Component {
         let checkoutPercent;
         if (checkouts !== 0) {
             checkoutPercent = (wins / checkouts) * 100;
+        } else {
+            checkoutPercent = 0;
         }
         this.setState({ checkoutPercent });
     }
@@ -108,6 +110,8 @@ export default class X01Stats extends Component {
         });
         if (checkInShots !== 0) {
             checkInPercent = (checkInSuccess / checkInShots) * 100;
+        } else {
+            checkInPercent = 0;
         }
         this.setState({ checkInPercent });
     }
@@ -322,6 +326,7 @@ export default class X01Stats extends Component {
     }
 
     checkoutPercentRow() {
+        if (this.checkOutPercent > 0 ) {
         return (
             <tr>
                 <td>Checkout Percent</td>
@@ -329,14 +334,16 @@ export default class X01Stats extends Component {
             </tr>
         )
     }
+    }
 
     checkInPercentRow() {
+        if (this.checkInPercent > 0 ) {
         return (
             <tr>
                 <td>Check In Percent</td>
                 <td>{`${parseFloat(this.state.checkInPercent.toFixed(2))}%`}</td>
             </tr>
-        )
+        ) }
     }
 
     highestCheckoutRow() {
