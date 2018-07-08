@@ -1303,6 +1303,7 @@ export default class X01 extends Component {
                         username={this.props.username}
                         gameWinner={this.state.gameWinner}
                         gameX01Reset={this.gameX01Reset}
+                        gameOptions={this.state.gameOptions}
                         p1Throws={this.state.p1Throws}
                         p2Throws={this.state.p2Throws}
                         p1RoundScores={this.state.p1RoundScores}

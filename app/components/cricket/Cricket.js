@@ -480,10 +480,8 @@ export default class Cricket extends Component {
     }
 
     botLogic() {
-        const difficulty = this.state.botDifficulty;
         const botScore = parseInt(this.state.p2Score);
         const humanScore = parseInt(this.state.p1Score);
-        const scoreDiff = botScore - humanScore;
         let randomMarks, number, multiple;
 
         switch (this.state.botDifficulty) {
@@ -1228,45 +1226,49 @@ export default class Cricket extends Component {
                             }
                         }, 1500);
                         setTimeout(() => {
-                            randomNumber = Math.random();
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
+                                randomNumber = Math.random();
+                                number = this.botNumberHit();
+
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 3;
                                 }
-                            } else {
-                                multiple = 3;
-                            }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
                         }, 3000);
                         setTimeout(() => {
-                            randomNumber = Math.random();
-                            number = this.botNumberHit();
-                            if (number === 25) {
-                                if (randomNumber <= .25) {
-                                    multiple = 2;
-                                } else if (randomNumber <= .75) {
-                                    multiple = 1;
+                            if (this.state.gameWinner !== 'p1' && this.state.gameWinner !== 'p2') {
+                                randomNumber = Math.random();
+                                number = this.botNumberHit();
+                                if (number === 25) {
+                                    if (randomNumber <= .25) {
+                                        multiple = 2;
+                                    } else if (randomNumber <= .75) {
+                                        multiple = 1;
+                                    } else {
+                                        multiple = 0;
+                                    }
                                 } else {
-                                    multiple = 0;
+                                    multiple = 3;
                                 }
-                            } else {
-                                multiple = 3;
+                                if (multiple === 0) {
+                                    this.miss();
+                                } else {
+                                    this.score(number, multiple);
+                                }
                             }
-                            if (multiple === 0) {
-                                this.miss();
-                            } else {
-                                this.score(number, multiple);
-                            }
-
                         }, 4500);
                         break;
                     default:
@@ -1292,41 +1294,6 @@ export default class Cricket extends Component {
         }
     }
 
-
-    newMethod(number, randomMarks, randomNumber, multiple) {
-        if (number === 25) {
-            if (randomMarks === 4) {
-                if (randomNumber <= .10) {
-                    multiple = 2;
-                }
-                else if (randomNumber <= .75) {
-                    multiple = 1;
-                }
-                else {
-                    multiple = 0;
-                }
-            }
-            else if (randomMarks === 5) {
-                if (randomNumber <= .20) {
-                    multiple = 2;
-                }
-                else if (randomNumber <= .75) {
-                    multiple = 1;
-                }
-                else {
-                    multiple = 0;
-                }
-            }
-            else {
-                multiple = Math.random() >= .75 ? 0 : 1;
-            }
-        }
-        else {
-            multiple = 1;
-        }
-        return multiple;
-    }
-
     botNumberHit() {
         const botScore = parseInt(this.state.p2Score);
         const humanScore = parseInt(this.state.p1Score);
@@ -1338,8 +1305,6 @@ export default class Cricket extends Component {
             return this.humanFindOpenNumber();
         }
     }
-
-
 
     botFindOpenNumber() {
         for (var i = 20; i > 0; i--) {
@@ -1537,7 +1502,7 @@ export default class Cricket extends Component {
                     return this.setThrowNumber(0);
                 }
             });
-        } 
+        }
     }
 
     renderP1Score() {
@@ -2690,7 +2655,7 @@ export default class Cricket extends Component {
                             default:
                                 break;
                         }
-console
+                        console
                     }
                     break;
                 default:
