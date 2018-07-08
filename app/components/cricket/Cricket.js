@@ -26,6 +26,9 @@ export default class Cricket extends Component {
         this.p2BullsHistory = [];
         this.p2ThrowsHistory = 0;
 
+        this.p1ThrowLog = [];
+        this.p2ThrowLog = [];
+
         this.state = {
             diddle: false,
             activeThrower: "p1",
@@ -124,6 +127,7 @@ export default class Cricket extends Component {
         const game = {
             win,
             throws: this.state.p1Throws,
+            throwLog: this.p1ThrowLog,
             marks: this.p1Marks,
             bulls: this.p1Bulls,
             botGame: this.state.botGame,
@@ -302,8 +306,11 @@ export default class Cricket extends Component {
     }
 
     addToLog(number, multiplier) {
+        let player = this.state.activeThrower;
         let loggedThrow = `${number}${multiplier}`;
         let loggedArray = this.state.throwLog;
+        let playerThrowLog = eval(`this.${player}ThrowLog`);
+        playerThrowLog.push(loggedThrow);
         new Promise(() => {
             loggedArray.push(loggedThrow);
             return this.setState({ throwLog: loggedArray });

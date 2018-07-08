@@ -12,6 +12,8 @@ import NavMenu from "../navMenu/NavMenu";
 export default class X01 extends Component {
     constructor({ match }) {
         super();
+        this.p1ThrowLog = [];
+        this.p2ThrowLog = [];
 
         this.p1RoundScoresHistory = [];
         this.p1CheckoutShotsHistory = 0;
@@ -566,6 +568,9 @@ export default class X01 extends Component {
     addToLog(number, multiplier) {
         let loggedThrow = `${number}${multiplier}`;
         let loggedArray = this.state.throwLog;
+        let player = this.state.activeThrower;
+        let playerThrowLog = eval(`this.${player}ThrowLog`);
+        playerThrowLog.push(loggedThrow);
         loggedArray.push(loggedThrow);
         this.setState({ throwLog: loggedArray });
     }
@@ -954,6 +959,7 @@ export default class X01 extends Component {
             x01Game: this.state.x01Game,
             gameOptions: this.state.gameOptions,
             throws: this.state.p1Throws,
+            throwLog: this.p1ThrowLog,
             roundScores: this.state.p1RoundScores,
             botGame: this.state.botGame,
             botDifficulty,
