@@ -468,6 +468,8 @@ export default class X01 extends Component {
         this.p2CheckoutShots = 0;
         this.p1CheckInShots = 0;
         this.p2CheckInShots = 0;
+        this.p1ThrowLog = [];
+        this.p2ThrowLog = [];
         this.setState({ activeThrower });
         this.setState({ activeThrows: 0 });
         this.setState({ gameState: "playing" });
@@ -496,6 +498,8 @@ export default class X01 extends Component {
     gameX01Reset() {
         let p1RoundStartScore = [];
         let p2RoundStartScore = [];
+        this.p1ThrowLog = [];
+        this.p2ThrowLog = [];
         p1RoundStartScore.push(this.state.x01Game);
         p2RoundStartScore.push(this.state.x01Game);
         this.setState({ diddle: this.state.botGame ? true : false });
@@ -953,7 +957,7 @@ export default class X01 extends Component {
         const botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
         const checkIns = this.p1CheckInShots;
         const checkouts = this.p1CheckoutShots
-
+        console.log(this.p1ThrowLog);
         const game = {
             win,
             x01Game: this.state.x01Game,

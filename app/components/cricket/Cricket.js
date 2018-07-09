@@ -123,7 +123,7 @@ export default class Cricket extends Component {
     putGameStats() {
         const win = this.state.gameWinner === 'p1' ? true : false;
         const botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
-
+        console.log(this.p1ThrowLog)
         const game = {
             win,
             throws: this.state.p1Throws,
@@ -170,6 +170,8 @@ export default class Cricket extends Component {
         this.setState({ activeThrows: 0 });
         this.activeMarks = 0;
         this.activeBulls = 0;
+        this.p1ThrowLog = [];
+        this.p2ThrowLog = [];
         this.setState({ gameWinner: {} });
         this.setState({ gameOverModal: false });
         this.setState({ gameState: 'playing' })
@@ -206,6 +208,8 @@ export default class Cricket extends Component {
     gameCricketReset() {
         this.setState({ diddle: this.state.botGame ? true : false });
         this.p1ThrowsHistory = 0;
+        this.p1ThrowLog = [];
+        this.p2ThrowLog = [];
         this.p1MarksHistory = [];
         this.p2MarksHistory = [];
         this.p1BullsHistory = [];
