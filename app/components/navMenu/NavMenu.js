@@ -46,10 +46,13 @@ export default class NavMenu extends Component {
 
     menuNavButton() {
         return (
-            <div className='sound-toggle' data-toggle="modal" data-target="#menu" onClick={() => {
-                this.setMenuState('menu');
-            }}>
-                <span id='navName'>{this.nameRender()}</span><span><img src="/assets/images/menu-dots3.png" className='menu-dots' /></span>
+            <div className='sound-toggle'>
+                <span id='navName' data-toggle="modal" data-target="#menu" onClick={() => {
+                    this.setMenuState('menu');
+                }}>{this.nameRender()}</span>
+                <span><img src="/assets/images/menu-dots3.png" data-toggle="modal" data-target="#menu" onClick={() => {
+                    this.setMenuState('menu');
+                }} className='menu-dots' /></span>
             </div>
         )
     }
