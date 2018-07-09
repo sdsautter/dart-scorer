@@ -957,7 +957,6 @@ export default class X01 extends Component {
         const botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
         const checkIns = this.p1CheckInShots;
         const checkouts = this.p1CheckoutShots
-        console.log(this.p1ThrowLog);
         const game = {
             win,
             x01Game: this.state.x01Game,
