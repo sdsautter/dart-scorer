@@ -1079,10 +1079,10 @@ img {
 .sound-toggle {
     z-index: 99;
     position: fixed;
-    top: 0;
+    top: 1%;
     text-align: right;
-    right: .5%;
     width: 100%;
+    right: 1%;
 }
 
 .sound-toggle img {
