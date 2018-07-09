@@ -123,7 +123,6 @@ export default class Cricket extends Component {
     putGameStats() {
         const win = this.state.gameWinner === 'p1' ? true : false;
         const botDifficulty = typeof this.state.botDifficulty === 'string' ? this.state.botDifficulty : null;
-        console.log(this.p1ThrowLog)
         const game = {
             win,
             throws: this.state.p1Throws,
