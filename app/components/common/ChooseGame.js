@@ -31,7 +31,7 @@ export default class ChooseGame extends Component {
                             render: () => {
                                 <Cricket />
                             }
-                        }}><button className='bttn-float bttn-lg'>Cricket</button></Link>
+                        }}><button className='bttn-jelly bttn-lg'>Cricket</button></Link>
                     </div>
                 </div>
                 <div className="row">
@@ -41,7 +41,7 @@ export default class ChooseGame extends Component {
                             render: () => {
                                 <X01 />
                             }
-                        }}><button className='bttn-float bttn-lg'>x01</button></Link>
+                        }}><button className='bttn-jelly bttn-lg'>x01</button></Link>
                     </div>
                 </div>
                 <div className="row">
@@ -49,7 +49,7 @@ export default class ChooseGame extends Component {
                         <Link to={{
                             pathname: '/home',
                         }}>
-                            <button className='bttn-float bttn-lg'>Back</button>
+                            <button className='bttn-jelly bttn-lg'>Back</button>
                         </Link>
                     </div>
                 </div >

@@ -19,7 +19,7 @@ export default class BotDifficulty extends Component {
                         <div className="col-12 text-center main-menu-button">
                             <Link to={{
                                 pathname: `${this.url}/pro`,
-                            }}><button className='bttn-float bttn-lg'>Pro</button></Link>
+                            }}><button className='bttn-jelly bttn-lg'>Pro</button></Link>
                         </div>
                     </div>
                 </div>
@@ -43,21 +43,21 @@ export default class BotDifficulty extends Component {
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}/easy`,
-                        }}><button className='bttn-float bttn-lg'>Easy</button></Link>
+                        }}><button className='bttn-jelly bttn-lg'>Easy</button></Link>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}/medium`,
-                        }}><button className='bttn-float bttn-lg'>Medium</button></Link>
+                        }}><button className='bttn-jelly bttn-lg'>Medium</button></Link>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `${this.url}/hard`,
-                        }}><button className='bttn-float bttn-lg'>Hard</button></Link>
+                        }}><button className='bttn-jelly bttn-lg'>Hard</button></Link>
                     </div>
                 </div>
                 {this.difficultyRender()}

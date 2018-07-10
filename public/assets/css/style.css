@@ -208,19 +208,6 @@
         margin-top: 1%;
         font-size: 1rem;
     }
-    .left-mark img {
-        /* height: 50px; */
-        /* margin-left: 8px; */
-    }
-    .right-label {
-        /* margin-left: -13px; */
-    }
-    .right-mark,
-    .left-mark {
-        /* padding-top: .5%; */
-        /* padding-bottom: .5%; */
-        /* height: 50px; */
-    }
     .right-mark {
         margin-left: -15px;
     }
@@ -231,6 +218,7 @@
     .rules {
         font-family: 'Cuprum', cursive;
         font-size: .75rem;
+        margin: 0 auto !important;
     }
     .throw-borders,
     .rules-borders {
@@ -242,8 +230,7 @@
         margin-top: 3.5%;
     }
     .rules-borders {
-        /* margin-top: 5%; */
-        margin-right: 5%;
+        margin-top: 5%;
     }
     .title {
         font-size: 1.5rem;
@@ -553,6 +540,9 @@
         color: #F2DDC8;
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
+    }
+    .rules-borders {
+        margin-top: 0;
     }
     .numpad-shots button, .numpad-shots {
         font-size: 2rem !important;

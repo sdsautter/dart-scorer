@@ -62,17 +62,17 @@ export default class GamePicky extends Component {
                 </div>
                 <div className='row'>
                     <div className="col-12 text-center main-menu-button">
-                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.setX01Game(301) }}>301</button>
+                        <button type='button' className='bttn-jelly bttn-lg' onClick={() => { this.props.setX01Game(301) }}>301</button>
                     </div>
                 </div>
                 <div className='row'>
                     <div className="col-12 text-center main-menu-button">
-                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.props.setX01Game(501) }}>501</button>
+                        <button type='button' className='bttn-jelly bttn-lg' onClick={() => { this.props.setX01Game(501) }}>501</button>
                     </div>
                 </div>
                 <div className='row'>
                     <div className="col-12 text-center main-menu-button">
-                        <button type='button' className='bttn-float bttn-lg' onClick={() => { this.customSwitch() }}>Custom</button>
+                        <button type='button' className='bttn-jelly bttn-lg' onClick={() => { this.customSwitch() }}>Custom</button>
                     </div>
                 </div>
                 {this.renderCustom()}
@@ -81,7 +81,7 @@ export default class GamePicky extends Component {
                         <Link to={{
                             pathname: `${this.url}`,
                         }}>
-                            <button type='button' className='bttn-float bttn-lg'>Back</button>
+                            <button type='button' className='bttn-jelly bttn-lg'>Back</button>
                         </Link>
                     </div>
                 </div>

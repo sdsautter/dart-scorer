@@ -43,35 +43,35 @@ export default class MainMenu extends Component {
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: '/pvp',
-                        }}><button className="bttn-float bttn-lg">Multiplayer</button></Link>
+                        }}><button className="bttn-jelly bttn-lg">Multiplayer</button></Link>
                     </div>
                 </div>
                 <div className='row'>
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: '/cpu',
-                        }}><button className="bttn-float bttn-lg">Single Player</button></Link>
+                        }}><button className="bttn-jelly bttn-lg">Single Player</button></Link>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: '/rules',
-                        }}><button className="bttn-float bttn-lg">Rules</button></Link>
+                        }}><button className="bttn-jelly bttn-lg">Rules</button></Link>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `/user/${this.props.username}`,
-                        }}><button className="bttn-float bttn-lg">Stats</button></Link>
+                        }}><button className="bttn-jelly bttn-lg">Stats</button></Link>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: '/settings',
-                        }}><button className="bttn-float bttn-lg">Settings</button></Link>
+                        }}><button className="bttn-jelly bttn-lg">Settings</button></Link>
                     </div>
                 </div>
             </div>

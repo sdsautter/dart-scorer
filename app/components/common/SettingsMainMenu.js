@@ -233,7 +233,7 @@ export default class SettingsMainMenu extends Component {
                         <Link to={{
                             pathname: '/home',
                         }}>
-                            <button className='bttn-float bttn-lg'>Back</button>
+                            <button className='bttn-jelly bttn-lg'>Back</button>
                         </Link>
                     </div>
                 </div >

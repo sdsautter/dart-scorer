@@ -462,7 +462,7 @@ export default class TabletInput extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p2-multiple">
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-jelly bttn-lg" onClick={() => {
                                 this.props.setActiveThrower('p1')
                                 this.props.setDiddleTrue();
                             }}>
@@ -473,7 +473,7 @@ export default class TabletInput extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p1-multiple">
-                            <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                            <button type="button" className="bttn-jelly bttn-lg" onClick={() => {
                                 this.props.setActiveThrower('p2')
                                 this.props.setDiddleTrue();
                             }}>
