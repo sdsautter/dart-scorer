@@ -55,39 +55,35 @@ export default class RulesPage extends Component {
 
     render() {
         return (
-            <div>
-                 <NavMenu setUsername={this.props.setUsername}
-                        username={this.props.username}
-                        setUsername={this.props.setUsername}
-                    />
+            <div style={{padding: 0}}>
+                <NavMenu setUsername={this.props.setUsername}
+                    username={this.props.username}
+                    setUsername={this.props.setUsername}
+                />
                 <div className="row top-row">
                     <div className="col rules-menu-title text-center">
                         Rules
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-4'>
+                    <div className='col-12 col-md-3'>
                         <div className='row'>
-                            <div className="col-12 text-center main-menu-button">
-                                <button className='bttn-float bttn-lg' onClick={() => { this.setRules('cricket') }}>Cricket</button>
+                            <div className="col-4 col-md-8 offset-md-2 text-center p1-single">
+                                <button className='bttn-jelly bttn-lg' onClick={() => { this.setRules('cricket') }}>Cricket</button>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12 text-center main-menu-button">
-                                <button className='bttn-float bttn-lg' onClick={() => { this.setRules('x01') }}>X01</button>
+                            <div className="col-4 col-md-8 offset-md-2 text-center p1-single">
+                                <button className='bttn-jelly bttn-lg' onClick={() => { this.setRules('x01') }}>X01</button>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-12 text-center main-menu-button">
+                            <div className="col-4 col-md-8 offset-md-2 text-center p1-single">
                                 <Link to={{
                                     pathname: '/home',
                                 }}>
-                                    <button className='bttn-float bttn-lg'>Back</button>
+                                    <button className='bttn-jelly bttn-lg'>Back</button>
                                 </Link>
                             </div>
                         </div>
                     </div>
-                    <div className='col-8' id='rules'>
+                    <div className='col-12 col-md-9 text-center' id='rules'>
                         {this.rulesRender()}
                     </div>
                 </div >

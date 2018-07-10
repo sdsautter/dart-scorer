@@ -230,7 +230,7 @@ export default class SettingsMenu extends Component {
                 </div>
                 <div className="row">
                     <div className="col-6 offset-3 text-center p2-multiple">
-                        <button type="button" className="bttn-float bttn-lg" onClick={() => {
+                        <button type="button" className="bttn-jelly bttn-lg" onClick={() => {
                             this.props.setMenuState('menu');
                         }}>Back</button>
                     </div>
