@@ -614,12 +614,6 @@ export default class Results extends Component {
                         Sets
                     </div>
                 </div>
-                {console.log(this.props.setHistory)}
-                    {console.log(this.props.p1Legs)}
-                    {console.log(this.props.p2Legs)}
-                    {console.log(this.props.p1Sets)}
-                    {console.log(this.props.p2Sets)}
-
                 <SetTable
                     setHistory={this.props.setHistory}
                     p1Legs={this.props.p1Legs}
