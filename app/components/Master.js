@@ -37,6 +37,21 @@ export default class Master extends Component {
         if (this.state.username === '') {
             this.setUsername('guest');
         }
+
+        if (localStorage.getItem('sounds') !== 'off') {
+            localStorage.setItem('sounds', 'on');
+        }
+        if (localStorage.getItem('multiple') !== 'vertical') {
+            localStorage.setItem('multiple', 'horizontal');
+        }
+
+        if (localStorage.getItem('legs') == null) {
+            localStorage.setItem('legs', 1);
+        }
+
+        if (localStorage.getItem('sets') == null) {
+            localStorage.setItem('sets', 3);
+        }
     }
 
     loggedInSwitch(loggedIn) {
