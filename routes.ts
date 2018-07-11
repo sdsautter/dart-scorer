@@ -68,6 +68,9 @@ module.exports = (app, passport) => {
         if (req.user) {
             return res.send(req.user.username);
         }
+        else {
+            return res.send("guest");
+        }
     })
     app.get('/user/:username/cricket', (req, res) => {
         const username = req.params.username;
