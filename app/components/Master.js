@@ -30,7 +30,9 @@ export default class Master extends Component {
         axios.get('/username')
             .then((username) => {
                 this.setUsername(username.data);
-                this.setState({ loggedIn: true });
+                if (username.data !== 'guest') {
+                    this.setState({ loggedIn: true });
+                }
             });
         if (this.state.username === '') {
             this.setUsername('guest');
