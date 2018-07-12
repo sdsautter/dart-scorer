@@ -143,13 +143,13 @@ export default class Results extends Component {
             }
         }
 
-        if (p1CheckInShots > 0 ) {
-        p1CheckInPercent = (p1InShot / p1CheckInShots) * 100;
+        if (p1CheckInShots > 0) {
+            p1CheckInPercent = (p1InShot / p1CheckInShots) * 100;
         } else {
             p1CheckInPercent = 0;
         }
-        if (p2CheckInShots > 0 ) {
-        p2CheckInPercent = (p2InShot / p2CheckInShots) * 100;
+        if (p2CheckInShots > 0) {
+            p2CheckInPercent = (p2InShot / p2CheckInShots) * 100;
         } else {
             p2CheckInPercent = 0;
         }
@@ -617,7 +617,7 @@ export default class Results extends Component {
                     <div className='col-12'>
                         <div className="row">
                             <div className="col-12 text-center p1-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.gameX01Reset() }}>
+                                <button type="button" className="bttn-jelly" onClick={() => { this.props.gameX01Reset() }}>
                                     Play Again
                         </button>
                             </div>
@@ -628,7 +628,7 @@ export default class Results extends Component {
                                 <Link to={{
                                     pathname: `${this.url}/cricket`,
                                 }}>
-                                    <button type="button" className="btn">
+                                    <button type="button" className="bttn-jelly">
                                         Play Cricket
                         </button>
                                 </Link>
@@ -639,7 +639,7 @@ export default class Results extends Component {
                                 <Link to={{
                                     pathname: `/`,
                                 }}>
-                                    <button type="button" className="btn">
+                                    <button type="button" className="bttn-jelly">
                                         Home
                         </button>
                                 </Link>
@@ -651,18 +651,23 @@ export default class Results extends Component {
         } else {
             return (
                 <div className="row">
-                    <div className="col-4 col-md-10 offset-md-1 text-center number p1-multiple">
-                        <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
+                    <div className="col-6 col-md-10 offset-md-1 text-center number p1-multiple">
+                        <button type="button" className="bttn-jelly" onClick={() => { this.props.continueSet() }}>
                             Continue Set
                         </button>
                     </div>
-                    <div className="col-4 col-md-10 offset-md-1 text-center number p2-multiple">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
+                    <div className="col-6 col-md-10 offset-md-1 text-center number p2-multiple">
+                        <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#reloadModal">
                             Reset Set
                         </button>
                     </div>
-                    <div className="col-4 col-md-10 offset-md-1 text-center miss">
-                        <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
+                    <div className="col-6 col-md-10 offset-md-1 text-center undo">
+                        <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#x01Modal">
+                            Choose Game
+                            </button>
+                    </div>
+                    <div className="col-6 col-md-10 offset-md-1 text-center miss">
+                        <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#homeModal">
                             Home
                         </button>
                     </div>
@@ -710,11 +715,39 @@ export default class Results extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    <div className="col text-center p1-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal">Cancel</button>
                                     </div>
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameX01Reset() }}>Yes</button>
+                                    <div className="col text-center p2-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal" onClick={() => { this.props.gameX01Reset() }}>Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="modal fade" id="x01Modal" tabIndex="-1" role="dialog" aria-labelledby="x01ModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="x01ModalLabel">Choose Game Screen</h5>
+                            </div>
+                            <div className="modal-body">
+                                <div className="row">
+                                    <div className="col text-center p1-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                    <div className="col text-center p2-multiple">
+                                        <Link to={{
+                                            pathname: this.url,
+                                        }}>
+                                            <button type="button" className="bttn-jelly" onClick={() => {
+                                                $("#menu").modal("hide");
+                                                $('body').removeClass('modal-open');
+                                                $('.modal-backdrop').remove();
+                                            }}>
+                                                Yes
+                                    </button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -729,14 +762,14 @@ export default class Results extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    <div className="col text-center p1-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal">Cancel</button>
                                     </div>
-                                    <div className="col text-center">
+                                    <div className="col text-center p2-multiple">
                                         <Link to={{
                                             pathname: '/home',
                                         }}>
-                                            <button type="button" className="btn btn-success" onClick={() => {
+                                            <button type="button" className="bttn-jelly" onClick={() => {
                                                 $("#menu").modal("hide");
                                                 $('body').removeClass('modal-open');
                                                 $('.modal-backdrop').remove();

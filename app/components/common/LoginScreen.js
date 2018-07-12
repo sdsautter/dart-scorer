@@ -69,7 +69,7 @@ export default class LoginScreen extends Component {
                                 </label>
                             </div>
                             <div className='p1-multiple' id='loginButton'>
-                                <button type="submit" className="bttn-lg" onClick={() => {
+                                <button type="submit" className="bttn-jelly bttn-lg" onClick={() => {
                                     setTimeout(() => {
                                         if (this.props.username === this.state.loginUsername) {
                                             $("#menu").modal("hide");
@@ -80,15 +80,15 @@ export default class LoginScreen extends Component {
 
                                 }}>Log In</button>
                             </div>
-                            <div className="p2-multiple" id='loginSignup'>
+                            <div className="p1-single" id='loginSignup'>
                                 <Link to={{
                                     pathname: '/signup',
-                                }}><button type="button" className="bttn-lg">Sign Up</button></Link>
+                                }}><button type="button" className="bttn-jelly bttn-lg">Sign Up</button></Link>
                         </div>
-                            <div className="p1-single" id='loginBack'>
+                            <div className="p2-multiple" id='loginBack'>
                                 <Link to={{
                                     pathname: '/home',
-                                }}><button type="button" className="bttn-lg">Continue As Guest</button></Link>
+                                }}><button type="button" className="bttn-jelly bttn-lg">Continue As Guest</button></Link>
                         </div>
                         </form>
                     </div>

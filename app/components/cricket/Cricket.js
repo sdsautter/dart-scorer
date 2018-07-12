@@ -2796,7 +2796,7 @@ export default class Cricket extends Component {
     conditionalRender() {
         if (this.state.gameState === "playing") {
             return (
-                <div>
+                <div style={{padding: 0}}>
                     <Scoreboard
                         diddle={this.state.diddle}
                         username={this.props.username}

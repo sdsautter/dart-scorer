@@ -78,7 +78,7 @@ export default class Signup extends Component {
                                     </label>
                                 </div>
                                 <div className='p1-multiple'>
-                                    <button type="submit" className='bttn-lg' id='signupButton' onClick={() => {
+                                    <button type="submit" className='bttn-jelly bttn-lg' id='signupButton' onClick={() => {
                                         $("#menu").modal("hide");
                                         $('body').removeClass('modal-open');
                                         $('.modal-backdrop').remove();
@@ -87,7 +87,7 @@ export default class Signup extends Component {
                             </form>
                             <div className="row">
                                 <div className="col-12 text-center p2-multiple" id='signupBack'>
-                                    <button type="button" className="bttn-lg" onClick={() => {
+                                    <button type="button" className="bttn-jelly bttn-lg" onClick={() => {
                                         this.props.setMenuState('menu');
                                     }}>Back</button>
                                 </div>

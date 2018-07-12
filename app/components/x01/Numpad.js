@@ -312,14 +312,14 @@ export default class Numpad extends Component {
                     <div className='row'>
                         <div className="col-12 col-md-4 offset-md-1 text-center p2-multiple game-over">
 
-                            <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
+                            <button type="button" className="bttn-jelly" onClick={() => { this.props.undoGameOver() }}>
                                 Undo
                         </button>
 
                         </div>
 
                         <div className="col-12 col-md-4 offset-md-2 text-center p1-multiple game-over">
-                            <button type="button" className="btn" onClick={() => { this.props.gameStateOver() }}>
+                            <button type="button" className="bttn-jelly" onClick={() => { this.props.gameStateOver() }}>
                                 Confirm
                         </button>
                         </div>

@@ -45,7 +45,7 @@ export default class ChooseGame extends Component {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-12 text-center main-menu-button">
+                    <div className="col-12 text-center main-menu-button" id='backButton'>
                         <Link to={{
                             pathname: '/home',
                         }}>

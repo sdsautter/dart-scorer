@@ -479,130 +479,68 @@ export default class Results extends Component {
         let setSettings = parseInt(localStorage.getItem('sets'));
         setSettings = Math.ceil(setSettings / 2);
 
-        var viewWidth = window.innerWidth;
-        if (viewWidth >= 720) {
-            if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
-                return (
-                    <div>
-                        <div className='row'>
-                            <div className="col-8 offset-2 text-center p1-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>
+        if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
+            return (
+                <div className='row'>
+                    <div className='col-12'>
+                        <div className="row">
+                            <div className="col-12 text-center p1-multiple">
+                                <button type="button" className="bttn-jelly" onClick={() => { this.props.gameX01Reset() }}>
                                     Play Again
                         </button>
                             </div>
                         </div>
-                        <br />
-                        <div className='row'>
-                            <div className='col-12'>
-                                <div className="row">
-                                    <br />
-                                    <div className="col-6 col-md-8 offset-md-2 text-center undo">
-                                        <button type="button" className="btn" data-toggle="modal" data-target="#x01Modal">
-                                            Choose Game
-                            </button>
-                                    </div>
-                                </div>
-                                <br />
-                                <div className="row">
-                                    <div className="col-6 col-8 offset-2 text-center miss">
-                                        <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
-                                            Home
+                        <div className="row">
+                            <br />
+                            <div className="col-12 text-center undo">
+                                <Link to={{
+                                    pathname: `${this.url}/x01`,
+                                }}>
+                                    <button type="button" className="bttn-jelly">
+                                        Play X01
                         </button>
-                                    </div>
-                                </div>
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-12 text-center miss">
+                                <Link to={{
+                                    pathname: `/`,
+                                }}>
+                                    <button type="button" className="bttn-jelly">
+                                        Home
+                        </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                )
-            } else {
-                return (
-                    <div>
-                        <div className="row">
-                            <div className="col-6 col-md-8 offset-md-2 text-center p1-multiple">
-                                <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
-                                    Continue Set
-                        </button>
-                            </div>
-                        </div>
-                        <br />
-                        <div className="row">
-                            <div className="col-6 col-md-8 offset-md-2 text-center p2-multiple">
-                                <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                                    Reset Set
-                        </button>
-                            </div>
-                        </div>
-                        <br />
-                        <div className='row'>
-                            <div className='col-12'>
-                                <div className="row">
-                                    <br />
-                                    <div className="col-6 col-md-8 offset-md-2 text-center undo">
-                                        <button type="button" className="btn" data-toggle="modal" data-target="#x01Modal">
-                                            Choose Game
-                            </button>
-                                    </div>
-                                </div>
-                                <br />
-                                <div className="row">
-                                    <div className="col-6 col-8 offset-2 text-center miss">
-                                        <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
-                                            Home
-                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                )
-            }
+                </div>
+            )
         } else {
-            if (this.props.p1Sets >= setSettings || this.props.p2Sets >= setSettings) {
-                return (
-                    <div className='row'>
-                        <div className="col-4 text-center p1-multiple">
-                            <button type="button" className="btn" onClick={() => { this.props.gameCricketReset() }}>
-                                Play Again
+            return (
+                <div className="row">
+                    <div className="col-6 col-md-10 offset-md-1 text-center number p1-multiple">
+                        <button type="button" className="bttn-jelly" onClick={() => { this.props.continueSet() }}>
+                            Continue Set
                         </button>
-                        </div>
-                        <div className="col-4 text-center undo">
-                            <button type="button" className="btn" data-toggle="modal" data-target="#x01Modal">
-                                Choose Game
-                            </button>
-                        </div>
-                        <div className="col-4 text-center miss">
-                            <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
-                                Home
-                        </button>
-                        </div>
-                    </div >
-                )
-            } else {
-                return (
-                    <div className="row">
-                        <div className="col-6 text-center continue-set">
-                            <button type="button" className="btn" onClick={() => { this.props.continueSet() }}>
-                                Continue Set
-                        </button>
-                        </div>
-                        <div className="col-6 text-center reset-set">
-                            <button type="button" className="btn" data-toggle="modal" data-target="#reloadModal">
-                                Reset Set
-                        </button>
-                        </div>
-                        <div className="col-6 text-center undo">
-                            <button type="button" className="btn" data-toggle="modal" data-target="#x01Modal">
-                                Choose Game
-                            </button>
-                        </div>
-                        <div className="col-6 text-center miss">
-                            <button type="button" className="btn" data-toggle="modal" data-target="#homeModal">
-                                Home
-                        </button>
-                        </div>
                     </div>
-                )
-            }
+                    <div className="col-6 col-md-10 offset-md-1 text-center number p2-multiple">
+                        <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#reloadModal">
+                            Reset Set
+                        </button>
+                    </div>
+                    <div className="col-6 col-md-10 offset-md-1 text-center undo">
+                        <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#x01Modal">
+                            Choose Game
+                            </button>
+                    </div>
+                    <div className="col-6 col-md-10 offset-md-1 text-center miss">
+                        <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#homeModal">
+                            Home
+                        </button>
+                    </div>
+                </div>
+            )
         }
     }
 
@@ -646,11 +584,11 @@ export default class Results extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    <div className="col text-center p1-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal">Cancel</button>
                                     </div>
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal" onClick={() => { this.props.gameCricketReset() }}>Yes</button>
+                                    <div className="col text-center p2-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal" onClick={() => { this.props.gameCricketReset() }}>Yes</button>
                                     </div>
                                 </div>
                             </div>
@@ -665,13 +603,20 @@ export default class Results extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">Cancel</button>
+                                    <div className="col text-center p1-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal">Cancel</button>
                                     </div>
-                                    <div className="col text-center">
-                                        <button type="button" className="btn" data-dismiss='modal' onClick={() => { window.location.href = this.url }}>
-                                            Yes
-                                    </button>
+                                    <div className="col text-center p2-multiple">
+                                        <Link to={{
+                                            pathname: this.url,
+                                        }}>
+                                            <button type="button" className="bttn-jelly" onClick={() => {
+                                                $("#menu").modal("hide");
+                                                $('body').removeClass('modal-open');
+                                                $('.modal-backdrop').remove();
+                                            }}>
+                                                Yes
+                                    </button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -686,14 +631,14 @@ export default class Results extends Component {
                             </div>
                             <div className="modal-body">
                                 <div className="row">
-                                    <div className="col text-center">
-                                        <button type="button" className="btn btn-success" data-dismiss="modal">No</button>
+                                    <div className="col text-center p1-multiple">
+                                        <button type="button" className="bttn-jelly" data-dismiss="modal">Cancel</button>
                                     </div>
-                                    <div className="col text-center">
+                                    <div className="col text-center p2-multiple">
                                         <Link to={{
                                             pathname: '/home',
                                         }}>
-                                            <button type="button" className="btn btn-success" onClick={() => {
+                                            <button type="button" className="bttn-jelly" onClick={() => {
                                                 $("#menu").modal("hide");
                                                 $('body').removeClass('modal-open');
                                                 $('.modal-backdrop').remove();
