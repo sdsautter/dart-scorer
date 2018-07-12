@@ -338,7 +338,7 @@ export default class MobileModalView extends Component {
                                 onDoubleTap={(event) => {
                                     event.preventDefault();
                                 }}>
-                                <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
+                                <button type="button" className="bttn-jelly" onClick={() => { this.props.undoGameOver() }}>
                                     Undo
                         </button>
                             </Hammer>
@@ -397,7 +397,7 @@ export default class MobileModalView extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="col-1 text-center align-self-start points-score">
+                            <div className="col-1 mobile-p1 text-center align-self-start points-score">
                                 {this.props.renderP1Score()}
                             </div>
                             <div className="col-2 left-mark text-center align-self-center">
@@ -430,7 +430,7 @@ export default class MobileModalView extends Component {
                             <div className="col-2 right-mark text-center align-self-center">
                                 {this.props.markProgress(2, 19)}
                             </div>
-                            <div className="col-1 text-center align-self-start points-score">
+                            <div className="col-1 mobile-p2 text-center align-self-start points-score">
                                 {this.props.renderP2Score()}
                             </div>
                         </div>
@@ -568,7 +568,7 @@ export default class MobileModalView extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-1 text-center align-self-start points-score">
+                                <div className="col-1 mobile-p1 text-center align-self-start points-score">
                                     {this.props.renderP1Score()}
                                 </div>
                                 <div className="col-2 left-mark text-center align-self-center">
@@ -601,7 +601,7 @@ export default class MobileModalView extends Component {
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 19)}
                                 </div>
-                                <div className="col-1 text-center align-self-start points-score">
+                                <div className="col-1 mobile-p2 text-center align-self-start points-score">
                                     {this.props.renderP2Score()}
                                 </div>
                             </div>
@@ -724,7 +724,7 @@ export default class MobileModalView extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col-1 text-center align-self-start points-score">
+                                <div className="col-1 mobile-p1 text-center align-self-start points-score">
                                     {this.props.renderP1Score()}
                                 </div>
                                 <div className="col-2 left-mark text-center align-self-center">
@@ -742,7 +742,7 @@ export default class MobileModalView extends Component {
                                 <div className="col-2 right-mark text-center align-self-center">
                                     {this.props.markProgress(2, 19)}
                                 </div>
-                                <div className="col-1 text-center align-self-start points-score">
+                                <div className="col-1 mobile-p2 text-center align-self-start points-score">
                                     {this.props.renderP2Score()}
                                 </div>
                             </div>
@@ -850,7 +850,7 @@ export default class MobileModalView extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-1 text-center align-self-start points-score">
+                        <div className="col-1 mobile-p1 text-center align-self-start points-score">
                             {this.props.renderP1Score()}
                         </div>
                         <div className="col-2 left-mark text-center align-self-center">
@@ -860,7 +860,7 @@ export default class MobileModalView extends Component {
                         </div>
                         <div className="col-2 right-mark text-center align-self-center">
                         </div>
-                        <div className="col-1 text-center align-self-start points-score">
+                        <div className="col-1 mobile-p2 text-center align-self-start points-score">
                             {this.props.renderP2Score()}
                         </div>
                     </div>
@@ -886,7 +886,7 @@ export default class MobileModalView extends Component {
                         <div className="col-2 left-mark offset-1 text-center align-self-center">
                         </div>
                         <div className="col-6 text-center p1-multiple game-over">
-                            <button type="button" className="btn" onClick={() => { this.props.gameStateOver() }}>
+                            <button type="button" className="bttn-jelly" onClick={() => { this.props.gameStateOver() }}>
                                 Confirm
                         </button>
                         </div>
@@ -945,7 +945,7 @@ export default class MobileModalView extends Component {
     render() {
         //Renders either an input or a text area depending on the screen width
         return (
-            <div className='container-fluid'>
+            <div style={{padding: 0}}>
                 {this.playersRender()}
                 {this.playerButtonsRender()}
                 {this.missRowRender()}

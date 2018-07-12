@@ -500,7 +500,7 @@ export default class DesktopView extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p2-multiple">
-                            <button type="button" className="bttn-lg" onClick={() => { 
+                            <button type="button" className="bttn-jelly bttn-lg" onClick={() => { 
                                 this.props.setActiveThrower('p1') 
                                 this.props.setDiddleTrue();
                                 }}>
@@ -511,7 +511,7 @@ export default class DesktopView extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p1-multiple">
-                            <button type="button" className="bttn-lg" onClick={() => { 
+                            <button type="button" className="bttn-jelly bttn-lg" onClick={() => { 
                                 this.props.setActiveThrower('p2') 
                                 this.props.setDiddleTrue();
                             }}>
@@ -533,7 +533,7 @@ export default class DesktopView extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p2-multiple">
-                            <button type="button" className="btn" onClick={() => { this.props.undoGameOver() }}>
+                            <button type="button" className="bttn-jelly" onClick={() => { this.props.undoGameOver() }}>
                                 Undo
                         </button>
                         </div>
@@ -541,7 +541,7 @@ export default class DesktopView extends Component {
                     <br />
                     <div className='row text-center'>
                         <div className="col-6 offset-3 text-center p1-multiple">
-                            <button type="button" className="btn" onClick={() => { this.props.gameStateOver() }}>
+                            <button type="button" className="bttn-jelly" onClick={() => { this.props.gameStateOver() }}>
                                 Confirm
                         </button>
                         </div>
@@ -626,7 +626,7 @@ export default class DesktopView extends Component {
     render() {
         //Renders either an input or a text area depending on the screen width
         return (
-            <div className="container-fluid">
+            <div style={{padding: 0}}>
                 {this.playersRender()}
                 <div className="row">
                     <div className='col-2'>

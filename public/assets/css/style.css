@@ -20,7 +20,12 @@
     ul {
         padding-left: 5%;
     }
-
+    .mobile-p1 {
+        font-size: 1.6rem !important;
+    }
+    .mobile-p2 {
+        font-size: 1.6rem !important;
+    }
     .custom-x01 {
         height: 100%;
     }
@@ -191,7 +196,7 @@
         /* color: black; */
     }
     .p2-multiple button:hover,
-    .modal-home button:hover {
+    .modal-home button:hover, #backButton button:hover {
         background-color: rgb(197, 98, 98) !important;
         /* color: black; */
     }
@@ -491,7 +496,7 @@
     }
     .points-score {
         padding: 0;
-        font-size: 1.25rem;
+        font-size: 2rem;
     }
     /* .right-label {
         padding-left: -20px;
@@ -766,7 +771,7 @@
         font-size: 1.75rem;
     }
     .points-score {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -954,7 +959,7 @@
         font-size: 1.75rem;
     }
     .points-score {
-        font-size: 2rem;
+        font-size: 3rem;
     }
     #miss-x01 button,
     #undo-x01 button,
@@ -1292,4 +1297,8 @@ img {
 .menu-dots, #navName {
     cursor: pointer;
     font-family: var(--nice-font);
+}
+#backButton button {
+    background-color: var(--p2-multiple);
+    color: #F2DDC8;
 }
