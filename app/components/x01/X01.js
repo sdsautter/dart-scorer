@@ -200,7 +200,6 @@ export default class X01 extends Component {
     botRandomize(difficulty) {
         const botScore = this.state.p2Score;
         const doubleChance = this.botDoubleChance();
-        let shot;
         if (this.state.gameOptions === 'numpad') {
             switch (this.state.botDifficulty) {
                 case 'easy':
@@ -278,8 +277,7 @@ export default class X01 extends Component {
         } else {
             switch (this.state.botDifficulty) {
                 case 'easy':
-                    if (botScore <= 40)
-                        return Math.floor(Math.random() * Math.floor(11 - 7)) + 7;
+                    return Math.floor(Math.random() * Math.floor(11 - 7)) + 7;
                     break;
                 case 'medium':
                     return Math.floor(Math.random() * Math.floor(17 - 14)) + 14;
@@ -297,7 +295,8 @@ export default class X01 extends Component {
     botDoubleChance() {
         switch (this.state.botDifficulty) {
             case 'easy':
-                return Math.random() < .33 ? 2 : 1;
+                const doubleChance = Math.random() < .33 ? 2 : 1;
+                return doubleChance;
                 break;
             case 'medium':
                 return Math.random() < .66 ? 2 : 1;
@@ -316,7 +315,6 @@ export default class X01 extends Component {
 
     botDartShot() {
         const botScore = parseInt(this.state.p2Score);
-        let outShot;
         if (botScore <= 40) {
             if (botScore % 2 === 0) {
                 return botScore / 2;
