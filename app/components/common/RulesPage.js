@@ -74,7 +74,7 @@ export default class RulesPage extends Component {
                             <div className="col-4 col-md-8 offset-md-2 text-center p1-single">
                                 <button className='bttn-jelly bttn-lg' onClick={() => { this.setRules('x01') }}>X01</button>
                             </div>
-                            <div className="col-4 col-md-8 offset-md-2 text-center p1-single">
+                            <div className="col-4 col-md-8 offset-md-2 text-center p2-multiple">
                                 <Link to={{
                                     pathname: '/home',
                                 }}>

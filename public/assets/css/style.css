@@ -20,6 +20,10 @@
     ul {
         padding-left: 5%;
     }
+
+    .custom-x01 {
+        height: 100%;
+    }
     .numpad-buttons {
         margin-top: 10%;
     }
@@ -494,7 +498,7 @@
     } */
     .p1-single button {
         background-color: #F2DDC8;
-        color: black;
+        color: black !important;
     }
     .p1-multiple button,
     .p1-multiple button:disabled {
@@ -531,6 +535,12 @@
     #neverShowAgain button {
         font-size: 1.1rem !important;
         padding-bottom: 4%;
+    }
+    .p1-single button,
+    .p1-multiple button,
+    .p2-single button,
+    .p2-multiple button {
+        color: #F2DDC8;
     }
 }
 

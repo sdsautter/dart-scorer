@@ -39,10 +39,10 @@ export default class GamePicky extends Component {
                 <div>
                     <div className='row custom-x01'>
                         <div className='col-3 offset-3'>
-                            <input type='number' value={this.state.x01Game} name='x01Game' className='text-right' min='1' onChange={this.customInput} /><span>01</span>
+                            <input type='number' value={this.state.x01Game} name='x01Game' className='text-right custom-x01' min='1' onChange={this.customInput} /><span>01</span>
                         </div>
                         <div className='col-3 text-left main-menu-button'>
-                            <button type='button' onClick={this.customGo}>Go</button>
+                            <button type='button' className='bttn-jelly bttn-lg' onClick={this.customGo}>Go</button>
                         </div>
                     </div>
                 </div>
