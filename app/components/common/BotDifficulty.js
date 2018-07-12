@@ -66,7 +66,7 @@ export default class BotDifficulty extends Component {
                         <Link to={{
                             pathname: '/cpu',
                         }}>
-                            <button className='rules-menu'>Back</button>
+                            <button className='rules-menu bttn-jelly bttn-lg'>Back</button>
                         </Link>
                     </div>
                 </div >
