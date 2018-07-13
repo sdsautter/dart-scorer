@@ -2,6 +2,12 @@ module.exports = {
   entry: [
     './app/app.js'
   ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   output: {
     path: __dirname,
     publicPath: './public/',
@@ -9,9 +15,9 @@ module.exports = {
   },
   module: {
     loaders: [{
-    include: /app/, 
-      
-    //   exclude: /node_modules/,
+      include: /app/,
+
+      //   exclude: /node_modules/,
       loader: 'babel-loader',
       query: {
         presets: ['react', 'es2015']
