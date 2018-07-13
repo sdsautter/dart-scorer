@@ -1,3 +1,6 @@
+const webpack = require('webpack');
+const MinifyPlugin = require("babel-minify-webpack-plugin");
+
 module.exports = {
   entry: [
     './app/app.js'
@@ -6,7 +9,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new MinifyPlugin()
   ],
   output: {
     path: __dirname,
