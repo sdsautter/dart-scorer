@@ -50,7 +50,7 @@ export default class X01Stats extends Component {
     }
 
     componentDidMount() {
-        this.setX01Stats(this.props.x01);
+        if (this.props.username !== 'guest') this.setX01Stats(this.props.x01);
     }
 
     setX01Stats(games) {

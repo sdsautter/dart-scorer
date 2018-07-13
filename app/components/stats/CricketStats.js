@@ -36,7 +36,7 @@ export default class CricketStats extends Component {
     }
 
     componentDidMount() {
-        this.setCricketStats(this.props.cricket);
+        if (this.props.username !== 'guest') this.setCricketStats(this.props.cricket);
     }
 
     setCricketStats(games) {

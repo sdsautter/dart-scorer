@@ -198,6 +198,7 @@ export default class Cricket extends Component {
         this.setState({ p2Throws: 0 });
         this.p2Marks = [];
         this.p2Bulls = [];
+        this.setState({ throwLog: [] });
 
         if (this.state.botGame && activeThrower === 'p2') {
             this.botLogic();

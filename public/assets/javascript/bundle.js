@@ -15710,6 +15710,7 @@ var Cricket = function (_Component) {
             this.setState({ p2Throws: 0 });
             this.p2Marks = [];
             this.p2Bulls = [];
+            this.setState({ throwLog: [] });
 
             if (this.state.botGame && activeThrower === 'p2') {
                 this.botLogic();
@@ -57775,6 +57776,7 @@ var Cricket = function (_Component) {
             this.setState({ p2Throws: 0 });
             this.p2Marks = [];
             this.p2Bulls = [];
+            this.setState({ throwLog: [] });
 
             if (this.state.botGame && activeThrower === 'p2') {
                 this.botLogic();
@@ -65954,7 +65956,7 @@ var CricketStats = function (_Component) {
     _createClass(CricketStats, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.setCricketStats(this.props.cricket);
+            if (this.props.username !== 'guest') this.setCricketStats(this.props.cricket);
         }
     }, {
         key: 'setCricketStats',
@@ -66489,7 +66491,7 @@ var X01Stats = function (_Component) {
     _createClass(X01Stats, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            this.setX01Stats(this.props.x01);
+            if (this.props.username !== 'guest') this.setX01Stats(this.props.x01);
         }
     }, {
         key: 'setX01Stats',
