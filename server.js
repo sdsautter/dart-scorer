@@ -10,6 +10,8 @@ var passport = require("passport");
 var flash = require('connect-flash');
 var session = require('express-session');
 
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 // Create Express server
 const app = express();
 var server = require('http').createServer(app);
@@ -29,7 +31,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(session({
-  secret: 'nevergonnagiveyouup'
+  secret: 'nevergonnagiveyouup',
+  store: new SequelizeStore({
+    db: db.sequelize
+  }),
+  resave: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -42,8 +48,8 @@ require('./config/passport')(passport);
 require('./routes.js')(app, passport);
 
 var http = require("http");
-setInterval(function() {
-    http.get("http://dart-scoring.herokuapp.com");
+setInterval(function () {
+  http.get("http://dart-scoring.herokuapp.com");
 }, 800000);
 
 db.sequelize.sync({
