@@ -1,7 +1,7 @@
-const webpack = require('../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/webpack');
+const webpack = require('webpack');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
-var ManifestPlugin = require('../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/webpack-manifest-plugin');
-var SWPrecacheWebpackPlugin = require('../../../AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/sw-precache-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -22,7 +22,7 @@ module.exports = {
         staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
       }
     ),
-    // new MinifyPlugin()
+    new MinifyPlugin()
   ],
   output: {
     path: __dirname,
