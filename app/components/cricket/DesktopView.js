@@ -235,7 +235,7 @@ export default class DesktopView extends Component {
                             <div className="col-3 text-center p1-multiple border-left">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                             </div>
-                            <div className="col-3 border-right p2-multiple text-center">
+                            <div className="col-3 border-right p1-single text-center">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }}>x2</button>
                             </div>
                             <div className="col-3 text-center align-self-center">
@@ -354,10 +354,10 @@ export default class DesktopView extends Component {
                                 <div className="col-3 text-center align-self-center">
                                     {this.props.markProgress(1, 25)}
                                 </div>
-                                <div className="col-3 text-center border-left p1-multiple">
+                                <div className="col-3 text-center border-left p2-multiple">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                                 </div>
-                                <div className="col-3 border-right p2-multiple text-center">
+                                <div className="col-3 border-right p2-single text-center">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }}>x2</button>
                                 </div>
                                 <div className="col-3 text-center align-self-center">
@@ -475,10 +475,10 @@ export default class DesktopView extends Component {
                                 <div className="col-3 text-center align-self-center">
                                     {this.props.markProgress(1, 25)}
                                 </div>
-                                <div className="col-3 text-center border-left p1-multiple">
+                                <div className="col-3 text-center border-left p2-multiple">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }} disabled>Bull</button>
                                 </div>
-                                <div className="col-3 border-right p2-multiple text-center">
+                                <div className="col-3 border-right p2-single text-center">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-3 text-center align-self-center">
