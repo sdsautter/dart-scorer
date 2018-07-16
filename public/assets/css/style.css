@@ -512,7 +512,7 @@
     }
     .p2-single button,
     .p2-single button:disabled {
-        background-color: black !important;
+        background-color: rgb(66, 66, 66) !important;
         /* color: #c7ab8d; */
     }
     .p2-multiple button,
@@ -726,7 +726,7 @@
         /* color: black; */
     }
     .p2-single button {
-        background-color: black;
+        background-color: rgb(66, 66, 66) !important;
         /* color: #c7ab8d; */
     }
     .modal-home button,
@@ -992,7 +992,7 @@
 }
 
 .p2-active {
-    background-color: black;
+    background-color: rgb(66, 66, 66) !important;
     color: #F2DDC8;
 }
 
@@ -1099,7 +1099,7 @@ img {
     height: 150px;
     width: 100px;
     z-index: 100;
-    background-color: black;
+    background-color: rgb(66, 66, 66) !important;
     position: fixed;
     margin-top: -50px;
 }
@@ -1301,4 +1301,7 @@ img {
 #backButton button {
     background-color: var(--p2-multiple);
     color: #F2DDC8;
+}
+.p2-single button:hover {
+    background-color: rgb(138, 138, 138) !important;
 }

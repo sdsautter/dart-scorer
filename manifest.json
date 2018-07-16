@@ -1,0 +1,16 @@
+{
+  "short_name": "Dart Score",
+  "name": "Dart Score Fun",
+  "icons": [
+    {
+      "src": "./public/assets/images/ms-icon-310x310",
+      "sizes": "310x310",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "main.js": "./public/assets/javascript/bundle.js"
+}
