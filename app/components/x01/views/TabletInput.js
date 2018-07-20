@@ -214,7 +214,7 @@ export default class TabletInput extends Component {
                                     <div className="col text-center number p1-multiple border-left border-bottom">
                                         <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                                     </div>
-                                    <div className="col text-center number p2-multiple border-bottom border-right">
+                                    <div className="col text-center number p1-single border-bottom border-right">
                                         <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
                                     </div>
                                 </div>
@@ -430,10 +430,10 @@ export default class TabletInput extends Component {
                                     <div className="col-2 text-center number border-bottom p2-multiple border-right">
                                         <button type="button" className="btn btn-success" onClick={() => { this.props.score(1, 3) }}>x3</button>
                                     </div>
-                                    <div className="col text-center number p1-multiple border-left border-bottom">
+                                    <div className="col text-center number p2-multiple border-left border-bottom">
                                         <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                                     </div>
-                                    <div className="col text-center number p2-multiple border-bottom border-right">
+                                    <div className="col text-center number p2-single border-bottom border-right">
                                         <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
                                     </div>
                                 </div>

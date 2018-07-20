@@ -67,10 +67,18 @@ export default class Master extends Component {
             <BrowserRouter>
                 <div className="container-fluid z-index-2">
                     <Route exact path='/' render={({ match }) => {
-                        if (this.state.loggedIn) {
-                            return <Redirect push to='/home' />
+                        if (this.state.username === 'guest') {
+                            return <LoginScreen
+                                username={this.state.username}
+                                loggedInSwitch={this.loggedInSwitch}
+                                setUsername={this.setUsername}
+                            />
                         } else {
-                            return <Redirect push to='/login' />
+                            return <MainMenu
+                                match={match}
+                                username={this.state.username}
+                                setUsername={this.setUsername}
+                            />
                         }
                     }} />
                     <Route exact path='/login' render={({ match }) => {

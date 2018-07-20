@@ -1459,7 +1459,6 @@ export default class Cricket extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
-                this.resetMarks();
                 this.setThrowNumber(0);
                 break;
             case 1:
@@ -1474,7 +1473,6 @@ export default class Cricket extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
-                this.resetMarks();
                 this.setThrowNumber(0);
                 break;
             case 2:
@@ -1488,7 +1486,6 @@ export default class Cricket extends Component {
                 } else {
                     this.setActiveThrower("p1");
                 }
-                this.resetMarks();
                 this.setThrowNumber(0);
                 break;
         }
@@ -2761,6 +2758,7 @@ export default class Cricket extends Component {
             bullsArray.push(bulls);
         }
         marksArray.push(marks);
+        this.resetMarks();
     }
 
     markProgress(playerNumber, cricketNumber) {

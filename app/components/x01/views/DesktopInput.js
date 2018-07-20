@@ -197,7 +197,7 @@ export default class DesktopInput extends Component {
                             <div className="col text-center number p1-multiple border-left border-bottom">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                             </div>
-                            <div className="col text-center number p2-multiple border-bottom border-right">
+                            <div className="col text-center number p1-single border-bottom border-right">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
                             </div>
                         </div>
@@ -387,10 +387,10 @@ export default class DesktopInput extends Component {
                             <div className="col-1 text-center number border-bottom p2-multiple border-right">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 3) }}>x3</button>
                             </div>
-                            <div className="col text-center number p1-multiple border-left border-bottom">
+                            <div className="col text-center number p2-multiple border-left border-bottom">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                             </div>
-                            <div className="col text-center number p2-multiple border-bottom border-right">
+                            <div className="col text-center number p2-single border-bottom border-right">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }}>Double-Bull</button>
                             </div>
                         </div>
@@ -579,10 +579,10 @@ export default class DesktopInput extends Component {
                                 <div className="col-1 text-center number border-bottom p2-multiple border-right">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(1, 3) }} disabled>x3</button>
                                 </div>
-                                <div className="col text-center number p1-multiple border-left border-bottom">
+                                <div className="col text-center number p2-multiple border-left border-bottom">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 1) }} disabled>Bull</button>
                                 </div>
-                                <div className="col text-center number p2-multiple border-bottom border-right">
+                                <div className="col text-center number p2-single border-bottom border-right">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(25, 2) }} disabled>Double-Bull</button>
                                 </div>
                             </div>
