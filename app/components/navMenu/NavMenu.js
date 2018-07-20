@@ -82,6 +82,9 @@ export default class NavMenu extends Component {
                                             this.setMenuState('menu');
                                             this.loggedInSwitch(false);
                                             this.props.setUsername('guest');
+                                            $("#menu").modal("hide");
+                                            $('body').removeClass('modal-open');
+                                            $('.modal-backdrop').remove();
                                         })
                                 }}>Logout</button>
                             </div>
@@ -104,6 +107,9 @@ export default class NavMenu extends Component {
                                             this.setMenuState('menu');
                                             this.loggedInSwitch(false);
                                             this.props.setUsername('guest');
+                                            $("#menu").modal("hide");
+                                            $('body').removeClass('modal-open');
+                                            $('.modal-backdrop').remove();
                                         })
                                 }}>Logout</button>
                             </div>
@@ -231,6 +237,9 @@ export default class NavMenu extends Component {
                                         this.setMenuState('menu');
                                         this.loggedInSwitch(false);
                                         this.props.setUsername('guest');
+                                        $("#menu").modal("hide");
+                                        $('body').removeClass('modal-open');
+                                        $('.modal-backdrop').remove();
                                     })
                             }}>Logout</button>
                         </div>
