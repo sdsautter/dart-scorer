@@ -511,7 +511,7 @@ export default class MobileModalView extends Component {
                                     <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }}>Bull</button>
                                 </Hammer>
                             </div>
-                            <div className="col-3 border-right number text-center p2-multiple">
+                            <div className="col-3 border-right number text-center p1-single">
                                 <Hammer
                                     onDoubleTap={(event) => {
                                         event.preventDefault();
@@ -674,7 +674,7 @@ export default class MobileModalView extends Component {
                                 <div className="col-2 left-mark offset-1 text-center align-self-center">
                                     {this.props.markProgress(1, 25)}
                                 </div>
-                                <div className="col-3 border-left text-center number p1-multiple">
+                                <div className="col-3 border-left text-center number p2-multiple">
                                     <Hammer
                                         onDoubleTap={(event) => {
                                             event.preventDefault();
@@ -683,7 +683,7 @@ export default class MobileModalView extends Component {
                                         >Bull</button>
                                     </Hammer>
                                 </div>
-                                <div className="col-3 border-right number text-center p2-multiple">
+                                <div className="col-3 border-right number text-center p2-single">
                                     <Hammer
                                         onDoubleTap={(event) => {
                                             event.preventDefault();
@@ -785,10 +785,10 @@ export default class MobileModalView extends Component {
                                 <div className="col-2 left-mark offset-1 text-center align-self-center">
                                     {this.props.markProgress(1, 25)}
                                 </div>
-                                <div className="col-3 border-left text-center number p1-multiple">
+                                <div className="col-3 border-left text-center number p2-multiple">
                                     <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 1) }} disabled>Bull</button>
                                 </div>
-                                <div className="col-3 border-right number text-center p2-multiple">
+                                <div className="col-3 border-right number text-center p2-single">
                                     <button type="button" className="btn btn-success" onClick={() => { this.props.score(25, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-2 right-mark text-center align-self-center">

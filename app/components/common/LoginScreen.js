@@ -88,7 +88,9 @@ export default class LoginScreen extends Component {
                             <div className="p2-multiple" id='loginBack'>
                                 <Link to={{
                                     pathname: '/home',
-                                }}><button type="button" className="bttn-jelly bttn-lg">Continue As Guest</button></Link>
+                                }}><button type="button" className="bttn-jelly bttn-lg" onClick={() => {
+                                    this.props.loggedInSwitch(true);
+                                }}>Continue As Guest</button></Link>
                         </div>
                         </form>
                     </div>

@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const MinifyPlugin = require("babel-minify-webpack-plugin");
 var ManifestPlugin = require('webpack-manifest-plugin');
 var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+
 
 module.exports = {
   entry: [
