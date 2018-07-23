@@ -322,20 +322,54 @@ export default class Cricket extends Component {
     }
 
     reconfigureActiveMarks() {
+        const otherThrower = this.state.activeThrower === 'p1' ? 'p2' : 'p1';
         let throwLog = this.state.throwLog;
         let logLength = throwLog.length;
-        let number = 0, multiplier = 0, activeMarks = 0, activeBulls = 0;
-        for (var i = 3; i > 0; i--) {
-            let lastThrow = throwLog[logLength - i];
-            if (lastThrow !== 'miss') {
-                lastThrow = lastThrow.slice('');
-                number = parseInt(`${lastThrow[0]}${lastThrow[1]}`);
-                multiplier = parseInt(`${lastThrow[2]}`);
-
-                if (number === 25) {
-                    activeBulls += multiplier;
-                } else {
-                    activeMarks += multiplier;
+        let number = 0, multiplier = 0, activeMarks = 0, activeBulls = 0, otherThrowerMarks = 0, activeThrowerMarks = 0;
+        for (var i = 2; i > 0; i--) {
+            let lastThrow = throwLog[logLength - (i + 1)];
+            if (lastThrow !== undefined) {
+                if (lastThrow !== 'miss') {
+                    lastThrow = lastThrow.slice('');
+                    number = parseInt(`${lastThrow[0]}${lastThrow[1]}`);
+                    multiplier = parseInt(`${lastThrow[2]}`);
+                    activeThrowerMarks = eval(`this.state.${this.state.activeThrower}${number}`);
+                    otherThrowerMarks = eval(`this.state.${otherThrower}${number}`);
+                    if (number === 25) {
+                        if (otherThrowerMarks < 3) {
+                            activeBulls += multiplier;
+                        } else if (otherThrowerMarks >= 3 && activeThrowerMarks < 2) {
+                            activeBulls += multiplier;
+                        } else if (otherThrowerMarks >= 3 && activeThrowerMarks === 2) {
+                            activeBulls++;
+                        }
+                    } else {
+                        if (otherThrowerMarks < 3) {
+                            activeMarks += multiplier;
+                        } else if (otherThrowerMarks >= 3) {
+                            switch (activeThrowerMarks) {
+                                case 0:
+                                    activeMarks += multiplier;
+                                    break;
+                                case 1:
+                                    if (multiplier < 3) {
+                                        activeMarks += multiplier;
+                                    } else {
+                                        activeMarks += 2;
+                                    }
+                                    break;
+                                case 2:
+                                    if (multiplier === 1) {
+                                        activeMarks += multiplier;
+                                    } else if (multiplier === 2 || multiplier === 3) {
+                                        activeMarks++;
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -348,20 +382,22 @@ export default class Cricket extends Component {
         let playerThrows = `${this.state.activeThrower}Throws`;
         let throwsState = eval(`this.state.${playerThrows}`);
         if (this.state.throwLog.length > 0) {
+
             if (this.state.activeThrows === 0) {
                 this.setThrowNumber(2);
                 if (this.state.activeThrower === "p1") {
                     await this.setState({ p2Throws: this.state.p2Throws - 1 })
                     this.setActiveThrower("p2");
                     this.popLastMark('p2');
-                    this.reconfigureActiveMarks();
                     await this.undoSwitch("p2");
                 } else {
                     await this.setState({ p1Throws: this.state.p1Throws - 1 })
                     this.setActiveThrower("p1");
                     this.popLastMark('p1');
-                    this.reconfigureActiveMarks();
                     await this.undoSwitch("p1");
+                }
+                if (this.state.throwLog.length > 0) {
+                    this.reconfigureActiveMarks();
                 }
             } else {
                 this.setThrowNumber(parseInt(this.state.activeThrows) - 1);
@@ -375,7 +411,7 @@ export default class Cricket extends Component {
 
             let loggedArray = this.state.throwLog;
             await loggedArray.pop();
-            return this.setState({ throwLog: loggedArray });
+            this.setState({ throwLog: loggedArray });           
         }
     }
 
@@ -2663,7 +2699,6 @@ export default class Cricket extends Component {
                             default:
                                 break;
                         }
-                        console
                     }
                     break;
                 default:
@@ -2795,7 +2830,7 @@ export default class Cricket extends Component {
     conditionalRender() {
         if (this.state.gameState === "playing") {
             return (
-                <div style={{padding: 0}}>
+                <div style={{ padding: 0 }}>
                     <Scoreboard
                         diddle={this.state.diddle}
                         username={this.props.username}

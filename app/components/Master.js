@@ -59,7 +59,7 @@ export default class Master extends Component {
     }
 
     setUsername(username) {
-        this.setState({ username })
+        this.setState({ username });
     }
 
     render() {
