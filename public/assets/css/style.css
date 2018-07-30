@@ -20,6 +20,15 @@
     ul {
         padding-left: 5%;
     }
+    .username-label, .password-label {
+        font-size: 1.5rem;
+    }
+    .username-label {
+        margin-top: 10%;
+    }
+    .password-label {
+        margin-bottom: 10%
+    }
     .mobile-p1 {
         font-size: 1.6rem !important;
     }
@@ -32,12 +41,29 @@
     .numpad-buttons {
         margin-top: 10%;
     }
-    .numpad-shots button, .numpad-shots {
+    .rules-header {
+        font-size: 1.25rem;
+    }
+    .rules li {
+        text-align: left;
+        font-size: 1rem;
+    }
+    .numpad-shots button,
+    .numpad-shots {
         font-size: 1rem !important;
         text-align: center;
         padding: 1%;
     }
-    #loginButton, #loginBack, #loginSignup, #loginButton button, #loginSignup button, #loginBack button, #signupButton, #signupBack, #signupButton button, #signupBack button {
+    #loginButton,
+    #loginBack,
+    #loginSignup,
+    #loginButton button,
+    #loginSignup button,
+    #loginBack button,
+    #signupButton,
+    #signupBack,
+    #signupButton button,
+    #signupBack button {
         width: 15rem !important;
         padding: 1% auto !important;
         margin: 0 auto;
@@ -196,7 +222,8 @@
         /* color: black; */
     }
     .p2-multiple button:hover,
-    .modal-home button:hover, #backButton button:hover {
+    .modal-home button:hover,
+    #backButton button:hover {
         background-color: rgb(197, 98, 98) !important;
         /* color: black; */
     }
@@ -556,10 +583,20 @@
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
     }
+    .username-label, .password-label {
+        font-size: 2rem;
+    }
+    .username-label {
+        margin-top: 0%;
+    }
+    .password-label {
+        margin-bottom: 2%
+    }
     .rules-borders {
         margin-top: 0;
     }
-    .numpad-shots button, .numpad-shots {
+    .numpad-shots button,
+    .numpad-shots {
         font-size: 2rem !important;
         text-align: center;
     }
@@ -610,9 +647,10 @@
         font-size: 2.5rem;
     }
     .rules ul {
-        font-size: 1.35rem;
+        font-size: 1.75rem;
     }
     .rules li {
+        font-size: 1.5rem;
         padding-top: 1%;
         padding-bottom: 1%;
     }
@@ -782,7 +820,8 @@
         font-family: 'Permanent Marker', cursive;
         font-size: 1.75rem;
     }
-    .numpad-shots button, .numpad-shots {
+    .numpad-shots button,
+    .numpad-shots {
         font-size: 1rem !important;
         text-align: center;
         padding: 1% 3%;
@@ -967,7 +1006,6 @@
         margin-bottom: 10%;
         width: 90%;
     }
-
     /* #miss-x01,
     #undo-x01, 
     #end-turn-x01 {
@@ -1051,7 +1089,8 @@ button:target {
 }
 
 .p2-multiple button:hover,
-.modal-home button:hover, .end-turn button:hover {
+.modal-home button:hover,
+.end-turn button:hover {
     background-color: rgb(197, 98, 98);
 }
 
@@ -1294,14 +1333,22 @@ img {
     margin: 0;
 }
 
-.menu-dots, #navName {
+.menu-dots,
+#navName {
     cursor: pointer;
     font-family: var(--nice-font);
 }
+
 #backButton button {
     background-color: var(--p2-multiple);
     color: #F2DDC8;
 }
+
 .p2-single button:hover {
     background-color: rgb(138, 138, 138) !important;
+}
+
+.form-control {
+    -moz-border-radius: 15px;
+    border-radius: 15px;
 }

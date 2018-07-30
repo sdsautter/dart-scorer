@@ -46,7 +46,7 @@ export default class Login extends Component {
                 <div className="col-12 login-container">
                     <form id='idForm' onSubmit={this.loginButton}>
                         <div className="form-group text-center">
-                            <label className="email-label">Username
+                            <label className="username-label">Username
                             <br />
                                 <input value={this.state.loginEmail} name='username' type='text' id="loginUsername" className="validate form-control" onChange={this.handleChange} />
                             </label>
