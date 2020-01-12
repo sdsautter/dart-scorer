@@ -36,7 +36,7 @@
     "express": "^4.15.4",
     "express-session": "^1.15.6",
     "howler": "^2.0.12",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.11",
     "morgan": "^1.8.2",
