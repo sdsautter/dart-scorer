@@ -747,7 +747,7 @@ export default class DesktopInput extends Component {
                             </button>
                         </div>
                         <div className="col-12 text-center undo" id="undo-x01">
-                            <button type='button' className='bttn-lg' onClick={() => { this.props.undo() }} disabled>
+                            <button type='button' className='bttn-lg' onClick={() => { this.props.undo() }}>
                                 Undo
                             </button>
                         </div>
