@@ -931,7 +931,7 @@ export default class MobileModalView extends Component {
                 </button>
                     </div>
                     <div className="col-4 text-center undo">
-                        <button type="button" className="btn" onClick={() => { this.props.undo() }} disabled>
+                        <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                             Undo
                 </button>
                     </div>

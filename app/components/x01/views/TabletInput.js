@@ -546,7 +546,7 @@ export default class TabletInput extends Component {
                                 </button>
                         </div>
                         <div className='col-3 undo text-center'>
-                            <button type="button" className="btn" onClick={() => { this.props.undo() }} disabled>
+                            <button type="button" className="btn" onClick={() => { this.props.undo() }}>
                                 Undo
                                 </button>
                         </div>
