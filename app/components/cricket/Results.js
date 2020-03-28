@@ -485,7 +485,7 @@ export default class Results extends Component {
                     <div className='col-12'>
                         <div className="row">
                             <div className="col-12 text-center p1-multiple">
-                                <button type="button" className="bttn-jelly" onClick={() => { this.props.gameX01Reset() }}>
+                                <button type="button" className="bttn-jelly" onClick={() => { this.props.gameCricketReset() }}>
                                     Play Again
                         </button>
                             </div>
