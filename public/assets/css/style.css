@@ -10,6 +10,10 @@
     --p2-multiple: #881918;
 }
 
+html {
+    overscroll-behavior: none;
+}
+
 @media (min-width: 0px) {
     body {
         background-color: rgb(73, 121, 89);
