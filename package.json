@@ -8,7 +8,7 @@
     "start": "node server",
     "compile": "tsc -p ./",
     "go": "tsc -p ./ && npm start",
-    "dart": "webpack && tsc -p ./ && npm start",
+    "dart": "webpack && npm start",
     "webpack": "webpack -w",
     "nodemon": "nodemon server.js"
   },

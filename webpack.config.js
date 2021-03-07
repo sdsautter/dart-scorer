@@ -14,16 +14,6 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),      
     new ManifestPlugin(),
-    new SWPrecacheWebpackPlugin(
-      {
-        cacheId: 'dart-score',
-        dontCacheBustUrlsMatching: /\.\w{8}\./,
-        filename: 'service-worker.js',
-        minify: true,
-        navigateFallback: '/public/index.html',
-        staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
-      }
-    ),
     new MinifyPlugin()
   ],
   output: {
