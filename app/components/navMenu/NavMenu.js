@@ -13,7 +13,7 @@ export default class NavMenu extends Component {
 
         this.state = {
             menu: 'menu',
-            loggedIn: false
+            loggedIn: true
         }
         this.menuNavButton = this.menuNavButton.bind(this);
         this.setMenuState = this.setMenuState.bind(this);
@@ -37,6 +37,7 @@ export default class NavMenu extends Component {
     }
 
     nameRender() {
+        return;
         if (this.props.gameState === 'playing') {
             return;
         } else {
@@ -49,7 +50,7 @@ export default class NavMenu extends Component {
             <div className='sound-toggle'>
                 <span id='navName' data-toggle="modal" data-target="#menu" onClick={() => {
                     this.setMenuState('menu');
-                }}>{this.nameRender()}</span>
+                }}></span>
                 <span data-toggle="modal" data-target="#menu" onClick={() => {
                     this.setMenuState('menu');
                 }} ><img src="/assets/images/menu-dots3.png" className='menu-dots' /></span>
@@ -75,18 +76,10 @@ export default class NavMenu extends Component {
                     </div>
                     <div className="modal-body">
                         <div className='row'>
-                            <div className='col-8 offset-2'>
+                            <div className='col-8 offset-2 modal-menu p2-multiple'>
                                 <button type="button" className="bttn-jelly" onClick={() => {
-                                    axios.post('/logout')
-                                        .then(() => {
-                                            this.setMenuState('menu');
-                                            this.loggedInSwitch(false);
-                                            this.props.setUsername('guest');
-                                            $("#menu").modal("hide");
-                                            $('body').removeClass('modal-open');
-                                            $('.modal-backdrop').remove();
-                                        })
-                                }}>Logout</button>
+                                    this.setMenuState('home');
+                                }}>Home</button>
                             </div>
                         </div>
                     </div>
@@ -99,22 +92,6 @@ export default class NavMenu extends Component {
                         <h5 className="modal-title" id="menuLabel">Menu</h5>
                     </div>
                     <div className="modal-body">
-                        <div className='row'>
-                            <div className='col-8 offset-2 modal-menu p2-single'>
-                                <button type="button" className="bttn-jelly" onClick={() => {
-                                    axios.post('/logout')
-                                        .then(() => {
-                                            this.setMenuState('menu');
-                                            this.loggedInSwitch(false);
-                                            this.props.setUsername('guest');
-                                            $("#menu").modal("hide");
-                                            $('body').removeClass('modal-open');
-                                            $('.modal-backdrop').remove();
-                                        })
-                                }}>Logout</button>
-                            </div>
-                        </div>
-                        <hr />
                         <div className='row'>
                             <div className='col-8 offset-2 modal-menu p1-multiple'>
                                 <button type="button" className="bttn-jelly" onClick={() => {
@@ -145,15 +122,10 @@ export default class NavMenu extends Component {
                     </div>
                     <div className="modal-body">
                         <div className='row'>
-                            <div className='col-4 offset-1 p1-multiple'>
+                        <div className='col-8 offset-2 modal-menu p2-multiple'>
                                 <button type="button" className="bttn-jelly" onClick={() => {
-                                    this.setMenuState('login')
-                                }}>Login</button>
-                            </div>
-                            <div className='col-4 offset-2 p1-single'>
-                                <button type="button" className="bttn-jelly" onClick={() => {
-                                    this.setMenuState('signup');
-                                }}>Sign Up</button>
+                                    this.setMenuState('home');
+                                }}>Home</button>
                             </div>
                         </div>
                     </div>
@@ -166,15 +138,10 @@ export default class NavMenu extends Component {
                 </div>
                 <div className="modal-body">
                     <div className='row'>
-                        <div className='col p1-multiple'>
+                        <div className='col-8 offset-2 modal-menu p2-multiple'>
                             <button type="button" className="bttn-jelly" onClick={() => {
-                                this.setMenuState('login')
-                            }}>Login</button>
-                        </div>
-                        <div className='col p1-single'>
-                            <button type="button" className="bttn-jelly" onClick={() => {
-                                this.setMenuState('signup');
-                            }}>Sign Up</button>
+                                this.setMenuState('home');
+                            }}>Home</button>
                         </div>
                     </div>
                     <hr />
@@ -236,7 +203,7 @@ export default class NavMenu extends Component {
                                     .then(() => {
                                         this.setMenuState('menu');
                                         this.loggedInSwitch(false);
-                                        this.props.setUsername('guest');
+                                        this.props.setUsername('Player 1');
                                         $("#menu").modal("hide");
                                         $('body').removeClass('modal-open');
                                         $('.modal-backdrop').remove();
@@ -294,7 +261,7 @@ export default class NavMenu extends Component {
                 return (
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h5 className="modal-title" id="exitModalLabel">Exit Game</h5>
+                            <h5 className="modal-title" id="exitModalLabel">Exit</h5>
                         </div>
                         <div className="modal-body">
                             <div className="row">

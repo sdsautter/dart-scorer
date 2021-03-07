@@ -26,7 +26,7 @@ export default class PlayerRender extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-md-4 col-lg-5 offset-md-2 offset-lg-1 text-center player border-right active-thrower p1-active">
-                            {this.props.username}
+                            Player 1
                         </div>
                         <div className="col-md-4 col-lg-5 text-center player border-left inactive-thrower">
                             Player 2
@@ -38,7 +38,7 @@ export default class PlayerRender extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-lg-5 col-md-4 offset-md-2 offset-lg-1 text-center player border-right inactive-thrower">
-                            {this.props.username}
+                            Player 1
                         </div>
                         <div className="col-lg-5 col-md-4 text-center player border-left active-thrower p2-active">
                             Player 2
@@ -52,7 +52,7 @@ export default class PlayerRender extends Component {
 
                     <div className="row top-row">
                         <div className="col-md-4 col-lg-5 offset-md-2 offset-lg-1 text-center player border-right active-thrower p1-active">
-                            {this.props.username}
+                            Player 1
                         </div>
                         <div className="col-md-4 col-lg-5 text-center player border-left inactive-thrower">
                             Bot
@@ -63,7 +63,7 @@ export default class PlayerRender extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-lg-5 col-md-4 offset-md-2 offset-lg-1 text-center player border-right inactive-thrower">
-                            {this.props.username}
+                            Player 1
                     </div>
                         <div className="col-lg-5 col-md-4 text-center player border-left active-thrower p2-active">
                             Bot

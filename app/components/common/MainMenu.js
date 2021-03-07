@@ -60,13 +60,13 @@ export default class MainMenu extends Component {
                         }}><button className="bttn-jelly bttn-lg">Rules</button></Link>
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
                             pathname: `/user/${this.props.username}`,
                         }}><button className="bttn-jelly bttn-lg">Stats</button></Link>
                     </div>
-                </div>
+                </div> */}
                 <div className="row">
                     <div className="col-12 text-center main-menu-button">
                         <Link to={{
