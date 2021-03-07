@@ -457,7 +457,7 @@ export default class Results extends Component {
 
     renderWinner() {
         if (this.props.gameWinner === "p1") {
-            return this.props.username;
+            return "Player 1";
         } else {
             return "Player 2"
         }
@@ -563,7 +563,7 @@ export default class Results extends Component {
                     <div className='col-12 col-md-7 offset-md-1 x01-stats'>
                         <div className='row'>
                             <div className='col player-name text-center'>
-                                {this.props.username}
+                                Player 1
                             </div>
                             <div className='col offset-6 player-name text-center'>
                                 Player 2

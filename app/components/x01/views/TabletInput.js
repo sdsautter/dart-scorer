@@ -466,7 +466,7 @@ export default class TabletInput extends Component {
                                 this.props.setActiveThrower('p1')
                                 this.props.setDiddleTrue();
                             }}>
-                                {this.props.username}
+                                Player 1
                             </button>
                         </div>
                     </div>
