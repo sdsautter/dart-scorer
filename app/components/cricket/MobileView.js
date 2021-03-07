@@ -21,7 +21,7 @@ export default class MobileModalView extends Component {
 
     nameRender() {
         if (this.props.activeThrower === "p1") {
-            return this.props.username
+            return "Player 1"
         } else {
             return "Player 2";
         }
@@ -33,7 +33,7 @@ export default class MobileModalView extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-6 text-center player border-right p1-active">
-                            {this.props.username}
+                            Player 1
                         </div>
                         <div className="col-6 text-center player border-left inactive-thrower">
                             Player 2
@@ -44,7 +44,7 @@ export default class MobileModalView extends Component {
                 return (
                     <div className="row top-row">
                         <div className="col-6 text-center player border-right inactive-thrower">
-                            {this.props.username}
+                            Player 1
                     </div>
                         <div className="col-6 text-center player border-left p2-active">
                             Player 2
@@ -814,7 +814,7 @@ export default class MobileModalView extends Component {
                                 this.props.setActiveThrower('p1') 
                                 this.props.setDiddleTrue();
                                 }}>
-                                {this.props.username}
+                                Player 1
                         </button>
                         </div>
                     </div>

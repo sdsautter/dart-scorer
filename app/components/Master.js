@@ -18,8 +18,8 @@ export default class Master extends Component {
         super();
 
         this.state = {
-            username: '',
-            loggedIn: false
+            username: 'Player 1',
+            loggedIn: true
         }
 
         this.setUsername = this.setUsername.bind(this);
@@ -35,7 +35,7 @@ export default class Master extends Component {
                 }
             });
         if (this.state.username === '') {
-            this.setUsername('guest');
+            this.setUsername('Player 1');
         }
 
         if (localStorage.getItem('sounds') !== 'off') {
@@ -67,21 +67,21 @@ export default class Master extends Component {
             <BrowserRouter>
                 <div className="container-fluid z-index-2">
                     <Route exact path='/' render={({ match }) => {
-                        if (this.state.username === 'guest') {
+                        {/* if (this.state.username === 'guest') {
                             return <LoginScreen
                                 username={this.state.username}
                                 loggedInSwitch={this.loggedInSwitch}
                                 setUsername={this.setUsername}
-                            />
-                        } else {
+                            /> */}
+                        {/* } else { */}
                             return <MainMenu
                                 match={match}
                                 username={this.state.username}
                                 setUsername={this.setUsername}
                             />
-                        }
+                        {/* } */}
                     }} />
-                    <Route exact path='/login' render={({ match }) => {
+                    {/* <Route exact path='/login' render={({ match }) => {
                         return <LoginScreen
                             username={this.state.username}
                             loggedInSwitch={this.loggedInSwitch}
@@ -93,7 +93,7 @@ export default class Master extends Component {
                             setUsername={this.setUsername}
                             loggedInSwitch={this.loggedInSwitch}
                         />
-                    }} />
+                    }} /> */}
                     <Route exact path='/home' render={({ match }) => {
                         return <MainMenu
                             match={match}
