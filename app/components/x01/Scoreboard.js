@@ -9,6 +9,7 @@ export default class Scoreboard extends Component {
 
         this.playersRender = this.playersRender.bind(this);
         this.inputRender = this.inputRender.bind(this);
+        this.player2NameRender = this.player2NameRender.bind(this);
     }
 
     componentDidMount() {
@@ -19,6 +20,10 @@ export default class Scoreboard extends Component {
         this.props.addToRoundStartScore("p2", parseInt(this.props.x01Game));
     }
 
+    player2NameRender(botGame) {
+        return botGame ? "Bot" : "Player 2"
+    }
+
     playersRender() {
         var intViewportWidth = window.innerWidth;
         //Renders either an input or a text area depending on the screen width
@@ -27,10 +32,10 @@ export default class Scoreboard extends Component {
                 return (
                     <div className="row">
                         <div className="col-6 text-center padding-top player border-right p1-active">
-                            {this.props.username}
+                            Player 1
                         </div>
                         <div className="col-6 text-center padding-top player border-left inactive-thrower">
-                            Player 2
+                            {this.player2NameRender(this.props.botGame)}
                             </div>
                     </div>
                 )
@@ -38,10 +43,10 @@ export default class Scoreboard extends Component {
                 return (
                     <div className="row">
                         <div className="col-6 text-center padding-top player border-right inactive-thrower">
-                            {this.props.username}
+                            Player 1
                         </div>
                         <div className="col-6 text-center padding-top player border-left p2-active">
-                            Player 2
+                            {this.player2NameRender(this.props.botGame)}
                             </div>
                     </div>
                 )
