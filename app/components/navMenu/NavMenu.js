@@ -102,7 +102,7 @@ export default class NavMenu extends Component {
                                 <button type="button" className="bttn-jelly" onClick={() => {
                                     this.setMenuState('reset');
                                 }}>
-                                    Reset Set
+                                    Reset Match
                                 </button>
                             </div>
                             <div className='col-8 offset-2 modal-menu p2-multiple'>
@@ -155,7 +155,7 @@ export default class NavMenu extends Component {
                             <button type="button" className="bttn-jelly" onClick={() => {
                                 this.setMenuState('reset');
                             }}>
-                                Reset Set
+                                Reset Match
                                 </button>
                         </div>
                         <div className='col-8 offset-2 modal-menu p2-multiple'>
