@@ -420,10 +420,10 @@ export default class Results extends Component {
                 <thead>
                     <tr>
                         <th scope="col">Leg</th>
-                        <th scope="col">Set</th>
+                        <th scope="col">Match</th>
                         <th scope="col"></th>
                         <th scope="col">Leg</th>
-                        <th scope="col">Set</th>
+                        <th scope="col">Match</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -485,7 +485,7 @@ export default class Results extends Component {
                     <div className='col-12'>
                         <div className="row">
                             <div className="col-12 text-center p1-multiple">
-                                <button type="button" className="bttn-jelly" onClick={() => { this.props.gameCricketReset() }}>
+                                <button type="button" style={{width: "100%"}} className="bttn-jelly" onClick={() => { this.props.gameCricketReset() }}>
                                     Play Again
                         </button>
                             </div>
@@ -521,12 +521,12 @@ export default class Results extends Component {
                 <div className="row">
                     <div className="col-6 col-md-10 offset-md-1 text-center number p1-multiple">
                         <button type="button" className="bttn-jelly" onClick={() => { this.props.continueSet() }}>
-                            Continue Set
+                            Continue Match
                         </button>
                     </div>
                     <div className="col-6 col-md-10 offset-md-1 text-center number p2-multiple">
                         <button type="button" className="bttn-jelly" data-toggle="modal" data-target="#reloadModal">
-                            Reset Set
+                            Reset Match
                         </button>
                     </div>
                     <div className="col-6 col-md-10 offset-md-1 text-center undo">
