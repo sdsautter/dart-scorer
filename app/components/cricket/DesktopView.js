@@ -532,15 +532,12 @@ export default class DesktopView extends Component {
                     </div>
                     <br />
                     <div className='row text-center'>
-                        <div className="col-6 offset-3 text-center p2-multiple">
+                        <div className="col-md-4 offset-md-1 col-sm-10 offset-sm-1 text-center p2-multiple" style={{marginBotton: '1rem'}}>
                             <button type="button" className="bttn-jelly" onClick={() => { this.props.undoGameOver() }}>
                                 Undo
                         </button>
                         </div>
-                    </div>
-                    <br />
-                    <div className='row text-center'>
-                        <div className="col-6 offset-3 text-center p1-multiple">
+                        <div className="col-md-4 offset-md-2 col-sm-10 offset-sm-1 text-center p1-multiple">
                             <button type="button" className="bttn-jelly" onClick={() => { this.props.gameStateOver() }}>
                                 Confirm
                         </button>
