@@ -797,11 +797,11 @@ export default class X01 extends Component {
         });
         let playerScoreNumber = eval(`this.state.${this.state.activeThrower}Score`);
         if (this.state.activeThrower === 'p1') {
-            if (!this.p1DoubleIn) {
+            if (!this.state.p1DoubleIn) {
                 this.p1CheckInShots++;
             }
         } else if (this.state.activeThrower === 'p2') {
-            if (!this.p2DoubleIn) {
+            if (!this.state.p2DoubleIn) {
                 this.p2CheckInShots++;
             }
         }
@@ -1071,11 +1071,11 @@ export default class X01 extends Component {
         switch (this.state.activeThrows) {
             case 0:
                 if (thrower === 'p1') {
-                    if (!this.p1DoubleIn) {
+                    if (!this.state.p1DoubleIn) {
                         this.p1CheckInShots += 3;
                     }
                 } else if (thrower === 'p2') {
-                    if (!this.p2DoubleIn) {
+                    if (!this.state.p2DoubleIn) {
                         this.p2CheckInShots += 3;
                     }
                 }
@@ -1117,11 +1117,11 @@ export default class X01 extends Component {
                 break;
             case 1:
                 if (thrower === 'p1') {
-                    if (!this.p1DoubleIn) {
+                    if (!this.state.p1DoubleIn) {
                         this.p1CheckInShots += 2;
                     }
                 } else if (thrower === 'p2') {
-                    if (!this.p2DoubleIn) {
+                    if (!this.state.p2DoubleIn) {
                         this.p2CheckInShots += 2;
                     }
                 }
@@ -1162,11 +1162,11 @@ export default class X01 extends Component {
                 break;
             case 2:
                 if (thrower === 'p1') {
-                    if (!this.p1DoubleIn) {
+                    if (!this.state.p1DoubleIn) {
                         this.p1CheckInShots++;
                     }
                 } else if (thrower === 'p2') {
-                    if (!this.p2DoubleIn) {
+                    if (!this.state.p2DoubleIn) {
                         this.p2CheckInShots++;
                     }
                 }
