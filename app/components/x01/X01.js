@@ -4,7 +4,6 @@ import GameOptions from "./GameOptions.js";
 import Scoreboard from "./Scoreboard.js";
 import Results from "./Results.js";
 import BotDifficulty from './../common/BotDifficulty';
-import SettingsMenu from './../common/SettingsMenu';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import axios from 'axios';
 import NavMenu from "../navMenu/NavMenu";
@@ -403,6 +402,8 @@ export default class X01 extends Component {
 
     setX01Game(x01Game) {
         this.setState({ x01Game });
+        this.setState({ p1RoundStartScore: [x01Game] });
+        this.setState({ p2RoundStartScore: [x01Game] })
         this.setState({ gameState: "options" });
     }
 
@@ -475,11 +476,11 @@ export default class X01 extends Component {
         this.setState({ gameOverModal: false });
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
-        this.setState({ p1RoundStartScore: [] });
+        this.setState({ p1RoundStartScore: [this.state.x01Game] });
+        this.setState({ p2RoundStartScore: [this.state.x01Game] })
         this.setState({ p1RoundScores: [] });
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
-        this.setState({ p2RoundStartScore: [] })
         this.setState({ p2RoundScores: [] });
         this.setState({ throwLog: [] });
 
@@ -494,12 +495,8 @@ export default class X01 extends Component {
     }
 
     gameX01Reset() {
-        let p1RoundStartScore = [];
-        let p2RoundStartScore = [];
         this.p1ThrowLog = [];
         this.p2ThrowLog = [];
-        p1RoundStartScore.push(this.state.x01Game);
-        p2RoundStartScore.push(this.state.x01Game);
         this.setState({ diddle: this.state.botGame ? true : false });
         this.p1RoundScoresHistory = [];
         this.p1CheckInHistory = [];
@@ -525,14 +522,14 @@ export default class X01 extends Component {
 
         this.setState({ p1Score: this.state.x01Game });
         this.setState({ p1Throws: 0 });
-        this.setState({ p1RoundStartScore });
+        this.setState({ p1RoundStartScore: [this.state.x01Game] });
         this.setState({ p1RoundScores: [] });
         this.setState({ p1Legs: 0 });
         this.setState({ p1Sets: 0 });
 
         this.setState({ p2Score: this.state.x01Game });
         this.setState({ p2Throws: 0 });
-        this.setState({ p2RoundStartScore });
+        this.setState({ p2RoundStartScore: [this.state.x01Game] });
         this.setState({ p2RoundScores: [] });
         this.setState({ p2Legs: 0 });
         this.setState({ p2Sets: 0 });
@@ -1286,7 +1283,6 @@ export default class X01 extends Component {
                     doubleInOptionsCheck={this.doubleInOptionsCheck}
                     setOriginalScore={this.setOriginalScore}
                     resetThrowLog={this.resetThrowLog}
-                    addToRoundStartScore={this.addToRoundStartScore}
                     numpadScore={this.numpadScore}
                     gameOptions={this.state.gameOptions}
                     numpadUndo={this.numpadUndo}

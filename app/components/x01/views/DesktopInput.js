@@ -223,7 +223,7 @@ export default class DesktopInput extends Component {
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 2) }}>x2</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }}>3</button>
+                                <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }}>x3</button>
                             </div>
                             <div className="col-1 text-center number border-bottom p2-single border-left border-top">
                                 <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 1) }}>18</button>
@@ -415,7 +415,7 @@ export default class DesktopInput extends Component {
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 2) }} disabled>x2</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-multiple border-top">
-                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }} disabled>3</button>
+                                    <button type="button" className="bttn-lg" onClick={() => { this.props.score(19, 3) }} disabled>x3</button>
                                 </div>
                                 <div className="col-1 text-center number border-bottom p2-single border-left border-top">
                                     <button type="button" className="bttn-lg" onClick={() => { this.props.score(18, 1) }} disabled>18</button>
