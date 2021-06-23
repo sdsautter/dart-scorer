@@ -217,9 +217,9 @@ export default class Results extends Component {
 
     setLegPpd() {
         const player1Scores = this.props.p1RoundScores;
-        const p1Throws = this.props.p1Throws;
+        const p1Throws = this.props.p1Throws - this.props.p1CheckoutShots - this.props.p1CheckInShots + 2;
         const player2Scores = this.props.p2RoundScores;
-        const p2Throws = this.props.p2Throws;
+        const p2Throws = this.props.p2Throws - this.props.p2CheckoutShots - this.props.p2CheckInShots;
         let p1Total = 0, p2Total = 0, p1ppd = 0, p2ppd = 0;
         for (const i in player1Scores) {
             p1Total += player1Scores[i];
@@ -227,8 +227,8 @@ export default class Results extends Component {
         for (const i in player2Scores) {
             p2Total += player2Scores[i];
         }
-        p1ppd = p1Throws === 0 ? 0 : p1Total / p1Throws;
-        p2ppd = p2Throws === 0 ? 0 : p2Total / p2Throws;
+        p1ppd = p1Throws <= 0 ? 0 : p1Total / p1Throws;
+        p2ppd = p2Throws <= 0 ? 0 : p2Total / p2Throws;
 
         this.setState({ p1ppd });
         this.setState({ p2ppd });
@@ -236,9 +236,9 @@ export default class Results extends Component {
 
     setSetPpd() {
         const player1Scores = this.props.p1RoundScoresHistory;
-        const p1Throws = this.props.p1ThrowsHistory;
+        const p1Throws = this.props.p1ThrowsHistory - this.state.p1CheckoutShotsHistory - this.state.p1CheckInShotsHistory;
         const player2Scores = this.props.p2RoundScoresHistory;
-        const p2Throws = this.props.p2ThrowsHistory;
+        const p2Throws = this.props.p2ThrowsHistory - this.state.p2CheckoutShotsHistory - this.state.p2CheckInShotsHistory;
         let p1Total = 0, p2Total = 0, p1ppdSet = 0, p2ppdSet = 0;
 
         for (const i in player1Scores) {
@@ -247,8 +247,8 @@ export default class Results extends Component {
         for (const i in player2Scores) {
             p2Total += player2Scores[i];
         }
-        p1ppdSet = p1Throws === 0 ? 0 : p1Total / p1Throws;
-        p2ppdSet = p2Throws === 0 ? 0 : p2Total / p2Throws;
+        p1ppdSet = p1Throws <= 0 ? 0 : p1Total / p1Throws;
+        p2ppdSet = p2Throws <= 0 ? 0 : p2Total / p2Throws;
 
         this.setState({ p1ppdSet });
         this.setState({ p2ppdSet });
