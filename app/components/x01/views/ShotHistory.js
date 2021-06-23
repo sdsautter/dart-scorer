@@ -12,13 +12,16 @@ export default class ShotHistory extends Component {
     shotRowLoop(player) {
         const startScoreArray = eval(`this.props.${player}RoundStartScore`);
         const scoreArray = eval(`this.props.${player}RoundScores`);
-        return startScoreArray.map((item, index) => (
-            <tr key={index}>
-                <td key={index + 1} className={this.shotRowClassName(index, scoreArray)}>{startScoreArray[index]}</td>
-                <td key={index + 2} className='shot-history strike-out'>{scoreArray[index]}</td>
-            </tr>
-
-        ))
+        return startScoreArray.map((item, index) => {
+            if (scoreArray[index] > 0) {
+                return (
+                    <tr key={index}>
+                        <td key={index + 1} className={this.shotRowClassName(index, scoreArray)}>{startScoreArray[index]}</td>
+                        <td key={index + 2} className='shot-history strike-out'>{scoreArray[index]}</td>
+                    </tr>
+                )
+            }
+        })
     }
 
     shotRowClassName(index, scoreArray) {
