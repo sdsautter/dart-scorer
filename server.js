@@ -50,7 +50,6 @@ require('./routes.js')(app);
 var http = require("http");
 setInterval(function () {
   http.get("http://dart-scoring.herokuapp.com");
-  http.get("http://thebigprize.herokuapp.com");
 }, 800000);
 
 // db.sequelize.sync({
