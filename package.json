@@ -57,7 +57,7 @@
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
     "sequelize": "^5.15.1",
-    "socket.io": "^2.1.1",
+    "socket.io": "^2.5.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   },
